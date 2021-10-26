@@ -1,0 +1,3 @@
+(fp_lib_table
+  (lib (name "kicad6-libraries")(type "KiCad")(uri "${KIPRJMOD}/../../kicad6-libraries")(options "")(descr ""))
+)
