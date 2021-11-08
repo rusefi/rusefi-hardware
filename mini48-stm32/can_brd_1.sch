@@ -1,16 +1,5 @@
-EESchema Schematic File Version 2
-LIBS:power
-LIBS:device
-LIBS:conn
-LIBS:linear
-LIBS:regul
-LIBS:art-electro-stm32
-LIBS:art-electro-ic
-LIBS:art-electro-power
-LIBS:transistors
-LIBS:art-electro-conn
-LIBS:mini48-stm32-cache
-EELAYER 27 0
+EESchema Schematic File Version 4
+EELAYER 30 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
@@ -25,7 +14,7 @@ Comment3 ""
 Comment4 ""
 $EndDescr
 $Comp
-L CP1 C202
+L Device:CP1 C202
 U 1 1 52CAD8F6
 P 3550 3250
 F 0 "C202" H 3600 3350 50  0000 L CNN
@@ -38,7 +27,7 @@ F 5 "DIGI,445-7882-6-ND" V 1130 2600 60  0001 C CNN "vend1,vend1#"
 	-1   0    0    -1  
 $EndComp
 $Comp
-L C C201
+L Device:C C201
 U 1 1 52CAD8F7
 P 3550 2700
 F 0 "C201" H 3600 2800 50  0000 L CNN
@@ -51,7 +40,7 @@ F 5 "DIGI,478-1395-1-ND" V 1130 2600 60  0001 C CNN "vend1,vend1#"
 	1    0    0    -1  
 $EndComp
 $Comp
-L GND #PWR033
+L power:GND #PWR033
 U 1 1 52CAD8F8
 P 3550 3450
 F 0 "#PWR033" H 3550 3450 30  0001 C CNN
@@ -62,7 +51,7 @@ F 3 "" H 3550 3450 60  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L GND #PWR034
+L power:GND #PWR034
 U 1 1 52CAD8F9
 P 3550 2500
 F 0 "#PWR034" H 3550 2500 30  0001 C CNN
@@ -73,7 +62,7 @@ F 3 "" H 3550 2500 60  0001 C CNN
 	-1   0    0    1   
 $EndComp
 $Comp
-L GND #PWR035
+L power:GND #PWR035
 U 1 1 52CADB40
 P 4950 2500
 F 0 "#PWR035" H 4950 2500 30  0001 C CNN
@@ -85,7 +74,7 @@ F 3 "" H 4950 2500 60  0001 C CNN
 $EndComp
 NoConn ~ 4900 1200
 $Comp
-L R R201
+L Device:R R201
 U 1 1 52CADB46
 P 4000 1850
 F 0 "R201" V 4080 1850 50  0000 C CNN
@@ -98,7 +87,7 @@ F 5 "DIGI,CR0805-FX-1002ELFCT-ND" V 1130 2600 60  0001 C CNN "vend1,vend1#"
 	0    1    -1   0   
 $EndComp
 $Comp
-L GND #PWR036
+L power:GND #PWR036
 U 1 1 52CADB51
 P 3750 1850
 F 0 "#PWR036" H 3750 1850 30  0001 C CNN
@@ -109,7 +98,7 @@ F 3 "" H 3750 1850 60  0001 C CNN
 	0    1    1    0   
 $EndComp
 $Comp
-L GND #PWR037
+L power:GND #PWR037
 U 1 1 52CADB3B
 P 2200 1650
 F 0 "#PWR037" H 2200 1650 30  0001 C CNN
@@ -157,7 +146,7 @@ Text Label 5050 1100 0    60   ~ 0
 Wire Wire Line
 	5050 1200 5050 1100
 $Comp
-L SN65HVD230 U201
+L art-electro-ic:SN65HVD230 U201
 U 1 1 52CD2CA4
 P 4800 1850
 F 0 "U201" H 4400 2400 60  0000 C CNN
@@ -170,7 +159,7 @@ F 5 "digi,296-13123-5-ND" H 4800 1850 60  0001 C CNN "vend1,vend1#"
 	1    0    0    -1  
 $EndComp
 $Comp
-L R R202
+L Device:R R202
 U 1 1 52CD2DE2
 P 5975 2625
 F 0 "R202" V 6055 2625 50  0000 C CNN
@@ -183,7 +172,7 @@ F 5 "DIGI,P120DACT-ND" V 1130 2600 60  0001 C CNN "vend1,vend1#"
 	0    1    -1   0   
 $EndComp
 $Comp
-L JUMPER P202
+L Device:Jumper P202
 U 1 1 52CD2DEF
 P 6650 2625
 F 0 "P202" H 6650 2775 60  0000 C CNN
@@ -241,7 +230,7 @@ CANL
 Text Label 6350 3100 2    60   ~ 0
 CANH
 $Comp
-L GND #PWR038
+L power:GND #PWR038
 U 1 1 54959C55
 P 6350 3300
 F 0 "#PWR038" H 6350 3300 30  0001 C CNN

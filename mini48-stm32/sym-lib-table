@@ -1,0 +1,7 @@
+(sym_lib_table
+  (lib (name mini48-stm32-rescue)(type Legacy)(uri ${KIPRJMOD}/mini48-stm32-rescue.lib)(options "")(descr ""))
+  (lib (name art-electro-stm32)(type Legacy)(uri C:/stuff/rusefi-hardware/kicad-libraries/art-electro-stm32.lib)(options "")(descr ""))
+  (lib (name art-electro-ic)(type Legacy)(uri C:/stuff/rusefi-hardware/kicad-libraries/art-electro-ic.lib)(options "")(descr ""))
+  (lib (name art-electro-power)(type Legacy)(uri C:/stuff/rusefi-hardware/kicad-libraries/art-electro-power.lib)(options "")(descr ""))
+  (lib (name art-electro-conn)(type Legacy)(uri C:/stuff/rusefi-hardware/kicad-libraries/art-electro-conn.lib)(options "")(descr ""))
+)

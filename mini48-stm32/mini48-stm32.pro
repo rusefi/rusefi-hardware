@@ -1,6 +1,6 @@
-update=1/7/2015 8:07:15 PM
+update=11/8/2021 9:09:16 AM
 version=1
-last_client=eeschema
+last_client=kicad
 [general]
 version=1
 [cvpcb]
@@ -49,20 +49,4 @@ LibName17=art-electro-smd
 LibName18=smd_lqfp
 [eeschema]
 version=1
-LibDir=../kicad-libraries
-NetFmtName=PcbnewAdvanced
-RptD_X=0
-RptD_Y=100
-RptLab=1
-LabSize=60
-[eeschema/libraries]
-LibName1=power
-LibName2=device
-LibName3=conn
-LibName4=linear
-LibName5=regul
-LibName6=art-electro-stm32
-LibName7=art-electro-ic
-LibName8=art-electro-power
-LibName9=transistors
-LibName10=art-electro-conn
+LibDir=
