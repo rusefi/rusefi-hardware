@@ -28,7 +28,7 @@ DrawSegmentWidth=0.200000000000
 BoardOutlineThickness=0.150000000000
 ModuleOutlineThickness=0.150000000000
 [pcbnew/libraries]
-LibDir=../rusefi_lib
+LibDir=../kicad-libraries
 LibName1=sockets
 LibName2=connect
 LibName3=discret
@@ -49,7 +49,7 @@ LibName17=art-electro-smd
 LibName18=smd_lqfp
 [eeschema]
 version=1
-LibDir=../rusefi_lib
+LibDir=../kicad-libraries
 NetFmtName=PcbnewAdvanced
 RptD_X=0
 RptD_Y=100

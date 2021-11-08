@@ -1872,7 +1872,7 @@
       (layers *.Cu *.Mask F.SilkS)
       (net 5 "/CAN BUS/CANL")
     )
-    (model ../rusefi_lib/3d/jumper-2.wrl
+    (model ../kicad-libraries/3d/jumper-2.wrl
       (at (xyz 0 0 0))
       (scale (xyz 1 1 1))
       (rotate (xyz 0 0 0))
