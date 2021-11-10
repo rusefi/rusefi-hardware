@@ -1,6 +1,111 @@
 EESchema-LIBRARY Version 2.4
 #encoding utf-8
 #
+# Connector_Generic_Conn_01x04
+#
+DEF Connector_Generic_Conn_01x04 J 0 40 Y N 1 F N
+F0 "J" 0 200 50 H V C CNN
+F1 "Connector_Generic_Conn_01x04" 0 -300 50 H V C CNN
+F2 "" 0 0 50 H I C CNN
+F3 "" 0 0 50 H I C CNN
+$FPLIST
+ Connector*:*_1x??_*
+$ENDFPLIST
+DRAW
+S -50 -195 0 -205 1 1 6 N
+S -50 -95 0 -105 1 1 6 N
+S -50 5 0 -5 1 1 6 N
+S -50 105 0 95 1 1 6 N
+S -50 150 50 -250 1 1 10 f
+X Pin_1 1 -200 100 150 R 50 50 1 1 P
+X Pin_2 2 -200 0 150 R 50 50 1 1 P
+X Pin_3 3 -200 -100 150 R 50 50 1 1 P
+X Pin_4 4 -200 -200 150 R 50 50 1 1 P
+ENDDRAW
+ENDDEF
+#
+# Connector_Generic_Conn_01x20
+#
+DEF Connector_Generic_Conn_01x20 J 0 40 Y N 1 F N
+F0 "J" 0 1000 50 H V C CNN
+F1 "Connector_Generic_Conn_01x20" 0 -1100 50 H V C CNN
+F2 "" 0 0 50 H I C CNN
+F3 "" 0 0 50 H I C CNN
+$FPLIST
+ Connector*:*_1x??_*
+$ENDFPLIST
+DRAW
+S -50 -995 0 -1005 1 1 6 N
+S -50 -895 0 -905 1 1 6 N
+S -50 -795 0 -805 1 1 6 N
+S -50 -695 0 -705 1 1 6 N
+S -50 -595 0 -605 1 1 6 N
+S -50 -495 0 -505 1 1 6 N
+S -50 -395 0 -405 1 1 6 N
+S -50 -295 0 -305 1 1 6 N
+S -50 -195 0 -205 1 1 6 N
+S -50 -95 0 -105 1 1 6 N
+S -50 5 0 -5 1 1 6 N
+S -50 105 0 95 1 1 6 N
+S -50 205 0 195 1 1 6 N
+S -50 305 0 295 1 1 6 N
+S -50 405 0 395 1 1 6 N
+S -50 505 0 495 1 1 6 N
+S -50 605 0 595 1 1 6 N
+S -50 705 0 695 1 1 6 N
+S -50 805 0 795 1 1 6 N
+S -50 905 0 895 1 1 6 N
+S -50 950 50 -1050 1 1 10 f
+X Pin_1 1 -200 900 150 R 50 50 1 1 P
+X Pin_10 10 -200 0 150 R 50 50 1 1 P
+X Pin_11 11 -200 -100 150 R 50 50 1 1 P
+X Pin_12 12 -200 -200 150 R 50 50 1 1 P
+X Pin_13 13 -200 -300 150 R 50 50 1 1 P
+X Pin_14 14 -200 -400 150 R 50 50 1 1 P
+X Pin_15 15 -200 -500 150 R 50 50 1 1 P
+X Pin_16 16 -200 -600 150 R 50 50 1 1 P
+X Pin_17 17 -200 -700 150 R 50 50 1 1 P
+X Pin_18 18 -200 -800 150 R 50 50 1 1 P
+X Pin_19 19 -200 -900 150 R 50 50 1 1 P
+X Pin_2 2 -200 800 150 R 50 50 1 1 P
+X Pin_20 20 -200 -1000 150 R 50 50 1 1 P
+X Pin_3 3 -200 700 150 R 50 50 1 1 P
+X Pin_4 4 -200 600 150 R 50 50 1 1 P
+X Pin_5 5 -200 500 150 R 50 50 1 1 P
+X Pin_6 6 -200 400 150 R 50 50 1 1 P
+X Pin_7 7 -200 300 150 R 50 50 1 1 P
+X Pin_8 8 -200 200 150 R 50 50 1 1 P
+X Pin_9 9 -200 100 150 R 50 50 1 1 P
+ENDDRAW
+ENDDEF
+#
+# Connector_Generic_Conn_02x03_Odd_Even
+#
+DEF Connector_Generic_Conn_02x03_Odd_Even J 0 40 Y N 1 F N
+F0 "J" 50 200 50 H V C CNN
+F1 "Connector_Generic_Conn_02x03_Odd_Even" 50 -200 50 H V C CNN
+F2 "" 0 0 50 H I C CNN
+F3 "" 0 0 50 H I C CNN
+$FPLIST
+ Connector*:*_2x??_*
+$ENDFPLIST
+DRAW
+S -50 -95 0 -105 1 1 6 N
+S -50 5 0 -5 1 1 6 N
+S -50 105 0 95 1 1 6 N
+S -50 150 150 -150 1 1 10 f
+S 150 -95 100 -105 1 1 6 N
+S 150 5 100 -5 1 1 6 N
+S 150 105 100 95 1 1 6 N
+X Pin_1 1 -200 100 150 R 50 50 1 1 P
+X Pin_2 2 300 100 150 L 50 50 1 1 P
+X Pin_3 3 -200 0 150 R 50 50 1 1 P
+X Pin_4 4 300 0 150 L 50 50 1 1 P
+X Pin_5 5 -200 -100 150 R 50 50 1 1 P
+X Pin_6 6 300 -100 150 L 50 50 1 1 P
+ENDDRAW
+ENDDEF
+#
 # Device_C
 #
 DEF Device_C C 0 10 N Y 1 F N
@@ -60,6 +165,28 @@ X 2 2 150 0 50 L 50 50 1 1 P
 ENDDRAW
 ENDDEF
 #
+# Device_D_Schottky
+#
+DEF Device_D_Schottky D 0 40 N N 1 F N
+F0 "D" 0 100 50 H V C CNN
+F1 "Device_D_Schottky" 0 -100 50 H V C CNN
+F2 "" 0 0 50 H I C CNN
+F3 "" 0 0 50 H I C CNN
+$FPLIST
+ TO-???*
+ *_Diode_*
+ *SingleDiode*
+ D_*
+$ENDFPLIST
+DRAW
+P 2 0 1 0 50 0 -50 0 N
+P 4 0 1 8 50 50 50 -50 -50 0 50 50 N
+P 6 0 1 8 -75 25 -75 50 -50 50 -50 -50 -25 -50 -25 -25 N
+X K 1 -150 0 100 R 50 50 1 1 P
+X A 2 150 0 100 L 50 50 1 1 P
+ENDDRAW
+ENDDEF
+#
 # Device_Jumper
 #
 DEF Device_Jumper JP 0 30 Y N 1 F N
@@ -69,9 +196,6 @@ F2 "" 0 0 50 H I C CNN
 F3 "" 0 0 50 H I C CNN
 $FPLIST
  SolderJumper*
- Jumper*
- TestPoint*2Pads*
- TestPoint*Bridge*
 $ENDFPLIST
 DRAW
 A 0 -26 125 1426 373 0 1 0 N -98 50 99 50
@@ -99,11 +223,11 @@ X ~ 2 0 -150 50 U 50 50 1 1 P
 ENDDRAW
 ENDDEF
 #
-# art-electro-conn_LED_0805
+# mini48-stm32-rescue_LED_0805-art-electro-conn
 #
-DEF art-electro-conn_LED_0805 D 0 40 Y N 1 F N
+DEF mini48-stm32-rescue_LED_0805-art-electro-conn D 0 40 Y N 1 F N
 F0 "D" 0 100 50 H V C CNN
-F1 "art-electro-conn_LED_0805" 0 -100 50 H V C CNN
+F1 "mini48-stm32-rescue_LED_0805-art-electro-conn" 0 -100 50 H V C CNN
 F2 "" 0 0 60 H V C CNN
 F3 "" 0 0 60 H V C CNN
 $FPLIST
@@ -119,11 +243,31 @@ X K 2 200 0 150 L 40 40 1 1 P
 ENDDRAW
 ENDDEF
 #
-# art-electro-conn_MINI-USB
+# mini48-stm32-rescue_LM2937-art-electro-power
 #
-DEF art-electro-conn_MINI-USB J 0 40 Y Y 1 F N
+DEF mini48-stm32-rescue_LM2937-art-electro-power U 0 40 Y Y 1 F N
+F0 "U" -200 200 40 H V C CNN
+F1 "mini48-stm32-rescue_LM2937-art-electro-power" 0 200 40 H V L CNN
+F2 "" 0 100 30 H I C CIN
+F3 "" 0 0 60 H V C CNN
+$FPLIST
+ SOT223
+ TO263
+$ENDFPLIST
+DRAW
+S -250 150 250 -150 0 1 10 N
+X Vin 1 -400 50 150 R 40 40 1 1 P
+X GND 2 0 -250 100 U 40 40 1 1 P
+X Vout 3 400 50 150 L 40 40 1 1 w
+X ~ 4 150 -250 100 U 40 40 1 1 P
+ENDDRAW
+ENDDEF
+#
+# mini48-stm32-rescue_MINI-USB-art-electro-conn
+#
+DEF mini48-stm32-rescue_MINI-USB-art-electro-conn J 0 40 Y Y 1 F N
 F0 "J" -275 350 60 H V C CNN
-F1 "art-electro-conn_MINI-USB" 0 450 60 H I C CNN
+F1 "mini48-stm32-rescue_MINI-USB-art-electro-conn" 0 450 60 H I C CNN
 F2 "" 0 0 60 H V C CNN
 F3 "" 0 0 60 H V C CNN
 $FPLIST
@@ -141,11 +285,11 @@ X SHIELD 6 200 -250 200 L 50 50 1 1 I
 ENDDRAW
 ENDDEF
 #
-# art-electro-ic_NUF2101MT1G
+# mini48-stm32-rescue_NUF2101MT1G-art-electro-ic
 #
-DEF art-electro-ic_NUF2101MT1G U 0 40 Y Y 1 F N
+DEF mini48-stm32-rescue_NUF2101MT1G-art-electro-ic U 0 40 Y Y 1 F N
 F0 "U" 100 400 70 H V C CNN
-F1 "art-electro-ic_NUF2101MT1G" 0 -400 70 H V C CNN
+F1 "mini48-stm32-rescue_NUF2101MT1G-art-electro-ic" 0 -400 70 H V C CNN
 F2 "" 0 0 60 H V C CNN
 F3 "" 0 0 60 H V C CNN
 $FPLIST
@@ -163,11 +307,11 @@ X D+ 6 700 250 300 L 60 60 1 1 I
 ENDDRAW
 ENDDEF
 #
-# art-electro-ic_SN65HVD230
+# mini48-stm32-rescue_SN65HVD230-art-electro-ic
 #
-DEF art-electro-ic_SN65HVD230 U 0 40 Y Y 1 F N
+DEF mini48-stm32-rescue_SN65HVD230-art-electro-ic U 0 40 Y Y 1 F N
 F0 "U" -400 550 60 H V C CNN
-F1 "art-electro-ic_SN65HVD230" -300 -450 50 H V C CNN
+F1 "mini48-stm32-rescue_SN65HVD230-art-electro-ic" -300 -450 50 H V C CNN
 F2 "" 0 0 60 H V C CNN
 F3 "" 0 0 60 H V C CNN
 $FPLIST
@@ -186,31 +330,11 @@ X RS 8 -550 0 300 R 60 60 1 1 P
 ENDDRAW
 ENDDEF
 #
-# art-electro-power_LM2937
+# mini48-stm32-rescue_STM32F103C8-art-electro-stm32
 #
-DEF art-electro-power_LM2937 U 0 40 Y Y 1 F N
-F0 "U" -200 200 40 H V C CNN
-F1 "art-electro-power_LM2937" 0 200 40 H V L CNN
-F2 "" 0 100 30 H I C CIN
-F3 "" 0 0 60 H V C CNN
-$FPLIST
- SOT223
- TO263
-$ENDFPLIST
-DRAW
-S -250 150 250 -150 0 1 10 N
-X Vin 1 -400 50 150 R 40 40 1 1 P
-X GND 2 0 -250 100 U 40 40 1 1 P
-X Vout 3 400 50 150 L 40 40 1 1 w
-X ~ 4 150 -250 100 U 40 40 1 1 P
-ENDDRAW
-ENDDEF
-#
-# art-electro-stm32_STM32F103C8
-#
-DEF art-electro-stm32_STM32F103C8 U 0 40 Y Y 1 F N
+DEF mini48-stm32-rescue_STM32F103C8-art-electro-stm32 U 0 40 Y Y 1 F N
 F0 "U" 0 250 60 H V C CNN
-F1 "art-electro-stm32_STM32F103C8" 0 0 60 H V C CNN
+F1 "mini48-stm32-rescue_STM32F103C8-art-electro-stm32" 0 0 60 H V C CNN
 F2 "LQFP48" 0 -150 40 H V C CIN
 F3 "" 0 -550 60 H V C CNN
 $FPLIST
