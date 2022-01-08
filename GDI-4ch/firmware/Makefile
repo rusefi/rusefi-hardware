@@ -3,9 +3,15 @@
 # NOTE: Can be overridden externally.
 #
 
+ifeq ($(BOARD),)
+  BOARD = f0_module
+endif
+
+BOARDDIR = boards/$(BOARD)
+
 # Compiler options here.
 ifeq ($(USE_OPT),)
-  USE_OPT = -O2 -ggdb -fomit-frame-pointer -falign-functions=16
+  USE_OPT = -O2 -ggdb -fomit-frame-pointer -falign-functions=16 -fsingle-precision-constant
 endif
 
 # C specific options here (added to USE_OPT).
@@ -15,7 +21,7 @@ endif
 
 # C++ specific options here (added to USE_OPT).
 ifeq ($(USE_CPPOPT),)
-  USE_CPPOPT = -fno-rtti
+  USE_CPPOPT = -fno-rtti -fno-exceptions -ffast-math -funsafe-math-optimizations -fno-threadsafe-statics -fno-use-cxa-atexit
 endif
 
 # Enable this if you want the linker to remove unused code and data.
@@ -55,13 +61,13 @@ endif
 # Stack size to be allocated to the Cortex-M process stack. This stack is
 # the stack used by the main() thread.
 ifeq ($(USE_PROCESS_STACKSIZE),)
-  USE_PROCESS_STACKSIZE = 0x400
+  USE_PROCESS_STACKSIZE = 0x200
 endif
 
 # Stack size to the allocated to the Cortex-M main/exceptions stack. This
 # stack is used for processing interrupts and exceptions.
 ifeq ($(USE_EXCEPTIONS_STACKSIZE),)
-  USE_EXCEPTIONS_STACKSIZE = 0x400
+  USE_EXCEPTIONS_STACKSIZE = 0x200
 endif
 
 # Enables the use of FPU (no, softfp, hard).
@@ -83,7 +89,7 @@ endif
 #
 
 # Define project name here
-PROJECT = ch
+PROJECT = gdi4
 
 # Target settings.
 MCU  = cortex-m3
@@ -93,6 +99,12 @@ CHIBIOS = ../../ChibiOS
 CONFDIR  := ./
 BUILDDIR := ./build
 DEPDIR   := ./.dep
+
+ifeq ("$(wildcard $(CHIBIOS)/os/license/license.mk)","")
+# submodules probably aren't checked out, complain to the user about it!
+# make is not happy about newly checked out module for some reason but next invocation would work
+$(error Please run 'git submodule update --init --recursive' before trying to build!)
+endif
 
 # Licensing files.
 include $(CHIBIOS)/os/license/license.mk
@@ -116,11 +128,12 @@ LDSCRIPT= $(STARTUPLD)/STM32F103xB.ld
 # C sources that can be compiled in ARM or THUMB mode depending on the global
 # setting.
 CSRC = $(ALLCSRC) \
-       main.c
+
 
 # C++ sources that can be compiled in ARM or THUMB mode depending on the global
 # setting.
-CPPSRC = $(ALLCPPSRC)
+CPPSRC = $(ALLCPPSRC) \
+          main.cpp
 
 # List ASM source files here.
 ASMSRC = $(ALLASMSRC)
@@ -129,7 +142,7 @@ ASMSRC = $(ALLASMSRC)
 ASMXSRC = $(ALLXASMSRC)
 
 # Inclusion directories.
-INCDIR = $(CONFDIR) $(ALLINC) $(TESTINC)
+INCDIR = $(CONFDIR) $(ALLINC)
 
 # Define C warning options here.
 CWARN = -Wall -Wextra -Wundef -Wstrict-prototypes

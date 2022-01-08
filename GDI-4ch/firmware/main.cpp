@@ -15,40 +15,40 @@ int main() {
 
     // Fire up all of our threads
 
-    InitCan();
+//    InitCan();
     //InitUart();
 
     while(true)
     {
-        auto fault = GetCurrentFault();
-
-        if (fault == Fault::None)
-        {
-            // blue is off
-            palClearPad(LED_BLUE_PORT, LED_BLUE_PIN);
-
-            // Green is blinking
-            palTogglePad(LED_GREEN_PORT, LED_GREEN_PIN);
-
-            // Slow blink if closed loop, fast if not
-            chThdSleepMilliseconds(IsRunningClosedLoop() ? 700 : 50);
-        }
-        else
-        {
-            // green is off
-            palClearPad(LED_GREEN_PORT, LED_GREEN_PIN);
-
-            // Blink out the error code
-            for (int i = 0; i < 2 * static_cast<int>(fault); i++)
-            {
-                // Blue is blinking
-                palTogglePad(LED_BLUE_PORT, LED_BLUE_PIN);
-
-                // fast blink
-                chThdSleepMilliseconds(300);
-            }
-
-            chThdSleepMilliseconds(2000);
-        }
+//        auto fault = GetCurrentFault();
+//
+//        if (fault == Fault::None)
+//        {
+//            // blue is off
+//            palClearPad(LED_BLUE_PORT, LED_BLUE_PIN);
+//
+//            // Green is blinking
+//            palTogglePad(LED_GREEN_PORT, LED_GREEN_PIN);
+//
+//            // Slow blink if closed loop, fast if not
+//            chThdSleepMilliseconds(IsRunningClosedLoop() ? 700 : 50);
+//        }
+//        else
+//        {
+//            // green is off
+//            palClearPad(LED_GREEN_PORT, LED_GREEN_PIN);
+//
+//            // Blink out the error code
+//            for (int i = 0; i < 2 * static_cast<int>(fault); i++)
+//            {
+//                // Blue is blinking
+//                palTogglePad(LED_BLUE_PORT, LED_BLUE_PIN);
+//
+//                // fast blink
+//                chThdSleepMilliseconds(300);
+//            }
+//
+//            chThdSleepMilliseconds(2000);
+//        }
     }
 }
