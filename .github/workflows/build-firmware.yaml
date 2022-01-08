@@ -25,5 +25,5 @@ jobs:
         run: arm-none-eabi-gcc -v
 
       - name: Build Firmware
-        working-directory: ./GDI-4ch\firmware
+        working-directory: ./GDI-4ch/firmware
         run: make
