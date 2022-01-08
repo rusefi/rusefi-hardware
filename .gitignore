@@ -5,3 +5,10 @@
 *-rescue.lib
 rescue-backup
 *.sch-bak
+
+
+#
+# C/C++ stuff
+#
+.dep
+build

@@ -3,4 +3,5 @@
 	url = https://github.com/rusefi/kicad-libraries
 [submodule "ChibiOS"]
 	path = ChibiOS
-	url = https://github.com/ChibiOS/ChibiOS
+	url = https://github.com/rusefi/ChibiOS
+	branch = stable_20.3.x.rusefi
