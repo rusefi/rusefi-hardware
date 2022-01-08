@@ -1,3 +1,6 @@
 [submodule "kicad-libraries"]
 	path = kicad-libraries
 	url = https://github.com/rusefi/kicad-libraries
+[submodule "ChibiOS"]
+	path = ChibiOS
+	url = https://github.com/ChibiOS/ChibiOS
