@@ -136,6 +136,7 @@ CSRC = $(ALLCSRC) \
 CPPSRC = $(ALLCPPSRC) \
         uart.cpp \
         can.cpp \
+        fault.cpp \
           main.cpp
 
 # List ASM source files here.
