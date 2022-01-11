@@ -3,7 +3,7 @@
 
 //#include "can.h"
 //#include "fault.h"
-//#include "uart.h"
+#include "uart.h"
 //#include "io_pins.h"
 
 /*
@@ -16,7 +16,7 @@ int main() {
     // Fire up all of our threads
 
 //    InitCan();
-    //InitUart();
+    InitUart();
 
     while(true)
     {
