@@ -27,3 +27,8 @@ jobs:
       - name: Build Firmware
         working-directory: ./GDI-4ch/firmware
         run: make
+
+      - name: Upload GDI binaries
+        uses: actions/upload-artifact@v2
+        with:
+          path: ./GDI-4ch/firmware/build/gdi4*
