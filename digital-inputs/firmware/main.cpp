@@ -16,6 +16,10 @@
 
 #include "global.h"
 #include "usbconsole.h"
+#include "usbcfg.h"
+#include "chprintf.h"
+
+BaseSequentialStream *chp = (BaseSequentialStream *)&EFI_CONSOLE_USB_DEVICE;
 
 /*
  * This is a periodic thread that does absolutely nothing except flashing
@@ -45,6 +49,7 @@ static THD_FUNCTION(Thread1, arg) {
 static THD_WORKING_AREA(consoleThread, 256);
 static void ConsoleThread(void*) {
     while (true) {
+            chprintf(chp, "Hello\r\n");
         chThdSleepMilliseconds(200);
     }
 }
