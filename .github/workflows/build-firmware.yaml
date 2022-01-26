@@ -24,7 +24,7 @@ jobs:
       - name: Test Compiler
         run: arm-none-eabi-gcc -v
 
-      - name: Build Firmware
+      - name: Build GDI Firmware
         working-directory: ./GDI-4ch/firmware
         run: make
 
@@ -33,3 +33,7 @@ jobs:
         with:
           name: GDI4
           path: ./GDI-4ch/firmware/build/gdi4*
+
+      - name: Build Digital Inputs Firmware
+        working-directory: ./digital-inputs/firmware
+        run: make
