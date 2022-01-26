@@ -5,6 +5,7 @@
 *-rescue.lib
 rescue-backup
 *.sch-bak
+_autosave*
 
 
 #
