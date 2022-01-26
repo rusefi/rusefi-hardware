@@ -23,8 +23,8 @@ void usb_serial_start() {
 	/*
 	 * Initializes a serial-over-USB CDC driver.
 	 */
-	sduObjectInit(&SDU1);
-	sduStart(&SDU1, &serusbcfg);
+	sduObjectInit(&EFI_CONSOLE_USB_DEVICE);
+	sduStart(&EFI_CONSOLE_USB_DEVICE, &serusbcfg);
 
 	/*
 	 * Activates the USB driver and then the USB bus pull-up on D+.
@@ -40,6 +40,6 @@ void usb_serial_start() {
 }
 
 bool is_usb_serial_ready() {
-	return isUsbSerialInitialized && SDU1.config->usbp->state == USB_ACTIVE;
+	return isUsbSerialInitialized && EFI_CONSOLE_USB_DEVICE.config->usbp->state == USB_ACTIVE;
 }
 

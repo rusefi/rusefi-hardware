@@ -15,6 +15,7 @@
 */
 
 #include "hal.h"
+#include "io_pins.h"
 
 /* Virtual serial port over USB.*/
 SerialUSBDriver SDU1;
@@ -264,7 +265,7 @@ static const USBEndpointConfig ep2config = {
  * Handles the USB driver global events.
  */
 static void usb_event(USBDriver *usbp, usbevent_t event) {
-  extern SerialUSBDriver SDU1;
+  extern SerialUSBDriver EFI_CONSOLE_USB_DEVICE;
 
   switch (event) {
   case USB_EVENT_ADDRESS:
@@ -279,7 +280,7 @@ static void usb_event(USBDriver *usbp, usbevent_t event) {
     usbInitEndpointI(usbp, USBD2_INTERRUPT_REQUEST_EP, &ep2config);
 
     /* Resetting the state of the CDC subsystem.*/
-    sduConfigureHookI(&SDU1);
+    sduConfigureHookI(&EFI_CONSOLE_USB_DEVICE);
 
     chSysUnlockFromISR();
     return;
@@ -291,7 +292,7 @@ static void usb_event(USBDriver *usbp, usbevent_t event) {
     chSysLockFromISR();
 
     /* Disconnection event on suspend.*/
-    sduSuspendHookI(&SDU1);
+    sduSuspendHookI(&EFI_CONSOLE_USB_DEVICE);
 
     chSysUnlockFromISR();
     return;
@@ -299,7 +300,7 @@ static void usb_event(USBDriver *usbp, usbevent_t event) {
     chSysLockFromISR();
 
     /* Connection event on wakeup.*/
-    sduWakeupHookI(&SDU1);
+    sduWakeupHookI(&EFI_CONSOLE_USB_DEVICE);
 
     chSysUnlockFromISR();
     return;
@@ -317,7 +318,7 @@ static void sof_handler(USBDriver *usbp) {
   (void)usbp;
 
   osalSysLockFromISR();
-  sduSOFHookI(&SDU1);
+  sduSOFHookI(&EFI_CONSOLE_USB_DEVICE);
   osalSysUnlockFromISR();
 }
 

@@ -15,6 +15,7 @@
 */
 
 #include "global.h"
+#include "usbconsole.h"
 
 /*
  * This is a periodic thread that does absolutely nothing except flashing
@@ -41,6 +42,13 @@ static THD_FUNCTION(Thread1, arg) {
   }
 }
 
+static THD_WORKING_AREA(consoleThread, 256);
+static void ConsoleThread(void*) {
+    while (true) {
+        chThdSleepMilliseconds(200);
+    }
+}
+
 /*
  * Application entry point.
  */
@@ -56,15 +64,15 @@ int main(void) {
   halInit();
   chSysInit();
 
-  /*
-   * Activates the serial driver 3 using the driver default configuration.
-   */
-  sdStart(&SD3, NULL);
+  usb_serial_start();
 
   /*
    * Creates the example thread.
    */
   chThdCreateStatic(waThread1, sizeof(waThread1), NORMALPRIO + 1, Thread1, NULL);
+
+  chThdCreateStatic(consoleThread, sizeof(consoleThread), NORMALPRIO, ConsoleThread, nullptr);
+
 
   /*
    * Normal main() thread activity, in this demo it does nothing except

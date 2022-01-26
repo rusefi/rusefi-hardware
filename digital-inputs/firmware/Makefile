@@ -129,7 +129,7 @@ CSRC = $(ALLCSRC) \
 # setting.
 CPPSRC = $(ALLCPPSRC) \
         main.cpp \
-        source\usbconsole.cpp \
+        source/usbconsole.cpp \
 
 
 # List ASM source files here.
@@ -139,7 +139,9 @@ ASMSRC = $(ALLASMSRC)
 ASMXSRC = $(ALLXASMSRC)
 
 # Inclusion directories.
-INCDIR = $(CONFDIR) $(ALLINC)
+INCDIR = $(CONFDIR) $(ALLINC) \
+    source \
+
 
 # Define C warning options here.
 CWARN = -Wall -Wextra -Wundef -Wstrict-prototypes
