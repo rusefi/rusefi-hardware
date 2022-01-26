@@ -122,12 +122,14 @@ LDSCRIPT= $(STARTUPLD)/STM32F429xI.ld
 
 # C sources that can be compiled in ARM or THUMB mode depending on the global
 # setting.
-CSRC = $(ALLCSRC)
+CSRC = $(ALLCSRC) \
+    source/usbcfg.c
 
 # C++ sources that can be compiled in ARM or THUMB mode depending on the global
 # setting.
 CPPSRC = $(ALLCPPSRC) \
         main.cpp \
+        source\usbconsole.cpp \
 
 
 # List ASM source files here.

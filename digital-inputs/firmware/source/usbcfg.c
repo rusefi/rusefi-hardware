@@ -335,7 +335,7 @@ const USBConfig usbcfg = {
  * Serial over USB driver configuration.
  */
 const SerialUSBConfig serusbcfg = {
-  &USBD2,
+  &USBD1,
   USBD2_DATA_REQUEST_EP,
   USBD2_DATA_AVAILABLE_EP,
   USBD2_INTERRUPT_REQUEST_EP
