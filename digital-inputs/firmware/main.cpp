@@ -14,8 +14,7 @@
     limitations under the License.
 */
 
-#include "ch.h"
-#include "hal.h"
+#include "global.h"
 
 /*
  * This is a periodic thread that does absolutely nothing except flashing
