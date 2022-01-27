@@ -1,3 +1,4 @@
+#pragma once
 
 #define EFI_USB_AF 10U
 #define EFI_USB_SERIAL_PORT GPIOA

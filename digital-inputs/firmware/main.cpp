@@ -18,6 +18,7 @@
 #include "usbconsole.h"
 #include "usbcfg.h"
 #include "chprintf.h"
+#include "digital_inputs.h"
 
 BaseSequentialStream *chp = (BaseSequentialStream *)&EFI_CONSOLE_USB_DEVICE;
 
