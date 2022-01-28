@@ -311,13 +311,13 @@ $Comp
 L Amplifier_Operational:MCP6004 U1
 U 1 1 5F8980DF
 P 1975 5475
-F 0 "U1" H 1950 5700 50  0000 C CNN
-F 1 "MCP6004" H 1975 5250 50  0000 C CNN
+F 0 "U1" H 2100 5600 50  0000 C CNN
+F 1 "MCP6004" H 2100 5300 50  0000 C CNN
 F 2 "Package_SO:TSSOP-14_4.4x5mm_P0.65mm" H 1925 5575 50  0001 C CNN
 F 3 "http://ww1.microchip.com/downloads/en/DeviceDoc/21733j.pdf" H 2025 5675 50  0001 C CNN
 F 4 "C50282" H 1975 5475 50  0001 C CNN "LCSC"
 	1    1975 5475
-	-1   0    0    1   
+	-1   0    0    -1  
 $EndComp
 Wire Wire Line
 	4000 3350 4050 3350
@@ -2727,13 +2727,13 @@ $Comp
 L Amplifier_Operational:MCP6004 U1
 U 4 1 5F8B9D88
 P 2150 2675
-F 0 "U1" H 2300 2925 50  0000 C CNN
-F 1 "MCP6004" H 2325 2825 50  0000 C CNN
+F 0 "U1" H 2200 2850 50  0000 C CNN
+F 1 "MCP6004" H 2250 2500 50  0000 C CNN
 F 2 "Package_SO:TSSOP-14_4.4x5mm_P0.65mm" H 2100 2775 50  0001 C CNN
 F 3 "http://ww1.microchip.com/downloads/en/DeviceDoc/21733j.pdf" H 2200 2875 50  0001 C CNN
 F 4 "C50282" H 2150 2675 50  0001 C CNN "LCSC"
 	4    2150 2675
-	1    0    0    -1  
+	1    0    0    1   
 $EndComp
 $Comp
 L Amplifier_Operational:MCP6004 U1
