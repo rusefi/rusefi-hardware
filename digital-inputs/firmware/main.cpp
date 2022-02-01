@@ -70,7 +70,11 @@ int main(void) {
   halInit();
   chSysInit();
 
+  initDigitalInputs();
   usb_serial_start();
+
+  setOutputIndex(3);
+  setScenarioIndex(3);
 
   /*
    * Creates the example thread.
