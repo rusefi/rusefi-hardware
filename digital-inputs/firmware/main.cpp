@@ -19,6 +19,7 @@
 #include "usbcfg.h"
 #include "chprintf.h"
 #include "digital_inputs.h"
+#include "adc.h"
 
 BaseSequentialStream *chp = (BaseSequentialStream *)&EFI_CONSOLE_USB_DEVICE;
 
@@ -70,6 +71,7 @@ int main(void) {
   halInit();
   chSysInit();
 
+  initAnalogInputs();
   initDigitalInputs();
   usb_serial_start();
 

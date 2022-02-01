@@ -131,6 +131,7 @@ CSRC = $(ALLCSRC) \
 CPPSRC = $(ALLCPPSRC) \
         main.cpp \
         source/usbconsole.cpp \
+        adc.cpp \
         digital_inputs.cpp \
 
 
