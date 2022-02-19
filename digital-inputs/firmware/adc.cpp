@@ -9,7 +9,6 @@
  */
 
 
-#define ADC_GRP_NUM_CHANNELS   3
 #define ADC_GRP_BUF_DEPTH      8
 
 static adcsample_t samples[ADC_GRP_NUM_CHANNELS * ADC_GRP_BUF_DEPTH];
@@ -44,6 +43,20 @@ static const ADCConversionGroup adcgrpcfg = {
   /*.sqr3 = */0
 };
 
+static adcsample_t getAvgAdcValue(int index, adcsample_t *samples, int bufDepth, int numChannels) {
+	uint32_t result = 0;
+	for (int i = 0; i < bufDepth; i++) {
+		result += samples[index];
+		index += numChannels;
+	}
+
+	// this truncation is guaranteed to not be lossy - the average can't be larger than adcsample_t
+	return static_cast<adcsample_t>(result / bufDepth);
+}
+
+adcsample_t getAdcValue(int channel) {
+    return getAvgAdcValue(channel, samples, ADC_GRP_BUF_DEPTH, ADC_GRP_NUM_CHANNELS);
+}
 
 void initAnalogInputs() {
   /*

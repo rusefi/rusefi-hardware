@@ -20,6 +20,7 @@
 #include "chprintf.h"
 #include "digital_inputs.h"
 #include "adc.h"
+#include "efilib.h"
 
 BaseSequentialStream *chp = (BaseSequentialStream *)&EFI_CONSOLE_USB_DEVICE;
 
@@ -51,7 +52,16 @@ static THD_FUNCTION(Thread1, arg) {
 static THD_WORKING_AREA(consoleThread, 256);
 static void ConsoleThread(void*) {
     while (true) {
-            chprintf(chp, "Hello\r\n");
+        char buf[6];
+        for (int i = 0;i<ADC_GRP_NUM_CHANNELS;i++) {
+            int value = getAdcValue(i);
+            itoa10(buf, value);
+            chprintf(chp, buf);
+            chprintf(chp, " ");
+        }
+
+
+        chprintf(chp, "Hello\r\n");
         chThdSleepMilliseconds(200);
     }
 }

@@ -8,3 +8,5 @@ constexpr size_t size(const T(&)[N]) {
     return N;
 }
 }
+
+char* itoa10(char *p, int num);
