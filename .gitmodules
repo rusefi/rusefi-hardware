@@ -5,3 +5,6 @@
 	path = ChibiOS
 	url = https://github.com/rusefi/ChibiOS
 	branch = stable_20.3.x.rusefi
+[submodule "GDI-4ch/hellen-one"]
+	path = GDI-4ch/hellen-one
+	url = https://github.com/andreika-git/hellen-one
