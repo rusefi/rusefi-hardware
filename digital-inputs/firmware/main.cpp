@@ -53,12 +53,24 @@ static THD_WORKING_AREA(consoleThread, 256);
 static void ConsoleThread(void*) {
     while (true) {
         char buf[6];
-        for (int i = 0;i<ADC_GRP_NUM_CHANNELS;i++) {
-            int value = getAdcValue(i);
+//        for (int i = 0;i<ADC_GRP_NUM_CHANNELS;i++) {
+//            int value = getAdcValue(i);
+//            itoa10(buf, value);
+//            chprintf(chp, buf);
+//            chprintf(chp, " ");
+//        }
+
+    for (int s = 0;s<16;s++) {
+          setScenarioIndex(s);
+
+            itoa10(buf, s);
+            chprintf(chp, buf);
+            chprintf(chp, ": ");
+            int value = getAdcValue(0);
             itoa10(buf, value);
             chprintf(chp, buf);
-            chprintf(chp, " ");
-        }
+             chprintf(chp, "\r\n");
+    }
 
 
         chprintf(chp, "Hello\r\n");
@@ -85,8 +97,7 @@ int main(void) {
   initDigitalInputs();
   usb_serial_start();
 
-  setOutputIndex(3);
-  setScenarioIndex(3);
+  setOutputIndex(0);
 
   /*
    * Creates the example thread.

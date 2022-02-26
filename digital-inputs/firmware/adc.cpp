@@ -11,6 +11,7 @@
 #define ADC_DEVICE  ADCD3
 
 #define ADC_GRP_BUF_DEPTH      8
+#define SAMPLING_RATE ADC_SAMPLE_3
 
 static adcsample_t samples[ADC_GRP_NUM_CHANNELS * ADC_GRP_BUF_DEPTH];
 
@@ -26,7 +27,6 @@ static void adccallback(ADCDriver *adcp) {
 /*
  * ADC conversion group.
  * Mode:        Continuous, 8 samples of 3 channels, SW triggered.
- * Channels:    IN11, IN12, IN11, IN12, IN11, IN12, Sensor, VRef.
  */
 static const ADCConversionGroup adcgrpcfg = {
   /*.circular = */TRUE,
@@ -35,9 +35,9 @@ static const ADCConversionGroup adcgrpcfg = {
   nullptr,
   0,                        /* CR1 */
   ADC_CR2_SWSTART,          /* CR2 */
-  ADC_SMPR1_SMP_AN14(ADC_SAMPLE_56) |
-  ADC_SMPR1_SMP_AN15(ADC_SAMPLE_56),
-  ADC_SMPR2_SMP_AN9 (ADC_SAMPLE_56),  /* SMPR2 */
+  ADC_SMPR1_SMP_AN14(SAMPLING_RATE) |
+  ADC_SMPR1_SMP_AN15(SAMPLING_RATE),
+  ADC_SMPR2_SMP_AN9 (SAMPLING_RATE),  /* SMPR2 */
   /*.htr = */0,                        /* HTR */
   /*.ltr = */0,                        /* LTR */
   /*.sqr1= */0,                        /* SQR1 */
