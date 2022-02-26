@@ -8,14 +8,18 @@
  *
  */
 
+#define ADC_DEVICE  ADCD3
 
 #define ADC_GRP_BUF_DEPTH      8
 
 static adcsample_t samples[ADC_GRP_NUM_CHANNELS * ADC_GRP_BUF_DEPTH];
 
+static int adcConversionCounter = 0;
+
 static void adccallback(ADCDriver *adcp) {
 
   if (adcIsBufferComplete(adcp)) {
+    adcConversionCounter++;
   }
 }
 
@@ -37,10 +41,10 @@ static const ADCConversionGroup adcgrpcfg = {
   /*.htr = */0,                        /* HTR */
   /*.ltr = */0,                        /* LTR */
   /*.sqr1= */0,                        /* SQR1 */
-  /*.sqr2 = */ADC_SQR3_SQ3_N(ADC_CHANNEL_IN9)    |
-  ADC_SQR3_SQ2_N(ADC_CHANNEL_IN14)   |
-  ADC_SQR3_SQ1_N(ADC_CHANNEL_IN15),
-  /*.sqr3 = */0
+  /*.sqr2 = */ 0,
+  /*.sqr3 = */ADC_SQR3_SQ3_N(ADC_CHANNEL_IN9)    |
+                ADC_SQR3_SQ2_N(ADC_CHANNEL_IN14)   |
+                ADC_SQR3_SQ1_N(ADC_CHANNEL_IN15)
 };
 
 static adcsample_t getAvgAdcValue(int index, adcsample_t *samples, int bufDepth, int numChannels) {
@@ -59,9 +63,16 @@ adcsample_t getAdcValue(int channel) {
 }
 
 void initAnalogInputs() {
+  palSetPadMode(GPIOF, 3, PAL_MODE_INPUT_ANALOG);
+  palSetPadMode(GPIOF, 4, PAL_MODE_INPUT_ANALOG);
+  palSetPadMode(GPIOF, 5, PAL_MODE_INPUT_ANALOG);
+
+  adcStart(&ADC_DEVICE, NULL);
   /*
    * Starts an ADC continuous conversion.
    */
-  adcStartConversion(&ADCD3, &adcgrpcfg, samples, ADC_GRP_BUF_DEPTH);
+  adcStartConversion(&ADC_DEVICE, &adcgrpcfg, samples, ADC_GRP_BUF_DEPTH);
+
+
 
 }
