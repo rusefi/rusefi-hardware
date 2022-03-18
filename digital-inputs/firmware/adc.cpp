@@ -29,22 +29,22 @@ static void adccallback(ADCDriver *adcp) {
  * Mode:        Continuous, 8 samples of 3 channels, SW triggered.
  */
 static const ADCConversionGroup adcgrpcfg = {
-  /*.circular = */TRUE,
-  /*.num_channels = */ADC_GRP_NUM_CHANNELS,
-  adccallback,
-  nullptr,
-  0,                        /* CR1 */
-  ADC_CR2_SWSTART,          /* CR2 */
-  ADC_SMPR1_SMP_AN14(SAMPLING_RATE) |
-  ADC_SMPR1_SMP_AN15(SAMPLING_RATE),
-  ADC_SMPR2_SMP_AN9 (SAMPLING_RATE),  /* SMPR2 */
-  /*.htr = */0,                        /* HTR */
-  /*.ltr = */0,                        /* LTR */
-  /*.sqr1= */0,                        /* SQR1 */
-  /*.sqr2 = */ 0,
-  /*.sqr3 = */ADC_SQR3_SQ3_N(ADC_CHANNEL_IN9)    |
-                ADC_SQR3_SQ2_N(ADC_CHANNEL_IN14)   |
-                ADC_SQR3_SQ1_N(ADC_CHANNEL_IN15)
+  .circular = TRUE,
+  .num_channels = ADC_GRP_NUM_CHANNELS,
+  .end_cb = adccallback,
+  .error_cb = nullptr,
+  .cr1 = 0,
+  .cr2 = ADC_CR2_SWSTART,
+  .smpr1 = ADC_SMPR1_SMP_AN14(SAMPLING_RATE) |
+           ADC_SMPR1_SMP_AN15(SAMPLING_RATE),
+  .smpr2 = ADC_SMPR2_SMP_AN9 (SAMPLING_RATE),
+  .htr = 0,
+  .ltr = 0,
+  .sqr1= 0,
+  .sqr2 = 0,
+  .sqr3 = ADC_SQR3_SQ1_N(ADC_CHANNEL_IN14)   |
+          ADC_SQR3_SQ2_N(ADC_CHANNEL_IN15)   |
+          ADC_SQR3_SQ3_N(ADC_CHANNEL_IN9),
 };
 
 static adcsample_t getAvgAdcValue(int index, adcsample_t *samples, int bufDepth, int numChannels) {
