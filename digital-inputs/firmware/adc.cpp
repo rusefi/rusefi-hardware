@@ -72,11 +72,9 @@ void initAnalogInputs() {
   palSetPadMode(GPIOF, 5, PAL_MODE_INPUT_ANALOG);
 
   adcStart(&ADC_DEVICE, NULL);
+  adcSTM32EnableTSVREFE();
   /*
    * Starts an ADC continuous conversion.
    */
   adcStartConversion(&ADC_DEVICE, &adcgrpcfg, samples, ADC_GRP_BUF_DEPTH);
-
-
-
 }
