@@ -5,6 +5,8 @@
 typedef uint16_t adcsample_t;
 
 #define ADC_GRP_NUM_CHANNELS   3
+#define ADC_VREF 				(3.300f)
 
 void initAnalogInputs();
-adcsample_t getAdcValue(int channel);
+adcsample_t getAdcRawValue(int channel);
+float getAdcValue(int channel);

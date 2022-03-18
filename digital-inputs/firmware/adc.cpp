@@ -58,8 +58,12 @@ static adcsample_t getAvgAdcValue(int index, adcsample_t *samples, int bufDepth,
 	return static_cast<adcsample_t>(result / bufDepth);
 }
 
-adcsample_t getAdcValue(int channel) {
+adcsample_t getAdcRawValue(int channel) {
     return getAvgAdcValue(channel, samples, ADC_GRP_BUF_DEPTH, ADC_GRP_NUM_CHANNELS);
+}
+
+float getAdcValue(int channel) {
+    return (float)getAdcRawValue(channel) * ADC_VREF / 4096;
 }
 
 void initAnalogInputs() {
