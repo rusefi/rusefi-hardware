@@ -52,7 +52,6 @@ static THD_FUNCTION(Thread1, arg) {
 static THD_WORKING_AREA(consoleThread, 256);
 static void ConsoleThread(void*) {
     while (true) {
-        char buf[6];
 //        for (int i = 0;i<ADC_GRP_NUM_CHANNELS;i++) {
 //            int value = getAdcValue(i);
 //            itoa10(buf, value);
@@ -60,17 +59,11 @@ static void ConsoleThread(void*) {
 //            chprintf(chp, " ");
 //        }
 
-    for (int s = 0;s<16;s++) {
-          setScenarioIndex(s);
+        for (int s = 0;s<16;s++) {
+            setScenarioIndex(s);
 
-            itoa10(buf, s);
-            chprintf(chp, buf);
-            chprintf(chp, ": ");
-            int value = getAdcValue(0);
-            itoa10(buf, value);
-            chprintf(chp, buf);
-             chprintf(chp, "\r\n");
-    }
+            chprintf(chp, "%d: %1.3f mV\r\n", s, getAdcValue(0));
+        }
 
 
         chprintf(chp, "Hello\r\n");
