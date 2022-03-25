@@ -1,10 +1,12 @@
 
+#include "global.h"
 #include "digital_inputs.h"
+#include "chprintf.h"
 
 io_pin addrPins[] = {
 {GPIOC, 8},
 {GPIOC, 6},
-{GPIOC, 4},
+{GPIOC, 5},
 {GPIOA, 6},
 };
 
@@ -14,6 +16,8 @@ io_pin scenarioPins[] = {
 {GPIOC, 7},
 {GPIOC, 4},
 };
+
+extern BaseSequentialStream *chp;
 
 void initDigitalInputs() {
     for (size_t i = 0;i < efi::size(addrPins);i++) {
@@ -28,10 +32,12 @@ void initDigitalInputs() {
 }
 
 void setOutputIndex(int index) {
+    int param = index;
     for (size_t i = 0;i<efi::size(addrPins);i++) {
         int bitState = index & 1;
         index = index / 2;
         io_pin *pin = &addrPins[i];
+        chprintf(chp, "output %d: bit=%d %d\n", param, i, bitState);
         palWritePad(pin->port, pin->pin, bitState);
     }
 }

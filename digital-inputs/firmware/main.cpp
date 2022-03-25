@@ -60,6 +60,7 @@ static void ConsoleThread(void*) {
 //        }
 
         for (int s = 0;s<16;s++) {
+  setOutputIndex(7 - 1);
             setScenarioIndex(s);
 
             chprintf(chp, "%d: %1.3f mV\r\n", s, getAdcValue(0));
@@ -89,8 +90,6 @@ int main(void) {
   initAnalogInputs();
   initDigitalInputs();
   usb_serial_start();
-
-  setOutputIndex(0);
 
   /*
    * Creates the example thread.
