@@ -46,7 +46,7 @@ void setScenarioIndex(int index) {
     for (size_t i = 0;i<efi::size(scenarioPins);i++) {
         int bitState = index & 1;
         index = index / 2;
-        io_pin *pin = &addrPins[i];
+        io_pin *pin = &scenarioPins[i];
         palWritePad(pin->port, pin->pin, bitState);
     }
 }
