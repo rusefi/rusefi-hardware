@@ -20,6 +20,7 @@ io_pin scenarioPins[] = {
 extern BaseSequentialStream *chp;
 
 void initDigitalInputs() {
+    /*
     for (size_t i = 0;i < efi::size(addrPins);i++) {
         io_pin *pin = &addrPins[i];
        	palSetPadMode(pin->port, pin->pin, PAL_MODE_OUTPUT_PUSHPULL);
@@ -29,6 +30,7 @@ void initDigitalInputs() {
         io_pin *pin = &scenarioPins[i];
        	palSetPadMode(pin->port, pin->pin, PAL_MODE_OUTPUT_PUSHPULL);
     }
+    */
 }
 
 void setOutputIndex(int index) {
