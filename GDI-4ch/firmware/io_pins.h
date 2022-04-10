@@ -8,7 +8,7 @@
 
 #pragma once
 
-#define LED_BLUE_PORT GPIOC
+#define LED_BLUE_PORT GPIOB
 #define LED_BLUE_PIN 13
 
 #define LED_GREEN_PORT GPIOA
