@@ -3,12 +3,6 @@
 # NOTE: Can be overridden externally.
 #
 
-ifeq ($(BOARD),)
-  BOARD = f0_module
-endif
-
-BOARDDIR = boards/$(BOARD)
-
 # Compiler options here.
 ifeq ($(USE_OPT),)
   USE_OPT = -O2 -ggdb -fomit-frame-pointer -falign-functions=16 -fsingle-precision-constant
@@ -129,6 +123,7 @@ LDSCRIPT= $(STARTUPLD)/STM32F103xB.ld
 # C sources that can be compiled in ARM or THUMB mode depending on the global
 # setting.
 CSRC = $(ALLCSRC) \
+      mc33816_data.c
 
 
 # C++ sources that can be compiled in ARM or THUMB mode depending on the global
