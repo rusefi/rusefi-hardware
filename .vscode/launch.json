@@ -1,0 +1,21 @@
+{
+	// Use IntelliSense to learn about possible attributes.
+	// Hover to view descriptions of existing attributes.
+	// For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+	"version": "0.2.0",
+	"configurations": [
+		{
+			"name": "Debug GDI GD32",
+			"type": "cortex-debug",
+			"request": "launch",
+			"cwd": "${workspaceFolder}/GDI4-ch/firmware",
+			"executable": "${workspaceFolder}/GDI4-ch/firmware/build/gdi4.elf",
+			"device": "STM32F103CB",
+			"v1": false,
+			"svdFile": "${workspaceFolder}/GDI4-ch/firmware/STM32F103xx.svd",
+			"servertype": "openocd",
+			"configFiles": ["interface/stlink.cfg", "target/stm32f1x.cfg"],
+			"runToMain": true,
+		}
+	]
+}
