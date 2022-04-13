@@ -442,7 +442,11 @@
     ],
     [
       "1eda4d5a-8f94-40d8-8cab-d6c152c81f10",
-      "LSU analog frontend"
+      "LSU analog left"
+    ],
+    [
+      "8c53ed69-a65a-4bef-9bec-7173d9bbff28",
+      "LSU analog right"
     ]
   ],
   "text_variables": {}
