@@ -1,3 +1,4 @@
 (fp_lib_table
   (lib (name "wideband_controller")(type "KiCad")(uri "${KIPRJMOD}/../wideband-F103/wideband_controller.pretty")(options "")(descr ""))
+  (lib (name "local")(type "KiCad")(uri "${KIPRJMOD}/")(options "")(descr ""))
 )
