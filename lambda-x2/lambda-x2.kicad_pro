@@ -447,6 +447,14 @@
     [
       "8c53ed69-a65a-4bef-9bec-7173d9bbff28",
       "LSU analog right"
+    ],
+    [
+      "a9d2c704-8266-40b9-a0a5-1218d3f325f6",
+      "EGT left"
+    ],
+    [
+      "e339ff66-b3bf-4d0c-a6b6-e4e71fb15e48",
+      "EGT right"
     ]
   ],
   "text_variables": {}
