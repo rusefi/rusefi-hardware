@@ -37,3 +37,7 @@ jobs:
       - name: Build Digital Inputs Firmware
         working-directory: ./digital-inputs/firmware
         run: make
+
+      - name: Build SENT Firmware
+        working-directory: ./SENT-box/firmware
+        run: make
