@@ -1,7 +1,7 @@
 /*
  * sent.cpp
  *
- *  Created on: 16 мая 2022 г.
+ *  Created on: 16 May 2022
  *      Author: alexv
  */
 
@@ -10,32 +10,32 @@
 
 #include "sent.h"
 
-// Массив состояний СМ приема посылки
+// Sent SM status arr
 SM_SENT_enum sentSMstate[4] = {SM_SENT_INIT_STATE};
 
-// Массив значений датчиков
+// Value sensor arr
 uint16_t sentValArr[4] = {0};
 
-// Массив для накопления значений датчиков
+//
 uint16_t sentTempValArr[4] = {0};
 
-// Массив принятых полубайтов (для вычисления crc)
+// Received nibbles arr
 uint8_t sentTempNibblArr[4][6] = {0};
 
-// Массив битов состояния датчиков
+// Sensor status arr
 uint8_t sentStat[4] = {0};
 
-// Массив номеров посылок
+// Roll counter arr
 uint8_t sentRollCnt[4] = {0};
 uint8_t sentRollCntPrev[4] = {0};
 
-// Массив значений таймера предыдущего фронта (для вычисления длительности импульса)
-uint16_t val_prev[4];
+//
+//uint16_t val_prev[4];
 
-// Счетчик принятых посылок
+// Received msg counter
 uint32_t val_res_cnt = 0;
 
-// Счетчик ошибок
+// Error counters
 uint32_t val_res_err_cnt = 0;
 uint32_t val_res_err_cnt1 = 0;
 
@@ -43,6 +43,7 @@ uint32_t sentStatusErr = 0;
 uint32_t sentRollErrCnt = 0;
 uint32_t sentCrcErrCnt = 0;
 
+#if 0
 float err_per = 0;
 
 uint8_t val_min_cnt = 0;
@@ -51,29 +52,44 @@ uint8_t val_max_cnt = 0;
 uint16_t sentMaxSyncVal = 0;
 uint16_t sentMinSyncVal = 50000;
 
-// Флаг готовности данных дл япередачи
 uint8_t senDataReady = 0;
+#endif
 
-static void icuperiodcb(ICUDriver *icup);
+static void icuperiodcb_in1(ICUDriver *icup);
+static void icuperiodcb_in2(ICUDriver *icup);
 
 static void SENT_ISR_Handler(uint8_t ch, uint16_t val);
 uint8_t sent_crc4(uint8_t* pdata, uint16_t ndata);
 
-static ICUConfig icucfg =
+// Sent input1 - TIM4 CH1
+static ICUConfig icucfg_in1 =
 {
   ICU_INPUT_ACTIVE_HIGH,
   400000,                                    /* 400kHz ICU clock frequency - 2.5 us.   */
   NULL,
-  icuperiodcb,
+  icuperiodcb_in1,
   NULL,
-  ICU_CHANNEL_2,
+  ICU_CHANNEL_1,
+  0U,
+  0xFFFFFFFFU
+};
+
+// Sent input2 - TIM3 CH1
+static ICUConfig icucfg_in2 =
+{
+  ICU_INPUT_ACTIVE_HIGH,
+  400000,                                    /* 400kHz ICU clock frequency - 2.5 us.   */
+  NULL,
+  icuperiodcb_in2,
+  NULL,
+  ICU_CHANNEL_1,
   0U,
   0xFFFFFFFFU
 };
 
 icucnt_t last_period;
 
-static void icuperiodcb(ICUDriver *icup)
+static void icuperiodcb_in1(ICUDriver *icup)
 {
 
   last_period = icuGetPeriodX(icup);
@@ -81,11 +97,24 @@ static void icuperiodcb(ICUDriver *icup)
   SENT_ISR_Handler(0, last_period);
 }
 
+static void icuperiodcb_in2(ICUDriver *icup)
+{
+
+  last_period = icuGetPeriodX(icup);
+
+  SENT_ISR_Handler(1, last_period);
+}
+
 void InitSent()
 {
-    icuStart(&ICUD4, &icucfg);
+#if 1
+    icuStart(&ICUD4, &icucfg_in1);
     icuStartCapture(&ICUD4);
     icuEnableNotifications(&ICUD4);
+#endif
+    icuStart(&ICUD3, &icucfg_in2);
+    icuStartCapture(&ICUD3);
+    icuEnableNotifications(&ICUD3);
 }
 
 uint16_t SentGetPeriodValue(void)
@@ -118,14 +147,12 @@ static void SENT_ISR_Handler(uint8_t ch, uint16_t val)
 
         if(val_res < 12)
         {
-                val_res_err_cnt1++;
-
-                val_res = 0;
+              val_res_err_cnt1++;
         }
         else
         {
-                val_res = val_res - 12;
-        }
+              val_res = val_res - 12;
+
 
 #if 0
         sentValArr[ch] = val_res;
@@ -166,13 +193,13 @@ static void SENT_ISR_Handler(uint8_t ch, uint16_t val)
                 }
         }
 #endif
-        switch(sentSMstate[ch])
-        {
+            switch(sentSMstate[ch])
+            {
                 case SM_SENT_INIT_STATE:
                     val_res_cnt++;
 
                     if(val_res == 44)
-                    {// Пришел первый sync интервал - 56 тиков
+                    {// sync interval - 56 ticks
                             sentSMstate[ch] = SM_SENT_STATUS_STATE;
                     }
                     break;
@@ -181,23 +208,23 @@ static void SENT_ISR_Handler(uint8_t ch, uint16_t val)
                     val_res_cnt++;
 
                     if(val_res == 44)
-                    {// Пришел sync интервал - 56 тиков
+                    {// sync interval - 56 ticks
                             sentTempValArr[ch] = 0;
 
                             sentSMstate[ch] = SM_SENT_STATUS_STATE;
                     }
                     else
                     {
-                            // Увеличиваем счетчик ошибок приема sync интервала
+                            //  Increment sync interval err count
                             val_res_err_cnt++;
 
-                            // Вычисляем процент ошибок
-                            err_per = ((float)val_res_err_cnt/(float)val_res_cnt)*100;
+                            // Calc err percentage
+                            //err_per = ((float)val_res_err_cnt/(float)val_res_cnt)*100;
                     }
                     break;
 
                 case SM_SENT_STATUS_STATE:
-                    // Пришел status интервал
+                    // status interval
                     sentStat[ch] = val_res;
 
                     if(sentStat[ch])
@@ -255,19 +282,20 @@ static void SENT_ISR_Handler(uint8_t ch, uint16_t val)
                     break;
 
                 case SM_SENT_CRC_STATE:
-                    // Проверяем номер пакета
+                    // Check msg number
                     if(sentRollCnt[ch] == (uint8_t)(sentRollCntPrev[ch] + 1))
                     {
 
                     }
                     else
                     {
+                        //  Increment nsg number err count
                         sentRollErrCnt++;
                     }
 
                     sentRollCntPrev[ch] = sentRollCnt[ch];
 
-                    // Проверяем crc пакета
+                    // Check crc
                     sentCrc = ((uint8_t)(val_res));
 
                     if(sentCrc == sent_crc4(sentTempNibblArr[ch], 6))
@@ -276,11 +304,13 @@ static void SENT_ISR_Handler(uint8_t ch, uint16_t val)
                     }
                     else
                     {
+                      //  Increment crc err count
                         sentCrcErrCnt++;
                     }
 
                     sentSMstate[ch] = SM_SENT_SYNC_STATE;
                     break;
+              }
         }
 }
 
