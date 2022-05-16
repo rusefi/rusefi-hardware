@@ -36,9 +36,8 @@ uint8_t sentRollCntPrev[4] = {0};
 uint32_t val_res_cnt = 0;
 
 // Error counters
-uint32_t val_res_err_cnt = 0;
-uint32_t val_res_err_cnt1 = 0;
-
+uint32_t sentIntervalErr = 0;
+uint32_t sentSyncErr = 0;
 uint32_t sentStatusErr = 0;
 uint32_t sentRollErrCnt = 0;
 uint32_t sentCrcErrCnt = 0;
@@ -57,11 +56,12 @@ uint8_t senDataReady = 0;
 
 static void icuperiodcb_in1(ICUDriver *icup);
 static void icuperiodcb_in2(ICUDriver *icup);
+static void icuperiodcb_in3(ICUDriver *icup);
 
 static void SENT_ISR_Handler(uint8_t ch, uint16_t val);
 uint8_t sent_crc4(uint8_t* pdata, uint16_t ndata);
 
-// Sent input1 - TIM4 CH1
+// Sent input1 - TIM4 CH1 - PB6
 static ICUConfig icucfg_in1 =
 {
   ICU_INPUT_ACTIVE_HIGH,
@@ -74,7 +74,7 @@ static ICUConfig icucfg_in1 =
   0xFFFFFFFFU
 };
 
-// Sent input2 - TIM3 CH1
+// Sent input2 - TIM3 CH1 - PA6
 static ICUConfig icucfg_in2 =
 {
   ICU_INPUT_ACTIVE_HIGH,
@@ -87,34 +87,60 @@ static ICUConfig icucfg_in2 =
   0xFFFFFFFFU
 };
 
+// Sent input3 - TIM1 CH1 - PA8
+static ICUConfig icucfg_in3 =
+{
+  ICU_INPUT_ACTIVE_HIGH,
+  400000,                                    /* 400kHz ICU clock frequency - 2.5 us.   */
+  NULL,
+  icuperiodcb_in3,
+  NULL,
+  ICU_CHANNEL_1,
+  0U,
+  0xFFFFFFFFU
+};
+
 icucnt_t last_period;
 
 static void icuperiodcb_in1(ICUDriver *icup)
 {
 
-  last_period = icuGetPeriodX(icup);
+  //last_period = icuGetPeriodX(icup);
 
-  SENT_ISR_Handler(0, last_period);
+  SENT_ISR_Handler(0, icuGetPeriodX(icup));
 }
 
 static void icuperiodcb_in2(ICUDriver *icup)
 {
 
-  last_period = icuGetPeriodX(icup);
+  //last_period = icuGetPeriodX(icup);
 
-  SENT_ISR_Handler(1, last_period);
+  SENT_ISR_Handler(1, icuGetPeriodX(icup));
+}
+
+static void icuperiodcb_in3(ICUDriver *icup)
+{
+
+  //last_period = icuGetPeriodX(icup);
+
+  SENT_ISR_Handler(2, icuGetPeriodX(icup));
 }
 
 void InitSent()
 {
-#if 1
+
     icuStart(&ICUD4, &icucfg_in1);
     icuStartCapture(&ICUD4);
     icuEnableNotifications(&ICUD4);
-#endif
+
     icuStart(&ICUD3, &icucfg_in2);
     icuStartCapture(&ICUD3);
     icuEnableNotifications(&ICUD3);
+#if 0
+    icuStart(&ICUD1, &icucfg_in3);
+    icuStartCapture(&ICUD1);
+    icuEnableNotifications(&ICUD1);
+#endif
 }
 
 uint16_t SentGetPeriodValue(void)
@@ -147,7 +173,7 @@ static void SENT_ISR_Handler(uint8_t ch, uint16_t val)
 
         if(val_res < 12)
         {
-              val_res_err_cnt1++;
+            sentIntervalErr++;
         }
         else
         {
@@ -187,9 +213,9 @@ static void SENT_ISR_Handler(uint8_t ch, uint16_t val)
 
                 if(val_res != 56) // 56
                 {
-                        val_res_err_cnt++;
+                    sentSyncErr++;
 
-                        err_per = ((float)val_res_err_cnt/(float)val_res_cnt)*100;
+                    err_per = ((float)val_res_err_cnt/(float)val_res_cnt)*100;
                 }
         }
 #endif
@@ -209,17 +235,17 @@ static void SENT_ISR_Handler(uint8_t ch, uint16_t val)
 
                     if(val_res == 44)
                     {// sync interval - 56 ticks
-                            sentTempValArr[ch] = 0;
+                        sentTempValArr[ch] = 0;
 
-                            sentSMstate[ch] = SM_SENT_STATUS_STATE;
+                        sentSMstate[ch] = SM_SENT_STATUS_STATE;
                     }
                     else
                     {
-                            //  Increment sync interval err count
-                            val_res_err_cnt++;
+                        //  Increment sync interval err count
+                        sentSyncErr++;
 
-                            // Calc err percentage
-                            //err_per = ((float)val_res_err_cnt/(float)val_res_cnt)*100;
+                        // Calc err percentage
+                        // err_per = ((float)val_res_err_cnt/(float)val_res_cnt)*100;
                     }
                     break;
 
@@ -349,4 +375,14 @@ uint16_t SENT_GetRollErrCnt(void)
 uint16_t SENT_GetCrcErrCnt(void)
 {
         return sentCrcErrCnt;
+}
+
+uint16_t SENT_GetIntervalErrCnt(void)
+{
+        return sentIntervalErr;
+}
+
+uint16_t SENT_GetSyncErrCnt(void)
+{
+        return sentSyncErr;
 }
