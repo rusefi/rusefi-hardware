@@ -18,6 +18,7 @@
 #include "hal.h"
 #include "uart.h"
 #include "can.h"
+#include "sent.h"
 
 #define BL_PORT GPIOC
 #define BL_PIN 13
@@ -63,6 +64,7 @@ int main(void) {
 
   InitUart();
   InitCan();
+  InitSent();
 
   /*
    * Normal main() thread activity, in this demo it does nothing except
