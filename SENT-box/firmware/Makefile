@@ -130,7 +130,8 @@ CSRC = $(ALLCSRC)
 CPPSRC = $(ALLCPPSRC) \
         main.cpp \
 	can.cpp \
-	uart.cpp
+	uart.cpp \
+	sent.cpp
 
 # List ASM source files here.
 ASMSRC = $(ALLASMSRC)

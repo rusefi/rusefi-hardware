@@ -3,6 +3,7 @@
 #include "chprintf.h"
 
 #include "uart.h"
+#include "sent.h"
 
 static const UARTConfig uartCfg =
 {
@@ -27,12 +28,13 @@ static const UARTConfig uartCfg =
 static char printBuffer[200];
 
 static THD_WORKING_AREA(waUartThread, 256);
+
 static void UartThread(void*)
 {
     while(true)
     {
 
-        size_t writeCount = chsnprintf(printBuffer, 200, "%d.%03d\t%d\t%d\r\n", 0, 0, 0, 100);
+        size_t writeCount = chsnprintf(printBuffer, 200, "%04d %04d %04d %04d %04d %04d\r\n", SENT_GetData(0), SENT_GetData(1),  SENT_GetData(2),  SENT_GetData(3), SENT_GetRollErrCnt(), SENT_GetCrcErrCnt());
         uartStartSend(&UARTD1, writeCount, printBuffer);
 
         chThdSleepMilliseconds(20);
