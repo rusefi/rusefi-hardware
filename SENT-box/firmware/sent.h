@@ -29,5 +29,7 @@ uint16_t SentGetPeriodValue(void);
 uint16_t SENT_GetData(uint8_t ch);
 uint16_t SENT_GetRollErrCnt(void);
 uint16_t SENT_GetCrcErrCnt(void);
+uint16_t SENT_GetIntervalErrCnt(void);
+uint16_t SENT_GetSyncErrCnt(void);
 
 #endif /* SENT_H_ */
