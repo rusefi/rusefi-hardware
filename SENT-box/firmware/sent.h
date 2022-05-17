@@ -1,12 +1,40 @@
 /*
  * sent.h
  *
- *  Created on: 16 May 2022
+ *  Created on: 16 мая 2022 г.
  *      Author: alexv
  */
 
 #ifndef SENT_H_
 #define SENT_H_
+
+#define SENT_CHANNELS_NUM 4 // Number of sent channels
+
+#define SENT_ICU_FREQ       400000 // 2.5 us
+
+#define SENT_SYNC_INTERVAL  44 // 56 ticks - 12
+#define SENT_OFFSET_INTERVAL 12
+
+#define SENT_MIN_INTERVAL 12
+#define SENT_MAX_INTERVAL 15
+
+#define SENT_CRC_SEED 0x05
+
+#define SENT_MSG_PAYLOAD_SIZE 6  // Size of payload
+
+#define SENT_ERR_PERCENT 0
+
+#define SENT_ICUD_CH1 ICUD4
+#define SENT_ICUD_CH2 ICUD3
+#define SENT_ICUD_CH3 ICUD1
+
+enum
+{
+    SENT_CH1 = 0,
+    SENT_CH2,
+    SENT_CH3,
+    SENT_CH4,
+};
 
 typedef enum
 {
@@ -24,7 +52,6 @@ typedef enum
 
 
 void InitSent();
-uint16_t SentGetPeriodValue(void);
 
 uint16_t SENT_GetData(uint8_t ch);
 uint16_t SENT_GetRollErrCnt(void);
