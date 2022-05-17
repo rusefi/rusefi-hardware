@@ -34,7 +34,9 @@ static void UartThread(void*)
     while(true)
     {
 
-        size_t writeCount = chsnprintf(printBuffer, 200, "%04d %04d %04d %04d %04d %04d\r\n", SENT_GetData(0), SENT_GetData(1),  SENT_GetData(2),  SENT_GetData(3), SENT_GetRollErrCnt(), SENT_GetCrcErrCnt());
+        size_t writeCount = chsnprintf(printBuffer, 200, "%04d %04d %04d %04d err %04d %04d %04d %04d\r\n",
+                                         SENT_GetData(SENT_CH1), SENT_GetData(SENT_CH2),  SENT_GetData(SENT_CH3),  SENT_GetData(SENT_CH4),
+                                         SENT_GetIntervalErrCnt(), SENT_GetSyncErrCnt(), SENT_GetRollErrCnt(), SENT_GetCrcErrCnt());
         uartStartSend(&UARTD1, writeCount, printBuffer);
 
         chThdSleepMilliseconds(20);
