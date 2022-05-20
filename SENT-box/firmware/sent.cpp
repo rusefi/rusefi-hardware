@@ -9,6 +9,7 @@
 #include "hal.h"
 
 #include "sent.h"
+#include "sent_hw_icu.h"
 
 // Sent SM status arr
 SM_SENT_enum sentSMstate[SENT_CHANNELS_NUM] = {SM_SENT_INIT_STATE};
@@ -48,85 +49,14 @@ uint32_t val_res_cnt = 0;
 float err_per = 0;
 #endif
 
-static void icuperiodcb_in1(ICUDriver *icup);
-static void icuperiodcb_in2(ICUDriver *icup);
-static void icuperiodcb_in3(ICUDriver *icup);
-
-static void SENT_ISR_Handler(uint8_t ch, uint16_t val_res);
 uint8_t sent_crc4(uint8_t* pdata, uint16_t ndata);
-
-// Sent input1 - TIM4 CH1 - PB6
-static ICUConfig icucfg_in1 =
-{
-  ICU_INPUT_ACTIVE_HIGH,
-  SENT_ICU_FREQ,                                    /* 400kHz ICU clock frequency - 2.5 us.   */
-  NULL,
-  icuperiodcb_in1,
-  NULL,
-  ICU_CHANNEL_1,
-  0U,
-  0xFFFFFFFFU
-};
-
-// Sent input2 - TIM3 CH1 - PA6
-static ICUConfig icucfg_in2 =
-{
-  ICU_INPUT_ACTIVE_HIGH,
-  SENT_ICU_FREQ,                                    /* 400kHz ICU clock frequency - 2.5 us.   */
-  NULL,
-  icuperiodcb_in2,
-  NULL,
-  ICU_CHANNEL_1,
-  0U,
-  0xFFFFFFFFU
-};
-
-// Sent input3 - TIM1 CH1 - PA8
-static ICUConfig icucfg_in3 =
-{
-  ICU_INPUT_ACTIVE_HIGH,
-  SENT_ICU_FREQ,                                    /* 400kHz ICU clock frequency - 2.5 us.   */
-  NULL,
-  icuperiodcb_in3,
-  NULL,
-  ICU_CHANNEL_1,
-  0U,
-  0xFFFFFFFFU
-};
-
-static void icuperiodcb_in1(ICUDriver *icup)
-{
-  SENT_ISR_Handler(SENT_CH1, icuGetPeriodX(icup));
-}
-
-static void icuperiodcb_in2(ICUDriver *icup)
-{
-  SENT_ISR_Handler(SENT_CH2, icuGetPeriodX(icup));
-}
-
-static void icuperiodcb_in3(ICUDriver *icup)
-{
-  SENT_ISR_Handler(SENT_CH3, icuGetPeriodX(icup));
-}
 
 void InitSent()
 {
-
-    icuStart(&SENT_ICUD_CH1, &icucfg_in1);
-    icuStartCapture(&SENT_ICUD_CH1);
-    icuEnableNotifications(&SENT_ICUD_CH1);
-
-    icuStart(&SENT_ICUD_CH2, &icucfg_in2);
-    icuStartCapture(&SENT_ICUD_CH2);
-    icuEnableNotifications(&SENT_ICUD_CH2);
-
-    icuStart(&SENT_ICUD_CH3, &icucfg_in3);
-    icuStartCapture(&SENT_ICUD_CH3);
-    icuEnableNotifications(&SENT_ICUD_CH3);
-
+    InitSentHwIcu();
 }
 
-static void SENT_ISR_Handler(uint8_t ch, uint16_t val_res)
+void SENT_ISR_Handler(uint8_t ch, uint16_t val_res)
 {
         val_res >>= 1;
 
