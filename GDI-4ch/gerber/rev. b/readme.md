@@ -3,10 +3,17 @@
 164 x 118 mm
 
 Changes:
+
 0 Ohm jumpers fix
+
 Removed R41 (oscillator shutdown)
+
 D34 STTH802G-TR -> SDURB1020CT
+
 10K -> 75K resistor for HV LED
+
 0.01 Ohm change partnumber C76294 -> C309628
+
 U4 74HC14 change partnumber C6821 -> C5606
+
 MOSFETs change partnumber C194346 -> C89735
