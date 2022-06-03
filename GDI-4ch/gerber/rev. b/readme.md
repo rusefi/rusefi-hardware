@@ -6,11 +6,11 @@ Changes:
 
 0 Ohm jumpers fix
 
-Removed R41 (oscillator shutdown)
+Removed R41 (oscillator shutdown) https://github.com/rusefi/rusefi-hardware/issues/61
 
 D34 STTH802G-TR -> SDURB1020CT
 
-10K -> 75K resistor for HV LED
+10K -> 75K resistor for HV LED https://github.com/rusefi/rusefi-hardware/issues/40
 
 0.01 Ohm change partnumber C76294 -> C309628
 
