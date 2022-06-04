@@ -8,8 +8,10 @@
 
 #pragma once
 
+// D20
 #define LED_BLUE_PORT GPIOB
 #define LED_BLUE_PIN 13
 
+// D21
 #define LED_GREEN_PORT GPIOA
 #define LED_GREEN_PIN 8
