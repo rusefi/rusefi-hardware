@@ -475,6 +475,7 @@ int main() {
         palSetPadMode(LED_BLUE_PORT, LED_BLUE_PIN, PAL_MODE_OUTPUT_PUSHPULL);
 
         if ((id >> 8) == 0x9D) {
+            // happy board - green D21 blinking
             palTogglePad(LED_GREEN_PORT, LED_GREEN_PIN);
         } else {
             palTogglePad(LED_BLUE_PORT, LED_BLUE_PIN);
