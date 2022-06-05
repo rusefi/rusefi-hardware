@@ -1,0 +1,3 @@
+
+void mcu_standby() {
+}
