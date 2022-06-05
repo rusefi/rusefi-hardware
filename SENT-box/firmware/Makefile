@@ -84,7 +84,7 @@ endif
 #
 
 # Define project name here
-PROJECT = ch
+PROJECT = sent
 
 # Target settings.
 MCU  = cortex-m3
@@ -129,6 +129,7 @@ CSRC = $(ALLCSRC)
 # setting.
 CPPSRC = $(ALLCPPSRC) \
         main.cpp \
+	F1-standby/standby.cpp \
 	can.cpp \
 	uart.cpp \
 	sent.cpp \
