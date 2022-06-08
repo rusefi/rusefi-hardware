@@ -6,6 +6,7 @@
 #include "uart.h"
 #include "io_pins.h"
 
+#include "mc33816_control.h"
 #include "mc33816_data.h"
 #include "mc33816_memory_map.h"
 
@@ -54,48 +55,6 @@ static const SPIConfig spiCfg = {
 };
 
 auto driver = &SPID1;
-
-// Receive 16bits
-unsigned short recv_16bit_spi() {
-	return spiPolledExchange(driver, 0xFFFF);
-}
-
-// This could be used to detect if check byte is wrong.. or use a FLAG after init
-unsigned short txrx_16bit_spi(const unsigned short param) {
-	return spiPolledExchange(driver, param);
-}
-
-// Send 16bits
-static void spi_writew(unsigned short param) {
-	//spiSelect(driver);
-	spiPolledExchange(driver, param);
-	//spiUnselect(driver);
-}
-
-static void setup_spi() {
-	spiSelect(driver);
-	// Select Channel command
-	spi_writew(0x7FE1);
-    // Common Page
-	spi_writew(0x0004);
-
-
-	// Configure SPI command
-	spi_writew(0x3901);
-	// Mode A + Watchdog timer full
-    //spi_writew(0x001F);
-	spi_writew(0x009F); // + fast slew rate on miso
-	spiUnselect(driver);
-}
-
-static unsigned short readId() {
-	spiSelect(driver);
-	spi_writew(0xBAA1);
-	unsigned short ID =  recv_16bit_spi();
-	spiUnselect(driver);
-	return ID;
-}
-
 
 // Read a single word in Data RAM
 unsigned short mcReadDram(MC33816Mem addr) {
@@ -209,17 +168,6 @@ static bool check_flash() {
 
     spiUnselect(driver);
 	return true;
-}
-
-static void mcClearDriverStatus(){
-	// Note: There is a config at 0x1CE & 1 that can reset this status config register on read
-	// otherwise the reload/recheck occurs with this write
-	// resetting it is necessary to clear default reset behavoir, as well as if an issue has been resolved
-	setup_spi(); // ensure on common page?
-	spiSelect(driver);
-	spi_writew((0x0000 | 0x1D2 << 5) + 1); // write, location, one word
-	spi_writew(0x0000); // anything to clear
-	spiUnselect(driver);
 }
 
 static unsigned short readDriverStatus(){
