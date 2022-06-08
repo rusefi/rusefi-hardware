@@ -130,6 +130,7 @@ CSRC = $(ALLCSRC) \
 # setting.
 CPPSRC = $(ALLCPPSRC) \
         uart.cpp \
+        mc33816_control.cpp \
         can.cpp \
         fault.cpp \
           main.cpp
