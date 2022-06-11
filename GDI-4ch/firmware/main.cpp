@@ -10,6 +10,8 @@
 #include "mc33816_data.h"
 #include "mc33816_memory_map.h"
 
+#include <algorithm>
+
 static void InitPins() {
     // stm32 TX - dongle RX often White
     palSetPadMode(GPIOA, 9, PAL_MODE_STM32_ALTERNATE_PUSHPULL );
@@ -72,7 +74,7 @@ unsigned short mcReadDram(MC33816Mem addr) {
 }
 
 // Update a single word in Data RAM
-void mcUpdateDram(MC33816Mem addr, unsigned short data) {
+void mcUpdateDram(MC33816Mem addr, uint16_t data) {
 	spiSelect(driver);
 	// Select Channel command, Common Page
     spi_writew(0x7FE1);
@@ -84,7 +86,7 @@ void mcUpdateDram(MC33816Mem addr, unsigned short data) {
     spiUnselect(driver);
 }
 
-static short dacEquation(unsigned short current) {
+static uint16_t dacEquation(float milliampere) {
 	/*
 	Current, given in mA->A
 	I = (DAC_VALUE * V_DAC_LSB - V_DA_BIAS)/(G_DA_DIFF * R_SENSEx)
@@ -94,38 +96,42 @@ static short dacEquation(unsigned short current) {
 	G_DA_DIFF = Gain: 5.79, 8.68, [12.53], 19.25
 	R_SENSE = 10mOhm soldered on board
 	*/
-	return (short)(((current/1000.0f * 12.53f * 10) + 250.0f) / 9.77f);
+	float amps = milliampere * 0.001f;
+
+	return (uint16_t)(((amps * 12.53f * 10) + 250.0f) / 9.77f);
 }
 
 static void setTimings() {
+	// This is the configuration for bosch HDEV 5 injectors
+	// all times in microseconds/us
 
 	// Convert mA to DAC values
-	// mcUpdateDram(MC33816Mem::Iboost, dacEquation(engineConfiguration->mc33_i_boost));
-	// mcUpdateDram(MC33816Mem::Ipeak, dacEquation(engineConfiguration->mc33_i_peak));
-	// mcUpdateDram(MC33816Mem::Ihold, dacEquation(engineConfiguration->mc33_i_hold));
+	mcUpdateDram(MC33816Mem::Iboost, dacEquation(13000));
+	mcUpdateDram(MC33816Mem::Ipeak, dacEquation(9400));
+	mcUpdateDram(MC33816Mem::Ihold, dacEquation(3700));
 
-	// // uint16_t mc33_t_max_boost; // not yet implemented in microcode
+	// uint16_t mc33_t_max_boost; // not yet implemented in microcode
 
-	// // in micro seconds to clock cycles
-	// mcUpdateDram(MC33816Mem::Tpeak_off, (MC_CK * engineConfiguration->mc33_t_peak_off));
-	// mcUpdateDram(MC33816Mem::Tpeak_tot, (MC_CK * engineConfiguration->mc33_t_peak_tot));
-	// mcUpdateDram(MC33816Mem::Tbypass, (MC_CK * engineConfiguration->mc33_t_bypass));
-	// mcUpdateDram(MC33816Mem::Thold_off, (MC_CK * engineConfiguration->mc33_t_hold_off));
-	// mcUpdateDram(MC33816Mem::Thold_tot, (MC_CK * engineConfiguration->mc33_t_hold_tot));
+	// in micro seconds to clock cycles
+	mcUpdateDram(MC33816Mem::Tpeak_off, (MC_CK * 10));
+	mcUpdateDram(MC33816Mem::Tpeak_tot, (MC_CK * 700));
+	mcUpdateDram(MC33816Mem::Tbypass, (MC_CK * 15));
+	mcUpdateDram(MC33816Mem::Thold_off, (MC_CK * 60));
+	mcUpdateDram(MC33816Mem::Thold_tot, (MC_CK * 10000));
 
-	// // HPFP solenoid settings
-	// mcUpdateDram(MC33816Mem::HPFP_Ipeak,
-	// 	     dacEquation(engineConfiguration->mc33_hpfp_i_peak * 1000));
-	// mcUpdateDram(MC33816Mem::HPFP_Ihold,
-	// 	     dacEquation(engineConfiguration->mc33_hpfp_i_hold * 1000));
-	// mcUpdateDram(MC33816Mem::HPFP_Thold_off,
-	// 	     std::min(MC_CK * engineConfiguration->mc33_hpfp_i_hold_off,
-	// 		      UINT16_MAX));
-	// // Note, if I'm reading this right, the use of the short and the given clock speed means
-	// // the max time here is approx 10ms.
-	// mcUpdateDram(MC33816Mem::HPFP_Thold_tot,
-	// 	     std::min(MC_CK * 1000 * engineConfiguration->mc33_hpfp_max_hold,
-	// 		      UINT16_MAX));
+	// HPFP solenoid settings
+	mcUpdateDram(MC33816Mem::HPFP_Ipeak,
+		     dacEquation(5000));
+	mcUpdateDram(MC33816Mem::HPFP_Ihold,
+		     dacEquation(3000));
+	mcUpdateDram(MC33816Mem::HPFP_Thold_off,
+		     std::min(MC_CK * 10,
+			      UINT16_MAX));
+	// Note, if I'm reading this right, the use of the short and the given clock speed means
+	// the max time here is approx 10ms.
+	mcUpdateDram(MC33816Mem::HPFP_Thold_tot,
+		     std::min(MC_CK * 1000 * 10,
+			      UINT16_MAX));
 }
 
 void setBoostVoltage(float volts)
@@ -141,7 +147,7 @@ void setBoostVoltage(float volts)
 	}
 	// There's a 1/32 divider on the input, then the DAC's output is 9.77mV per LSB.  (1 / 32) / 0.00977 = 3.199 counts per volt.
 	unsigned short data = volts * 3.2;
-	mcUpdateDram(MC33816Mem::Vboost_high, data+1);
+	mcUpdateDram(MC33816Mem::Vboost_high, data + 1);
 	mcUpdateDram(MC33816Mem::Vboost_low, data /* -1 */);
 	// Remember to strobe driven!!
 }
@@ -406,13 +412,15 @@ int main() {
     download_register(REG_IO);      // download IO register configurations
     download_register(REG_DIAG);    // download diag register configuration
 
-    setTimings();
-
     // Finished downloading, let's run the code
     enable_flash();
 
-	// Set boost voltage
-    setBoostVoltage(65);
+	// Set boost voltage and injector configurations
+	setTimings();
+
+	// keep voltage safely low for now...
+	setBoostVoltage(40);
+	// setBoostVoltage(65);
 
     // TURN ON THE BOOST CONVERTER!
     palSetPad(GPIOB, 4);
