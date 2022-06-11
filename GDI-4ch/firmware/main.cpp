@@ -417,7 +417,10 @@ int main() {
 
 	// Set boost voltage and injector configurations
 	setTimings();
-    setBoostVoltage(65);
+
+	// keep voltage safely low for now...
+	setBoostVoltage(40);
+	// setBoostVoltage(65);
 
     // TURN ON THE BOOST CONVERTER!
     palSetPad(GPIOB, 4);
