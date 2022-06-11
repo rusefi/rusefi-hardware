@@ -1,4 +1,4 @@
-19886328816803819
+19889634597132700
 Audio_Module
 Reverb_BTDR-1H
 Digital Reverberation Unit, http://www.belton.co.kr/inc/downfile.php?seq=17&file=pdf (footprint from http://www.uk-electronic.de/PDF/BTDR-1.pdf)
@@ -84749,6 +84749,13 @@ XH-8A
 8
 8
 kicad6-libraries
+5-794632-4
+Molex Mini-Universal MATE-N-LOK, old mpn/engineering number: 1-794072-x, 12 Pins per row (http://www.te.com/commerce/DocumentDelivery/DDEController?Action=srchrtrv&DocNm=82181_SOFTSHELL_HIGH_DENSITY&DocType=CS&DocLang=EN), generated with kicad-footprint-generator
+connector TE MATE-N-LOK side entry
+0
+24
+24
+kicad6-libraries
 18_pin
 
 
@@ -84769,6 +84776,13 @@ Fuse
 0
 2
 2
+kicad6-libraries
+LQFP-64-1EP_10x10mm_P0.5mm_EP5x5mm_ThermalVias
+LQFP, 64 Pin (https://www.analog.com/media/en/technical-documentation/data-sheets/adv7611.pdf), generated with kicad-footprint-generator ipc_gullwing_generator.py
+LQFP QFP
+0
+100
+65
 kicad6-libraries
 MPX-4_MAP
 
