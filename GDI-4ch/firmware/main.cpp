@@ -147,7 +147,7 @@ void setBoostVoltage(float volts)
 	}
 	// There's a 1/32 divider on the input, then the DAC's output is 9.77mV per LSB.  (1 / 32) / 0.00977 = 3.199 counts per volt.
 	unsigned short data = volts * 3.2;
-	mcUpdateDram(MC33816Mem::Vboost_high, data+1);
+	mcUpdateDram(MC33816Mem::Vboost_high, data + 1);
 	mcUpdateDram(MC33816Mem::Vboost_low, data /* -1 */);
 	// Remember to strobe driven!!
 }
@@ -412,12 +412,11 @@ int main() {
     download_register(REG_IO);      // download IO register configurations
     download_register(REG_DIAG);    // download diag register configuration
 
-    setTimings();
-
     // Finished downloading, let's run the code
     enable_flash();
 
-	// Set boost voltage
+	// Set boost voltage and injector configurations
+	setTimings();
     setBoostVoltage(65);
 
     // TURN ON THE BOOST CONVERTER!
