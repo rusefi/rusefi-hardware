@@ -1,4 +1,4 @@
-19889634597132700
+19891289569714646
 Audio_Module
 Reverb_BTDR-1H
 Digital Reverberation Unit, http://www.belton.co.kr/inc/downfile.php?seq=17&file=pdf (footprint from http://www.uk-electronic.de/PDF/BTDR-1.pdf)
@@ -84783,6 +84783,13 @@ LQFP QFP
 0
 100
 65
+kicad6-libraries
+LQFP-80-1EP_12x12mm_P0.5mm
+LQFP, 80 Pin (https://www.nxp.com/docs/en/package-information/SOT315-1.pdf), generated with kicad-footprint-generator ipc_gullwing_generator.py
+LQFP QFP
+0
+116
+80
 kicad6-libraries
 MPX-4_MAP
 
