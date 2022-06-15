@@ -6,7 +6,7 @@
 
   (title_block
     (title "GDI 4ch")
-    (date "2022-06-03")
+    (date "2022-06-15")
     (rev "rev. b")
     (company "rusEFI.com")
   )
@@ -12322,8 +12322,8 @@
     (pin "62" (uuid 350f3170-2ba2-461f-b508-647af2aeda02))
     (pin "63" (uuid e4e35dde-3afb-473c-bc56-97ec03440de6))
     (pin "64" (uuid 95fd2152-1b6a-4eaf-ab64-decaf3e60d9c))
-    (pin "65" (uuid e96f41bb-fdf7-4a52-8d3a-a5b8ac245326))
-    (pin "65" (uuid e96f41bb-fdf7-4a52-8d3a-a5b8ac245326))
+    (pin "65" (uuid e96f41bb-fdf7-4a52-8d3a-a5b8ac245328))
+    (pin "65" (uuid e96f41bb-fdf7-4a52-8d3a-a5b8ac245328))
     (pin "7" (uuid 01d85f78-0ee3-457f-b1d6-43bd39f6b41e))
     (pin "8" (uuid e249d1c7-db92-4490-a2be-95dc5015af2b))
     (pin "9" (uuid ff222301-4260-4ed7-8e82-fda900cce399))

@@ -17,3 +17,5 @@ D34 STTH802G-TR -> SDURB1020CT
 U4 74HC14 change partnumber C6821 -> C5606
 
 MOSFETs change partnumber C194346 -> C89735
+
+Fixed Shunt 1206 footprint https://github.com/rusefi/rusefi-hardware/issues/101
