@@ -3644,7 +3644,7 @@
 
   (footprint "hellen-one-common:PAD-0805-PAD" placed (layer "F.Cu")
     (tedit 62012964) (tstamp 40fea734-6b43-43d3-8de2-5cf1fbb393f9)
-    (at 41.705391 90.450391)
+    (at 23.5 63.7)
     (property "LCSC" "")
     (property "Sheetfile" "GDI-6ch.kicad_sch")
     (property "Sheetname" "")
