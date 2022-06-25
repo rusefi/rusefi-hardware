@@ -4,14 +4,14 @@
 #include "chprintf.h"
 
 io_pin addrPins[] = {
-{GPIOC, 8},
+{GPIOC, 8}, // ADR0
 {GPIOC, 6},
 {GPIOC, 5},
 {GPIOA, 6},
 };
 
 io_pin scenarioPins[] = {
-{GPIOB, 12},
+{GPIOB, 12}, // OUT0
 {GPIOB, 11},
 {GPIOC, 7},
 {GPIOC, 4},
@@ -33,7 +33,7 @@ void initDigitalInputs() {
     */
 }
 
-void setOutputIndex(int index) {
+void setOutputAddrIndex(int index) {
     int param = index;
     for (size_t i = 0;i<efi::size(addrPins);i++) {
         int bitState = index & 1;
