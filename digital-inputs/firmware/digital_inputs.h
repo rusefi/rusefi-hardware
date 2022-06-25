@@ -8,5 +8,8 @@ ioportmask_t pin;
 };
 
 void initDigitalInputs();
-void setOutputIndex(int index);
+/**
+ * controls what input channel we are sensing
+ */
+void setOutputAddrIndex(int index);
 void setScenarioIndex(int index);

@@ -59,16 +59,18 @@ static void ConsoleThread(void*) {
 //            chprintf(chp, " ");
 //        }
 
-        for (int s = 0;s<16;s++) {
-  setOutputIndex(7 - 1);
+        chprintf(chp, "Hello\r\n");
+        //for (int s = 0;s<16;s++)
+        int s = (s + 1) % 2;
+        {
+            setOutputAddrIndex(1);
             setScenarioIndex(s);
 
             chprintf(chp, "%d: %1.3f mV\r\n", s, getAdcValue(0));
         }
 
 
-        chprintf(chp, "Hello\r\n");
-        chThdSleepMilliseconds(200);
+        chThdSleepMilliseconds(1000);
     }
 }
 
