@@ -7,6 +7,19 @@
 
 #pragma once
 
+enum {
+	CODE_RAM1,
+	CODE_RAM2,
+	DATA_RAM
+};
+enum {
+	REG_MAIN,
+	REG_CH1,
+	REG_CH2,
+	REG_IO,
+	REG_DIAG
+};
+
 extern const unsigned short MC33816_code_RAM1[88];    // CODE RAM CH 1
 extern const unsigned short MC33816_code_RAM2[43];    // CODE RAM CH 2
 extern const unsigned short MC33816_data_RAM[128];    // DATA RAM
