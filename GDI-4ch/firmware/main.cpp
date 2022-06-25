@@ -8,7 +8,6 @@
 
 #include "mc33816_control.h"
 #include "mc33816_data.h"
-#include "mc33816_memory_map.h"
 
 #include <algorithm>
 
@@ -46,34 +45,6 @@ static const SPIConfig spiCfg = {
 };
 
 auto driver = &SPID1;
-
-// Read a single word in Data RAM
-unsigned short mcReadDram(MC33816Mem addr) {
-	unsigned short readValue;
-	spiSelect(driver);
-	// Select Channel command, Common Page
-    spi_writew(0x7FE1);
-    spi_writew(0x0004);
-    // read (MSB=1) at data ram x9 (SCV_I_Hold), and 1 word
-    spi_writew((0x8000 | addr << 5) + 1);
-    readValue = recv_16bit_spi();
-
-    spiUnselect(driver);
-    return readValue;
-}
-
-// Update a single word in Data RAM
-void mcUpdateDram(MC33816Mem addr, uint16_t data) {
-	spiSelect(driver);
-	// Select Channel command, Common Page
-    spi_writew(0x7FE1);
-    spi_writew(0x0004);
-    // write (MSB=0) at data ram x9 (SCV_I_Hold), and 1 word
-    spi_writew((addr << 5) + 1);
-    spi_writew(data);
-
-    spiUnselect(driver);
-}
 
 static uint16_t dacEquation(float milliampere) {
 	/*
