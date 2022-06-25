@@ -29,8 +29,7 @@ const int MC_CK = 6; // PLL x24 / CLK_DIV 4 = 6Mhz
 
 const int MAX_SPI_MODE_A_TRANSFER_SIZE = 31;  //max size for register config transfer
 
-
-
+bool isOverallHappyStatus = 0;
 
 static const SPIConfig spiCfg = {
     .circular = false,
@@ -393,8 +392,10 @@ int main() {
         if ((id >> 8) == 0x9D) {
             // happy board - green D21 blinking
             palTogglePad(LED_GREEN_PORT, LED_GREEN_PIN);
+            isOverallHappyStatus = true;
         } else {
             palTogglePad(LED_BLUE_PORT, LED_BLUE_PIN);
+            isOverallHappyStatus = false;
         }
 
         chThdSleepMilliseconds(100);
