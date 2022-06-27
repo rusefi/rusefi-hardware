@@ -13,10 +13,10 @@ static io_pin addrPins[] = {
 };
 
 static io_pin scenarioPins[] = {
-{GPIOB, 12}, // OUT0
-{GPIOB, 11},
+{GPIOB, 12}, // OUT0 - this controls pull-up/pull-down on pads  #1-16
+{GPIOB, 11}, //                                                 17-32
 {GPIOC, 7},
-{GPIOC, 4},
+{GPIOC, 4},  // only test 49
 };
 
 static io_pin muxOff = {GPIOA, 7};
@@ -44,7 +44,7 @@ void setOutputAddrIndex(int index) {
         int bitState = (index & 1) ^ XOR_MAGIC;
         index = index / 2;
         io_pin *pin = &addrPins[i];
-        chprintf(chp, "output %d: bit=%d %d\n", param, i, bitState);
+        chprintf(chp, "output %d: ADDR bit=%d %d\n", param, i, bitState);
         palWritePad(pin->port, pin->pin, bitState);
     }
 }
@@ -52,6 +52,7 @@ void setOutputAddrIndex(int index) {
 void setScenarioIndex(int index) {
     for (size_t i = 0;i<efi::size(scenarioPins);i++) {
         int bitState = index & 1;
+        // please note lack of XOR
         index = index / 2;
         io_pin *pin = &scenarioPins[i];
         palWritePad(pin->port, pin->pin, bitState);

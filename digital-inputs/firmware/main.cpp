@@ -14,6 +14,16 @@
     limitations under the License.
 */
 
+/**
+ * big picture:
+ * For each test pad we can do pull-up, pull-down and floating state (by turning mux off)
+ * each of those tests should be executed twice:
+ * first time while external device informs us that logic level is ON
+ * second time while external device informs us that logic level is OFF
+ /
+
+
+
 #include "global.h"
 #include "usbconsole.h"
 #include "usbcfg.h"
@@ -66,7 +76,7 @@ static void ConsoleThread(void*) {
             setOutputAddrIndex(1);
             setScenarioIndex(s);
 
-            chprintf(chp, "%d: %1.3f mV\r\n", s, getAdcValue(0));
+            chprintf(chp, "scenario=%d: %1.3f V\r\n", s, getAdcValue(0));
         }
 
 
