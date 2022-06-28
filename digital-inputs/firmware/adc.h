@@ -10,6 +10,6 @@ typedef uint16_t adcsample_t;
 void initAnalogInputs();
 adcsample_t getAdcRawValue(int channel);
 /*
- * valud in volts
- /
+ * value in volts
+ */
 float getAdcValue(int channel);
