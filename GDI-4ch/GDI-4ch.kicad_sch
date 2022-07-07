@@ -6,7 +6,7 @@
 
   (title_block
     (title "GDI 4ch")
-    (date "2022-06-30")
+    (date "2022-07-07")
     (rev "rev. c")
     (company "rusEFI.com")
   )
@@ -4863,6 +4863,7 @@
     )
   )
 
+
   (junction (at 353.06 295.91) (diameter 0) (color 0 0 0 0)
     (uuid 018d7b91-2eb1-4be4-ae29-4bcb3211d8da)
   )
@@ -5551,6 +5552,7 @@
   (no_connect (at 487.68 312.42) (uuid 9a656f79-1773-4aed-95d1-68772fc291f8))
   (no_connect (at 546.1 129.54) (uuid a7efa351-0c9d-434a-8d68-3bba5c522efa))
   (no_connect (at 556.26 106.68) (uuid abb9e85f-07b8-431a-b734-eb09ab5c367e))
+  (no_connect (at 482.6 143.51) (uuid abdec8d7-f3a7-46a6-8eef-4ef46f88cb93))
   (no_connect (at 44.45 314.96) (uuid daad358b-db10-40b7-b0b8-b85ee512b96a))
   (no_connect (at 44.45 317.5) (uuid daad358b-db10-40b7-b0b8-b85ee512b96b))
   (no_connect (at 44.45 320.04) (uuid daad358b-db10-40b7-b0b8-b85ee512b96c))
@@ -8262,10 +8264,6 @@
   (text "LED1" (at 422.91 97.79 0)
     (effects (font (size 1.524 1.524)) (justify left bottom))
     (uuid 9ae5ce7f-250d-469b-b50c-44f2f30ae7de)
-  )
-  (text "INJ" (at 312.42 320.04 0)
-    (effects (font (size 1.524 1.524)) (justify left bottom))
-    (uuid dede957b-5631-4d79-aed4-0bdeaed83abf)
   )
   (text "INJECTOR BANK 2\n" (at 281.94 245.11 0)
     (effects (font (size 1.524 1.524)) (justify left bottom))
@@ -12758,8 +12756,8 @@
     (pin "62" (uuid 350f3170-2ba2-461f-b508-647af2aeda02))
     (pin "63" (uuid e4e35dde-3afb-473c-bc56-97ec03440de6))
     (pin "64" (uuid 95fd2152-1b6a-4eaf-ab64-decaf3e60d9c))
-    (pin "65" (uuid e96f41bb-fdf7-4a52-8d3a-a5b8ac24532e))
-    (pin "65" (uuid e96f41bb-fdf7-4a52-8d3a-a5b8ac24532e))
+    (pin "65" (uuid e96f41bb-fdf7-4a52-8d3a-a5b8ac24532f))
+    (pin "65" (uuid e96f41bb-fdf7-4a52-8d3a-a5b8ac24532f))
     (pin "7" (uuid 01d85f78-0ee3-457f-b1d6-43bd39f6b41e))
     (pin "8" (uuid e249d1c7-db92-4490-a2be-95dc5015af2b))
     (pin "9" (uuid ff222301-4260-4ed7-8e82-fda900cce399))
