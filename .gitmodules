@@ -14,3 +14,6 @@
 [submodule "openblt"]
 	path = openblt
 	url = https://github.com/rusefi/openblt
+[submodule "ext/openblt"]
+	path = ext/openblt
+	url = https://github.com/rusefi/openblt
