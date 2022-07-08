@@ -1,1 +1,1 @@
-bash.exe 
+bash.exe compile_with_openblt.sh
