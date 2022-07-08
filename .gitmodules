@@ -8,9 +8,9 @@
 [submodule "GDI-4ch/hellen-one"]
 	path = GDI-4ch/hellen-one
 	url = https://github.com/andreika-git/hellen-one
-[submodule "hellen-one"]
-	path = hellen-one
-	url = https://github.com/andreika-git/hellen-one
 [submodule "ext/openblt"]
 	path = ext/openblt
 	url = https://github.com/rusefi/openblt
+[submodule "ext/hellen-one"]
+	path = ext/hellen-one
+	url = https://github.com/andreika-git/hellen-one
