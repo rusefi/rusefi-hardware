@@ -1,0 +1,21 @@
+#
+# see https://help.github.com/articles/dealing-with-line-endings/
+#
+
+# Set the default behavior, in case people don't have core.autocrlf set.
+* text=auto
+
+# Explicitly declare text files you want to always be normalized and converted
+# to Unix line endings on checkout.
+*.c text eol=lf
+*.cpp text eol=lf
+*.h text eol=lf
+*.xml text eol=lf
+*.mk text eol=lf
+*.java text eol=lf
+*.bat text eol=lf
+*.sh text eol=lf
+*.txt text eol=lf
+*.yaml text eol=lf
+*.rules text eol=lf
+
