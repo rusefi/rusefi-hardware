@@ -15,3 +15,8 @@
 // D21
 #define LED_GREEN_PORT GPIOA
 #define LED_GREEN_PIN 8
+
+// Communication - CAN1
+#define CAN_GPIO_PORT				GPIOA
+#define CAN_TX_PIN				12
+#define CAN_RX_PIN				11
