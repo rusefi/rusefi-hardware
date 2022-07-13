@@ -3,6 +3,8 @@
 
 #include "fault.h"
 #include "io_pins.h"
+#include <cstdint>
+#include <cstring>
 
 static const CANConfig canConfig500 =
 {
@@ -11,13 +13,35 @@ static const CANConfig canConfig500 =
     // TODO: set bit timing! correctly!
 };
 
+void SendSomething()
+{
+    auto baseAddress = 0x156;
+
+    {
+        CANTxFrame m_frame;
+
+	    m_frame.IDE = CAN_IDE_STD;
+	    m_frame.EID = 0;
+	    m_frame.SID = baseAddress;
+	    m_frame.RTR = CAN_RTR_DATA;
+	    m_frame.DLC = 8;
+	    memset(m_frame.data8, 0, sizeof(m_frame.data8));
+	    m_frame.data8[3] = 0x33;
+	    m_frame.data8[6] = 0x66;
+
+    	canTransmitTimeout(&CAND1, CAN_ANY_MAILBOX, &m_frame, TIME_IMMEDIATE);
+    }
+
+}
+
 static THD_WORKING_AREA(waCanTxThread, 256);
 void CanTxThread(void*)
 {
     while(1)
     {
+        SendSomething();
 
-        chThdSleepMilliseconds(100);
+        chThdSleepMilliseconds(10);
     }
 }
 
