@@ -10,5 +10,6 @@ See https://github.com/mck1117/wideband
 * 2x7 debug port moved to top side
 * VBatt sense added
 
-rev 1: 
+# rev 1
+
 * PWM required HW hacks
