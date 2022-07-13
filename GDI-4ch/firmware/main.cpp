@@ -6,10 +6,22 @@
 #include "uart.h"
 #include "io_pins.h"
 
+#include "hal_mfs.h"
+
 #include "mc33816_control.h"
 #include "mc33816_data.h"
 
 #include <algorithm>
+
+const MFSConfig mfscfg1 = {
+  .flashp           = (BaseFlash *)&EFLD1,
+  .erased           = 0xFFFFFFFFU,
+  .bank_size        = 1024U,
+  .bank0_start      = 126U,
+  .bank0_sectors    = 1U,
+  .bank1_start      = 127U,
+  .bank1_sectors    = 1U
+};
 
 static void InitPins() {
     // stm32 TX - dongle RX often White
