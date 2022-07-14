@@ -5,23 +5,12 @@
 #include "fault.h"
 #include "uart.h"
 #include "io_pins.h"
-
-#include "hal_mfs.h"
+#include "persistence.h"
 
 #include "mc33816_control.h"
 #include "mc33816_data.h"
 
 #include <algorithm>
-
-const MFSConfig mfscfg1 = {
-  .flashp           = (BaseFlash *)&EFLD1,
-  .erased           = 0xFFFFFFFFU,
-  .bank_size        = 1024U,
-  .bank0_start      = 126U,
-  .bank0_sectors    = 1U,
-  .bank1_start      = 127U,
-  .bank1_sectors    = 1U
-};
 
 static void InitPins() {
     // stm32 TX - dongle RX often White
@@ -123,6 +112,8 @@ void setBoostVoltage(float volts)
 	// Remember to strobe driven!!
 }
 
+// todo: use me!!
+/*
 static bool check_flash() {
 	spiSelect(driver);
 
@@ -146,6 +137,7 @@ static bool check_flash() {
     spiUnselect(driver);
 	return true;
 }
+*/
 
 static unsigned short readDriverStatus(){
 	unsigned short driverStatus;
@@ -336,6 +328,7 @@ int main() {
     // Fire up all of our threads
 
     InitPins();
+    InitFlash();
     InitCan();
     InitUart();
 

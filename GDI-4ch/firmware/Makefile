@@ -133,6 +133,7 @@ CSRC = $(ALLCSRC) \
 CPPSRC = $(ALLCPPSRC) \
         uart.cpp \
         mc33816_control.cpp \
+        persistence.cpp \
         can.cpp \
         fault.cpp \
           main.cpp
