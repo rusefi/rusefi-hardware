@@ -18,7 +18,7 @@ ifeq ($(USE_CPPOPT),)
   USE_CPPOPT = -fno-rtti -fno-exceptions -ffast-math -funsafe-math-optimizations -fno-threadsafe-statics -fno-use-cxa-atexit
   USE_CPPOPT += -std=c++2a	
 endif
-
+                           
 # Enable this if you want the linker to remove unused code and data.
 ifeq ($(USE_LINK_GC),)
   USE_LINK_GC = yes
@@ -26,7 +26,7 @@ endif
 
 # Linker extra options here.
 ifeq ($(USE_LDOPT),)
-  USE_LDOPT = 
+  USE_LDOPT =  
 endif
 
 # Enable this if you want link time optimizations (LTO).
@@ -84,7 +84,7 @@ endif
 #
 
 # Define project name here
-PROJECT = sent
+PROJECT = sent_box_blue_pill
 
 # Target settings.
 MCU  = cortex-m3
@@ -119,8 +119,11 @@ include $(CHIBIOS)/tools/mk/autobuild.mk
 include $(CHIBIOS)/os/hal/lib/streams/streams.mk
 
 # Define linker script file here
+ifeq ("$(USE_OPENBLT)","yes") 
+LDSCRIPT= STM32F103xB_sent.ld
+else
 LDSCRIPT= $(STARTUPLD)/STM32F103xB.ld
-
+endif
 # C sources that can be compiled in ARM or THUMB mode depending on the global
 # setting.
 CSRC = $(ALLCSRC)
@@ -157,6 +160,8 @@ CPPWARN = -Wall -Wextra -Wundef
 ##############################################################################
 # Start of user section
 #
+
+SREC = $(CP) -O srec
 
 # List all user C define here, like -D_DEBUG=1
 UDEFS =
