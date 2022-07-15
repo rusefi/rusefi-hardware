@@ -5,6 +5,7 @@
 #include "fault.h"
 #include "uart.h"
 #include "io_pins.h"
+#include "persistence.h"
 
 #include "mc33816_control.h"
 #include "mc33816_data.h"
@@ -111,6 +112,8 @@ void setBoostVoltage(float volts)
 	// Remember to strobe driven!!
 }
 
+// todo: use me!!
+/*
 static bool check_flash() {
 	spiSelect(driver);
 
@@ -134,6 +137,7 @@ static bool check_flash() {
     spiUnselect(driver);
 	return true;
 }
+*/
 
 static unsigned short readDriverStatus(){
 	unsigned short driverStatus;
@@ -324,6 +328,7 @@ int main() {
     // Fire up all of our threads
 
     InitPins();
+    InitFlash();
     InitCan();
     InitUart();
 
