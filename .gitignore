@@ -5,6 +5,9 @@
 *-rescue.lib
 rescue-backup
 *.sch-bak
+deliver
+*obj*
+*bin*
 
 
 #
