@@ -20,8 +20,7 @@
 #include "can.h"
 #include "sent.h"
 
-#define BL_PORT GPIOC
-#define BL_PIN 13
+#include "./io/io_pins.h"
 
 /*
  * Red LED blinker thread, times are in milliseconds.
@@ -32,9 +31,9 @@ static THD_FUNCTION(Thread1, arg) {
   (void)arg;
   chRegSetThreadName("blinker");
   while (TRUE) {
-    palClearPad(BL_PORT, BL_PIN);
+    palClearPad(LED_BLUE_PORT, LED_BLUE_PIN);
     chThdSleepMilliseconds(30);
-    palSetPad(BL_PORT, BL_PIN);
+    palSetPad(LED_BLUE_PORT, LED_BLUE_PIN);
     chThdSleepMilliseconds(30);
   }
  return;
@@ -55,7 +54,7 @@ int main(void) {
   halInit();
   chSysInit();
 
-  palSetPadMode(BL_PORT, BL_PIN, PAL_MODE_OUTPUT_PUSHPULL);
+  palSetPadMode(LED_BLUE_PORT, LED_BLUE_PIN, PAL_MODE_OUTPUT_PUSHPULL);
 
   /*
    * Creates the blinker thread.
