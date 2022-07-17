@@ -48,7 +48,7 @@ if [ $USE_OPENBLT = "yes" ]; then
 
   echo ""
   echo "Invoking hex2dfu for incremental SENT-box image (for DFU util)"
-  $HEX2DFU -i SENT-box/firmware/build/sent.hex -C 0x1C -o SENT-box/firmware/${DELIVER_DIR}/sent_box_update.dfu
+  $HEX2DFU -i SENT-box/firmware/build/sent_box_${BOARD}.hex -C 0x1C -o SENT-box/firmware/${DELIVER_DIR}/sent_box_update.dfu
 
   echo ""
   echo "Invoking hex2dfu for OpenBLT (for DFU util)"
@@ -60,7 +60,7 @@ if [ $USE_OPENBLT = "yes" ]; then
 
   echo ""
   echo "Invoking hex2dfu for composite OpenBLT+SENT image (for DFU util)"
-  $HEX2DFU -i SENT-box/firmware/openblt/bin/openblt_${BOARD}.hex -i SENT-box/firmware/build/sent_box_${BOARD}.hex -C 0x1C -o SENT-box/firmware/${DELIVER_DIR}/sent_box_openblt.dfu -b SENT-box/firmware/${DELIVER_DIR}/sent_box_openblt.bin
+  $HEX2DFU -i SENT-box/firmware/openblt/bin/openblt_${BOARD}.hex -i SENT-box/firmware/build/sent_box_${BOARD}.hex -C 0x1C -o SENT-box/firmware/${DELIVER_DIR}/sent_box_openblt.dfu -b SENT-box/firmware/${DELIVER_DIR}/sent_box_openblt.bin 
 else
   echo "Bin for raw flashing"
   cp SENT-box/firmware/build/sent_box_${BOARD}.bin SENT-box/firmware/${DELIVER_DIR}/sent_box.bin
