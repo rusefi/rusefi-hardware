@@ -20,7 +20,7 @@
 MEMORY
 {
     /* flash0 (rx) : org = 0x08000000, len = 128k   */
-    flash0 (rx) : org = 0x08000000 + 8k, len = 128k - 1k - 8k	
+    flash0 (rx) : org = DEFINED(USE_BOOTLOADER) ? (0x08000000 + 8k) : 0x08000000, len = DEFINED(USE_BOOTLOADER) ? (128k - 8k) : (128k)
     flash1 (rx) : org = 0x00000000, len = 0
     flash2 (rx) : org = 0x00000000, len = 0
     flash3 (rx) : org = 0x00000000, len = 0
