@@ -119,11 +119,7 @@ include $(CHIBIOS)/tools/mk/autobuild.mk
 include $(CHIBIOS)/os/hal/lib/streams/streams.mk
 
 # Define linker script file here
-ifeq ("$(USE_OPENBLT)","yes") 
 LDSCRIPT= STM32F103xB_sent.ld
-else
-LDSCRIPT= $(STARTUPLD)/STM32F103xB.ld
-endif
 # C sources that can be compiled in ARM or THUMB mode depending on the global
 # setting.
 CSRC = $(ALLCSRC)
@@ -177,6 +173,11 @@ ULIBDIR =
 
 # List all user libraries here
 ULIBS =
+
+ifeq ($(USE_OPENBLT),yes)
+  # Reserve start of flash for OpenBLT
+  USE_OPT += -Wl,--defsym=USE_BOOTLOADER=1
+endif
 
 #
 # End of user section
