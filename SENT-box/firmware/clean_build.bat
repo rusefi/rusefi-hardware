@@ -2,7 +2,6 @@ rem make, gcc, Windows and Cygwin combined have some issue with spaces or colons
 rem that's more or less 'make clean' 
 rd /s /q .dep
 rd /s /q build
-make clean
 
 rem that's 'make' with some extra utilities
-rem compile.bat
+compile.bat
