@@ -1,5 +1,5 @@
 Comment,Designator,Footprint,LCSC
-"100n","C1,C8,C20,C23,C28,C32,C34,C59,C66,C69,C70,C72,C75,C76,C77,C78,C79","hellen-one-common:C0603","C14663"
+"100n","C1,C8,C20,C23,C28,C32,C34,C59,C66,C69,C70,C72,C75,C76,C77,C78,C79,C92","hellen-one-common:C0603","C14663"
 "330p","C10,C11,C13,C24,C60,C73","hellen-one-common:C0603","C576850"
 "4.7u","C12,C26","hellen-one-common:C0603","C19666"
 "390uF","C14,C15,C16,C21,C22,C25,C27,C83","Capacitor_SMD:CP_Elec_16x17.5","C487421"
@@ -51,6 +51,7 @@ Comment,Designator,Footprint,LCSC
 "10K","R50,R51,R52,R53,R54","Resistor_SMD:R_0603_1608Metric","C25804"
 "470K","R6,R29,R31,R33","Resistor_SMD:R_0603_1608Metric","C23178"
 "TestPoint","S1,S2,S3,S4,S5,S6","TestPoint:TestPoint_Pad_D1.5mm",""
+"Button_SPST","S7,S8","hellen-one-common:SMD-2_2.9x3.9x1.7","C115357"
 "MC33816","U1","kicad6-libraries:LQFP-64-1EP_10x10mm_P0.5mm_EP5x5mm_ThermalVias",""
 "TJA1051T-3","U2","Package_SO:SOIC-8_3.9x4.9mm_P1.27mm","C38695"
 "LM78M05_TO252","U3","Package_TO_SOT_SMD:TO-252-2","C58069"
