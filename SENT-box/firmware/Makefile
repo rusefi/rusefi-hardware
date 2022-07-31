@@ -132,7 +132,7 @@ CPPSRC = $(ALLCPPSRC) \
 	can.cpp \
 	uart.cpp \
 	sent.cpp \
-	sent_hw_icu.cpp \
+	sent_hw_pal.cpp \
 
 # List ASM source files here.
 ASMSRC = $(ALLASMSRC)

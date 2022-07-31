@@ -8,7 +8,7 @@
 #ifndef SENT_HW_ICU_H_
 #define SENT_HW_ICU_H_
 
-#define SENT_ICU_FREQ       400000 // 2.5 us
+#define SENT_ICU_FREQ       1000000 // 1 us
 
 #define SENT_ICUD_CH1 ICUD4
 #define SENT_ICUD_CH2 ICUD3

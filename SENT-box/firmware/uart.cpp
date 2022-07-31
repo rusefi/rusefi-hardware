@@ -18,7 +18,7 @@ static const UARTConfig uartCfg =
     .timeout = 0,
 #endif
 
-    .speed = 115200,
+    .speed = 38400,
     .cr1 = 0,
     .cr2 = 0,
     .cr3 = 0,
@@ -31,12 +31,36 @@ static THD_WORKING_AREA(waUartThread, 256);
 
 static void UartThread(void*)
 {
+    size_t writeCount;
+
     while(true)
     {
 
-        size_t writeCount = chsnprintf(printBuffer, 200, "%04d %04d %04d %04d err %04d %04d %04d %04d\r\n",
+#if SENT_DEV == SENT_GM_ETB
+      if(SENT_IsRawData())
+      {
+          uint8_t TempRawBuf[8];
+
+          SENT_GetRawData(TempRawBuf);
+
+          writeCount = chsnprintf(printBuffer, 200, "%03d %03d %03d %03d %03d %03d %03d %03d err %06d %06d %06d %06d %06d\r\n",
+                                                TempRawBuf[0], TempRawBuf[1], TempRawBuf[2], TempRawBuf[3], TempRawBuf[4], TempRawBuf[5], TempRawBuf[6], TempRawBuf[7],
+                                                SENT_GetIntervalErr(), SENT_GetMaxIntervalErrCnt(), SENT_GetSyncErrCnt(), SENT_GetCrcErrCnt(),
+                                                SENT_GetSyncCnt());
+      }
+      else
+      {
+          writeCount = chsnprintf(printBuffer, 200, "%04d %04d %03d err %06d %06d %06d %06d %06d\r\n",
+                                      SENT_GetOpenThrottleVal(), SENT_GetClosedThrottleVal(), SENT_GetThrottleValPrec(),
+                                      SENT_GetIntervalErr(), SENT_GetMaxIntervalErrCnt(), SENT_GetSyncErrCnt(), SENT_GetCrcErrCnt(),
+                                      SENT_GetSyncCnt());
+      }
+#elif SENT_DEV == SENT_SILABS_SENS
+        size_t writeCount = chsnprintf(printBuffer, 200, "%04d %04d %04d %04d err %06d %06d %06d %06d %06d %06d\r\n",
                                          SENT_GetData(SENT_CH1), SENT_GetData(SENT_CH2),  SENT_GetData(SENT_CH3),  SENT_GetData(SENT_CH4),
-                                         SENT_GetIntervalErrCnt(), SENT_GetSyncErrCnt(), SENT_GetRollErrCnt(), SENT_GetCrcErrCnt());
+                                         SENT_GetMinIntervalErrCnt(), SENT_GetMaxIntervalErrCnt(), SENT_GetSyncErrCnt(),
+                                         SENT_GetRollErrCnt(), SENT_GetCrcErrCnt(), SENT_GetSyncCnt());
+#endif
         uartStartSend(&UARTD1, writeCount, printBuffer);
 
         chThdSleepMilliseconds(20);
