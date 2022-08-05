@@ -3442,7 +3442,7 @@
       (net 26 "/CAN_H") (pintype "bidirectional") (tstamp de3d90d4-6e85-45e4-99a7-4c440e95925d))
     (pad "26" thru_hole circle locked (at 15 -1.5) (size 1.05 1.05) (drill 0.8) (layers *.Cu *.Mask)
       (net 28 "/CAN_L") (pintype "bidirectional") (tstamp 14e8320e-46fa-4ce0-a856-9750e76bd68a))
-    (model "C:/Users/denis/Desktop/3D model/Boshun/K3D-MX23A26NF1-R5 JAE Connector Division Proprietary.IGS"
+    (model "C:/Users/1/Desktop/kicad6-libraries/3d/K3D-MX23A26NF1-R5 JAE Connector Division Proprietary.IGS"
       (offset (xyz 0 31.3 8.5))
       (scale (xyz 1 1 1))
       (rotate (xyz -90 0 180))
