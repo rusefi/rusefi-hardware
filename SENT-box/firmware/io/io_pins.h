@@ -27,6 +27,8 @@
 
 // Communication - UART
 #define UART_GPIO_PORT				GPIOA
+  // stm32 TX/UART1 - dongle RX often White
 #define UART_TX_PIN				9
+  // stm32 RX/UART1 - dongle TX often Green
 #define UART_RX_PIN				10
 #define UART_BAUD_RATE      38400
