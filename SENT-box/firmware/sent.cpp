@@ -44,46 +44,48 @@ uint8_t sentRawData = 0;
 
 uint32_t sentIntervalErr = 0;
 
+#define UNEXPECTED_VALUE 0xFF
+
 const uint8_t sentLookupTable[] =
 {
-        0xFF,   // 0
-        0xFF,   // 1
-        0xFF,   // 2
-        0xFF,   // 3
-        0xFF,   // 4
-        0xFF,   // 5
-        0xFF,   // 6
-        0xFF,   // 7
-        0xFF,   // 8
-        0xFF,   // 9
-        0xFF,   // 10
-        0xFF,   // 11
-        0xFF,   // 12
-        0xFF,   // 13
-        0xFF,   // 14
-        0xFF,   // 15
-        0xFF,   // 16
-        0xFF,   // 17
-        0xFF,   // 18
-        0xFF,   // 19
-        0xFF,   // 20
-        0xFF,   // 21
-        0xFF,   // 22
-        0xFF,   // 23
-        0xFF,   // 24
-        0xFF,   // 25
-        0xFF,   // 26
-        0xFF,   // 27
-        0xFF,   // 28
-        0xFF,   // 29
-        0xFF,   // 30
-        0xFF,   // 31
-        0xFF,   // 32
-        0xFF,   // 33
-        0xFF,   // 34
-        0xFF,   // 35
-        0xFF,   // 36
-        0xFF,   // 37
+        UNEXPECTED_VALUE,   // 0
+        UNEXPECTED_VALUE,   // 1
+        UNEXPECTED_VALUE,   // 2
+        UNEXPECTED_VALUE,   // 3
+        UNEXPECTED_VALUE,   // 4
+        UNEXPECTED_VALUE,   // 5
+        UNEXPECTED_VALUE,   // 6
+        UNEXPECTED_VALUE,   // 7
+        UNEXPECTED_VALUE,   // 8
+        UNEXPECTED_VALUE,   // 9
+        UNEXPECTED_VALUE,   // 10
+        UNEXPECTED_VALUE,   // 11
+        UNEXPECTED_VALUE,   // 12
+        UNEXPECTED_VALUE,   // 13
+        UNEXPECTED_VALUE,   // 14
+        UNEXPECTED_VALUE,   // 15
+        UNEXPECTED_VALUE,   // 16
+        UNEXPECTED_VALUE,   // 17
+        UNEXPECTED_VALUE,   // 18
+        UNEXPECTED_VALUE,   // 19
+        UNEXPECTED_VALUE,   // 20
+        UNEXPECTED_VALUE,   // 21
+        UNEXPECTED_VALUE,   // 22
+        UNEXPECTED_VALUE,   // 23
+        UNEXPECTED_VALUE,   // 24
+        UNEXPECTED_VALUE,   // 25
+        UNEXPECTED_VALUE,   // 26
+        UNEXPECTED_VALUE,   // 27
+        UNEXPECTED_VALUE,   // 28
+        UNEXPECTED_VALUE,   // 29
+        UNEXPECTED_VALUE,   // 30
+        UNEXPECTED_VALUE,   // 31
+        UNEXPECTED_VALUE,   // 32
+        UNEXPECTED_VALUE,   // 33
+        UNEXPECTED_VALUE,   // 34
+        UNEXPECTED_VALUE,   // 35
+        UNEXPECTED_VALUE,   // 36
+        UNEXPECTED_VALUE,   // 37
         0,  // 38
         0,  // 39
         0,  // 40
@@ -99,7 +101,7 @@ const uint8_t sentLookupTable[] =
         4,  // 50
         4,  // 51
         4,  // 52
-        0xFF,   // 53
+        UNEXPECTED_VALUE,   // 53
         5,  // 54
         5,  // 55
         5,  // 56
@@ -112,7 +114,7 @@ const uint8_t sentLookupTable[] =
         8,  // 63
         8,  // 64
         8,  // 65
-        0xFF,   // 66
+        UNEXPECTED_VALUE,   // 66
         9,  // 67
         9,  // 68
         9,  // 69
@@ -125,7 +127,7 @@ const uint8_t sentLookupTable[] =
         12,     // 76
         12,     // 77
         12,     // 78
-        0xFF,   // 79
+        UNEXPECTED_VALUE,   // 79
         13,     // 80
         13,     // 81
         13,     // 82
@@ -135,100 +137,100 @@ const uint8_t sentLookupTable[] =
         15,     // 86
         15,     // 87
         15,     // 88
-        0xFF,   // 89
-        0xFF,   // 90
-        0xFF,   // 91
-        0xFF,   // 92
-        0xFF,   // 93
-        0xFF,   // 94
-        0xFF,   // 95
-        0xFF,   // 96
-        0xFF,   // 97
-        0xFF,   // 98
-        0xFF,   // 99
-        0xFF,   // 100
-        0xFF,   // 101
-        0xFF,   // 102
-        0xFF,   // 103
-        0xFF,   // 104
-        0xFF,   // 105
-        0xFF,   // 106
-        0xFF,   // 107
-        0xFF,   // 108
-        0xFF,   // 109
-        0xFF,   // 110
-        0xFF,   // 111
-        0xFF,   // 112
-        0xFF,   // 113
-        0xFF,   // 114
-        0xFF,   // 115
-        0xFF,   // 116
-        0xFF,   // 117
-        0xFF,   // 118
-        0xFF,   // 119
-        0xFF,   // 120
-        0xFF,   // 121
-        0xFF,   // 122
-        0xFF,   // 123
-        0xFF,   // 124
-        0xFF,   // 125
-        0xFF,   // 126
-        0xFF,   // 127
-        0xFF,   // 128
-        0xFF,   // 129
-        0xFF,   // 130
-        0xFF,   // 131
-        0xFF,   // 132
-        0xFF,   // 133
-        0xFF,   // 134
-        0xFF,   // 135
-        0xFF,   // 136
-        0xFF,   // 137
-        0xFF,   // 138
-        0xFF,   // 139
-        0xFF,   // 140
-        0xFF,   // 141
-        0xFF,   // 142
-        0xFF,   // 143
-        0xFF,   // 144
-        0xFF,   // 145
-        0xFF,   // 146
-        0xFF,   // 147
-        0xFF,   // 148
-        0xFF,   // 149
-        0xFF,   // 150
-        0xFF,   // 151
-        0xFF,   // 152
-        0xFF,   // 153
-        0xFF,   // 154
-        0xFF,   // 155
-        0xFF,   // 156
-        0xFF,   // 157
-        0xFF,   // 158
-        0xFF,   // 159
-        0xFF,   // 160
-        0xFF,   // 161
-        0xFF,   // 162
-        0xFF,   // 163
-        0xFF,   // 164
-        0xFF,   // 165
-        0xFF,   // 166
-        0xFF,   // 167
-        0xFF,   // 168
-        0xFF,   // 169
-        0xFF,   // 170
-        0xFF,   // 171
-        0xFF,   // 172
-        0xFF,   // 173
-        0xFF,   // 174
-        0xFF,   // 175
-        0xFF,   // 176
-        0xFF,   // 177
-        0xFF,   // 178
-        0xFF,   // 179
-        44, // 180
-        44, // 181
-        44, // 182
+        UNEXPECTED_VALUE,   // 89
+        UNEXPECTED_VALUE,   // 90
+        UNEXPECTED_VALUE,   // 91
+        UNEXPECTED_VALUE,   // 92
+        UNEXPECTED_VALUE,   // 93
+        UNEXPECTED_VALUE,   // 94
+        UNEXPECTED_VALUE,   // 95
+        UNEXPECTED_VALUE,   // 96
+        UNEXPECTED_VALUE,   // 97
+        UNEXPECTED_VALUE,   // 98
+        UNEXPECTED_VALUE,   // 99
+        UNEXPECTED_VALUE,   // 100
+        UNEXPECTED_VALUE,   // 101
+        UNEXPECTED_VALUE,   // 102
+        UNEXPECTED_VALUE,   // 103
+        UNEXPECTED_VALUE,   // 104
+        UNEXPECTED_VALUE,   // 105
+        UNEXPECTED_VALUE,   // 106
+        UNEXPECTED_VALUE,   // 107
+        UNEXPECTED_VALUE,   // 108
+        UNEXPECTED_VALUE,   // 109
+        UNEXPECTED_VALUE,   // 110
+        UNEXPECTED_VALUE,   // 111
+        UNEXPECTED_VALUE,   // 112
+        UNEXPECTED_VALUE,   // 113
+        UNEXPECTED_VALUE,   // 114
+        UNEXPECTED_VALUE,   // 115
+        UNEXPECTED_VALUE,   // 116
+        UNEXPECTED_VALUE,   // 117
+        UNEXPECTED_VALUE,   // 118
+        UNEXPECTED_VALUE,   // 119
+        UNEXPECTED_VALUE,   // 120
+        UNEXPECTED_VALUE,   // 121
+        UNEXPECTED_VALUE,   // 122
+        UNEXPECTED_VALUE,   // 123
+        UNEXPECTED_VALUE,   // 124
+        UNEXPECTED_VALUE,   // 125
+        UNEXPECTED_VALUE,   // 126
+        UNEXPECTED_VALUE,   // 127
+        UNEXPECTED_VALUE,   // 128
+        UNEXPECTED_VALUE,   // 129
+        UNEXPECTED_VALUE,   // 130
+        UNEXPECTED_VALUE,   // 131
+        UNEXPECTED_VALUE,   // 132
+        UNEXPECTED_VALUE,   // 133
+        UNEXPECTED_VALUE,   // 134
+        UNEXPECTED_VALUE,   // 135
+        UNEXPECTED_VALUE,   // 136
+        UNEXPECTED_VALUE,   // 137
+        UNEXPECTED_VALUE,   // 138
+        UNEXPECTED_VALUE,   // 139
+        UNEXPECTED_VALUE,   // 140
+        UNEXPECTED_VALUE,   // 141
+        UNEXPECTED_VALUE,   // 142
+        UNEXPECTED_VALUE,   // 143
+        UNEXPECTED_VALUE,   // 144
+        UNEXPECTED_VALUE,   // 145
+        UNEXPECTED_VALUE,   // 146
+        UNEXPECTED_VALUE,   // 147
+        UNEXPECTED_VALUE,   // 148
+        UNEXPECTED_VALUE,   // 149
+        UNEXPECTED_VALUE,   // 150
+        UNEXPECTED_VALUE,   // 151
+        UNEXPECTED_VALUE,   // 152
+        UNEXPECTED_VALUE,   // 153
+        UNEXPECTED_VALUE,   // 154
+        UNEXPECTED_VALUE,   // 155
+        UNEXPECTED_VALUE,   // 156
+        UNEXPECTED_VALUE,   // 157
+        UNEXPECTED_VALUE,   // 158
+        UNEXPECTED_VALUE,   // 159
+        UNEXPECTED_VALUE,   // 160
+        UNEXPECTED_VALUE,   // 161
+        UNEXPECTED_VALUE,   // 162
+        UNEXPECTED_VALUE,   // 163
+        UNEXPECTED_VALUE,   // 164
+        UNEXPECTED_VALUE,   // 165
+        UNEXPECTED_VALUE,   // 166
+        UNEXPECTED_VALUE,   // 167
+        UNEXPECTED_VALUE,   // 168
+        UNEXPECTED_VALUE,   // 169
+        UNEXPECTED_VALUE,   // 170
+        UNEXPECTED_VALUE,   // 171
+        UNEXPECTED_VALUE,   // 172
+        UNEXPECTED_VALUE,   // 173
+        UNEXPECTED_VALUE,   // 174
+        UNEXPECTED_VALUE,   // 175
+        UNEXPECTED_VALUE,   // 176
+        UNEXPECTED_VALUE,   // 177
+        UNEXPECTED_VALUE,   // 178
+        UNEXPECTED_VALUE,   // 179
+        SENT_SYNC_INTERVAL, // 180
+        SENT_SYNC_INTERVAL, // 181
+        SENT_SYNC_INTERVAL, // 182
 };
 
 uint8_t sent_crc4(uint8_t* pdata, uint16_t ndata);
@@ -417,6 +419,7 @@ void SENT_ISR_Handler(uint8_t ch, uint16_t val_res)
                         // Check crc
                         if((uint8_t)(val_res) == sent_crc4((uint8_t*)&sentTempNibblArr[ch][1], 6))
                         {
+                            // if CRC is good commit packet value as official result
                             sentOpenThrottleVal = sentOpenTempVal;
                             sentClosedThrottleVal = sentClosedTempVal;
                         }
