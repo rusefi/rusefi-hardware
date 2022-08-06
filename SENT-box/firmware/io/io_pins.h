@@ -1,6 +1,6 @@
 #pragma once
 
-#define LED_BLUE_PORT GPIOC
+#define LED_BLUE_PORT GPIOB
 #define LED_BLUE_PIN 13
 #define LL_LED_BLUE_PIN LL_GPIO_PIN_13
 
@@ -18,12 +18,12 @@
 #define LL_CAN_RX_PIN				LL_GPIO_PIN_11
 
 // Sent channel1 - PA6
-#define HAL_SENT_CH1_LINE_PORT GPIOA
-#define HAL_SENT_CH1_LINE_PIN 6
+#define HAL_SENT_CH1_LINE_PORT GPIOC
+#define HAL_SENT_CH1_LINE_PIN 13
 
 // Sent channel2 - PA7
-#define HAL_SENT_CH2_LINE_PORT GPIOA
-#define HAL_SENT_CH2_LINE_PIN 7
+#define HAL_SENT_CH2_LINE_PORT GPIOC
+#define HAL_SENT_CH2_LINE_PIN 14
 
 // Communication - UART
 #define UART_GPIO_PORT				GPIOA
