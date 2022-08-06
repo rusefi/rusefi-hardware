@@ -128,7 +128,6 @@ CSRC = $(ALLCSRC)
 # setting.
 CPPSRC = $(ALLCPPSRC) \
         main.cpp \
-	F1-standby/standby.cpp \
 	can.cpp \
 	uart.cpp \
 	sent.cpp \
