@@ -5,8 +5,7 @@
  *      Author: alexv
  */
 
-#ifndef SENT_H_
-#define SENT_H_
+#pragma once
 
 #define SENT_MODE_ICU 0
 #define SENT_MODE_PAL 1
@@ -83,5 +82,4 @@ void SENT_GetRawData(uint8_t * buf);
 void SENT_SetRawDataProp(void);
 void SENT_ResetRawDataProp(void);
 uint8_t SENT_GetThrottleValPrec(void);
-
-#endif /* SENT_H_ */
+uint32_t SENT_GetErrPercent(void);

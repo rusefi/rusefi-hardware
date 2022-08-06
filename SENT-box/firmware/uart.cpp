@@ -51,10 +51,12 @@ static void UartThread(void*)
       }
       else
       {
-          writeCount = chsnprintf(printBuffer, 200, "ETB %04d %04d pos=%03d err %06d %06d s_e=%06d c_err=%06d sync=%06d\r\n",
+          writeCount = chsnprintf(printBuffer, 200, "ETB %04d %04d pos=%03d err %06d %06d s_e=%06d c_err=%06d sync=%06d rate=%04d\r\n",
                                       SENT_GetOpenThrottleVal(), SENT_GetClosedThrottleVal(), SENT_GetThrottleValPrec(),
                                       SENT_GetIntervalErr(), SENT_GetMaxIntervalErrCnt(), SENT_GetSyncErrCnt(), SENT_GetCrcErrCnt(),
-                                      SENT_GetSyncCnt());
+                                      SENT_GetSyncCnt(),
+                                      SENT_GetErrPercent()
+                                      );
       }
 #elif SENT_DEV == SENT_SILABS_SENS
         size_t writeCount = chsnprintf(printBuffer, 200, "%04d %04d %04d %04d err %06d %06d %06d %06d %06d %06d\r\n",

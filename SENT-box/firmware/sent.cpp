@@ -525,3 +525,9 @@ uint32_t SENT_GetSyncCnt(void)
 {
         return sentPulseCnt;
 }
+
+uint32_t SENT_GetErrPercent(void)
+{
+// cast float to int
+return err_per;
+}
