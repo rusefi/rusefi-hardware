@@ -11,6 +11,8 @@
 #include "sent.h"
 #include "sent_hw_pal.h"
 
+#if SENT_MODE_PAL
+
 uint32_t cyccnt_ch1;
 uint32_t cyccnt_ch1_prev = 0;
 uint16_t cyccnt_ch1_period;
@@ -226,3 +228,5 @@ uint8_t SENT_GetTickValue(uint16_t dwt_val)
 #endif
 }
 #pragma GCC pop_options
+
+#endif // SENT_MODE_PAL

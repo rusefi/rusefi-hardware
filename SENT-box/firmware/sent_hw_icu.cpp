@@ -11,6 +11,8 @@
 #include "sent.h"
 #include "sent_hw_icu.h"
 
+#if SENT_MODE_ICU
+
 static void icuperiodcb_in1(ICUDriver *icup);
 static void icuperiodcb_in2(ICUDriver *icup);
 #if SENT_DEV == SENT_SILABS_SENS
@@ -70,7 +72,7 @@ static ICUConfig icucfg_in4 =
   0U,
   0xFFFFFFFFU
 };
-#endif
+#endif // SENT_DEV
 
 static void icuperiodcb_in1(ICUDriver *icup)
 {
@@ -123,3 +125,4 @@ void InitSent()
 #endif
 }
 
+#endif // SENT_MODE_ICU
