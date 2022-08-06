@@ -131,6 +131,6 @@
 // 15
 #define     SENT_27_TICKS_MAX SENT_27_TICKS + SENT_TICKS_DELTA
 #define     SENT_27_TICKS_MIN SENT_27_TICKS - SENT_TICKS_DELTA
-#endif
+#endif // SENT_SILABS_SENS
 
 uint8_t SENT_GetTickValue(uint16_t dwt_val);
