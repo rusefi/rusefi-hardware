@@ -101,7 +101,7 @@ static void icuperiodcb_in4(ICUDriver *icup)
 }
 #endif
 
-void InitSentHwIcu()
+void InitSent()
 {
 
     icuStart(&SENT_ICUD_CH1, &icucfg_in1);

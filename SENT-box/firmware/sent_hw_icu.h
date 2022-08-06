@@ -5,8 +5,7 @@
  *      Author: alexv
  */
 
-#ifndef SENT_HW_ICU_H_
-#define SENT_HW_ICU_H_
+#pragma once
 
 #define SENT_ICU_FREQ       1000000 // 1 us
 
@@ -14,7 +13,3 @@
 #define SENT_ICUD_CH2 ICUD3
 #define SENT_ICUD_CH3 ICUD1
 #define SENT_ICUD_CH4 ICUD2
-
-void InitSentHwIcu();
-
-#endif /* SENT_H_ */

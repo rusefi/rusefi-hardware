@@ -5,8 +5,7 @@
  *      Author: alexv
  */
 
-#ifndef SENT_HW_ICU_H_
-#define SENT_HW_ICU_H_
+#pragma once
 
 // Sent channel1 - PA6
 #define HAL_SENT_CH1_LINE_PORT GPIOA
@@ -134,7 +133,4 @@
 #define     SENT_27_TICKS_MIN SENT_27_TICKS - SENT_TICKS_DELTA
 #endif
 
-void InitSentHwPal();
 uint8_t SENT_GetTickValue(uint16_t dwt_val);
-
-#endif /* SENT_H_ */

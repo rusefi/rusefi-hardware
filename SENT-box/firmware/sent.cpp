@@ -10,13 +10,6 @@
 
 #include "sent.h"
 
-#if SENT_MODE == SENT_MODE_ICU
-#include "sent_hw_icu.h"
-#endif
-
-#if SENT_MODE == SENT_MODE_PAL
-#include "sent_hw_pal.h"
-#endif
 
 // Sent SM status arr
 SM_SENT_enum sentSMstate[SENT_CHANNELS_NUM] = {SM_SENT_INIT_STATE};
@@ -265,17 +258,6 @@ uint32_t sentPulseCnt = 0;
 
 float err_per = 0;
 #endif
-
-void InitSent()
-{
-#if SENT_MODE == SENT_MODE_ICU
-    InitSentHwIcu();
-#endif
-
-#if SENT_MODE == SENT_MODE_PAL
-    InitSentHwPal();
-#endif
-}
 
 #pragma GCC push_options
 #pragma GCC optimize ("O2")

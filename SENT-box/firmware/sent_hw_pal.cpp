@@ -83,7 +83,7 @@ static void palperiodcb_in2(void *arg)
 }
 #pragma GCC pop_options
 
-void InitSentHwPal()
+void InitSent()
 {
   CoreDebug->DEMCR |= CoreDebug_DEMCR_TRCENA_Msk;
   DWT->CTRL |= DWT_CTRL_CYCCNTENA_Msk;
