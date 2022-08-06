@@ -20,7 +20,7 @@
 #include "can.h"
 #include "sent.h"
 
-#include "./io/io_pins.h"
+#include "io_pins.h"
 
 /*
  * Red LED blinker thread, times are in milliseconds.

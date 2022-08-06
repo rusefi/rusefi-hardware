@@ -7,15 +7,9 @@
 
 #pragma once
 
-// Sent channel1 - PA6
-#define HAL_SENT_CH1_LINE_PORT GPIOA
-#define HAL_SENT_CH1_LINE_PIN 6
+#include "io_pins.h"
 
 #define HAL_SENT_CH1_LINE               PAL_LINE(HAL_SENT_CH1_LINE_PORT, HAL_SENT_CH1_LINE_PIN)
-
-// Sent channel2 - PA7
-#define HAL_SENT_CH2_LINE_PORT GPIOA
-#define HAL_SENT_CH2_LINE_PIN 7
 
 #define HAL_SENT_CH2_LINE               PAL_LINE(HAL_SENT_CH2_LINE_PORT, HAL_SENT_CH2_LINE_PIN)
 

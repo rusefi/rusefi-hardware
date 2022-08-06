@@ -16,3 +16,17 @@
 #define CAN_GPIO_PORT				GPIOA
 #define LL_CAN_TX_PIN				LL_GPIO_PIN_12
 #define LL_CAN_RX_PIN				LL_GPIO_PIN_11
+
+// Sent channel1 - PA6
+#define HAL_SENT_CH1_LINE_PORT GPIOA
+#define HAL_SENT_CH1_LINE_PIN 6
+
+// Sent channel2 - PA7
+#define HAL_SENT_CH2_LINE_PORT GPIOA
+#define HAL_SENT_CH2_LINE_PIN 7
+
+// Communication - UART
+#define UART_GPIO_PORT				GPIOA
+#define UART_TX_PIN				9
+#define UART_RX_PIN				10
+#define UART_BAUD_RATE      38400
