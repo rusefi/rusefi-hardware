@@ -44,14 +44,14 @@ static void UartThread(void*)
 
           SENT_GetRawData(TempRawBuf);
 
-          writeCount = chsnprintf(printBuffer, 200, "%03d %03d %03d %03d %03d %03d %03d %03d err %06d %06d %06d %06d %06d\r\n",
+          writeCount = chsnprintf(printBuffer, 200, "raw %03d %03d %03d %03d %03d %03d %03d %03d err %06d %06d %06d %06d %06d\r\n",
                                                 TempRawBuf[0], TempRawBuf[1], TempRawBuf[2], TempRawBuf[3], TempRawBuf[4], TempRawBuf[5], TempRawBuf[6], TempRawBuf[7],
                                                 SENT_GetIntervalErr(), SENT_GetMaxIntervalErrCnt(), SENT_GetSyncErrCnt(), SENT_GetCrcErrCnt(),
                                                 SENT_GetSyncCnt());
       }
       else
       {
-          writeCount = chsnprintf(printBuffer, 200, "%04d %04d %03d err %06d %06d %06d %06d %06d\r\n",
+          writeCount = chsnprintf(printBuffer, 200, "ETB %04d %04d pos=%03d err %06d %06d s_e=%06d c_err=%06d sync=%06d\r\n",
                                       SENT_GetOpenThrottleVal(), SENT_GetClosedThrottleVal(), SENT_GetThrottleValPrec(),
                                       SENT_GetIntervalErr(), SENT_GetMaxIntervalErrCnt(), SENT_GetSyncErrCnt(), SENT_GetCrcErrCnt(),
                                       SENT_GetSyncCnt());
