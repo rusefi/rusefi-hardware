@@ -16,12 +16,6 @@ SM_SENT_enum sentSMstate[SENT_CHANNELS_NUM] = {SM_SENT_INIT_STATE};
 // Sensor status arr
 uint8_t sentStat[SENT_CHANNELS_NUM] = {0};
 
-// Roll counter arr
-uint8_t sentRollCnt[SENT_CHANNELS_NUM] = {0};
-uint8_t sentRollCntPrev[SENT_CHANNELS_NUM] = {0};
-
-uint8_t sentCrc[SENT_CHANNELS_NUM] = {0};
-
 // Error counters
 uint32_t sentMaxIntervalErr = 0;
 uint32_t sentSyncErr = 0;

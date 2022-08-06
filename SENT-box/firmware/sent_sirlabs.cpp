@@ -1,9 +1,25 @@
 
+
+/*
+todo all these arrays of [SENT_CHANNELS_NUM]
+class sent_state {
+    uint8_t currentCrc = 0;
+};
+
+sent_state states[SENT_CHANNELS_NUM];
+*/
+
+uint8_t sentCrc[SENT_CHANNELS_NUM] = {0};
+
 // Value sensor arr
 uint16_t sentValArr[SENT_CHANNELS_NUM] = {0};
 
 //
 uint16_t sentTempValArr[SENT_CHANNELS_NUM] = {0};
+
+// Roll counter arr
+uint8_t sentRollCnt[SENT_CHANNELS_NUM] = {0};
+uint8_t sentRollCntPrev[SENT_CHANNELS_NUM] = {0};
 
 uint16_t SENT_GetData(uint8_t ch)
 {
