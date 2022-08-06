@@ -20,7 +20,6 @@ static void icuperiodcb_in3(ICUDriver *icup);
 static void icuperiodcb_in4(ICUDriver *icup);
 #endif
 
-// Sent input1 - TIM4 CH1 - PB6
 static ICUConfig icucfg_in1 =
 {
   ICU_INPUT_ACTIVE_HIGH,
@@ -33,7 +32,6 @@ static ICUConfig icucfg_in1 =
   0xFFFFFFFFU
 };
 
-// Sent input2 - TIM3 CH1 - PA6
 static ICUConfig icucfg_in2 =
 {
   ICU_INPUT_ACTIVE_HIGH,
@@ -41,13 +39,12 @@ static ICUConfig icucfg_in2 =
   NULL,
   icuperiodcb_in2,
   NULL,
-  ICU_CHANNEL_1,
+  SENT_ICUD_CH2_CH,
   0U,
   0xFFFFFFFFU
 };
 
 #if SENT_DEV == SENT_SILABS_SENS
-// Sent input3 - TIM1 CH1 - PA8
 static ICUConfig icucfg_in3 =
 {
   ICU_INPUT_ACTIVE_HIGH,
@@ -55,12 +52,11 @@ static ICUConfig icucfg_in3 =
   NULL,
   icuperiodcb_in3,
   NULL,
-  ICU_CHANNEL_1,
+  SENT_ICUD_CH3_CH,
   0U,
   0xFFFFFFFFU
 };
 
-// Sent input4 - TIM2 CH2 - PA1
 static ICUConfig icucfg_in4 =
 {
   ICU_INPUT_ACTIVE_HIGH,
@@ -68,7 +64,7 @@ static ICUConfig icucfg_in4 =
   NULL,
   icuperiodcb_in4,
   NULL,
-  ICU_CHANNEL_2,
+  SENT_ICUD_CH4_CH,
   0U,
   0xFFFFFFFFU
 };
@@ -106,22 +102,22 @@ static void icuperiodcb_in4(ICUDriver *icup)
 void InitSent()
 {
 
-    icuStart(&SENT_ICUD_CH1, &icucfg_in1);
-    icuStartCapture(&SENT_ICUD_CH1);
-    icuEnableNotifications(&SENT_ICUD_CH1);
+    icuStart(&SENT_ICUD_CH1_D, &icucfg_in1);
+    icuStartCapture(&SENT_ICUD_CH1_D);
+    icuEnableNotifications(&SENT_ICUD_CH1_D);
 
-    icuStart(&SENT_ICUD_CH2, &icucfg_in2);
-    icuStartCapture(&SENT_ICUD_CH2);
-    icuEnableNotifications(&SENT_ICUD_CH2);
+    icuStart(&SENT_ICUD_CH2_D, &icucfg_in2);
+    icuStartCapture(&SENT_ICUD_CH2_D);
+    icuEnableNotifications(&SENT_ICUD_CH2_D);
 
 #if SENT_DEV == SENT_SILABS_SENS
-    icuStart(&SENT_ICUD_CH3, &icucfg_in3);
-    icuStartCapture(&SENT_ICUD_CH3);
-    icuEnableNotifications(&SENT_ICUD_CH3);
+    icuStart(&SENT_ICUD_CH3_D, &icucfg_in3);
+    icuStartCapture(&SENT_ICUD_CH3_D);
+    icuEnableNotifications(&SENT_ICUD_CH3_D);
 
-    icuStart(&SENT_ICUD_CH4, &icucfg_in4);
-    icuStartCapture(&SENT_ICUD_CH4);
-    icuEnableNotifications(&SENT_ICUD_CH4);
+    icuStart(&SENT_ICUD_CH4_D, &icucfg_in4);
+    icuStartCapture(&SENT_ICUD_CH4_D);
+    icuEnableNotifications(&SENT_ICUD_CH4_D);
 #endif
 }
 

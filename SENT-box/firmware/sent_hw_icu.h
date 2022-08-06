@@ -9,7 +9,18 @@
 
 #define SENT_ICU_FREQ       1000000 // 1 us
 
-#define SENT_ICUD_CH1 ICUD4
-#define SENT_ICUD_CH2 ICUD3
-#define SENT_ICUD_CH3 ICUD1
-#define SENT_ICUD_CH4 ICUD2
+// Sent input1 - TIM4 CH1 - PB6
+#define SENT_ICUD_CH1_D ICUD4
+#define SENT_ICUD_CH1_CH ICU_CHANNEL_1
+
+// Sent input2 - TIM3 CH1 - PA6
+#define SENT_ICUD_CH2_D ICUD3
+#define SENT_ICUD_CH2_CH ICU_CHANNEL_1
+
+// Sent input3 - TIM1 CH1 - PA8
+#define SENT_ICUD_CH3_D ICUD1
+#define SENT_ICUD_CH3_CH ICU_CHANNEL_1
+
+// Sent input4 - TIM2 CH2 - PA1
+#define SENT_ICUD_CH4_D ICUD2
+#define SENT_ICUD_CH4_CH ICU_CHANNEL_2
