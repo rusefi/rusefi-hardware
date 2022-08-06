@@ -1,3 +1,28 @@
+
+// Value sensor arr
+uint16_t sentValArr[SENT_CHANNELS_NUM] = {0};
+
+//
+uint16_t sentTempValArr[SENT_CHANNELS_NUM] = {0};
+
+uint16_t SENT_GetData(uint8_t ch)
+{
+        return sentValArr[ch];
+}
+
+uint32_t sentMinIntervalErr = 0;
+
+uint32_t SENT_GetMinIntervalErrCnt(void)
+{
+        return sentMinIntervalErr;
+}
+
+static const uint8_t SENT_CRC4_tbl[16] =
+{
+        0, 13, 7, 10, 14, 3, 9, 4, 1, 12, 6, 11, 15, 2, 8, 5
+};
+
+
 #if SENT_DEV == SENT_SILABS_SENS
 void SENT_ISR_Handler(uint8_t ch, uint16_t val_res)
 {

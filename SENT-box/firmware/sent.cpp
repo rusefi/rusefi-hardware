@@ -10,15 +10,8 @@
 
 #include "sent.h"
 
-
 // Sent SM status arr
 SM_SENT_enum sentSMstate[SENT_CHANNELS_NUM] = {SM_SENT_INIT_STATE};
-
-// Value sensor arr
-uint16_t sentValArr[SENT_CHANNELS_NUM] = {0};
-
-//
-uint16_t sentTempValArr[SENT_CHANNELS_NUM] = {0};
 
 // Sensor status arr
 uint8_t sentStat[SENT_CHANNELS_NUM] = {0};
@@ -30,15 +23,18 @@ uint8_t sentRollCntPrev[SENT_CHANNELS_NUM] = {0};
 uint8_t sentCrc[SENT_CHANNELS_NUM] = {0};
 
 // Error counters
-uint32_t sentMinIntervalErr = 0;
 uint32_t sentMaxIntervalErr = 0;
 uint32_t sentSyncErr = 0;
 uint32_t sentStatusErr = 0;
 uint32_t sentRollErrCnt = 0;
 uint32_t sentCrcErrCnt = 0;
 
-uint8_t sentCh1DataReady = 0;
-uint8_t sentCh2DataReady = 0;
+#if SENT_ERR_PERCENT
+// Received msg counter
+uint32_t sentPulseCnt = 0;
+
+float err_per = 0;
+#endif // SENT_ERR_PERCENT
 
 #if SENT_DEV == SENT_GM_ETB
 // Received nibbles arr
@@ -242,26 +238,10 @@ const uint8_t sentLookupTable[] =
 };
 
 uint8_t sent_crc4(uint8_t* pdata, uint16_t ndata);
-#endif
-
-extern uint16_t cyccnt_ch1_period;
-extern uint16_t cyccnt_ch2_period;
-
-static const uint8_t SENT_CRC4_tbl[16] =
-{
-        0, 13, 7, 10, 14, 3, 9, 4, 1, 12, 6, 11, 15, 2, 8, 5
-};
-
-#if SENT_ERR_PERCENT
-// Received msg counter
-uint32_t sentPulseCnt = 0;
-
-float err_per = 0;
-#endif
 
 #pragma GCC push_options
 #pragma GCC optimize ("O2")
-#if SENT_DEV == SENT_GM_ETB
+
 void SENT_ISR_Handler(uint8_t ch, uint16_t val_res)
 {
         val_res = sentLookupTable[val_res];
@@ -458,47 +438,7 @@ void SENT_ISR_Handler(uint8_t ch, uint16_t val_res)
               }
         }
 }
-#pragma GCC pop_options
-#endif
 
-uint16_t SENT_GetData(uint8_t ch)
-{
-        return sentValArr[ch];
-}
-
-uint32_t SENT_GetRollErrCnt(void)
-{
-        return sentRollErrCnt;
-}
-
-uint32_t SENT_GetCrcErrCnt(void)
-{
-        return sentCrcErrCnt;
-}
-
-uint32_t SENT_GetMinIntervalErrCnt(void)
-{
-        return sentMinIntervalErr;
-}
-
-uint32_t SENT_GetMaxIntervalErrCnt(void)
-{
-        return sentMaxIntervalErr;
-}
-
-uint32_t SENT_GetSyncErrCnt(void)
-{
-        return sentSyncErr;
-}
-
-uint32_t SENT_GetSyncCnt(void)
-{
-        return sentPulseCnt;
-}
-
-#if SENT_DEV == SENT_GM_ETB
-#pragma GCC push_options
-#pragma GCC optimize ("O2")
 const uint8_t CrcLookup[16] = {0, 13, 7, 10, 14, 3, 9, 4, 1, 12, 6, 11, 15, 2, 8, 5};
 
 uint8_t sent_crc4(uint8_t* pdata, uint16_t ndata)
@@ -563,3 +503,28 @@ uint8_t SENT_GetThrottleValPrec(void)
 }
 
 #endif
+
+uint32_t SENT_GetRollErrCnt(void)
+{
+        return sentRollErrCnt;
+}
+
+uint32_t SENT_GetCrcErrCnt(void)
+{
+        return sentCrcErrCnt;
+}
+
+uint32_t SENT_GetMaxIntervalErrCnt(void)
+{
+        return sentMaxIntervalErr;
+}
+
+uint32_t SENT_GetSyncErrCnt(void)
+{
+        return sentSyncErr;
+}
+
+uint32_t SENT_GetSyncCnt(void)
+{
+        return sentPulseCnt;
+}
