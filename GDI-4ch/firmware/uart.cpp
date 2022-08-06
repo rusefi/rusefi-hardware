@@ -3,6 +3,7 @@
 #include "chprintf.h"
 
 #include "uart.h"
+#include "io_pins.h"
 
 static const UARTConfig uartCfg =
 {
@@ -17,7 +18,7 @@ static const UARTConfig uartCfg =
     .timeout = 0,
 #endif
 
-    .speed = 115200,
+    .speed = UART_BAUD_RATE,
     .cr1 = 0,
     .cr2 = 0,
     .cr3 = 0,

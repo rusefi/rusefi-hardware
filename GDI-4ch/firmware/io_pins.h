@@ -20,3 +20,6 @@
 #define CAN_GPIO_PORT				GPIOA
 #define CAN_TX_PIN				12
 #define CAN_RX_PIN				11
+
+// Communication - UART
+#define UART_BAUD_RATE      115200
