@@ -4,6 +4,7 @@
 
 #include "uart.h"
 #include "sent.h"
+#include "io_pins.h"
 
 static const UARTConfig uartCfg =
 {
@@ -18,7 +19,7 @@ static const UARTConfig uartCfg =
     .timeout = 0,
 #endif
 
-    .speed = 38400,
+    .speed = UART_BAUD_RATE,
     .cr1 = 0,
     .cr2 = 0,
     .cr3 = 0,
@@ -70,9 +71,9 @@ static void UartThread(void*)
 void InitUart()
 {
   // stm32 TX/UART1 - dongle RX often White
-  palSetPadMode(GPIOA, 9, PAL_MODE_STM32_ALTERNATE_PUSHPULL );
+  palSetPadMode(UART_GPIO_PORT, UART_TX_PIN, PAL_MODE_STM32_ALTERNATE_PUSHPULL );
   // stm32 RX/UART1 - dongle TX often Green
-  palSetPadMode(GPIOA,10, PAL_MODE_INPUT_PULLUP );
+  palSetPadMode(UART_GPIO_PORT,UART_RX_PIN, PAL_MODE_INPUT_PULLUP );
 
     uartStart(&UARTD1, &uartCfg);
 
