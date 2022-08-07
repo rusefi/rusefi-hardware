@@ -27,7 +27,7 @@ uint32_t sentCrcErrCnt = 0;
 // Received msg counter
 uint32_t sentPulseCnt = 0;
 
-float err_per = 0;
+int errorRate = 0;
 #endif // SENT_ERR_PERCENT
 
 #if SENT_DEV == SENT_GM_ETB
@@ -277,7 +277,7 @@ void SENT_ISR_Handler(uint8_t ch, uint16_t val_res)
 
 #if SENT_ERR_PERCENT
                         // Calc err percentage
-                        err_per = ((float)sentSyncErr/(float)sentPulseCnt)*100;
+                        errorRate = 100 * sentSyncErr / sentPulseCnt;
 #endif
                     }
                     break;
@@ -529,5 +529,5 @@ uint32_t SENT_GetSyncCnt(void)
 uint32_t SENT_GetErrPercent(void)
 {
 // cast float to int
-return err_per;
+return errorRate;
 }
