@@ -1,6 +1,6 @@
 #pragma once
 
-#define LED_BLUE_PORT GPIOC
+#define LED_BLUE_PORT GPIOB
 #define LED_BLUE_PIN 13
 #define LL_LED_BLUE_PIN LL_GPIO_PIN_13
 
