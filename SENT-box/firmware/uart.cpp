@@ -26,9 +26,11 @@ static const UARTConfig uartCfg =
     .rxhalf_cb = nullptr,
 };
 
-static char printBuffer[200];
+static char printBuffer[300];
 
 static THD_WORKING_AREA(waUartThread, 256);
+
+extern uint8_t sentTempNibblArr[SENT_CHANNELS_NUM][SENT_MSG_PAYLOAD_SIZE];
 
 static void UartThread(void*)
 {
@@ -51,7 +53,19 @@ static void UartThread(void*)
       }
       else
       {
-          writeCount = chsnprintf(printBuffer, 200, "ETB %04d %04d pos=%03d err %06d %06d s_e=%06d c_err=%06d sync=%06d rate=%04d\r\n",
+      int n1 = sentTempNibblArr[0][1];
+      int n2 = sentTempNibblArr[0][2];
+      int n3 = sentTempNibblArr[0][3];
+      int n4 = sentTempNibblArr[0][4];
+      int n5 = sentTempNibblArr[0][5];
+      int n6 = sentTempNibblArr[0][6];
+          writeCount = chsnprintf(printBuffer, 200, "%02d %02d %02d %02d %02d %02d ETB %04d %04d pos=%03d err %06d %06d s_e=%06d c_err=%06d sync=%06d rate=%04d\r\n",
+          n1,
+          n2,
+          n3,
+          n4,
+          n5,
+          n6,
                                       SENT_GetOpenThrottleVal(), SENT_GetClosedThrottleVal(), SENT_GetThrottleValPrec(),
                                       SENT_GetIntervalErr(), SENT_GetMaxIntervalErrCnt(), SENT_GetSyncErrCnt(), SENT_GetCrcErrCnt(),
                                       SENT_GetSyncCnt(),
