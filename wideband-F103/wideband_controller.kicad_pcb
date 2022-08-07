@@ -66,7 +66,7 @@
       (mirror false)
       (drillshape 0)
       (scaleselection 1)
-      (outputdirectory "export/rev3/Gerber/")
+      (outputdirectory "export/rev3/gerber/")
     )
   )
 
@@ -6734,6 +6734,9 @@
   (gr_line (start 155.85 54.57) (end 155.85 115.87) (layer "Edge.Cuts") (width 0.15) (tstamp 9a2c9dad-fef4-4f86-be80-94f6db470486))
   (gr_arc (start 100.65 118.37) (mid 98.882266 117.637734) (end 98.15 115.87) (layer "Edge.Cuts") (width 0.15) (tstamp a876c912-f321-4600-b882-557c0a731d7e))
   (gr_line (start 153.35 118.37) (end 100.65 118.37) (layer "Edge.Cuts") (width 0.15) (tstamp c11020b9-c51e-4e4d-8c6b-c8602d2dbe44))
+  (gr_text "F103 single rev3" (at 146.05 107.95) (layer "B.SilkS") (tstamp 043d2135-ee0b-4418-abd9-474991e268c8)
+    (effects (font (size 1.5 1) (thickness 0.2)) (justify mirror))
+  )
   (gr_text "GND" (at 131.953 65.278 270) (layer "B.SilkS") (tstamp 18c8434e-8924-48ea-b677-adabf64f7fb5)
     (effects (font (size 1 1) (thickness 0.15)) (justify mirror))
   )
