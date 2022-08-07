@@ -14,3 +14,6 @@
 [submodule "ext/hellen-one"]
 	path = ext/hellen-one
 	url = https://github.com/andreika-git/hellen-one
+[submodule "ext/libfirmware"]
+	path = ext/libfirmware
+	url = https://github.com/rusefi/libfirmware
