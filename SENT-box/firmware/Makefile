@@ -143,7 +143,7 @@ ASMXSRC = $(ALLXASMSRC)
 # Inclusion directories.
 INCDIR = $(CONFDIR) $(ALLINC) \
    io \
-   ..\..\ext\libfirmware\stm32-util
+   ../../ext/libfirmware/stm32-util
 
 # Define C warning options here.
 CWARN = -Wall -Wextra -Wundef -Wstrict-prototypes
