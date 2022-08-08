@@ -1,4 +1,4 @@
-name: Build Firmware
+name: Build GDI-4ch
 
 on: [push, pull_request]
 
