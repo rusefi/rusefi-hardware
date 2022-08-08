@@ -79,7 +79,7 @@ protected:
 
 	// GPIO inputs for various pins we need
 	bool readFlag0() const override {
-		return palReadPad(GPIOA, 0);
+		return palReadPad(GPIOB, 7);
 	}
 
 	// Get battery voltage - only try to init chip when powered
