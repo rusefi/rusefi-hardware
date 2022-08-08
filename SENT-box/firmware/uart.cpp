@@ -5,6 +5,7 @@
 #include "uart.h"
 #include "sent.h"
 #include "io_pins.h"
+#include "mcu-util.h"
 
 static const UARTConfig uartCfg =
 {
@@ -39,6 +40,8 @@ static void UartThread(void*)
     while(true)
     {
 
+     uint32_t revCode = ARM_REV_CODE();
+
 #if SENT_DEV == SENT_GM_ETB
       if(SENT_IsRawData())
       {
@@ -59,7 +62,8 @@ static void UartThread(void*)
       int n4 = sentTempNibblArr[0][4];
       int n5 = sentTempNibblArr[0][5];
       int n6 = sentTempNibblArr[0][6];
-          writeCount = chsnprintf(printBuffer, 200, "%02d %02d %02d %02d %02d %02d ETB %04d %04d pos=%03d err %06d %06d s_e=%06d c_err=%06d sync=%06d rate=%04d\r\n",
+          writeCount = chsnprintf(printBuffer, 200, "[%x] %02d %02d %02d %02d %02d %02d ETB %04d %04d pos=%03d err %06d %06d s_e=%06d c_err=%06d sync=%06d rate=%04d\r\n",
+          revCode,
           n1,
           n2,
           n3,
