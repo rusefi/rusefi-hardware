@@ -92,7 +92,6 @@ void SENT_SetRawDataProp(void);
 void SENT_ResetRawDataProp(void);
 uint8_t SENT_GetThrottleValPrec(void);
 uint32_t SENT_GetErrPercent(void);
-int32_t *SENT_GetIntervals(void);
 
 /* Si7215 decoded data */
 int32_t Si7215_GetMagneticField(uint32_t n);

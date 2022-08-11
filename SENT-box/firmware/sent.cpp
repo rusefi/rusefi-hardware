@@ -32,15 +32,6 @@ static struct sent_channel channels[SENT_CHANNELS_NUM];
 int32_t si7215_magnetic[SENT_CHANNELS_NUM];
 int32_t si7215_counter[SENT_CHANNELS_NUM];
 
-// Sent SM status arr
-SM_SENT_enum sentSMstate[SENT_CHANNELS_NUM] = {SM_SENT_INIT_STATE};
-
-// Sensor status arr
-uint8_t sentStat[SENT_CHANNELS_NUM] = {0};
-
-volatile int intervalIdx = 0;
-volatile int32_t sentIntervals[16] = {0};
-
 #if SENT_DEV == SENT_GM_ETB
 
 uint16_t sentOpenThrottleVal = 0;
@@ -240,12 +231,6 @@ uint32_t SENT_GetErrPercent(void)
 {
     // cast float to int
     return 100 * channels[0].SyncErr / channels[0].PulseCnt;;
-}
-
-int32_t *SENT_GetIntervals(void)
-{
-    /* drop volatile */
-    return (int32_t *)sentIntervals;
 }
 
 int32_t Si7215_GetMagneticField(uint32_t n)
