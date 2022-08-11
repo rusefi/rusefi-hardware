@@ -13,8 +13,8 @@
 struct sent_channel {
     SM_SENT_enum state;
     uint8_t nibbles[SENT_MSG_PAYLOAD_SIZE];
-    /* Sync interval is CPU clocks */
-    uint32_t syncClocks;
+    /* Tick interval in CPU clocks - adjusted on SYNC */
+    uint32_t tickClocks;
 
 #if SENT_ERR_PERCENT
     /* stats */
@@ -46,16 +46,31 @@ uint8_t sent_crc4(uint8_t* pdata, uint16_t ndata);
 
 #define SENT_TICK (5 * 72) // 5@72MHz us
 
-int SENT_Decoder(struct sent_channel *ch, uint16_t val_res)
+int SENT_Decoder(struct sent_channel *ch, uint16_t clocks)
 {
     int ret = 0;
-    int interval;
 
     #if SENT_ERR_PERCENT
     ch->PulseCnt++;
     #endif
 
-    interval = (val_res + SENT_TICK / 2) / SENT_TICK - SENT_OFFSET_INTERVAL;
+    /* special case for out-of-sync state */
+    if (ch->state == SM_SENT_INIT_STATE) {
+        /* check is pulse looks like sync with allowed +/-20% deviation */
+        int syncClocks = (SENT_SYNC_INTERVAL + SENT_OFFSET_INTERVAL) * SENT_TICK;
+
+        if ((clocks >= (syncClocks * 80 / 100)) &&
+            (clocks <= (syncClocks * 120 / 100))) {
+            /* calculate tick time */
+            ch->tickClocks = (clocks + 56 / 2) / (SENT_SYNC_INTERVAL + SENT_OFFSET_INTERVAL);
+            /* next state */
+            ch->state = SM_SENT_STATUS_STATE;
+            /* done for this pulse */
+            return 0;
+        }
+    }
+
+    int interval = (clocks + ch->tickClocks / 2) / ch->tickClocks - SENT_OFFSET_INTERVAL;
 
     if (interval < 0) {
         ch->ShortIntervalErr++;
@@ -63,27 +78,17 @@ int SENT_Decoder(struct sent_channel *ch, uint16_t val_res)
         return -1;
     }
 
-    if ((interval > SENT_SYNC_INTERVAL) ||
-        ((interval > 15) && (interval < SENT_SYNC_INTERVAL)))
-    {
-        ch->LongIntervalErr++;
-        ch->state = SM_SENT_INIT_STATE;
-        return -1;
-    }
-
     switch(ch->state)
     {
         case SM_SENT_INIT_STATE:
-            if (interval == SENT_SYNC_INTERVAL)
-            {// sync interval - 56 ticks
-                ch->state = SM_SENT_STATUS_STATE;
-            }
+            /* handles above, should not get in here */
             break;
 
         case SM_SENT_SYNC_STATE:
             if (interval == SENT_SYNC_INTERVAL)
             {// sync interval - 56 ticks
-                ch->syncClocks = val_res;
+                /* measured tick interval will be used until next sync pulse */
+                ch->tickClocks = (clocks + 56 / 2) / (SENT_SYNC_INTERVAL + SENT_OFFSET_INTERVAL);
                 ch->state = SM_SENT_STATUS_STATE;
             }
             else
@@ -91,7 +96,17 @@ int SENT_Decoder(struct sent_channel *ch, uint16_t val_res)
                 #if SENT_ERR_PERCENT
                 //  Increment sync interval err count
                 ch->SyncErr++;
+                if (interval > SENT_SYNC_INTERVAL)
+                {
+                    ch->LongIntervalErr++;
+                }
+                else
+                {
+                    ch->ShortIntervalErr++;
+                }
                 #endif
+                /* wait for next sync and recalibrate tickClocks */
+                ch->state = SM_SENT_INIT_STATE;
             }
             break;
 
@@ -208,7 +223,7 @@ uint32_t SENT_GetSyncCnt(void)
 
 uint32_t SENT_GetTickTimeNs(void)
 {
-    return channels[0].syncClocks * 1000 / 72 / (SENT_OFFSET_INTERVAL + SENT_SYNC_INTERVAL);
+    return channels[0].tickClocks * 1000 / 72;
 }
 
 /* Debug */
@@ -251,10 +266,10 @@ static MAILBOX_DECL(sent_mb, sent_mb_buffer, SENT_MB_SIZE);
 
 static THD_WORKING_AREA(waSentDecoderThread, 256);
 
-void SENT_ISR_Handler(uint8_t ch, uint16_t val_res)
+void SENT_ISR_Handler(uint8_t ch, uint16_t clocks)
 {
     /* encode to fin msg_t */
-    msg_t msg = (ch << 16) | val_res;
+    msg_t msg = (ch << 16) | clocks;
     chMBPostI(&sent_mb, msg);
 }
 
