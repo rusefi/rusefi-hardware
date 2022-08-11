@@ -21,15 +21,17 @@
 #define SENT_CHANNELS_NUM 4 // Number of sent channels
 #endif
 
-#define SENT_SYNC_INTERVAL  44 // 56 ticks - 12
 #define SENT_OFFSET_INTERVAL 12
+#define SENT_SYNC_INTERVAL   (56 - SENT_OFFSET_INTERVAL) // 56 ticks - 12
 
 #define SENT_MIN_INTERVAL 12
 #define SENT_MAX_INTERVAL 15
 
 #define SENT_CRC_SEED 0x05
 
-#define SENT_MSG_PAYLOAD_SIZE 8  // Size of payload
+#define SENT_MSG_DATA_SIZE      6
+/* Status + two 12-bit signals + CRC */
+#define SENT_MSG_PAYLOAD_SIZE   (1 + SENT_MSG_DATA_SIZE + 1)  // Size of payload
 
 #define SENT_ERR_PERCENT 1
 
@@ -44,6 +46,7 @@ enum
     SENT_CH3,
     SENT_CH4,
 #endif
+    SENT_CH_MAX,
 };
 
 typedef enum
@@ -60,24 +63,38 @@ typedef enum
         SM_SENT_CRC_STATE,
 }SM_SENT_enum;
 
+/* SENT init */
 void InitSent();
 
+/* Decoder task init, called from PAL or ICU implementation */
+void SentDecoder_Init(void);
+
+/* ISR hook */
 void SENT_ISR_Handler(uint8_t ch, uint16_t val_res);
 
 uint16_t SENT_GetData(uint8_t ch);
-uint32_t SENT_GetRollErrCnt(void);
+
+/* Stat counters */
+uint32_t SENT_GetShortIntervalErrCnt(void);
+uint32_t SENT_GetLongIntervalErrCnt(void);
 uint32_t SENT_GetCrcErrCnt(void);
-uint32_t SENT_GetMinIntervalErrCnt(void);
-uint32_t SENT_GetMaxIntervalErrCnt(void);
 uint32_t SENT_GetSyncErrCnt(void);
 uint32_t SENT_GetSyncCnt(void);
+uint32_t SENT_GetTickTimeNs(void);
+
+/* Debug */
+void SENT_GetRawNibbles(uint8_t * buf);
 
 uint8_t SENT_IsRawData(void);
 uint16_t SENT_GetOpenThrottleVal(void);
 uint16_t SENT_GetClosedThrottleVal(void);
-uint32_t SENT_GetIntervalErr(void);
-void SENT_GetRawData(uint8_t * buf);
 void SENT_SetRawDataProp(void);
 void SENT_ResetRawDataProp(void);
 uint8_t SENT_GetThrottleValPrec(void);
 uint32_t SENT_GetErrPercent(void);
+int32_t *SENT_GetIntervals(void);
+
+/* Si7215 decoded data */
+int32_t Si7215_GetMagneticField(uint32_t n);
+int32_t Si7215_GetCounter(uint32_t n);
+

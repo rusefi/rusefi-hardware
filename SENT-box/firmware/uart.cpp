@@ -31,56 +31,46 @@ static char printBuffer[300];
 
 static THD_WORKING_AREA(waUartThread, 256);
 
-extern uint8_t sentTempNibblArr[SENT_CHANNELS_NUM][SENT_MSG_PAYLOAD_SIZE];
-
 static void UartThread(void*)
 {
     size_t writeCount;
 
     while(true)
     {
-
-     uint32_t revCode = ARM_REV_CODE();
-
 #if SENT_DEV == SENT_GM_ETB
-      if(SENT_IsRawData())
-      {
-          uint8_t TempRawBuf[8];
+        if (1)
+        {
+            uint8_t ptr[8];
 
-          SENT_GetRawData(TempRawBuf);
+            SENT_GetRawNibbles(ptr);
+            writeCount = chsnprintf(printBuffer, 200, "nibbles: %02d %02d %02d %02d %02d %02d %02d %02d",
+                ptr[0], ptr[1], ptr[2], ptr[3], ptr[4], ptr[5], ptr[6], ptr[7]);
 
-          writeCount = chsnprintf(printBuffer, 200, "raw %03d %03d %03d %03d %03d %03d %03d %03d err %06d %06d %06d %06d %06d\r\n",
-                                                TempRawBuf[0], TempRawBuf[1], TempRawBuf[2], TempRawBuf[3], TempRawBuf[4], TempRawBuf[5], TempRawBuf[6], TempRawBuf[7],
-                                                SENT_GetIntervalErr(), SENT_GetMaxIntervalErrCnt(), SENT_GetSyncErrCnt(), SENT_GetCrcErrCnt(),
-                                                SENT_GetSyncCnt());
-      }
-      else
-      {
-      int n1 = sentTempNibblArr[0][1];
-      int n2 = sentTempNibblArr[0][2];
-      int n3 = sentTempNibblArr[0][3];
-      int n4 = sentTempNibblArr[0][4];
-      int n5 = sentTempNibblArr[0][5];
-      int n6 = sentTempNibblArr[0][6];
-          writeCount = chsnprintf(printBuffer, 200, "[%x] %02d %02d %02d %02d %02d %02d ETB %04d %04d pos=%03d err %06d %06d s_e=%06d c_err=%06d sync=%06d rate=%04d\r\n",
-          revCode,
-          n1,
-          n2,
-          n3,
-          n4,
-          n5,
-          n6,
-                                      SENT_GetOpenThrottleVal(), SENT_GetClosedThrottleVal(), SENT_GetThrottleValPrec(),
-                                      SENT_GetIntervalErr(), SENT_GetMaxIntervalErrCnt(), SENT_GetSyncErrCnt(), SENT_GetCrcErrCnt(),
-                                      SENT_GetSyncCnt(),
-                                      SENT_GetErrPercent()
-                                      );
-      }
+            uartStartSend(&UARTD1, writeCount, printBuffer);
+            chThdSleepMilliseconds(20);
+        }
+        if(SENT_IsRawData())
+        {
+            writeCount = chsnprintf(printBuffer, 200, " Si7215: %04d * 0.1 mT cnt %03d. Tick = %04d nS. Errs S: %06d L: %06d S: %06d C: %06d, SC: %06d\r\n",
+                Si7215_GetMagneticField(0), Si7215_GetCounter(0),
+                SENT_GetTickTimeNs(),
+                SENT_GetShortIntervalErrCnt(), SENT_GetLongIntervalErrCnt(), SENT_GetSyncErrCnt(), SENT_GetCrcErrCnt(),
+                SENT_GetSyncCnt());
+        }
+        else
+        {
+            writeCount = chsnprintf(printBuffer, 200, "ETB %04d %04d pos=%03d err %06d %06d s_e=%06d c_err=%06d sync=%06d rate=%04d\r\n",
+                                        SENT_GetOpenThrottleVal(), SENT_GetClosedThrottleVal(), SENT_GetThrottleValPrec(),
+                                        SENT_GetShortIntervalErrCnt(), SENT_GetLongIntervalErrCnt(), SENT_GetSyncErrCnt(), SENT_GetCrcErrCnt(),
+                                        SENT_GetSyncCnt(),
+                                        SENT_GetErrPercent()
+                                        );
+        }
 #elif SENT_DEV == SENT_SILABS_SENS
-        size_t writeCount = chsnprintf(printBuffer, 200, "%04d %04d %04d %04d err %06d %06d %06d %06d %06d %06d\r\n",
+        size_t writeCount = chsnprintf(printBuffer, 200, "%04d %04d %04d %04d err %06d %06d %06d %06d %06d\r\n",
                                          SENT_GetData(SENT_CH1), SENT_GetData(SENT_CH2),  SENT_GetData(SENT_CH3),  SENT_GetData(SENT_CH4),
                                          SENT_GetMinIntervalErrCnt(), SENT_GetMaxIntervalErrCnt(), SENT_GetSyncErrCnt(),
-                                         SENT_GetRollErrCnt(), SENT_GetCrcErrCnt(), SENT_GetSyncCnt());
+                                         SENT_GetCrcErrCnt(), SENT_GetSyncCnt());
 #endif
         uartStartSend(&UARTD1, writeCount, printBuffer);
 
