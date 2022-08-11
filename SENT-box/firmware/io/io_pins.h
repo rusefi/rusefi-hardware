@@ -31,4 +31,4 @@
 #define UART_TX_PIN				9
   // stm32 RX/UART1 - dongle TX often Green
 #define UART_RX_PIN				10
-#define UART_BAUD_RATE      38400
+#define UART_BAUD_RATE      115200
