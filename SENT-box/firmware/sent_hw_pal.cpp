@@ -87,9 +87,9 @@ static void palperiodcb_in2(void *arg)
 
 void InitSent()
 {
-  CoreDebug->DEMCR |= CoreDebug_DEMCR_TRCENA_Msk;
-  DWT->CTRL |= DWT_CTRL_CYCCNTENA_Msk;
-  DWT->CYCCNT = 0;
+//  CoreDebug->DEMCR |= CoreDebug_DEMCR_TRCENA_Msk;
+//  DWT->CTRL |= DWT_CTRL_CYCCNTENA_Msk;
+//  DWT->CYCCNT = 0;
 
   palSetLineMode(HAL_SENT_CH1_LINE, PAL_MODE_INPUT_PULLUP);
   palEnableLineEvent(HAL_SENT_CH1_LINE, PAL_EVENT_MODE_FALLING_EDGE);
