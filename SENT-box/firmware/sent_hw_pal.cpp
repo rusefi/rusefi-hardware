@@ -43,11 +43,11 @@ static void palperiodcb_in(void *arg)
 
 void InitSent()
 {
-  palSetLineMode(HAL_SENT_CH1_LINE, PAL_MODE_INPUT);
+  palSetLineMode(HAL_SENT_CH1_LINE, PAL_MODE_INPUT_PULLUP);
   palEnableLineEvent(HAL_SENT_CH1_LINE, PAL_EVENT_MODE_FALLING_EDGE);
   palSetLineCallback(HAL_SENT_CH1_LINE, (palcallback_t)palperiodcb_in, (void *)SENT_CH1);
 
-  palSetLineMode(HAL_SENT_CH2_LINE, PAL_MODE_INPUT);
+  palSetLineMode(HAL_SENT_CH2_LINE, PAL_MODE_INPUT_PULLUP);
   palEnableLineEvent(HAL_SENT_CH2_LINE, PAL_EVENT_MODE_FALLING_EDGE);
   palSetLineCallback(HAL_SENT_CH2_LINE, (palcallback_t)palperiodcb_in, (void *)SENT_CH1);
 
