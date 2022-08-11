@@ -178,7 +178,9 @@ bool Pt2001::init() {
 	palClearPad(GPIOB, 4);
 
 	palSetPadMode(GPIOB, 5, PAL_MODE_OUTPUT_PUSHPULL);	// reset
-	palSetPad(GPIOB, 5);
+	palClearPad(GPIOB, 5);
+
+	palSetPadMode(GPIOB, 7, PAL_MODE_INPUT_PULLDOWN);	// flag0
 
 	driver = &SPID1;
 	spiStart(driver, &spiCfg);
