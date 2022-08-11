@@ -62,11 +62,11 @@ void InitSent()
 //  DWT->CTRL |= DWT_CTRL_CYCCNTENA_Msk;
 //  DWT->CYCCNT = 0;
 
-  palSetLineMode(HAL_SENT_CH1_LINE, PAL_MODE_INPUT_PULLUP);
+  palSetLineMode(HAL_SENT_CH1_LINE, PAL_MODE_INPUT);
   palEnableLineEvent(HAL_SENT_CH1_LINE, PAL_EVENT_MODE_FALLING_EDGE);
   palSetLineCallback(HAL_SENT_CH1_LINE, (palcallback_t)palperiodcb_in, (void *)SENT_CH1);
 
-  palSetLineMode(HAL_SENT_CH2_LINE, PAL_MODE_INPUT_PULLUP);
+  palSetLineMode(HAL_SENT_CH2_LINE, PAL_MODE_INPUT);
   palEnableLineEvent(HAL_SENT_CH2_LINE, PAL_EVENT_MODE_FALLING_EDGE);
   palSetLineCallback(HAL_SENT_CH2_LINE, (palcallback_t)palperiodcb_in, (void *)SENT_CH1);
 
