@@ -44,6 +44,7 @@ enum
     SENT_CH3,
     SENT_CH4,
 #endif
+    SENT_CH_MAX,
 };
 
 typedef enum
@@ -60,6 +61,7 @@ typedef enum
         SM_SENT_CRC_STATE,
 }SM_SENT_enum;
 
+/* SENT init */
 void InitSent();
 
 void SENT_ISR_Handler(uint8_t ch, uint16_t val_res);
