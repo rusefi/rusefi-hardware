@@ -172,6 +172,8 @@ bool Pt2001::init() {
 	palSetPadMode(GPIOB, 2, PAL_MODE_OUTPUT_PUSHPULL);	// chip select
 	palSetPad(GPIOB, 2);
 
+	// Set debug pins remap mode to use PB4 as normal pin
+	AFIO->MAPR = AFIO_MAPR_SWJ_CFG_JTAGDISABLE;
 	palSetPadMode(GPIOB, 4, PAL_MODE_OUTPUT_PUSHPULL);	// DRVEN
 	palClearPad(GPIOB, 4);
 
