@@ -182,6 +182,9 @@ bool Pt2001::init() {
 	spiStart(driver, &spiCfg);
 	spiUnselect(driver);
 
+	// Wait 1/2 second for things to wake up
+	chThdSleepMilliseconds(500);
+
 	return restart();
 }
 
@@ -202,6 +205,9 @@ int main() {
     InitUart();
 
 	palSetPadMode(LED_BLUE_PORT, LED_BLUE_PIN, PAL_MODE_OUTPUT_PUSHPULL);
+	palClearPad(LED_BLUE_PORT, LED_BLUE_PIN);
+	palSetPadMode(LED_GREEN_PORT, LED_GREEN_PIN, PAL_MODE_OUTPUT_PUSHPULL);
+	palClearPad(LED_GREEN_PORT, LED_GREEN_PIN);
 
 	bool isOverallHappyStatus = chip.init();
 
