@@ -13,13 +13,7 @@
 
 #if SENT_MODE_PAL
 
-uint32_t cyccnt_ch1;
-uint32_t cyccnt_ch1_prev = 0;
-uint16_t cyccnt_ch1_period;
-
-uint32_t cyccnt_ch2;
-uint32_t cyccnt_ch2_prev = 0;
-uint16_t cyccnt_ch2_period;
+uint32_t cyccnt_ch_prev[SENT_CH_MAX] = {0};
 
 uint32_t dwtTestValMax = 0;
 uint32_t dwtTestValMin = 40000;
@@ -34,54 +28,31 @@ uint8_t SENT_GetTickValue(uint16_t dwt_val);
 
 #pragma GCC push_options
 #pragma GCC optimize ("O2")
-static void palperiodcb_in1(void *arg)
+
+static void palperiodcb_in(void *arg)
 {
+  uint32_t cyccnt_ch;
+  uint16_t cyccnt_ch_period;
+  int ch = (int)arg;
 
-  (void)arg;
+  cyccnt_ch = DWT->CYCCNT;
 
-  cyccnt_ch1 = DWT->CYCCNT;
-
-  if(cyccnt_ch1 > cyccnt_ch1_prev)
+  if(cyccnt_ch > cyccnt_ch_prev[ch])
   {
-      cyccnt_ch1_period = (uint16_t)((cyccnt_ch1 - cyccnt_ch1_prev));
+      cyccnt_ch_period = (uint16_t)((cyccnt_ch - cyccnt_ch_prev[ch]));
   }
   else
   {
-      cyccnt_ch1_period = (uint16_t)((0xFFFFFFFF - cyccnt_ch1_prev + cyccnt_ch1));
+      cyccnt_ch_period = (uint16_t)((0xFFFFFFFF - cyccnt_ch_prev[ch] + cyccnt_ch));
   }
 
-  cyccnt_ch1_prev = cyccnt_ch1;
-
-#if SENT_DEV == SENT_GM_ETB
-  SENT_ResetRawDataProp();
-#endif
-
-  SENT_ISR_Handler(SENT_CH1, SENT_GetTickValue(cyccnt_ch1_period));
-}
-
-static void palperiodcb_in2(void *arg)
-{
-
-  (void)arg;
-
-  cyccnt_ch2 = DWT->CYCCNT;
-
-  if(cyccnt_ch2 > cyccnt_ch2_prev)
-  {
-    cyccnt_ch2_period = (uint16_t)((cyccnt_ch2 - cyccnt_ch2_prev));
-  }
-  else
-  {
-    cyccnt_ch2_period = (uint16_t)((0xFFFFFFFF - cyccnt_ch2_prev + cyccnt_ch2));
-  }
-
-  cyccnt_ch2_prev = cyccnt_ch2;
+  cyccnt_ch_prev[ch] = cyccnt_ch;
 
 #if SENT_DEV == SENT_GM_ETB
   SENT_SetRawDataProp();
 #endif
 
-  SENT_ISR_Handler(SENT_CH2, SENT_GetTickValue(cyccnt_ch2_period));
+  SENT_ISR_Handler(ch, SENT_GetTickValue(cyccnt_ch_period));
 }
 #pragma GCC pop_options
 
@@ -93,11 +64,11 @@ void InitSent()
 
   palSetLineMode(HAL_SENT_CH1_LINE, PAL_MODE_INPUT_PULLUP);
   palEnableLineEvent(HAL_SENT_CH1_LINE, PAL_EVENT_MODE_FALLING_EDGE);
-  palSetLineCallback(HAL_SENT_CH1_LINE, (palcallback_t)palperiodcb_in1, NULL);
+  palSetLineCallback(HAL_SENT_CH1_LINE, (palcallback_t)palperiodcb_in, (void *)SENT_CH1);
 
   palSetLineMode(HAL_SENT_CH2_LINE, PAL_MODE_INPUT_PULLUP);
   palEnableLineEvent(HAL_SENT_CH2_LINE, PAL_EVENT_MODE_FALLING_EDGE);
-  palSetLineCallback(HAL_SENT_CH2_LINE, (palcallback_t)palperiodcb_in2, NULL);
+  palSetLineCallback(HAL_SENT_CH2_LINE, (palcallback_t)palperiodcb_in, (void *)SENT_CH1);
 }
 
 #pragma GCC push_options
