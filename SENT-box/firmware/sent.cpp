@@ -49,7 +49,7 @@ uint16_t sentClosedThrottleVal = 0;
 uint16_t sentOpenTempVal = 0;
 uint16_t sentClosedTempVal = 0;
 
-uint8_t sentRawData = 0;
+uint8_t sentRawData = 1;
 
 #define UNEXPECTED_VALUE 0xFF
 

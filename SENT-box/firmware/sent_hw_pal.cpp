@@ -37,10 +37,6 @@ static void palperiodcb_in(void *arg)
 
   cyccnt_ch_prev[ch] = cyccnt_ch;
 
-#if SENT_DEV == SENT_GM_ETB
-  SENT_SetRawDataProp();
-#endif
-
   SENT_ISR_Handler(ch, cyccnt_ch_period);
 }
 #pragma GCC pop_options
