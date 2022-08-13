@@ -63,6 +63,15 @@ static void UartThread(void*)
                 SENT_GetShortIntervalErrCnt(), SENT_GetLongIntervalErrCnt(), SENT_GetSyncErrCnt(), SENT_GetCrcErrCnt(),
                 SENT_GetCrcErrCnt() * 100 / SENT_GetFrameCnt(0),
                 SENT_GetFrameCnt(0));
+
+            uint16_t mask = SENT_GetSlowMessagesFlags(0);
+            int i;
+            for (i = 0; i < 16; i++) {
+                if (mask & (1 << i)) {
+                    writeCount += chsnprintf(printBuffer + writeCount, 300 - writeCount,
+                        "  msg %d: 0x%04x (%d)\r\n", SENT_GetSlowMessageID(0, i), SENT_GetSlowMessage(0, i), SENT_GetSlowMessage(0, i));
+                }
+            }
             #endif
         }
         else
