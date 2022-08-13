@@ -51,7 +51,8 @@ uint8_t sentRawData = 1;
 uint8_t sent_crc4(uint8_t* pdata, uint16_t ndata);
 uint8_t sent_crc4_gm(uint8_t* pdata, uint16_t ndata);
 
-#define SENT_TICK (5 * 72) // 5@72MHz us
+//#define SENT_TICK (5 * 72) // 5uS @72MHz
+#define SENT_TICK (27 * 72 / 10) // 2.7uS @72MHz
 
 int SENT_Decoder(struct sent_channel *ch, uint16_t clocks)
 {
