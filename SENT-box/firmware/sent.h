@@ -94,6 +94,9 @@ void SENT_ResetRawDataProp(void);
 uint8_t SENT_GetThrottleValPrec(void);
 uint32_t SENT_GetErrPercent(void);
 
+/* Slow Channel */
+uint16_t SENT_GetSlowMessagesFlags(uint32_t n);
+
 /* Si7215 decoded data */
 int32_t Si7215_GetMagneticField(uint32_t n);
 int32_t Si7215_GetCounter(uint32_t n);

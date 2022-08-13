@@ -16,6 +16,12 @@ struct sent_channel {
     /* Tick interval in CPU clocks - adjusted on SYNC */
     uint32_t tickClocks;
 
+    /* slow channel stuff */
+    uint16_t scPhase;
+    uint16_t scMsg[16];
+    uint16_t scMsgFlags;
+    uint16_t scShift;   /* shift register to store currently received short message */
+
 #if SENT_ERR_PERCENT
     /* stats */
     uint32_t PulseCnt;
@@ -165,6 +171,51 @@ int SENT_Decoder(struct sent_channel *ch, uint16_t clocks)
     return ret;
 }
 
+int SENT_SlowChannelDecoder(struct sent_channel *ch)
+{
+    if (1) {
+        /* Short Serial Message format */
+
+        /* bit 2 and bit 3 from status nibble are used to transfer short messages */
+        bool b2 = !!(ch->nibbles[0] & (1 << 2));
+        bool b3 = !!(ch->nibbles[0] & (1 << 3));
+
+        if (ch->scPhase == 0) {
+            /* waiting for Sync on bit 3 */
+            if (b3 == 0)
+                return 0;
+            ch->scPhase++;
+            ch->scShift = b2 << (16 - ch->scPhase);
+            ch->scPhase++;
+
+        } else if (ch->scPhase <= 16) {
+            if (b3 == 1) {
+                /* sync error */
+                ch->scPhase = 0;
+                return -1;
+            }
+            ch->scShift |= b2 << (16 - ch->scPhase);
+            if (ch->scPhase < 16) {
+                ch->scPhase++;
+            } else {
+                /* Done receiving */
+                int n = (ch->scShift >> 12) & 0x0f;
+
+                /* TODO: add CRC check */
+                ch->scMsg[n] = ch->scShift;
+                ch->scMsgFlags |= (1 << n);
+            }
+        } else {
+            /* should not happen */
+            ch->scPhase = 0;
+        }
+    } else {
+        /* Enhanced Serial Message format */
+    }
+
+    return 0;
+}
+
 /* This CRC works for Si7215 for WHOLE message expect last nibble (CRC) */
 uint8_t sent_crc4(uint8_t* pdata, uint16_t ndata)
 {
@@ -285,6 +336,13 @@ uint32_t SENT_GetErrPercent(void)
     return 100 * channels[0].SyncErr / channels[0].PulseCnt;;
 }
 
+/* Slow Channel */
+uint16_t SENT_GetSlowMessagesFlags(uint32_t n)
+{
+    return channels[n].scMsgFlags;
+}
+
+/* Si7215 decoded data */
 int32_t Si7215_GetMagneticField(uint32_t n)
 {
     return si7215_magnetic[n];
@@ -341,6 +399,8 @@ static void SentDecoderThread(void*)
             struct sent_channel *ch = &channels[n];
 
             if (SENT_Decoder(ch, tick) > 0) {
+                SENT_SlowChannelDecoder(ch);
+
                 /* decode Si7215 packet */
                 if (((~ch->nibbles[1 + 5]) & 0x0f) == ch->nibbles[1 + 0]) {
                     si7215_magnetic[n] =
