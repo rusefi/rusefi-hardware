@@ -19,8 +19,9 @@ struct sent_channel {
     /* slow channel stuff */
     uint16_t scMsg[16];
     uint16_t scMsgFlags;
-    uint16_t scShift2;   /* shift register for bit 2 from status nibble */
-    uint16_t scShift3;   /* shift register for bit 3 from status nibble */
+    uint32_t scShift2;   /* shift register for bit 2 from status nibble */
+    uint32_t scShift3;   /* shift register for bit 3 from status nibble */
+    bool sc16Bit;       /* C-flag */
 
 #if SENT_ERR_PERCENT
     /* stats */
@@ -173,28 +174,60 @@ int SENT_Decoder(struct sent_channel *ch, uint16_t clocks)
 
 int SENT_SlowChannelDecoder(struct sent_channel *ch)
 {
+    /* bit 2 and bit 3 from status nibble are used to transfer short messages */
+    bool b2 = !!(ch->nibbles[0] & (1 << 2));
+    bool b3 = !!(ch->nibbles[0] & (1 << 3));
+
+    /* shift in new data */
+    ch->scShift2 = (ch->scShift2 << 1) | b2;
+    ch->scShift3 = (ch->scShift3 << 1) | b3;
+
     if (1) {
         /* Short Serial Message format */
 
-        /* bit 2 and bit 3 from status nibble are used to transfer short messages */
-        bool b2 = !!(ch->nibbles[0] & (1 << 2));
-        bool b3 = !!(ch->nibbles[0] & (1 << 3));
-
-        /* shift in new data */
-        ch->scShift2 = ch->scShift2 << 1 | b2;
-        ch->scShift3 = ch->scShift3 << 1 | b3;
-
         /* 0b1000.0000.0000.0000? */
-        if (ch->scShift3 == 0x8000) {
+        if ((ch->scShift3 & 0xffff) == 0x8000) {
             /* Done receiving */
-            int n = (ch->scShift2 >> 12) & 0x0f;
+            int id = (ch->scShift2 >> 12) & 0x0f;
 
             /* TODO: add CRC check */
-            ch->scMsg[n] = (ch->scShift2 >> 4) & 0xff;
-            ch->scMsgFlags |= (1 << n);
+            ch->scMsg[id] = (ch->scShift2 >> 4) & 0xff;
+            ch->scMsgFlags |= (1 << id);
         }
-    } else {
+    }
+    if (1) {
         /* Enhanced Serial Message format */
+
+        /* 0b11.1111.0xxx.xx0x.xxx0 ? */
+        if ((ch->scShift3 & 0x3f821) == 0x3f000) {
+            int id;
+
+            /* C: configuration bit is used to indicate 16 bit format */
+            ch->sc16Bit = !!(ch->scShift3 & (1 << 10));
+            if (!ch->sc16Bit) {
+                /* 12 bit message, 8 bit ID */
+                id = ((ch->scShift3 >> 1) & 0x0f) |
+                     ((ch->scShift3 >> 2) & 0xf0);
+
+                /* TODO: add crc check */
+                if (id < 16) {
+                    ch->scMsg[id] = ch->scShift2 & 0x0fff; /* 12 bit */
+                    ch->scMsgFlags |= (1 << id);
+                } else {
+                    /* set some flag? */
+                }
+            } else {
+                /* 16 bit message, 4 bit ID */
+                uint16_t data;
+                data = (ch->scShift2 & 0x0fff) |
+                       (((ch->scShift3 >> 1) & 0x0f) << 12);
+                id = (ch->scShift3 >> 6) & 0x0f;
+
+                /* TODO: add crc check */
+                ch->scMsg[id] = data; /* 16 bit */
+                ch->scMsgFlags |= (1 << id);
+            }
+        }
     }
 
     return 0;
