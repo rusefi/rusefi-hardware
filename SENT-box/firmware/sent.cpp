@@ -17,10 +17,10 @@ struct sent_channel {
     uint32_t tickClocks;
 
     /* slow channel stuff */
-    uint16_t scPhase;
     uint16_t scMsg[16];
     uint16_t scMsgFlags;
-    uint16_t scShift;   /* shift register to store currently received short message */
+    uint16_t scShift2;   /* shift register for bit 2 from status nibble */
+    uint16_t scShift3;   /* shift register for bit 3 from status nibble */
 
 #if SENT_ERR_PERCENT
     /* stats */
@@ -180,34 +180,18 @@ int SENT_SlowChannelDecoder(struct sent_channel *ch)
         bool b2 = !!(ch->nibbles[0] & (1 << 2));
         bool b3 = !!(ch->nibbles[0] & (1 << 3));
 
-        if (ch->scPhase == 0) {
-            /* waiting for Sync on bit 3 */
-            if (b3 == 0)
-                return 0;
-            ch->scPhase++;
-            ch->scShift = b2 << (16 - ch->scPhase);
-            ch->scPhase++;
+        /* shift in new data */
+        ch->scShift2 = ch->scShift2 << 1 | b2;
+        ch->scShift3 = ch->scShift3 << 1 | b3;
 
-        } else if (ch->scPhase <= 16) {
-            if (b3 == 1) {
-                /* sync error */
-                ch->scPhase = 0;
-                return -1;
-            }
-            ch->scShift |= b2 << (16 - ch->scPhase);
-            if (ch->scPhase < 16) {
-                ch->scPhase++;
-            } else {
-                /* Done receiving */
-                int n = (ch->scShift >> 12) & 0x0f;
+        /* 0b1000.0000.0000.0000? */
+        if (ch->scShift3 == 0x8000) {
+            /* Done receiving */
+            int n = (ch->scShift2 >> 12) & 0x0f;
 
-                /* TODO: add CRC check */
-                ch->scMsg[n] = ch->scShift;
-                ch->scMsgFlags |= (1 << n);
-            }
-        } else {
-            /* should not happen */
-            ch->scPhase = 0;
+            /* TODO: add CRC check */
+            ch->scMsg[n] = (ch->scShift2 >> 4) & 0xff;
+            ch->scMsgFlags |= (1 << n);
         }
     } else {
         /* Enhanced Serial Message format */
