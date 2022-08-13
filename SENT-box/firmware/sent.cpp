@@ -23,6 +23,7 @@ struct sent_channel {
     uint32_t LongIntervalErr;
     uint32_t SyncErr;
     uint32_t CrcErrCnt;
+    uint32_t FrameCnt;
 #endif // SENT_ERR_PERCENT
 };
 
@@ -130,6 +131,7 @@ int SENT_Decoder(struct sent_channel *ch, uint16_t clocks)
                 }
                 else
                 {
+                    ch->FrameCnt++;
                     /* CRC check */
                     if ((ch->nibbles[7] == sent_crc4(ch->nibbles, 7)) ||
                         (ch->nibbles[7] == sent_crc4_gm(ch->nibbles + 1, 6)))
@@ -243,6 +245,11 @@ uint32_t SENT_GetSyncErrCnt(void)
 uint32_t SENT_GetSyncCnt(void)
 {
     return channels[0].PulseCnt;
+}
+
+uint32_t SENT_GetFrameCnt(uint32_t n)
+{
+    return channels[n].FrameCnt;
 }
 
 uint32_t SENT_GetTickTimeNs(void)

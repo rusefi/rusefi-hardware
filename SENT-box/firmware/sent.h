@@ -80,6 +80,7 @@ uint32_t SENT_GetLongIntervalErrCnt(void);
 uint32_t SENT_GetCrcErrCnt(void);
 uint32_t SENT_GetSyncErrCnt(void);
 uint32_t SENT_GetSyncCnt(void);
+uint32_t SENT_GetFrameCnt(uint32_t n);
 uint32_t SENT_GetTickTimeNs(void);
 
 /* Debug */

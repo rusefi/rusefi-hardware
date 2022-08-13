@@ -51,11 +51,11 @@ static void UartThread(void*)
         }
         if(SENT_IsRawData())
         {
-            writeCount = chsnprintf(printBuffer, 200, " Si7215: %04d * 0.1 mT cnt %03d. Tick = %04d nS. Errs S: %06d L: %06d S: %06d C: %06d, SC: %06d\r\n",
+            writeCount = chsnprintf(printBuffer, 200, " Si7215: %04d * 0.1 mT cnt %03d. Tick = %04d nS. Errs Short: %06d Long: %06d Sync: %06d CRC: %06d. Frames: %06d\r\n",
                 Si7215_GetMagneticField(0), Si7215_GetCounter(0),
                 SENT_GetTickTimeNs(),
                 SENT_GetShortIntervalErrCnt(), SENT_GetLongIntervalErrCnt(), SENT_GetSyncErrCnt(), SENT_GetCrcErrCnt(),
-                SENT_GetSyncCnt());
+                SENT_GetFrameCnt(0));
         }
         else
         {
