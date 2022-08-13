@@ -98,3 +98,8 @@ uint32_t SENT_GetErrPercent(void);
 int32_t Si7215_GetMagneticField(uint32_t n);
 int32_t Si7215_GetCounter(uint32_t n);
 
+/* GM DI fuel pressure, temperature sensor data */
+int32_t gm_GetSig0(uint32_t n);
+int32_t gm_GetSig1(uint32_t n);
+int32_t gm_GetStat(uint32_t n);
+

@@ -33,6 +33,11 @@ static struct sent_channel channels[SENT_CHANNELS_NUM];
 int32_t si7215_magnetic[SENT_CHANNELS_NUM];
 int32_t si7215_counter[SENT_CHANNELS_NUM];
 
+/* GM DI fuel pressure, temperature sensor decoded data */
+int32_t gm_sig0[SENT_CHANNELS_NUM];
+int32_t gm_sig1[SENT_CHANNELS_NUM];
+int32_t gm_stat[SENT_CHANNELS_NUM];
+
 #if SENT_DEV == SENT_GM_ETB
 
 uint16_t sentOpenThrottleVal = 0;
@@ -289,6 +294,22 @@ int32_t Si7215_GetCounter(uint32_t n)
     return si7215_counter[n];
 }
 
+/* GM DI fuel pressure, temperature sensor data */
+int32_t gm_GetSig0(uint32_t n)
+{
+    return gm_sig0[n];
+}
+
+int32_t gm_GetSig1(uint32_t n)
+{
+    return gm_sig1[n];
+}
+
+int32_t gm_GetStat(uint32_t n)
+{
+    return gm_stat[n];
+}
+
 /* 4 per channel should be enougth */
 #define SENT_MB_SIZE        (4 * SENT_CH_MAX)
 
@@ -328,6 +349,19 @@ static void SentDecoderThread(void*)
                     si7215_counter[n] =
                         (ch->nibbles[1 + 3] << 4) |
                         (ch->nibbles[1 + 4] << 0);
+                }
+                /* decode GM DI fuel pressure, temperature sensor */
+                if (1) {
+                    gm_sig0[n] =
+                        (ch->nibbles[1 + 0] << 8) |
+                        (ch->nibbles[1 + 1] << 4) |
+                        (ch->nibbles[1 + 2] << 0);
+                    gm_sig1[n] =
+                        (ch->nibbles[1 + 3] << 8) |
+                        (ch->nibbles[1 + 4] << 4) |
+                        (ch->nibbles[1 + 5] << 0);
+                    gm_stat[n] =
+                        ch->nibbles[0];
                 }
             }
         }
