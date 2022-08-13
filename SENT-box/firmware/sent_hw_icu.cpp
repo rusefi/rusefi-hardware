@@ -22,14 +22,14 @@ static void icuperiodcb_in4(ICUDriver *icup);
 
 static ICUConfig icucfg_in1 =
 {
-  ICU_INPUT_ACTIVE_HIGH,
-  SENT_ICU_FREQ,
-  NULL,
-  icuperiodcb_in1,
-  NULL,
-  ICU_CHANNEL_1,
-  0U,
-  0xFFFFFFFFU
+  .mode = ICU_INPUT_ACTIVE_LOW,
+  .frequency = SENT_ICU_FREQ,
+  .width_cb = NULL,
+  .period_cb = icuperiodcb_in1,
+  .overflow_cb = NULL,
+  .channel = SENT_ICUD_CH1_CH,
+  .dier = 0U,
+  .arr = 0xFFFFFFFFU,
 };
 
 static ICUConfig icucfg_in2 =
@@ -72,18 +72,11 @@ static ICUConfig icucfg_in4 =
 
 static void icuperiodcb_in1(ICUDriver *icup)
 {
-#if SENT_DEV == SENT_GM_ETB
-  SENT_ResetRawDataProp();
-#endif
   SENT_ISR_Handler(SENT_CH1, icuGetPeriodX(icup));
 }
 
 static void icuperiodcb_in2(ICUDriver *icup)
 {
-#if SENT_DEV == SENT_GM_ETB
-  SENT_SetRawDataProp();
-#endif
-
   SENT_ISR_Handler(SENT_CH2, icuGetPeriodX(icup));
 }
 
@@ -102,13 +95,18 @@ static void icuperiodcb_in4(ICUDriver *icup)
 void InitSent()
 {
 
+    //palSetLineMode(HAL_SENT_CH1_LINE, PAL_MODE_INPUT_PULLUP);
+    //palSetLineMode(HAL_SENT_CH2_LINE, PAL_MODE_INPUT_PULLUP);
+
     icuStart(&SENT_ICUD_CH1_D, &icucfg_in1);
     icuStartCapture(&SENT_ICUD_CH1_D);
     icuEnableNotifications(&SENT_ICUD_CH1_D);
 
+#if 0
     icuStart(&SENT_ICUD_CH2_D, &icucfg_in2);
     icuStartCapture(&SENT_ICUD_CH2_D);
     icuEnableNotifications(&SENT_ICUD_CH2_D);
+#endif
 
 #if SENT_DEV == SENT_SILABS_SENS
     icuStart(&SENT_ICUD_CH3_D, &icucfg_in3);
@@ -119,6 +117,9 @@ void InitSent()
     icuStartCapture(&SENT_ICUD_CH4_D);
     icuEnableNotifications(&SENT_ICUD_CH4_D);
 #endif
+
+  /* Start decoder thread */
+  SentDecoder_Init();
 }
 
 #endif // SENT_MODE_ICU

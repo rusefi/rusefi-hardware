@@ -7,8 +7,8 @@
 
 #pragma once
 
-#define SENT_MODE_ICU 0
-#define SENT_MODE_PAL 1
+#define SENT_MODE_ICU 1
+#define SENT_MODE_PAL 0
 
 #define SENT_SILABS_SENS    0   // Silabs Si7215, tick 5 us
 #define SENT_GM_ETB         1   // GM ETB throttle, tick 3.25 us
