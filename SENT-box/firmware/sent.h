@@ -97,6 +97,7 @@ uint32_t SENT_GetErrPercent(void);
 /* Slow Channel */
 uint16_t SENT_GetSlowMessagesFlags(uint32_t n);
 uint16_t SENT_GetSlowMessage(uint32_t n, uint32_t i);
+uint16_t SENT_GetSlowMessageID(uint32_t n, uint32_t i);
 
 /* Si7215 decoded data */
 int32_t Si7215_GetMagneticField(uint32_t n);

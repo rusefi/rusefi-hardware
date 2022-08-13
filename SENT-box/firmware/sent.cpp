@@ -17,7 +17,7 @@ struct sent_channel {
     uint32_t tickClocks;
 
     /* slow channel stuff */
-    uint16_t scMsg[16];
+    uint32_t scMsg[16];
     uint16_t scMsgFlags;
     uint32_t scShift2;   /* shift register for bit 2 from status nibble */
     uint32_t scShift3;   /* shift register for bit 3 from status nibble */
@@ -200,21 +200,25 @@ int SENT_SlowChannelDecoder(struct sent_channel *ch)
 
         /* 0b11.1111.0xxx.xx0x.xxx0 ? */
         if ((ch->scShift3 & 0x3f821) == 0x3f000) {
-            int id;
+            uint8_t id;
 
             /* C: configuration bit is used to indicate 16 bit format */
             ch->sc16Bit = !!(ch->scShift3 & (1 << 10));
             if (!ch->sc16Bit) {
+                int i;
                 /* 12 bit message, 8 bit ID */
                 id = ((ch->scShift3 >> 1) & 0x0f) |
                      ((ch->scShift3 >> 2) & 0xf0);
+                uint16_t data = ch->scShift2 & 0x0fff; /* 12 bit */
 
                 /* TODO: add crc check */
-                if (id < 16) {
-                    ch->scMsg[id] = ch->scShift2 & 0x0fff; /* 12 bit */
-                    ch->scMsgFlags |= (1 << id);
-                } else {
-                    /* set some flag? */
+                for (i = 0; i < 16; i++) {
+                    if (((ch->scMsgFlags & (1 << i)) == 0) ||
+                        (((ch->scMsg[i] >> 16) & 0xff) == id)) {
+                        ch->scMsg[i] = (id << 16) | data;
+                        ch->scMsgFlags |= (1 << i);
+                        return 0;
+                    }
                 }
             } else {
                 /* 16 bit message, 4 bit ID */
@@ -224,7 +228,7 @@ int SENT_SlowChannelDecoder(struct sent_channel *ch)
                 id = (ch->scShift3 >> 6) & 0x0f;
 
                 /* TODO: add crc check */
-                ch->scMsg[id] = data; /* 16 bit */
+                ch->scMsg[id] = (id << 16) | data; /* 16 bit */
                 ch->scMsgFlags |= (1 << id);
             }
         }
@@ -361,7 +365,12 @@ uint16_t SENT_GetSlowMessagesFlags(uint32_t n)
 
 uint16_t SENT_GetSlowMessage(uint32_t n, uint32_t i)
 {
-    return channels[n].scMsg[i];
+    return channels[n].scMsg[i] & 0xffff;
+}
+
+uint16_t SENT_GetSlowMessageID(uint32_t n, uint32_t i)
+{
+    return channels[n].scMsg[i] >> 16;
 }
 
 /* Si7215 decoded data */
