@@ -27,7 +27,9 @@ static const UARTConfig uartCfg =
     .rxhalf_cb = nullptr,
 };
 
-static char printBuffer[300];
+#define BUFFER_SIZE 300
+
+static char printBuffer[BUFFER_SIZE];
 
 static THD_WORKING_AREA(waUartThread, 256);
 
@@ -57,9 +59,13 @@ static void UartThread(void*)
                 SENT_GetShortIntervalErrCnt(), SENT_GetLongIntervalErrCnt(), SENT_GetSyncErrCnt(), SENT_GetCrcErrCnt(),
                 SENT_GetFrameCnt(0));
             #else
-            writeCount = chsnprintf(printBuffer, 200, " GM: %x, %04d, %04d. Tick = %04d nS. Errs Short: %06d Long: %06d Sync: %06d CRC: %06d (%03d %%). Frames: %06d\r\n",
+            writeCount = chsnprintf(printBuffer, BUFFER_SIZE, " GM: %x, %04d, %04d. Tick = %04d nS.\r\n",
                 gm_GetStat(0), gm_GetSig0(0), gm_GetSig1(0),
-                SENT_GetTickTimeNs(),
+                SENT_GetTickTimeNs()
+                );
+
+
+            writeCount += chsnprintf(printBuffer + writeCount, BUFFER_SIZE - writeCount, " Errs Short: %06d Long: %06d Sync: %06d CRC: %06d (%03d %%). Frames: %06d\r\n",
                 SENT_GetShortIntervalErrCnt(), SENT_GetLongIntervalErrCnt(), SENT_GetSyncErrCnt(), SENT_GetCrcErrCnt(),
                 SENT_GetCrcErrCnt() * 100 / SENT_GetFrameCnt(0),
                 SENT_GetFrameCnt(0));
@@ -68,8 +74,11 @@ static void UartThread(void*)
             int i;
             for (i = 0; i < 16; i++) {
                 if (mask & (1 << i)) {
-                    writeCount += chsnprintf(printBuffer + writeCount, 300 - writeCount,
-                        "  msg %d: 0x%04x (%d)\r\n", SENT_GetSlowMessageID(0, i), SENT_GetSlowMessage(0, i), SENT_GetSlowMessage(0, i));
+                    writeCount += chsnprintf(printBuffer + writeCount, BUFFER_SIZE - writeCount,
+                        "  msg %d: 0x%04x (%d)\r\n",
+                        SENT_GetSlowMessageID(0, i),
+                        SENT_GetSlowMessage(0, i),
+                        SENT_GetSlowMessage(0, i));
                 }
             }
             #endif
