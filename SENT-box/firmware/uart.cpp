@@ -33,17 +33,16 @@ static THD_WORKING_AREA(waUartThread, 256);
 
 static void UartThread(void*)
 {
-    size_t writeCount;
-
     while(true)
     {
+        size_t writeCount = 0;
 #if SENT_DEV == SENT_GM_ETB
         if (1)
         {
             uint8_t ptr[8];
 
             SENT_GetRawNibbles(ptr);
-            writeCount = chsnprintf(printBuffer, 200, "nibbles: %02d %02d %02d %02d %02d %02d %02d %02d",
+            writeCount = chsnprintf(printBuffer, 200, "nibbles: 0x%x %x %x %x %x %x %x %x",
                 ptr[0], ptr[1], ptr[2], ptr[3], ptr[4], ptr[5], ptr[6], ptr[7]);
 
             uartStartSend(&UARTD1, writeCount, printBuffer);
