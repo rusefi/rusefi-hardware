@@ -43,6 +43,7 @@ uint16_t sentClosedTempVal = 0;
 uint8_t sentRawData = 1;
 
 uint8_t sent_crc4(uint8_t* pdata, uint16_t ndata);
+uint8_t sent_crc4_gm(uint8_t* pdata, uint16_t ndata);
 
 #define SENT_TICK (5 * 72) // 5@72MHz us
 
@@ -130,7 +131,8 @@ int SENT_Decoder(struct sent_channel *ch, uint16_t clocks)
                 else
                 {
                     /* CRC check */
-                    if(ch->nibbles[7] == sent_crc4(ch->nibbles, 7))
+                    if ((ch->nibbles[7] == sent_crc4(ch->nibbles, 7)) ||
+                        (ch->nibbles[7] == sent_crc4_gm(ch->nibbles + 1, 6)))
                     {
                         // Full packet has been received
                         ret = 1;
@@ -155,6 +157,7 @@ int SENT_Decoder(struct sent_channel *ch, uint16_t clocks)
     return ret;
 }
 
+/* This CRC works for Si7215 for WHOLE message expect last nibble (CRC) */
 uint8_t sent_crc4(uint8_t* pdata, uint16_t ndata)
 {
     size_t i;
@@ -169,6 +172,27 @@ uint8_t sent_crc4(uint8_t* pdata, uint16_t ndata)
 
     return crc;
 }
+
+/* This CRC works for GM pressure sensor for message minus status nibble and minus CRC nibble */
+/* TODO: double check and use same CRC routine? */
+uint8_t sent_crc4_gm(uint8_t* pdata, uint16_t ndata)
+{
+    const uint8_t CrcLookup[16] = {0, 13, 7, 10, 14, 3, 9, 4, 1, 12, 6, 11, 15, 2, 8, 5};
+    uint8_t calculatedCRC, i;
+
+    calculatedCRC = SENT_CRC_SEED; // initialize checksum with seed "0101"
+
+    for (i = 0; i < ndata; i++)
+    {
+        calculatedCRC = CrcLookup[calculatedCRC];
+        calculatedCRC = (calculatedCRC ^ pdata[i]) & 0x0F;
+    }
+    // One more round with 0 as input
+    calculatedCRC = CrcLookup[calculatedCRC];
+
+    return calculatedCRC;
+}
+
 
 uint8_t SENT_IsRawData(void)
 {
