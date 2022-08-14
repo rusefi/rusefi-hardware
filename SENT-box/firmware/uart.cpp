@@ -57,7 +57,7 @@ static void UartThread(void*)
                 SENT_GetShortIntervalErrCnt(), SENT_GetLongIntervalErrCnt(), SENT_GetSyncErrCnt(), SENT_GetCrcErrCnt(),
                 SENT_GetFrameCnt(0));
             #else
-            writeCount = chsnprintf(printBuffer, 200, " GM: %x, %04d, %04d. Tick = %04d nS. Errs Short: %06d Long: %06d Sync: %06d CRC: %06d (%03d %%). Frames: %06d\r\n",
+            writeCount = chsnprintf(printBuffer, 200, " GM: St %x, Sig0 %04d, Sig1 %04d. Tick = %04d nS. Errs Short: %06d Long: %06d Sync: %06d CRC: %06d (%03d %%). Frames: %06d\r\n",
                 gm_GetStat(0), gm_GetSig0(0), gm_GetSig1(0),
                 SENT_GetTickTimeNs(),
                 SENT_GetShortIntervalErrCnt(), SENT_GetLongIntervalErrCnt(), SENT_GetSyncErrCnt(), SENT_GetCrcErrCnt(),
@@ -68,8 +68,20 @@ static void UartThread(void*)
             int i;
             for (i = 0; i < 16; i++) {
                 if (mask & (1 << i)) {
-                    writeCount += chsnprintf(printBuffer + writeCount, 300 - writeCount,
-                        "  msg %d: 0x%04x (%d)\r\n", SENT_GetSlowMessageID(0, i), SENT_GetSlowMessage(0, i), SENT_GetSlowMessage(0, i));
+                    uint16_t id = SENT_GetSlowMessageID(0, i);
+                    uint16_t msg = SENT_GetSlowMessage(0, i);
+                    if ((id == 16) || (id == 22))
+                    {
+                        /* these messages looks loke temperature */
+                        writeCount += chsnprintf(printBuffer + writeCount, 300 - writeCount,
+                            "  msg %d: 0x%04x (%d), T = %d.%05dC ?\r\n",
+                            id, msg, msg, msg / 32, (msg % 32) * 3125);
+                    }
+                    else
+                    {
+                        writeCount += chsnprintf(printBuffer + writeCount, 300 - writeCount,
+                            "  msg %d: 0x%04x (%d)\r\n", SENT_GetSlowMessageID(0, i), SENT_GetSlowMessage(0, i), SENT_GetSlowMessage(0, i));
+                    }
                 }
             }
             #endif
