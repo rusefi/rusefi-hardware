@@ -33,7 +33,8 @@
 /* Status + two 12-bit signals + CRC */
 #define SENT_MSG_PAYLOAD_SIZE   (1 + SENT_MSG_DATA_SIZE + 1)  // Size of payload
 
-#define SENT_ERR_PERCENT 1
+/* collect statistic */
+#define SENT_STATISTIC_COUNTERS 1
 
 #define SENT_THROTTLE_OPEN_VAL   435     // Sensor position of fully open throttle
 #define SENT_THROTTLE_CLOSE_VAL  3665    // Sensor position of fully closed throttle
@@ -81,6 +82,7 @@ uint32_t SENT_GetCrcErrCnt(void);
 uint32_t SENT_GetSyncErrCnt(void);
 uint32_t SENT_GetSyncCnt(void);
 uint32_t SENT_GetFrameCnt(uint32_t n);
+uint32_t SENT_GetErrPercent(void);
 uint32_t SENT_GetTickTimeNs(void);
 
 /* Debug */
@@ -92,7 +94,6 @@ uint16_t SENT_GetClosedThrottleVal(void);
 void SENT_SetRawDataProp(void);
 void SENT_ResetRawDataProp(void);
 uint8_t SENT_GetThrottleValPrec(void);
-uint32_t SENT_GetErrPercent(void);
 
 /* Slow Channel */
 uint16_t SENT_GetSlowMessagesFlags(uint32_t n);

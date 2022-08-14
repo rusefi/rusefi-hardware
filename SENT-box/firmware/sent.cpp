@@ -26,7 +26,7 @@ struct sent_channel {
     uint32_t scShift3;   /* shift register for bit 3 from status nibble */
     bool sc16Bit;       /* C-flag */
 
-#if SENT_ERR_PERCENT
+#if SENT_STATISTIC_COUNTERS
     /* stats */
     uint32_t PulseCnt;
     uint32_t ShortIntervalErr;
@@ -34,7 +34,7 @@ struct sent_channel {
     uint32_t SyncErr;
     uint32_t CrcErrCnt;
     uint32_t FrameCnt;
-#endif // SENT_ERR_PERCENT
+#endif // SENT_STATISTIC_COUNTERS
 };
 
 static struct sent_channel channels[SENT_CHANNELS_NUM];
@@ -70,8 +70,8 @@ int SENT_Decoder(struct sent_channel *ch, uint16_t clocks)
 {
     int ret = 0;
 
-    #if SENT_ERR_PERCENT
-    ch->PulseCnt++;
+    #if SENT_STATISTIC_COUNTERS
+        ch->PulseCnt++;
     #endif
 
     /* special case for out-of-sync state */
@@ -93,7 +93,9 @@ int SENT_Decoder(struct sent_channel *ch, uint16_t clocks)
     int interval = (clocks + ch->tickClocks / 2) / ch->tickClocks - SENT_OFFSET_INTERVAL;
 
     if (interval < 0) {
-        ch->ShortIntervalErr++;
+        #if SENT_STATISTIC_COUNTERS
+            ch->ShortIntervalErr++;
+        #endif //SENT_STATISTIC_COUNTERS
         ch->state = SM_SENT_INIT_STATE;
         return -1;
     }
@@ -113,18 +115,18 @@ int SENT_Decoder(struct sent_channel *ch, uint16_t clocks)
             }
             else
             {
-                #if SENT_ERR_PERCENT
-                //  Increment sync interval err count
-                ch->SyncErr++;
-                if (interval > SENT_SYNC_INTERVAL)
-                {
-                    ch->LongIntervalErr++;
-                }
-                else
-                {
-                    ch->ShortIntervalErr++;
-                }
-                #endif
+                #if SENT_STATISTIC_COUNTERS
+                    // Increment sync interval err count
+                    ch->SyncErr++;
+                    if (interval > SENT_SYNC_INTERVAL)
+                    {
+                        ch->LongIntervalErr++;
+                    }
+                    else
+                    {
+                        ch->ShortIntervalErr++;
+                    }
+                #endif // SENT_STATISTIC_COUNTERS
                 /* wait for next sync and recalibrate tickClocks */
                 ch->state = SM_SENT_INIT_STATE;
             }
@@ -149,7 +151,9 @@ int SENT_Decoder(struct sent_channel *ch, uint16_t clocks)
                 }
                 else
                 {
-                    ch->FrameCnt++;
+                    #if SENT_STATISTIC_COUNTERS
+                        ch->FrameCnt++;
+                    #endif // SENT_STATISTIC_COUNTERS
                     /* CRC check */
                     if ((ch->nibbles[7] == sent_crc4(ch->nibbles, 7)) ||
                         (ch->nibbles[7] == sent_crc4_gm(ch->nibbles + 1, 6)))
@@ -159,7 +163,9 @@ int SENT_Decoder(struct sent_channel *ch, uint16_t clocks)
                     }
                     else
                     {
-                        ch->CrcErrCnt++;
+                        #if SENT_STATISTIC_COUNTERS
+                            ch->CrcErrCnt++;
+                        #endif // SENT_STATISTIC_COUNTERS
                         ret = -1;
                     }
                     ch->state = SM_SENT_SYNC_STATE;
@@ -167,7 +173,9 @@ int SENT_Decoder(struct sent_channel *ch, uint16_t clocks)
             }
             else
             {
-                ch->LongIntervalErr++;
+                #if SENT_STATISTIC_COUNTERS
+                    ch->LongIntervalErr++;
+                #endif
 
                 ch->state = SM_SENT_INIT_STATE;
             }
@@ -321,32 +329,66 @@ uint16_t SENT_GetClosedThrottleVal(void)
 /* Stat counters */
 uint32_t SENT_GetShortIntervalErrCnt(void)
 {
-    return channels[0].ShortIntervalErr;
+    #if SENT_STATISTIC_COUNTERS
+        return channels[0].ShortIntervalErr;
+    #else
+        return 0;
+    #endif
 }
 
 uint32_t SENT_GetLongIntervalErrCnt(void)
 {
-    return channels[0].LongIntervalErr;
+    #if SENT_STATISTIC_COUNTERS
+        return channels[0].LongIntervalErr;
+    #else
+        return 0;
+    #endif
 }
 
 uint32_t SENT_GetCrcErrCnt(void)
 {
-    return channels[0].CrcErrCnt;
+    #if SENT_STATISTIC_COUNTERS
+        return channels[0].CrcErrCnt;
+    #else
+        return 0;
+    #endif
 }
 
 uint32_t SENT_GetSyncErrCnt(void)
 {
-    return channels[0].SyncErr;
+    #if SENT_STATISTIC_COUNTERS
+        return channels[0].SyncErr;
+    #else
+        return 0;
+    #endif
 }
 
 uint32_t SENT_GetSyncCnt(void)
 {
-    return channels[0].PulseCnt;
+    #if SENT_STATISTIC_COUNTERS
+        return channels[0].PulseCnt;
+    #else
+        return 0;
+    #endif
 }
 
 uint32_t SENT_GetFrameCnt(uint32_t n)
 {
-    return channels[n].FrameCnt;
+    #if SENT_STATISTIC_COUNTERS
+        return channels[n].FrameCnt;
+    #else
+        (void)n;
+        return 0;
+    #endif
+}
+
+uint32_t SENT_GetErrPercent(void)
+{
+    #if SENT_STATISTIC_COUNTERS
+        return 100 * channels[0].SyncErr / channels[0].PulseCnt;
+    #else
+        return 0;
+    #endif
 }
 
 uint32_t SENT_GetTickTimeNs(void)
@@ -369,12 +411,6 @@ uint8_t SENT_GetThrottleValPrec(void)
 }
 
 #endif
-
-uint32_t SENT_GetErrPercent(void)
-{
-    // cast float to int
-    return 100 * channels[0].SyncErr / channels[0].PulseCnt;;
-}
 
 /* Slow Channel */
 uint16_t SENT_GetSlowMessagesFlags(uint32_t n)
