@@ -7,7 +7,7 @@
 
 
 #include <stdlib.h>
-#include <cstdio>
+#include "logicdata_csv_reader.h"
 
 bool hasInitGtest = false;
 
@@ -15,7 +15,17 @@ int main(int argc, char **argv) {
 	hasInitGtest = true;
 
 
-	printf("Hello SENT tests");
+	printf("Hello SENT tests\r\n");
+
+	{	
+		CsvReader r;
+		r.open("../SENT-recordings/SENT-ETB.csv");
+
+		while (r.haveMore()) {
+		    r.processLine(nullptr);
+		}
+	}
+
 
 	int result = 0;
 	// windows ERRORLEVEL in Jenkins batch file seems to want negative value to detect failure
