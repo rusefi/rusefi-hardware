@@ -61,6 +61,8 @@ uint8_t sentRawData = 1;
 uint8_t sent_crc4(uint8_t* pdata, uint16_t ndata);
 uint8_t sent_crc4_gm(uint8_t* pdata, uint16_t ndata);
 
+static int SENT_SlowChannelDecoder(struct sent_channel *ch);
+
 //#define SENT_TICK (5 * 72) // 5uS @72MHz
 #define SENT_TICK (27 * 72 / 10) // 2.7uS @72MHz
 
@@ -172,10 +174,19 @@ int SENT_Decoder(struct sent_channel *ch, uint16_t clocks)
             break;
     }
 
+    if (ret > 0) {
+        /* valid packet received, can process slow channels */
+        SENT_SlowChannelDecoder(ch);
+    } else if (ret < 0) {
+        /* packet is incorrect, reset slow channel state machine */
+        ch->scShift2 = 0;
+        ch->scShift3 = 0;
+    }
+
     return ret;
 }
 
-int SENT_SlowChannelDecoder(struct sent_channel *ch)
+static int SENT_SlowChannelDecoder(struct sent_channel *ch)
 {
     /* bit 2 and bit 3 from status nibble are used to transfer short messages */
     bool b2 = !!(ch->nibbles[0] & (1 << 2));
@@ -438,8 +449,6 @@ static void SentDecoderThread(void*)
             struct sent_channel *ch = &channels[n];
 
             if (SENT_Decoder(ch, tick) > 0) {
-                SENT_SlowChannelDecoder(ch);
-
                 /* decode Si7215 packet */
                 if (((~ch->nibbles[1 + 5]) & 0x0f) == ch->nibbles[1 + 0]) {
                     si7215_magnetic[n] =
