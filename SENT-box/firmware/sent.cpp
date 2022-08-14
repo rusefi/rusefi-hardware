@@ -17,7 +17,10 @@ struct sent_channel {
     uint32_t tickClocks;
 
     /* slow channel stuff */
-    uint32_t scMsg[16];
+    struct {
+        uint16_t data;
+        uint8_t id;
+    } scMsg[16];
     uint16_t scMsgFlags;
     uint32_t scShift2;   /* shift register for bit 2 from status nibble */
     uint32_t scShift3;   /* shift register for bit 3 from status nibble */
@@ -188,10 +191,11 @@ int SENT_SlowChannelDecoder(struct sent_channel *ch)
         /* 0b1000.0000.0000.0000? */
         if ((ch->scShift3 & 0xffff) == 0x8000) {
             /* Done receiving */
-            int id = (ch->scShift2 >> 12) & 0x0f;
+            uint8_t id = (ch->scShift2 >> 12) & 0x0f;
 
             /* TODO: add CRC check */
-            ch->scMsg[id] = (ch->scShift2 >> 4) & 0xff;
+            ch->scMsg[id].data = (ch->scShift2 >> 4) & 0xff;
+            ch->scMsg[id].id = id;
             ch->scMsgFlags |= (1 << id);
         }
     }
@@ -212,10 +216,13 @@ int SENT_SlowChannelDecoder(struct sent_channel *ch)
                 uint16_t data = ch->scShift2 & 0x0fff; /* 12 bit */
 
                 /* TODO: add crc check */
+                /* Find free mainbox or mailbox with same ID */
+                /* TODO: allow message box freeing */
                 for (i = 0; i < 16; i++) {
                     if (((ch->scMsgFlags & (1 << i)) == 0) ||
-                        (((ch->scMsg[i] >> 16) & 0xff) == id)) {
-                        ch->scMsg[i] = (id << 16) | data;
+                        (ch->scMsg[i].id == id)) {
+                        ch->scMsg[i].data = data;
+                        ch->scMsg[i].id = id;
                         ch->scMsgFlags |= (1 << i);
                         return 0;
                     }
@@ -228,7 +235,8 @@ int SENT_SlowChannelDecoder(struct sent_channel *ch)
                 id = (ch->scShift3 >> 6) & 0x0f;
 
                 /* TODO: add crc check */
-                ch->scMsg[id] = (id << 16) | data; /* 16 bit */
+                ch->scMsg[id].data = data; /* 16 bit */
+                ch->scMsg[id].id = id; /* straight mapping */
                 ch->scMsgFlags |= (1 << id);
             }
         }
@@ -365,12 +373,12 @@ uint16_t SENT_GetSlowMessagesFlags(uint32_t n)
 
 uint16_t SENT_GetSlowMessage(uint32_t n, uint32_t i)
 {
-    return channels[n].scMsg[i] & 0xffff;
+    return channels[n].scMsg[i].data;
 }
 
 uint16_t SENT_GetSlowMessageID(uint32_t n, uint32_t i)
 {
-    return channels[n].scMsg[i] >> 16;
+    return channels[n].scMsg[i].id;
 }
 
 /* Si7215 decoded data */
