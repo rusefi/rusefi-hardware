@@ -42,8 +42,8 @@ static void UartThread(void*)
             uint8_t ptr[8];
 
             SENT_GetRawNibbles(ptr);
-            writeCount = chsnprintf(printBuffer, 200, "nibbles: 0x%x %x %x %x %x %x %x %x, SC messages %02x",
-                ptr[0], ptr[1], ptr[2], ptr[3], ptr[4], ptr[5], ptr[6], ptr[7], SENT_GetSlowMessagesFlags(0));
+            writeCount = chsnprintf(printBuffer, 200, "nibbles: ST=%x D=%x:%x:%x:%x:%x:%x CRC=%x",
+                ptr[0], ptr[1], ptr[2], ptr[3], ptr[4], ptr[5], ptr[6], ptr[7]);
 
             uartStartSend(&UARTD1, writeCount, printBuffer);
             chThdSleepMilliseconds(20);
