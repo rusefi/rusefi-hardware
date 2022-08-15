@@ -455,6 +455,26 @@ int32_t gm_GetStat(uint32_t n)
     return gm_stat[n];
 }
 
+int32_t gm_GetPressure(uint32_t n)
+{
+    /* two pressure signals:
+     * Sig0 occupie 3 first nibbles in MSB..LSB order
+     * Sig1 occupit next 3 nibbles in LSB..MSB order
+     * Signals are close, but not identical.
+     * Sig0 shows about 197..198 at 1 Atm (open air) and 282 at 1000 KPa (9.86 Atm)
+     * Sig1 shows abour 202..203 at 1 Atm (open air) and 283 at 1000 KPa (9.86 Atm)
+     * So for 8.86 Atm delta there are:
+     * 84..85 units for sig0
+     * 80..81 units for sig1
+     * Measurements are not ideal, so lets ASSUME 10 units per 1 Atm
+     * Offset is 187..188 for Sig0 and 192..193 for Sig1.
+     * Average offset is 180.
+     */
+
+    /* in 0.001 Atm */
+    return ((gm_GetSig0(n) - 198 + 10 + gm_GetSig1(n) - 202 + 10) * 100 / 2);
+}
+
 /* 4 per channel should be enougth */
 #define SENT_MB_SIZE        (4 * SENT_CH_MAX)
 
@@ -497,14 +517,16 @@ static void SentDecoderThread(void*)
                 }
                 /* decode GM DI fuel pressure, temperature sensor */
                 if (1) {
+                    /* Sig0 occupie first 3 nibbles in MSB..LSB order
+                     * Sig1 occupit next 3 nibbles in LSB..MSB order */
                     gm_sig0[n] =
                         (ch->nibbles[1 + 0] << 8) |
                         (ch->nibbles[1 + 1] << 4) |
                         (ch->nibbles[1 + 2] << 0);
                     gm_sig1[n] =
-                        (ch->nibbles[1 + 3] << 8) |
+                        (ch->nibbles[1 + 3] << 0) |
                         (ch->nibbles[1 + 4] << 4) |
-                        (ch->nibbles[1 + 5] << 0);
+                        (ch->nibbles[1 + 5] << 8);
                     gm_stat[n] =
                         ch->nibbles[0];
                 }
