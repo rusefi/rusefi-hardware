@@ -68,9 +68,10 @@ static void UartThread(void*)
                 SENT_GetFrameCnt(0)
                 );
             #else
+            uint32_t gm_pressure = gm_GetPressure(0);
             writeCount += chsnprintf(printBuffer + writeCount, BUFFER_SIZE - writeCount,
-                " GM: St %x, Sig0 %04d, Sig1 %04d. Tick = %04d nS.\r\n",
-                gm_GetStat(0), gm_GetSig0(0), gm_GetSig1(0),
+                " GM: St %x, Sig0 %04d, Sig1 %04d, %d.%03d Atm Tick = %04d nS.\r\n",
+                gm_GetStat(0), gm_GetSig0(0), gm_GetSig1(0), gm_pressure / 1000, gm_pressure % 1000,
                 SENT_GetTickTimeNs()
                 );
 

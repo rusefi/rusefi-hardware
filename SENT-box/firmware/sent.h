@@ -108,4 +108,5 @@ int32_t Si7215_GetCounter(uint32_t n);
 int32_t gm_GetSig0(uint32_t n);
 int32_t gm_GetSig1(uint32_t n);
 int32_t gm_GetStat(uint32_t n);
+int32_t gm_GetPressure(uint32_t n);
 
