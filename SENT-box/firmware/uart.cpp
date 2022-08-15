@@ -27,64 +27,99 @@ static const UARTConfig uartCfg =
     .rxhalf_cb = nullptr,
 };
 
-static char printBuffer[300];
+#define BUFFER_SIZE 300
+
+static char printBuffer[BUFFER_SIZE];
 
 static THD_WORKING_AREA(waUartThread, 256);
 
-extern uint8_t sentTempNibblArr[SENT_CHANNELS_NUM][SENT_MSG_PAYLOAD_SIZE];
-
 static void UartThread(void*)
 {
-    size_t writeCount;
-
     while(true)
     {
-
-     uint32_t revCode = ARM_REV_CODE();
-
+        size_t writeCount = 0;
 #if SENT_DEV == SENT_GM_ETB
-      if(SENT_IsRawData())
-      {
-          uint8_t TempRawBuf[8];
+        if (1)
+        {
+            uint8_t ptr[8];
 
-          SENT_GetRawData(TempRawBuf);
+            SENT_GetRawNibbles(ptr);
+            writeCount += chsnprintf(printBuffer + writeCount, BUFFER_SIZE - writeCount,
+                "nibbles: ST=%x D=%x:%x:%x:%x:%x:%x CRC=%x",
+                ptr[0], ptr[1], ptr[2], ptr[3], ptr[4], ptr[5], ptr[6], ptr[7]
+                );
 
-          writeCount = chsnprintf(printBuffer, 200, "raw %03d %03d %03d %03d %03d %03d %03d %03d err %06d %06d %06d %06d %06d\r\n",
-                                                TempRawBuf[0], TempRawBuf[1], TempRawBuf[2], TempRawBuf[3], TempRawBuf[4], TempRawBuf[5], TempRawBuf[6], TempRawBuf[7],
-                                                SENT_GetIntervalErr(), SENT_GetMaxIntervalErrCnt(), SENT_GetSyncErrCnt(), SENT_GetCrcErrCnt(),
-                                                SENT_GetSyncCnt());
-      }
-      else
-      {
-      int n1 = sentTempNibblArr[0][1];
-      int n2 = sentTempNibblArr[0][2];
-      int n3 = sentTempNibblArr[0][3];
-      int n4 = sentTempNibblArr[0][4];
-      int n5 = sentTempNibblArr[0][5];
-      int n6 = sentTempNibblArr[0][6];
-          writeCount = chsnprintf(printBuffer, 200, "[%x] %02d %02d %02d %02d %02d %02d ETB %04d %04d pos=%03d err %06d %06d s_e=%06d c_err=%06d sync=%06d rate=%04d\r\n",
-          revCode,
-          n1,
-          n2,
-          n3,
-          n4,
-          n5,
-          n6,
-                                      SENT_GetOpenThrottleVal(), SENT_GetClosedThrottleVal(), SENT_GetThrottleValPrec(),
-                                      SENT_GetIntervalErr(), SENT_GetMaxIntervalErrCnt(), SENT_GetSyncErrCnt(), SENT_GetCrcErrCnt(),
-                                      SENT_GetSyncCnt(),
-                                      SENT_GetErrPercent()
-                                      );
-      }
+            writeCount += chsnprintf(printBuffer + writeCount, BUFFER_SIZE - writeCount,
+                " Errs Short: %06d Long: %06d Sync: %06d CRC: %06d (%03d %%). Frames: %06d\r\n",
+                SENT_GetShortIntervalErrCnt(), SENT_GetLongIntervalErrCnt(), SENT_GetSyncErrCnt(), SENT_GetCrcErrCnt(),
+                SENT_GetCrcErrCnt() * 100 / SENT_GetFrameCnt(0),
+                SENT_GetFrameCnt(0)
+                );
+
+        }
+        if(SENT_IsRawData())
+        {
+            #if 0
+            writeCount += chsnprintf(printBuffer + writeCount, BUFFER_SIZE - writeCount,
+                " Si7215: %04d * 0.1 mT cnt %03d. Tick = %04d nS. Errs Short: %06d Long: %06d Sync: %06d CRC: %06d. Frames: %06d\r\n",
+                Si7215_GetMagneticField(0), Si7215_GetCounter(0),
+                SENT_GetTickTimeNs(),
+                SENT_GetShortIntervalErrCnt(), SENT_GetLongIntervalErrCnt(), SENT_GetSyncErrCnt(), SENT_GetCrcErrCnt(),
+                SENT_GetFrameCnt(0)
+                );
+            #else
+            writeCount += chsnprintf(printBuffer + writeCount, BUFFER_SIZE - writeCount,
+                " GM: St %x, Sig0 %04d, Sig1 %04d. Tick = %04d nS.\r\n",
+                gm_GetStat(0), gm_GetSig0(0), gm_GetSig1(0),
+                SENT_GetTickTimeNs()
+                );
+
+            uint16_t mask = SENT_GetSlowMessagesFlags(0);
+            int i;
+            for (i = 0; i < 16; i++) {
+                if (mask & (1 << i)) {  
+                    uint16_t id = SENT_GetSlowMessageID(0, i);
+                    uint16_t msg = SENT_GetSlowMessage(0, i);
+                    if ((id == 16) || (id == 22))
+                    {
+                        /* these messages looks loke temperature */
+                        writeCount += chsnprintf(printBuffer + writeCount, BUFFER_SIZE - writeCount,
+                            "  msg %d: 0x%04x (%d), T = %d.%05dC ?\r\n",
+                            id, msg, msg, msg / 32, (msg % 32) * 3125
+                            );
+                    }
+                    else
+                    {
+                        writeCount += chsnprintf(printBuffer + writeCount, BUFFER_SIZE - writeCount,
+                            "  msg %d: 0x%04x (%d)\r\n",
+                            SENT_GetSlowMessageID(0, i), SENT_GetSlowMessage(0, i), SENT_GetSlowMessage(0, i)
+                            );
+                    }
+                }
+            }
+            #endif
+        }
+        else
+        {
+            writeCount += chsnprintf(printBuffer + writeCount, BUFFER_SIZE - writeCount,
+                "ETB %04d %04d pos=%03d err %06d %06d s_e=%06d c_err=%06d sync=%06d rate=%04d\r\n",
+                SENT_GetOpenThrottleVal(), SENT_GetClosedThrottleVal(), SENT_GetThrottleValPrec(),
+                SENT_GetShortIntervalErrCnt(), SENT_GetLongIntervalErrCnt(), SENT_GetSyncErrCnt(), SENT_GetCrcErrCnt(),
+                SENT_GetSyncCnt(),
+                SENT_GetErrPercent()
+                );
+        }
 #elif SENT_DEV == SENT_SILABS_SENS
-        size_t writeCount = chsnprintf(printBuffer, 200, "%04d %04d %04d %04d err %06d %06d %06d %06d %06d %06d\r\n",
-                                         SENT_GetData(SENT_CH1), SENT_GetData(SENT_CH2),  SENT_GetData(SENT_CH3),  SENT_GetData(SENT_CH4),
-                                         SENT_GetMinIntervalErrCnt(), SENT_GetMaxIntervalErrCnt(), SENT_GetSyncErrCnt(),
-                                         SENT_GetRollErrCnt(), SENT_GetCrcErrCnt(), SENT_GetSyncCnt());
+        writeCount += chsnprintf(printBuffer + writeCount, BUFFER_SIZE - writeCount,
+            "%04d %04d %04d %04d err %06d %06d %06d %06d %06d\r\n",
+            SENT_GetData(SENT_CH1), SENT_GetData(SENT_CH2),  SENT_GetData(SENT_CH3),  SENT_GetData(SENT_CH4),
+            SENT_GetMinIntervalErrCnt(), SENT_GetMaxIntervalErrCnt(), SENT_GetSyncErrCnt(),
+            SENT_GetCrcErrCnt(), SENT_GetSyncCnt()
+            );
 #endif
         uartStartSend(&UARTD1, writeCount, printBuffer);
 
-        chThdSleepMilliseconds(20);
+        chThdSleepMilliseconds(100);
     }
 }
 

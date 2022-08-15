@@ -7,14 +7,14 @@
 
 #pragma once
 
-#define SENT_ICU_FREQ       1000000 // 1 us
+#define SENT_ICU_FREQ       72000000 // == CPU freq
 
-// Sent input1 - TIM4 CH1 - PB6
-#define SENT_ICUD_CH1_D ICUD4
-#define SENT_ICUD_CH1_CH ICU_CHANNEL_1
+// Sent input1 - TIM3 CH1 - PA7
+#define SENT_ICUD_CH1_D ICUD3
+#define SENT_ICUD_CH1_CH ICU_CHANNEL_2
 
-// Sent input2 - TIM3 CH1 - PA6
-#define SENT_ICUD_CH2_D ICUD3
+// Sent input2 - TIM4 CH1 - PB6
+#define SENT_ICUD_CH2_D ICUD4
 #define SENT_ICUD_CH2_CH ICU_CHANNEL_1
 
 // Sent input3 - TIM1 CH1 - PA8
