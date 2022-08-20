@@ -7,6 +7,7 @@
 #include "fault.h"
 #include "io_pins.h"
 #include "persistence.h"
+#include "can_common.h"
 
 
 int flashVersion;
@@ -19,14 +20,13 @@ static const CANConfig canConfig500 =
 
 void SendSomething()
 {
-    auto baseAddress = 0x156;
 
     {
         CANTxFrame m_frame;
 
 	    m_frame.IDE = CAN_IDE_STD;
 	    m_frame.EID = 0;
-	    m_frame.SID = baseAddress;
+	    m_frame.SID = GDI4_BASE_ADDRESS;
 	    m_frame.RTR = CAN_RTR_DATA;
 	    m_frame.DLC = 8;
 	    memset(m_frame.data8, 0, sizeof(m_frame.data8));

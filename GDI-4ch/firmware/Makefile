@@ -150,7 +150,10 @@ ASMSRC = $(ALLASMSRC)
 ASMXSRC = $(ALLXASMSRC)
 
 # Inclusion directories.
-INCDIR = $(CONFDIR) $(ALLINC) $(RUSEFI_LIB_INC)
+INCDIR = $(CONFDIR) $(ALLINC) \
+  $(RUSEFI_LIB_INC) \
+  $(RUSEFI_LIB)/can
+
 
 # Define C warning options here.
 CWARN = -Wall -Wextra -Wundef -Wstrict-prototypes
