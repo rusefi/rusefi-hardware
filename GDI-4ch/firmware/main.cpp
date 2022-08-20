@@ -37,6 +37,33 @@ static const SPIConfig spiCfg = {
 		.cr2 = SPI_CR2_SSOE
 };
 
+void GDIConfiguration::resetToDefaults() {
+		// keep voltage safely low for now...
+	BoostVoltage = 40;
+		// BoostVoltage = 65;
+
+	BoostCurrent = 13;
+	PeakCurrent = 9.4f;
+	HoldCurrent = 3.7f;
+
+	TpeakOff = 10;
+	TpeakTot = 700;
+	Tbypass = 10;
+
+	TholdOff = 60;
+	THoldTot = 10000;
+
+	TBoostMin = 100;
+	TBoostMax = 400;
+
+    PumpPeakCurrent = 5;
+    PumpHoldCurrent = 3;
+	PumpTholdOff = 10;
+    PumpTholdTot = 10000;
+}
+
+GDIConfiguration configuration;
+
 class Pt2001 : public Pt2001Base {
 public:
 	// returns true if init successful
@@ -90,67 +117,65 @@ protected:
 
 	// CONFIGURATIONS: currents, timings, voltages
 	float getBoostVoltage() const override {
-		// keep voltage safely low for now...
-		return 40;
-		// return 65;
+		return configuration.BoostVoltage;
 	}
 
 	// Currents in amps
 	float getBoostCurrent() const override {
-		return 13;
+		return configuration.BoostCurrent;
 	}
 
 	float getPeakCurrent() const override {
-		return 9.4f;
+		return configuration.PeakCurrent;
 	}
 
 	float getHoldCurrent() const override {
-		return 3.7f;
+		return configuration.HoldCurrent;
 	}
 
 	float getPumpPeakCurrent() const override {
-		return 5;
+		return configuration.PumpPeakCurrent;
 	}
 
 	float getPumpHoldCurrent() const override {
-		return 3;
+		return configuration.PumpHoldCurrent;
 	}
 
 	// Timings in microseconds
 	uint16_t getTpeakOff() const override {
-		return 10;
+		return configuration.TpeakOff;
 	}
 
 	uint16_t getTpeakTot() const override {
-		return 700;
+		return configuration.TpeakTot;
 	}
 
 	uint16_t getTbypass() const override {
-		return 10;
+		return configuration.Tbypass;
 	}
 
 	uint16_t getTholdOff() const override {
-		return 60;
+		return configuration.TholdOff;
 	}
 
 	uint16_t getTHoldTot() const override {
-		return 10000;
+		return configuration.THoldTot;
 	}
 
 	uint16_t getTBoostMin() const override {
-		return 100;
+		return configuration.TBoostMin;
 	}
 
 	uint16_t getTBoostMax() const override {
-		return 400;
+		return configuration.TBoostMax;
 	}
 
 	uint16_t getPumpTholdOff() const override {
-		return 10;
+		return configuration.PumpTholdOff;
 	}
 
 	uint16_t getPumpTholdTot() const override {
-		return 10000;
+		return configuration.PumpTholdTot;
 	}
 
 	// Print out an error message
@@ -204,6 +229,8 @@ Pt2001 chip;
 int main() {
     halInit();
     chSysInit();
+
+    configuration.resetToDefaults();
 
     // Fire up all of our threads
 
