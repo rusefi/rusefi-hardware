@@ -9,7 +9,7 @@
 void InitFlash();
 int IncAndGet();
 
-#define PERSIS
+#define PERSISTENCE_VERSION 1
 
 struct GDIConfiguration {
     void resetToDefaults();
@@ -34,3 +34,8 @@ struct GDIConfiguration {
     uint16_t PumpTholdOff;
     uint16_t PumpTholdTot;
 };
+
+#define FIXED_POINT 100
+
+uint16_t float2short100(float value);
+float short2float100(uint16_t value);

@@ -38,6 +38,7 @@ static const SPIConfig spiCfg = {
 };
 
 void GDIConfiguration::resetToDefaults() {
+    version = PERSISTENCE_VERSION;
 		// keep voltage safely low for now...
 	BoostVoltage = 40;
 		// BoostVoltage = 65;
