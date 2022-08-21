@@ -12,6 +12,10 @@
 #define LED_BLUE_PORT GPIOB
 #define LED_BLUE_PIN 13
 
+//wanna develop on blue pill without actual PC2001 connected?
+//#define LED_BLUE_PORT GPIOC
+//#define LED_BLUE_PIN 13
+
 // D21
 #define LED_GREEN_PORT GPIOA
 #define LED_GREEN_PIN 8
