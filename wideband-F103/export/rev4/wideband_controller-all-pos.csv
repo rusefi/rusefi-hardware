@@ -1,4 +1,4 @@
-Ref,Val,Package,PosX,PosY,Rot,Side
+"Designator","Value","Package","Mid X","Mid Y","Rotation","Layer"
 "G?","LOGO","LOGO",-48.133000,19.939000,180.000000,bottom
 "C1","4.7u","C_0402_1005Metric",8.763000,34.671000,180.000000,top
 "C2","100n","C_0402_1005Metric",11.557000,43.307000,0.000000,top
