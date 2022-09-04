@@ -16,13 +16,16 @@ See https://github.com/mck1117/wideband
 * Microcontroller replaced
 * Added four digital inputs
 * Added bluetooth module
+* Now LQFP-64
 
 # rev 2
 
 * silkscreen on back side
 * 2x7 debug port moved to top side
 * VBatt sense added
+* still LQFP-48
 
 # rev 1
 
+* works with LQFP-48
 * PWM required HW hacks
