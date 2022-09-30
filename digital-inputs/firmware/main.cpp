@@ -31,6 +31,7 @@
 #include "digital_inputs.h"
 #include "adc.h"
 #include "efilib.h"
+#include "can.h"
 
 BaseSequentialStream *chp = (BaseSequentialStream *)&EFI_CONSOLE_USB_DEVICE;
 
@@ -100,6 +101,7 @@ int main(void) {
   chSysInit();
 
   initAnalogInputs();
+  initCan();
   initDigitalInputs();
   usb_serial_start();
 
