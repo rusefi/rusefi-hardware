@@ -133,6 +133,7 @@ CPPSRC = $(ALLCPPSRC) \
         source/usbconsole.cpp \
         efilib.cpp \
         adc.cpp \
+        test_logic.cpp \
         can.cpp \
         digital_inputs.cpp \
 

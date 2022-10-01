@@ -1,3 +1,7 @@
+/**
+ file adc.h
+ */
+
 #pragma once
 
 #include "global.h"

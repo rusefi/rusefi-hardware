@@ -40,11 +40,12 @@ void initDigitalInputs() {
 
 void setOutputAddrIndex(int index) {
     int param = index;
+    chprintf(chp, "Setting ADDR %d\n", param);
     for (size_t i = 0;i<efi::size(addrPins);i++) {
         int bitState = (index & 1) ^ XOR_MAGIC;
         index = index / 2;
         io_pin *pin = &addrPins[i];
-        chprintf(chp, "output %d: ADDR bit=%d %d\n", param, i, bitState);
+//        chprintf(chp, "ADDR %d: bit=%d %d\n", param, i, bitState);
         palWritePad(pin->port, pin->pin, bitState);
     }
 }

@@ -22,14 +22,13 @@
  * second time while external device informs us that logic level is OFF
  */
 
-
-
 #include "global.h"
 #include "usbconsole.h"
 #include "usbcfg.h"
 #include "chprintf.h"
 #include "digital_inputs.h"
 #include "adc.h"
+#include "test_logic.h"
 #include "efilib.h"
 #include "can.h"
 
@@ -45,23 +44,30 @@ static THD_FUNCTION(Thread1, arg) {
   (void)arg;
   chRegSetThreadName("blinker");
   while (true) {
-    palSetLine(LINE_LED1);
+
+//    palSetLine(LINE_LED1);
+//    chThdSleepMilliseconds(50);
+
+    palSetLine(LED_BLUE);
     chThdSleepMilliseconds(50);
-    palSetLine(LINE_LED2);
+
+//    palSetLine(LINE_LED3);
+//    chThdSleepMilliseconds(200);
+
+//    palClearLine(LINE_LED1);
+//    chThdSleepMilliseconds(50);
+    palClearLine(LED_BLUE);
     chThdSleepMilliseconds(50);
-    palSetLine(LINE_LED3);
-    chThdSleepMilliseconds(200);
-    palClearLine(LINE_LED1);
-    chThdSleepMilliseconds(50);
-    palClearLine(LINE_LED2);
-    chThdSleepMilliseconds(50);
-    palClearLine(LINE_LED3);
-    chThdSleepMilliseconds(200);
+//    palClearLine(LINE_LED3);
+//    chThdSleepMilliseconds(200);
   }
 }
 
 static THD_WORKING_AREA(consoleThread, 256);
 static void ConsoleThread(void*) {
+
+    int currentIndex = 0;
+
     while (true) {
 //        for (int i = 0;i<ADC_GRP_NUM_CHANNELS;i++) {
 //            int value = getAdcValue(i);
@@ -71,14 +77,18 @@ static void ConsoleThread(void*) {
 //        }
 
         chprintf(chp, "Hello\r\n");
-        //for (int s = 0;s<16;s++)
-        int s = (s + 1) % 2;
-        {
-            setOutputAddrIndex(1);
-            setScenarioIndex(s);
 
-            chprintf(chp, "scenario=%d: %1.3f V\r\n", s, getAdcValue(0));
-        }
+    bool isGood = runTest(currentIndex);
+
+    if (isGood) {
+        palSetLine(LED_GREEN);
+        palClearLine(LED_RED);
+    } else {
+        palClearLine(LED_GREEN);
+        palSetLine(LED_RED);
+    }
+
+                            chprintf(chp, "here %d\r\n", currentIndex);
 
 
         chThdSleepMilliseconds(1000);
