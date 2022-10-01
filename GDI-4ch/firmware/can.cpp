@@ -10,7 +10,8 @@
 #include "can_common.h"
 
 
-int flashVersion;
+static int flashVersion;
+extern GDIConfiguration configuration;
 
 static const CANConfig canConfig500 =
 {
@@ -20,8 +21,6 @@ static const CANConfig canConfig500 =
 
 void SendSomething()
 {
-
-    {
         CANTxFrame m_frame;
 
 	    m_frame.IDE = CAN_IDE_STD;
@@ -35,15 +34,41 @@ void SendSomething()
 	    m_frame.data8[6] = 0x66;
 
     	canTransmitTimeout(&CAND1, CAN_ANY_MAILBOX, &m_frame, TIME_IMMEDIATE);
-    }
-
 }
+
+static void sendOutConfiguration()
+{
+        CANTxFrame m_frame;
+
+	    m_frame.IDE = CAN_IDE_STD;
+	    m_frame.EID = 0;
+	    m_frame.SID = GDI4_BASE_ADDRESS + 1;
+	    m_frame.RTR = CAN_RTR_DATA;
+	    m_frame.DLC = 8;
+	    memset(m_frame.data8, 0, sizeof(m_frame.data8));
+	    m_frame.data16[0] = float2short100(configuration.BoostVoltage);
+	    m_frame.data16[1] = float2short100(configuration.BoostCurrent);
+	    m_frame.data16[2] = float2short100(configuration.PeakCurrent);
+	    m_frame.data16[3] = float2short100(configuration.HoldCurrent);
+
+    	canTransmitTimeout(&CAND1, CAN_ANY_MAILBOX, &m_frame, TIME_IMMEDIATE);
+}
+
+#define CAN_TX_PERIOD 100
+
+static int intTxCounter = 0;
 
 static THD_WORKING_AREA(waCanTxThread, 256);
 void CanTxThread(void*)
 {
     while(1)
     {
+        intTxCounter++;
+        if (intTxCounter > 1000 / CAN_TX_PERIOD) {
+            intTxCounter = 0;
+            sendOutConfiguration();
+        }
+
         SendSomething();
 
         chThdSleepMilliseconds(10);
