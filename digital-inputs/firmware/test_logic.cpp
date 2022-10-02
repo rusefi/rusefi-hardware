@@ -5,7 +5,7 @@
 #include "test_logic.h"
 #include "chprintf.h"
 
-#define COUNT 16
+#define COUNT 48
 
 extern BaseSequentialStream *chp;
 bool haveSeenLow[COUNT];
@@ -21,7 +21,8 @@ bool runTest(int testLineIndex) {
         memset(haveSeenLow, 0, sizeof(haveSeenLow));
         memset(haveSeenHigh, 0, sizeof(haveSeenHigh));
 
-            setOutputAddrIndex(testLineIndex);
+  setOutputAddrIndex(testLineIndex % 16);
+  int adcIndex = testLineIndex / 16;
 
 
   bool isGood = false;
@@ -31,7 +32,7 @@ bool runTest(int testLineIndex) {
                 setScenarioIndex(scenarioIndex);
                             chThdSleepMilliseconds(cycleDurationMs);
 
-                            float voltage = getAdcValue(0);
+                            float voltage = getAdcValue(adcIndex);
                             bool isHigh = voltage > 1.5;
                             if (isHigh) {
                                 if (!haveSeenHigh[testLineIndex]) {
