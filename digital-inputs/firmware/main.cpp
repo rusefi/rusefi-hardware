@@ -79,7 +79,7 @@ int executionCounter = 0;
 
     bool isGood = true;
 
-    for (int currentIndex = 16;currentIndex<20;currentIndex++) {
+    for (int currentIndex = 0;currentIndex<20;currentIndex++) {
         bool isThisGood = runTest(currentIndex);
         if (isThisGood) {
             chprintf(chp, "GOOD channel %d\r\n", index2human(currentIndex));
