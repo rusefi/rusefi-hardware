@@ -11,8 +11,8 @@ extern BaseSequentialStream *chp;
 bool haveSeenLow[COUNT];
 bool haveSeenHigh[COUNT];
 
-        int cycleDurationMs = 50;
-    int cycleCount = 50;
+        int cycleDurationMs = 10;
+    int cycleCount = 250;
 
 bool runTest(int testLineIndex) {
 
@@ -24,26 +24,34 @@ bool runTest(int testLineIndex) {
             setOutputAddrIndex(testLineIndex);
 
 
-    for (int i = 0;i<cycleCount;i++) {
-    int scenarioIndex = i % 2;
+  bool isGood = false;
+
+    for (int i = 0;i<cycleCount && !isGood;i++) {
+        int scenarioIndex = 1; // i % 2;
                 setScenarioIndex(scenarioIndex);
+                            chThdSleepMilliseconds(cycleDurationMs);
 
                             float voltage = getAdcValue(0);
                             bool isHigh = voltage > 1.5;
                             if (isHigh) {
+                                if (!haveSeenHigh[testLineIndex]) {
+                                    chprintf(chp, "  HIGH %d@%d %1.3fv\r\n", testLineIndex, i, voltage);
+                                }
                                 haveSeenHigh[testLineIndex] = true;
                             } else {
+                                if (!haveSeenLow[testLineIndex]) {
+                                    chprintf(chp, "  LOW %d@%d %1.3fv\r\n", testLineIndex, i, voltage);
+                                }
                                 haveSeenLow[testLineIndex] = true;
                             }
 
-                            chThdSleepMilliseconds(cycleDurationMs);
 //                            chprintf(chp, "scenario=%d: %1.3f V\r\n", scenarioIndex, voltage);
 
-
+        isGood = haveSeenHigh[testLineIndex] && haveSeenLow[testLineIndex];
     }
 
     // test is successful if we saw state toggle
-    return haveSeenHigh[testLineIndex] && haveSeenLow[testLineIndex];
+    return isGood;
 
 
 }

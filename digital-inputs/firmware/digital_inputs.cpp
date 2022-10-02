@@ -40,7 +40,7 @@ void initDigitalInputs() {
 
 void setOutputAddrIndex(int index) {
     int param = index;
-    chprintf(chp, "Setting ADDR %d\n", param);
+    chprintf(chp, "Setting ADDR %d\r\n", param);
     for (size_t i = 0;i<efi::size(addrPins);i++) {
         int bitState = (index & 1) ^ XOR_MAGIC;
         index = index / 2;

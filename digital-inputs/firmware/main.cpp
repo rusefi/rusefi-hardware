@@ -66,7 +66,7 @@ static THD_FUNCTION(Thread1, arg) {
 static THD_WORKING_AREA(consoleThread, 256);
 static void ConsoleThread(void*) {
 
-    int currentIndex = 0;
+int executionCounter = 0;
 
     while (true) {
 //        for (int i = 0;i<ADC_GRP_NUM_CHANNELS;i++) {
@@ -76,11 +76,23 @@ static void ConsoleThread(void*) {
 //            chprintf(chp, " ");
 //        }
 
-        chprintf(chp, "Hello\r\n");
 
-    bool isGood = runTest(currentIndex);
+    bool isGood = true;
+
+    for (int currentIndex = 0;currentIndex<16;currentIndex++) {
+        bool isThisGood = runTest(currentIndex);
+        if (isThisGood) {
+            chprintf(chp, "GOOD channel %d\r\n", currentIndex);
+        } else {
+            chprintf(chp, "!!!!!!!! BAD channel %d !!!!!!!!!!!!!!!\r\n", currentIndex);
+        }
+        isGood = isGood && isThisGood;
+    }
+
+    executionCounter++;
 
     if (isGood) {
+        chprintf(chp, " ************* ALL GOOD ************************ \r\n", executionCounter);
         palSetLine(LED_GREEN);
         palClearLine(LED_RED);
     } else {
@@ -88,10 +100,7 @@ static void ConsoleThread(void*) {
         palSetLine(LED_RED);
     }
 
-                            chprintf(chp, "here %d\r\n", currentIndex);
-
-
-        chThdSleepMilliseconds(1000);
+//        chThdSleepMilliseconds(100);
     }
 }
 
