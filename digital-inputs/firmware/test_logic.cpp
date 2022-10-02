@@ -11,8 +11,8 @@ extern BaseSequentialStream *chp;
 bool haveSeenLow[COUNT];
 bool haveSeenHigh[COUNT];
 
-        int cycleDurationMs = 10;
-    int cycleCount = 250;
+        int cycleDurationMs = 1;
+    int cycleCount = 2500;
 
 bool runTest(int testLineIndex) {
 
@@ -35,12 +35,12 @@ bool runTest(int testLineIndex) {
                             bool isHigh = voltage > 1.5;
                             if (isHigh) {
                                 if (!haveSeenHigh[testLineIndex]) {
-                                    chprintf(chp, "  HIGH %d@%d %1.3fv\r\n", testLineIndex, i, voltage);
+                                    chprintf(chp, "  HIGH %d@%d %1.3fv\r\n", index2human(testLineIndex), i, voltage);
                                 }
                                 haveSeenHigh[testLineIndex] = true;
                             } else {
                                 if (!haveSeenLow[testLineIndex]) {
-                                    chprintf(chp, "  LOW %d@%d %1.3fv\r\n", testLineIndex, i, voltage);
+                                    chprintf(chp, "  LOW %d@%d %1.3fv\r\n", index2human(testLineIndex), i, voltage);
                                 }
                                 haveSeenLow[testLineIndex] = true;
                             }

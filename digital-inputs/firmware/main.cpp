@@ -82,9 +82,9 @@ int executionCounter = 0;
     for (int currentIndex = 0;currentIndex<16;currentIndex++) {
         bool isThisGood = runTest(currentIndex);
         if (isThisGood) {
-            chprintf(chp, "GOOD channel %d\r\n", currentIndex);
+            chprintf(chp, "GOOD channel %d\r\n", index2human(currentIndex));
         } else {
-            chprintf(chp, "!!!!!!!! BAD channel %d !!!!!!!!!!!!!!!\r\n", currentIndex);
+            chprintf(chp, "!!!!!!!! BAD channel %d !!!!!!!!!!!!!!!\r\n", index2human(currentIndex));
         }
         isGood = isGood && isThisGood;
     }
