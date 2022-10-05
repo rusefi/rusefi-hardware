@@ -6825,7 +6825,7 @@
     (uuid 2e48ad72-5d5f-44d0-b30d-8027a91cf4d4)
   )
   (text "External Virtual Ground Buffer\n(dirty, noisy, almost unprotected)"
-    (at 198.12 78.74 0)
+    (at 198.12 78.74 180)
     (effects (font (size 1.27 1.27)) (justify right bottom))
     (uuid 3a274653-eff3-4ffe-9be8-2bfd0950af0a)
   )
@@ -10725,7 +10725,7 @@
     (property "Value" "~" (id 1) (at 71.882 112.903 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
-    (property "Footprint" "" (id 2) (at 63.5 120.65 0)
+    (property "Footprint" "rusefi_lib:TSOP-6" (id 2) (at 63.5 120.65 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Datasheet" "" (id 3) (at 63.5 111.76 90)
@@ -12845,7 +12845,7 @@
       (reference "D11") (unit 1) (value "BAT54S") (footprint "Package_TO_SOT_SMD:SOT-23")
     )
     (path "/621ca553-0f25-41f6-94e9-11cae559b289"
-      (reference "D12") (unit 1) (value "~") (footprint "")
+      (reference "D12") (unit 1) (value "~") (footprint "rusefi_lib:TSOP-6")
     )
     (path "/c4656be4-1d4f-4c6a-81c7-9e075a44cff1"
       (reference "D13") (unit 1) (value "BAT54S") (footprint "Package_TO_SOT_SMD:SOT-23")
