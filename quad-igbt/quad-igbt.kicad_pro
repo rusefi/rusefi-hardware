@@ -2,7 +2,7 @@
   "board": {
     "design_settings": {
       "defaults": {
-        "board_outline_line_width": 0.09999999999999999,
+        "board_outline_line_width": 0.049999999999999996,
         "copper_line_width": 0.19999999999999998,
         "copper_text_italic": false,
         "copper_text_size_h": 1.5,
@@ -33,11 +33,11 @@
         "other_text_thickness": 0.15,
         "other_text_upright": false,
         "pads": {
-          "drill": 1.2,
-          "height": 1.9,
-          "width": 1.9
+          "drill": 0.0,
+          "height": 0.5,
+          "width": 0.5
         },
-        "silk_line_width": 0.15,
+        "silk_line_width": 0.12,
         "silk_text_italic": false,
         "silk_text_size_h": 1.0,
         "silk_text_size_v": 1.0,
@@ -45,10 +45,16 @@
         "silk_text_upright": false,
         "zones": {
           "45_degree_only": false,
-          "min_clearance": 0.19999999999999998
+          "min_clearance": 0.0
         }
       },
-      "diff_pair_dimensions": [],
+      "diff_pair_dimensions": [
+        {
+          "gap": 0.0,
+          "via_gap": 0.0,
+          "width": 0.0
+        }
+      ],
       "drc_exclusions": [],
       "meta": {
         "filename": "board_design_settings.json",
@@ -80,8 +86,8 @@
         "padstack": "error",
         "pth_inside_courtyard": "ignore",
         "shorting_items": "error",
-        "silk_over_copper": "warning",
-        "silk_overlap": "warning",
+        "silk_over_copper": "error",
+        "silk_overlap": "error",
         "skew_out_of_range": "error",
         "through_hole_pad_without_hole": "error",
         "too_many_vias": "error",
@@ -94,36 +100,41 @@
         "zone_has_empty_net": "error",
         "zones_intersect": "error"
       },
+      "rule_severitieslegacy_courtyards_overlap": true,
+      "rule_severitieslegacy_no_courtyard_defined": false,
       "rules": {
         "allow_blind_buried_vias": false,
         "allow_microvias": false,
         "max_error": 0.005,
         "min_clearance": 0.0,
-        "min_copper_edge_clearance": 0.049999999999999996,
-        "min_hole_clearance": 0.25,
+        "min_copper_edge_clearance": 0.02,
+        "min_hole_clearance": 0.0,
         "min_hole_to_hole": 0.25,
-        "min_microvia_diameter": 0.508,
-        "min_microvia_drill": 0.127,
+        "min_microvia_diameter": 0.19999999999999998,
+        "min_microvia_drill": 0.09999999999999999,
         "min_silk_clearance": 0.0,
-        "min_through_hole_diameter": 0.508,
-        "min_track_width": 0.254,
+        "min_through_hole_diameter": 0.3,
+        "min_track_width": 0.1651,
         "min_via_annular_width": 0.049999999999999996,
-        "min_via_diameter": 0.889,
+        "min_via_diameter": 0.39999999999999997,
         "use_height_for_length_calcs": true
       },
-      "track_widths": [],
+      "track_widths": [
+        0.0,
+        0.2032,
+        0.25,
+        0.5,
+        2.0,
+        2.999999
+      ],
       "via_dimensions": [
         {
           "diameter": 0.0,
           "drill": 0.0
         },
         {
-          "diameter": 0.889,
-          "drill": 0.635
-        },
-        {
-          "diameter": 1.54178,
-          "drill": 1.18618
+          "diameter": 0.9,
+          "drill": 0.5
         }
       ],
       "zones_allow_external_fillets": false,
@@ -352,55 +363,19 @@
     "classes": [
       {
         "bus_width": 12.0,
-        "clearance": 0.3048,
+        "clearance": 0.1651,
         "diff_pair_gap": 0.25,
         "diff_pair_via_gap": 0.25,
         "diff_pair_width": 0.2,
         "line_style": 0,
-        "microvia_diameter": 0.508,
-        "microvia_drill": 0.127,
+        "microvia_diameter": 0.3,
+        "microvia_drill": 0.1,
         "name": "Default",
         "pcb_color": "rgba(0, 0, 0, 0.000)",
         "schematic_color": "rgba(0, 0, 0, 0.000)",
-        "track_width": 0.3048,
-        "via_diameter": 0.889,
-        "via_drill": 0.635,
-        "wire_width": 6.0
-      },
-      {
-        "bus_width": 12.0,
-        "clearance": 1.7526,
-        "diff_pair_gap": 0.25,
-        "diff_pair_via_gap": 0.25,
-        "diff_pair_width": 0.2,
-        "line_style": 0,
-        "microvia_diameter": 0.508,
-        "microvia_drill": 0.127,
-        "name": "FAT",
-        "nets": [],
-        "pcb_color": "rgba(0, 0, 0, 0.000)",
-        "schematic_color": "rgba(0, 0, 0, 0.000)",
-        "track_width": 2.54,
-        "via_diameter": 0.889,
-        "via_drill": 0.635,
-        "wire_width": 6.0
-      },
-      {
-        "bus_width": 12.0,
-        "clearance": 2.54,
-        "diff_pair_gap": 0.25,
-        "diff_pair_via_gap": 0.25,
-        "diff_pair_width": 0.2,
-        "line_style": 0,
-        "microvia_diameter": 0.508,
-        "microvia_drill": 0.127,
-        "name": "MIN",
-        "nets": [],
-        "pcb_color": "rgba(0, 0, 0, 0.000)",
-        "schematic_color": "rgba(0, 0, 0, 0.000)",
-        "track_width": 0.3048,
-        "via_diameter": 0.889,
-        "via_drill": 0.635,
+        "track_width": 0.25,
+        "via_diameter": 0.6,
+        "via_drill": 0.3,
         "wire_width": 6.0
       }
     ],
@@ -416,15 +391,18 @@
       "netlist": "",
       "specctra_dsn": "",
       "step": "",
-      "vrml": ""
+      "vrml": "gerber/quad-igbt-vrml.wrl"
     },
-    "page_layout_descr_file": "../rusefi_lib/Border.kicad_wks"
+    "page_layout_descr_file": ""
   },
   "schematic": {
     "annotate_start_num": 0,
     "drawing": {
+      "default_bus_thickness": 12.0,
+      "default_junction_size": 40.0,
       "default_line_thickness": 6.0,
-      "default_text_size": 60.0,
+      "default_text_size": 50.0,
+      "default_wire_thickness": 6.0,
       "field_names": [],
       "intersheets_ref_own_page": false,
       "intersheets_ref_prefix": "",
@@ -432,9 +410,9 @@
       "intersheets_ref_show": false,
       "intersheets_ref_suffix": "",
       "junction_size_choice": 3,
-      "label_size_ratio": 0.25,
-      "pin_symbol_size": 0.0,
-      "text_offset_ratio": 0.08
+      "label_size_ratio": 0.3,
+      "pin_symbol_size": 25.0,
+      "text_offset_ratio": 0.3
     },
     "legacy_lib_dir": "",
     "legacy_lib_list": [],
@@ -451,8 +429,8 @@
       "model_mode": 0,
       "workbook_filename": ""
     },
-    "page_layout_descr_file": "../rusefi_lib/Border.kicad_wks",
-    "plot_directory": "",
+    "page_layout_descr_file": "",
+    "plot_directory": "gerber",
     "spice_adjust_passive_values": false,
     "spice_external_command": "spice \"%I\"",
     "subpart_first_id": 65,
