@@ -9,6 +9,8 @@
 #include "persistence.h"
 #include "can_common.h"
 
+// Decimal hex date presented as hex
+static char VERSION[] = {0x20, 0x22, 0x12, 0x20};
 
 static int flashVersion;
 extern GDIConfiguration configuration;
@@ -36,8 +38,7 @@ void SendSomething()
     	canTransmitTimeout(&CAND1, CAN_ANY_MAILBOX, &m_frame, TIME_IMMEDIATE);
 }
 
-static void sendOutConfiguration()
-{
+static void sendOutConfiguration() {
         CANTxFrame m_frame;
 
 	    m_frame.IDE = CAN_IDE_STD;
@@ -54,7 +55,18 @@ static void sendOutConfiguration()
     	canTransmitTimeout(&CAND1, CAN_ANY_MAILBOX, &m_frame, TIME_IMMEDIATE);
 }
 
-#define CAN_TX_PERIOD 100
+static void sendOutVersion() {
+        CANTxFrame m_frame;
+
+	    m_frame.IDE = CAN_IDE_STD;
+	    m_frame.EID = 0;
+	    m_frame.SID = GDI4_BASE_ADDRESS + 2;
+	    m_frame.RTR = CAN_RTR_DATA;
+	    m_frame.DLC = 4;
+	    memcpy(m_frame.data8, VERSION, sizeof(VERSION));
+}
+
+#define CAN_TX_PERIOD_MS 100
 
 static int intTxCounter = 0;
 
@@ -64,14 +76,16 @@ void CanTxThread(void*)
     while(1)
     {
         intTxCounter++;
-        if (intTxCounter > 1000 / CAN_TX_PERIOD) {
-            intTxCounter = 0;
+        if (intTxCounter % (1000 / CAN_TX_PERIOD_MS) == 0) {
             sendOutConfiguration();
+        }
+        if (intTxCounter % (1000 / CAN_TX_PERIOD_MS) == 0) {
+            sendOutVersion();
         }
 
         SendSomething();
 
-        chThdSleepMilliseconds(10);
+        chThdSleepMilliseconds(1000 / CAN_TX_PERIOD_MS);
     }
 }
 
