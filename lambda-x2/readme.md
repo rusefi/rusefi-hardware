@@ -16,3 +16,8 @@ See https://rusefi.com/forum/viewtopic.php?f=4&t=2314
 
 
 See also https://github.com/rusefi/rusefi/wiki/WBO
+
+
+# Firmware Upload
+
+![image](https://user-images.githubusercontent.com/48498823/208742019-953c3ffc-588c-409b-8e2a-7ff916e8f506.png)
