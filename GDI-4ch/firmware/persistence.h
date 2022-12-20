@@ -6,7 +6,10 @@
 
 #pragma once
 
-void InitFlash();
+/**
+ * @return true if OK, false if broken
+ */
+bool InitFlash();
 int IncAndGet();
 
 #define PERSISTENCE_VERSION 1
@@ -14,6 +17,7 @@ int IncAndGet();
 struct GDIConfiguration {
     void resetToDefaults();
     int version;
+    int updateCounter;
 
     float BoostVoltage;
     float BoostCurrent;

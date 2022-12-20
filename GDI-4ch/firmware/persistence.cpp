@@ -17,17 +17,12 @@ const MFSConfig mfscfg1 = {
 static MFSDriver mfs1;
 uint8_t mfs_buffer[512];
 
-void InitFlash() {
+bool InitFlash() {
   mfsObjectInit(&mfs1);
   mfs_error_t err = mfsStart(&mfs1, &mfscfg1);
-//  chDbgAssert(err == MFS_NO_ERROR, "initialization error with erased flash");
-
+  return err == MFS_NO_ERROR;
 }
 
-mfs_error_t readErr;
-mfs_error_t writeErr;
-
-/*
 extern GDIConfiguration configuration;
 
 void ReadOrDefault() {
@@ -39,21 +34,19 @@ void ReadOrDefault() {
         configuration.resetToDefaults();
     }
 }
-*/
 
 int IncAndGet() {
-  size_t size = sizeof mfs_buffer;
-  readErr = mfsReadRecord(&mfs1, 1, &size, mfs_buffer);
+  size_t size = sizeof(GDIConfiguration);
+  mfs_error_t readErr = mfsReadRecord(&mfs1, 1, &size, (uint8_t*)&configuration);
   int result;
   if (readErr == MFS_NO_ERROR) {
     result = 5;
   } else {
-    result = mfs_buffer[0];
+    result = configuration.updateCounter;
   }
   result++;
-  mfs_buffer[0] = result;
-  size = sizeof mfs_buffer;
-  writeErr = mfsWriteRecord(&mfs1, 1, sizeof mfs_buffer, mfs_buffer);
+  configuration.updateCounter = result;
+  mfs_error_t writeErr = mfsWriteRecord(&mfs1, 1, sizeof(GDIConfiguration), (uint8_t*)&configuration);
   return result;
 }
 

@@ -39,9 +39,7 @@ static const SPIConfig spiCfg = {
 
 void GDIConfiguration::resetToDefaults() {
     version = PERSISTENCE_VERSION;
-		// keep voltage safely low for now...
-	BoostVoltage = 40;
-		// BoostVoltage = 65;
+	BoostVoltage = 65;
 
 	BoostCurrent = 13;
 	PeakCurrent = 9.4f;
@@ -236,7 +234,7 @@ int main() {
     // Fire up all of our threads
 
     InitPins();
-    InitFlash();
+    bool isFlashOk = InitFlash();
     InitCan();
     InitUart();
 
@@ -245,7 +243,10 @@ int main() {
 	palSetPadMode(LED_GREEN_PORT, LED_GREEN_PIN, PAL_MODE_OUTPUT_PUSHPULL);
 	palClearPad(LED_GREEN_PORT, LED_GREEN_PIN);
 
-	bool isOverallHappyStatus = chip.init();
+    bool isOverallHappyStatus = false;
+    if (isFlashOk) {
+	    isOverallHappyStatus = chip.init();
+	}
 
     while (true) {
         if (isOverallHappyStatus) {
