@@ -4,13 +4,15 @@
 #include "persistence.h"
 #include "hal_mfs.h"
 
+#define MFS_RECORD_ID     1
+
 const MFSConfig mfscfg1 = {
   .flashp           = (BaseFlash *)&EFLD1,
   .erased           = 0xFFFFFFFFU,
   .bank_size        = 1024U,
-  .bank0_start      = 126U,
+  .bank0_start      = 62U,
   .bank0_sectors    = 1U,
-  .bank1_start      = 127U,
+  .bank1_start      = 63U,
   .bank1_sectors    = 1U
 };
 
@@ -27,7 +29,7 @@ extern GDIConfiguration configuration;
 
 void ReadOrDefault() {
     size_t size = sizeof(GDIConfiguration);
-    mfs_error_t err = mfsReadRecord(&mfs1, 1, &size, (uint8_t*)&configuration);
+    mfs_error_t err = mfsReadRecord(&mfs1, MFS_RECORD_ID, &size, (uint8_t*)&configuration);
     if (err == MFS_NO_ERROR && configuration.version == PERSISTENCE_VERSION) {
         return;
     } else {
@@ -35,9 +37,13 @@ void ReadOrDefault() {
     }
 }
 
+void saveConfiguration() {
+  mfs_error_t writeErr = mfsWriteRecord(&mfs1, MFS_RECORD_ID, sizeof(GDIConfiguration), (uint8_t*)&configuration);
+}
+
 int IncAndGet() {
   size_t size = sizeof(GDIConfiguration);
-  mfs_error_t readErr = mfsReadRecord(&mfs1, 1, &size, (uint8_t*)&configuration);
+  mfs_error_t readErr = mfsReadRecord(&mfs1, MFS_RECORD_ID, &size, (uint8_t*)&configuration);
   int result;
   if (readErr == MFS_NO_ERROR) {
     result = 5;
@@ -46,7 +52,7 @@ int IncAndGet() {
   }
   result++;
   configuration.updateCounter = result;
-  mfs_error_t writeErr = mfsWriteRecord(&mfs1, 1, sizeof(GDIConfiguration), (uint8_t*)&configuration);
+  saveConfiguration();
   return result;
 }
 

@@ -229,10 +229,7 @@ int main() {
     halInit();
     chSysInit();
 
-    configuration.resetToDefaults();
-
     // Fire up all of our threads
-
     InitPins();
     bool isFlashOk = InitFlash();
     InitCan();
@@ -245,6 +242,7 @@ int main() {
 
     bool isOverallHappyStatus = false;
     if (isFlashOk) {
+        ReadOrDefault();
 	    isOverallHappyStatus = chip.init();
 	}
 

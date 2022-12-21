@@ -62,7 +62,7 @@ static void sendOutVersion() {
 	    m_frame.EID = 0;
 	    m_frame.SID = GDI4_BASE_ADDRESS + 2;
 	    m_frame.RTR = CAN_RTR_DATA;
-	    m_frame.DLC = 4;
+	    m_frame.DLC = sizeof(VERSION);
 	    memcpy(m_frame.data8, VERSION, sizeof(VERSION));
 }
 
@@ -73,8 +73,7 @@ static int intTxCounter = 0;
 static THD_WORKING_AREA(waCanTxThread, 256);
 void CanTxThread(void*)
 {
-    while(1)
-    {
+    while (1) {
         intTxCounter++;
         if (intTxCounter % (1000 / CAN_TX_PERIOD_MS) == 0) {
             sendOutConfiguration();
@@ -93,8 +92,7 @@ void CanTxThread(void*)
 static THD_WORKING_AREA(waCanRxThread, 256);
 void CanRxThread(void*)
 {
-    while(1)
-    {
+    while (1) {
             CANRxFrame frame;
             msg_t msg = canReceiveTimeout(&CAND1, CAN_ANY_MAILBOX, &frame, TIME_INFINITE);
 
@@ -112,7 +110,12 @@ void CanRxThread(void*)
 
             if (frame.EID == 0x200) {
                 flashVersion = IncAndGet();
-
+            }
+            if (frame.EID == 0x201 && frame.DLC == 7 && frame.data8[0] == 0x88) {
+                int value = frame.data8[2] * 256 + frame.data8[1];
+                float voltage = short2float100(value);
+                configuration.BoostVoltage = voltage;
+                saveConfiguration();
             }
 
 
@@ -133,5 +136,5 @@ void InitCan()
     chThdCreateStatic(waCanRxThread, sizeof(waCanRxThread), NORMALPRIO - 4, CanRxThread, nullptr);
 }
 
-#define SWAP_UINT16(x) (((x) << 8) | ((x) >> 8))
+//#define SWAP_UINT16(x) (((x) << 8) | ((x) >> 8))
 

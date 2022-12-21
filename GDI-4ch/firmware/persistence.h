@@ -10,7 +10,9 @@
  * @return true if OK, false if broken
  */
 bool InitFlash();
+void saveConfiguration();
 int IncAndGet();
+void ReadOrDefault();
 
 #define PERSISTENCE_VERSION 1
 
