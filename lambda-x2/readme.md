@@ -20,6 +20,9 @@ See https://rusefi.com/forum/viewtopic.php?f=4&t=2314
 
 See also https://github.com/rusefi/rusefi/wiki/WBO
 
+# Bluetooth
+TBD
+
 
 # Firmware Upload
 
