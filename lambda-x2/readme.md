@@ -22,7 +22,7 @@ See also https://github.com/rusefi/rusefi/wiki/WBO
 
 # Bluetooth
 No extra steps needed to initialize JDY-33.
-Default baud rate is TBD.
+Default baud rate is 115200.
 
 
 # Firmware Upload
