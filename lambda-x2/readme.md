@@ -21,7 +21,8 @@ See https://rusefi.com/forum/viewtopic.php?f=4&t=2314
 See also https://github.com/rusefi/rusefi/wiki/WBO
 
 # Bluetooth
-TBD
+No extra steps needed to initialize JDY-33.
+Default baud rate is TBD.
 
 
 # Firmware Upload
