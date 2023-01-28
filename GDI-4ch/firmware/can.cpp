@@ -12,7 +12,6 @@
 // Decimal hex date presented as hex
 static char VERSION[] = {0x20, 0x22, 0x12, 0x20};
 
-static int flashVersion;
 extern GDIConfiguration configuration;
 
 static const CANConfig canConfig500 =
@@ -31,9 +30,11 @@ void SendSomething()
 	    m_frame.RTR = CAN_RTR_DATA;
 	    m_frame.DLC = 8;
 	    memset(m_frame.data8, 0, sizeof(m_frame.data8));
-	    m_frame.data8[2] = flashVersion;
-	    m_frame.data8[3] = 0x33;
-	    m_frame.data8[6] = 0x66;
+
+	    m_frame.data8[0] = configuration.inputCanID;
+	    m_frame.data8[1] = configuration.updateCounter;
+	    m_frame.data8[6] = 0x33;
+	    m_frame.data8[7] = 0x66;
 
     	canTransmitTimeout(&CAND1, CAN_ANY_MAILBOX, &m_frame, TIME_IMMEDIATE);
 }
@@ -89,6 +90,11 @@ void CanTxThread(void*)
 }
 
 
+static float getFloat(CANRxFrame *frame, int offset) {
+      int value = frame->data8[offset + 1] * 256 + frame->data8[offset];
+       return short2float100(value);
+}
+
 static THD_WORKING_AREA(waCanRxThread, 256);
 void CanRxThread(void*)
 {
@@ -108,13 +114,15 @@ void CanRxThread(void*)
                 continue;
             }
 
-            if (frame.EID == 0x200) {
-                flashVersion = IncAndGet();
-            }
-            if (frame.EID == 0x201 && frame.DLC == 7 && frame.data8[0] == 0x88) {
-                int value = frame.data8[2] * 256 + frame.data8[1];
-                float voltage = short2float100(value);
-                configuration.BoostVoltage = voltage;
+            if (frame.EID == configuration.inputCanID && frame.DLC == 7 && frame.data8[0] == 0x88) {
+                configuration.BoostVoltage = getFloat(&frame, 1);
+                configuration.BoostCurrent = getFloat(&frame, 3);
+                configuration.PeakCurrent = getFloat(&frame, 3);
+                saveConfiguration();
+            } else if (frame.EID == configuration.inputCanID + 1 && frame.DLC == 7 && frame.data8[0] == 0x88) {
+                configuration.HoldCurrent = getFloat(&frame, 1);
+                configuration.TpeakDuration = getFloat(&frame, 3);
+                configuration.THoldDuration = getFloat(&frame, 3);
                 saveConfiguration();
             }
 

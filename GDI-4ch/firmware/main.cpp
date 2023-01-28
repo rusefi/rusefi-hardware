@@ -39,6 +39,7 @@ static const SPIConfig spiCfg = {
 
 void GDIConfiguration::resetToDefaults() {
     version = PERSISTENCE_VERSION;
+    inputCanID = 0x201;
 	BoostVoltage = 65;
 
 	BoostCurrent = 13;
@@ -46,11 +47,11 @@ void GDIConfiguration::resetToDefaults() {
 	HoldCurrent = 3.7f;
 
 	TpeakOff = 10;
-	TpeakTot = 700;
+	TpeakDuration = 700; // 0.7ms
 	Tbypass = 10;
 
 	TholdOff = 60;
-	THoldTot = 10000;
+	THoldDuration = 10000; // 10ms
 
 	TBoostMin = 100;
 	TBoostMax = 400;
@@ -146,7 +147,7 @@ protected:
 	}
 
 	uint16_t getTpeakTot() const override {
-		return configuration.TpeakTot;
+		return configuration.TpeakDuration;
 	}
 
 	uint16_t getTbypass() const override {
@@ -158,7 +159,7 @@ protected:
 	}
 
 	uint16_t getTHoldTot() const override {
-		return configuration.THoldTot;
+		return configuration.THoldDuration;
 	}
 
 	uint16_t getTBoostMin() const override {

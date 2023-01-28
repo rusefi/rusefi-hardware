@@ -38,22 +38,8 @@ void ReadOrDefault() {
 }
 
 void saveConfiguration() {
+  configuration.updateCounter++;
   mfs_error_t writeErr = mfsWriteRecord(&mfs1, MFS_RECORD_ID, sizeof(GDIConfiguration), (uint8_t*)&configuration);
-}
-
-int IncAndGet() {
-  size_t size = sizeof(GDIConfiguration);
-  mfs_error_t readErr = mfsReadRecord(&mfs1, MFS_RECORD_ID, &size, (uint8_t*)&configuration);
-  int result;
-  if (readErr == MFS_NO_ERROR) {
-    result = 5;
-  } else {
-    result = configuration.updateCounter;
-  }
-  result++;
-  configuration.updateCounter = result;
-  saveConfiguration();
-  return result;
 }
 
 uint16_t float2short100(float value) {

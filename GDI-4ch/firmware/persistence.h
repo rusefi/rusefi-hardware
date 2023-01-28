@@ -11,10 +11,9 @@
  */
 bool InitFlash();
 void saveConfiguration();
-int IncAndGet();
 void ReadOrDefault();
 
-#define PERSISTENCE_VERSION 1
+#define PERSISTENCE_VERSION 2
 
 struct GDIConfiguration {
     void resetToDefaults();
@@ -27,11 +26,11 @@ struct GDIConfiguration {
     float HoldCurrent;
     
 	uint16_t TpeakOff;
-	uint16_t TpeakTot;
+	uint16_t TpeakDuration;
 	uint16_t Tbypass;
 
 	uint16_t TholdOff;
-	uint16_t THoldTot;
+	uint16_t THoldDuration;
 	uint16_t TBoostMin;
 	uint16_t TBoostMax;
     
@@ -39,6 +38,8 @@ struct GDIConfiguration {
     float PumpHoldCurrent;
     uint16_t PumpTholdOff;
     uint16_t PumpTholdTot;
+
+    short inputCanID;
 };
 
 #define FIXED_POINT 100
