@@ -27,3 +27,13 @@ Default baud rate is 115200.
 # Firmware Upload
 
 ![image](https://user-images.githubusercontent.com/48498823/208742019-953c3ffc-588c-409b-8e2a-7ff916e8f506.png)
+
+
+## Changelog
+
+# rev 1
+* initial programming usability
+
+# rev 0
+
+Seems to work with proper C10/C35 using https://github.com/rusefi/wideband/releases/tag/20230210-does-not-match-binaris
