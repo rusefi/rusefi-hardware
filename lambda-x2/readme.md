@@ -32,7 +32,28 @@ Default baud rate is 115200.
 ## Changelog
 
 # rev 1
-* initial programming usability
+* Switch to 64 pin STM32/GD32
+* Add 8MHz HSE oscillator (better clock stability for CAN over wide temperature range)
+* Use DAC (instead of PWM) outputs for driving Ip
+* Move BT to UART3/USART3, keep USART1 for bootloader/debug
+* Drive BT's EN signal from MCU
+* Fix RC filters on heater outputs for better voltage measurement
+* Use separate ADC input for Vbat measurement
+* Use ADC channels for AUX outputs monitoring/diagnostic
+* Use PWM noise cancelation circuit on AUX analog outputs
+* Removed useless/non-functional protection of Vm outputs
+* Fix board outline to fit two types of enclosure ("plastic top" and "alloy brick")
+* Add testpoints for TC2030 JTAG probe
+* Add buttons for Reset and Boot0
+* Add Cfg1 and jumpers
+* Replace fuse holder with resettable 0.2A 33V fuse
+* Two status LEDs for separate status indication for left and right channel
+* Silkscreen labels around testpoints
+* Silkscreen labels at uart connector on both sides of PCB
+* Un_3x_sense formula is now 0.247 + 3.15 * (Un - Vm)
+* Un_sense (not gained) is also routed to ADC input
+* Protection from possible Ip current when MCU in reset/bootloader
+* While "power on" LED replaced with green
 
 # rev 0
 
