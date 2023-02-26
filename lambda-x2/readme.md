@@ -53,7 +53,9 @@ Default baud rate is 115200.
 * Un_3x_sense formula is now 0.247 + 3.15 * (Un - Vm)
 * Un_sense (not gained) is also routed to ADC input
 * Protection from possible Ip current when MCU in reset/bootloader
-* While "power on" LED replaced with green
+* White "power on" LED replaced with green
+* Main connector pinout added to top silkscreen
+* AUX connector pinout added to top silkscreen
 
 # rev 0
 
