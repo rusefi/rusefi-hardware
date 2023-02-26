@@ -54,6 +54,8 @@ Default baud rate is 115200.
 * Un_sense (not gained) is also routed to ADC input
 * Protection from possible Ip current when MCU in reset/bootloader
 * While "power on" LED replaced with green
+* Main connector pinout added to top silkscreen
+* AUX connector pinout added to top silkscreen
 
 # rev 0
 
