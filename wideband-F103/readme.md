@@ -8,7 +8,7 @@ See https://github.com/mck1117/wideband
 
 # rev 4
 
-* Iteration of rev 3 with fixed PCB dimentions
+* Iteration of rev 3 with fixed PCB dimensions
 * Improved RC filter on digital input lines
 * Pinout changes https://github.com/rusefi/rusefi-hardware/pull/153
 
