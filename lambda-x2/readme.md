@@ -23,6 +23,9 @@ See also https://github.com/rusefi/rusefi/wiki/WBO
 No extra steps needed to initialize JDY-33.
 Default baud rate is 115200.
 
+[.ini file](https://github.com/dron0gus/wideband/blob/master/firmware/ini/rusefi_wb_f1_dual.ini)
+
+
 
 # Firmware Upload
 
