@@ -2,6 +2,8 @@ Self-contained LSU wideband supporting both STM32F103 and GD32F103
 
 See https://github.com/mck1117/wideband
 
+115200 baud
+
 [.ini](https://github.com/dron0gus/wideband/blob/master/firmware/ini/rusefi_wb_f1.ini)
 
 
