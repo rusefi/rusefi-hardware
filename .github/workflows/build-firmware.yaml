@@ -1,4 +1,4 @@
-name: Build GDI-4ch
+name: Build GDI-4ch, digital-inputs and SENT
 
 on: [push, pull_request]
 
