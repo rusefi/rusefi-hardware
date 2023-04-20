@@ -96,11 +96,12 @@ int executionCounter = 0;
         palSetLine(LED_GREEN);
         palClearLine(LED_RED);
     } else {
+        chprintf(chp, " ************* SOMETHING BAD SEE ABOVE ************************ \r\n", executionCounter);
         palClearLine(LED_GREEN);
         palSetLine(LED_RED);
     }
 
-//        chThdSleepMilliseconds(100);
+        chThdSleepMilliseconds(5000);
     }
 }
 
