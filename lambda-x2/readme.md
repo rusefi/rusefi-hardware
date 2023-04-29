@@ -30,15 +30,17 @@ Same GPIO drivers ESR outputs for both channels. **This is the root cause of pro
 
 Problem: unused ESR output with GPIO in Hi-Z state connect Nernst cell outputs from left and right channel through two resistors. This causes crosstalk between channels and inaccurate ESR measurement. Wrong ESR measurement causes incorrect sensor temperature calculation. This can lead to inaccurate AFR measurement, overheating or underheating of the sensor.
 
+Same issue for LSU4.9 bias resistors R22 and R70.
+
 Solution:
 
 Boards come with all ESR drive resistors populated. You have to remove unnecessary resistors.
 
-If LSU4.2 sensor is used: remove R24, R25, R71, R72. Keep R41 and R73 - 6.8K
+If LSU4.2 sensor is used: remove R24, R25, R71, R72, R22, R70. Keep R41 and R73 - 6.8K
 
 If LSU4.9 sensor is used: remove R25, R41, R72, R73. Keep R24 and R71 - 22K
 
-If LSUADV sensor is used: remove R24, R41, R71, R73. Keep R25 and R72 - 47K
+If LSUADV sensor is used: remove R24, R41, R71, R73, R22, R70. Keep R25 and R72 - 47K
 
 This will be (or not) solved in next revision of HW.
 
