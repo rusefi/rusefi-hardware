@@ -8,6 +8,7 @@
 #include "io_pins.h"
 #include "persistence.h"
 #include "can_common.h"
+#include "pt2001impl.h"
 
 // https://stackoverflow.com/questions/19760221/c-get-the-month-as-number-at-compile-time
 
@@ -48,6 +49,7 @@ constexpr int compilationDay() {
 static char VERSION[] = {compilationYear() / 100, compilationYear() % 100, __MONTH__, compilationDay()};
 
 extern GDIConfiguration configuration;
+extern Pt2001 chip;
 
 static const CANConfig canConfig500 =
 {
@@ -68,8 +70,7 @@ static void countTxResult(msg_t msg) {
 	}
 }
 
-void SendSomething()
-{
+void SendSomething() {
         CANTxFrame m_frame;
 
 	    m_frame.IDE = CAN_IDE_STD;
@@ -141,11 +142,16 @@ void CanTxThread(void*)
     }
 }
 
-
 static float getFloat(CANRxFrame *frame, int offset) {
       int value = frame->data8[offset + 1] * 256 + frame->data8[offset];
        return short2float100(value);
 }
+
+#define ASSIGN_IF_CHANGED (oldValue, newValue) \
+                if ((oldValue) != (newValue)) {
+                    oldValue = (newValue);
+                    withNewValue = true;
+                }
 
 static THD_WORKING_AREA(waCanRxThread, 256);
 void CanRxThread(void*)
@@ -166,16 +172,20 @@ void CanRxThread(void*)
                 continue;
             }
 
+            bool withNewValue = false;
             if (frame.EID == configuration.inputCanID && frame.DLC == 7 && frame.data8[0] == 0x88) {
-                configuration.BoostVoltage = getFloat(&frame, 1);
-                configuration.BoostCurrent = getFloat(&frame, 3);
-                configuration.PeakCurrent = getFloat(&frame, 3);
-                saveConfiguration();
+                ASSIGN_IF_CHANGED(configuration.BoostVoltage, getFloat(&frame, 1));
+                ASSIGN_IF_CHANGED(configuration.BoostCurrent = getFloat(&frame, 3));
+                ASSIGN_IF_CHANGED(configuration.PeakCurrent = getFloat(&frame, 5));
             } else if (frame.EID == configuration.inputCanID + 1 && frame.DLC == 7 && frame.data8[0] == 0x88) {
-                configuration.HoldCurrent = getFloat(&frame, 1);
-                configuration.TpeakDuration = getFloat(&frame, 3);
-                configuration.THoldDuration = getFloat(&frame, 3);
+                ASSIGN_IF_CHANGED(configuration.HoldCurrent, getFloat(&frame, 1));
+                ASSIGN_IF_CHANGED(configuration.TpeakDuration, getFloat(&frame, 3));
+                ASSIGN_IF_CHANGED(configuration.THoldDuration, getFloat(&frame, 5));
+            }
+
+            if (withNewValue) {
                 saveConfiguration();
+                chip.restart();
             }
 
 
