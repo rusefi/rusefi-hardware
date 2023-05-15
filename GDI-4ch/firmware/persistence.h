@@ -13,27 +13,38 @@ mfs_error_t InitFlash();
 void saveConfiguration();
 void ReadOrDefault();
 
-#define PERSISTENCE_VERSION 2
+#define PERSISTENCE_VERSION 3
 
 struct GDIConfiguration {
     void resetToDefaults();
     int version;
     int updateCounter;
 
+    // CAN protocol: packet 0, offset 1
     float BoostVoltage;
+    // CAN protocol: packet 0, offset 3
     float BoostCurrent;
+    // CAN protocol: packet 0, offset 5
+	uint16_t TBoostMin;
+    // CAN protocol: packet 1, offset 1
+	uint16_t TBoostMax;
+
+    // CAN protocol: packet 1, offset 3
    	float PeakCurrent;
-    float HoldCurrent;
-    
-	uint16_t TpeakOff;
+   	// CAN protocol: packet 1, offset 5
 	uint16_t TpeakDuration;
+    // CAN protocol: packet 2, offset 1
+	uint16_t TpeakOff;
+    // CAN protocol: packet 2, offset 3
 	uint16_t Tbypass;
 
+    // CAN protocol: packet 2, offset 5
+    float HoldCurrent;
+    // CAN protocol: packet 3, offset 1
 	uint16_t TholdOff;
+    // CAN protocol: packet 3, offset 3
 	uint16_t THoldDuration;
-	uint16_t TBoostMin;
-	uint16_t TBoostMax;
-    
+
     float PumpPeakCurrent;
     float PumpHoldCurrent;
     uint16_t PumpTholdOff;

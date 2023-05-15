@@ -10,6 +10,8 @@
 #include "can_common.h"
 #include "pt2001impl.h"
 
+#define GDI4_CAN_SET_TAG 0x77
+
 // https://stackoverflow.com/questions/19760221/c-get-the-month-as-number-at-compile-time
 
 #define __MONTH__ (\
@@ -142,15 +144,19 @@ void CanTxThread(void*)
     }
 }
 
-static float getFloat(CANRxFrame *frame, int offset) {
-      int value = frame->data8[offset + 1] * 256 + frame->data8[offset];
-       return short2float100(value);
+static float getInt(CANRxFrame *frame, int offset) {
+      return frame->data8[offset + 1] * 256 + frame->data8[offset];
 }
 
-#define ASSIGN_IF_CHANGED (oldValue, newValue) \
-                if ((oldValue) != (newValue)) {
-                    oldValue = (newValue);
-                    withNewValue = true;
+static float getFloat(CANRxFrame *frame, int offset) {
+      int value = getInt(frame, offset);
+      return short2float100(value);
+}
+
+#define ASSIGN_IF_CHANGED(oldValue, newValue) \
+                if ((oldValue) != (newValue)) { \
+                    oldValue = (newValue); \
+                    withNewValue = true; \
                 }
 
 static THD_WORKING_AREA(waCanRxThread, 256);
@@ -161,33 +167,42 @@ void CanRxThread(void*)
             msg_t msg = canReceiveTimeout(&CAND1, CAN_ANY_MAILBOX, &frame, TIME_INFINITE);
 
             // Ignore non-ok results...
-            if (msg != MSG_OK)
-            {
+            if (msg != MSG_OK) {
                 continue;
             }
 
             // Ignore std frames, only listen to ext
-            if (frame.IDE != CAN_IDE_EXT)
-            {
+            if (frame.IDE != CAN_IDE_EXT) {
+                continue;
+            }
+
+            // ignore packets not starting with magic byte or of unexpected length
+            if (frame.data8[0] != GDI4_CAN_SET_TAG || frame.DLC != 7) {
                 continue;
             }
 
             bool withNewValue = false;
-            if (frame.EID == configuration.inputCanID && frame.DLC == 7 && frame.data8[0] == 0x88) {
-                ASSIGN_IF_CHANGED(configuration.BoostVoltage, getFloat(&frame, 1));
-                ASSIGN_IF_CHANGED(configuration.BoostCurrent = getFloat(&frame, 3));
-                ASSIGN_IF_CHANGED(configuration.PeakCurrent = getFloat(&frame, 5));
-            } else if (frame.EID == configuration.inputCanID + 1 && frame.DLC == 7 && frame.data8[0] == 0x88) {
-                ASSIGN_IF_CHANGED(configuration.HoldCurrent, getFloat(&frame, 1));
-                ASSIGN_IF_CHANGED(configuration.TpeakDuration, getFloat(&frame, 3));
-                ASSIGN_IF_CHANGED(configuration.THoldDuration, getFloat(&frame, 5));
+            if (frame.EID == configuration.inputCanID) {
+                ASSIGN_IF_CHANGED(configuration.BoostVoltage,  getFloat(&frame, 1));
+                ASSIGN_IF_CHANGED(configuration.BoostCurrent,  getFloat(&frame, 3));
+                ASSIGN_IF_CHANGED(configuration.TBoostMin,     getInt(&frame,   5));
+            } else if (frame.EID == configuration.inputCanID + 1) {
+                ASSIGN_IF_CHANGED(configuration.TBoostMax,     getInt(&frame,   1));
+                ASSIGN_IF_CHANGED(configuration.PeakCurrent,   getFloat(&frame, 3));
+                ASSIGN_IF_CHANGED(configuration.TpeakDuration, getInt(&frame,   5));
+            } else if (frame.EID == configuration.inputCanID + 2) {
+                ASSIGN_IF_CHANGED(configuration.TpeakOff,      getInt(&frame,   1));
+                ASSIGN_IF_CHANGED(configuration.Tbypass,       getInt(&frame,   3));
+                ASSIGN_IF_CHANGED(configuration.HoldCurrent,   getFloat(&frame, 5));
+            } else if (frame.EID == configuration.inputCanID + 3) {
+                ASSIGN_IF_CHANGED(configuration.TholdOff,      getInt(&frame,   1));
+                ASSIGN_IF_CHANGED(configuration.THoldDuration, getInt(&frame,   3));
             }
 
             if (withNewValue) {
                 saveConfiguration();
                 chip.restart();
             }
-
 
         chThdSleepMilliseconds(100);
     }
