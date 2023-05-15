@@ -183,7 +183,7 @@ void CanRxThread(void*)
 
             bool withNewValue = false;
             if (frame.EID == configuration.inputCanID) {
-                ASSIGN_IF_CHANGED(configuration.BoostVoltage,  getFloat(&frame, 1));
+                ASSIGN_IF_CHANGED(configuration.BoostVoltage,  getInt(&frame,   1));
                 ASSIGN_IF_CHANGED(configuration.BoostCurrent,  getFloat(&frame, 3));
                 ASSIGN_IF_CHANGED(configuration.TBoostMin,     getInt(&frame,   5));
             } else if (frame.EID == configuration.inputCanID + 1) {
