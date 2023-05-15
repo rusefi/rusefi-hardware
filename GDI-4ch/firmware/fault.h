@@ -10,4 +10,5 @@ enum class Fault : uint8_t
 
 
 bool HasFault();
+void SetCurrentFault(Fault fault);
 Fault GetCurrentFault();

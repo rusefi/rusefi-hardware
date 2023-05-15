@@ -11,3 +11,7 @@ Fault GetCurrentFault()
 {
     return currentFault;
 }
+
+void SetCurrentFault(Fault fault) {
+    currentFault = fault;
+}
