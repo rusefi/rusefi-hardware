@@ -23,6 +23,7 @@ struct GDIConfiguration {
     // CAN protocol: packet 0, offset 1
     uint16_t BoostVoltage;
     // CAN protocol: packet 0, offset 3
+    // Amps
     float BoostCurrent;
     // CAN protocol: packet 0, offset 5
 	uint16_t TBoostMin;

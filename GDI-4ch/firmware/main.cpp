@@ -37,26 +37,25 @@ static const SPIConfig spiCfg = {
 void GDIConfiguration::resetToDefaults() {
     version = PERSISTENCE_VERSION;
     inputCanID = GDI4_BASE_ADDRESS + 0x10;
+
 	BoostVoltage = 65;
-
 	BoostCurrent = 13;
-	PeakCurrent = 9.4f;
-	HoldCurrent = 3.7f;
-
-	TpeakOff = 10;
-	TpeakDuration = 700; // 0.7ms
-	Tbypass = 10;
-
-	TholdOff = 60;
-	THoldDuration = 10000; // 10ms
-
 	TBoostMin = 100;
 	TBoostMax = 400;
+
+	PeakCurrent = 9.4f;
+	TpeakDuration = 700; // 700us = 0.7ms
+	TpeakOff = 10;
+	Tbypass = 10;
+
+	HoldCurrent = 3.7f;
+	TholdOff = 60;
+	THoldDuration = 10000; // 10000us = 10ms
 
     PumpPeakCurrent = 5;
     PumpHoldCurrent = 3;
 	PumpTholdOff = 10;
-    PumpTholdTot = 10000;
+    PumpTholdTot = 10000; // 10000us = 10ms
 }
 
 GDIConfiguration configuration;
