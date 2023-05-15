@@ -2,7 +2,6 @@
 #include "hal.h"
 
 #include "persistence.h"
-#include "hal_mfs.h"
 
 #define MFS_RECORD_ID     1
 
@@ -19,10 +18,13 @@ const MFSConfig mfscfg1 = {
 static MFSDriver mfs1;
 uint8_t mfs_buffer[512];
 
-bool InitFlash() {
+/**
+ * @return true if mfsStart is well
+ */
+mfs_error_t InitFlash() {
   mfsObjectInit(&mfs1);
   mfs_error_t err = mfsStart(&mfs1, &mfscfg1);
-  return err == MFS_NO_ERROR;
+  return err;
 }
 
 extern GDIConfiguration configuration;

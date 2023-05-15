@@ -2,14 +2,14 @@
  * @file persistence.h
  */
 
-
+#include "hal_mfs.h"
 
 #pragma once
 
 /**
  * @return true if OK, false if broken
  */
-bool InitFlash();
+mfs_error_t InitFlash();
 void saveConfiguration();
 void ReadOrDefault();
 

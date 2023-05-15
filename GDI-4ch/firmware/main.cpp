@@ -223,6 +223,8 @@ bool Pt2001::init() {
 
 Pt2001 chip;
 
+mfs_error_t flashStartState;
+
 /*
  * Application entry point.
  */
@@ -232,7 +234,7 @@ int main() {
 
     // Fire up all of our threads
     InitPins();
-    bool isFlashOk = InitFlash();
+    flashStartState = InitFlash();
     InitCan();
     InitUart();
 
@@ -242,10 +244,10 @@ int main() {
 	palClearPad(LED_GREEN_PORT, LED_GREEN_PIN);
 
     bool isOverallHappyStatus = false;
-    if (isFlashOk) {
-        ReadOrDefault();
-	    isOverallHappyStatus = chip.init();
-	}
+
+    ReadOrDefault();
+    // reminder that +12v is required for PT2001 to start
+	isOverallHappyStatus = chip.init();
 
     while (true) {
         if (isOverallHappyStatus) {
