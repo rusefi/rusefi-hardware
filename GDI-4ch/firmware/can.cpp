@@ -9,8 +9,43 @@
 #include "persistence.h"
 #include "can_common.h"
 
+// https://stackoverflow.com/questions/19760221/c-get-the-month-as-number-at-compile-time
+
+#define __MONTH__ (\
+  __DATE__ [2] == 'n' ? (__DATE__ [1] == 'a' ? 1 : 6) \
+: __DATE__ [2] == 'b' ? 2 \
+: __DATE__ [2] == 'r' ? (__DATE__ [0] == 'M' ? 3 : 4) \
+: __DATE__ [2] == 'y' ? 5 \
+: __DATE__ [2] == 'l' ? 7 \
+: __DATE__ [2] == 'g' ? 8 \
+: __DATE__ [2] == 'p' ? 9 \
+: __DATE__ [2] == 't' ? 10 \
+: __DATE__ [2] == 'v' ? 11 \
+: 12)
+
+// https://stackoverflow.com/questions/46899202/how-to-split-date-and-time-macros-into-individual-components-for-variabl
+constexpr int compilationDatePortion(const int startIndex, const int totalChars) {
+
+    int result = 0;
+    for (int i = startIndex + totalChars - 1, multiplier = 1;
+         i >= startIndex;
+         i--, multiplier *= 10) {
+        result += (__DATE__[i] - '0') * multiplier;
+    }
+
+    return result;
+}
+
+constexpr int compilationYear() {
+    return compilationDatePortion(7, 4);
+}
+
+constexpr int compilationDay() {
+    return compilationDatePortion(4, 2);
+}
+
 // Decimal hex date presented as hex
-static char VERSION[] = {0x20, 0x22, 0x12, 0x20};
+static char VERSION[] = {compilationYear() / 100, compilationYear() % 100, __MONTH__, compilationDay()};
 
 extern GDIConfiguration configuration;
 
@@ -19,6 +54,19 @@ static const CANConfig canConfig500 =
     CAN_MCR_ABOM | CAN_MCR_AWUM | CAN_MCR_TXFP,
         CAN_BTR_SJW(0) | CAN_BTR_BRP(2)  | CAN_BTR_TS1(12) | CAN_BTR_TS2(1),
 };
+
+#define CAN_TX_TIMEOUT_100_MS TIME_MS2I(100)
+
+int canWriteOk = 0;
+int canWriteNotOk = 0;
+
+static void countTxResult(msg_t msg) {
+	if (msg == MSG_OK) {
+		canWriteOk++;
+	} else {
+		canWriteNotOk++;
+	}
+}
 
 void SendSomething()
 {
@@ -36,7 +84,8 @@ void SendSomething()
 	    m_frame.data8[6] = 0x33;
 	    m_frame.data8[7] = 0x66;
 
-    	canTransmitTimeout(&CAND1, CAN_ANY_MAILBOX, &m_frame, TIME_IMMEDIATE);
+    	msg_t msg = canTransmitTimeout(&CAND1, CAN_ANY_MAILBOX, &m_frame, CAN_TX_TIMEOUT_100_MS);
+    	countTxResult(msg);
 }
 
 static void sendOutConfiguration() {
@@ -53,7 +102,8 @@ static void sendOutConfiguration() {
 	    m_frame.data16[2] = float2short100(configuration.PeakCurrent);
 	    m_frame.data16[3] = float2short100(configuration.HoldCurrent);
 
-    	canTransmitTimeout(&CAND1, CAN_ANY_MAILBOX, &m_frame, TIME_IMMEDIATE);
+    	msg_t msg = canTransmitTimeout(&CAND1, CAN_ANY_MAILBOX, &m_frame, CAN_TX_TIMEOUT_100_MS);
+    	countTxResult(msg);
 }
 
 static void sendOutVersion() {
@@ -61,10 +111,12 @@ static void sendOutVersion() {
 
 	    m_frame.IDE = CAN_IDE_STD;
 	    m_frame.EID = 0;
-	    m_frame.SID = GDI4_BASE_ADDRESS + 2;
+	    m_frame.SID = GDI4_BASE_ADDRESS + 3;
 	    m_frame.RTR = CAN_RTR_DATA;
 	    m_frame.DLC = sizeof(VERSION);
 	    memcpy(m_frame.data8, VERSION, sizeof(VERSION));
+    	msg_t msg = canTransmitTimeout(&CAND1, CAN_ANY_MAILBOX, &m_frame, CAN_TX_TIMEOUT_100_MS);
+    	countTxResult(msg);
 }
 
 #define CAN_TX_PERIOD_MS 100
