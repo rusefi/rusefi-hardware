@@ -52,6 +52,7 @@ static char VERSION[] = {compilationYear() / 100, compilationYear() % 100, __MON
 
 extern GDIConfiguration configuration;
 extern Pt2001 chip;
+extern bool isOverallHappyStatus;
 
 static const CANConfig canConfig500 =
 {
@@ -84,6 +85,7 @@ void SendSomething() {
 
 	    m_frame.data8[0] = configuration.inputCanID;
 	    m_frame.data8[1] = configuration.updateCounter;
+	    m_frame.data8[2] = isOverallHappyStatus;
 	    m_frame.data8[6] = 0x33;
 	    m_frame.data8[7] = 0x66;
 
@@ -96,16 +98,34 @@ static void sendOutConfiguration() {
 
 	    m_frame.IDE = CAN_IDE_STD;
 	    m_frame.EID = 0;
-	    m_frame.SID = GDI4_BASE_ADDRESS + 1;
 	    m_frame.RTR = CAN_RTR_DATA;
-	    m_frame.DLC = 8;
 	    memset(m_frame.data8, 0, sizeof(m_frame.data8));
-	    m_frame.data16[0] = float2short100(configuration.BoostVoltage);
-	    m_frame.data16[1] = float2short100(configuration.BoostCurrent);
-	    m_frame.data16[2] = float2short100(configuration.PeakCurrent);
-	    m_frame.data16[3] = float2short100(configuration.HoldCurrent);
 
+	    m_frame.DLC = 8;
+	    m_frame.data16[0] =                configuration.BoostVoltage;
+	    m_frame.data16[1] = float2short100(configuration.BoostCurrent);
+	    m_frame.data16[2] =                configuration.TBoostMin;
+	    m_frame.data16[3] =                configuration.TBoostMax;
+	    m_frame.SID = GDI4_BASE_ADDRESS + 1;
     	msg_t msg = canTransmitTimeout(&CAND1, CAN_ANY_MAILBOX, &m_frame, CAN_TX_TIMEOUT_100_MS);
+    	countTxResult(msg);
+
+	    m_frame.DLC = 8;
+	    m_frame.data16[0] = float2short100(configuration.PeakCurrent);
+	    m_frame.data16[1] =                configuration.TpeakDuration;
+	    m_frame.data16[2] =                configuration.TpeakOff;
+	    m_frame.data16[3] =                configuration.Tbypass;
+	    m_frame.SID = GDI4_BASE_ADDRESS + 2;
+    	msg = canTransmitTimeout(&CAND1, CAN_ANY_MAILBOX, &m_frame, CAN_TX_TIMEOUT_100_MS);
+    	countTxResult(msg);
+
+	    m_frame.DLC = 6;
+	    m_frame.data16[0] = float2short100(configuration.HoldCurrent);
+	    m_frame.data16[1] =                configuration.TholdOff;
+	    m_frame.data16[2] =                configuration.THoldDuration;
+
+	    m_frame.SID = GDI4_BASE_ADDRESS + 3;
+    	msg = canTransmitTimeout(&CAND1, CAN_ANY_MAILBOX, &m_frame, CAN_TX_TIMEOUT_100_MS);
     	countTxResult(msg);
 }
 
@@ -114,7 +134,7 @@ static void sendOutVersion() {
 
 	    m_frame.IDE = CAN_IDE_STD;
 	    m_frame.EID = 0;
-	    m_frame.SID = GDI4_BASE_ADDRESS + 3;
+	    m_frame.SID = GDI4_BASE_ADDRESS + 4;
 	    m_frame.RTR = CAN_RTR_DATA;
 	    m_frame.DLC = sizeof(VERSION);
 	    memcpy(m_frame.data8, VERSION, sizeof(VERSION));
