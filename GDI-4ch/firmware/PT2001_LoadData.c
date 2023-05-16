@@ -1,12 +1,49 @@
-/*
- * mc33816_data.c
- *
- * For historic reasons rusEFI source code refers to all this as mc33816 while the microcode
- * is signed with MC33PT2001 key. to use real mc33816 you would have to replace binary data with true mc33816 version
- *
- * this is manual copy-paste of sample_code/PT2001_LoadData.c
- * see mc33816/rusefi/readme.md
- */
+/*******************************************************************************
+* Example Code
+*
+* Copyright(C) 2022 NXP Semiconductors
+* NXP Semiconductors Confidential and Proprietary
+*
+* Software that is described herein is for illustrative purposes only
+* which provides customers with programming information regarding the
+* NXP products.  This software is supplied "AS IS" without any warranties
+* of any kind, and NXP Semiconductors and its licensor disclaim any and
+* all warranties, express or implied, including all implied warranties of
+* merchantability, fitness for a particular purpose and non-infringement of
+* intellectual property rights.  NXP Semiconductors assumes no responsibility
+* or liability for the use of the software, conveys no license or rights
+* under any patent, copyright, mask work right, or any other intellectual
+* property rights in or to any products. NXP Semiconductors reserves the
+* right to make changes in the software without notification. NXP
+* Semiconductors also makes no representation or warranty that such
+* application will be suitable for the specified use without further testing
+* or modification.
+*
+* IN NO EVENT WILL NXP SEMICONDUCTORS BE LIABLE, WHETHER IN CONTRACT, 
+* TORT, OR OTHERWISE, FOR ANY INCIDENTAL, SPECIAL, INDIRECT, CONSEQUENTIAL 
+* OR PUNITIVE DAMAGES, INCLUDING, BUT NOT LIMITED TO, DAMAGES FOR ANY 
+* LOSS OF USE, LOSS OF TIME, INCONVENIENCE, COMMERCIAL LOSS, OR LOST 
+* PROFITS, SAVINGS, OR REVENUES, TO THE FULL EXTENT SUCH MAY BE DISCLAIMED  
+* BY LAW. NXP SEMICONDUCTOR’S TOTAL LIABILITY FOR ALL COSTS, DAMAGES, 
+* CLAIMS, OR LOSSES WHATSOEVER ARISING OUT OF OR IN CONNECTION WITH THE 
+* SOFTWARE IS LIMITED TO THE AGGREGATE AMOUNT PAID BY YOU TO NXP SEMICONDUCTORS
+* IN CONNECTION WITH THE SOFTWARE TO WHICH LOSSES OR DAMAGES ARE CLAIMED.
+*
+* Permission to use, copy, modify, and distribute this software and its
+* documentation is hereby granted, under NXP Semiconductors' and its
+* licensor's relevant copyrights in the software, without fee, provided
+* that it is used in conjunction with NXP Semiconductors devices.  This
+* copyright, permission, and disclaimer notice must appear in all copies
+* of this code.
+*******************************************************************************/
+
+//==============================================================================
+// This file contains data arrays that are used to load the code RAM, data RAM
+// and registers on the PT2001.
+//==============================================================================
+
+// ECU: IDE Project
+// Project: rusefi
 
 // Data to be loaded into the Code RAM 1 memory space
 unsigned short PT2001_code_RAM1[88] =
@@ -35,8 +72,8 @@ unsigned short PT2001_code_RAM2[43] =
 // Data to be loaded into the Data RAM memory space
 unsigned short PT2001_data_RAM[128] =
 {
-    0x00F0, 0x00F0, 0x008C, 0x2000, 0x01F4, 0x00B4, 0x003C, 0xEA60, 0x0000, 0x003D, 
-    0x6000, 0x003C, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 
+    0x00C0, 0x0092, 0x0049, 0x003C, 0x1068, 0x003C, 0x0168, 0xEA60, 0x0960, 0x0258, 
+    0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 
     0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 
     0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 
     0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 
@@ -50,15 +87,11 @@ unsigned short PT2001_data_RAM[128] =
     0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000
 };
 
-// 0x1CE
-// if set to '1' Driver_status register is reset on read.
-#define Rsetbr 1
-
 // Data to be loaded into the Main register memory space
 unsigned short PT2001_main_config[29] =
 {
     0x0003, 0x1FFE, 0x0000, 0x1200, 0x0000, 0x0000, 0x0001, 0x0000, 0x001F, 0x0000, 
-    0x0000, 0x0000, 0x0000, 0x0000, Rsetbr, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 
+    0x0000, 0x0000, 0x0000, 0x0000, 0x0001, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 
     0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000
 };
 
@@ -77,21 +110,23 @@ unsigned short PT2001_ch2_config[19] =
 };
 
 // Data to be loaded into the IO register memory space
-unsigned short PT2001_io_config[44] =
+unsigned short PT2001_io_config[53] =
 {
     0x0000, 0x0000, 0x0000, 0x0000, 0x0063, 0x018C, 0x0800, 0x0410, 0x0041, 0x0098, 
     0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 
     0x0000, 0x0000, 0x0000, 0x0000, 0x0041, 0x0041, 0x0041, 0x0000, 0x0004, 0x1000, 
     0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x7F7F, 0x7F7F, 
-    0x007F, 0x0000, 0x0000, 0x0000
+    0x007F, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 
+    0x0000, 0x0000, 0x0000
 };
 
 // Data to be loaded into the Diag register memory space
 unsigned short PT2001_diag_config[44] =
 {
-    0x0000, 0x0000, 0x001E, 0x0000, 0x0000, 0x001E, 0x0000, 0x0000, 0x001E, 0x0000,
-    0x0000, 0x001E, 0x0000, 0x0000, 0x001E, 0x0000, 0x0000, 0x001E, 0x001E, 0x0000,
-    0x0000, 0x001E, 0x0000, 0x0000, 0x001E, 0x0000, 0x0000, 0x001E, 0x0000, 0x0000,
-    0x001E, 0x0000, 0x0000, 0x001E, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000,
+    0x0000, 0x0000, 0x001E, 0x0000, 0x0000, 0x001E, 0x0000, 0x0000, 0x001E, 0x0000, 
+    0x0000, 0x001E, 0x0000, 0x0000, 0x001E, 0x0000, 0x0000, 0x001E, 0x001E, 0x0000, 
+    0x0000, 0x001E, 0x0000, 0x0000, 0x001E, 0x0000, 0x0000, 0x001E, 0x0000, 0x0000, 
+    0x001E, 0x0000, 0x0000, 0x001E, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 
     0x0000, 0x0000, 0x0000, 0x0001
 };
+
