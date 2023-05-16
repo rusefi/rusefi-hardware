@@ -51,7 +51,7 @@ constexpr int compilationDay() {
 static char VERSION[] = {compilationYear() / 100, compilationYear() % 100, __MONTH__, compilationDay()};
 
 extern GDIConfiguration configuration;
-extern Pt2001 chip;
+//extern Pt2001 chip;
 extern bool isOverallHappyStatus;
 
 static const CANConfig canConfig500 =
@@ -224,7 +224,7 @@ void CanRxThread(void*)
 
             if (withNewValue) {
                 saveConfiguration();
-                chip.restart();
+//                chip.restart();
             }
 
         chThdSleepMilliseconds(100);

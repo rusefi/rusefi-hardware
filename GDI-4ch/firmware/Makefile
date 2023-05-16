@@ -130,14 +130,18 @@ LDSCRIPT= gdi.ld
 # C sources that can be compiled in ARM or THUMB mode depending on the global
 # setting.
 CSRC = $(ALLCSRC) \
-       $(RUSEFI_LIB_C) \
+mc33816_data.c
 
+#       $(RUSEFI_LIB_C) \
+
+
+#        $(RUSEFI_LIB_CPP) \
 
 # C++ sources that can be compiled in ARM or THUMB mode depending on the global
 # setting.
 CPPSRC = $(ALLCPPSRC) \
-        $(RUSEFI_LIB_CPP) \
         uart.cpp \
+    mc33816_control.cpp \ \
         persistence.cpp \
         can.cpp \
         fault.cpp \
