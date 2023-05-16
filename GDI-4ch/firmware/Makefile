@@ -155,7 +155,7 @@ ASMXSRC = $(ALLXASMSRC)
 
 # Inclusion directories.
 INCDIR = $(CONFDIR) $(ALLINC) \
-  $(RUSEFI_LIB_INC) \
+  $(RUSEFI_LIB)/pt2001/include \
   $(RUSEFI_LIB)/can
 
 
