@@ -44,10 +44,10 @@ void saveConfiguration() {
   mfs_error_t writeErr = mfsWriteRecord(&mfs1, MFS_RECORD_ID, sizeof(GDIConfiguration), (uint8_t*)&configuration);
 }
 
-uint16_t float2short100(float value) {
+uint16_t float2short128(float value) {
     return FIXED_POINT * value;
 }
 
-float short2float100(uint16_t value) {
+float short2float128(uint16_t value) {
     return value / 1.0 / FIXED_POINT;
 }

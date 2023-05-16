@@ -101,17 +101,19 @@ static void sendOutConfiguration() {
 	    m_frame.RTR = CAN_RTR_DATA;
 	    memset(m_frame.data8, 0, sizeof(m_frame.data8));
 
+        // CanConfiguration1
 	    m_frame.DLC = 8;
 	    m_frame.data16[0] =                configuration.BoostVoltage;
-	    m_frame.data16[1] = float2short100(configuration.BoostCurrent);
+	    m_frame.data16[1] = float2short128(configuration.BoostCurrent);
 	    m_frame.data16[2] =                configuration.TBoostMin;
 	    m_frame.data16[3] =                configuration.TBoostMax;
 	    m_frame.SID = GDI4_BASE_ADDRESS + 1;
     	msg_t msg = canTransmitTimeout(&CAND1, CAN_ANY_MAILBOX, &m_frame, CAN_TX_TIMEOUT_100_MS);
     	countTxResult(msg);
 
+        // CanConfiguration2
 	    m_frame.DLC = 8;
-	    m_frame.data16[0] = float2short100(configuration.PeakCurrent);
+	    m_frame.data16[0] = float2short128(configuration.PeakCurrent);
 	    m_frame.data16[1] =                configuration.TpeakDuration;
 	    m_frame.data16[2] =                configuration.TpeakOff;
 	    m_frame.data16[3] =                configuration.Tbypass;
@@ -119,8 +121,9 @@ static void sendOutConfiguration() {
     	msg = canTransmitTimeout(&CAND1, CAN_ANY_MAILBOX, &m_frame, CAN_TX_TIMEOUT_100_MS);
     	countTxResult(msg);
 
+	    // CanConfiguration3
 	    m_frame.DLC = 6;
-	    m_frame.data16[0] = float2short100(configuration.HoldCurrent);
+	    m_frame.data16[0] = float2short128(configuration.HoldCurrent);
 	    m_frame.data16[1] =                configuration.TholdOff;
 	    m_frame.data16[2] =                configuration.THoldDuration;
 
@@ -170,7 +173,7 @@ static float getInt(CANRxFrame *frame, int offset) {
 
 static float getFloat(CANRxFrame *frame, int offset) {
       int value = getInt(frame, offset);
-      return short2float100(value);
+      return short2float128(value);
 }
 
 #define ASSIGN_IF_CHANGED(oldValue, newValue) \

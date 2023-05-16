@@ -54,7 +54,7 @@ struct GDIConfiguration {
     short inputCanID;
 };
 
-#define FIXED_POINT 100
+#define FIXED_POINT 128
 
-uint16_t float2short100(float value);
-float short2float100(uint16_t value);
+uint16_t float2short128(float value);
+float short2float128(uint16_t value);
