@@ -1,7 +1,7 @@
 #include "ch.h"
 #include "hal.h"
 
-#include "mc33816_memory_map.h"
+#include "rusefi/pt2001_memory_map.h"
 
 // generic helper methods
 void setup_spi();
