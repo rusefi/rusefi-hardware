@@ -54,6 +54,7 @@ protected:
 	// Get battery voltage - only try to init chip when powered
 	float getVbatt() const override {
 		// TODO return real vbatt
+		// TODO: maybe do not bother with getVbatt() at all? only used for conditional restart, this does not seem to justify any effort
 		return 12;
 	}
 
