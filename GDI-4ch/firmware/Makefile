@@ -130,9 +130,7 @@ LDSCRIPT= gdi.ld
 # C sources that can be compiled in ARM or THUMB mode depending on the global
 # setting.
 CSRC = $(ALLCSRC) \
-       mc33816_data.c
-# https://github.com/rusefi/rusefi-hardware/issues/203 states that https://github.com/rusefi/libfirmware/tree/master/pt2001 version of the microcode clicks only two not four injectors
-#       $(RUSEFI_LIB_C) \
+       $(RUSEFI_LIB_C) \
 
 
 # C++ sources that can be compiled in ARM or THUMB mode depending on the global
@@ -153,8 +151,7 @@ ASMXSRC = $(ALLXASMSRC)
 
 # Inclusion directories.
 INCDIR = $(CONFDIR) $(ALLINC) \
-  $(RUSEFI_LIB)/util/include \
-  $(RUSEFI_LIB)/pt2001/include \
+  $(RUSEFI_LIB_INC) \
   $(RUSEFI_LIB)/can
 
 
