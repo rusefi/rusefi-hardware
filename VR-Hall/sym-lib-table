@@ -1,0 +1,6 @@
+(sym_lib_table
+  (lib (name "33311-24AW-2")(type "KiCad")(uri "${KIPRJMOD}/../ext/kicad6-libraries/33311-24AW-2.kicad_sym")(options "")(descr ""))
+  (lib (name "chips")(type "KiCad")(uri "${KIPRJMOD}/../ext/kicad6-libraries/chips.kicad_sym")(options "")(descr ""))
+  (lib (name "semiconductors")(type "KiCad")(uri "${KIPRJMOD}/../ext/kicad6-libraries/semiconductors.kicad_sym")(options "")(descr ""))
+  (lib (name "hellen-one-common")(type "KiCad")(uri "${KIPRJMOD}/../ext/hellen-one/kicad/hellen-one-common.kicad_sym")(options "")(descr "Hellen-One common library"))
+)
