@@ -1,6 +1,6 @@
 # About
 
-For FW see https://github.com/mck1117/wideband . Development happens here https://github.com/dron0gus/wideband
+For firmware see https://github.com/dron0gus/wideband (based on https://github.com/mck1117/wideband)
 
 See [rusEFI forum: F103 dual channel wideband controller + EGT + 2 x AUX In + 2 Aux out](https://rusefi.com/forum/viewtopic.php?f=4&t=2314)
 
