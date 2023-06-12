@@ -10,7 +10,7 @@
 #include "can_common.h"
 #include "pt2001impl.h"
 
-#define GDI4_CAN_SET_TAG 0x77
+#define GDI4_CAN_SET_TAG 0x78
 
 // https://stackoverflow.com/questions/19760221/c-get-the-month-as-number-at-compile-time
 
@@ -89,7 +89,7 @@ void SendSomething() {
 	    m_frame.data8[2] = isOverallHappyStatus;
 //	    m_frame.data8[6] = (int)chip.fault;
 	    m_frame.data8[6] = 0x33;
-	    m_frame.data8[7] = 0x66;
+	    m_frame.data8[7] = 0x67;
 
     	msg_t msg = canTransmitTimeout(&CAND1, CAN_ANY_MAILBOX, &m_frame, CAN_TX_TIMEOUT_100_MS);
     	countTxResult(msg);
@@ -229,6 +229,9 @@ void CanRxThread(void*)
             } else if (frame.EID == configuration.inputCanID + 3) {
                 ASSIGN_IF_CHANGED(configuration.TholdOff,      getInt(&frame,   1));
                 ASSIGN_IF_CHANGED(configuration.THoldDuration, getInt(&frame,   3));
+                ASSIGN_IF_CHANGED(configuration.PumpPeakCurrent,   getFloat(&frame, 5));
+            } else if (frame.EID == configuration.inputCanID + 4) {
+                ASSIGN_IF_CHANGED(configuration.PumpHoldCurrent,   getFloat(&frame, 1));
             }
 
             if (withNewValue) {
