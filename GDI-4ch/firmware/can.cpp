@@ -123,12 +123,19 @@ static void sendOutConfiguration() {
     	countTxResult(msg);
 
 	    // CanConfiguration3
-	    m_frame.DLC = 6;
+	    m_frame.DLC = 8;
 	    m_frame.data16[0] = float2short128(configuration.HoldCurrent);
 	    m_frame.data16[1] =                configuration.TholdOff;
 	    m_frame.data16[2] =                configuration.THoldDuration;
-
+	    m_frame.data16[3] = float2short128(configuration.PumpPeakCurrent);
 	    m_frame.SID = GDI4_BASE_ADDRESS + 3;
+    	msg = canTransmitTimeout(&CAND1, CAN_ANY_MAILBOX, &m_frame, CAN_TX_TIMEOUT_100_MS);
+    	countTxResult(msg);
+
+	    // CanConfiguration4
+	    m_frame.DLC = 2;
+	    m_frame.data16[0] = float2short128(configuration.PumpHoldCurrent);
+	    m_frame.SID = GDI4_BASE_ADDRESS + 4;
     	msg = canTransmitTimeout(&CAND1, CAN_ANY_MAILBOX, &m_frame, CAN_TX_TIMEOUT_100_MS);
     	countTxResult(msg);
 }
