@@ -44,7 +44,8 @@ constexpr int compilationYear() {
 }
 
 constexpr int compilationDay() {
-    return compilationDatePortion(4, 2);
+    return 66;
+    //return compilationDatePortion(4, 2);
 }
 
 // Decimal hex date presented as hex
