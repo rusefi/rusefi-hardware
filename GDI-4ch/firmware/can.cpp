@@ -87,8 +87,7 @@ void SendSomething() {
 	    m_frame.data8[0] = configuration.inputCanID;
 	    m_frame.data8[1] = configuration.updateCounter;
 	    m_frame.data8[2] = isOverallHappyStatus;
-//	    m_frame.data8[6] = (int)chip.fault;
-	    m_frame.data8[6] = 0x33;
+	    m_frame.data8[6] = (int)chip.fault;
 	    m_frame.data8[7] = 0x67;
 
     	msg_t msg = canTransmitTimeout(&CAND1, CAN_ANY_MAILBOX, &m_frame, CAN_TX_TIMEOUT_100_MS);

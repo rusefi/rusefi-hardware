@@ -6,6 +6,7 @@
 #include "io_pins.h"
 #include "persistence.h"
 #include "fault.h"
+#include "pt2001impl.h"
 
 static const UARTConfig uartCfg =
 {
@@ -33,6 +34,7 @@ extern bool isOverallHappyStatus;
 extern mfs_error_t flashStartState;
 extern int canWriteOk;
 extern int canWriteNotOk;
+extern Pt2001 chip;
 
 static int counter = 0;
 
@@ -42,8 +44,26 @@ static void UartThread(void*)
     while (true) {
         counter = (counter + 1) % 1000;
 
-        size_t writeCount = chsnprintf(printBuffer, sizeof(printBuffer), "happy=%d fault=%d flash=%d %d CAN o/e %d %d\r\n", HasFault(), (int)GetCurrentFault(), (int)flashStartState, counter,
-            canWriteOk, canWriteNotOk);
+        size_t writeCount;
+        if (chip.fault != McFault::None) {
+            writeCount  = chsnprintf(printBuffer, sizeof(printBuffer), "FAULT fault=%d status=%x status2=%x 0x1A6=%x 0x1A7=%x 0x1A8=%x\r\n",
+                (int)chip.fault,
+                chip.status,
+                chip.status5,
+                chip.status6,
+                chip.status7,
+                chip.status8
+            );
+
+        } else {
+            writeCount  = chsnprintf(printBuffer, sizeof(printBuffer), "HAPPY fault=%d %x h=%x status2=%x flash=%d %d CAN o/e %d %d\r\n",
+                (int)chip.fault,
+                chip.status,
+                chip.status5,
+                (int)flashStartState, counter,
+                canWriteOk, canWriteNotOk);
+
+            }
         uartStartSend(&UARTD1, writeCount, printBuffer);
 
         chThdSleepMilliseconds(20);
