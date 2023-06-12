@@ -87,6 +87,7 @@ void SendSomething() {
 	    m_frame.data8[0] = configuration.inputCanID;
 	    m_frame.data8[1] = configuration.updateCounter;
 	    m_frame.data8[2] = isOverallHappyStatus;
+//	    m_frame.data8[6] = (int)chip.fault;
 	    m_frame.data8[6] = 0x33;
 	    m_frame.data8[7] = 0x66;
 
@@ -145,7 +146,7 @@ static void sendOutVersion() {
 
 	    m_frame.IDE = CAN_IDE_STD;
 	    m_frame.EID = 0;
-	    m_frame.SID = GDI4_BASE_ADDRESS + 4;
+	    m_frame.SID = GDI4_BASE_ADDRESS + 5;
 	    m_frame.RTR = CAN_RTR_DATA;
 	    m_frame.DLC = sizeof(VERSION);
 	    memcpy(m_frame.data8, VERSION, sizeof(VERSION));
