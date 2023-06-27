@@ -30,10 +30,18 @@ mfs_error_t InitFlash() {
 extern GDIConfiguration configuration;
 extern mfs_error_t flashState;
 
+static uint8_t *GetConfigurationPtr() {
+    return (uint8_t *)&configuration;
+}
+
+static size_t GetConfigurationSize() {
+    return sizeof(GDIConfiguration);
+}
+
 void ReadOrDefault() {
-    size_t size = sizeof(GDIConfiguration);
-    mfs_error_t err = mfsReadRecord(&mfs1, MFS_RECORD_ID, &size, (uint8_t*)&configuration);
-    if (err == MFS_NO_ERROR && configuration.version == PERSISTENCE_VERSION) {
+    size_t size = GetConfigurationSize();
+    flashState = mfsReadRecord(&mfs1, MFS_RECORD_ID, &size, GetConfigurationPtr());
+    if (flashState == MFS_NO_ERROR && configuration.version == PERSISTENCE_VERSION) {
         return;
     } else {
         configuration.resetToDefaults();
@@ -42,7 +50,7 @@ void ReadOrDefault() {
 
 void saveConfiguration() {
   configuration.updateCounter++;
-  flashState = mfsWriteRecord(&mfs1, MFS_RECORD_ID, sizeof(GDIConfiguration), (uint8_t*)&configuration);
+  flashState = mfsWriteRecord(&mfs1, MFS_RECORD_ID, GetConfigurationSize(), GetConfigurationPtr());
 }
 
 uint16_t float2short128(float value) {

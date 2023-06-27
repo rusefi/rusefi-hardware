@@ -121,7 +121,8 @@ int main() {
     bool isOverallHappyStatus = false;
 
 #define FLASH_SIZE_IN_K_ADDRESS     0x1FFFF7E0
-    int flashPageSize = ((*(uint16_t*)FLASH_SIZE_IN_K_ADDRESS) > 128) ? 2048 : 1024;
+    int flashSize = (*(uint16_t*)FLASH_SIZE_IN_K_ADDRESS);
+    int flashPageSize = (flashSize > 128) ? 2048 : 1024;
     if (flashPageSize == 1024) {
         ReadOrDefault();
         // reminder that +12v is required for PT2001 to start
