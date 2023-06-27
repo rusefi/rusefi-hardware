@@ -56,7 +56,7 @@ static void UartThread(void*)
             );
 
         } else {
-            writeCount  = chsnprintf(printBuffer, sizeof(printBuffer), "HAPPY fault=%d %x h=%x status2=%x flash=%d %d CAN o/e %d %d\r\n",
+            writeCount  = chsnprintf(printBuffer, sizeof(printBuffer), "HAPPY fault=%d status=%x status2=%x flash=%d %d CAN o/e %d %d\r\n",
                 (int)chip.fault,
                 chip.status,
                 chip.status5,
