@@ -120,9 +120,13 @@ int main() {
 
     bool isOverallHappyStatus = false;
 
-    ReadOrDefault();
-    // reminder that +12v is required for PT2001 to start
-	isOverallHappyStatus = chip.init();
+#define FLASH_SIZE_IN_K_ADDRESS     0x1FFFF7E0
+    int flashPageSize = ((*(uint16_t*)FLASH_SIZE_IN_K_ADDRESS) > 128) ? 2048 : 1024;
+    if (flashPageSize == 1024) {
+        ReadOrDefault();
+        // reminder that +12v is required for PT2001 to start
+	    isOverallHappyStatus = chip.init();
+	}
 
     while (true) {
         if (isOverallHappyStatus) {
@@ -135,8 +139,7 @@ int main() {
         chThdSleepMilliseconds(100);
     }
 
-    while(true)
-    {
+    while (true) {
         //auto fault = GetCurrentFault();
 
         //palTogglePad(LED_BLUE_PORT, LED_BLUE_PIN);
