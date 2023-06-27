@@ -31,10 +31,11 @@ static const UARTConfig uartCfg =
 static char printBuffer[200];
 
 extern bool isOverallHappyStatus;
-extern mfs_error_t flashStartState;
+extern mfs_error_t flashState;
 extern int canWriteOk;
 extern int canWriteNotOk;
 extern Pt2001 chip;
+extern GDIConfiguration configuration;
 
 static int counter = 0;
 
@@ -56,11 +57,13 @@ static void UartThread(void*)
             );
 
         } else {
-            writeCount  = chsnprintf(printBuffer, sizeof(printBuffer), "HAPPY fault=%d status=%x status2=%x flash=%d %d CAN o/e %d %d\r\n",
+            writeCount  = chsnprintf(printBuffer, sizeof(printBuffer), "%d %d HAPPY fault=%d status=%x status2=%x flash=%d %d CAN o/e %d %d\r\n",
+                (int)(configuration.PumpPeakCurrent * 1000),
+                configuration.updateCounter,
                 (int)chip.fault,
                 chip.status,
                 chip.status5,
-                (int)flashStartState, counter,
+                (int)flashState, counter,
                 canWriteOk, canWriteNotOk);
 
             }

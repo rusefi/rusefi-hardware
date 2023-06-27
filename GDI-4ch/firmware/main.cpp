@@ -36,6 +36,7 @@ static const SPIConfig spiCfg = {
 
 void GDIConfiguration::resetToDefaults() {
     version = PERSISTENCE_VERSION;
+    updateCounter = 20;
     inputCanID = GDI4_BASE_ADDRESS + 0x10;
 
 	BoostVoltage = 65;
@@ -97,7 +98,7 @@ bool Pt2001::init() {
 
 Pt2001 chip;
 
-mfs_error_t flashStartState;
+mfs_error_t flashState;
 
 /*
  * Application entry point.
@@ -108,7 +109,7 @@ int main() {
 
     // Fire up all of our threads
     InitPins();
-    flashStartState = InitFlash();
+    flashState = InitFlash();
     InitCan();
     InitUart();
 

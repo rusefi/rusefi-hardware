@@ -28,6 +28,7 @@ mfs_error_t InitFlash() {
 }
 
 extern GDIConfiguration configuration;
+extern mfs_error_t flashState;
 
 void ReadOrDefault() {
     size_t size = sizeof(GDIConfiguration);
@@ -41,7 +42,7 @@ void ReadOrDefault() {
 
 void saveConfiguration() {
   configuration.updateCounter++;
-  mfs_error_t writeErr = mfsWriteRecord(&mfs1, MFS_RECORD_ID, sizeof(GDIConfiguration), (uint8_t*)&configuration);
+  flashState = mfsWriteRecord(&mfs1, MFS_RECORD_ID, sizeof(GDIConfiguration), (uint8_t*)&configuration);
 }
 
 uint16_t float2short128(float value) {
