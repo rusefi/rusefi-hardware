@@ -5,14 +5,29 @@
 
 #define MFS_RECORD_ID     1
 
-const MFSConfig mfscfg1 = {
+static const MFSConfig mfscfg_1k = {
   .flashp           = (BaseFlash *)&EFLD1,
   .erased           = 0xFFFFFFFFU,
+// 1k page * 1 sector = 1024
   .bank_size        = 1024U,
   .bank0_start      = 62U,
   .bank0_sectors    = 1U,
   .bank1_start      = 63U,
   .bank1_sectors    = 1U
+};
+
+static const MFSConfig mfscfg_2k = {
+    .flashp           = (BaseFlash *)&EFLD1,
+    .erased           = 0xFFFFFFFFU,
+    /* 256K flash device with 2K pages
+     * use last 8 pages for settings
+     * one bank is 8K */
+// 2k page * 4 sectors = 8096
+    .bank_size        = 8096U,
+    .bank0_start      = 120U,
+    .bank0_sectors    = 4U,
+    .bank1_start      = 124U,
+    .bank1_sectors    = 4U
 };
 
 static MFSDriver mfs1;
@@ -23,7 +38,15 @@ uint8_t mfs_buffer[512];
  */
 mfs_error_t InitFlash() {
   mfsObjectInit(&mfs1);
-  mfs_error_t err = mfsStart(&mfs1, &mfscfg1);
+  mfs_error_t err;
+#define FLASH_SIZE_IN_K_ADDRESS     0x1FFFF7E0
+    int flashSize = (*(uint16_t*)FLASH_SIZE_IN_K_ADDRESS);
+  int flashPageSize = (flashSize > 128) ? 2048 : 1024;
+  if (flashSize > 128) {
+    err = mfsStart(&mfs1, &mfscfg_2k);
+  } else {
+    err = mfsStart(&mfs1, &mfscfg_1k);
+  }
   return err;
 }
 
