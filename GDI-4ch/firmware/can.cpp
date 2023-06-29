@@ -245,6 +245,7 @@ void CanRxThread(void*)
             } else if (frame.EID == configuration.inputCanID + 4) {
                 ASSIGN_IF_CHANGED(configuration.PumpHoldCurrent,   getFloat(&frame, 1));
                 ASSIGN_IF_CHANGED(configuration.outputCanID, getInt(&frame,   3));
+            }
             if (withNewValue) {
                 saveConfiguration();
                 chip.restart();
