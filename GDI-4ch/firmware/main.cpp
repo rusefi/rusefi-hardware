@@ -34,10 +34,13 @@ static const SPIConfig spiCfg = {
 		.cr2 = SPI_CR2_SSOE
 };
 
+#define GDI4_BASE_ADDRESS 0xF0
+
 void GDIConfiguration::resetToDefaults() {
     version = PERSISTENCE_VERSION;
     updateCounter = 20;
     inputCanID = GDI4_BASE_ADDRESS + 0x10;
+    outputCanID = GDI4_BASE_ADDRESS;
 
 	BoostVoltage = 65;
 	BoostCurrent = 13;

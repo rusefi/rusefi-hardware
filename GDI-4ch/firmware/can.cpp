@@ -9,6 +9,7 @@
 #include "persistence.h"
 #include "can_common.h"
 #include "pt2001impl.h"
+#include "chprintf.h"
 
 #define GDI4_CAN_SET_TAG 0x78
 
@@ -65,6 +66,7 @@ static const CANConfig canConfig500 =
 
 int canWriteOk = 0;
 int canWriteNotOk = 0;
+static char printBuffer[200];
 
 static void countTxResult(msg_t msg) {
 	if (msg == MSG_OK) {
@@ -79,7 +81,7 @@ void SendSomething() {
 
 	    m_frame.IDE = CAN_IDE_STD;
 	    m_frame.EID = 0;
-	    m_frame.SID = GDI4_BASE_ADDRESS;
+	    m_frame.SID = configuration.outputCanID;
 	    m_frame.RTR = CAN_RTR_DATA;
 	    m_frame.DLC = 8;
 	    memset(m_frame.data8, 0, sizeof(m_frame.data8));
@@ -108,7 +110,7 @@ static void sendOutConfiguration() {
 	    m_frame.data16[1] = float2short128(configuration.BoostCurrent);
 	    m_frame.data16[2] =                configuration.TBoostMin;
 	    m_frame.data16[3] =                configuration.TBoostMax;
-	    m_frame.SID = GDI4_BASE_ADDRESS + 1;
+	    m_frame.SID = configuration.outputCanID + 1;
     	msg_t msg = canTransmitTimeout(&CAND1, CAN_ANY_MAILBOX, &m_frame, CAN_TX_TIMEOUT_100_MS);
     	countTxResult(msg);
 
@@ -118,7 +120,7 @@ static void sendOutConfiguration() {
 	    m_frame.data16[1] =                configuration.TpeakDuration;
 	    m_frame.data16[2] =                configuration.TpeakOff;
 	    m_frame.data16[3] =                configuration.Tbypass;
-	    m_frame.SID = GDI4_BASE_ADDRESS + 2;
+	    m_frame.SID = configuration.outputCanID + 2;
     	msg = canTransmitTimeout(&CAND1, CAN_ANY_MAILBOX, &m_frame, CAN_TX_TIMEOUT_100_MS);
     	countTxResult(msg);
 
@@ -128,14 +130,14 @@ static void sendOutConfiguration() {
 	    m_frame.data16[1] =                configuration.TholdOff;
 	    m_frame.data16[2] =                configuration.THoldDuration;
 	    m_frame.data16[3] = float2short128(configuration.PumpPeakCurrent);
-	    m_frame.SID = GDI4_BASE_ADDRESS + 3;
+	    m_frame.SID = configuration.outputCanID + 3;
     	msg = canTransmitTimeout(&CAND1, CAN_ANY_MAILBOX, &m_frame, CAN_TX_TIMEOUT_100_MS);
     	countTxResult(msg);
 
 	    // CanConfiguration4
 	    m_frame.DLC = 2;
 	    m_frame.data16[0] = float2short128(configuration.PumpHoldCurrent);
-	    m_frame.SID = GDI4_BASE_ADDRESS + 4;
+	    m_frame.SID = configuration.outputCanID + 4;
     	msg = canTransmitTimeout(&CAND1, CAN_ANY_MAILBOX, &m_frame, CAN_TX_TIMEOUT_100_MS);
     	countTxResult(msg);
 }
@@ -145,7 +147,7 @@ static void sendOutVersion() {
 
 	    m_frame.IDE = CAN_IDE_STD;
 	    m_frame.EID = 0;
-	    m_frame.SID = GDI4_BASE_ADDRESS + 5;
+	    m_frame.SID = configuration.outputCanID + 5;
 	    m_frame.RTR = CAN_RTR_DATA;
 	    m_frame.DLC = sizeof(VERSION);
 	    memcpy(m_frame.data8, VERSION, sizeof(VERSION));
@@ -162,6 +164,12 @@ void CanTxThread(void*)
 {
     while (1) {
         intTxCounter++;
+        chThdSleepMilliseconds(1000 / CAN_TX_PERIOD_MS);
+
+        if (configuration.outputCanID == 0) {
+            continue; // we were told to be silent
+        }
+
         if (intTxCounter % (1000 / CAN_TX_PERIOD_MS) == 0) {
             sendOutConfiguration();
         }
@@ -170,12 +178,10 @@ void CanTxThread(void*)
         }
 
         SendSomething();
-
-        chThdSleepMilliseconds(1000 / CAN_TX_PERIOD_MS);
     }
 }
 
-static float getInt(CANRxFrame *frame, int offset) {
+static int getInt(CANRxFrame *frame, int offset) {
       return frame->data8[offset + 1] * 256 + frame->data8[offset];
 }
 
@@ -201,6 +207,13 @@ void CanRxThread(void*)
             if (msg != MSG_OK) {
                 continue;
             }
+            size_t writeCount = 0;
+
+//                writeCount  = chsnprintf(printBuffer, sizeof(printBuffer), "eid=%d data[0]=%d dlc=%d\n\n\n\n\n\n\n",
+//                frame.EID,
+//                frame.data8[0],
+//                frame.DLC);
+
 
             // Ignore std frames, only listen to ext
             if (frame.IDE != CAN_IDE_EXT) {
@@ -231,12 +244,13 @@ void CanRxThread(void*)
                 ASSIGN_IF_CHANGED(configuration.PumpPeakCurrent,   getFloat(&frame, 5));
             } else if (frame.EID == configuration.inputCanID + 4) {
                 ASSIGN_IF_CHANGED(configuration.PumpHoldCurrent,   getFloat(&frame, 1));
-            }
-
+                ASSIGN_IF_CHANGED(configuration.outputCanID, getInt(&frame,   3));
             if (withNewValue) {
                 saveConfiguration();
                 chip.restart();
             }
+            if (writeCount > 0)
+                uartStartSend(&UARTD1, writeCount, printBuffer);
 
         chThdSleepMilliseconds(100);
     }
