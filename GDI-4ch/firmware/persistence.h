@@ -13,9 +13,12 @@ mfs_error_t InitFlash();
 void saveConfiguration();
 void ReadOrDefault();
 
-#define PERSISTENCE_VERSION 4
+#define PERSISTENCE_VERSION 5
 
 struct GDIConfiguration {
+    bool IsValid() const {
+        return version == PERSISTENCE_VERSION;
+    }
     void resetToDefaults();
     int version;
     int updateCounter;

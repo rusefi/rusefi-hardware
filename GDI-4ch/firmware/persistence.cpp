@@ -50,6 +50,10 @@ mfs_error_t InitFlash() {
   return err;
 }
 
+static bool isMfsOkIsh(mfs_error_t state) {
+    return state == MFS_NO_ERROR || state == MFS_WARN_REPAIR || state == MFS_WARN_GC;
+}
+
 extern GDIConfiguration configuration;
 extern mfs_error_t flashState;
 
@@ -64,9 +68,8 @@ static size_t GetConfigurationSize() {
 void ReadOrDefault() {
     size_t size = GetConfigurationSize();
     flashState = mfsReadRecord(&mfs1, MFS_RECORD_ID, &size, GetConfigurationPtr());
-    if (flashState == MFS_NO_ERROR && configuration.version == PERSISTENCE_VERSION) {
-        return;
-    } else {
+    if (!isMfsOkIsh(flashState) || size != GetConfigurationSize() || !configuration.IsValid()) {
+        /* load defaults */
         configuration.resetToDefaults();
     }
 }
