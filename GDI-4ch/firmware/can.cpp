@@ -34,7 +34,10 @@ constexpr int compilationDatePortion(const int startIndex, const int totalChars)
     for (int i = startIndex + totalChars - 1, multiplier = 1;
          i >= startIndex;
          i--, multiplier *= 10) {
-        result += (__DATE__[i] - '0') * multiplier;
+        const char c = __DATE__[i];
+        if (c != ' ') {
+            result += (c - '0') * multiplier;
+        }
     }
 
     return result;
@@ -45,8 +48,7 @@ constexpr int compilationYear() {
 }
 
 constexpr int compilationDay() {
-    return 66;
-    //return compilationDatePortion(4, 2);
+    return compilationDatePortion(4, 2);
 }
 
 // Decimal hex date presented as hex
