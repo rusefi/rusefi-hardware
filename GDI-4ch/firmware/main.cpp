@@ -113,6 +113,9 @@ int main() {
     // Fire up all of our threads
     InitPins();
     flashState = InitFlash();
+
+    ReadOrDefault();
+
     InitCan();
     InitUart();
 
@@ -123,7 +126,6 @@ int main() {
 
     bool isOverallHappyStatus = false;
 
-    ReadOrDefault();
     // reminder that +12v is required for PT2001 to start
 	isOverallHappyStatus = chip.init();
 
