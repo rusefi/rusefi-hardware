@@ -81,9 +81,9 @@ static void countTxResult(msg_t msg) {
 void SendSomething() {
         CANTxFrame m_frame;
 
-	    m_frame.IDE = CAN_IDE_STD;
-	    m_frame.EID = 0;
-	    m_frame.SID = configuration.outputCanID;
+	    m_frame.IDE = CAN_IDE_EXT;
+	    m_frame.SID = 0;
+	    m_frame.EID = configuration.outputCanID;
 	    m_frame.RTR = CAN_RTR_DATA;
 	    m_frame.DLC = 8;
 	    memset(m_frame.data8, 0, sizeof(m_frame.data8));
@@ -101,8 +101,8 @@ void SendSomething() {
 static void sendOutConfiguration() {
         CANTxFrame m_frame;
 
-	    m_frame.IDE = CAN_IDE_STD;
-	    m_frame.EID = 0;
+	    m_frame.IDE = CAN_IDE_EXT;
+	    m_frame.SID = 0;
 	    m_frame.RTR = CAN_RTR_DATA;
 	    memset(m_frame.data8, 0, sizeof(m_frame.data8));
 
@@ -112,7 +112,7 @@ static void sendOutConfiguration() {
 	    m_frame.data16[1] = float2short128(configuration.BoostCurrent);
 	    m_frame.data16[2] =                configuration.TBoostMin;
 	    m_frame.data16[3] =                configuration.TBoostMax;
-	    m_frame.SID = configuration.outputCanID + 1;
+	    m_frame.EID = configuration.outputCanID + 1;
     	msg_t msg = canTransmitTimeout(&CAND1, CAN_ANY_MAILBOX, &m_frame, CAN_TX_TIMEOUT_100_MS);
     	countTxResult(msg);
 
@@ -122,7 +122,7 @@ static void sendOutConfiguration() {
 	    m_frame.data16[1] =                configuration.TpeakDuration;
 	    m_frame.data16[2] =                configuration.TpeakOff;
 	    m_frame.data16[3] =                configuration.Tbypass;
-	    m_frame.SID = configuration.outputCanID + 2;
+	    m_frame.EID = configuration.outputCanID + 2;
     	msg = canTransmitTimeout(&CAND1, CAN_ANY_MAILBOX, &m_frame, CAN_TX_TIMEOUT_100_MS);
     	countTxResult(msg);
 
@@ -132,14 +132,14 @@ static void sendOutConfiguration() {
 	    m_frame.data16[1] =                configuration.TholdOff;
 	    m_frame.data16[2] =                configuration.THoldDuration;
 	    m_frame.data16[3] = float2short128(configuration.PumpPeakCurrent);
-	    m_frame.SID = configuration.outputCanID + 3;
+	    m_frame.EID = configuration.outputCanID + 3;
     	msg = canTransmitTimeout(&CAND1, CAN_ANY_MAILBOX, &m_frame, CAN_TX_TIMEOUT_100_MS);
     	countTxResult(msg);
 
 	    // CanConfiguration4
 	    m_frame.DLC = 2;
 	    m_frame.data16[0] = float2short128(configuration.PumpHoldCurrent);
-	    m_frame.SID = configuration.outputCanID + 4;
+	    m_frame.EID = configuration.outputCanID + 4;
     	msg = canTransmitTimeout(&CAND1, CAN_ANY_MAILBOX, &m_frame, CAN_TX_TIMEOUT_100_MS);
     	countTxResult(msg);
 }
@@ -147,9 +147,9 @@ static void sendOutConfiguration() {
 static void sendOutVersion() {
         CANTxFrame m_frame;
 
-	    m_frame.IDE = CAN_IDE_STD;
-	    m_frame.EID = 0;
-	    m_frame.SID = configuration.outputCanID + 5;
+	    m_frame.IDE = CAN_IDE_EXT;
+	    m_frame.SID = 0;
+	    m_frame.EID = configuration.outputCanID + 5;
 	    m_frame.RTR = CAN_RTR_DATA;
 	    m_frame.DLC = sizeof(VERSION);
 	    memcpy(m_frame.data8, VERSION, sizeof(VERSION));
