@@ -57,7 +57,7 @@ static void UartThread(void*)
             );
 
         } else {
-            writeCount  = chsnprintf(printBuffer, sizeof(printBuffer), "%d %d %d HAPPY fault=%d status=%x status2=%x flash=%d %d CAN o/e %d %d\r\n",
+            writeCount  = chsnprintf(printBuffer, sizeof(printBuffer), "%x %d %d HAPPY fault=%d status=%x status2=%x flash=%d %d CAN o/e %d %d\r\n",
             configuration.inputCanID,
                 (int)(configuration.PumpPeakCurrent * 1000),
                 configuration.updateCounter,
