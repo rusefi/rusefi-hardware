@@ -13,7 +13,7 @@ mfs_error_t InitFlash();
 void saveConfiguration();
 void ReadOrDefault();
 
-#define PERSISTENCE_VERSION 5
+#define PERSISTENCE_VERSION 7
 
 struct GDIConfiguration {
     bool IsValid() const {
