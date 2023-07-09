@@ -54,8 +54,8 @@ struct GDIConfiguration {
     uint16_t PumpTholdOff;
     uint16_t PumpTholdTot;
 
-    short inputCanID;
-    short outputCanID;
+    int inputCanID;
+    int outputCanID;
 };
 
 #define FIXED_POINT 128
