@@ -37,6 +37,7 @@ uint8_t mfs_buffer[512];
  * @return true if mfsStart is well
  */
 mfs_error_t InitFlash() {
+  eflStart(&EFLD1, NULL);
   mfsObjectInit(&mfs1);
   mfs_error_t err;
 #define FLASH_SIZE_IN_K_ADDRESS     0x1FFFF7E0
