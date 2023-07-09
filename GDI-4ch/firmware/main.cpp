@@ -117,15 +117,17 @@ int main() {
     InitCan();
     InitUart();
 
+    saveConfiguration();
+
 	palSetPadMode(LED_BLUE_PORT, LED_BLUE_PIN, PAL_MODE_OUTPUT_PUSHPULL);
 	palClearPad(LED_BLUE_PORT, LED_BLUE_PIN);
 	palSetPadMode(LED_GREEN_PORT, LED_GREEN_PIN, PAL_MODE_OUTPUT_PUSHPULL);
 	palClearPad(LED_GREEN_PORT, LED_GREEN_PIN);
 
-    bool isOverallHappyStatus = false;
+    bool isOverallHappyStatus = true;//false;
 
     // reminder that +12v is required for PT2001 to start
-	isOverallHappyStatus = chip.init();
+	//isOverallHappyStatus = chip.init();
 
     while (true) {
         if (isOverallHappyStatus) {
