@@ -7,7 +7,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
         with:
 # MY_REPO_PAT is about accessing private submodules
 # todo: how do we use same script both with and without MY_REPO_PAT? would two conditional versions of 'uses: actions/checkout@v2' be needed?
