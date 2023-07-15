@@ -31,6 +31,7 @@ jobs:
         env:
           ACTIONS_ALLOW_UNSECURE_COMMANDS: 'true'
         run: |
+          git add gerber/*
           bash ../../ext/hellen-one/bin/gha-commit.sh
 
       - name: Push board files
