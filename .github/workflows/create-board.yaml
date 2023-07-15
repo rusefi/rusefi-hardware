@@ -27,10 +27,11 @@ jobs:
           bash ../../ext/hellen-one/kicad/bin/export.sh
 
       - name: Commit fresh board files
+        working-directory: breakout-boards/Breakout_154pin_284617-1-Connector
         env:
           ACTIONS_ALLOW_UNSECURE_COMMANDS: 'true'
         run: |
-          bash ext/hellen-one/bin/gha-commit.sh
+          bash ../../ext/hellen-one/bin/gha-commit.sh
 
       - name: Push board files
 # let's support both newer 'main' and older 'master' repositories
