@@ -1,5 +1,6 @@
 {
   "board": {
+    "3dviewports": [],
     "design_settings": {
       "defaults": {
         "board_outline_line_width": 0.09999999999999999,
@@ -57,20 +58,26 @@
       "rule_severities": {
         "annular_width": "error",
         "clearance": "error",
+        "connection_width": "warning",
         "copper_edge_clearance": "error",
+        "copper_sliver": "warning",
         "courtyards_overlap": "error",
         "diff_pair_gap_out_of_range": "error",
         "diff_pair_uncoupled_length_too_long": "error",
         "drill_out_of_range": "error",
         "duplicate_footprints": "warning",
         "extra_footprint": "warning",
+        "footprint": "error",
         "footprint_type_mismatch": "error",
         "hole_clearance": "error",
         "hole_near_hole": "error",
         "invalid_outline": "error",
+        "isolated_copper": "warning",
         "item_on_disabled_layer": "error",
         "items_not_allowed": "error",
         "length_out_of_range": "error",
+        "lib_footprint_issues": "warning",
+        "lib_footprint_mismatch": "warning",
         "malformed_courtyard": "error",
         "microvia_drill_out_of_range": "error",
         "missing_courtyard": "ignore",
@@ -80,9 +87,14 @@
         "padstack": "error",
         "pth_inside_courtyard": "ignore",
         "shorting_items": "error",
+        "silk_edge_clearance": "warning",
         "silk_over_copper": "warning",
         "silk_overlap": "warning",
         "skew_out_of_range": "error",
+        "solder_mask_bridge": "error",
+        "starved_thermal": "error",
+        "text_height": "warning",
+        "text_thickness": "warning",
         "through_hole_pad_without_hole": "error",
         "too_many_vias": "error",
         "track_dangling": "warning",
@@ -91,7 +103,6 @@
         "unconnected_items": "error",
         "unresolved_variable": "error",
         "via_dangling": "warning",
-        "zone_has_empty_net": "error",
         "zones_intersect": "error"
       },
       "rule_severitieslegacy_courtyards_overlap": true,
@@ -101,18 +112,63 @@
         "allow_microvias": false,
         "max_error": 0.005,
         "min_clearance": 0.0,
+        "min_connection": 0.0,
         "min_copper_edge_clearance": 0.049999999999999996,
         "min_hole_clearance": 0.25,
         "min_hole_to_hole": 0.25,
         "min_microvia_diameter": 0.508,
         "min_microvia_drill": 0.127,
+        "min_resolved_spokes": 2,
         "min_silk_clearance": 0.0,
+        "min_text_height": 0.7999999999999999,
+        "min_text_thickness": 0.08,
         "min_through_hole_diameter": 0.508,
         "min_track_width": 0.19999999999999998,
         "min_via_annular_width": 0.049999999999999996,
         "min_via_diameter": 0.889,
+        "solder_mask_to_copper_clearance": 0.0,
         "use_height_for_length_calcs": true
       },
+      "teardrop_options": [
+        {
+          "td_allow_use_two_tracks": true,
+          "td_curve_segcount": 5,
+          "td_on_pad_in_zone": false,
+          "td_onpadsmd": true,
+          "td_onroundshapesonly": false,
+          "td_ontrackend": false,
+          "td_onviapad": true
+        }
+      ],
+      "teardrop_parameters": [
+        {
+          "td_curve_segcount": 0,
+          "td_height_ratio": 1.0,
+          "td_length_ratio": 0.5,
+          "td_maxheight": 2.0,
+          "td_maxlen": 1.0,
+          "td_target_name": "td_round_shape",
+          "td_width_to_size_filter_ratio": 0.9
+        },
+        {
+          "td_curve_segcount": 0,
+          "td_height_ratio": 1.0,
+          "td_length_ratio": 0.5,
+          "td_maxheight": 2.0,
+          "td_maxlen": 1.0,
+          "td_target_name": "td_rect_shape",
+          "td_width_to_size_filter_ratio": 0.9
+        },
+        {
+          "td_curve_segcount": 0,
+          "td_height_ratio": 1.0,
+          "td_length_ratio": 0.5,
+          "td_maxheight": 2.0,
+          "td_maxlen": 1.0,
+          "td_target_name": "td_track_end",
+          "td_width_to_size_filter_ratio": 0.9
+        }
+      ],
       "track_widths": [
         0.0,
         0.8,
@@ -122,7 +178,8 @@
       "zones_allow_external_fillets": false,
       "zones_use_no_outline": true
     },
-    "layer_presets": []
+    "layer_presets": [],
+    "viewports": []
   },
   "boards": [],
   "cvpcb": {
@@ -344,7 +401,7 @@
   "net_settings": {
     "classes": [
       {
-        "bus_width": 12.0,
+        "bus_width": 12,
         "clearance": 0.254,
         "diff_pair_gap": 0.4,
         "diff_pair_via_gap": 0.25,
@@ -358,10 +415,10 @@
         "track_width": 0.3,
         "via_diameter": 0.889,
         "via_drill": 0.635,
-        "wire_width": 6.0
+        "wire_width": 6
       },
       {
-        "bus_width": 12.0,
+        "bus_width": 12,
         "clearance": 0.254,
         "diff_pair_gap": 0.25,
         "diff_pair_via_gap": 0.25,
@@ -370,166 +427,15 @@
         "microvia_diameter": 0.508,
         "microvia_drill": 0.127,
         "name": "1.5A",
-        "nets": [
-          "N-000001",
-          "N-0000010",
-          "N-00000100",
-          "N-00000101",
-          "N-00000102",
-          "N-00000103",
-          "N-00000104",
-          "N-00000105",
-          "N-00000106",
-          "N-00000107",
-          "N-00000108",
-          "N-00000109",
-          "N-0000011",
-          "N-00000110",
-          "N-00000111",
-          "N-00000112",
-          "N-00000113",
-          "N-00000114",
-          "N-00000115",
-          "N-00000116",
-          "N-00000117",
-          "N-00000118",
-          "N-00000119",
-          "N-0000012",
-          "N-00000120",
-          "N-00000121",
-          "N-00000122",
-          "N-00000123",
-          "N-00000124",
-          "N-00000125",
-          "N-00000126",
-          "N-00000127",
-          "N-00000128",
-          "N-00000129",
-          "N-0000013",
-          "N-00000130",
-          "N-00000131",
-          "N-00000132",
-          "N-00000133",
-          "N-00000134",
-          "N-00000135",
-          "N-00000136",
-          "N-00000137",
-          "N-00000138",
-          "N-00000139",
-          "N-0000014",
-          "N-00000140",
-          "N-00000141",
-          "N-00000142",
-          "N-00000143",
-          "N-00000144",
-          "N-00000145",
-          "N-00000146",
-          "N-00000147",
-          "N-00000148",
-          "N-00000149",
-          "N-0000015",
-          "N-00000150",
-          "N-00000151",
-          "N-00000152",
-          "N-00000153",
-          "N-00000154",
-          "N-00000155",
-          "N-0000016",
-          "N-0000017",
-          "N-0000018",
-          "N-0000019",
-          "N-000002",
-          "N-0000020",
-          "N-0000021",
-          "N-0000022",
-          "N-0000023",
-          "N-0000024",
-          "N-0000025",
-          "N-0000026",
-          "N-0000027",
-          "N-0000028",
-          "N-0000029",
-          "N-000003",
-          "N-0000030",
-          "N-0000031",
-          "N-0000032",
-          "N-0000033",
-          "N-0000034",
-          "N-0000035",
-          "N-0000036",
-          "N-0000037",
-          "N-0000038",
-          "N-0000039",
-          "N-000004",
-          "N-0000040",
-          "N-0000041",
-          "N-0000042",
-          "N-0000043",
-          "N-0000044",
-          "N-0000045",
-          "N-0000046",
-          "N-0000047",
-          "N-0000048",
-          "N-0000049",
-          "N-000005",
-          "N-0000050",
-          "N-0000051",
-          "N-0000052",
-          "N-0000053",
-          "N-0000054",
-          "N-0000055",
-          "N-0000056",
-          "N-0000057",
-          "N-0000058",
-          "N-0000059",
-          "N-000006",
-          "N-0000060",
-          "N-0000061",
-          "N-0000062",
-          "N-0000063",
-          "N-0000064",
-          "N-0000065",
-          "N-0000066",
-          "N-0000067",
-          "N-0000068",
-          "N-0000069",
-          "N-000007",
-          "N-0000070",
-          "N-0000071",
-          "N-0000072",
-          "N-0000073",
-          "N-0000074",
-          "N-0000075",
-          "N-0000076",
-          "N-0000077",
-          "N-0000078",
-          "N-0000079",
-          "N-000008",
-          "N-0000080",
-          "N-0000081",
-          "N-0000082",
-          "N-0000083",
-          "N-0000085",
-          "N-0000086",
-          "N-0000087",
-          "N-0000088",
-          "N-000009",
-          "N-0000091",
-          "N-0000092",
-          "N-0000096",
-          "N-0000097",
-          "N-0000098",
-          "N-0000099"
-        ],
         "pcb_color": "rgba(0, 0, 0, 0.000)",
         "schematic_color": "rgba(0, 0, 0, 0.000)",
         "track_width": 0.49,
         "via_diameter": 0.889,
         "via_drill": 0.635,
-        "wire_width": 6.0
+        "wire_width": 6
       },
       {
-        "bus_width": 12.0,
+        "bus_width": 12,
         "clearance": 0.254,
         "diff_pair_gap": 0.25,
         "diff_pair_via_gap": 0.25,
@@ -538,16 +444,15 @@
         "microvia_diameter": 0.508,
         "microvia_drill": 0.127,
         "name": "1A",
-        "nets": [],
         "pcb_color": "rgba(0, 0, 0, 0.000)",
         "schematic_color": "rgba(0, 0, 0, 0.000)",
         "track_width": 0.3,
         "via_diameter": 0.889,
         "via_drill": 0.635,
-        "wire_width": 6.0
+        "wire_width": 6
       },
       {
-        "bus_width": 12.0,
+        "bus_width": 12,
         "clearance": 0.254,
         "diff_pair_gap": 0.25,
         "diff_pair_via_gap": 0.25,
@@ -556,25 +461,637 @@
         "microvia_diameter": 0.508,
         "microvia_drill": 0.127,
         "name": "4A",
-        "nets": [
-          "N-0000089",
-          "N-0000090",
-          "N-0000093",
-          "N-0000094",
-          "N-0000095"
-        ],
         "pcb_color": "rgba(0, 0, 0, 0.000)",
         "schematic_color": "rgba(0, 0, 0, 0.000)",
         "track_width": 2.0,
         "via_diameter": 0.889,
         "via_drill": 0.635,
-        "wire_width": 6.0
+        "wire_width": 6
       }
     ],
     "meta": {
-      "version": 2
+      "version": 3
     },
-    "net_colors": null
+    "net_colors": null,
+    "netclass_assignments": null,
+    "netclass_patterns": [
+      {
+        "netclass": "1.5A",
+        "pattern": "N-000001"
+      },
+      {
+        "netclass": "1.5A",
+        "pattern": "N-0000010"
+      },
+      {
+        "netclass": "1.5A",
+        "pattern": "N-00000100"
+      },
+      {
+        "netclass": "1.5A",
+        "pattern": "N-00000101"
+      },
+      {
+        "netclass": "1.5A",
+        "pattern": "N-00000102"
+      },
+      {
+        "netclass": "1.5A",
+        "pattern": "N-00000103"
+      },
+      {
+        "netclass": "1.5A",
+        "pattern": "N-00000104"
+      },
+      {
+        "netclass": "1.5A",
+        "pattern": "N-00000105"
+      },
+      {
+        "netclass": "1.5A",
+        "pattern": "N-00000106"
+      },
+      {
+        "netclass": "1.5A",
+        "pattern": "N-00000107"
+      },
+      {
+        "netclass": "1.5A",
+        "pattern": "N-00000108"
+      },
+      {
+        "netclass": "1.5A",
+        "pattern": "N-00000109"
+      },
+      {
+        "netclass": "1.5A",
+        "pattern": "N-0000011"
+      },
+      {
+        "netclass": "1.5A",
+        "pattern": "N-00000110"
+      },
+      {
+        "netclass": "1.5A",
+        "pattern": "N-00000111"
+      },
+      {
+        "netclass": "1.5A",
+        "pattern": "N-00000112"
+      },
+      {
+        "netclass": "1.5A",
+        "pattern": "N-00000113"
+      },
+      {
+        "netclass": "1.5A",
+        "pattern": "N-00000114"
+      },
+      {
+        "netclass": "1.5A",
+        "pattern": "N-00000115"
+      },
+      {
+        "netclass": "1.5A",
+        "pattern": "N-00000116"
+      },
+      {
+        "netclass": "1.5A",
+        "pattern": "N-00000117"
+      },
+      {
+        "netclass": "1.5A",
+        "pattern": "N-00000118"
+      },
+      {
+        "netclass": "1.5A",
+        "pattern": "N-00000119"
+      },
+      {
+        "netclass": "1.5A",
+        "pattern": "N-0000012"
+      },
+      {
+        "netclass": "1.5A",
+        "pattern": "N-00000120"
+      },
+      {
+        "netclass": "1.5A",
+        "pattern": "N-00000121"
+      },
+      {
+        "netclass": "1.5A",
+        "pattern": "N-00000122"
+      },
+      {
+        "netclass": "1.5A",
+        "pattern": "N-00000123"
+      },
+      {
+        "netclass": "1.5A",
+        "pattern": "N-00000124"
+      },
+      {
+        "netclass": "1.5A",
+        "pattern": "N-00000125"
+      },
+      {
+        "netclass": "1.5A",
+        "pattern": "N-00000126"
+      },
+      {
+        "netclass": "1.5A",
+        "pattern": "N-00000127"
+      },
+      {
+        "netclass": "1.5A",
+        "pattern": "N-00000128"
+      },
+      {
+        "netclass": "1.5A",
+        "pattern": "N-00000129"
+      },
+      {
+        "netclass": "1.5A",
+        "pattern": "N-0000013"
+      },
+      {
+        "netclass": "1.5A",
+        "pattern": "N-00000130"
+      },
+      {
+        "netclass": "1.5A",
+        "pattern": "N-00000131"
+      },
+      {
+        "netclass": "1.5A",
+        "pattern": "N-00000132"
+      },
+      {
+        "netclass": "1.5A",
+        "pattern": "N-00000133"
+      },
+      {
+        "netclass": "1.5A",
+        "pattern": "N-00000134"
+      },
+      {
+        "netclass": "1.5A",
+        "pattern": "N-00000135"
+      },
+      {
+        "netclass": "1.5A",
+        "pattern": "N-00000136"
+      },
+      {
+        "netclass": "1.5A",
+        "pattern": "N-00000137"
+      },
+      {
+        "netclass": "1.5A",
+        "pattern": "N-00000138"
+      },
+      {
+        "netclass": "1.5A",
+        "pattern": "N-00000139"
+      },
+      {
+        "netclass": "1.5A",
+        "pattern": "N-0000014"
+      },
+      {
+        "netclass": "1.5A",
+        "pattern": "N-00000140"
+      },
+      {
+        "netclass": "1.5A",
+        "pattern": "N-00000141"
+      },
+      {
+        "netclass": "1.5A",
+        "pattern": "N-00000142"
+      },
+      {
+        "netclass": "1.5A",
+        "pattern": "N-00000143"
+      },
+      {
+        "netclass": "1.5A",
+        "pattern": "N-00000144"
+      },
+      {
+        "netclass": "1.5A",
+        "pattern": "N-00000145"
+      },
+      {
+        "netclass": "1.5A",
+        "pattern": "N-00000146"
+      },
+      {
+        "netclass": "1.5A",
+        "pattern": "N-00000147"
+      },
+      {
+        "netclass": "1.5A",
+        "pattern": "N-00000148"
+      },
+      {
+        "netclass": "1.5A",
+        "pattern": "N-00000149"
+      },
+      {
+        "netclass": "1.5A",
+        "pattern": "N-0000015"
+      },
+      {
+        "netclass": "1.5A",
+        "pattern": "N-00000150"
+      },
+      {
+        "netclass": "1.5A",
+        "pattern": "N-00000151"
+      },
+      {
+        "netclass": "1.5A",
+        "pattern": "N-00000152"
+      },
+      {
+        "netclass": "1.5A",
+        "pattern": "N-00000153"
+      },
+      {
+        "netclass": "1.5A",
+        "pattern": "N-00000154"
+      },
+      {
+        "netclass": "1.5A",
+        "pattern": "N-00000155"
+      },
+      {
+        "netclass": "1.5A",
+        "pattern": "N-0000016"
+      },
+      {
+        "netclass": "1.5A",
+        "pattern": "N-0000017"
+      },
+      {
+        "netclass": "1.5A",
+        "pattern": "N-0000018"
+      },
+      {
+        "netclass": "1.5A",
+        "pattern": "N-0000019"
+      },
+      {
+        "netclass": "1.5A",
+        "pattern": "N-000002"
+      },
+      {
+        "netclass": "1.5A",
+        "pattern": "N-0000020"
+      },
+      {
+        "netclass": "1.5A",
+        "pattern": "N-0000021"
+      },
+      {
+        "netclass": "1.5A",
+        "pattern": "N-0000022"
+      },
+      {
+        "netclass": "1.5A",
+        "pattern": "N-0000023"
+      },
+      {
+        "netclass": "1.5A",
+        "pattern": "N-0000024"
+      },
+      {
+        "netclass": "1.5A",
+        "pattern": "N-0000025"
+      },
+      {
+        "netclass": "1.5A",
+        "pattern": "N-0000026"
+      },
+      {
+        "netclass": "1.5A",
+        "pattern": "N-0000027"
+      },
+      {
+        "netclass": "1.5A",
+        "pattern": "N-0000028"
+      },
+      {
+        "netclass": "1.5A",
+        "pattern": "N-0000029"
+      },
+      {
+        "netclass": "1.5A",
+        "pattern": "N-000003"
+      },
+      {
+        "netclass": "1.5A",
+        "pattern": "N-0000030"
+      },
+      {
+        "netclass": "1.5A",
+        "pattern": "N-0000031"
+      },
+      {
+        "netclass": "1.5A",
+        "pattern": "N-0000032"
+      },
+      {
+        "netclass": "1.5A",
+        "pattern": "N-0000033"
+      },
+      {
+        "netclass": "1.5A",
+        "pattern": "N-0000034"
+      },
+      {
+        "netclass": "1.5A",
+        "pattern": "N-0000035"
+      },
+      {
+        "netclass": "1.5A",
+        "pattern": "N-0000036"
+      },
+      {
+        "netclass": "1.5A",
+        "pattern": "N-0000037"
+      },
+      {
+        "netclass": "1.5A",
+        "pattern": "N-0000038"
+      },
+      {
+        "netclass": "1.5A",
+        "pattern": "N-0000039"
+      },
+      {
+        "netclass": "1.5A",
+        "pattern": "N-000004"
+      },
+      {
+        "netclass": "1.5A",
+        "pattern": "N-0000040"
+      },
+      {
+        "netclass": "1.5A",
+        "pattern": "N-0000041"
+      },
+      {
+        "netclass": "1.5A",
+        "pattern": "N-0000042"
+      },
+      {
+        "netclass": "1.5A",
+        "pattern": "N-0000043"
+      },
+      {
+        "netclass": "1.5A",
+        "pattern": "N-0000044"
+      },
+      {
+        "netclass": "1.5A",
+        "pattern": "N-0000045"
+      },
+      {
+        "netclass": "1.5A",
+        "pattern": "N-0000046"
+      },
+      {
+        "netclass": "1.5A",
+        "pattern": "N-0000047"
+      },
+      {
+        "netclass": "1.5A",
+        "pattern": "N-0000048"
+      },
+      {
+        "netclass": "1.5A",
+        "pattern": "N-0000049"
+      },
+      {
+        "netclass": "1.5A",
+        "pattern": "N-000005"
+      },
+      {
+        "netclass": "1.5A",
+        "pattern": "N-0000050"
+      },
+      {
+        "netclass": "1.5A",
+        "pattern": "N-0000051"
+      },
+      {
+        "netclass": "1.5A",
+        "pattern": "N-0000052"
+      },
+      {
+        "netclass": "1.5A",
+        "pattern": "N-0000053"
+      },
+      {
+        "netclass": "1.5A",
+        "pattern": "N-0000054"
+      },
+      {
+        "netclass": "1.5A",
+        "pattern": "N-0000055"
+      },
+      {
+        "netclass": "1.5A",
+        "pattern": "N-0000056"
+      },
+      {
+        "netclass": "1.5A",
+        "pattern": "N-0000057"
+      },
+      {
+        "netclass": "1.5A",
+        "pattern": "N-0000058"
+      },
+      {
+        "netclass": "1.5A",
+        "pattern": "N-0000059"
+      },
+      {
+        "netclass": "1.5A",
+        "pattern": "N-000006"
+      },
+      {
+        "netclass": "1.5A",
+        "pattern": "N-0000060"
+      },
+      {
+        "netclass": "1.5A",
+        "pattern": "N-0000061"
+      },
+      {
+        "netclass": "1.5A",
+        "pattern": "N-0000062"
+      },
+      {
+        "netclass": "1.5A",
+        "pattern": "N-0000063"
+      },
+      {
+        "netclass": "1.5A",
+        "pattern": "N-0000064"
+      },
+      {
+        "netclass": "1.5A",
+        "pattern": "N-0000065"
+      },
+      {
+        "netclass": "1.5A",
+        "pattern": "N-0000066"
+      },
+      {
+        "netclass": "1.5A",
+        "pattern": "N-0000067"
+      },
+      {
+        "netclass": "1.5A",
+        "pattern": "N-0000068"
+      },
+      {
+        "netclass": "1.5A",
+        "pattern": "N-0000069"
+      },
+      {
+        "netclass": "1.5A",
+        "pattern": "N-000007"
+      },
+      {
+        "netclass": "1.5A",
+        "pattern": "N-0000070"
+      },
+      {
+        "netclass": "1.5A",
+        "pattern": "N-0000071"
+      },
+      {
+        "netclass": "1.5A",
+        "pattern": "N-0000072"
+      },
+      {
+        "netclass": "1.5A",
+        "pattern": "N-0000073"
+      },
+      {
+        "netclass": "1.5A",
+        "pattern": "N-0000074"
+      },
+      {
+        "netclass": "1.5A",
+        "pattern": "N-0000075"
+      },
+      {
+        "netclass": "1.5A",
+        "pattern": "N-0000076"
+      },
+      {
+        "netclass": "1.5A",
+        "pattern": "N-0000077"
+      },
+      {
+        "netclass": "1.5A",
+        "pattern": "N-0000078"
+      },
+      {
+        "netclass": "1.5A",
+        "pattern": "N-0000079"
+      },
+      {
+        "netclass": "1.5A",
+        "pattern": "N-000008"
+      },
+      {
+        "netclass": "1.5A",
+        "pattern": "N-0000080"
+      },
+      {
+        "netclass": "1.5A",
+        "pattern": "N-0000081"
+      },
+      {
+        "netclass": "1.5A",
+        "pattern": "N-0000082"
+      },
+      {
+        "netclass": "1.5A",
+        "pattern": "N-0000083"
+      },
+      {
+        "netclass": "1.5A",
+        "pattern": "N-0000085"
+      },
+      {
+        "netclass": "1.5A",
+        "pattern": "N-0000086"
+      },
+      {
+        "netclass": "1.5A",
+        "pattern": "N-0000087"
+      },
+      {
+        "netclass": "1.5A",
+        "pattern": "N-0000088"
+      },
+      {
+        "netclass": "1.5A",
+        "pattern": "N-000009"
+      },
+      {
+        "netclass": "1.5A",
+        "pattern": "N-0000091"
+      },
+      {
+        "netclass": "1.5A",
+        "pattern": "N-0000092"
+      },
+      {
+        "netclass": "1.5A",
+        "pattern": "N-0000096"
+      },
+      {
+        "netclass": "1.5A",
+        "pattern": "N-0000097"
+      },
+      {
+        "netclass": "1.5A",
+        "pattern": "N-0000098"
+      },
+      {
+        "netclass": "1.5A",
+        "pattern": "N-0000099"
+      },
+      {
+        "netclass": "4A",
+        "pattern": "N-0000089"
+      },
+      {
+        "netclass": "4A",
+        "pattern": "N-0000090"
+      },
+      {
+        "netclass": "4A",
+        "pattern": "N-0000093"
+      },
+      {
+        "netclass": "4A",
+        "pattern": "N-0000094"
+      },
+      {
+        "netclass": "4A",
+        "pattern": "N-0000095"
+      }
+    ]
   },
   "pcbnew": {
     "last_paths": {
