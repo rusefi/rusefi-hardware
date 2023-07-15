@@ -24,7 +24,7 @@ jobs:
       - name: Generate Gerber Files
         working-directory: breakout-boards/Breakout_154pin_284617-1-Connector
         run: |
-          bash hellen-one/kicad/bin/export.sh
+          bash ../../ext/hellen-one/kicad/bin/export.sh
 
       - name: Commit fresh board files
         env:
