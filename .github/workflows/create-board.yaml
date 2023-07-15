@@ -30,7 +30,7 @@ jobs:
         env:
           ACTIONS_ALLOW_UNSECURE_COMMANDS: 'true'
         run: |
-          bash hellen-one/bin/gha-commit.sh
+          bash ext/hellen-one/bin/gha-commit.sh
 
       - name: Push board files
 # let's support both newer 'main' and older 'master' repositories
