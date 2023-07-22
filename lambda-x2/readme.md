@@ -1,5 +1,9 @@
 # About
 
+[interactive pinout](https://rusefi.com/docs/pinouts/lambda-x2/)
+
+[wire colors](https://github.com/rusefi/rusefi/wiki/WBO#naming-convention)
+
 For firmware see https://github.com/dron0gus/wideband (based on https://github.com/mck1117/wideband)
 
 See [rusEFI forum: F103 dual channel wideband controller + EGT + 2 x AUX In + 2 Aux out](https://rusefi.com/forum/viewtopic.php?f=4&t=2314)
