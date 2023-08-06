@@ -8,6 +8,7 @@ rescue-backup
 deliver
 *obj*
 *bin*
+fp-info-cache
 
 
 #
