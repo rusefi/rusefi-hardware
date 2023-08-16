@@ -66,7 +66,7 @@ static THD_FUNCTION(Thread1, arg) {
 static THD_WORKING_AREA(consoleThread, 256);
 static void ConsoleThread(void*) {
 
-int executionCounter = 0;
+	int executionCounter = 0;
 
     while (true) {
 //        for (int i = 0;i<ADC_GRP_NUM_CHANNELS;i++) {
@@ -77,32 +77,32 @@ int executionCounter = 0;
 //        }
 
 
-    bool isGood = true;
+		bool isGood = true;
 
-    for (int currentIndex = 0;currentIndex<20;currentIndex++) {
-        bool isThisGood = runTest(currentIndex);
-        if (isThisGood) {
-            chprintf(chp, "GOOD channel %d\r\n", index2human(currentIndex));
-        } else {
-            chprintf(chp, "!!!!!!!! BAD channel %d !!!!!!!!!!!!!!!\r\n", index2human(currentIndex));
-        }
-        isGood = isGood && isThisGood;
-    }
+		for (int currentIndex = 0; currentIndex < 20; currentIndex++) {
+			bool isThisGood = runTest(currentIndex);
+			if (isThisGood) {
+				chprintf(chp, "GOOD channel %d\r\n", index2human(currentIndex));
+			} else {
+				chprintf(chp, "!!!!!!!! BAD channel %d !!!!!!!!!!!!!!!\r\n", index2human(currentIndex));
+			}
+			isGood = isGood && isThisGood;
+		}
 
-    executionCounter++;
+		executionCounter++;
 
-    if (isGood) {
-        chprintf(chp, " ************* ALL GOOD ************************ \r\n", executionCounter);
-        palSetLine(LED_GREEN);
-        palClearLine(LED_RED);
-    } else {
-        chprintf(chp, " ************* SOMETHING BAD SEE ABOVE ************************ \r\n", executionCounter);
-        palClearLine(LED_GREEN);
-        palSetLine(LED_RED);
-    }
+		if (isGood) {
+			chprintf(chp, " ************* ALL GOOD ************************ \r\n", executionCounter);
+			palSetLine(LED_GREEN);
+			palClearLine(LED_RED);
+		} else {
+			chprintf(chp, " ************* SOMETHING BAD SEE ABOVE ************************ \r\n", executionCounter);
+			palClearLine(LED_GREEN);
+			palSetLine(LED_RED);
+		}
 
-        chThdSleepMilliseconds(5000);
-    }
+		chThdSleepMilliseconds(5000);
+	}
 }
 
 /*
