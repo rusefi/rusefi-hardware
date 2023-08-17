@@ -1,7 +1,7 @@
 
 #include "global.h"
-#include "digital_inputs.h"
 #include "adc.h"
+#include "test_digital_outputs.h"
 #include "test_logic.h"
 #include "chprintf.h"
 
@@ -14,7 +14,7 @@ bool haveSeenHigh[COUNT];
 int cycleDurationMs = 1;
 int cycleCount = 2500;
 
-bool runTest(int testLineIndex) {
+bool testEcuDigitalOutput(int testLineIndex) {
 	memset(haveSeenLow, 0, sizeof(haveSeenLow));
 	memset(haveSeenHigh, 0, sizeof(haveSeenHigh));
 

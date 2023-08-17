@@ -1,6 +1,7 @@
 
 #include "global.h"
-#include "digital_inputs.h"
+#include "test_digital_outputs.h"
+#include "test_logic.h"
 #include "chprintf.h"
 
 #define XOR_MAGIC 1
@@ -36,6 +37,21 @@ void initDigitalInputs() {
 
     palSetPadMode(muxOff.port, muxOff.pin, PAL_MODE_OUTPUT_PUSHPULL);
     palWritePad(muxOff.port, muxOff.pin, 0 ^ XOR_MAGIC);
+}
+
+bool testEcuDigitalOutputs() {
+	bool isGood = true;
+
+	for (int currentIndex = 0; currentIndex < 20; currentIndex++) {
+		bool isThisGood = testEcuDigitalOutput(currentIndex);
+		if (isThisGood) {
+			chprintf(chp, "GOOD channel %d\r\n", index2human(currentIndex));
+		} else {
+			chprintf(chp, "!!!!!!!! BAD channel %d !!!!!!!!!!!!!!!\r\n", index2human(currentIndex));
+		}
+		isGood = isGood && isThisGood;
+	}
+	return isGood;
 }
 
 void setOutputAddrIndex(int index) {

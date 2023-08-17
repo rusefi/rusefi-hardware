@@ -135,7 +135,8 @@ CPPSRC = $(ALLCPPSRC) \
         adc.cpp \
         test_logic.cpp \
         can.cpp \
-        digital_inputs.cpp \
+        test_digital_inputs.cpp \
+        test_digital_outputs.cpp \
 
 
 # List ASM source files here.

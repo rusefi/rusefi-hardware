@@ -26,7 +26,8 @@
 #include "usbconsole.h"
 #include "usbcfg.h"
 #include "chprintf.h"
-#include "digital_inputs.h"
+#include "test_digital_inputs.h"
+#include "test_digital_outputs.h"
 #include "adc.h"
 #include "test_logic.h"
 #include "efilib.h"
@@ -63,35 +64,19 @@ static THD_FUNCTION(Thread1, arg) {
   }
 }
 
+
 static THD_WORKING_AREA(consoleThread, 256);
 static void ConsoleThread(void*) {
+	static int executionCounter = 0;
 
-	int executionCounter = 0;
-
-    while (true) {
-//        for (int i = 0;i<ADC_GRP_NUM_CHANNELS;i++) {
-//            int value = getAdcValue(i);
-//            itoa10(buf, value);
-//            chprintf(chp, buf);
-//            chprintf(chp, " ");
-//        }
-
-
-		bool isGood = true;
-
-		for (int currentIndex = 0; currentIndex < 20; currentIndex++) {
-			bool isThisGood = runTest(currentIndex);
-			if (isThisGood) {
-				chprintf(chp, "GOOD channel %d\r\n", index2human(currentIndex));
-			} else {
-				chprintf(chp, "!!!!!!!! BAD channel %d !!!!!!!!!!!!!!!\r\n", index2human(currentIndex));
-			}
-			isGood = isGood && isThisGood;
-		}
+	while (true) {
+		bool isGoodDigitalOutputs = testEcuDigitalOutputs();
+		bool isGoodDititalInputs = testEcuDigitalInputs();
+		bool isAllGood = isGoodDigitalOutputs && isGoodDititalInputs;
 
 		executionCounter++;
 
-		if (isGood) {
+		if (isAllGood) {
 			chprintf(chp, " ************* ALL GOOD ************************ \r\n", executionCounter);
 			palSetLine(LED_GREEN);
 			palClearLine(LED_RED);
@@ -122,7 +107,8 @@ int main(void) {
 
   initAnalogInputs();
   initCan();
-  initDigitalInputs();
+  initStimDigitalInputs();
+  initStimDigitalOutputs();
   usb_serial_start();
 
   /*

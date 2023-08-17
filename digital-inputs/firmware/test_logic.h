@@ -3,6 +3,6 @@
 
 #include "cstring"
 
-bool runTest(int testLineIndex);
+bool testEcuDigitalOutput(int testLineIndex);
 
 #define index2human(x) ((x) + 1)
