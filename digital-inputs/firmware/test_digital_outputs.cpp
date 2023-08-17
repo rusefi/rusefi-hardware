@@ -24,7 +24,7 @@ static io_pin muxOff = {GPIOA, 7};
 
 extern BaseSequentialStream *chp;
 
-void initDigitalInputs() {
+void initStimDigitalInputs() {
     for (size_t i = 0;i < efi::size(addrPins);i++) {
         io_pin *pin = &addrPins[i];
        	palSetPadMode(pin->port, pin->pin, PAL_MODE_OUTPUT_PUSHPULL);
