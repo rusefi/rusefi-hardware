@@ -10,6 +10,10 @@
 // we are lucky - all CAN pins use the same AF
 #define EFI_CAN_AF 9
 
+#define CAN_PORT GPIOA
+#define CAN_PIN_RX 11
+#define CAN_PIN_TX 12
+
 struct io_pin {
 	ioportid_t port;
 	ioportmask_t pin;

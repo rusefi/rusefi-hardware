@@ -1,6 +1,7 @@
 #include "ch.h"
 #include "hal.h"
 #include "chprintf.h"
+#include "io_pins.h"
 #include "can.h"
 #include "../../ext/libfirmware/can/can_common.h"
 
@@ -64,8 +65,8 @@ static THD_FUNCTION(can_rx, p) {
 }
 
 void initCan() {
-  palSetPadMode(GPIOA,11, PAL_MODE_ALTERNATE(EFI_CAN_AF));
-  palSetPadMode(GPIOA,12, PAL_MODE_ALTERNATE(EFI_CAN_AF));
+  palSetPadMode(CAN_PORT,CAN_PIN_RX, PAL_MODE_ALTERNATE(EFI_CAN_AF));
+  palSetPadMode(CAN_PORT,CAN_PIN_TX, PAL_MODE_ALTERNATE(EFI_CAN_AF));
 
   canStart(&CAND1, &cancfg);
 
