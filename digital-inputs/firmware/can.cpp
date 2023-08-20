@@ -63,10 +63,6 @@ static THD_FUNCTION(can_rx, p) {
   }
 }
 
-
-// we are lucky - all CAN pins use the same AF
-#define EFI_CAN_AF 9
-
 void initCan() {
   palSetPadMode(GPIOA,11, PAL_MODE_ALTERNATE(EFI_CAN_AF));
   palSetPadMode(GPIOA,12, PAL_MODE_ALTERNATE(EFI_CAN_AF));

@@ -7,6 +7,9 @@
 
 #define EFI_CONSOLE_USB_DEVICE SDU1
 
+// we are lucky - all CAN pins use the same AF
+#define EFI_CAN_AF 9
+
 struct io_pin {
 	ioportid_t port;
 	ioportmask_t pin;
