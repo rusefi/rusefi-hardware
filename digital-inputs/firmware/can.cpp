@@ -4,7 +4,7 @@
 #include "io_pins.h"
 #include "can.h"
 #include "test_logic.h"
-#include "../../ext/libfirmware/can/can_common.h"
+#include "can/can_common.h"
 
 
 extern BaseSequentialStream *chp;

@@ -4,6 +4,7 @@
 #include "test_digital_outputs.h"
 #include "test_logic.h"
 #include "chprintf.h"
+#include "board_id/boards_id.h"
 
 #define COUNT 48
 // 7.5% accuracy
@@ -25,7 +26,7 @@ bool isGoodCanPackets = true;
 BoardConfig boardConfigs[NUM_BOARD_CONFIGS] = {
 	{
 		"Hellen-Honda125K",
-		206,
+		BOARD_ID_HONDA125_D,
 		{
 			{ "TPS1_1", 1.0f, 0.5f * ANALOG_L, 0.5f * ANALOG_H },
 			{ nullptr, 0, 0, 0 },

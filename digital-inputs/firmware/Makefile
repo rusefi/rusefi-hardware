@@ -146,7 +146,9 @@ ASMSRC = $(ALLASMSRC)
 ASMXSRC = $(ALLXASMSRC)
 
 # Inclusion directories.
-INCDIR = $(CONFDIR) $(ALLINC) \
+INCDIR = $(CONFDIR) \
+    $(ALLINC) \
+    ../../ext/libfirmware \
     source \
 
 
