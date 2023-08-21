@@ -28,6 +28,7 @@ void initStimDigitalOutputs() {
 bool testEcuDigitalInputs() {
 	for (size_t idx = 0; idx < efi::size(stimOutputPins); idx++) {
 		io_pin *pin = &stimOutputPins[idx];
+		chprintf(chp, "Toggling port %d\r\n", pin->pin);
 		bool bitState = true;
 		for (int toggle_i = 0; toggle_i < 10; toggle_i++) {
 			palWritePad(pin->port, pin->pin, bitState ? 1 : 0);
