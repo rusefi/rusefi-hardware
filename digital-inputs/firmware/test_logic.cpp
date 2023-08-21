@@ -13,6 +13,27 @@ bool haveSeenHigh[COUNT];
 
 int cycleDurationMs = 1;
 int cycleCount = 2500;
+bool isGoodCanPackets = true;
+
+BoardConfig boardConfigs[NUM_BOARD_CONFIGS] = {
+	{
+		"Hellen-Honda125K",
+		206,
+		{
+			{ "TPS1_1", 1.0f, 0.5f * ANALOG_L, 0.5f * ANALOG_H },
+			{ nullptr, 0, 0, 0 },
+			{ nullptr, 0, 0, 0 },
+			{ nullptr, 0, 0, 0 },
+			{ "MAP", 1.0f, 0.6f * ANALOG_L, 0.6f * ANALOG_H },
+			{ "CLT", 1.0f, CLT_VALUE * ANALOG_L, CLT_VALUE * ANALOG_H },
+			{ "IAT", 1.0f, IAT_VALUE * ANALOG_L, IAT_VALUE * ANALOG_H },
+			{ "BATT", 5.835f, 9.0f, 15.0f },
+
+		}
+	},
+};
+
+BoardConfig *currentBoard = nullptr;
 
 bool testEcuDigitalOutput(int testLineIndex) {
 	memset(haveSeenLow, 0, sizeof(haveSeenLow));
@@ -49,4 +70,13 @@ bool testEcuDigitalOutput(int testLineIndex) {
 
 	// test is successful if we saw state toggle
 	return isGood;
+}
+
+void canPacketError(const char *msg, ...) {
+	va_list vl;
+	va_start(vl, msg);
+	chvprintf(chp, msg, vl);
+	va_end(vl);
+
+	isGoodCanPackets = false;
 }

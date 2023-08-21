@@ -34,6 +34,7 @@
 #include "can.h"
 
 BaseSequentialStream *chp = (BaseSequentialStream *)&EFI_CONSOLE_USB_DEVICE;
+extern bool isGoodCanPackets;
 
 /*
  * This is a periodic thread that does absolutely nothing except flashing
@@ -72,7 +73,7 @@ static void ConsoleThread(void*) {
 	while (true) {
 		bool isGoodDigitalOutputs = testEcuDigitalOutputs();
 		bool isGoodDititalInputs = testEcuDigitalInputs();
-		bool isAllGood = isGoodDigitalOutputs && isGoodDititalInputs;
+		bool isAllGood = isGoodDigitalOutputs && isGoodDititalInputs && isGoodCanPackets;
 
 		executionCounter++;
 
