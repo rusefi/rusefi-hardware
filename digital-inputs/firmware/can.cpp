@@ -15,20 +15,54 @@ static const CANConfig cancfg = {
   CAN_BTR_TS1(8) | CAN_BTR_BRP(6)
 };
 
+static bool wasBoardDetectError = false;
+
 
 void receiveBoardStatus(const uint8_t msg[8]) {
 	int boardId = (msg[0] << 8) | msg[1];
 	int numSecondsSinceReset = (msg[2] << 16) | (msg[3] << 8) | msg[4];
 
-	// todo: process board status
 	chprintf(chp, " * BoardStatus: BoardID=%d numSecs=%d\r\n", boardId, numSecondsSinceReset);
+	if (currentBoard == nullptr) {
+		for (int boardIdx = 0; boardIdx < NUM_BOARD_CONFIGS; boardIdx++) {
+			if (boardId == boardConfigs[boardIdx].boardId) {
+				currentBoard = &boardConfigs[boardIdx];
+				chprintf(chp, " * Board detected: %s\r\n", currentBoard->boardName);
+			}
+		}
+	}
+	if (currentBoard == nullptr && !wasBoardDetectError) {
+		canPacketError("Error! Couldn't detect, unknown board!\r\n");
+		wasBoardDetectError = true;
+	}
+}
+
+void receiveRawAnalog(const uint8_t msg[8]) {
+	// wait for the BoardStatus package first
+	if (currentBoard == nullptr)
+		return;
+	
+	for (int ch = 0; ch < 8; ch++) {
+		// channel not used for this board
+		if (currentBoard->channels[ch].name == nullptr)
+			continue;
+		float voltage = getVoltageFrom8Bit(msg[ch]) * currentBoard->channels[ch].mulCoef;
+		// check if in acceptable range for this board
+		if (voltage < currentBoard->channels[ch].acceptMin || voltage > currentBoard->channels[ch].acceptMax) {
+			canPacketError(" * BAD channel %d (%s): voltage %f (raw %d) not in range (%f..%f)\r\n",
+				ch, currentBoard->channels[ch].name, voltage, msg[ch], 
+				currentBoard->channels[ch].acceptMin, currentBoard->channels[ch].acceptMax);
+		}
+	}
 }
 
 void processCanRxMessage(const CANRxFrame& frame) {
 	if (CAN_EID(frame) == BENCH_TEST_BOARD_STATUS) {
 		receiveBoardStatus(frame.data8);
 	}
-
+	else if (CAN_EID(frame) == BENCH_TEST_RAW_ANALOG) {
+		receiveRawAnalog(frame.data8);
+	}
 }
 
 static THD_WORKING_AREA(can_tx_wa, 256);

@@ -6,6 +6,13 @@
 #include "chprintf.h"
 
 #define COUNT 48
+// 7.5% accuracy
+#define ANALOG_L (1.0f - 0.075f)
+#define ANALOG_H (1.0f + 0.075f)
+
+#define IAT_VALUE (5.0f * 1000/(1000+4700))
+#define CLT_VALUE (5.0f * 2000/(2000+4700))
+
 
 extern BaseSequentialStream *chp;
 bool haveSeenLow[COUNT];
