@@ -17,8 +17,7 @@ static const CANConfig cancfg = {
 
 static bool wasBoardDetectError = false;
 
-
-void receiveBoardStatus(const uint8_t msg[8]) {
+static void receiveBoardStatus(const uint8_t msg[8]) {
 	int boardId = (msg[0] << 8) | msg[1];
 	int numSecondsSinceReset = (msg[2] << 16) | (msg[3] << 8) | msg[4];
 
@@ -37,7 +36,7 @@ void receiveBoardStatus(const uint8_t msg[8]) {
 	}
 }
 
-void receiveRawAnalog(const uint8_t msg[8]) {
+static void receiveRawAnalog(const uint8_t msg[8]) {
 	// wait for the BoardStatus package first
 	if (currentBoard == nullptr)
 		return;
@@ -56,11 +55,23 @@ void receiveRawAnalog(const uint8_t msg[8]) {
 	}
 }
 
+static void printRxFrame(const CANRxFrame& frame) {
+		chprintf(chp, "Processing ID=%x/l=%x %x %x %x %x %x %x %x %x\r\n",
+		        CAN_EID(frame),
+		        frame.DLC,
+				frame.data8[0], frame.data8[1],
+				frame.data8[2], frame.data8[3],
+				frame.data8[4], frame.data8[5],
+				frame.data8[6], frame.data8[7]);
+}
+
 void processCanRxMessage(const CANRxFrame& frame) {
 	if (CAN_EID(frame) == BENCH_TEST_BOARD_STATUS) {
+	    printRxFrame(frame);
 		receiveBoardStatus(frame.data8);
 	}
 	else if (CAN_EID(frame) == BENCH_TEST_RAW_ANALOG) {
+	    printRxFrame(frame);
 		receiveRawAnalog(frame.data8);
 	}
 }
