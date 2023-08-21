@@ -72,8 +72,8 @@ static void ConsoleThread(void*) {
 
 	while (true) {
 		bool isGoodDigitalOutputs = testEcuDigitalOutputs();
-		bool isGoodDititalInputs = testEcuDigitalInputs();
-		bool isAllGood = isGoodDigitalOutputs && isGoodDititalInputs && isGoodCanPackets;
+		bool isGoodDigitalInputs = testEcuDigitalInputs();
+		bool isAllGood = isGoodDigitalOutputs && isGoodDigitalInputs && isGoodCanPackets;
 
 		executionCounter++;
 
