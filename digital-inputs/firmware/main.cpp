@@ -34,7 +34,6 @@
 #include "can.h"
 
 BaseSequentialStream *chp = (BaseSequentialStream *)&EFI_CONSOLE_USB_DEVICE;
-extern bool isGoodCanPackets;
 
 /*
  * This is a periodic thread that does absolutely nothing except flashing
@@ -71,9 +70,11 @@ static void ConsoleThread(void*) {
 	static int executionCounter = 0;
 
 	while (true) {
+	    startNewCanTest();
+
 		bool isGoodDigitalOutputs = testEcuDigitalOutputs();
 		bool isGoodDigitalInputs = testEcuDigitalInputs();
-		bool isAllGood = isGoodDigitalOutputs && isGoodDigitalInputs && isGoodCanPackets;
+		bool isAllGood = isGoodDigitalOutputs && isGoodDigitalInputs && isHappyCanTest();
 
 		executionCounter++;
 
@@ -86,6 +87,8 @@ static void ConsoleThread(void*) {
 			palClearLine(LED_GREEN);
 			palSetLine(LED_RED);
 		}
+
+        // todo: assert 'rusEFI update seconds > specified XXX number'
 
 		chThdSleepMilliseconds(5000);
 	}

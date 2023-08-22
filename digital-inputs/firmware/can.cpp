@@ -15,6 +15,27 @@ static const CANConfig cancfg = {
   CAN_BTR_TS1(8) | CAN_BTR_BRP(6)
 };
 
+static bool isGoodCanPackets = true;
+static bool hasReceivedAnalog = false;
+
+static void canPacketError(const char *msg, ...) {
+	va_list vl;
+	va_start(vl, msg);
+	chvprintf(chp, msg, vl);
+	va_end(vl);
+
+	isGoodCanPackets = false;
+}
+
+void startNewCanTest() {
+    isGoodCanPackets = true;
+    hasReceivedAnalog = false;
+}
+
+bool isHappyCanTest() {
+    return isGoodCanPackets && hasReceivedAnalog;
+}
+
 static bool wasBoardDetectError = false;
 
 static void receiveBoardStatus(const uint8_t msg[8]) {
@@ -40,7 +61,8 @@ static void receiveRawAnalog(const uint8_t msg[8]) {
 	// wait for the BoardStatus package first
 	if (currentBoard == nullptr)
 		return;
-	
+	hasReceivedAnalog = true;
+
 	for (int ch = 0; ch < 8; ch++) {
 		// channel not used for this board
 		if (currentBoard->channels[ch].name == nullptr)

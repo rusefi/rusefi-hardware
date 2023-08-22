@@ -21,7 +21,6 @@ bool haveSeenHigh[COUNT];
 
 constexpr int cycleDurationMs = 1;
 constexpr int cycleCount = 2500;
-bool isGoodCanPackets = true;
 
 BoardConfig boardConfigs[NUM_BOARD_CONFIGS] = {
 	{
@@ -78,13 +77,4 @@ bool testEcuDigitalOutput(int testLineIndex) {
 
 	// test is successful if we saw state toggle
 	return isGood;
-}
-
-void canPacketError(const char *msg, ...) {
-	va_list vl;
-	va_start(vl, msg);
-	chvprintf(chp, msg, vl);
-	va_end(vl);
-
-	isGoodCanPackets = false;
 }

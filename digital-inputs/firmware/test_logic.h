@@ -7,7 +7,6 @@
 #define index2human(x) ((x) + 1)
 
 bool testEcuDigitalOutput(int testLineIndex);
-void canPacketError(const char *msg, ...);
 
 class AnalogChannelConfig {
 public:
