@@ -38,6 +38,21 @@ BoardConfig boardConfigs[NUM_BOARD_CONFIGS] = {
 
 		}
 	},
+	{
+		"Proteus",
+		{ STATIC_BOARD_ID_PROTEUS_F4, STATIC_BOARD_ID_PROTEUS_F7, STATIC_BOARD_ID_PROTEUS_H7, 0 },
+		{
+			{ "TPS1_1", 1.0f, 0.5f * ANALOG_L, 0.5f * ANALOG_H },
+			{ nullptr, 0, 0, 0 },
+			{ nullptr, 0, 0, 0 },
+			{ nullptr, 0, 0, 0 },
+			{ "MAP", 1.0f, 0.6f * ANALOG_L, 0.6f * ANALOG_H },
+			{ "CLT", 1.0f, CLT_VALUE * ANALOG_L, CLT_VALUE * ANALOG_H },
+			{ "IAT", 1.0f, IAT_VALUE * ANALOG_L, IAT_VALUE * ANALOG_H },
+			{ "BATT", 9.2f, 9.0f, 15.0f },
+
+		}
+	},
 };
 
 BoardConfig *currentBoard = nullptr;
