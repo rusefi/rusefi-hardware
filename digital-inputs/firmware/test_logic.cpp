@@ -19,8 +19,8 @@ extern BaseSequentialStream *chp;
 bool haveSeenLow[COUNT];
 bool haveSeenHigh[COUNT];
 
-int cycleDurationMs = 1;
-int cycleCount = 2500;
+constexpr int cycleDurationMs = 1;
+constexpr int cycleCount = 2500;
 bool isGoodCanPackets = true;
 
 BoardConfig boardConfigs[NUM_BOARD_CONFIGS] = {
