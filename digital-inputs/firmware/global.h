@@ -8,3 +8,5 @@
 #define LED_GREEN LINE_LED1
 #define LED_BLUE LINE_LED2
 #define LED_RED LINE_LED3
+
+#define THREAD_STACK 512

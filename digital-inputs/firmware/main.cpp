@@ -40,7 +40,7 @@ extern bool isGoodCanPackets;
  * This is a periodic thread that does absolutely nothing except flashing
  * a LED.
  */
-static THD_WORKING_AREA(waThread1, 128);
+static THD_WORKING_AREA(waThread1, THREAD_STACK);
 static THD_FUNCTION(Thread1, arg) {
 
   (void)arg;
@@ -66,7 +66,7 @@ static THD_FUNCTION(Thread1, arg) {
 }
 
 
-static THD_WORKING_AREA(consoleThread, 256);
+static THD_WORKING_AREA(consoleThread, THREAD_STACK);
 static void ConsoleThread(void*) {
 	static int executionCounter = 0;
 
