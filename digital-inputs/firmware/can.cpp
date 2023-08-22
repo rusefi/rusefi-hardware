@@ -5,7 +5,7 @@
 #include "can.h"
 #include "test_logic.h"
 #include "can/can_common.h"
-
+#include "global.h"
 
 extern BaseSequentialStream *chp;
 
@@ -69,14 +69,15 @@ void processCanRxMessage(const CANRxFrame& frame) {
 	if (CAN_EID(frame) == BENCH_TEST_BOARD_STATUS) {
 	    printRxFrame(frame);
 		receiveBoardStatus(frame.data8);
-	}
-	else if (CAN_EID(frame) == BENCH_TEST_RAW_ANALOG) {
+	} else if (CAN_EID(frame) == BENCH_TEST_RAW_ANALOG) {
 	    printRxFrame(frame);
 		receiveRawAnalog(frame.data8);
+	} else if (CAN_EID(frame) == BENCH_TEST_EVENT_COUNTERS) {
+	    printRxFrame(frame);
 	}
 }
 
-static THD_WORKING_AREA(can_tx_wa, 256);
+static THD_WORKING_AREA(can_tx_wa, THREAD_STACK);
 static THD_FUNCTION(can_tx, p) {
   CANTxFrame txmsg;
 
@@ -95,7 +96,7 @@ static THD_FUNCTION(can_tx, p) {
   }
 }
 
-static THD_WORKING_AREA(can_rx_wa, 256);
+static THD_WORKING_AREA(can_rx_wa, THREAD_STACK);
 static THD_FUNCTION(can_rx, p) {
   CANRxFrame rxmsg;
 
