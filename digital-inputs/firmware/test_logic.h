@@ -4,6 +4,7 @@
 #include "cstring"
 
 #define MAX_ANALOG_CHANNELS 8
+#define MAX_BOARD_REVS 32
 #define index2human(x) ((x) + 1)
 
 bool testEcuDigitalOutput(int testLineIndex);
@@ -18,7 +19,7 @@ public:
 class BoardConfig {
 public:
 	const char *boardName;
-	int boardId;
+	int16_t boardIds[MAX_BOARD_REVS];
 	AnalogChannelConfig channels[MAX_ANALOG_CHANNELS];
 };
 
@@ -26,3 +27,4 @@ public:
 extern BoardConfig boardConfigs[NUM_BOARD_CONFIGS];
 
 extern BoardConfig *currentBoard;
+extern int16_t currentBoardRev;

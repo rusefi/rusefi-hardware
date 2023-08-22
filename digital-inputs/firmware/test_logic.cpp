@@ -25,7 +25,7 @@ constexpr int cycleCount = 2500;
 BoardConfig boardConfigs[NUM_BOARD_CONFIGS] = {
 	{
 		"Hellen-Honda125K",
-		BOARD_ID_HONDA125_D,
+		{ BOARD_ID_HONDA125_A, BOARD_ID_HONDA125_B, BOARD_ID_HONDA125_C, BOARD_ID_HONDA125_D, 0 },
 		{
 			{ "TPS1_1", 1.0f, 0.5f * ANALOG_L, 0.5f * ANALOG_H },
 			{ nullptr, 0, 0, 0 },
@@ -41,6 +41,7 @@ BoardConfig boardConfigs[NUM_BOARD_CONFIGS] = {
 };
 
 BoardConfig *currentBoard = nullptr;
+int16_t currentBoardRev = -1;
 
 bool testEcuDigitalOutput(int testLineIndex) {
 	memset(haveSeenLow, 0, sizeof(haveSeenLow));

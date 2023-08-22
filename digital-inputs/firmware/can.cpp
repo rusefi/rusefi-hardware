@@ -45,9 +45,13 @@ static void receiveBoardStatus(const uint8_t msg[8]) {
 	chprintf(chp, " * BoardStatus: BoardID=%d numSecs=%d\r\n", boardId, numSecondsSinceReset);
 	if (currentBoard == nullptr) {
 		for (int boardIdx = 0; boardIdx < NUM_BOARD_CONFIGS; boardIdx++) {
-			if (boardId == boardConfigs[boardIdx].boardId) {
-				currentBoard = &boardConfigs[boardIdx];
-				chprintf(chp, " * Board detected: %s\r\n", currentBoard->boardName);
+			BoardConfig &c = boardConfigs[boardIdx];
+			for (int boardRev = 0; c.boardIds[boardRev] > 0; boardRev++) {
+				if (boardId == c.boardIds[boardRev]) {
+					currentBoard = &c;
+					currentBoardRev = boardRev;
+					chprintf(chp, " * Board detected: %s rev.%c\r\n", currentBoard->boardName, 'A' + currentBoardRev);
+				}
 			}
 		}
 	}
