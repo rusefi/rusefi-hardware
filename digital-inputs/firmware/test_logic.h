@@ -23,7 +23,7 @@ public:
 	AnalogChannelConfig channels[MAX_ANALOG_CHANNELS];
 };
 
-#define NUM_BOARD_CONFIGS 2
+#define NUM_BOARD_CONFIGS 3
 extern BoardConfig boardConfigs[NUM_BOARD_CONFIGS];
 
 extern BoardConfig *currentBoard;

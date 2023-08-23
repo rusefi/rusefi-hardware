@@ -53,6 +53,22 @@ BoardConfig boardConfigs[NUM_BOARD_CONFIGS] = {
 
 		}
 	},
+	{
+		"2chan",
+		{ STATIC_BOARD_ID_ALPHAX_2CHAN, BOARD_ID_ALPHA2CH_B, BOARD_ID_ALPHA2CH_C, BOARD_ID_ALPHA2CH_D,
+			BOARD_ID_ALPHA2CH_E, BOARD_ID_ALPHA2CH_F, BOARD_ID_ALPHA2CH_G, 0 },
+		{
+			{ "TPS1_1", 1.0f, 0.5f * ANALOG_L, 0.5f * ANALOG_H },
+			{ nullptr, 0, 0, 0 },
+			{ nullptr, 0, 0, 0 },
+			{ nullptr, 0, 0, 0 },
+			{ "MAP", 1.0f, 0.6f * ANALOG_L, 0.6f * ANALOG_H },
+			{ "CLT", 1.0f, CLT_VALUE * ANALOG_L, CLT_VALUE * ANALOG_H },
+			{ "IAT", 1.0f, IAT_VALUE * ANALOG_L, IAT_VALUE * ANALOG_H },
+			{ "BATT", 5.835, 9.0f, 15.0f },
+
+		}
+	},
 };
 
 BoardConfig *currentBoard = nullptr;
