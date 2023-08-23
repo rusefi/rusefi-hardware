@@ -5,6 +5,7 @@
 #include "test_logic.h"
 #include "chprintf.h"
 #include "board_id/boards_id.h"
+#include "board_id/boards_dictionary.h"
 
 #define COUNT 48
 // 7.5% accuracy
