@@ -81,8 +81,9 @@ static void receiveRawAnalog(const uint8_t msg[8]) {
 	}
 }
 
-static void printRxFrame(const CANRxFrame& frame) {
-		chprintf(chp, "Processing ID=%x/l=%x %x %x %x %x %x %x %x %x\r\n",
+static void printRxFrame(const CANRxFrame& frame, const char *msg) {
+		chprintf(chp, "Processing %s ID=%x/l=%x %x %x %x %x %x %x %x %x\r\n",
+		msg,
 		        CAN_EID(frame),
 		        frame.DLC,
 				frame.data8[0], frame.data8[1],
@@ -93,13 +94,15 @@ static void printRxFrame(const CANRxFrame& frame) {
 
 void processCanRxMessage(const CANRxFrame& frame) {
 	if (CAN_EID(frame) == BENCH_TEST_BOARD_STATUS) {
-	    printRxFrame(frame);
+	    printRxFrame(frame, "BENCH_TEST_BOARD_STATUS");
 		receiveBoardStatus(frame.data8);
 	} else if (CAN_EID(frame) == BENCH_TEST_RAW_ANALOG) {
-	    printRxFrame(frame);
+	    printRxFrame(frame, "BENCH_TEST_RAW_ANALOG");
 		receiveRawAnalog(frame.data8);
 	} else if (CAN_EID(frame) == BENCH_TEST_EVENT_COUNTERS) {
-	    printRxFrame(frame);
+	    printRxFrame(frame, "BENCH_TEST_EVENT_COUNTERS");
+	} else if (CAN_EID(frame) == BENCH_TEST_BUTTON_COUNTERS) {
+	    printRxFrame(frame, "BENCH_TEST_BUTTON_COUNTERS");
 	}
 }
 
