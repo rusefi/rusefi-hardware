@@ -149,6 +149,7 @@ ASMXSRC = $(ALLXASMSRC)
 INCDIR = $(CONFDIR) \
     $(ALLINC) \
     ../../ext/libfirmware \
+    ../../ext/libfirmware/util/include/rusefi \
     source \
 
 

@@ -1,3 +1,4 @@
+#include <initializer_list>
 #include "ch.h"
 #include "hal.h"
 #include "chprintf.h"
@@ -5,6 +6,7 @@
 #include "can.h"
 #include "test_logic.h"
 #include "can/can_common.h"
+#include "containers/fifo_buffer.h"
 #include "global.h"
 
 extern BaseSequentialStream *chp;
@@ -17,6 +19,9 @@ static const CANConfig cancfg = {
 
 static bool isGoodCanPackets = true;
 static bool hasReceivedAnalog = false;
+static int outputCount = -1;
+
+static fifo_buffer_sync<CANTxFrame> txFifo;
 
 static void canPacketError(const char *msg, ...) {
 	va_list vl;
@@ -34,6 +39,10 @@ void startNewCanTest() {
 
 bool isHappyCanTest() {
     return isGoodCanPackets && hasReceivedAnalog;
+}
+
+int getOutputCount() {
+	return outputCount;
 }
 
 static bool wasBoardDetectError = false;
@@ -58,6 +67,12 @@ static void receiveBoardStatus(const uint8_t msg[8]) {
 	if (currentBoard == nullptr && !wasBoardDetectError) {
 		canPacketError("Error! Couldn't detect, unknown board!\r\n");
 		wasBoardDetectError = true;
+	}
+}
+
+static void receiveOutputMetaInfo(const uint8_t msg[8]) {
+	if (msg[0] == CAN_BENCH_HEADER) {
+		outputCount = msg[2];
 	}
 }
 
@@ -103,8 +118,41 @@ void processCanRxMessage(const CANRxFrame& frame) {
 	    printRxFrame(frame, "BENCH_TEST_EVENT_COUNTERS");
 	} else if (CAN_EID(frame) == BENCH_TEST_BUTTON_COUNTERS) {
 	    printRxFrame(frame, "BENCH_TEST_BUTTON_COUNTERS");
+	} else if (CAN_EID(frame) == BENCH_TEST_IO_META_INFO) {
+	    printRxFrame(frame, "BENCH_TEST_IO_META_INFO");
+	    receiveOutputMetaInfo(frame.data8);
 	}
 }
+
+static void sendCanTxMessage(const CANTxFrame & frame) {
+	if (!txFifo.put(frame)) {
+		chprintf(chp, "CAN sendCanTxMessage() problems");
+	}
+}
+
+static void sendCanTxMessage(int EID, std::initializer_list<uint8_t> data) {
+	CANTxFrame txmsg;
+	txmsg.IDE = CAN_IDE_EXT;
+	txmsg.EID = EID;
+	txmsg.RTR = CAN_RTR_DATA;
+	txmsg.DLC = 8;
+	
+	size_t idx = 0;
+    for (uint8_t v : data) {
+		txmsg.data8[idx] = v;
+		idx++;
+	}
+	sendCanTxMessage(txmsg);
+}
+
+void sendCanPinState(uint8_t pinIdx, bool isSet) {
+	sendCanTxMessage(BENCH_TEST_IO_CONTROL, { (uint8_t)(isSet ? CAN_BENCH_GET_SET : CAN_BENCH_GET_CLEAR), pinIdx });
+}
+
+void setOutputCountRequest() {
+	sendCanTxMessage(BENCH_TEST_IO_CONTROL, { CAN_BENCH_GET_COUNT });
+}
+
 
 static THD_WORKING_AREA(can_tx_wa, THREAD_STACK);
 static THD_FUNCTION(can_tx, p) {
@@ -112,16 +160,11 @@ static THD_FUNCTION(can_tx, p) {
 
   (void)p;
   chRegSetThreadName("transmitter");
-  txmsg.IDE = CAN_IDE_EXT;
-  txmsg.EID = 0x01234567;
-  txmsg.RTR = CAN_RTR_DATA;
-  txmsg.DLC = 8;
-  txmsg.data32[0] = 0x55AA55AA;
-  txmsg.data32[1] = 0x00FF00FF;
 
   while (true) {
-    canTransmit(&CAND1, CAN_ANY_MAILBOX, &txmsg, TIME_MS2I(100));
-    chThdSleepMilliseconds(500);
+	if (txFifo.get(txmsg, TIME_MS2I(100))) {
+    	canTransmit(&CAND1, CAN_ANY_MAILBOX, &txmsg, TIME_MS2I(100));
+    }
   }
 }
 

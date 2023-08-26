@@ -17,4 +17,8 @@
 void initCan();
 void startNewCanTest();
 bool isHappyCanTest();
+int getOutputCount();
+void setOutputCountRequest();
+void sendCanPinState(uint8_t pinIdx, bool isSet);
+
 
