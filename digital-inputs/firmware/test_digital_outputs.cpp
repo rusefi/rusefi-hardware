@@ -2,6 +2,7 @@
 #include "global.h"
 #include "test_digital_outputs.h"
 #include "test_logic.h"
+#include "can.h"
 #include "chprintf.h"
 
 #define XOR_MAGIC 1
@@ -37,12 +38,20 @@ void initStimDigitalInputs() {
 
     palSetPadMode(muxOff.port, muxOff.pin, PAL_MODE_OUTPUT_PUSHPULL);
     palWritePad(muxOff.port, muxOff.pin, 0 ^ XOR_MAGIC);
+
+	// send the request early
+	setOutputCountRequest();
 }
 
 bool testEcuDigitalOutputs() {
 	bool isGood = true;
+	int numOutputs = getOutputCount();
+	
+	// wait for "output meta info" CAN packet
+	if (numOutputs < 0)
+		return false;
 
-	for (int currentIndex = 0; currentIndex < 20; currentIndex++) {
+	for (int currentIndex = 0; currentIndex < numOutputs; currentIndex++) {
 		bool isThisGood = testEcuDigitalOutput(currentIndex);
 		if (isThisGood) {
 			chprintf(chp, "GOOD channel %d\r\n", index2human(currentIndex));

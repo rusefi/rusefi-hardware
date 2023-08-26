@@ -3,6 +3,7 @@
 #include "adc.h"
 #include "test_digital_outputs.h"
 #include "test_logic.h"
+#include "can.h"
 #include "chprintf.h"
 #include "board_id/boards_id.h"
 #include "board_id/boards_dictionary.h"
@@ -20,8 +21,8 @@ extern BaseSequentialStream *chp;
 bool haveSeenLow[COUNT];
 bool haveSeenHigh[COUNT];
 
-constexpr int cycleDurationMs = 1;
-constexpr int cycleCount = 2500;
+constexpr int cycleDurationMs = 100;
+constexpr int cycleCount = 4;
 
 BoardConfig boardConfigs[NUM_BOARD_CONFIGS] = {
 	{
@@ -82,11 +83,16 @@ bool testEcuDigitalOutput(int testLineIndex) {
 	setOutputAddrIndex(testLineIndex % 16);
 	int adcIndex = testLineIndex / 16;
 
-	bool isGood = false;
+	bool isGood = true;
 
-	for (int i = 0; i < cycleCount && !isGood; i++) {
+	for (int i = 0; i < cycleCount && isGood; i++) {
+		bool isSet = (i & 1) == 0;
+		// toggle the ECU pin
+		sendCanPinState(testLineIndex, isSet);
+
 		int scenarioIndex = 1; // i % 2;
 		setScenarioIndex(scenarioIndex);
+		// wait for the pin to toggle
 		chThdSleepMilliseconds(cycleDurationMs);
 
 		float voltage = getAdcValue(adcIndex);
@@ -105,7 +111,12 @@ bool testEcuDigitalOutput(int testLineIndex) {
 
 		// chprintf(chp, "scenario=%d: %1.3f V\r\n", scenarioIndex, voltage);
 
-		isGood = haveSeenHigh[testLineIndex] && haveSeenLow[testLineIndex];
+		bool cycleIsGood = (isHigh == isSet);
+		if (!cycleIsGood) {
+			chprintf(chp, "ERROR! Cycle %d@%d FAILED! (set %d, received %d %1.3fv)\r\n", 
+				index2human(testLineIndex), i, (isSet ? 1 : 0), (isHigh ? 1 : 0), voltage);
+		}
+		isGood = isGood && cycleIsGood;
 	}
 
 	// test is successful if we saw state toggle
