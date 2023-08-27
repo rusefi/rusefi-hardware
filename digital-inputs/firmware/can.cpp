@@ -147,13 +147,12 @@ static void sendCanTxMessage(int EID, std::initializer_list<uint8_t> data) {
 }
 
 void sendCanPinState(uint8_t pinIdx, bool isSet) {
-	sendCanTxMessage(BENCH_TEST_IO_CONTROL, { (uint8_t)(isSet ? CAN_BENCH_GET_SET : CAN_BENCH_GET_CLEAR), pinIdx });
+	sendCanTxMessage(BENCH_TEST_IO_CONTROL, { CAN_BENCH_HEADER, (uint8_t)(isSet ? CAN_BENCH_GET_SET : CAN_BENCH_GET_CLEAR), pinIdx });
 }
 
 void setOutputCountRequest() {
-	sendCanTxMessage(BENCH_TEST_IO_CONTROL, { CAN_BENCH_GET_COUNT });
+	sendCanTxMessage(BENCH_TEST_IO_CONTROL, { CAN_BENCH_HEADER, CAN_BENCH_GET_COUNT });
 }
-
 
 static THD_WORKING_AREA(can_tx_wa, THREAD_STACK);
 static THD_FUNCTION(can_tx, p) {
