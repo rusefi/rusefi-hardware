@@ -46,7 +46,9 @@ void initStimDigitalInputs() {
 bool testEcuDigitalOutputs() {
 	bool isGood = true;
 	int numOutputs = getOutputCount();
-	
+
+	chprintf(chp, " ++++++++++++++++ numOutputs %d\r\n", numOutputs);
+
 	// wait for "output meta info" CAN packet
 	if (numOutputs < 0)
 		return false;

@@ -73,7 +73,7 @@ static void ConsoleThread(void*) {
 	    startNewCanTest();
 
 		bool isGoodDigitalOutputs = testEcuDigitalOutputs();
-		bool isGoodDigitalInputs = testEcuDigitalInputs();
+		bool isGoodDigitalInputs = false;//testEcuDigitalInputs();
 		bool isAllGood = isGoodDigitalOutputs && isGoodDigitalInputs && isHappyCanTest();
 
 		executionCounter++;
@@ -90,7 +90,7 @@ static void ConsoleThread(void*) {
 
         // todo: assert 'rusEFI update seconds > specified XXX number'
 
-		chThdSleepMilliseconds(5000);
+		chThdSleepMilliseconds(50);
 	}
 }
 
