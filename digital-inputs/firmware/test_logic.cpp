@@ -85,11 +85,13 @@ bool testEcuDigitalOutput(int testLineIndex) {
 
 	bool isGood = true;
 
-	for (int i = 0; i < cycleCount && isGood; i++) {
+	for (int i = 0; i < cycleCount
+	 //&& isGood
+	 ; i++) {
 		bool isSet = (i & 1) == 0;
 		chprintf(chp, "  sending line=%d value=%d\r\n", index2human(testLineIndex), isSet);
 		// toggle the ECU pin
-		sendCanPinState(testLineIndex, isSet);
+		sendCanPinState(testLineIndex, isSet ^ 1);
 
 		int scenarioIndex = 1; // i % 2;
 		setScenarioIndex(scenarioIndex);
