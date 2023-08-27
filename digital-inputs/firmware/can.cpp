@@ -73,6 +73,7 @@ static void receiveBoardStatus(const uint8_t msg[8]) {
 static void receiveOutputMetaInfo(const uint8_t msg[8]) {
 	if (msg[0] == CAN_BENCH_HEADER) {
 		outputCount = msg[2];
+    	chprintf(chp, " ***** got outputCount %d \r\n", outputCount);
 	}
 }
 
