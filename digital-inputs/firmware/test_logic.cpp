@@ -87,6 +87,7 @@ bool testEcuDigitalOutput(int testLineIndex) {
 
 	for (int i = 0; i < cycleCount && isGood; i++) {
 		bool isSet = (i & 1) == 0;
+		chprintf(chp, "  sending line=%d value=%d\r\n", index2human(testLineIndex), isSet);
 		// toggle the ECU pin
 		sendCanPinState(testLineIndex, isSet);
 
@@ -99,12 +100,12 @@ bool testEcuDigitalOutput(int testLineIndex) {
 		bool isHigh = voltage > 1.5;
 		if (isHigh) {
 			if (!haveSeenHigh[testLineIndex]) {
-				chprintf(chp, "  HIGH %d@%d %1.3fv\r\n", index2human(testLineIndex), i, voltage);
+				chprintf(chp, "  ADC says HIGH %d@%d %1.3fv\r\n", index2human(testLineIndex), i, voltage);
 			}
 			haveSeenHigh[testLineIndex] = true;
 		} else {
 			if (!haveSeenLow[testLineIndex]) {
-				chprintf(chp, "  LOW %d@%d %1.3fv\r\n", index2human(testLineIndex), i, voltage);
+				chprintf(chp, "  ADC says LOW %d@%d %1.3fv\r\n", index2human(testLineIndex), i, voltage);
 			}
 			haveSeenLow[testLineIndex] = true;
 		}
