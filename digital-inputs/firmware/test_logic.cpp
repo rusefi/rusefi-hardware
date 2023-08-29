@@ -13,8 +13,11 @@
 #define ANALOG_L (1.0f - 0.075f)
 #define ANALOG_H (1.0f + 0.075f)
 
-#define IAT_VALUE (5.0f * 1000/(1000+4700))
-#define CLT_VALUE (5.0f * 2000/(2000+4700))
+#define HELLEN_R 4700
+#define PROTEUS_R 2700
+
+#define IAT_VALUE(r) (5.0f * 1000/(1000+r))
+#define CLT_VALUE(r) (5.0f * 2000/(2000+r))
 
 
 extern BaseSequentialStream *chp;
@@ -34,8 +37,8 @@ BoardConfig boardConfigs[NUM_BOARD_CONFIGS] = {
 			{ nullptr, 0, 0, 0 },
 			{ nullptr, 0, 0, 0 },
 			{ "MAP", 1.0f, 0.6f * ANALOG_L, 0.6f * ANALOG_H },
-			{ "CLT", 1.0f, CLT_VALUE * ANALOG_L, CLT_VALUE * ANALOG_H },
-			{ "IAT", 1.0f, IAT_VALUE * ANALOG_L, IAT_VALUE * ANALOG_H },
+			{ "CLT", 1.0f, CLT_VALUE(HELLEN_R) * ANALOG_L, CLT_VALUE(HELLEN_R) * ANALOG_H },
+			{ "IAT", 1.0f, IAT_VALUE(HELLEN_R) * ANALOG_L, IAT_VALUE(HELLEN_R) * ANALOG_H },
 			{ "BATT", 5.835f, 9.0f, 15.0f },
 
 		}
@@ -49,8 +52,8 @@ BoardConfig boardConfigs[NUM_BOARD_CONFIGS] = {
 			{ nullptr, 0, 0, 0 },
 			{ nullptr, 0, 0, 0 },
 			{ "MAP", 1.0f, 0.6f * ANALOG_L, 0.6f * ANALOG_H },
-			{ "CLT", 1.0f, CLT_VALUE * ANALOG_L, CLT_VALUE * ANALOG_H },
-			{ "IAT", 1.0f, IAT_VALUE * ANALOG_L, IAT_VALUE * ANALOG_H },
+			{ "CLT", 1.0f, CLT_VALUE(PROTEUS_R) * ANALOG_L, CLT_VALUE(PROTEUS_R) * ANALOG_H },
+			{ "IAT", 1.0f, IAT_VALUE(PROTEUS_R) * ANALOG_L, IAT_VALUE(PROTEUS_R) * ANALOG_H },
 			{ "BATT", 9.2f, 9.0f, 15.0f },
 
 		}
@@ -65,8 +68,8 @@ BoardConfig boardConfigs[NUM_BOARD_CONFIGS] = {
 			{ nullptr, 0, 0, 0 },
 			{ nullptr, 0, 0, 0 },
 			{ "MAP", 1.0f, 0.6f * ANALOG_L, 0.6f * ANALOG_H },
-			{ "CLT", 1.0f, CLT_VALUE * ANALOG_L, CLT_VALUE * ANALOG_H },
-			{ "IAT", 1.0f, IAT_VALUE * ANALOG_L, IAT_VALUE * ANALOG_H },
+			{ "CLT", 1.0f, CLT_VALUE(HELLEN_R) * ANALOG_L, CLT_VALUE(HELLEN_R) * ANALOG_H },
+			{ "IAT", 1.0f, IAT_VALUE(HELLEN_R) * ANALOG_L, IAT_VALUE(HELLEN_R) * ANALOG_H },
 			{ "BATT", 5.835, 9.0f, 15.0f },
 
 		}
