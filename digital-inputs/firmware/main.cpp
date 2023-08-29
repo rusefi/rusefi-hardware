@@ -35,6 +35,8 @@
 
 BaseSequentialStream *chp = (BaseSequentialStream *)&EFI_CONSOLE_USB_DEVICE;
 
+OutputMode outputMode;
+
 /*
  * This is a periodic thread that does absolutely nothing except flashing
  * a LED.

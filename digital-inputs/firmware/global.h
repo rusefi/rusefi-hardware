@@ -1,3 +1,4 @@
+#pragma once
 
 #include "ch.h"
 #include "hal.h"
@@ -10,3 +11,9 @@
 #define LED_RED LINE_LED3
 
 #define THREAD_STACK 512
+
+struct OutputMode {
+    bool displayCanTransmit = true;
+    bool displayCanReceive = false;
+    bool verboseDigitalOutputs = true;
+};

@@ -10,6 +10,7 @@
 #include "global.h"
 
 extern BaseSequentialStream *chp;
+extern OutputMode outputMode;
 
 static const CANConfig cancfg = {
   CAN_MCR_ABOM | CAN_MCR_AWUM | CAN_MCR_TXFP,
@@ -98,6 +99,9 @@ static void receiveRawAnalog(const uint8_t msg[8]) {
 }
 
 static void printRxFrame(const CANRxFrame& frame, const char *msg) {
+    if (!outputMode.displayCanReceive) {
+        return;
+    }
 		chprintf(chp, "Processing %s ID=%x/l=%x %x %x %x %x %x %x %x %x\r\n",
 		msg,
 		        CAN_EID(frame),
@@ -110,7 +114,7 @@ static void printRxFrame(const CANRxFrame& frame, const char *msg) {
 
 void processCanRxMessage(const CANRxFrame& frame) {
 	if (CAN_EID(frame) == BENCH_TEST_BOARD_STATUS) {
-	    printRxFrame(frame, "BENCH_TEST_BOARD_STATUS");
+          printRxFrame(frame, "BENCH_TEST_BOARD_STATUS");
 		receiveBoardStatus(frame.data8);
 	} else if (CAN_EID(frame) == BENCH_TEST_RAW_ANALOG) {
 	    printRxFrame(frame, "BENCH_TEST_RAW_ANALOG");
