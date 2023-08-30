@@ -52,7 +52,9 @@ static void receiveBoardStatus(const uint8_t msg[8]) {
 	int boardId = (msg[0] << 8) | msg[1];
 	int numSecondsSinceReset = (msg[2] << 16) | (msg[3] << 8) | msg[4];
 
-	chprintf(chp, " * BoardStatus: BoardID=%d numSecs=%d\r\n", boardId, numSecondsSinceReset);
+	if (outputMode.displayCanReceive) {
+	    chprintf(chp, "       CAN RX BoardStatus: BoardID=%d numSecs=%d\r\n", boardId, numSecondsSinceReset);
+	}
 	if (currentBoard == nullptr) {
 		for (int boardIdx = 0; boardIdx < NUM_BOARD_CONFIGS; boardIdx++) {
 			BoardConfig &c = boardConfigs[boardIdx];
@@ -74,7 +76,9 @@ static void receiveBoardStatus(const uint8_t msg[8]) {
 static void receiveOutputMetaInfo(const uint8_t msg[8]) {
 	if (msg[0] == CAN_BENCH_HEADER) {
 		outputCount = msg[2];
-    	chprintf(chp, " ***** got outputCount %d \r\n", outputCount);
+    	if (outputMode.displayCanReceive) {
+    	    chprintf(chp, "       CAN RX outputCount %d \r\n", outputCount);
+    	}
 	}
 }
 

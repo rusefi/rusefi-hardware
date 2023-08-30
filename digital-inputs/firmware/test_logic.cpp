@@ -92,7 +92,7 @@ bool testEcuDigitalOutput(int testLineIndex) {
 	 //&& isGood
 	 ; i++) {
 		bool isSet = (i & 1) == 0;
-		chprintf(chp, "  sending line=%d value=%d\r\n", index2human(testLineIndex), isSet);
+		chprintf(chp, "               sending line=%d value=%d\r\n", index2human(testLineIndex), isSet);
 		// toggle the ECU pin
 		sendCanPinState(testLineIndex, isSet ^ 1);
 
