@@ -14,6 +14,7 @@
 #define ANALOG_H (1.0f + 0.075f)
 
 #define HELLEN_R 4700
+#define ALPHA2CH_R 2700
 #define PROTEUS_R 2700
 
 #define IAT_VALUE(r) (5.0f * 1000/(1000+r))
@@ -68,8 +69,8 @@ BoardConfig boardConfigs[NUM_BOARD_CONFIGS] = {
 			{ nullptr, 0, 0, 0 },
 			{ nullptr, 0, 0, 0 },
 			{ "MAP", 1.0f, 0.6f * ANALOG_L, 0.6f * ANALOG_H },
-			{ "CLT", 1.0f, CLT_VALUE(HELLEN_R) * ANALOG_L, CLT_VALUE(HELLEN_R) * ANALOG_H },
-			{ "IAT", 1.0f, IAT_VALUE(HELLEN_R) * ANALOG_L, IAT_VALUE(HELLEN_R) * ANALOG_H },
+			{ "CLT", 1.0f, CLT_VALUE(ALPHA2CH_R) * ANALOG_L, CLT_VALUE(ALPHA2CH_R) * ANALOG_H },
+			{ "IAT", 1.0f, IAT_VALUE(ALPHA2CH_R) * ANALOG_L, IAT_VALUE(ALPHA2CH_R) * ANALOG_H },
 			{ "BATT", 5.835, 9.0f, 15.0f },
 
 		}
