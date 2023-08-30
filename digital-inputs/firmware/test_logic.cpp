@@ -79,7 +79,7 @@ BoardConfig boardConfigs[NUM_BOARD_CONFIGS] = {
 BoardConfig *currentBoard = nullptr;
 int16_t currentBoardRev = -1;
 
-bool testEcuDigitalOutput(int testLineIndex) {
+bool testEcuDigitalOutput(int testLineIndex, bool isLowSide) {
 	memset(haveSeenLow, 0, sizeof(haveSeenLow));
 	memset(haveSeenHigh, 0, sizeof(haveSeenHigh));
 
@@ -93,8 +93,8 @@ bool testEcuDigitalOutput(int testLineIndex) {
 	 ; i++) {
 		bool isSet = (i & 1) == 0;
 		chprintf(chp, "               sending line=%d value=%d\r\n", index2human(testLineIndex), isSet);
-		// toggle the ECU pin
-		sendCanPinState(testLineIndex, isSet ^ 1);
+		// toggle the ECU pin for low side mode
+		sendCanPinState(testLineIndex, isSet ^ isLowSide);
 
 		int scenarioIndex = 1; // i % 2;
 		setScenarioIndex(scenarioIndex);
@@ -102,7 +102,8 @@ bool testEcuDigitalOutput(int testLineIndex) {
 		chThdSleepMilliseconds(cycleDurationMs);
 
 		float voltage = getAdcValue(adcIndex);
-		bool isHigh = voltage > 1.5;
+		// low side sends roughly 2.8 but 5v high side is closer to 1v
+		bool isHigh = voltage > 0.7;
 		if (isHigh) {
 			if (!haveSeenHigh[testLineIndex]) {
 				chprintf(chp, "  ADC says HIGH %d@%d %1.3fv\r\n", index2human(testLineIndex), i, voltage);

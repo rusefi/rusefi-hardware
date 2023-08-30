@@ -46,6 +46,7 @@ void initStimDigitalInputs() {
 bool testEcuDigitalOutputs() {
 	bool isGood = true;
 	int numOutputs = getOutputCount();
+	int lowSideOutputs = getLowSideOutputCount();
 
 	chprintf(chp, " ++++++++++++++++ numOutputs %d\r\n", numOutputs);
 
@@ -54,7 +55,7 @@ bool testEcuDigitalOutputs() {
 		return false;
 
 	for (int currentIndex = 0; currentIndex < numOutputs; currentIndex++) {
-		bool isThisGood = testEcuDigitalOutput(currentIndex);
+		bool isThisGood = testEcuDigitalOutput(currentIndex, currentIndex < lowSideOutputs);
 		if (isThisGood) {
 			chprintf(chp, "GOOD channel %d\r\n", index2human(currentIndex));
 		} else {

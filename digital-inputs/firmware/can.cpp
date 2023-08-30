@@ -21,6 +21,7 @@ static const CANConfig cancfg = {
 static bool isGoodCanPackets = true;
 static bool hasReceivedAnalog = false;
 static int outputCount = -1;
+static int lowSideOutputCount = -1;
 
 static fifo_buffer_sync<CANTxFrame> txFifo;
 
@@ -44,6 +45,10 @@ bool isHappyCanTest() {
 
 int getOutputCount() {
 	return outputCount;
+}
+
+int getLowSideOutputCount() {
+	return lowSideOutputCount;
 }
 
 static bool wasBoardDetectError = false;
@@ -76,8 +81,9 @@ static void receiveBoardStatus(const uint8_t msg[8]) {
 static void receiveOutputMetaInfo(const uint8_t msg[8]) {
 	if (msg[0] == CAN_BENCH_HEADER) {
 		outputCount = msg[2];
+		lowSideOutputCount = msg[3];
     	if (outputMode.displayCanReceive) {
-    	    chprintf(chp, "       CAN RX outputCount %d \r\n", outputCount);
+    	    chprintf(chp, "       CAN RX outputCount total=%d low=%d \r\n", outputCount, lowSideOutputCount);
     	}
 	}
 }

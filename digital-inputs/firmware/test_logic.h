@@ -7,7 +7,7 @@
 #define MAX_BOARD_REVS 32
 #define index2human(x) ((x) + 1)
 
-bool testEcuDigitalOutput(int testLineIndex);
+bool testEcuDigitalOutput(int testLineIndex, bool isLowSide);
 
 class AnalogChannelConfig {
 public:
