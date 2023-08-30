@@ -20,6 +20,10 @@
 #define IAT_VALUE(r) (5.0f * 1000/(1000+r))
 #define CLT_VALUE(r) (5.0f * 2000/(2000+r))
 
+// normal atmospheric pressure is 101.3 kPa
+// transfer function taken from https://www.nxp.com/docs/en/data-sheet/MPXH6400A.pdf
+#define MAP_MPX6400_VALUE (5.0f * (0.002421 * 101.3 - 0.00842))
+
 
 extern BaseSequentialStream *chp;
 bool haveSeenLow[COUNT];
@@ -68,7 +72,7 @@ BoardConfig boardConfigs[NUM_BOARD_CONFIGS] = {
 			{ nullptr, 0, 0, 0 },
 			{ nullptr, 0, 0, 0 },
 			{ nullptr, 0, 0, 0 },
-			{ "MAP", 1.0f, 0.6f * ANALOG_L, 0.6f * ANALOG_H },
+			{ "MAP", 1.0f, MAP_MPX6400_VALUE * ANALOG_L, MAP_MPX6400_VALUE * ANALOG_H },	// internal MAP
 			{ "CLT", 1.0f, CLT_VALUE(ALPHA2CH_R) * ANALOG_L, CLT_VALUE(ALPHA2CH_R) * ANALOG_H },
 			{ "IAT", 1.0f, IAT_VALUE(ALPHA2CH_R) * ANALOG_L, IAT_VALUE(ALPHA2CH_R) * ANALOG_H },
 			{ "BATT", 5.835, 9.0f, 15.0f },
