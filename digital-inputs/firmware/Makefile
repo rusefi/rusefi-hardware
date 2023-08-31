@@ -135,6 +135,7 @@ CPPSRC = $(ALLCPPSRC) \
         adc.cpp \
         test_logic.cpp \
         can.cpp \
+        can_hw.cpp \
         test_digital_inputs.cpp \
         test_digital_outputs.cpp \
 

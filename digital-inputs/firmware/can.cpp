@@ -1,12 +1,9 @@
-#include <initializer_list>
-#include "ch.h"
-#include "hal.h"
+#include "can_hw.h"
 #include "chprintf.h"
 #include "io_pins.h"
 #include "can.h"
 #include "test_logic.h"
 #include "can/can_common.h"
-#include "containers/fifo_buffer.h"
 #include "global.h"
 
 extern BaseSequentialStream *chp;
@@ -20,10 +17,9 @@ static const CANConfig cancfg = {
 
 static bool isGoodCanPackets = true;
 static bool hasReceivedAnalog = false;
+static bool hasReceivedBoardId = false;
 static int outputCount = -1;
 static int lowSideOutputCount = -1;
-
-static fifo_buffer_sync<CANTxFrame> txFifo;
 
 static void canPacketError(const char *msg, ...) {
 	va_list vl;
@@ -37,6 +33,7 @@ static void canPacketError(const char *msg, ...) {
 void startNewCanTest() {
     isGoodCanPackets = true;
     hasReceivedAnalog = false;
+    hasReceivedBoardId = false;
 }
 
 bool isHappyCanTest() {
@@ -54,20 +51,34 @@ int getLowSideOutputCount() {
 static bool wasBoardDetectError = false;
 
 static void receiveBoardStatus(const uint8_t msg[8]) {
+	if (hasReceivedBoardId) {
+	    return;
+	}
+	hasReceivedBoardId = true;
+
 	int boardId = (msg[0] << 8) | msg[1];
 	int numSecondsSinceReset = (msg[2] << 16) | (msg[3] << 8) | msg[4];
+	int engineType = (msg[5] << 8) | msg[6];
 
 	if (outputMode.displayCanReceive) {
 	    chprintf(chp, "       CAN RX BoardStatus: BoardID=%d numSecs=%d\r\n", boardId, numSecondsSinceReset);
 	}
 	if (currentBoard == nullptr) {
-		for (int boardIdx = 0; boardIdx < getBoardsCount(); boardIdx++) {
+		for (size_t boardIdx = 0; boardIdx < getBoardsCount(); boardIdx++) {
 			BoardConfig &c = getBoardConfigs()[boardIdx];
 			for (int boardRev = 0; c.boardIds[boardRev] > 0; boardRev++) {
 				if (boardId == c.boardIds[boardRev]) {
 					currentBoard = &c;
 					currentBoardRev = boardRev;
 					chprintf(chp, " * Board detected: %s rev.%c\r\n", currentBoard->boardName, 'A' + currentBoardRev);
+
+					if (c.desiredEngineConfig != -1 && c.desiredEngineConfig != engineType) {
+					    sendCanTxMessage(BENCH_TEST_IO_CONTROL, { CAN_BENCH_HEADER, CAN_BENCH_SET_ENGINE_TYPE, c.desiredEngineConfig });
+
+					    chprintf(chp, " !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!\r\n");
+					    chprintf(chp, " !!!!!!!!!!!!!!!!!!!!!!!!!!! changing engine type !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!\r\n");
+					    chprintf(chp, " !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!\r\n");
+					}
 				}
 			}
 		}
@@ -139,47 +150,12 @@ void processCanRxMessage(const CANRxFrame& frame) {
 	}
 }
 
-static void sendCanTxMessage(const CANTxFrame & frame) {
-	if (!txFifo.put(frame)) {
-		chprintf(chp, "CAN sendCanTxMessage() problems");
-	}
-}
-
-static void sendCanTxMessage(int EID, std::initializer_list<uint8_t> data) {
-	CANTxFrame txmsg;
-	txmsg.IDE = CAN_IDE_EXT;
-	txmsg.EID = EID;
-	txmsg.RTR = CAN_RTR_DATA;
-	txmsg.DLC = 8;
-	
-	size_t idx = 0;
-    for (uint8_t v : data) {
-		txmsg.data8[idx] = v;
-		idx++;
-	}
-	sendCanTxMessage(txmsg);
-}
-
 void sendCanPinState(uint8_t pinIdx, bool isSet) {
 	sendCanTxMessage(BENCH_TEST_IO_CONTROL, { CAN_BENCH_HEADER, (uint8_t)(isSet ? CAN_BENCH_GET_SET : CAN_BENCH_GET_CLEAR), pinIdx });
 }
 
 void setOutputCountRequest() {
 	sendCanTxMessage(BENCH_TEST_IO_CONTROL, { CAN_BENCH_HEADER, CAN_BENCH_GET_COUNT });
-}
-
-static THD_WORKING_AREA(can_tx_wa, THREAD_STACK);
-static THD_FUNCTION(can_tx, p) {
-  CANTxFrame txmsg;
-
-  (void)p;
-  chRegSetThreadName("transmitter");
-
-  while (true) {
-	if (txFifo.get(txmsg, TIME_MS2I(100))) {
-    	canTransmit(&CAND1, CAN_ANY_MAILBOX, &txmsg, TIME_MS2I(100));
-    }
-  }
 }
 
 static THD_WORKING_AREA(can_rx_wa, THREAD_STACK);
@@ -203,8 +179,7 @@ void initCan() {
 
   canStart(&CAND1, &cancfg);
 
-  chThdCreateStatic(can_tx_wa, sizeof(can_tx_wa), NORMALPRIO + 7,
-                    can_tx, NULL);
+  initCanHw();
   chThdCreateStatic(can_rx_wa, sizeof(can_rx_wa), NORMALPRIO + 7,
                     can_rx, NULL);
 }
