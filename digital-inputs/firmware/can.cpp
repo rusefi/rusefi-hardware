@@ -61,8 +61,8 @@ static void receiveBoardStatus(const uint8_t msg[8]) {
 	    chprintf(chp, "       CAN RX BoardStatus: BoardID=%d numSecs=%d\r\n", boardId, numSecondsSinceReset);
 	}
 	if (currentBoard == nullptr) {
-		for (int boardIdx = 0; boardIdx < NUM_BOARD_CONFIGS; boardIdx++) {
-			BoardConfig &c = boardConfigs[boardIdx];
+		for (int boardIdx = 0; boardIdx < getBoardsCount(); boardIdx++) {
+			BoardConfig &c = getBoardConfigs()[boardIdx];
 			for (int boardRev = 0; c.boardIds[boardRev] > 0; boardRev++) {
 				if (boardId == c.boardIds[boardRev]) {
 					currentBoard = &c;

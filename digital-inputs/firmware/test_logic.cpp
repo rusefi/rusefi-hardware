@@ -33,7 +33,7 @@ bool haveSeenHigh[COUNT];
 constexpr int cycleDurationMs = 100;
 constexpr int cycleCount = 4;
 
-BoardConfig boardConfigs[NUM_BOARD_CONFIGS] = {
+BoardConfig boardConfigs[] = {
 	{
 		.boardName = "Hellen-Honda125K",
 		.desiredEngineConfig = -1,
@@ -83,10 +83,34 @@ BoardConfig boardConfigs[NUM_BOARD_CONFIGS] = {
 
 		}
 	},
+	{
+		.boardName = "4chan",
+		.desiredEngineConfig = -1,
+		.boardIds = { BOARD_ID_ALPHA4CH_H, BOARD_ID_ALPHA4CH_G, 0 },
+		.channels = {
+			{ "TPS1_1", 1.0f, 0.5f * ANALOG_L, 0.5f * ANALOG_H },
+			{ nullptr, 0, 0, 0 },
+			{ nullptr, 0, 0, 0 },
+			{ nullptr, 0, 0, 0 },
+			{ "MAP", 1.0f, MAP_MPX6400_VALUE * ANALOG_L, MAP_MPX6400_VALUE * ANALOG_H },	// internal MAP
+			{ "CLT", 1.0f, CLT_VALUE(ALPHA2CH_R) * ANALOG_L, CLT_VALUE(ALPHA2CH_R) * ANALOG_H },
+			{ "IAT", 1.0f, IAT_VALUE(ALPHA2CH_R) * ANALOG_L, IAT_VALUE(ALPHA2CH_R) * ANALOG_H },
+			{ "BATT", 5.835, 9.0f, 15.0f },
+
+		}
+	},
 };
 
 BoardConfig *currentBoard = nullptr;
 int16_t currentBoardRev = -1;
+
+BoardConfig *getBoardConfigs() {
+    return boardConfigs;
+}
+
+size_t getBoardsCount() {
+    return efi::size(boardConfigs);
+}
 
 bool testEcuDigitalOutput(int testLineIndex, bool isLowSide) {
 	memset(haveSeenLow, 0, sizeof(haveSeenLow));

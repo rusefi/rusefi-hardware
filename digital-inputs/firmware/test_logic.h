@@ -24,8 +24,8 @@ public:
 	AnalogChannelConfig channels[MAX_ANALOG_CHANNELS];
 };
 
-#define NUM_BOARD_CONFIGS 3
-extern BoardConfig boardConfigs[NUM_BOARD_CONFIGS];
+BoardConfig *getBoardConfigs();
+size_t getBoardsCount();
 
 extern BoardConfig *currentBoard;
 extern int16_t currentBoardRev;
