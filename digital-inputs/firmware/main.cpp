@@ -76,7 +76,8 @@ static void ConsoleThread(void*) {
 
 		bool isGoodDigitalOutputs = testEcuDigitalOutputs();
 		bool isGoodDigitalInputs = false;//testEcuDigitalInputs();
-		bool isAllGood = isGoodDigitalOutputs && isGoodDigitalInputs && isHappyCanTest();
+		bool isHappyCounterStatus = checkCounterStatus();
+		bool isAllGood = isGoodDigitalOutputs && isGoodDigitalInputs && isHappyCanTest() && isHappyCounterStatus;
 
 		executionCounter++;
 

@@ -9,6 +9,32 @@
 
 bool testEcuDigitalOutput(int testLineIndex, bool isLowSide);
 
+class Counter {
+public:
+	int canFrameIndex;
+	const char *name;
+	bool nonZero = false;
+};
+
+class CounterStatus {
+public:
+	Counter eventCounters[] = {
+		{ 0, "Primary" },
+		{ 1, "Secondary" },
+		{ 2, "VVT1" },
+		{ 3, "VVT2" },
+		{ 4, "VVT3" },		
+		{ 5, "VVT4" },
+		{ 6, "VSS" },					
+	};
+
+	Counter buttonCounters[] = {
+		{ 0, "BrakePedal" },
+		{ 1, "ClutchUp" },
+		{ 2, "AcButton" },
+	};
+};
+
 class AnalogChannelConfig {
 public:
 	const char *name;

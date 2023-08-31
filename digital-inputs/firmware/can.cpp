@@ -18,6 +18,7 @@ static const CANConfig cancfg = {
 static bool isGoodCanPackets = true;
 static bool hasReceivedAnalog = false;
 static bool hasReceivedBoardId = false;
+static CounterStatus counterStatus;
 static int outputCount = -1;
 static int lowSideOutputCount = -1;
 
@@ -34,10 +35,32 @@ void startNewCanTest() {
     isGoodCanPackets = true;
     hasReceivedAnalog = false;
     hasReceivedBoardId = false;
+    // reset
+	counterStatus = CounterStatus();
 }
 
 bool isHappyCanTest() {
     return isGoodCanPackets && hasReceivedAnalog;
+}
+
+bool checkCounterStatus() {
+	bool isHappy = true;
+	
+	for (auto & evtCnt : counterStatus.eventCounters) {
+		if (!evtCnt.nonZero) {
+			chprintf(chp, "* ZERO %s event counter!\r\n", evtCnt.name);
+		}
+		isHappy = isHappy && evtCnt.nonZero;
+	}
+	
+	for (auto & btnCnt : counterStatus.buttonCounters) {
+		if (!btnCnt.nonZero) {
+			chprintf(chp, "* ZERO %s button counter!\r\n", btnCnt.name);
+		}
+		isHappy = isHappy && btnCnt.nonZero;
+	}
+
+	return isHappy;
 }
 
 int getOutputCount() {
@@ -119,6 +142,18 @@ static void receiveRawAnalog(const uint8_t msg[8]) {
 	}
 }
 
+static void receiveEventCounters(const uint8_t msg[8]) {
+	for (auto & evtCnt : counterStatus.eventCounters) {
+		evtCnt.nonZero = evtCnt.nonZero || (msg[evtCnt.canFrameIndex] > 0);
+	}
+}
+
+static void receiveButtonCounters(const uint8_t msg[8]) {
+	for (auto & btnCnt : counterStatus.buttonCounters) {
+		btnCnt.nonZero = btnCnt.nonZero || (msg[btnCnt.canFrameIndex] > 0);
+	}
+}
+
 static void printRxFrame(const CANRxFrame& frame, const char *msg) {
     if (!outputMode.displayCanReceive) {
         return;
@@ -142,8 +177,10 @@ void processCanRxMessage(const CANRxFrame& frame) {
 		receiveRawAnalog(frame.data8);
 	} else if (CAN_EID(frame) == BENCH_TEST_EVENT_COUNTERS) {
 	    printRxFrame(frame, "BENCH_TEST_EVENT_COUNTERS");
+	    receiveEventCounters(frame);
 	} else if (CAN_EID(frame) == BENCH_TEST_BUTTON_COUNTERS) {
 	    printRxFrame(frame, "BENCH_TEST_BUTTON_COUNTERS");
+	    receiveButtonCounters(frame);
 	} else if (CAN_EID(frame) == BENCH_TEST_IO_META_INFO) {
 	    printRxFrame(frame, "BENCH_TEST_IO_META_INFO");
 	    receiveOutputMetaInfo(frame.data8);
