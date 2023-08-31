@@ -1,3 +1,4 @@
+// test_logic.h
 
 #pragma once
 
@@ -55,3 +56,7 @@ size_t getBoardsCount();
 
 extern BoardConfig *currentBoard;
 extern int16_t currentBoardRev;
+
+size_t getDigitalInputStepsCount();
+size_t totalStepsNumber();
+

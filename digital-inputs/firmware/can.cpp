@@ -5,6 +5,7 @@
 #include "test_logic.h"
 #include "can/can_common.h"
 #include "global.h"
+#include "terminal_util.h"
 
 extern BaseSequentialStream *chp;
 extern OutputMode outputMode;
@@ -48,14 +49,18 @@ bool checkCounterStatus() {
 	
 	for (auto & evtCnt : counterStatus.eventCounters) {
 		if (!evtCnt.nonZero) {
+		    setRedText();
 			chprintf(chp, "* ZERO %s event counter!\r\n", evtCnt.name);
+			setNormalText();
 		}
 		isHappy = isHappy && evtCnt.nonZero;
 	}
 	
 	for (auto & btnCnt : counterStatus.buttonCounters) {
 		if (!btnCnt.nonZero) {
+		    setRedText();
 			chprintf(chp, "* ZERO %s button counter!\r\n", btnCnt.name);
+			setNormalText();
 		}
 		isHappy = isHappy && btnCnt.nonZero;
 	}
@@ -63,7 +68,7 @@ bool checkCounterStatus() {
 	return isHappy;
 }
 
-int getOutputCount() {
+int getDigitalOutputStepsCount() {
 	return outputCount;
 }
 
@@ -158,7 +163,7 @@ static void printRxFrame(const CANRxFrame& frame, const char *msg) {
     if (!outputMode.displayCanReceive) {
         return;
     }
-		chprintf(chp, "Processing %s ID=%x/l=%x %x %x %x %x %x %x %x %x\r\n",
+		chprintf(chp, "                          Processing %s ID=%x/l=%x %x %x %x %x %x %x %x %x\r\n",
 		msg,
 		        CAN_EID(frame),
 		        frame.DLC,

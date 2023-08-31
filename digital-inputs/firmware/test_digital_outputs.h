@@ -3,7 +3,7 @@
 #include "global.h"
 
 void initStimDigitalInputs();
-bool testEcuDigitalOutputs();
+bool testEcuDigitalOutputs(size_t startStepIndex);
 
 /**
  * controls what input channel we are sensing

@@ -3,4 +3,4 @@
 #include "global.h"
 
 void initStimDigitalOutputs();
-bool testEcuDigitalInputs();
+bool testEcuDigitalInputs(size_t startStepIndex);

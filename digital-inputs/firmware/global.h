@@ -14,6 +14,6 @@
 
 struct OutputMode {
     bool displayCanTransmit = true;
-    bool displayCanReceive = false;
+    bool displayCanReceive = true;
     bool verboseDigitalOutputs = true;
 };

@@ -32,6 +32,7 @@
 #include "test_logic.h"
 #include "efilib.h"
 #include "can.h"
+#include "terminal_util.h"
 
 BaseSequentialStream *chp = (BaseSequentialStream *)&EFI_CONSOLE_USB_DEVICE;
 
@@ -74,26 +75,36 @@ static void ConsoleThread(void*) {
 	while (true) {
 	    startNewCanTest();
 
-		bool isGoodDigitalOutputs = testEcuDigitalOutputs();
-		bool isGoodDigitalInputs = false;//testEcuDigitalInputs();
+        int currentIndex = 0;
+		bool isGoodDigitalOutputs = testEcuDigitalOutputs(currentIndex);
+		currentIndex += getDigitalOutputStepsCount();
+
+		bool isGoodDigitalInputs = testEcuDigitalInputs(currentIndex);
 		bool isHappyCounterStatus = checkCounterStatus();
 		bool isAllGood = isGoodDigitalOutputs && isGoodDigitalInputs && isHappyCanTest() && isHappyCounterStatus;
 
 		executionCounter++;
 
 		if (isAllGood) {
+		    setGreenText();
+			chprintf(chp, " *********************************************** \r\n");
 			chprintf(chp, " ************* ALL GOOD ************************ \r\n", executionCounter);
+			chprintf(chp, " *********************************************** \r\n");
+			setNormalText();
 			palSetLine(LED_GREEN);
 			palClearLine(LED_RED);
+		    chThdSleepMilliseconds(5000);
 		} else {
+		    setRedText();
 			chprintf(chp, " ************* SOMETHING BAD SEE ABOVE ************************ \r\n", executionCounter);
+			setNormalText();
 			palClearLine(LED_GREEN);
 			palSetLine(LED_RED);
+    		chThdSleepMilliseconds(50);
 		}
 
         // todo: assert 'rusEFI update seconds > specified XXX number'
 
-		chThdSleepMilliseconds(50);
 	}
 }
 

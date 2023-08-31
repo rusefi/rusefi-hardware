@@ -139,12 +139,12 @@ bool testEcuDigitalOutput(int testLineIndex, bool isLowSide) {
 		bool isHigh = voltage > 0.7;
 		if (isHigh) {
 			if (!haveSeenHigh[testLineIndex]) {
-				chprintf(chp, "  ADC says HIGH %d@%d %1.3fv\r\n", index2human(testLineIndex), i, voltage);
+				chprintf(chp, "                      ADC says HIGH %d@%d %1.3fv\r\n", index2human(testLineIndex), i, voltage);
 			}
 			haveSeenHigh[testLineIndex] = true;
 		} else {
 			if (!haveSeenLow[testLineIndex]) {
-				chprintf(chp, "  ADC says LOW %d@%d %1.3fv\r\n", index2human(testLineIndex), i, voltage);
+				chprintf(chp, "                      ADC says LOW %d@%d %1.3fv\r\n", index2human(testLineIndex), i, voltage);
 			}
 			haveSeenLow[testLineIndex] = true;
 		}
@@ -161,4 +161,8 @@ bool testEcuDigitalOutput(int testLineIndex, bool isLowSide) {
 
 	// test is successful if we saw state toggle
 	return isGood;
+}
+
+size_t totalStepsNumber() {
+    return getDigitalInputStepsCount() + getDigitalOutputStepsCount();
 }

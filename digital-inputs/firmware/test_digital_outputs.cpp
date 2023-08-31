@@ -4,6 +4,7 @@
 #include "test_logic.h"
 #include "can.h"
 #include "chprintf.h"
+#include "terminal_util.h"
 
 #define XOR_MAGIC 1
 
@@ -43,12 +44,12 @@ void initStimDigitalInputs() {
 	setOutputCountRequest();
 }
 
-bool testEcuDigitalOutputs() {
+bool testEcuDigitalOutputs(size_t startStepIndex) {
 	bool isGood = true;
-	int numOutputs = getOutputCount();
+	int numOutputs = getDigitalOutputStepsCount();
 	int lowSideOutputs = getLowSideOutputCount();
 
-	chprintf(chp, " ++++++++++++++++ numOutputs %d\r\n", numOutputs);
+	chprintf(chp, "                      numOutputs %d\r\n", numOutputs);
 
 	// wait for "output meta info" CAN packet
 	if (numOutputs < 0)
@@ -57,9 +58,17 @@ bool testEcuDigitalOutputs() {
 	for (int currentIndex = 0; currentIndex < numOutputs; currentIndex++) {
 		bool isThisGood = testEcuDigitalOutput(currentIndex, currentIndex < lowSideOutputs);
 		if (isThisGood) {
-			chprintf(chp, "GOOD channel %d\r\n", index2human(currentIndex));
+			chprintf(chp, "%d/%d  GOOD channel %d\r\n",
+			startStepIndex + currentIndex,
+			totalStepsNumber(),
+			index2human(currentIndex));
 		} else {
-			chprintf(chp, "!!!!!!!! BAD channel %d !!!!!!!!!!!!!!!\r\n", index2human(currentIndex));
+		    setRedText();
+			chprintf(chp, "%d/%d !!!!!!! BAD channel %d !!!!!!!!!!!!!!!\r\n",
+						startStepIndex + currentIndex,
+            			totalStepsNumber(),
+			index2human(currentIndex));
+			setNormalText();
 		}
 		isGood = isGood && isThisGood;
 	}

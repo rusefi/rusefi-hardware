@@ -2,7 +2,7 @@
 #include "global.h"
 #include "test_digital_inputs.h"
 #include "chprintf.h"
-
+#include "test_logic.h"
 
 static io_pin stimOutputPins[] = {
 	{ GPIOE, 0 }, // DIG_0
@@ -25,10 +25,17 @@ void initStimDigitalOutputs() {
     }
 }
 
-bool testEcuDigitalInputs() {
-	for (size_t idx = 0; idx < efi::size(stimOutputPins); idx++) {
+size_t getDigitalInputStepsCount() {
+    return efi::size(stimOutputPins);
+}
+
+bool testEcuDigitalInputs(size_t startStepIndex) {
+	for (size_t idx = 0; idx < getDigitalInputStepsCount(); idx++) {
 		io_pin *pin = &stimOutputPins[idx];
-		chprintf(chp, "Toggling port %d\r\n", pin->pin);
+		chprintf(chp, "%d/%d      Toggling port %d\r\n",
+		    startStepIndex + idx,
+		    totalStepsNumber(),
+		    pin->pin);
 		bool bitState = true;
 		for (int toggle_i = 0; toggle_i < 10; toggle_i++) {
 			palWritePad(pin->port, pin->pin, bitState ? 1 : 0);
