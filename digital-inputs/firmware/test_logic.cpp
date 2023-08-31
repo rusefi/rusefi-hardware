@@ -34,9 +34,9 @@ constexpr int cycleCount = 4;
 
 BoardConfig boardConfigs[NUM_BOARD_CONFIGS] = {
 	{
-		"Hellen-Honda125K",
-		{ BOARD_ID_HONDA125_A, BOARD_ID_HONDA125_B, BOARD_ID_HONDA125_C, BOARD_ID_HONDA125_D, 0 },
-		{
+		.boardName = "Hellen-Honda125K",
+		.boardIds = { BOARD_ID_HONDA125_A, BOARD_ID_HONDA125_B, BOARD_ID_HONDA125_C, BOARD_ID_HONDA125_D, 0 },
+		.channels = {
 			{ "TPS1_1", 1.0f, 0.5f * ANALOG_L, 0.5f * ANALOG_H },
 			{ nullptr, 0, 0, 0 },
 			{ nullptr, 0, 0, 0 },
@@ -49,9 +49,9 @@ BoardConfig boardConfigs[NUM_BOARD_CONFIGS] = {
 		}
 	},
 	{
-		"Proteus",
-		{ STATIC_BOARD_ID_PROTEUS_F4, STATIC_BOARD_ID_PROTEUS_F7, STATIC_BOARD_ID_PROTEUS_H7, 0 },
-		{
+		.boardName = "Proteus",
+		.boardIds = { STATIC_BOARD_ID_PROTEUS_F4, STATIC_BOARD_ID_PROTEUS_F7, STATIC_BOARD_ID_PROTEUS_H7, 0 },
+		.channels = {
 			{ "TPS1_1", 1.0f, 0.5f * ANALOG_L, 0.5f * ANALOG_H },
 			{ nullptr, 0, 0, 0 },
 			{ nullptr, 0, 0, 0 },
@@ -64,10 +64,10 @@ BoardConfig boardConfigs[NUM_BOARD_CONFIGS] = {
 		}
 	},
 	{
-		"2chan",
-		{ STATIC_BOARD_ID_ALPHAX_2CHAN, BOARD_ID_ALPHA2CH_B, BOARD_ID_ALPHA2CH_C, BOARD_ID_ALPHA2CH_D,
+		.boardName = "2chan",
+		.boardIds = { STATIC_BOARD_ID_ALPHAX_2CHAN, BOARD_ID_ALPHA2CH_B, BOARD_ID_ALPHA2CH_C, BOARD_ID_ALPHA2CH_D,
 			BOARD_ID_ALPHA2CH_E, BOARD_ID_ALPHA2CH_F, BOARD_ID_ALPHA2CH_G, 0 },
-		{
+		.channels = {
 			{ "TPS1_1", 1.0f, 0.5f * ANALOG_L, 0.5f * ANALOG_H },
 			{ nullptr, 0, 0, 0 },
 			{ nullptr, 0, 0, 0 },
