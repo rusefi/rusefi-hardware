@@ -18,7 +18,7 @@ public:
 
 class CounterStatus {
 public:
-	Counter eventCounters[] = {
+	Counter eventCounters[7] = {
 		{ 0, "Primary" },
 		{ 1, "Secondary" },
 		{ 2, "VVT1" },
@@ -28,7 +28,7 @@ public:
 		{ 6, "VSS" },					
 	};
 
-	Counter buttonCounters[] = {
+	Counter buttonCounters[3] = {
 		{ 0, "BrakePedal" },
 		{ 1, "ClutchUp" },
 		{ 2, "AcButton" },
