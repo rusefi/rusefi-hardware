@@ -177,10 +177,10 @@ void processCanRxMessage(const CANRxFrame& frame) {
 		receiveRawAnalog(frame.data8);
 	} else if (CAN_EID(frame) == BENCH_TEST_EVENT_COUNTERS) {
 	    printRxFrame(frame, "BENCH_TEST_EVENT_COUNTERS");
-	    receiveEventCounters(frame);
+	    receiveEventCounters(frame.data8);
 	} else if (CAN_EID(frame) == BENCH_TEST_BUTTON_COUNTERS) {
 	    printRxFrame(frame, "BENCH_TEST_BUTTON_COUNTERS");
-	    receiveButtonCounters(frame);
+	    receiveButtonCounters(frame.data8);
 	} else if (CAN_EID(frame) == BENCH_TEST_IO_META_INFO) {
 	    printRxFrame(frame, "BENCH_TEST_IO_META_INFO");
 	    receiveOutputMetaInfo(frame.data8);
