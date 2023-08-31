@@ -19,6 +19,7 @@ public:
 class BoardConfig {
 public:
 	const char *boardName;
+	int desiredEngineConfig;
 	uint16_t boardIds[MAX_BOARD_REVS];
 	AnalogChannelConfig channels[MAX_ANALOG_CHANNELS];
 };

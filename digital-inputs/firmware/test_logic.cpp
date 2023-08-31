@@ -7,6 +7,7 @@
 #include "chprintf.h"
 #include "board_id/boards_id.h"
 #include "board_id/boards_dictionary.h"
+#include "board_id/qc_stim_meta.h"
 
 #define COUNT 48
 // 7.5% accuracy
@@ -35,6 +36,7 @@ constexpr int cycleCount = 4;
 BoardConfig boardConfigs[NUM_BOARD_CONFIGS] = {
 	{
 		.boardName = "Hellen-Honda125K",
+		.desiredEngineConfig = -1,
 		.boardIds = { BOARD_ID_HONDA125_A, BOARD_ID_HONDA125_B, BOARD_ID_HONDA125_C, BOARD_ID_HONDA125_D, 0 },
 		.channels = {
 			{ "TPS1_1", 1.0f, 0.5f * ANALOG_L, 0.5f * ANALOG_H },
@@ -50,6 +52,7 @@ BoardConfig boardConfigs[NUM_BOARD_CONFIGS] = {
 	},
 	{
 		.boardName = "Proteus",
+		.desiredEngineConfig = libPROTEUS_STIM_QC,
 		.boardIds = { STATIC_BOARD_ID_PROTEUS_F4, STATIC_BOARD_ID_PROTEUS_F7, STATIC_BOARD_ID_PROTEUS_H7, 0 },
 		.channels = {
 			{ "TPS1_1", 1.0f, 0.5f * ANALOG_L, 0.5f * ANALOG_H },
@@ -65,6 +68,7 @@ BoardConfig boardConfigs[NUM_BOARD_CONFIGS] = {
 	},
 	{
 		.boardName = "2chan",
+		.desiredEngineConfig = -1,
 		.boardIds = { STATIC_BOARD_ID_ALPHAX_2CHAN, BOARD_ID_ALPHA2CH_B, BOARD_ID_ALPHA2CH_C, BOARD_ID_ALPHA2CH_D,
 			BOARD_ID_ALPHA2CH_E, BOARD_ID_ALPHA2CH_F, BOARD_ID_ALPHA2CH_G, 0 },
 		.channels = {
