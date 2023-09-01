@@ -48,7 +48,8 @@ BoardConfig boardConfigs[] = {
 			{ "IAT", 1.0f, IAT_VALUE(HELLEN_R) * ANALOG_L, IAT_VALUE(HELLEN_R) * ANALOG_H },
 			{ "BATT", 5.835f, 9.0f, 15.0f },
 		},
-		.eventExpected = {true, false, true, true, false, false, true}
+		.eventExpected = {true, false, true, true, false, false, true},
+		.buttonExpected = {true, true, true},
 	},
 	{
 		.boardName = "Proteus",
@@ -64,7 +65,8 @@ BoardConfig boardConfigs[] = {
 			{ "IAT", 1.0f, IAT_VALUE(PROTEUS_R) * ANALOG_L, IAT_VALUE(PROTEUS_R) * ANALOG_H },
 			{ "BATT", 9.2f, 9.0f, 15.0f },
 		},
-		.eventExpected = {true, true, true, true, false, false, true}
+		.eventExpected = {true, true, true, true, false, false, true},
+		.buttonExpected = {true, true, true},
 	},
 	{
 		.boardName = "2chan",
@@ -81,7 +83,8 @@ BoardConfig boardConfigs[] = {
 			{ "IAT", 1.0f, IAT_VALUE(ALPHA2CH_R) * ANALOG_L, IAT_VALUE(ALPHA2CH_R) * ANALOG_H },
 			{ "BATT", 5.835, 9.0f, 15.0f },
 		},
-		.eventExpected = {true, true, true, true, true, true, true}
+		.eventExpected = {true, true, true, true, true, true, true},
+		.buttonExpected = {true, true, true},
 	},
 	{
 		.boardName = "4chan",
@@ -97,7 +100,8 @@ BoardConfig boardConfigs[] = {
 			{ "IAT", 1.0f, IAT_VALUE(ALPHA2CH_R) * ANALOG_L, IAT_VALUE(ALPHA2CH_R) * ANALOG_H },
 			{ "BATT", 5.835, 9.0f, 15.0f },
 		},
-		.eventExpected = {true, true, true, true, true, true, true}
+		.eventExpected = {true, true, true, true, true, true, true},
+		.buttonExpected = {true, true, true},
 	},
 };
 

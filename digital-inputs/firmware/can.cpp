@@ -44,9 +44,14 @@ bool isHappyCanTest() {
 }
 
 bool checkCounterStatus() {
+	if (currentBoard == nullptr)
+		return false;
+
 	bool isHappy = true;
 	
 	for (auto & evtCnt : counterStatus.eventCounters) {
+		if (!currentBoard->eventExpected[evtCnt.canFrameIndex])
+			continue;
 		if (!evtCnt.nonZero) {
 		    setRedText();
 			chprintf(chp, "* ZERO %s event counter!\r\n", evtCnt.name);
@@ -56,6 +61,8 @@ bool checkCounterStatus() {
 	}
 	
 	for (auto & btnCnt : counterStatus.buttonCounters) {
+		if (!currentBoard->buttonExpected[btnCnt.canFrameIndex])
+			continue;
 		if (!btnCnt.nonZero) {
 		    setRedText();
 			chprintf(chp, "* ZERO %s button counter!\r\n", btnCnt.name);

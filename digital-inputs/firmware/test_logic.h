@@ -52,9 +52,8 @@ public:
 	int desiredEngineConfig;
 	uint16_t boardIds[MAX_BOARD_REVS];
 	AnalogChannelConfig channels[MAX_ANALOG_CHANNELS];
-	// todo: use this profile while deciding if counter is expected
 	bool eventExpected[EVENT_ENUM_SIZE];
-	// todo: bool buttonExpected[BUTTON_ENUM_SIZE];
+	bool buttonExpected[BUTTON_ENUM_SIZE];
 };
 
 BoardConfig *getBoardConfigs();
