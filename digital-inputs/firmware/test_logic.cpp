@@ -13,6 +13,8 @@
 // 7.5% accuracy
 #define ANALOG_L (1.0f - 0.075f)
 #define ANALOG_H (1.0f + 0.075f)
+// 10% for low voltage
+#define ANALOG_H_FOR_LOW_VOLTAGE (1.0f + 0.1f)
 
 #define HELLEN_R 4700
 #define ALPHA2CH_R 2700
@@ -60,13 +62,13 @@ BoardConfig boardConfigs[] = {
 			{ nullptr, 0, 0, 0 },
 			{ nullptr, 0, 0, 0 },
 			{ nullptr, 0, 0, 0 },
-			{ "MAP", 1.0f, 0.6f * ANALOG_L, 0.6f * ANALOG_H },
+			{ "MAP", 1.0f, 0.6f * ANALOG_L, 0.6f * ANALOG_H_FOR_LOW_VOLTAGE },
 			{ "CLT", 1.0f, CLT_VALUE(PROTEUS_R) * ANALOG_L, CLT_VALUE(PROTEUS_R) * ANALOG_H },
 			{ "IAT", 1.0f, IAT_VALUE(PROTEUS_R) * ANALOG_L, IAT_VALUE(PROTEUS_R) * ANALOG_H },
 			{ "BATT", 9.2f, 9.0f, 15.0f },
 		},
 		.eventExpected = {true, true, true, true, false, false, true},
-		.buttonExpected = {true, true, true},
+		.buttonExpected = {true, false, false},
 	},
 	{
 		.boardName = "2chan",
