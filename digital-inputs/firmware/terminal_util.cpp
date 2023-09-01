@@ -1,6 +1,5 @@
 #include "ch.h"
 #include "hal.h"
-#include "chprintf.h"
 #include "terminal_util.h"
 
 extern BaseSequentialStream *chp;

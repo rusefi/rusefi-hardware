@@ -1,5 +1,4 @@
 #include "can_hw.h"
-#include "chprintf.h"
 #include "io_pins.h"
 #include "can.h"
 #include "test_logic.h"

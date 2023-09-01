@@ -3,7 +3,6 @@
 #include "test_digital_outputs.h"
 #include "test_logic.h"
 #include "can.h"
-#include "chprintf.h"
 #include "terminal_util.h"
 
 #define XOR_MAGIC 1

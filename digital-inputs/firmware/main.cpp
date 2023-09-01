@@ -25,7 +25,6 @@
 #include "global.h"
 #include "usbconsole.h"
 #include "usbcfg.h"
-#include "chprintf.h"
 #include "test_digital_inputs.h"
 #include "test_digital_outputs.h"
 #include "adc.h"
