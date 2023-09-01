@@ -43,6 +43,8 @@ void initStimDigitalInputs() {
 	setOutputCountRequest();
 }
 
+extern bool globalEverythingHappy;
+
 bool testEcuDigitalOutputs(size_t startStepIndex) {
 	bool isGood = true;
 	int numOutputs = getDigitalOutputStepsCount();
@@ -57,15 +59,19 @@ bool testEcuDigitalOutputs(size_t startStepIndex) {
 	for (int currentIndex = 0; currentIndex < numOutputs; currentIndex++) {
 		bool isThisGood = testEcuDigitalOutput(currentIndex, currentIndex < lowSideOutputs);
 		if (isThisGood) {
-			chprintf(chp, "%d/%d  GOOD channel %d\r\n",
+		    setGlobalStatusText();
+			chprintf(chp, "%d/%d ",
+			    startStepIndex + currentIndex,
+			    totalStepsNumber());
+			setNormalText();
+			chprintf(chp, "GOOD channel %d\r\n",
 			startStepIndex + currentIndex,
 			totalStepsNumber(),
 			index2human(currentIndex));
 		} else {
 		    setRedText();
+		    globalEverythingHappy = true;
 			chprintf(chp, "%d/%d !!!!!!! BAD channel %d !!!!!!!!!!!!!!!\r\n",
-						startStepIndex + currentIndex,
-            			totalStepsNumber(),
 			index2human(currentIndex));
 			setNormalText();
 		}

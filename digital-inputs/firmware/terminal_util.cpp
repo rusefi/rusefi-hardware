@@ -3,6 +3,7 @@
 #include "terminal_util.h"
 
 extern BaseSequentialStream *chp;
+extern bool globalEverythingHappy;
 
 void setRedText() {
     chprintf(chp, "\033[1;31m");
@@ -14,4 +15,12 @@ void setGreenText() {
 
 void setNormalText() {
     chprintf(chp, "\033[0m");
+}
+
+void setGlobalStatusText() {
+    if (globalEverythingHappy) {
+        setGreenText();
+    } else {
+        setRedText();
+    }
 }

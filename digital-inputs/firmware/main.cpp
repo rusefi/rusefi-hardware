@@ -66,12 +66,14 @@ static THD_FUNCTION(Thread1, arg) {
   }
 }
 
+bool globalEverythingHappy;
 
 static THD_WORKING_AREA(consoleThread, THREAD_STACK);
 static void ConsoleThread(void*) {
 	static int executionCounter = 0;
 
 	while (true) {
+	    globalEverythingHappy = true;
 	    startNewCanTest();
 
         int currentIndex = 0;
@@ -99,7 +101,7 @@ static void ConsoleThread(void*) {
 			setNormalText();
 			palClearLine(LED_GREEN);
 			palSetLine(LED_RED);
-    		chThdSleepMilliseconds(50);
+    		chThdSleepMilliseconds(5000);
 		}
 
         // todo: assert 'rusEFI update seconds > specified XXX number'

@@ -7,3 +7,4 @@
 void setRedText();
 void setGreenText();
 void setNormalText();
+void setGlobalStatusText();
