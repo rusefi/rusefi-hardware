@@ -22,13 +22,22 @@ static CounterStatus counterStatus;
 static int outputCount = -1;
 static int lowSideOutputCount = -1;
 
+extern bool globalEverythingHappy;
+
 static void canPacketError(const char *msg, ...) {
+    setRedText();
+	chprintf(chp, " *********************************************** \r\n");
+
 	va_list vl;
 	va_start(vl, msg);
 	chvprintf(chp, msg, vl);
 	va_end(vl);
 
+	chprintf(chp, " *********************************************** \r\n");
+	setNormalText();
+
 	isGoodCanPackets = false;
+	globalEverythingHappy = false;
 }
 
 void startNewCanTest() {
@@ -183,9 +192,12 @@ void processCanRxMessage(const CANRxFrame& frame) {
 	if (CAN_EID(frame) == BENCH_TEST_BOARD_STATUS) {
           printRxFrame(frame, "BENCH_TEST_BOARD_STATUS");
 		receiveBoardStatus(frame.data8);
-	} else if (CAN_EID(frame) == BENCH_TEST_RAW_ANALOG) {
-	    printRxFrame(frame, "BENCH_TEST_RAW_ANALOG");
+	} else if (CAN_EID(frame) == BENCH_TEST_RAW_ANALOG_1) {
+	    printRxFrame(frame, "BENCH_TEST_RAW_ANALOG_1");
 		receiveRawAnalog(frame.data8);
+	} else if (CAN_EID(frame) == BENCH_TEST_RAW_ANALOG_2) {
+	    printRxFrame(frame, "BENCH_TEST_RAW_ANALOG_2");
+        // todo
 	} else if (CAN_EID(frame) == BENCH_TEST_EVENT_COUNTERS) {
 	    printRxFrame(frame, "BENCH_TEST_EVENT_COUNTERS");
 	    receiveEventCounters(frame.data8);
