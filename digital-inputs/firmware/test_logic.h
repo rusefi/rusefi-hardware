@@ -17,9 +17,12 @@ public:
 	bool nonZero = false;
 };
 
+#define EVENT_ENUM_SIZE 7
+#define BUTTON_ENUM_SIZE 3
+
 class CounterStatus {
 public:
-	Counter eventCounters[7] = {
+	Counter eventCounters[EVENT_ENUM_SIZE] = {
 		{ 0, "Primary" },
 		{ 1, "Secondary" },
 		{ 2, "VVT1" },
@@ -29,7 +32,7 @@ public:
 		{ 6, "VSS" },					
 	};
 
-	Counter buttonCounters[3] = {
+	Counter buttonCounters[BUTTON_ENUM_SIZE] = {
 		{ 0, "BrakePedal" },
 		{ 1, "ClutchUp" },
 		{ 2, "AcButton" },
@@ -49,6 +52,9 @@ public:
 	int desiredEngineConfig;
 	uint16_t boardIds[MAX_BOARD_REVS];
 	AnalogChannelConfig channels[MAX_ANALOG_CHANNELS];
+	// todo: use this profile while deciding if counter is expected
+	bool eventExpected[EVENT_ENUM_SIZE];
+	// todo: bool buttonExpected[BUTTON_ENUM_SIZE];
 };
 
 BoardConfig *getBoardConfigs();

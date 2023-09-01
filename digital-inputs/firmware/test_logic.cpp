@@ -4,7 +4,7 @@
 #include "test_digital_outputs.h"
 #include "test_logic.h"
 #include "can.h"
-#include "chprintf.h"
+#include "terminal_util.h"
 #include "board_id/boards_id.h"
 #include "board_id/boards_dictionary.h"
 #include "board_id/qc_stim_meta.h"
@@ -47,8 +47,8 @@ BoardConfig boardConfigs[] = {
 			{ "CLT", 1.0f, CLT_VALUE(HELLEN_R) * ANALOG_L, CLT_VALUE(HELLEN_R) * ANALOG_H },
 			{ "IAT", 1.0f, IAT_VALUE(HELLEN_R) * ANALOG_L, IAT_VALUE(HELLEN_R) * ANALOG_H },
 			{ "BATT", 5.835f, 9.0f, 15.0f },
-
-		}
+		},
+		.eventExpected = {true, false, true, true, false, false, true}
 	},
 	{
 		.boardName = "Proteus",
@@ -63,8 +63,8 @@ BoardConfig boardConfigs[] = {
 			{ "CLT", 1.0f, CLT_VALUE(PROTEUS_R) * ANALOG_L, CLT_VALUE(PROTEUS_R) * ANALOG_H },
 			{ "IAT", 1.0f, IAT_VALUE(PROTEUS_R) * ANALOG_L, IAT_VALUE(PROTEUS_R) * ANALOG_H },
 			{ "BATT", 9.2f, 9.0f, 15.0f },
-
-		}
+		},
+		.eventExpected = {true, true, true, true, false, false, true}
 	},
 	{
 		.boardName = "2chan",
@@ -80,8 +80,8 @@ BoardConfig boardConfigs[] = {
 			{ "CLT", 1.0f, CLT_VALUE(ALPHA2CH_R) * ANALOG_L, CLT_VALUE(ALPHA2CH_R) * ANALOG_H },
 			{ "IAT", 1.0f, IAT_VALUE(ALPHA2CH_R) * ANALOG_L, IAT_VALUE(ALPHA2CH_R) * ANALOG_H },
 			{ "BATT", 5.835, 9.0f, 15.0f },
-
-		}
+		},
+		.eventExpected = {true, true, true, true, true, true, true}
 	},
 	{
 		.boardName = "4chan",
@@ -96,8 +96,8 @@ BoardConfig boardConfigs[] = {
 			{ "CLT", 1.0f, CLT_VALUE(ALPHA2CH_R) * ANALOG_L, CLT_VALUE(ALPHA2CH_R) * ANALOG_H },
 			{ "IAT", 1.0f, IAT_VALUE(ALPHA2CH_R) * ANALOG_L, IAT_VALUE(ALPHA2CH_R) * ANALOG_H },
 			{ "BATT", 5.835, 9.0f, 15.0f },
-
-		}
+		},
+		.eventExpected = {true, true, true, true, true, true, true}
 	},
 };
 
@@ -153,8 +153,10 @@ bool testEcuDigitalOutput(int testLineIndex, bool isLowSide) {
 
 		bool cycleIsGood = (isHigh == isSet);
 		if (!cycleIsGood) {
+		    setRedText();
 			chprintf(chp, "ERROR! Cycle %d@%d FAILED! (set %d, received %d %1.3fv)\r\n", 
 				index2human(testLineIndex), i, (isSet ? 1 : 0), (isHigh ? 1 : 0), voltage);
+			setNormalText();
 		}
 		isGood = isGood && cycleIsGood;
 	}
