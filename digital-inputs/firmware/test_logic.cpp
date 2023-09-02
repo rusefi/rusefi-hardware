@@ -14,7 +14,7 @@
 #define ANALOG_L (1.0f - 0.075f)
 #define ANALOG_H (1.0f + 0.075f)
 // 10% for low voltage
-#define ANALOG_H_FOR_LOW_VOLTAGE (1.0f + 0.1f)
+#define ANALOG_H_FOR_LOW_VOLTAGE (1.0f + 0.12f)
 
 #define HELLEN_R 4700
 #define ALPHA2CH_R 2700
