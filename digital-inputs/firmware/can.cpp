@@ -92,6 +92,7 @@ int getLowSideOutputCount() {
 }
 
 static bool wasBoardDetectError = false;
+int numSecondsSinceReset;
 
 static void receiveBoardStatus(const uint8_t msg[8]) {
 	if (hasReceivedBoardId) {
@@ -100,7 +101,7 @@ static void receiveBoardStatus(const uint8_t msg[8]) {
 	hasReceivedBoardId = true;
 
 	int boardId = (msg[0] << 8) | msg[1];
-	int numSecondsSinceReset = (msg[2] << 16) | (msg[3] << 8) | msg[4];
+	numSecondsSinceReset = (msg[2] << 16) | (msg[3] << 8) | msg[4];
 	int engineType = (msg[5] << 8) | msg[6];
 
 	if (outputMode.displayCanReceive) {

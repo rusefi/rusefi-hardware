@@ -67,6 +67,7 @@ static THD_FUNCTION(Thread1, arg) {
 }
 
 bool globalEverythingHappy;
+extern int numSecondsSinceReset;
 
 static THD_WORKING_AREA(consoleThread, THREAD_STACK);
 static void ConsoleThread(void*) {
@@ -82,14 +83,24 @@ static void ConsoleThread(void*) {
 
 		bool isGoodDigitalInputs = testEcuDigitalInputs(currentIndex);
 		bool isHappyCounterStatus = checkCounterStatus();
-		bool isAllGood = isGoodDigitalOutputs && isGoodDigitalInputs && isHappyCanTest() && isHappyCounterStatus;
+		bool isHappyUptime = numSecondsSinceReset > 30;
+		if (!isHappyUptime) {
+		    setRedText();
+		    chprintf(chp, "uptime is too low uptime=%d\r\n", numSecondsSinceReset);
+			setNormalText();
+		}
+		bool isAllGood = isGoodDigitalOutputs
+		    && isGoodDigitalInputs
+		    && isHappyCanTest()
+		    && isHappyUptime
+		    && isHappyCounterStatus;
 
 		executionCounter++;
 
 		if (isAllGood) {
 		    setGreenText();
-			chprintf(chp, " *********************************************** \r\n");
-			chprintf(chp, " ************* ALL GOOD ************************ \r\n", executionCounter);
+			chprintf(chp, " *********************************************** count=%d\r\n", executionCounter);
+			chprintf(chp, " ************* ALL GOOD ************************ uptime=%d\r\n", numSecondsSinceReset);
 			chprintf(chp, " *********************************************** \r\n");
 			setNormalText();
 			palSetLine(LED_GREEN);
@@ -97,7 +108,8 @@ static void ConsoleThread(void*) {
 		    chThdSleepMilliseconds(5000);
 		} else {
 		    setRedText();
-			chprintf(chp, " ************* SOMETHING BAD SEE ABOVE ************************ \r\n", executionCounter);
+			chprintf(chp, " ************* SOMETHING BAD SEE ABOVE ************************ count=%d\r\n", executionCounter);
+			chprintf(chp, " ************************************************************** uptime=%d\r\n", numSecondsSinceReset);
 			setNormalText();
 			palClearLine(LED_GREEN);
 			palSetLine(LED_RED);
