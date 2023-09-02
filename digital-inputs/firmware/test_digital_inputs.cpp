@@ -1,7 +1,7 @@
 
 #include "global.h"
 #include "test_digital_inputs.h"
-#include "chprintf.h"
+#include "terminal_util.h"
 #include "test_logic.h"
 
 static io_pin stimOutputPins[] = {
@@ -32,9 +32,12 @@ size_t getDigitalInputStepsCount() {
 bool testEcuDigitalInputs(size_t startStepIndex) {
 	for (size_t idx = 0; idx < getDigitalInputStepsCount(); idx++) {
 		io_pin *pin = &stimOutputPins[idx];
-		chprintf(chp, "%d/%d      Toggling port %d\r\n",
+	    setGlobalStatusText();
+		chprintf(chp, "%d/%d",
 		    startStepIndex + idx,
-		    totalStepsNumber(),
+		    totalStepsNumber());
+		setNormalText();
+		chprintf(chp, "      Toggling port %d\r\n",
 		    pin->pin);
 		bool bitState = true;
 		for (int toggle_i = 0; toggle_i < 10; toggle_i++) {
