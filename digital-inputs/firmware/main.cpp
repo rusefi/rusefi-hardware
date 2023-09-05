@@ -73,6 +73,9 @@ static THD_WORKING_AREA(consoleThread, THREAD_STACK);
 static void ConsoleThread(void*) {
 	static int executionCounter = 0;
 
+    chprintf(chp, "Let's give it time to receive meta data\r\n");
+    chThdSleepMilliseconds(1000);
+
 	while (true) {
 	    globalEverythingHappy = true;
 	    startNewCanTest();
