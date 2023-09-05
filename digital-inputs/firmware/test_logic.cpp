@@ -52,7 +52,7 @@ BoardConfig boardConfigs[] = {
 		},
 		.eventExpected = {true, false, true, true, false, false, true},
 		.buttonExpected = {
-		/*BrakePedal todo add wire */true,
+		/*BrakePedal todo add wire */false,
 		/*ClutchUp*/false,
 		/*AcButton*/false},
 	},
