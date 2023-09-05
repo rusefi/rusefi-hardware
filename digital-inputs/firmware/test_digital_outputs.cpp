@@ -65,8 +65,6 @@ bool testEcuDigitalOutputs(size_t startStepIndex) {
 			    totalStepsNumber());
 			setNormalText();
 			chprintf(chp, "GOOD channel %d\r\n",
-			startStepIndex + currentIndex,
-			totalStepsNumber(),
 			index2human(currentIndex));
 		} else {
 		    setRedText();
