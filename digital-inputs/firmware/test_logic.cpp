@@ -51,7 +51,10 @@ BoardConfig boardConfigs[] = {
 			{ "BATT", 5.835f, 9.0f, 15.0f },
 		},
 		.eventExpected = {true, false, true, true, false, false, true},
-		.buttonExpected = {true, true, true},
+		.buttonExpected = {
+		/*BrakePedal todo add wire */true,
+		/*ClutchUp*/false,
+		/*AcButton*/false},
 	},
 	{
 		.boardName = "Proteus",
@@ -90,13 +93,30 @@ BoardConfig boardConfigs[] = {
 	},
 	{
 		.boardName = "4chan",
-		.desiredEngineConfig = -1,
+		.desiredEngineConfig = libHELLEN_4CHAN_STIM_QC,
 		.boardIds = { BOARD_ID_ALPHA4CH_H, BOARD_ID_ALPHA4CH_G, 0 },
 		.channels = {
 			{ "TPS1_1", 1.0f, 0.5f * ANALOG_L, 0.5f * ANALOG_H },
 			{ nullptr, 0, 0, 0 },
 			{ nullptr, 0, 0, 0 },
 			{ nullptr, 0, 0, 0 },
+			{ "MAP", 1.0f, MAP_MPX6400_VALUE * ANALOG_L, MAP_MPX6400_VALUE * ANALOG_H },	// internal MAP
+			{ "CLT", 1.0f, CLT_VALUE(ALPHA2CH_R) * ANALOG_L, CLT_VALUE(ALPHA2CH_R) * ANALOG_H },
+			{ "IAT", 1.0f, IAT_VALUE(ALPHA2CH_R) * ANALOG_L, IAT_VALUE(ALPHA2CH_R) * ANALOG_H },
+			{ "BATT", 5.835, 9.0f, 15.0f },
+		},
+		.eventExpected = {true, true, true, true, true, true, false},
+		.buttonExpected = {false, false, false},
+	},
+	{
+		.boardName = "154HYUNDAI",
+		.desiredEngineConfig = -1,
+		.boardIds = { BOARD_ID_154HYUNDAI_C, BOARD_ID_154HYUNDAI_D, 0 },
+		.channels = {
+			{ "TPS1_1", 1.0f, 0.5f * ANALOG_L, 0.5f * ANALOG_H },
+			{ "TPS1_2", 1.0f, 0.5f * ANALOG_L, 0.5f * ANALOG_H },
+			{ "PPS1", 1.0f, 0.5f * ANALOG_L, 0.5f * ANALOG_H },
+			{ "PPS2", 1.0f, 0.5f * ANALOG_L, 0.5f * ANALOG_H },
 			{ "MAP", 1.0f, MAP_MPX6400_VALUE * ANALOG_L, MAP_MPX6400_VALUE * ANALOG_H },	// internal MAP
 			{ "CLT", 1.0f, CLT_VALUE(ALPHA2CH_R) * ANALOG_L, CLT_VALUE(ALPHA2CH_R) * ANALOG_H },
 			{ "IAT", 1.0f, IAT_VALUE(ALPHA2CH_R) * ANALOG_L, IAT_VALUE(ALPHA2CH_R) * ANALOG_H },
