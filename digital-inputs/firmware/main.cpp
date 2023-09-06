@@ -73,10 +73,22 @@ static THD_WORKING_AREA(consoleThread, THREAD_STACK);
 static void ConsoleThread(void*) {
 	static int executionCounter = 0;
 
+// useful for when we only want to power the board with +12v but not send out any test requests
+bool listenMode = palReadLine(LINE_BUTTON);
+
     chprintf(chp, "Let's give it time to receive meta data\r\n");
     chThdSleepMilliseconds(1000);
 
 	while (true) {
+
+if (listenMode) {
+    		chThdSleepMilliseconds(500);
+		    setGreenText();
+    chprintf(chp, "Listen mode\r\n");
+			setNormalText();
+    continue;
+}
+
 	    globalEverythingHappy = true;
 	    startNewCanTest();
 
@@ -158,8 +170,6 @@ int main(void) {
    * sleeping in a loop and check the button state.
    */
   while (true) {
-    if (palReadLine(LINE_BUTTON)) {
-    }
     chThdSleepMilliseconds(500);
   }
 }
