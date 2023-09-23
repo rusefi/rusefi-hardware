@@ -73,7 +73,7 @@ Baudrate is 115200
 
 # Firmware Upload
 
-DODO
+STM32CubeProgrammer is recommended using UART connectivity. Power device up while shorting BOOT jumper to enter DFU mode.
 
 # Changelog
 
