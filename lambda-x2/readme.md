@@ -73,7 +73,10 @@ Baudrate is 115200
 
 # Firmware Upload
 
-STM32CubeProgrammer is recommended using UART connectivity. Power device up while shorting BOOT jumper to enter DFU mode.
+Two ways to program using STM32CubeProgrammer
+
+* recommended way: using UART connectivity. Power device up while shorting BOOT jumper to enter DFU mode.
+* st-link if you have tc2030 spring-loaded cable.
 
 # Changelog
 
