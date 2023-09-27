@@ -52,9 +52,13 @@ bool isHappyCanTest() {
     return isGoodCanPackets && hasReceivedAnalog;
 }
 
-bool checkCounterStatus() {
-	if (currentBoard == nullptr)
+bool checkDigitalInputCounterStatus() {
+	if (currentBoard == nullptr) {
+		setRedText();
+		chprintf(chp, "* UNKNOWN BOARD ID while trying to check digital input event counter!\r\n");
+	    setNormalText();
 		return false;
+	}
 
 	bool isHappy = true;
 	

@@ -84,8 +84,8 @@ static void ConsoleThread(void*) {
 		bool isGoodDigitalOutputs = testEcuDigitalOutputs(currentIndex);
 		currentIndex += getDigitalOutputStepsCount();
 
-		bool isGoodDigitalInputs = testEcuDigitalInputs(currentIndex);
-		bool isHappyCounterStatus = checkCounterStatus();
+		stimulateEcuDigitalInputs(currentIndex);
+		bool isHappyDigitalInputCounterStatus = checkDigitalInputCounterStatus();
 		bool isHappyUptime = numSecondsSinceReset > 30;
 		if (!isHappyUptime) {
 		    setRedText();
@@ -93,10 +93,9 @@ static void ConsoleThread(void*) {
 			setNormalText();
 		}
 		bool isAllGood = isGoodDigitalOutputs
-		    && isGoodDigitalInputs
 		    && isHappyCanTest()
 		    && isHappyUptime
-		    && isHappyCounterStatus;
+		    && isHappyDigitalInputCounterStatus;
 
 		executionCounter++;
 
