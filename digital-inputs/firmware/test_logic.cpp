@@ -179,7 +179,7 @@ bool testEcuDigitalOutput(int testLineIndex, bool isLowSide) {
 
 		bool cycleIsGood = (isHigh == isSet);
 		if (!cycleIsGood) {
-		    setRedText();
+		    setErrorLedAndRedText();
 			chprintf(chp, "ERROR! Cycle %d@%d FAILED! (set %d, received %d %1.3fv)\r\n", 
 				index2human(testLineIndex), i, (isSet ? 1 : 0), (isHigh ? 1 : 0), voltage);
 			setNormalText();

@@ -67,7 +67,7 @@ bool testEcuDigitalOutputs(size_t startStepIndex) {
 			chprintf(chp, "GOOD channel %d\r\n",
 			index2human(currentIndex));
 		} else {
-		    setRedText();
+		    setErrorLedAndRedText();
 		    globalEverythingHappy = false;
 			chprintf(chp, "!!!!!!! BAD channel %d !!!!!!!!!!!!!!!\r\n",
 			index2human(currentIndex));

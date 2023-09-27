@@ -25,7 +25,7 @@ static int lowSideOutputCount = -1;
 extern bool globalEverythingHappy;
 
 static void canPacketError(const char *msg, ...) {
-    setRedText();
+    setErrorLedAndRedText();
 	chprintf(chp, " *********************************************** \r\n");
 
 	va_list vl;
@@ -55,7 +55,7 @@ bool isHappyCanTest() {
 
 bool checkDigitalInputCounterStatus() {
 	if (currentBoard == nullptr) {
-		setRedText();
+		setErrorLedAndRedText();
 		chprintf(chp, "* UNKNOWN BOARD ID while trying to check digital input event counter!\r\n");
 	    setNormalText();
 		return false;
@@ -67,7 +67,7 @@ bool checkDigitalInputCounterStatus() {
 		if (!currentBoard->eventExpected[evtCnt.canFrameIndex])
 			continue;
 		if (!evtCnt.nonZero) {
-		    setRedText();
+		    setErrorLedAndRedText();
 			chprintf(chp, "* ZERO %s event counter!\r\n", evtCnt.name);
 			setNormalText();
 		}
@@ -78,7 +78,7 @@ bool checkDigitalInputCounterStatus() {
 		if (!currentBoard->buttonExpected[btnCnt.canFrameIndex])
 			continue;
 		if (!btnCnt.nonZero) {
-		    setRedText();
+		    setErrorLedAndRedText();
 			chprintf(chp, "* ZERO %s button counter!\r\n", btnCnt.name);
 			setNormalText();
 		}

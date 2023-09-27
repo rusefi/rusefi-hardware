@@ -69,6 +69,16 @@ static THD_FUNCTION(Thread1, arg) {
 bool globalEverythingHappy;
 extern int numSecondsSinceReset;
 
+static void setErrorLed() {
+	palClearLine(LED_GREEN);
+	palSetLine(LED_RED);
+}
+
+void setErrorLedAndRedText() {
+    setErrorLed();
+    setRedText();
+}
+
 static THD_WORKING_AREA(consoleThread, THREAD_STACK);
 static void ConsoleThread(void*) {
 	static int executionCounter = 0;
@@ -100,7 +110,7 @@ if (listenMode) {
 		bool isHappyDigitalInputCounterStatus = checkDigitalInputCounterStatus();
 		bool isHappyUptime = numSecondsSinceReset > 30;
 		if (!isHappyUptime) {
-		    setRedText();
+		    setErrorLedAndRedText();
 		    chprintf(chp, "uptime is too low uptime=%d\r\n", numSecondsSinceReset);
 			setNormalText();
 		}
@@ -121,12 +131,10 @@ if (listenMode) {
 			palClearLine(LED_RED);
 		    chThdSleepMilliseconds(5000);
 		} else {
-		    setRedText();
+		    setErrorLedAndRedText();
 			chprintf(chp, " ************* SOMETHING BAD SEE ABOVE ************************ count=%d\r\n", executionCounter);
 			chprintf(chp, " ************************************************************** uptime=%d\r\n", numSecondsSinceReset);
 			setNormalText();
-			palClearLine(LED_GREEN);
-			palSetLine(LED_RED);
     		chThdSleepMilliseconds(5000);
 		}
 

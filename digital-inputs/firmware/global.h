@@ -17,3 +17,5 @@ struct OutputMode {
     bool displayCanReceive = true;
     bool verboseDigitalOutputs = true;
 };
+
+void setErrorLedAndRedText();
