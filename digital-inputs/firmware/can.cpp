@@ -44,6 +44,7 @@ void startNewCanTest() {
     isGoodCanPackets = true;
     hasReceivedAnalog = false;
     hasReceivedBoardId = false;
+    currentBoard = nullptr;
     // reset
 	counterStatus = CounterStatus();
 }
