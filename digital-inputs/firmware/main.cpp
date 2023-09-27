@@ -96,8 +96,8 @@ if (listenMode) {
 		bool isGoodDigitalOutputs = testEcuDigitalOutputs(currentIndex);
 		currentIndex += getDigitalOutputStepsCount();
 
-		bool isGoodDigitalInputs = testEcuDigitalInputs(currentIndex);
-		bool isHappyCounterStatus = checkCounterStatus();
+		stimulateEcuDigitalInputs(currentIndex);
+		bool isHappyDigitalInputCounterStatus = checkDigitalInputCounterStatus();
 		bool isHappyUptime = numSecondsSinceReset > 30;
 		if (!isHappyUptime) {
 		    setRedText();
@@ -105,10 +105,9 @@ if (listenMode) {
 			setNormalText();
 		}
 		bool isAllGood = isGoodDigitalOutputs
-		    && isGoodDigitalInputs
 		    && isHappyCanTest()
 		    && isHappyUptime
-		    && isHappyCounterStatus;
+		    && isHappyDigitalInputCounterStatus;
 
 		executionCounter++;
 

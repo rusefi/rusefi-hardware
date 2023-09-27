@@ -44,6 +44,7 @@ void startNewCanTest() {
     isGoodCanPackets = true;
     hasReceivedAnalog = false;
     hasReceivedBoardId = false;
+    currentBoard = nullptr;
     // reset
 	counterStatus = CounterStatus();
 }
@@ -52,9 +53,13 @@ bool isHappyCanTest() {
     return isGoodCanPackets && hasReceivedAnalog;
 }
 
-bool checkCounterStatus() {
-	if (currentBoard == nullptr)
+bool checkDigitalInputCounterStatus() {
+	if (currentBoard == nullptr) {
+		setRedText();
+		chprintf(chp, "* UNKNOWN BOARD ID while trying to check digital input event counter!\r\n");
+	    setNormalText();
 		return false;
+	}
 
 	bool isHappy = true;
 	
@@ -95,13 +100,13 @@ static bool wasBoardDetectError = false;
 int numSecondsSinceReset;
 
 static void receiveBoardStatus(const uint8_t msg[8]) {
+	numSecondsSinceReset = (msg[2] << 16) | (msg[3] << 8) | msg[4];
 	if (hasReceivedBoardId) {
 	    return;
 	}
 	hasReceivedBoardId = true;
 
 	int boardId = (msg[0] << 8) | msg[1];
-	numSecondsSinceReset = (msg[2] << 16) | (msg[3] << 8) | msg[4];
 	int engineType = (msg[5] << 8) | msg[6];
 
 	if (outputMode.displayCanReceive) {

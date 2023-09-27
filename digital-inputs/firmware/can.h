@@ -17,7 +17,7 @@
 void initCan();
 void startNewCanTest();
 bool isHappyCanTest();
-bool checkCounterStatus();
+bool checkDigitalInputCounterStatus();
 int getDigitalOutputStepsCount();
 int getLowSideOutputCount();
 void setOutputCountRequest();

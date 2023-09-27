@@ -4,6 +4,7 @@
 #include "terminal_util.h"
 #include "test_logic.h"
 
+// todo: reuse pin_repository in this project
 static io_pin stimOutputPins[] = {
 	{ GPIOE, 0 }, // DIG_0
 	{ GPIOE, 7 },
@@ -29,16 +30,15 @@ size_t getDigitalInputStepsCount() {
     return efi::size(stimOutputPins);
 }
 
-bool testEcuDigitalInputs(size_t startStepIndex) {
+void stimulateEcuDigitalInputs(size_t startStepIndex) {
 	for (size_t idx = 0; idx < getDigitalInputStepsCount(); idx++) {
 		io_pin *pin = &stimOutputPins[idx];
+
 	    setGlobalStatusText();
-		chprintf(chp, "%d/%d",
-		    startStepIndex + idx,
-		    totalStepsNumber());
+		chprintf(chp, "%d/%d", startStepIndex + idx, totalStepsNumber());
 		setNormalText();
-		chprintf(chp, "      Toggling port %d\r\n",
-		    pin->pin);
+		chprintf(chp, "      Toggling port %d\r\n", pin->pin);
+
 		bool bitState = true;
 		for (int toggle_i = 0; toggle_i < 10; toggle_i++) {
 			palWritePad(pin->port, pin->pin, bitState ? 1 : 0);
@@ -48,5 +48,4 @@ bool testEcuDigitalInputs(size_t startStepIndex) {
 		// turn the pin off for safety reasons
 		palWritePad(pin->port, pin->pin, 0);
 	}
-	return true;
 }
