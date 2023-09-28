@@ -161,6 +161,17 @@ static void receiveRawAnalog(const uint8_t msg[CAN_FRAME_SIZE], size_t offset) {
 		if (currentBoard->channels[ch].name == nullptr)
 			continue;
 		float voltage = getVoltageFrom8Bit(msg[byteIndex]) * currentBoard->channels[ch].mulCoef;
+
+#if 0
+		setGreenText();
+		chprintf(chp, " ************* %s analog %d %d voltage=%f\r\n",
+		    currentBoard->channels[ch].name,
+		    offset,
+		    byteIndex,
+		    voltage);
+		setNormalText();
+#endif
+
 		// check if in acceptable range for this board
 		if (voltage < currentBoard->channels[ch].acceptMin || voltage > currentBoard->channels[ch].acceptMax) {
 			canPacketError(" * BAD channel %d (%s): voltage %f (raw %d) not in range (%f..%f)\r\n",
