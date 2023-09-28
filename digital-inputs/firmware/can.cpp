@@ -99,7 +99,7 @@ int getLowSideOutputCount() {
 static bool wasBoardDetectError = false;
 int numSecondsSinceReset;
 
-static void receiveBoardStatus(const uint8_t msg[8]) {
+static void receiveBoardStatus(const uint8_t msg[CAN_FRAME_SIZE]) {
 	numSecondsSinceReset = (msg[2] << 16) | (msg[3] << 8) | msg[4];
 	if (hasReceivedBoardId) {
 	    return;
@@ -138,7 +138,7 @@ static void receiveBoardStatus(const uint8_t msg[8]) {
 	}
 }
 
-static void receiveOutputMetaInfo(const uint8_t msg[8]) {
+static void receiveOutputMetaInfo(const uint8_t msg[CAN_FRAME_SIZE]) {
 	if (msg[0] == CAN_BENCH_HEADER) {
 		outputCount = msg[2];
 		lowSideOutputCount = msg[3];
@@ -148,33 +148,35 @@ static void receiveOutputMetaInfo(const uint8_t msg[8]) {
 	}
 }
 
-static void receiveRawAnalog(const uint8_t msg[8]) {
+static void receiveRawAnalog(const uint8_t msg[CAN_FRAME_SIZE], size_t offset) {
 	// wait for the BoardStatus package first
 	if (currentBoard == nullptr)
 		return;
 	hasReceivedAnalog = true;
 
-	for (int ch = 0; ch < 8; ch++) {
+
+	for (size_t byteIndex = 0; byteIndex < CAN_FRAME_SIZE; byteIndex++) {
+        size_t ch = offset + byteIndex;
 		// channel not used for this board
 		if (currentBoard->channels[ch].name == nullptr)
 			continue;
-		float voltage = getVoltageFrom8Bit(msg[ch]) * currentBoard->channels[ch].mulCoef;
+		float voltage = getVoltageFrom8Bit(msg[byteIndex]) * currentBoard->channels[ch].mulCoef;
 		// check if in acceptable range for this board
 		if (voltage < currentBoard->channels[ch].acceptMin || voltage > currentBoard->channels[ch].acceptMax) {
 			canPacketError(" * BAD channel %d (%s): voltage %f (raw %d) not in range (%f..%f)\r\n",
-				ch, currentBoard->channels[ch].name, voltage, msg[ch], 
+				ch, currentBoard->channels[ch].name, voltage, msg[byteIndex],
 				currentBoard->channels[ch].acceptMin, currentBoard->channels[ch].acceptMax);
 		}
 	}
 }
 
-static void receiveEventCounters(const uint8_t msg[8]) {
+static void receiveEventCounters(const uint8_t msg[CAN_FRAME_SIZE]) {
 	for (auto & evtCnt : counterStatus.eventCounters) {
 		evtCnt.nonZero = evtCnt.nonZero || (msg[evtCnt.canFrameIndex] > 0);
 	}
 }
 
-static void receiveButtonCounters(const uint8_t msg[8]) {
+static void receiveButtonCounters(const uint8_t msg[CAN_FRAME_SIZE]) {
 	for (auto & btnCnt : counterStatus.buttonCounters) {
 		btnCnt.nonZero = btnCnt.nonZero || (msg[btnCnt.canFrameIndex] > 0);
 	}
@@ -200,10 +202,10 @@ void processCanRxMessage(const CANRxFrame& frame) {
 		receiveBoardStatus(frame.data8);
 	} else if (CAN_EID(frame) == BENCH_TEST_RAW_ANALOG_1) {
 	    printRxFrame(frame, "BENCH_TEST_RAW_ANALOG_1");
-		receiveRawAnalog(frame.data8);
+		receiveRawAnalog(frame.data8, 0);
 	} else if (CAN_EID(frame) == BENCH_TEST_RAW_ANALOG_2) {
 	    printRxFrame(frame, "BENCH_TEST_RAW_ANALOG_2");
-        // todo
+        receiveRawAnalog(frame.data8, 8);
 	} else if (CAN_EID(frame) == BENCH_TEST_EVENT_COUNTERS) {
 	    printRxFrame(frame, "BENCH_TEST_EVENT_COUNTERS");
 	    receiveEventCounters(frame.data8);

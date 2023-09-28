@@ -4,9 +4,10 @@
 
 #include "cstring"
 
-#define MAX_ANALOG_CHANNELS 8
+#define MAX_ANALOG_CHANNELS 16
 #define MAX_BOARD_REVS 32
 #define index2human(x) ((x) + 1)
+#define CAN_FRAME_SIZE 8
 
 bool testEcuDigitalOutput(int testLineIndex, bool isLowSide);
 
