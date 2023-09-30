@@ -11,13 +11,13 @@
 * Bluetooth or USRT TunerStudio connectivity
 * MegaSquirt compatible pass-through connection over CAN http://www.msgpio.com/manuals/mshift/cpt.html (in progress)
 
-[interactive pinout](https://rusefi.com/docs/pinouts/lambda-x2/)
+See [interactive pinout](https://rusefi.com/docs/pinouts/lambda-x2/)
 
-[wire colors](https://github.com/rusefi/rusefi/wiki/WBO#naming-convention)
+See [wire colors](https://github.com/rusefi/rusefi/wiki/WBO#naming-convention) for standart LSU wire collors and connectors pinouts.
 
 For firmware see https://github.com/dron0gus/wideband (based on https://github.com/mck1117/wideband)
 
-See [rusEFI forum: F103 dual channel wideband controller + EGT + 2 x AUX In + 2 Aux out](https://rusefi.com/forum/viewtopic.php?f=4&t=2314)
+See rusEFI forum: [F103 dual channel wideband controller + EGT + 2 x AUX In + 2 Aux out](https://rusefi.com/forum/viewtopic.php?f=4&t=2314)
 
 See also https://github.com/rusefi/rusefi/wiki/WBO
 
