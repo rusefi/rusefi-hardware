@@ -36,6 +36,7 @@
 BaseSequentialStream *chp = (BaseSequentialStream *)&EFI_CONSOLE_USB_DEVICE;
 
 OutputMode outputMode;
+bool isMuted = false;
 
 /*
  * This is a periodic thread that does absolutely nothing except flashing
@@ -128,13 +129,17 @@ static void ConsoleThread(void*) {
 			setNormalText();
 			palSetLine(LED_GREEN);
 			palClearLine(LED_RED);
+			isMuted = true;
 		    chThdSleepMilliseconds(5000);
+			isMuted = false;
 		} else {
 		    setErrorLedAndRedText();
 			chprintf(chp, " ************* SOMETHING BAD SEE ABOVE ************************ count=%d\r\n", executionCounter);
 			chprintf(chp, " ************************************************************** uptime=%d\r\n", numSecondsSinceReset);
 			setNormalText();
+			isMuted = true;
     		chThdSleepMilliseconds(5000);
+			isMuted = false;
 		}
 	}
 }

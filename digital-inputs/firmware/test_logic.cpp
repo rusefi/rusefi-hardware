@@ -167,13 +167,14 @@ BoardConfig boardConfigs[] = {
 			{ "IAT", 1.0f, IAT_VALUE(ALPHA2CH_R) * ANALOG_L, IAT_VALUE(ALPHA2CH_R) * ANALOG_H },
 			{ "BATT", 5.835, 9.0f, 15.0f },
 		},
-		.eventExpected = {/*crank*/true, false, /*cam1*/true, /*cam2*/true, /*cam3*/false, /*cam4*/false, /*vss*/true},
-		.buttonExpected = {true, true, true},
+		.eventExpected = {/*crank*/true, false, /*cam1*/true, /*cam2*/true, /*cam3*/false, /*cam4*/false, /*vss*//*low priority since CANtrue*/false},
+		.buttonExpected = {/*BrakePedal*//*+12v button true*/false, /*ClutchUp*//*+12v button true*/false, /*AcButton*//*+12v button true*/false},
 		.outputNames = {"inj1", "inj2", "inj3", "inj4",
 		"vvt1", "vvt2",
 		"Wastegate", "Fan Relay", "main Relay", "Fuel Relay",
 		/*10*/"A/C Relay", "Second Fan Relay",
 		"coil 1","coil 2","coil 3","coil 4",
+		"MIL", "Tach",
 		}
 	},
 };

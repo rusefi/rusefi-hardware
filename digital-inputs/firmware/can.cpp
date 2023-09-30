@@ -23,6 +23,7 @@ static int outputCount = -1;
 static int lowSideOutputCount = -1;
 
 extern bool globalEverythingHappy;
+extern bool isMuted;
 
 static void canPacketError(const char *msg, ...) {
     setErrorLedAndRedText();
@@ -142,8 +143,8 @@ static void receiveOutputMetaInfo(const uint8_t msg[CAN_FRAME_SIZE]) {
 	if (msg[0] == CAN_BENCH_HEADER) {
 		outputCount = msg[2];
 		lowSideOutputCount = msg[3];
-    	if (outputMode.displayCanReceive) {
-    	    chprintf(chp, "       CAN RX outputCount total=%d low=%d \r\n", outputCount, lowSideOutputCount);
+    	if (outputMode.displayCanReceive && !isMuted) {
+    	    chprintf(chp, "       CAN ECU says: total=%d outputs of which low side=%d \r\n", outputCount, lowSideOutputCount);
     	}
 	}
 }
@@ -194,7 +195,7 @@ static void receiveButtonCounters(const uint8_t msg[CAN_FRAME_SIZE]) {
 }
 
 static void printRxFrame(const CANRxFrame& frame, const char *msg) {
-    if (!outputMode.displayCanReceive) {
+    if (!outputMode.displayCanReceive || isMuted) {
         return;
     }
 		chprintf(chp, "                          Processing %s ID=%x/l=%x %x %x %x %x %x %x %x %x\r\n",
