@@ -6,6 +6,7 @@
 
 #define MAX_ANALOG_CHANNELS 16
 #define MAX_BOARD_REVS 32
+#define MAX_OUTPUT_NAMES 64
 #define index2human(x) ((x) + 1)
 #define CAN_FRAME_SIZE 8
 
@@ -55,6 +56,19 @@ public:
 	AnalogChannelConfig channels[MAX_ANALOG_CHANNELS];
 	bool eventExpected[EVENT_ENUM_SIZE];
 	bool buttonExpected[BUTTON_ENUM_SIZE];
+	const char *outputNames[MAX_OUTPUT_NAMES];
+
+	const char *getOutputName(size_t index) {
+	    return outputNames[index];
+//	    for (size_t i = 0;i<MAX_OUTPUT_NAMES;i++) {
+//	        if (outputNames[i] == nullptr) {
+//	            return nullptr;
+//	        }
+//	        if (i == index)
+//	    }
+//        return nullptr;
+
+	}
 };
 
 BoardConfig *getBoardConfigs();

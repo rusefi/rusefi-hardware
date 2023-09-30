@@ -29,6 +29,20 @@
 
 #define VOLT_7B 0.5f
 #define VOLT_8B 0.6f
+#define VOLT_9B 0.8f
+#define VOLT_10B 0.9f
+#define VOLT_11B 1.1f
+#define VOLT_12B 1.4f
+#define VOLT_12B 1.4f
+#define VOLT_13B 1.6f
+#define VOLT_14B 1.9f
+
+#define VOLT_23C 2.1f
+#define VOLT_24C 2.5f
+#define VOLT_25C 2.9f
+#define VOLT_26C 3.1f
+#define VOLT_27C 3.4f
+#define VOLT_28C 3.8f
 
 extern BaseSequentialStream *chp;
 bool haveSeenLow[COUNT];
@@ -144,17 +158,23 @@ BoardConfig boardConfigs[] = {
 		.boardIds = { BOARD_ID_154HYUNDAI_C, BOARD_ID_154HYUNDAI_D, 0 },
 		.channels = {
 			{ "TPS1_1", 1.0f, VOLT_7B * ANALOG_L, VOLT_7B * ANALOG_H },
-			{ "TPS1_2", 1.0f, 0.5f * ANALOG_L, 0.5f * ANALOG_H },
-			{ "PPS1", 1.0f, 0.5f * ANALOG_L, 0.5f * ANALOG_H },
-			{ "PPS2", 1.0f, 0.5f * ANALOG_L, 0.5f * ANALOG_H },
-			{ "MAP", 1.0f, MAP_MPX6400_VALUE * ANALOG_L, MAP_MPX6400_VALUE * ANALOG_H },	// internal MAP
+			{ "TPS1_2", 1.0f, VOLT_9B * ANALOG_L, VOLT_9B * ANALOG_H },
+			{ "PPS1", 1.0f, VOLT_10B * ANALOG_L, VOLT_10B * ANALOG_H },
+			{ "PPS2", 1.0f, /*VOLT_11B * ANALOG_L*/0.94, VOLT_11B * ANALOG_H },
+			{ "MAP", 1.0f, VOLT_8B * ANALOG_L, VOLT_8B * ANALOG_H },
 			{ "CLT", 1.0f, CLT_VALUE(ALPHA2CH_R) * ANALOG_L, CLT_VALUE(ALPHA2CH_R) * ANALOG_H },
 			// 5B
 			{ "IAT", 1.0f, IAT_VALUE(ALPHA2CH_R) * ANALOG_L, IAT_VALUE(ALPHA2CH_R) * ANALOG_H },
 			{ "BATT", 5.835, 9.0f, 15.0f },
 		},
-		.eventExpected = {true, true, true, true, true, true, true},
+		.eventExpected = {/*crank*/true, false, /*cam1*/true, /*cam2*/true, /*cam3*/false, /*cam4*/false, /*vss*/true},
 		.buttonExpected = {true, true, true},
+		.outputNames = {"inj1", "inj2", "inj3", "inj4",
+		"vvt1", "vvt2",
+		"Wastegate", "Fan Relay", "main Relay", "Fuel Relay",
+		/*10*/"A/C Relay", "Second Fan Relay",
+		"coil 1","coil 2","coil 3","coil 4",
+		}
 	},
 };
 

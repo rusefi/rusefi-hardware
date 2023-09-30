@@ -4,6 +4,10 @@
 #include "terminal_util.h"
 #include "test_logic.h"
 
+/**
+ * inputs on ECU side (crank/cam/etc)
+ */
+
 // todo: reuse pin_repository in this project
 static io_pin stimOutputPins[] = {
 	{ GPIOE, 0 }, // DIG_0

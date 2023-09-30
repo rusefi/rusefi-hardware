@@ -5,6 +5,10 @@
 #include "can.h"
 #include "terminal_util.h"
 
+/**
+ * ECU outputs
+ */
+
 #define XOR_MAGIC 1
 
 static io_pin addrPins[] = {
@@ -56,22 +60,26 @@ bool testEcuDigitalOutputs(size_t startStepIndex) {
 	if (numOutputs < 0)
 		return false;
 
-	for (int currentIndex = 0; currentIndex < numOutputs; currentIndex++) {
+	for (size_t currentIndex = 0; currentIndex < numOutputs; currentIndex++) {
 		bool isThisGood = testEcuDigitalOutput(currentIndex, currentIndex < lowSideOutputs);
 		if (isThisGood) {
 		    setGlobalStatusText();
-			chprintf(chp, "%d/%d ",
+			chprintf(chp, "%d/%d %s ",
 			    startStepIndex + currentIndex,
-			    totalStepsNumber());
+			    totalStepsNumber(),
+			    currentBoard == nullptr ? nullptr : currentBoard->getOutputName(currentIndex)
+			    );
 			setNormalText();
 			chprintf(chp, "GOOD channel %d\r\n",
 			index2human(currentIndex));
 		} else {
 		    setErrorLedAndRedText();
 		    globalEverythingHappy = false;
-			chprintf(chp, "!!!!!!! BAD channel %d !!!!!!!!!!!!!!!\r\n",
-			index2human(currentIndex));
+			chprintf(chp, "!!!!!!! BAD channel %d %s !!!!!!!!!!!!!!!\r\n",
+			index2human(currentIndex),
+			currentBoard == nullptr ? nullptr : currentBoard->getOutputName(currentIndex));
 			setNormalText();
+			chThdSleepMilliseconds(1000);
 		}
 		isGood = isGood && isThisGood;
 	}
