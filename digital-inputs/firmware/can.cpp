@@ -122,7 +122,7 @@ static void receiveBoardStatus(const uint8_t msg[CAN_FRAME_SIZE]) {
 					chprintf(chp, " * Board detected: %s rev.%c\r\n", currentBoard->boardName, 'A' + currentBoardRev);
 
 					if (c.desiredEngineConfig != -1 && c.desiredEngineConfig != engineType) {
-					    sendCanTxMessage(BENCH_TEST_IO_CONTROL, { CAN_BENCH_HEADER, CAN_BENCH_SET_ENGINE_TYPE, c.desiredEngineConfig });
+					    sendCanTxMessage((int)bench_test_packet_ids_e::IO_CONTROL, { CAN_BENCH_HEADER, CAN_BENCH_SET_ENGINE_TYPE, c.desiredEngineConfig });
 
 					    chprintf(chp, " !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!\r\n");
 					    chprintf(chp, " !!!!!!!!!!!!!!!!!!!!!!!!!!! changing engine type !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!\r\n");
@@ -208,33 +208,40 @@ static void printRxFrame(const CANRxFrame& frame, const char *msg) {
 }
 
 void processCanRxMessage(const CANRxFrame& frame) {
-	if (CAN_EID(frame) == BENCH_TEST_BOARD_STATUS) {
+#if 0
+		setGreenText();
+		chprintf(chp, " ************* GOT CAN %x\r\n",
+		    CAN_EID(frame));
+		setNormalText();
+#endif
+
+	if (CAN_EID(frame) == (int)bench_test_packet_ids_e::BOARD_STATUS) {
           printRxFrame(frame, "BENCH_TEST_BOARD_STATUS");
 		receiveBoardStatus(frame.data8);
-	} else if (CAN_EID(frame) == BENCH_TEST_RAW_ANALOG_1) {
+	} else if (CAN_EID(frame) == (int)bench_test_packet_ids_e::RAW_ANALOG_1) {
 	    printRxFrame(frame, "BENCH_TEST_RAW_ANALOG_1");
 		receiveRawAnalog(frame.data8, 0);
-	} else if (CAN_EID(frame) == BENCH_TEST_RAW_ANALOG_2) {
+	} else if (CAN_EID(frame) == (int)bench_test_packet_ids_e::RAW_ANALOG_2) {
 	    printRxFrame(frame, "BENCH_TEST_RAW_ANALOG_2");
         receiveRawAnalog(frame.data8, 8);
-	} else if (CAN_EID(frame) == BENCH_TEST_EVENT_COUNTERS) {
+	} else if (CAN_EID(frame) == (int)bench_test_packet_ids_e::EVENT_COUNTERS) {
 	    printRxFrame(frame, "BENCH_TEST_EVENT_COUNTERS");
 	    receiveEventCounters(frame.data8);
-	} else if (CAN_EID(frame) == BENCH_TEST_BUTTON_COUNTERS) {
+	} else if (CAN_EID(frame) == (int)bench_test_packet_ids_e::BUTTON_COUNTERS) {
 	    printRxFrame(frame, "BENCH_TEST_BUTTON_COUNTERS");
 	    receiveButtonCounters(frame.data8);
-	} else if (CAN_EID(frame) == BENCH_TEST_IO_META_INFO) {
+	} else if (CAN_EID(frame) == (int)bench_test_packet_ids_e::IO_META_INFO) {
 	    printRxFrame(frame, "BENCH_TEST_IO_META_INFO");
 	    receiveOutputMetaInfo(frame.data8);
 	}
 }
 
 void sendCanPinState(uint8_t pinIdx, bool isSet) {
-	sendCanTxMessage(BENCH_TEST_IO_CONTROL, { CAN_BENCH_HEADER, (uint8_t)(isSet ? CAN_BENCH_GET_SET : CAN_BENCH_GET_CLEAR), pinIdx });
+	sendCanTxMessage((int)bench_test_packet_ids_e::IO_CONTROL, { CAN_BENCH_HEADER, (uint8_t)(isSet ? CAN_BENCH_GET_SET : CAN_BENCH_GET_CLEAR), pinIdx });
 }
 
 void setOutputCountRequest() {
-	sendCanTxMessage(BENCH_TEST_IO_CONTROL, { CAN_BENCH_HEADER, CAN_BENCH_GET_COUNT });
+	sendCanTxMessage((int)bench_test_packet_ids_e::IO_CONTROL, { CAN_BENCH_HEADER, CAN_BENCH_GET_COUNT });
 }
 
 static THD_WORKING_AREA(can_rx_wa, THREAD_STACK);
