@@ -1,5 +1,16 @@
 # About
 
+![x](https://rusefi.com/forum/download/file.php?id=9478)
+
+* STM32F103 dual channel wideband AFR controller supporting Bosch LSU4.9 and LSU4.2 (LSU_ADV work in progress)
+* CAN and analog output
+* x2 EGT input using MAX31855KASA or MAX31856
+* x2 auxilary analog input: 0..5V with pull-up or pull-down (configurable by soldering resistor). One can be used to source 5V to external sensor.
+* x2 2 auxilary output 0..5V. Also can be used for slow PWM signal output.
+* x2 open drain outputs: BTS3028 (5A)
+* Bluetooth or USRT TunerStudio connectivity
+* MegaSquirt compatible pass-through connection over CAN http://www.msgpio.com/manuals/mshift/cpt.html (in progress)
+
 [interactive pinout](https://rusefi.com/docs/pinouts/lambda-x2/)
 
 [wire colors](https://github.com/rusefi/rusefi/wiki/WBO#naming-convention)
@@ -8,21 +19,17 @@ For firmware see https://github.com/dron0gus/wideband (based on https://github.c
 
 See [rusEFI forum: F103 dual channel wideband controller + EGT + 2 x AUX In + 2 Aux out](https://rusefi.com/forum/viewtopic.php?f=4&t=2314)
 
-
-* STM32F103 dual channel wideband AFR controller supporting Bosch LSU4.9 (LSU4.2 and LSU_ADV work in progress)
-* CAN and analog output
-* x2 EGT input using MAX31855KASA or MAX31856
-* x2 auxilary analog input: 0..5V with pull-up or pull-down (configurable by soldering resistor). One can be used to source 5V to external sensor.
-* x2 2 auxilary output 0..5V. Also can be used for slow PWM signal output.
-* x2 open drain outputs: BTS3028 (5A)
-* Bluetooth TunerStudio connectivity
-
-![x](https://rusefi.com/forum/download/file.php?id=9478)
-
-
 See also https://github.com/rusefi/rusefi/wiki/WBO
 
 # Known issues
+
+## DFU mode/floating PB2
+
+BOOT0 = 1, BOOT1 = 0 pattern is used to enter DFU bootloader on power/reset. BOOT0 is controled by jumper/button. BOOT1 (PB2) is used as bias current source for LSU4.9 and floating.
+
+Use jumper wire to connect PB2 (through bias resistor) to GND: connect A2 pin of main connector with GND (J4 AUX connector pin 10)
+
+![20230930_110548](https://github.com/rusefi/rusefi-hardware/assets/28624689/433ceeff-4cae-434b-8f47-b92947faede2)
 
 ## ESR measurement crosstalk between channels (rev0 and rev1)
 
@@ -51,32 +58,90 @@ This will be (or not) solved in next revision of HW.
 
 # Pinout
 
-## Main connector pinout
+## Connectors pinout
 
-[Interactive Pinout](https://rusefi.com/docs/pinouts/lambda-x2/)
+[Main connector interactive Pinout](https://rusefi.com/docs/pinouts/lambda-x2/)
+
+J4 is AUX connector available on PCB. SPI and I2C interfaces along with 3.3V and 5V are routed to this connector. Can be used to connect some small disply (SW not implemented yet)
+
+J3 connector is for flashing and powering board on table. Also can be used for TunerStudion connection.
+
+J1 and J2 are JTAG connectos.
 
 ## Uart pinout
 
-J3 connector. Colors are default for cheap usb-to-uart converters based on CP2101.
+J3 connector. Colors are default for cheap usb-to-uart converters based on CP2101 or FTDI232
 Connect red wire if you want to power device from USB.
+Default baud rate is 115200.
 
 ![image](https://user-images.githubusercontent.com/48498823/208742019-953c3ffc-588c-409b-8e2a-7ff916e8f506.png)
 
 # Bluetooth
-No extra steps needed to initialize JDY-33.
+
+No extra steps needed to initialize JDY-33. Default device name is "RusEFI WBO x2" (or "RuseEFI WBO x2 BLE" for BT BLE)
+
 Default baud rate is 115200.
 
 # TunerStudio configuration
 
 Baudrate is 115200
-[.ini file](https://github.com/dron0gus/wideband/blob/master/firmware/ini/rusefi_wb_f1_dual.ini)
+[.ini file](https://github.com/dron0gus/wideband/blob/master/firmware/ini/rusefi_wb_f1_dual.ini) for both UART and BT connection.
+
+Both interfaces can be used simultaneously for data logging but not for settings change (from rev1).
+
+Rev0 share same UART for both interfaces.
 
 # Firmware Upload
 
 Two ways to program using STM32CubeProgrammer
 
-* recommended way: using UART connectivity. Power device up while shorting BOOT jumper to enter DFU mode.
+* recommended way: using UART connectivity. Power device up while shorting BOOT0 jumper to enter DFU mode.
 * st-link if you have tc2030 spring-loaded cable.
+* update over CAN or UART (J3) using OpenBLT (update over BT is in progress)
+
+## Updating over UART using DFU mode
+
+1. Disconnect main connector. If you are going to apply +12V power through main connector - make sure that nothing else is connected to WBO (LSU sensors, any load, etc). But I recommend flash using +5V from USB.
+   
+3. connect USB to uart connector to J3 connector: gnd, rx and tx.
+Don't forget to cross Rx-`Tx (adapter's Tx goes to WBO's Rx, WBO's Tx goes to adapter's Rx).
+If you going to power WBO from USB port - also attach 5V line. Do not connect +5 from USB adapter if you are going to use +12V supply through main connector. 
+![20230923_125247](https://github.com/rusefi/rusefi-hardware/assets/28624689/04b9595a-4832-4e9d-92f6-b6955232a969)
+
+3. Download and install STM32 Flash Loader Demonstrator. (Alternative tool is stm32flash - not covered in this instruction)
+
+5. Figure out USB to serial serial port number: 
+![device manager](https://github.com/rusefi/rusefi-hardware/assets/28624689/6bf0a0fc-8c34-4061-bd9a-e3c64491b45d)
+
+5. Start Flash Loader Demonstrator GUI application, select correct COM port. Optional: reduce timeout to 1 second:
+![stm32 flasher](https://github.com/rusefi/rusefi-hardware/assets/28624689/b5a6767c-59d1-41b7-a17b-9218185aa7b0)
+
+6. Press and hold BOOT0 button on the bottom of PCB. Or short BOOT0 PCB jumper if button is not populated on your board.
+
+8. Apply power (while holding BOOT0 button) to board and press Next in application.
+After app detects chip you should see something similar to:
+![stm32 flasher 2](https://github.com/rusefi/rusefi-hardware/assets/28624689/bc78d3d1-68d1-4648-b5f3-19e4711ce60b)
+
+8. Press next, select "Download to device", select wideband.bin file.
+Select "Jump to user application" and "Verify after download"
+![stm32 flasher 3](https://github.com/rusefi/rusefi-hardware/assets/28624689/aa6137e8-ad5c-4747-9fae-2e42df8d1ff3)
+
+9. Press Next and wait for flash/verification ends.
+ ![stm32 flasher 4](https://github.com/rusefi/rusefi-hardware/assets/28624689/329a686d-6a6e-42fe-9674-fb4d2ad88d72)
+
+## Updating using JTAG
+
+DBD.
+
+## Update using OpenBLT
+
+OpenBLT https://www.feaser.com/openblt/doku.php
+
+1. Restart device to OpenBLT mode using "Reset to OpenBLT" button under Controller -> ECU tools in TunerStudio.
+   
+2. Close TunerStudio to release serial port
+
+3. Open BootCommander, select correct serial port, select wideband_update.srec file.
 
 # Changelog
 
