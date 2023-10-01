@@ -51,13 +51,22 @@ extern bool globalEverythingHappy;
 
 bool testEcuDigitalOutputs(size_t startStepIndex) {
 	bool isGood = true;
+
+	int timeout = 0;
+
+#define SLEEP_CHUNK 100
+	while (getDigitalOutputStepsCount() <= 0 && currentBoard == nullptr && timeout < (5000 / SLEEP_CHUNK)) {
+	    chThdSleepMilliseconds(SLEEP_CHUNK);
+	    timeout ++;
+	}
+
 	int numOutputs = getDigitalOutputStepsCount();
 	int lowSideOutputs = getLowSideOutputCount();
 
 	chprintf(chp, "                      numOutputs %d\r\n", numOutputs);
 
 	// wait for "output meta info" CAN packet
-	if (numOutputs < 0)
+	if (numOutputs <= 0)
 		return false;
 
 	for (size_t currentIndex = 0; currentIndex < numOutputs; currentIndex++) {

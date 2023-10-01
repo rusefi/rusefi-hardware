@@ -19,8 +19,8 @@ static bool isGoodCanPackets = true;
 static bool hasReceivedAnalog = false;
 static bool hasReceivedBoardId = false;
 static CounterStatus counterStatus;
-static int outputCount = -1;
-static int lowSideOutputCount = -1;
+static int outputCount = 0;
+static int lowSideOutputCount = 0;
 
 extern bool globalEverythingHappy;
 extern bool isMuted;
@@ -46,6 +46,8 @@ void startNewCanTest() {
     hasReceivedAnalog = false;
     hasReceivedBoardId = false;
     currentBoard = nullptr;
+    outputCount = 0;
+    lowSideOutputCount = 0;
     // reset
 	counterStatus = CounterStatus();
 }
