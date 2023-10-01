@@ -29,6 +29,13 @@
 
 #define VOLT_7B 0.5f
 #define VOLT_8B 0.6f
+
+#define Vdivider  5.0f
+#define UP_8B 820.0f
+#define DOWN_8B 120.0f
+#define MAP_R 10000.0f
+#define MAP_R_UP_NOT_DOWN 0
+
 #define VOLT_9B 0.8f
 #define VOLT_10B 0.9f
 #define VOLT_11B 1.1f
@@ -161,7 +168,8 @@ BoardConfig boardConfigs[] = {
 			{ "TPS1_2", 1.0f, VOLT_9B * ANALOG_L, VOLT_9B * ANALOG_H },
 			{ "PPS1", 1.0f, VOLT_10B * ANALOG_L, VOLT_10B * ANALOG_H },
 			{ "PPS2", 1.0f, /*VOLT_11B * ANALOG_L*/0.94, VOLT_11B * ANALOG_H },
-			{ "MAP", 1.0f, VOLT_8B * ANALOG_L, VOLT_8B * ANALOG_H },
+			//{ "MAP", 1.0f, VOLT_8B * ANALOG_L, VOLT_8B * ANALOG_H },
+			{ "MAP", 1.0f, 0.95f*MAP_R_UP_NOT_DOWN ? Vdivider * DOWN_8B / (1.0f/(1.0f/UP_8B + 1.0f/MAP_R)+DOWN_8B) : Vdivider*(1.0f/(1.0f/DOWN_8B + 1.0f/MAP_R))/(UP_8B + 1.0f/(1.0f/DOWN_8B + 1.0f/MAP_R)), 1.05f*MAP_R_UP_NOT_DOWN ? Vdivider * DOWN_8B / (1.0f/(1.0f/UP_8B + 1.0f/MAP_R)+DOWN_8B) : Vdivider*(1.0f/(1.0f/DOWN_8B + 1.0f/MAP_R))/(UP_8B + 1.0f/(1.0f/DOWN_8B + 1.0f/MAP_R))},
 			{ "CLT", 1.0f, CLT_VALUE(ALPHA2CH_R) * ANALOG_L, CLT_VALUE(ALPHA2CH_R) * ANALOG_H },
 			// 5B
 			{ "IAT", 1.0f, IAT_VALUE(ALPHA2CH_R) * ANALOG_L, IAT_VALUE(ALPHA2CH_R) * ANALOG_H },
