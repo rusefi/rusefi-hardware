@@ -1,7 +1,7 @@
 #include "can_hw.h"
 #include "global.h"
 #include "chprintf.h"
-#include "containers/fifo_buffer.h"
+#include "rusefi/containers/fifo_buffer.h"
 
 extern BaseSequentialStream *chp;
 
