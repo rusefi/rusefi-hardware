@@ -15,6 +15,8 @@ static const CANConfig cancfg = {
   CAN_BTR_TS1(8) | CAN_BTR_BRP(6)
 };
 
+#define BENCH_HEADER ((int)bench_test_magic_numbers_e::BENCH_HEADER)
+
 static bool isGoodCanPackets = true;
 static bool hasReceivedAnalog = false;
 static bool hasReceivedBoardId = false;
@@ -125,7 +127,7 @@ static void receiveBoardStatus(const uint8_t msg[CAN_FRAME_SIZE]) {
 					chprintf(chp, " * Board detected: %s rev.%c\r\n", currentBoard->boardName, 'A' + currentBoardRev);
 
 					if (c.desiredEngineConfig != -1 && c.desiredEngineConfig != engineType) {
-					    sendCanTxMessage((int)bench_test_packet_ids_e::IO_CONTROL, { CAN_BENCH_HEADER, CAN_BENCH_SET_ENGINE_TYPE, c.desiredEngineConfig });
+					    sendCanTxMessage((int)bench_test_packet_ids_e::IO_CONTROL, { BENCH_HEADER, (int)bench_test_io_control_e::CAN_BENCH_SET_ENGINE_TYPE, c.desiredEngineConfig });
 
 					    chprintf(chp, " !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!\r\n");
 					    chprintf(chp, " !!!!!!!!!!!!!!!!!!!!!!!!!!! changing engine type !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!\r\n");
@@ -142,7 +144,7 @@ static void receiveBoardStatus(const uint8_t msg[CAN_FRAME_SIZE]) {
 }
 
 static void receiveOutputMetaInfo(const uint8_t msg[CAN_FRAME_SIZE]) {
-	if (msg[0] == CAN_BENCH_HEADER) {
+	if (msg[0] == BENCH_HEADER) {
 		outputCount = msg[2];
 		lowSideOutputCount = msg[3];
     	if (outputMode.displayCanReceive && !isMuted) {
@@ -240,11 +242,11 @@ void processCanRxMessage(const CANRxFrame& frame) {
 }
 
 void sendCanPinState(uint8_t pinIdx, bool isSet) {
-	sendCanTxMessage((int)bench_test_packet_ids_e::IO_CONTROL, { CAN_BENCH_HEADER, (uint8_t)(isSet ? CAN_BENCH_GET_SET : CAN_BENCH_GET_CLEAR), pinIdx });
+	sendCanTxMessage((int)bench_test_packet_ids_e::IO_CONTROL, { BENCH_HEADER, (uint8_t)(isSet ? (int)bench_test_io_control_e::CAN_BENCH_GET_SET : (int)bench_test_io_control_e::CAN_BENCH_GET_CLEAR), pinIdx });
 }
 
 void setOutputCountRequest() {
-	sendCanTxMessage((int)bench_test_packet_ids_e::IO_CONTROL, { CAN_BENCH_HEADER, CAN_BENCH_GET_COUNT });
+	sendCanTxMessage((int)bench_test_packet_ids_e::IO_CONTROL, { BENCH_HEADER, (int)bench_test_io_control_e::CAN_BENCH_GET_COUNT });
 }
 
 static THD_WORKING_AREA(can_rx_wa, THREAD_STACK);
