@@ -242,7 +242,7 @@ void processCanRxMessage(const CANRxFrame& frame) {
 }
 
 void sendCanPinState(uint8_t pinIdx, bool isSet) {
-	sendCanTxMessage((int)bench_test_packet_ids_e::IO_CONTROL, { BENCH_HEADER, (uint8_t)(isSet ? (int)bench_test_io_control_e::CAN_BENCH_GET_SET : (int)bench_test_io_control_e::CAN_BENCH_GET_CLEAR), pinIdx });
+	sendCanTxMessage((int)bench_test_packet_ids_e::IO_CONTROL, { BENCH_HEADER, (uint8_t)(isSet ? (int)bench_test_io_control_e::CAN_QC_OUTPUT_CONTROL_SET : (int)bench_test_io_control_e::CAN_QC_OUTPUT_CONTROL_CLEAR), pinIdx });
 }
 
 void setOutputCountRequest() {
