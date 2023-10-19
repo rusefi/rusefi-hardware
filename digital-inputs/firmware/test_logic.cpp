@@ -110,6 +110,7 @@ BoardConfig boardConfigs[] = {
 		/*BrakePedal todo add wire */false,
 		/*ClutchUp*/false,
 		/*AcButton*/false},
+		.outputNames = {},
 	},
 	{
 		.boardName = "Proteus",
@@ -132,6 +133,7 @@ BoardConfig boardConfigs[] = {
 		},
 		.eventExpected = {true, true, true, true, false, false, true},
 		.buttonExpected = {true, false, false},
+		.outputNames = {},
 	},
 	{
 		.boardName = "112-17",
@@ -141,7 +143,7 @@ BoardConfig boardConfigs[] = {
 			{ "TPS1_1", PULLED_DOWN_RANGE(DOWN_7B, UP_7B, 680'000) },
 			{ "TPS1_2", PULLED_DOWN_RANGE(DOWN_9B, UP_9B, 680'000) },
 			{ "PPS1", PULLED_DOWN_RANGE(DOWN_10B, UP_10B, 680'000) },
-			{ "PPS2", PULLED_DOWN_RANGE(DOWN_11B, UP_11B, 680'000) },
+			{ "PPS2", 1, 0.96f, 10.4f },
 			{ "MAP", PULLED_DOWN_RANGE(DOWN_8B, UP_8B, 680'000) },
 			{ "CLT", 1.0f, CLT_VALUE(HELLEN_R) * ANALOG_L, CLT_VALUE(HELLEN_R) * ANALOG_H },
 			{ "IAT", 1.0f, IAT_VALUE(HELLEN_R) * ANALOG_L, IAT_VALUE(HELLEN_R) * ANALOG_H },
@@ -154,6 +156,11 @@ BoardConfig boardConfigs[] = {
 		},
 		.eventExpected = {false, false, /*cam1*/true, false, false, false, /*vss*/true},
 		.buttonExpected = {false, false, false},
+		.outputNames = {"inj1", "inj2", "inj3", "inj4",
+		"coil 1","coil 2","coil 3","coil 4",
+		"pin 235", "pin 101", "pin 102", "main Relay",
+		"pin 131", "pin 140", "Fan Relay", "Fuel Relay",
+		"pin 151", "pin 152" }
 	},
 	{
 		.boardName = "2chan",
@@ -172,6 +179,7 @@ BoardConfig boardConfigs[] = {
 		},
 		.eventExpected = {true, true, true, true, true, true, true},
 		.buttonExpected = {true, true, true},
+		.outputNames = {},
 	},
 	{
 		.boardName = "4chan",
@@ -189,6 +197,7 @@ BoardConfig boardConfigs[] = {
 		},
 		.eventExpected = {true, true, true, true, true, true, false},
 		.buttonExpected = {false, false, false},
+		.outputNames = {},
 	},
 	// https://github.com/rusefi/rusefi/wiki/Hellen-154-Hyundai
 	{
