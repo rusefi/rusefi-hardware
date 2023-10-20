@@ -110,7 +110,13 @@ BoardConfig boardConfigs[] = {
 		/*BrakePedal todo add wire */false,
 		/*ClutchUp*/false,
 		/*AcButton*/false},
-		.outputNames = {},
+		.outputNames = {"inj1", "inj2", "inj3", "inj4",
+		"A/C relay", "idle air", "intake runner", "Lockout Solenoid",
+		"Radiator", "B21 - EVAP", "B23 VTC VVT", "E7 Main Relay",
+		"E31 Check Engine", "E1 Fuel Relay", "C11 Aux Low 3", "B18 Alternator Control",
+        "E26 Tachometer", "B15 VTEC/VTS Output",
+        "A30 - IGN1", "A29 - IGN2", "A28 - IGN3", "A27 - IGN4"
+		},
 	},
 	{
 		.boardName = "Proteus",
