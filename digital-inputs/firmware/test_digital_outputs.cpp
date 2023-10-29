@@ -18,7 +18,7 @@ static io_pin addrPins[] = {
 {GPIOA, 6},
 };
 
-static io_pin scenarioPins[] = {
+static io_pin pullUpDownPins[] = {
 {GPIOB, 12}, // OUT0 - this controls pull-up/pull-down on pads  #1-16
 {GPIOB, 11}, //                                                 17-32
 {GPIOC, 7},
@@ -35,8 +35,8 @@ void initStimDigitalInputs() {
        	palSetPadMode(pin->port, pin->pin, PAL_MODE_OUTPUT_PUSHPULL);
     }
 
-    for (size_t i = 0;i < efi::size(scenarioPins);i++) {
-        io_pin *pin = &scenarioPins[i];
+    for (size_t i = 0;i < efi::size(pullUpDownPins);i++) {
+        io_pin *pin = &pullUpDownPins[i];
        	palSetPadMode(pin->port, pin->pin, PAL_MODE_OUTPUT_PUSHPULL);
     }
 
@@ -107,12 +107,12 @@ void setOutputAddrIndex(int index) {
     }
 }
 
-void setScenarioIndex(int index) {
-    for (size_t i = 0;i<efi::size(scenarioPins);i++) {
-        int bitState = index & 1;
+void setScenarioIndex(int pullUpDownPinsBitmap) {
+    for (size_t i = 0;i<efi::size(pullUpDownPins);i++) {
+        int bitState = pullUpDownPinsBitmap & 1;
         // please note lack of XOR
-        index = index / 2;
-        io_pin *pin = &scenarioPins[i];
+        pullUpDownPinsBitmap = pullUpDownPinsBitmap / 2;
+        io_pin *pin = &pullUpDownPins[i];
         palWritePad(pin->port, pin->pin, bitState);
     }
 }
