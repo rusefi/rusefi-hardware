@@ -269,9 +269,11 @@ bool testEcuDigitalOutput(int testLineIndex, bool isLowSide) {
 		// toggle the ECU pin for low side mode
 		sendCanPinState(testLineIndex, isSet ^ isLowSide);
 
-		int scenarioIndex = 1; // i % 2;
-		setScenarioIndex(scenarioIndex);
-		// wait for the pin to toggle
+        // at the moment we test both high-side and low-side in pull-up mode only
+        // effectively we could have just used constant 1111b pullUpDownPinsBitmap
+        // see also https://github.com/rusefi/rusefi-hardware/issues/252
+		int pullUpDownPinsBitmap = 1 << bankIndex; // i % 2
+		setScenarioIndex(pullUpDownPinsBitmap);
 		chThdSleepMilliseconds(cycleDurationMs);
 
 		float voltage = getAdcValue(bankIndex);
