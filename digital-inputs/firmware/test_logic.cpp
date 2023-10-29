@@ -166,7 +166,7 @@ BoardConfig boardConfigs[] = {
 		"coil 1","coil 2","coil 3","coil 4",
 		"pin 235", "pin 101", "pin 102", "main Relay",
 		"pin 131", "pin 140", "Fan Relay", "Fuel Relay",
-		"pin 151", "pin 152" }
+		"pin 151", "pin 152", "pin 246" }
 	},
 	{
 		.boardName = "2chan",
