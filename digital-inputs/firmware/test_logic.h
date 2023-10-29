@@ -9,6 +9,10 @@
 #define MAX_OUTPUT_NAMES 64
 #define index2human(x) ((x) + 1)
 #define CAN_FRAME_SIZE 8
+/**
+ * we use 16 channel chips on the board
+ */
+#define DIGITAL_INPUT_BANK_SIZE 16
 
 bool testEcuDigitalOutput(int testLineIndex, bool isLowSide);
 

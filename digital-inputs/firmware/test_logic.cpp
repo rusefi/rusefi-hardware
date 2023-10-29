@@ -248,8 +248,8 @@ bool testEcuDigitalOutput(int testLineIndex, bool isLowSide) {
 	memset(haveSeenLow, 0, sizeof(haveSeenLow));
 	memset(haveSeenHigh, 0, sizeof(haveSeenHigh));
 
-	setOutputAddrIndex(testLineIndex % 16);
-	int adcIndex = testLineIndex / 16;
+	setOutputAddrIndex(testLineIndex % DIGITAL_INPUT_BANK_SIZE);
+	int bankIndex = testLineIndex / DIGITAL_INPUT_BANK_SIZE;
 
 	bool isGood = true;
 
@@ -266,7 +266,7 @@ bool testEcuDigitalOutput(int testLineIndex, bool isLowSide) {
 		// wait for the pin to toggle
 		chThdSleepMilliseconds(cycleDurationMs);
 
-		float voltage = getAdcValue(adcIndex);
+		float voltage = getAdcValue(bankIndex);
 		// low side sends roughly 2.8 but 5v high side is closer to 1v
 		bool isHigh = voltage > 0.7;
 		if (isHigh) {
