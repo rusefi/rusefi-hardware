@@ -2,7 +2,7 @@
 <export version="E">
   <design>
     <source>/home/runner/work/rusefi-hardware/rusefi-hardware/breakout-boards/Breakout_154pin_284617-1-Connector/284617-1.kicad_sch</source>
-    <date>Sun Oct 29 16:52:28 2023</date>
+    <date>Sun Oct 29 17:39:51 2023</date>
     <tool>Eeschema 7.0.8-7.0.8~ubuntu22.04.1</tool>
     <sheet number="1" name="/" tstamps="/">
       <title_block>
