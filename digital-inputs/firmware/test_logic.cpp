@@ -17,6 +17,8 @@
 // 10% for low voltage
 #define ANALOG_H_FOR_LOW_VOLTAGE (1.0f + 0.12f)
 
+#define LAST_DIGITAL_PIN 39
+
 #define HELLEN_VBATT_MULT 5.835f
 #define HELLEN_R 4700
 #define ALPHA2CH_R 2700
@@ -258,7 +260,7 @@ size_t getBoardsCount() {
 
 typedef void (*CanRequestSender) (int testLineIndex, bool value);
 
-bool doTestEcuDigitalOutput(int testLineIndex, bool isLowSide, CanRequestSender sender) {
+static bool doTestEcuDigitalOutput(int testLineIndex, bool isLowSide, CanRequestSender sender, bool expectation) {
 	static DigitalResult result;
 	memset(&result, 0, sizeof(result));
 
@@ -299,7 +301,7 @@ bool doTestEcuDigitalOutput(int testLineIndex, bool isLowSide, CanRequestSender 
 
 		// chprintf(chp, "scenario=%d: %1.3f V\r\n", scenarioIndex, voltage);
 
-		bool cycleIsGood = (isHigh == isSet);
+		bool cycleIsGood = (isHigh == isSet) == expectation;
 		if (!cycleIsGood) {
 		    setErrorLedAndRedText();
 			chprintf(chp, "ERROR! Line %d@%d FAILED! (set %d, received %d %1.3fv)\r\n",
@@ -316,32 +318,28 @@ bool doTestEcuDigitalOutput(int testLineIndex, bool isLowSide, CanRequestSender 
 bool testEcuDigitalOutput(int testLineIndex, bool isLowSide) {
     return doTestEcuDigitalOutput(testLineIndex, isLowSide, [](int testLineIndex, bool value) {
 		sendCanPinState(testLineIndex, value);
-    });
+    }, true);
 }
+
+// lazy way to get value into lambda
+static int globalDcIndex = 0;
 
 bool testDcOutput() {
-		chprintf(chp, "sending DC\r\n");
+	chprintf(chp, "sending DC\r\n");
 
     CanRequestSender sender = [](int testLineIndex, bool value) {
-		sendCanDcState(0, value);
+		sendCanDcState(globalDcIndex, value);
     };
 
-		// toggle the ECU pin for low side mode
+    bool isGood = true;
 
-    doTestEcuDigitalOutput(39, 0, sender);
-	chThdSleepMilliseconds(1000);
+    isGood = isGood & doTestEcuDigitalOutput(LAST_DIGITAL_PIN - 2 * globalDcIndex, 0, sender, false);
+	isGood = isGood & doTestEcuDigitalOutput(LAST_DIGITAL_PIN - 2 * globalDcIndex, 1, sender, true);
+    isGood = isGood & doTestEcuDigitalOutput(LAST_DIGITAL_PIN - 2 * globalDcIndex - 1, 0, sender, true);
+	isGood = isGood & doTestEcuDigitalOutput(LAST_DIGITAL_PIN - 2 * globalDcIndex - 1, 1, sender, false);
 
-	doTestEcuDigitalOutput(39, 1, sender);
-	chThdSleepMilliseconds(1000);
-
-	doTestEcuDigitalOutput(39, 0, sender);
-	chThdSleepMilliseconds(1000);
-
-	doTestEcuDigitalOutput(39, 1, sender);
-	chThdSleepMilliseconds(1000);
-	return true;
+	return isGood;
 }
-
 
 size_t totalStepsNumber() {
     return getDigitalInputStepsCount()
