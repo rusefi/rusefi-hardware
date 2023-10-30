@@ -84,8 +84,12 @@ static_assert(STATIC_ASSERT_EQ_FLOAT(0.683484, PULLED_UP_VOLTAGE(DOWN_8B, UP_8B,
 #define VOLT_28C 3.8f
 
 extern BaseSequentialStream *chp;
-bool haveSeenLow[COUNT];
-bool haveSeenHigh[COUNT];
+
+struct DigitalResult {
+public:
+    bool haveSeenLow;
+    bool haveSeenHigh;
+};
 
 constexpr int cycleDurationMs = 100;
 constexpr int cycleCount = 4;
@@ -268,8 +272,8 @@ bool testDcOutput() {
 }
 
 bool testEcuDigitalOutput(int testLineIndex, bool isLowSide) {
-	memset(haveSeenLow, 0, sizeof(haveSeenLow));
-	memset(haveSeenHigh, 0, sizeof(haveSeenHigh));
+	static DigitalResult result;
+	memset(&result, 0, sizeof(result));
 
 	setOutputAddrIndex(testLineIndex % DIGITAL_INPUT_BANK_SIZE);
 	int bankIndex = testLineIndex / DIGITAL_INPUT_BANK_SIZE;
@@ -295,15 +299,15 @@ bool testEcuDigitalOutput(int testLineIndex, bool isLowSide) {
 		// low side sends roughly 2.8 but 5v high side is closer to 1v
 		bool isHigh = voltage > 0.7;
 		if (isHigh) {
-			if (!haveSeenHigh[testLineIndex]) {
+			if (!result.haveSeenHigh) {
 				chprintf(chp, "                      ADC says HIGH %d@%d %1.3fv\r\n", index2human(testLineIndex), i, voltage);
 			}
-			haveSeenHigh[testLineIndex] = true;
+			result.haveSeenHigh = true;
 		} else {
-			if (!haveSeenLow[testLineIndex]) {
+			if (!result.haveSeenLow) {
 				chprintf(chp, "                      ADC says LOW %d@%d %1.3fv\r\n", index2human(testLineIndex), i, voltage);
 			}
-			haveSeenLow[testLineIndex] = true;
+			result.haveSeenLow = true;
 		}
 
 		// chprintf(chp, "scenario=%d: %1.3f V\r\n", scenarioIndex, voltage);
