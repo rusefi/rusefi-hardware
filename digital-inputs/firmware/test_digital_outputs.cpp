@@ -64,7 +64,7 @@ bool testEcuDcOutputs(size_t startStepIndex) {
 
 	bool isGood = true;
 
-	int numOutputs = 1000000;//getDigitalDcOutputStepsCount();
+	int numOutputs = getDigitalDcOutputStepsCount();
 	for (size_t currentIndex = 0; currentIndex < numOutputs; currentIndex++) {
 	    testDcOutput();
 	}
