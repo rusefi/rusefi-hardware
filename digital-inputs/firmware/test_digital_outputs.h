@@ -4,6 +4,7 @@
 
 void initStimDigitalInputs();
 bool testEcuDigitalOutputs(size_t startStepIndex);
+bool testEcuDcOutputs(size_t startStepIndex);
 
 /**
  * controls what input channel we are sensing

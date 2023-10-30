@@ -22,6 +22,7 @@ static bool hasReceivedAnalog = false;
 static bool hasReceivedBoardId = false;
 static CounterStatus counterStatus;
 static int outputCount = 0;
+static int dcOutputsCount = 0;
 static int lowSideOutputCount = 0;
 
 extern bool globalEverythingHappy;
@@ -48,7 +49,7 @@ void startNewCanTest() {
     hasReceivedAnalog = false;
     hasReceivedBoardId = false;
     currentBoard = nullptr;
-    outputCount = 0;
+    dcOutputsCount = outputCount = 0;
     lowSideOutputCount = 0;
     // reset
 	counterStatus = CounterStatus();
@@ -95,6 +96,10 @@ bool checkDigitalInputCounterStatus() {
 
 int getDigitalOutputStepsCount() {
 	return outputCount;
+}
+
+int getDigitalDcOutputStepsCount() {
+	return dcOutputsCount;
 }
 
 int getLowSideOutputCount() {
@@ -147,8 +152,10 @@ static void receiveOutputMetaInfo(const uint8_t msg[CAN_FRAME_SIZE]) {
 	if (msg[0] == BENCH_HEADER) {
 		outputCount = msg[2];
 		lowSideOutputCount = msg[3];
+		dcOutputsCount = msg[4];
+		dcOutputsCount = 1;
     	if (outputMode.displayCanReceive && !isMuted) {
-    	    chprintf(chp, "       CAN ECU says: total=%d outputs of which low side=%d \r\n", outputCount, lowSideOutputCount);
+    	    chprintf(chp, "       CAN ECU says: total=%d outputs of which low side=%d also %d DC\r\n", outputCount, lowSideOutputCount);
     	}
 	}
 }
@@ -243,6 +250,10 @@ void processCanRxMessage(const CANRxFrame& frame) {
 
 void sendCanPinState(uint8_t pinIdx, bool isSet) {
 	sendCanTxMessage((int)bench_test_packet_ids_e::IO_CONTROL, { BENCH_HEADER, (uint8_t)(isSet ? (int)bench_test_io_control_e::CAN_QC_OUTPUT_CONTROL_SET : (int)bench_test_io_control_e::CAN_QC_OUTPUT_CONTROL_CLEAR), pinIdx });
+}
+
+void sendCanDcState(uint8_t dcIndex, bool isSet) {
+	sendCanTxMessage((int)bench_test_packet_ids_e::IO_CONTROL, { BENCH_HEADER, (int)bench_test_io_control_e::CAN_QC_ETB, dcIndex, isSet });
 }
 
 void setOutputCountRequest() {

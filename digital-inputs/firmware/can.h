@@ -19,8 +19,9 @@ void startNewCanTest();
 bool isHappyCanTest();
 bool checkDigitalInputCounterStatus();
 int getDigitalOutputStepsCount();
+int getDigitalDcOutputStepsCount();
 int getLowSideOutputCount();
 void setOutputCountRequest();
 void sendCanPinState(uint8_t pinIdx, bool isSet);
-
+void sendCanDcState(uint8_t index, bool isSet);
 

@@ -49,9 +49,7 @@ void initStimDigitalInputs() {
 
 extern bool globalEverythingHappy;
 
-bool testEcuDigitalOutputs(size_t startStepIndex) {
-	bool isGood = true;
-
+static void waitForMetaInfo() {
 	int timeout = 0;
 
 #define SLEEP_CHUNK 100
@@ -59,6 +57,24 @@ bool testEcuDigitalOutputs(size_t startStepIndex) {
 	    chThdSleepMilliseconds(SLEEP_CHUNK);
 	    timeout ++;
 	}
+}
+
+bool testEcuDcOutputs(size_t startStepIndex) {
+    waitForMetaInfo();
+
+	bool isGood = true;
+
+	int numOutputs = 1000000;//getDigitalDcOutputStepsCount();
+	for (size_t currentIndex = 0; currentIndex < numOutputs; currentIndex++) {
+	    testDcOutput();
+	}
+	return true;
+}
+
+bool testEcuDigitalOutputs(size_t startStepIndex) {
+    waitForMetaInfo();
+
+	bool isGood = true;
 
 	int numOutputs = getDigitalOutputStepsCount();
 	int lowSideOutputs = getLowSideOutputCount();

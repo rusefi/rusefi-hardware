@@ -252,6 +252,21 @@ size_t getBoardsCount() {
     return efi::size(boardConfigs);
 }
 
+bool testDcOutput() {
+		chprintf(chp, "sending DC\r\n");
+
+		// toggle the ECU pin for low side mode
+		sendCanDcState(0, 0);
+		chThdSleepMilliseconds(1000);
+		sendCanDcState(0, 1);
+		chThdSleepMilliseconds(1000);
+		sendCanDcState(0, 0);
+		chThdSleepMilliseconds(1000);
+		sendCanDcState(0, 1);
+		chThdSleepMilliseconds(1000);
+	return true;
+}
+
 bool testEcuDigitalOutput(int testLineIndex, bool isLowSide) {
 	memset(haveSeenLow, 0, sizeof(haveSeenLow));
 	memset(haveSeenHigh, 0, sizeof(haveSeenHigh));
@@ -308,5 +323,8 @@ bool testEcuDigitalOutput(int testLineIndex, bool isLowSide) {
 }
 
 size_t totalStepsNumber() {
-    return getDigitalInputStepsCount() + getDigitalOutputStepsCount();
+    return getDigitalInputStepsCount()
+    + getDigitalOutputStepsCount()
+    + getDigitalDcOutputStepsCount()
+    ;
 }
