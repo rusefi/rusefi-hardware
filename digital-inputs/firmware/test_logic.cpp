@@ -256,22 +256,9 @@ size_t getBoardsCount() {
     return efi::size(boardConfigs);
 }
 
-bool testDcOutput() {
-		chprintf(chp, "sending DC\r\n");
+typedef void (*CanRequestSender) (int testLineIndex, bool value);
 
-		// toggle the ECU pin for low side mode
-		sendCanDcState(0, 0);
-		chThdSleepMilliseconds(1000);
-		sendCanDcState(0, 1);
-		chThdSleepMilliseconds(1000);
-		sendCanDcState(0, 0);
-		chThdSleepMilliseconds(1000);
-		sendCanDcState(0, 1);
-		chThdSleepMilliseconds(1000);
-	return true;
-}
-
-bool testEcuDigitalOutput(int testLineIndex, bool isLowSide) {
+bool doTestEcuDigitalOutput(int testLineIndex, bool isLowSide, CanRequestSender sender) {
 	static DigitalResult result;
 	memset(&result, 0, sizeof(result));
 
@@ -286,7 +273,7 @@ bool testEcuDigitalOutput(int testLineIndex, bool isLowSide) {
 		bool isSet = (i & 1) == 0;
 		chprintf(chp, "               sending line=%d value=%d\r\n", index2human(testLineIndex), isSet);
 		// toggle the ECU pin for low side mode
-		sendCanPinState(testLineIndex, isSet ^ isLowSide);
+		sender(testLineIndex, isSet ^ isLowSide);
 
         // at the moment we test both high-side and low-side in pull-up mode only
         // effectively we could have just used constant 1111b pullUpDownPinsBitmap
@@ -315,7 +302,7 @@ bool testEcuDigitalOutput(int testLineIndex, bool isLowSide) {
 		bool cycleIsGood = (isHigh == isSet);
 		if (!cycleIsGood) {
 		    setErrorLedAndRedText();
-			chprintf(chp, "ERROR! Cycle %d@%d FAILED! (set %d, received %d %1.3fv)\r\n", 
+			chprintf(chp, "ERROR! Line %d@%d FAILED! (set %d, received %d %1.3fv)\r\n",
 				index2human(testLineIndex), i, (isSet ? 1 : 0), (isHigh ? 1 : 0), voltage);
 			setNormalText();
 		}
@@ -325,6 +312,36 @@ bool testEcuDigitalOutput(int testLineIndex, bool isLowSide) {
 	// test is successful if we saw state toggle
 	return isGood;
 }
+
+bool testEcuDigitalOutput(int testLineIndex, bool isLowSide) {
+    return doTestEcuDigitalOutput(testLineIndex, isLowSide, [](int testLineIndex, bool value) {
+		sendCanPinState(testLineIndex, value);
+    });
+}
+
+bool testDcOutput() {
+		chprintf(chp, "sending DC\r\n");
+
+    CanRequestSender sender = [](int testLineIndex, bool value) {
+		sendCanDcState(0, value);
+    };
+
+		// toggle the ECU pin for low side mode
+
+    doTestEcuDigitalOutput(39, 0, sender);
+	chThdSleepMilliseconds(1000);
+
+	doTestEcuDigitalOutput(39, 1, sender);
+	chThdSleepMilliseconds(1000);
+
+	doTestEcuDigitalOutput(39, 0, sender);
+	chThdSleepMilliseconds(1000);
+
+	doTestEcuDigitalOutput(39, 1, sender);
+	chThdSleepMilliseconds(1000);
+	return true;
+}
+
 
 size_t totalStepsNumber() {
     return getDigitalInputStepsCount()
