@@ -64,11 +64,19 @@ bool testEcuDcOutputs(size_t startStepIndex) {
 
 	bool isGood = true;
 
-	int numOutputs = getDigitalDcOutputStepsCount();
-	for (size_t currentIndex = 0; currentIndex < numOutputs; currentIndex++) {
-	    testDcOutput();
+	int dcOutputs = getDigitalDcOutputStepsCount();
+	for (size_t dcIndex = 0; dcIndex < dcOutputs; dcIndex++) {
+	    bool dcResult = testDcOutput(dcIndex);
+
+        if (dcResult) {
+            setGlobalStatusText();
+            chprintf(chp, "GOOD DC=%d\n", dcIndex);
+            setNormalText();
+        }
+
+	    isGood = isGood & dcResult;
 	}
-	return true;
+	return isGood;
 }
 
 bool testEcuDigitalOutputs(size_t startStepIndex) {

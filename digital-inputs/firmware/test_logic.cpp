@@ -156,6 +156,31 @@ BoardConfig boardConfigs[] = {
 				},
 	},
 	{
+		.boardName = "Proteus-HD",
+		.desiredEngineConfig = -1,
+		.boardIds = { STATIC_BOARD_ID_PROTEUS_HARLEY, 0 },
+		.channels = {
+            { nullptr, 0, 0, 0 },//			{ "TPS1_1", 1.0f, VOLT_7B * ANALOG_L, VOLT_7B * ANALOG_H },
+			{ nullptr, 0, 0, 0 },
+			{ nullptr, 0, 0, 0 },
+			{ nullptr, 0, 0, 0 },
+			{ nullptr, 0, 0, 0 },//{ "MAP", 1.0f, VOLT_8B * ANALOG_L, VOLT_8B * ANALOG_H_FOR_LOW_VOLTAGE },
+			{ nullptr, 0, 0, 0 },//{ "CLT", 1.0f, CLT_VALUE(PROTEUS_R) * ANALOG_L, CLT_VALUE(PROTEUS_R) * ANALOG_H },
+			{ nullptr, 0, 0, 0 },//{ "IAT", 1.0f, IAT_VALUE(PROTEUS_R) * ANALOG_L, IAT_VALUE(PROTEUS_R) * ANALOG_H },
+			{ "BATT", 9.2f, 9.0f, 15.0f },
+
+			{ nullptr, 0, 0, 0 }, // { "TPS2_1", 1.0f, 0.5f * ANALOG_L, 0.5f * ANALOG_H },
+			{ nullptr, 0, 0, 0 }, // { "TPS2_2", 1.0f, 0.5f * ANALOG_L, 0.5f * ANALOG_H },
+			{ nullptr, 0, 0, 0 },//{ "AUXL1", 1.0f, 1.35f * ANALOG_L, 1.35f * ANALOG_H },
+			{ nullptr, 0, 0, 0 },//{ "AUXL2", 1.0f, 2.23f * ANALOG_L, 2.23f * ANALOG_H },
+		},
+		.eventExpected = {/*crank*/true, false, /*cam1*/true, false, false, false, false},
+		.buttonExpected = {false, false, false},
+		.outputNames = {"Inj 1", "Inj 2", "Coil 1", "Coil 2",
+		    "ACR 1", "ACR 2",
+				},
+	},
+	{
 		.boardName = "112-17",
 		.desiredEngineConfig = -1,
 		.boardIds = { BOARD_ID_H112_17_A, 0 },
@@ -174,6 +199,7 @@ BoardConfig boardConfigs[] = {
 			{ nullptr, 0, 0, 0 }, // { "AUXL1", 1.0f, 1.35f * ANALOG_L, 1.35f * ANALOG_H },
 			{ nullptr, 0, 0, 0 }, // { "AUXL2", 1.0f, 2.23f * ANALOG_L, 2.23f * ANALOG_H },
 		},
+		/* crank neg goes to 24C crank positive 22B with a 4.7K pull up */
 		.eventExpected = {/*crank*/true, false, /*cam1*/true, false, false, false, /*vss*/true},
 		.buttonExpected = {false, false, false},
 		.outputNames = {"inj1", "inj2", "inj3", "inj4",
@@ -342,8 +368,10 @@ bool testEcuDigitalOutput(int testLineIndex, bool isLowSide) {
 // lazy way to get value into lambda
 static int globalDcIndex = 0;
 
-bool testDcOutput() {
-	chprintf(chp, "sending DC\r\n");
+bool testDcOutput(size_t dcIndex) {
+    globalDcIndex = dcIndex;
+
+	chprintf(chp, "sending DC %d\r\n", globalDcIndex);
 
     CanRequestSender sender = [](int testLineIndex, bool value) {
 		sendCanDcState(globalDcIndex, value);

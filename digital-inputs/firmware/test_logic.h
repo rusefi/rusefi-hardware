@@ -15,7 +15,7 @@
 #define DIGITAL_INPUT_BANK_SIZE 16
 
 bool testEcuDigitalOutput(int testLineIndex, bool isLowSide);
-bool testDcOutput();
+bool testDcOutput(size_t dcIndex);
 
 class Counter {
 public:

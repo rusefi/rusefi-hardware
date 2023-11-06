@@ -154,7 +154,7 @@ static void receiveOutputMetaInfo(const uint8_t msg[CAN_FRAME_SIZE]) {
 		lowSideOutputCount = msg[3];
 		dcOutputsCount = msg[4];
     	if (outputMode.displayCanReceive && !isMuted) {
-    	    chprintf(chp, "       CAN ECU says: total=%d outputs of which low side=%d also %d DC\r\n", outputCount, lowSideOutputCount);
+    	    chprintf(chp, "       CAN ECU says: total=%d outputs of which low side=%d also %d DC\r\n", outputCount, lowSideOutputCount, dcOutputsCount);
     	}
 	}
 }
