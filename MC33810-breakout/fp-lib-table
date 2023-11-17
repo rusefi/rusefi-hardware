@@ -1,0 +1,6 @@
+(fp_lib_table
+  (version 7)
+  (lib (name "kicad6-libraries")(type "KiCad")(uri "${KIPRJMOD}/../ext/kicad6-libraries")(options "")(descr ""))
+  (lib (name "hellen-one-common")(type "KiCad")(uri "${KIPRJMOD}/../ext/hellen-one/kicad/footprints")(options "")(descr "Hellen-One common library"))
+  (lib (name "Connectors")(type "KiCad")(uri "${KIPRJMOD}/../ext/kicad6-libraries/Connectors.pretty")(options "")(descr ""))
+)

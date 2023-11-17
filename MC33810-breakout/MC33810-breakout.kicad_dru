@@ -1,0 +1,16 @@
+(version 1)
+
+(rule "MountingHole"
+	(layer outer)
+   (constraint clearance (min 2mm))
+   (condition "A.Hole_Size_X >= 3.5mm && B.Type=='zone'"))
+
+(rule "HV"
+   (layer outer)
+   (constraint clearance (min 0.73mm))
+   (condition "A.NetClass == 'HV'"))
+
+(rule "HVin"
+   (layer inner)
+   (constraint clearance (min 0.25mm))
+   (condition "A.NetClass == 'HV'"))

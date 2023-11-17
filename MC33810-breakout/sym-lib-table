@@ -1,0 +1,10 @@
+(sym_lib_table
+  (version 7)
+  (lib (name "rusefi_logo")(type "KiCad")(uri "${KIPRJMOD}/../ext/kicad6-libraries/rusefi_logo.kicad_sym")(options "")(descr ""))
+  (lib (name "TE_368255-2")(type "KiCad")(uri "${KIPRJMOD}/../ext/kicad6-libraries/TE_368255-2.kicad_sym")(options "")(descr ""))
+  (lib (name "chips")(type "KiCad")(uri "${KIPRJMOD}/../ext/kicad6-libraries/chips.kicad_sym")(options "")(descr ""))
+  (lib (name "semiconductors")(type "KiCad")(uri "${KIPRJMOD}/../ext/kicad6-libraries/semiconductors.kicad_sym")(options "")(descr ""))
+  (lib (name "hellen-one-common")(type "KiCad")(uri "${KIPRJMOD}/../ext/hellen-one/kicad/hellen-one-common.kicad_sym")(options "")(descr "Hellen-One common library"))
+  (lib (name "Mcz33810")(type "KiCad")(uri "${KIPRJMOD}/../ext/kicad6-libraries/Mcz33810.kicad_sym")(options "")(descr ""))
+  (lib (name "TE_6473423-1")(type "KiCad")(uri "${KIPRJMOD}/../ext/kicad6-libraries/TE_6473423-1.kicad_sym")(options "")(descr ""))
+)
