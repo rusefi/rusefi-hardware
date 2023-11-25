@@ -129,7 +129,8 @@ static void receiveBoardStatus(const uint8_t msg[CAN_FRAME_SIZE]) {
 				if (boardId == c.boardIds[boardRev]) {
 					currentBoard = &c;
 					currentBoardRev = boardRev;
-					chprintf(chp, " * Board detected: %s rev.%c\r\n", currentBoard->boardName, 'A' + currentBoardRev);
+					// index in the list does not directly map to board revision
+					chprintf(chp, " * Board detected: %s rev index %d\r\n", currentBoard->boardName, currentBoardRev);
 
 					if (c.desiredEngineConfig != -1 && c.desiredEngineConfig != engineType) {
 					    sendCanTxMessage((int)bench_test_packet_ids_e::IO_CONTROL, { BENCH_HEADER, (int)bench_test_io_control_e::CAN_BENCH_SET_ENGINE_TYPE, c.desiredEngineConfig });
