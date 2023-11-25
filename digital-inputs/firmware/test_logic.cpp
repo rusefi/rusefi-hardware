@@ -266,9 +266,7 @@ BoardConfig boardConfigs[] = {
 		"inj5", "inj6", "inj7", "vvt1",
 		"fuel", "fan", "main", "nos",
 		"inj8", "vvt2", "tach", "ls1",
-
 		},
-		}
 	},
 	// https://github.com/rusefi/rusefi/wiki/Hellen-154-Hyundai
 	{
