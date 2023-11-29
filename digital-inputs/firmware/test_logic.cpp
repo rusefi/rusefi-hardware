@@ -344,19 +344,24 @@ static bool doTestEcuDigitalOutput(int testLineIndex, bool isLowSide, CanRequest
 		bool isHigh = voltage > 0.7;
 		if (isHigh) {
 			if (!result.haveSeenHigh) {
+			    setCyanText();
 				chprintf(chp, "                      ADC says HIGH %d@%d %1.3fv\r\n", index2human(testLineIndex), i, voltage);
+				setNormalText();
 			}
 			result.haveSeenHigh = true;
 		} else {
 			if (!result.haveSeenLow) {
+			    setCyanText();
 				chprintf(chp, "                      ADC says LOW %d@%d %1.3fv\r\n", index2human(testLineIndex), i, voltage);
+				setNormalText();
 			}
 			result.haveSeenLow = true;
 		}
 
-		// chprintf(chp, "scenario=%d: %1.3f V\r\n", scenarioIndex, voltage);
+        bool actualResult = isHigh == isSet;
+//		chprintf(chp, "actualResult=%d expectation=%d\r\n", actualResult, expectation);
 
-		bool cycleIsGood = (isHigh == isSet) == expectation;
+		bool cycleIsGood = actualResult == expectation;
 		if (!cycleIsGood) {
 		    setErrorLedAndRedText();
 			chprintf(chp, "ERROR! Line %d@%d FAILED! (set %d, received %d %1.3fv)\r\n",
