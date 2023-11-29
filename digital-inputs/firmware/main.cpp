@@ -103,11 +103,19 @@ static void ConsoleThread(void*) {
 	    startNewCanTest();
 
         int currentIndex = 0;
+#if 1
 		bool isGoodDigitalOutputs = testEcuDigitalOutputs(currentIndex);
 		currentIndex += getDigitalOutputStepsCount();
+#else
+        bool isGoodDigitalOutputs = true;
+#endif
 
+#if 1
 		stimulateEcuDigitalInputs(currentIndex);
 		bool isHappyDigitalInputCounterStatus = checkDigitalInputCounterStatus();
+#else
+        bool isHappyDigitalInputCounterStatus = true;
+#endif
 
 		bool isHappyDcOutputs = testEcuDcOutputs(currentIndex);
 		currentIndex += getDigitalDcOutputStepsCount();
