@@ -259,13 +259,19 @@ BoardConfig boardConfigs[] = {
 			{ nullptr, 0, 0, 0 },//{ "IAT", 1.0f, IAT_VALUE(ALPHA2CH_R) * ANALOG_L, IAT_VALUE(ALPHA2CH_R) * ANALOG_H },
 			{ "BATT", HELLEN_VBATT_MULT, 9.0f, 15.0f },
 		},
-		.eventExpected = {false, false, false, false, false, false, false},
+		.eventExpected = {/*crank*/false, false, /*cam1*/false, /*cam2*/true,/*cam3*/ true, /*cam4*/false, /*vss*/false},
 		.buttonExpected = {false, false, false},
 		.outputNames = {
 		"inj1", "inj2", "inj3", "inj4",
 		"inj5", "inj6", "inj7", "vvt1",
 		"fuel", "fan", "main", "nos",
 		"inj8", "vvt2", "tach", "ls1",
+		"inj9", "vvt3", "vvt4", "boost",
+		"ls2", "inj12", "inj11", "inj10",
+		"ls3", "ls4", "ls5", "ls6",
+		/*34C > 9C*/"ls7", /*5C > */"hs1", "hs2", "hs3",
+        "ign1", "ign3", "ign5",
+
 		},
 	},
 	// https://github.com/rusefi/rusefi/wiki/Hellen-154-Hyundai
@@ -384,10 +390,10 @@ bool testDcOutput(size_t dcIndex) {
 
     bool isGood = true;
 
-    isGood = isGood & doTestEcuDigitalOutput(LAST_DIGITAL_PIN - 2 * globalDcIndex, 0, sender, false);
-	isGood = isGood & doTestEcuDigitalOutput(LAST_DIGITAL_PIN - 2 * globalDcIndex, 1, sender, true);
-    isGood = isGood & doTestEcuDigitalOutput(LAST_DIGITAL_PIN - 2 * globalDcIndex - 1, 0, sender, true);
-	isGood = isGood & doTestEcuDigitalOutput(LAST_DIGITAL_PIN - 2 * globalDcIndex - 1, 1, sender, false);
+    isGood = isGood & doTestEcuDigitalOutput(LAST_DIGITAL_PIN - 2 * globalDcIndex, /*isLowSide*/0, sender, false);
+	isGood = isGood & doTestEcuDigitalOutput(LAST_DIGITAL_PIN - 2 * globalDcIndex, /*isLowSide*/1, sender, true);
+    isGood = isGood & doTestEcuDigitalOutput(LAST_DIGITAL_PIN - 2 * globalDcIndex - 1, /*isLowSide*/0, sender, true);
+	isGood = isGood & doTestEcuDigitalOutput(LAST_DIGITAL_PIN - 2 * globalDcIndex - 1, /*isLowSide*/1, sender, false);
 
 	return isGood;
 }
