@@ -117,7 +117,12 @@ static void ConsoleThread(void*) {
         bool isHappyDigitalInputCounterStatus = true;
 #endif
 
+#if 1
 		bool isHappyDcOutputs = testEcuDcOutputs(currentIndex);
+#else
+        bool isHappyDcOutputs = true;
+#endif
+
 		currentIndex += getDigitalDcOutputStepsCount();
 
 		bool isHappyUptime = numSecondsSinceReset > 30;
