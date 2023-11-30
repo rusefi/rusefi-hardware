@@ -335,7 +335,7 @@ static bool doTestEcuDigitalOutput(int testLineIndex, bool isLowSide, CanRequest
         // at the moment we test both high-side and low-side in pull-up mode only
         // effectively we could have just used constant 1111b pullUpDownPinsBitmap
         // see also https://github.com/rusefi/rusefi-hardware/issues/252
-		int pullUpDownPinsBitmap = 1 << bankIndex; // i % 2
+		int pullUpDownPinsBitmap = isLowSide << bankIndex; // i % 2
 		setScenarioIndex(pullUpDownPinsBitmap);
 		chThdSleepMilliseconds(cycleDurationMs);
 
