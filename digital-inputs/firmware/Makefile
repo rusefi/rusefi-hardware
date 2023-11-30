@@ -101,6 +101,10 @@ ifeq ("$(wildcard $(CHIBIOS)/os/license/license.mk)","")
 $(error Please run 'git submodule update --init --recursive' before trying to build!)
 endif
 
+# Configure libfirmware Paths/Includes
+RUSEFI_LIB = ../../ext/libfirmware
+include $(RUSEFI_LIB)/util/util.mk
+
 # Licensing files.
 include $(CHIBIOS)/os/license/license.mk
 # Startup files.
@@ -135,7 +139,9 @@ CPPSRC = $(ALLCPPSRC) \
         adc.cpp \
         test_logic.cpp \
         can.cpp \
+	$(RUSEFI_LIB)/util/src/timer.cpp \
         can_hw.cpp \
+        inputs-time.cpp \
         terminal_util.cpp \
         test_digital_inputs.cpp \
         test_digital_outputs.cpp \

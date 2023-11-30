@@ -18,4 +18,14 @@ struct OutputMode {
     bool verboseDigitalOutputs = true;
 };
 
+#define CORE_CLOCK STM32_SYSCLK
+#define US_TO_NT_MULTIPLIER (CORE_CLOCK / 1000000)
+
+/**
+ * Get a monotonically increasing (but wrapping) 32-bit timer value
+ * Implemented at port level, based on timer or CPU tick counter
+ * Main source of EFI clock, SW-extended to 64bits
+ */
+uint32_t getTimeNowLowerNt();
+
 void setErrorLedAndRedText();
