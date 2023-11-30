@@ -199,7 +199,7 @@ BoardConfig boardConfigs[] = {
 			{ nullptr, 0, 0, 0 }, // { "AUXL1", 1.0f, 1.35f * ANALOG_L, 1.35f * ANALOG_H },
 			{ nullptr, 0, 0, 0 }, // { "AUXL2", 1.0f, 2.23f * ANALOG_L, 2.23f * ANALOG_H },
 		},
-		/* crank neg goes to 24C crank positive 22B with a 4.7K pull up */
+		/* crank neg goes to https://rusefi.com/docs/pinouts/stim/?connector=main&pin=24C 2.5v source, crank positive 22B with a 4.7K pull up */
 		.eventExpected = {/*crank*/true, false, /*cam1*/true, false, false, false, /*vss*/true},
 		.buttonExpected = {false, false, false},
 		.outputNames = {"inj1", "inj2", "inj3", "inj4",
@@ -259,7 +259,7 @@ BoardConfig boardConfigs[] = {
 			{ nullptr, 0, 0, 0 },//{ "IAT", 1.0f, IAT_VALUE(ALPHA2CH_R) * ANALOG_L, IAT_VALUE(ALPHA2CH_R) * ANALOG_H },
 			{ "BATT", HELLEN_VBATT_MULT, 9.0f, 15.0f },
 		},
-		.eventExpected = {/*crank*/false, false, /*cam1*/false, /*cam2*/true,/*cam3*/ true, /*cam4*/false, /*vss*/false},
+		.eventExpected = {/*crank*/true, false, /*cam1*/false, /*cam2*/true,/*cam3*/ true, /*cam4*/false, /*vss*/false},
 		.buttonExpected = {false, false, false},
 		.outputNames = {
 		"inj1", "inj2", "inj3", "inj4",
