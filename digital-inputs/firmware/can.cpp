@@ -72,7 +72,11 @@ bool checkDigitalInputCounterStatus() {
 	for (auto & evtCnt : counterStatus.eventCounters) {
 		if (!currentBoard->eventExpected[evtCnt.canFrameIndex])
 			continue;
-		if (!evtCnt.nonZero) {
+		if (evtCnt.nonZero) {
+		    setGreenText();
+        	chprintf(chp, "* HAPPY %s event counter!\r\n", evtCnt.name);
+        	setNormalText();
+		} else {
 		    setErrorLedAndRedText();
 			chprintf(chp, "* ZERO %s event counter!\r\n", evtCnt.name);
 			setNormalText();
@@ -83,7 +87,11 @@ bool checkDigitalInputCounterStatus() {
 	for (auto & btnCnt : counterStatus.buttonCounters) {
 		if (!currentBoard->buttonExpected[btnCnt.canFrameIndex])
 			continue;
-		if (!btnCnt.nonZero) {
+		if (btnCnt.nonZero) {
+		    setGreenText();
+        	chprintf(chp, "* HAPPY %s button counter!\r\n", btnCnt.name);
+        	setNormalText();
+		} else {
 		    setErrorLedAndRedText();
 			chprintf(chp, "* ZERO %s button counter!\r\n", btnCnt.name);
 			setNormalText();
@@ -228,7 +236,7 @@ void processCanRxMessage(const CANRxFrame& frame) {
 #endif
 
 	if (CAN_EID(frame) == (int)bench_test_packet_ids_e::BOARD_STATUS) {
-          printRxFrame(frame, "BENCH_TEST_BOARD_STATUS");
+        printRxFrame(frame, "BENCH_TEST_BOARD_STATUS");
 		receiveBoardStatus(frame.data8);
 	} else if (CAN_EID(frame) == (int)bench_test_packet_ids_e::RAW_ANALOG_1) {
 	    printRxFrame(frame, "BENCH_TEST_RAW_ANALOG_1");
