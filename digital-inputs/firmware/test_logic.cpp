@@ -209,6 +209,45 @@ BoardConfig boardConfigs[] = {
 		"pin 151", "pin 152", "pin 246" }
 	},
 	{
+		.boardName = "uaefi",
+		.desiredEngineConfig = -1,
+		.boardIds = { BOARD_ID_UAEFI_A, 0 },
+		.channels = {
+			{ "TPS1_1", PULLED_DOWN_RANGE(DOWN_7B, UP_7B, 680'000) },
+			{ "TPS1_2", PULLED_DOWN_RANGE(DOWN_9B, UP_9B, 680'000) },
+			{ "PPS1", PULLED_DOWN_RANGE(DOWN_10B, UP_10B, 680'000) },
+			{ "PPS2", 1, 0.96f, 1.4f },
+			{ "MAP", PULLED_DOWN_RANGE(DOWN_8B, UP_8B, 680'000) },
+			{ "CLT", 1.0f, CLT_VALUE(HELLEN_R) * ANALOG_L, CLT_VALUE(HELLEN_R) * ANALOG_H },
+			{ "IAT", 1.0f, IAT_VALUE(HELLEN_R) * ANALOG_L, IAT_VALUE(HELLEN_R) * ANALOG_H },
+			{ "BATT", HELLEN_VBATT_MULT, 9.0f, 15.0f },
+
+			{ nullptr, 0, 0, 0 }, // "TPS2_1"
+			{ nullptr, 0, 0, 0 }, // "TPS2_2"
+			{ nullptr, 0, 0, 0 }, // { "AUXL1", 1.0f, 1.35f * ANALOG_L, 1.35f * ANALOG_H },
+			{ nullptr, 0, 0, 0 }, // { "AUXL2", 1.0f, 2.23f * ANALOG_L, 2.23f * ANALOG_H },
+		},
+		/* crank neg goes to 24C crank positive 22B with a 4.7K pull up */
+		.eventExpected = {/*crank*/true, false, /*cam1*/true, false, false, false, /*vss*/false},
+		.buttonExpected = {false, false, false},
+		.outputNames = {
+ "B1 injector output 6",
+ "B2 injector output 5",
+ "B3 injector output 4",
+ "B4 injector output 3",
+ "B5 injector output 2",
+ "B6 injector output 1",
+ "B7 Low Side output 1",
+ "B8 Weak Low Side output 2",
+ "B9 Weak Low Side output 1",
+ "B16 Low Side output 4",
+ "B17 Low Side output 3",
+ "B18 Low Side output 2",
+ "B10 Coil 6",
+ "B11 Coil 4",
+        }
+ 	},
+ 	{
 		.boardName = "2chan",
 		.desiredEngineConfig = -1,
 		.boardIds = { STATIC_BOARD_ID_ALPHAX_2CHAN, BOARD_ID_ALPHA2CH_B, BOARD_ID_ALPHA2CH_C, BOARD_ID_ALPHA2CH_D,
