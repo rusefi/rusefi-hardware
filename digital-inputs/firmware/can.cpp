@@ -44,6 +44,8 @@ static void canPacketError(const char *msg, ...) {
 	globalEverythingHappy = false;
 }
 
+static bool rawReported[128];
+
 void startNewCanTest() {
     isGoodCanPackets = true;
     hasReceivedAnalog = false;
@@ -53,6 +55,7 @@ void startNewCanTest() {
     lowSideOutputCount = 0;
     // reset
 	counterStatus = CounterStatus();
+	memset(&rawReported, 0, sizeof(rawReported));
 }
 
 bool isHappyCanTest() {
@@ -182,22 +185,25 @@ static void receiveRawAnalog(const uint8_t msg[CAN_FRAME_SIZE], size_t offset) {
 			continue;
 		float voltage = getVoltageFrom8Bit(msg[byteIndex]) * currentBoard->channels[ch].mulCoef;
 
-#if 0
-		setGreenText();
-		chprintf(chp, " ************* %s analog %d %d voltage=%f\r\n",
-		    currentBoard->channels[ch].name,
-		    offset,
-		    byteIndex,
-		    voltage);
-		setNormalText();
-#endif
 
 		// check if in acceptable range for this board
 		if (voltage < currentBoard->channels[ch].acceptMin || voltage > currentBoard->channels[ch].acceptMax) {
 			canPacketError(" * BAD channel %d (%s): voltage %f (raw %d) not in range (%f..%f)\r\n",
 				ch, currentBoard->channels[ch].name, voltage, msg[byteIndex],
 				currentBoard->channels[ch].acceptMin, currentBoard->channels[ch].acceptMax);
-		}
+		} else {
+		     if (!rawReported[ch]) {
+		        rawReported[ch] = true;
+        		setGreenText();
+        		chprintf(chp, " ************* %s analog %d %d voltage=%f witin range %f/%f\r\n",
+        		    currentBoard->channels[ch].name,
+        		    offset,
+        		    byteIndex,
+        		    voltage,
+        		    currentBoard->channels[ch].acceptMin, currentBoard->channels[ch].acceptMax);
+        		setNormalText();
+             }
+        }
 	}
 }
 
