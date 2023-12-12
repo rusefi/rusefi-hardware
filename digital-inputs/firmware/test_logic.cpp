@@ -269,7 +269,7 @@ BoardConfig boardConfigs[] = {
 	{
 		.boardName = "4chan",
 		.desiredEngineConfig = libHELLEN_4CHAN_STIM_QC,
-		.boardIds = { BOARD_ID_ALPHA4CH_H, BOARD_ID_ALPHA4CH_G, 0 },
+		.boardIds = { BOARD_ID_ALPHA4CH_H, BOARD_ID_ALPHA4CH_G, BOARD_ID_ALPHA4CH_I, 0 },
 		.channels = {
 			{ "TPS1_1", 1.0f, VOLT_7B * ANALOG_L, VOLT_7B * ANALOG_H },
 			{ nullptr, 0, 0, 0 },
@@ -282,7 +282,16 @@ BoardConfig boardConfigs[] = {
 		},
 		.eventExpected = {true, true, true, true, true, true, false},
 		.buttonExpected = {false, false, false},
-		.outputNames = {},
+		.outputNames = {
+ "A8 - Injector 1",
+ "B8 - Injector 2",
+ "D1 - Injector 3",
+ "E1 - Injector 4",
+ "F2 - VVT#1 rev G",
+ "F4 - VVT#2 rev G",
+ "F1 - Idle2",
+ "C8 - Idle",
+		},
 	},
 	{
 		.boardName = "8chan",
@@ -329,14 +338,29 @@ BoardConfig boardConfigs[] = {
 			{ "IAT", 1.0f, IAT_VALUE(ALPHA2CH_R) * ANALOG_L, IAT_VALUE(ALPHA2CH_R) * ANALOG_H },
 			{ "BATT", 5.835, 9.0f, 15.0f },
 		},
+		// https://github.com/rusefi/hellen154hyundai/issues/120
 		.eventExpected = {/*crank*/true, false, /*cam1*/true, /*cam2*/true, /*cam3*/false, /*cam4*/false, /*vss*//*low priority since CANtrue*/false},
 		.buttonExpected = {/*BrakePedal*//*+12v button true*/false, /*ClutchUp*//*+12v button true*/false, /*AcButton*//*+12v button true*/false},
-		.outputNames = {"inj1", "inj2", "inj3", "inj4",
-		"vvt1", "vvt2",
-		"Wastegate", "Fan Relay", "main Relay", "Fuel Relay",
-		/*10*/"A/C Relay", "Second Fan Relay",
-		"coil 1","coil 2","coil 3","coil 4",
-		"MIL", "Tach",
+		.outputNames = {
+ "INJ_1 k25",
+ "INJ_2 k26",
+ "INJ_3 k27",
+ "INJ_4 k28",
+ "VVT1", // 5
+ "VVT2",
+ "K47 BK1 Wastegate Solenoid",
+ "Fan Relay Low",
+ "Main Relay K64",
+ "Fuel Pump K70", // 10
+ "K87 AC Relay",
+ "Second Fan Relay",
+ "Coil 1",
+ "Coil 2",
+ "Coil 3", // 15
+ "Coil 4",
+ "MIL",
+ "Tach",
+ "X8 AuxLS1",
 		}
 	},
 };
