@@ -25,6 +25,8 @@ static int outputCount = 0;
 static int dcOutputsCount = 0;
 static int lowSideOutputCount = 0;
 
+static int boardId;
+
 extern bool globalEverythingHappy;
 extern bool isMuted;
 
@@ -65,7 +67,7 @@ bool isHappyCanTest() {
 bool checkDigitalInputCounterStatus() {
 	if (currentBoard == nullptr) {
 		setErrorLedAndRedText();
-		chprintf(chp, "* UNKNOWN BOARD ID while trying to check digital input event counter!\r\n");
+		chprintf(chp, "* UNKNOWN BOARD ID [%d] while trying to check digital input event counter!\r\n", boardId);
 	    setNormalText();
 		return false;
 	}
@@ -127,7 +129,7 @@ static void receiveBoardStatus(const uint8_t msg[CAN_FRAME_SIZE]) {
 	}
 	hasReceivedBoardId = true;
 
-	int boardId = (msg[0] << 8) | msg[1];
+	boardId = (msg[0] << 8) | msg[1];
 	int engineType = (msg[5] << 8) | msg[6];
 
 	if (outputMode.displayCanReceive) {
