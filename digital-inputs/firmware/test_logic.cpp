@@ -357,7 +357,7 @@ BoardConfig boardConfigs[] = {
 		.channels = {
 			{ "TPS1_1", 1.0f, VOLT_7B * ANALOG_L, VOLT_7B * ANALOG_H },
 			{ "TPS1_2", 1.0f, VOLT_9B * ANALOG_L, VOLT_9B * ANALOG_H },
-			{ "PPS1", 1.0f, VOLT_10B * ANALOG_L, VOLT_10B * ANALOG_H },
+			{ "PPS1", 1.0f, VOLT_10B * ANALOG_L, /*VOLT_10B * ANALOG_H 0.96750*/ 0.99},
 			{ "PPS2", 1.0f, /*VOLT_11B * ANALOG_L*/0.94, VOLT_11B * ANALOG_H },
 			{ "MAP", PULLED_DOWN_RANGE(DOWN_8B, UP_8B, MAP_R)},
 			{ "CLT", 1.0f, CLT_VALUE(ALPHA2CH_R) * ANALOG_L, CLT_VALUE(ALPHA2CH_R) * ANALOG_H },
