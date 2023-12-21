@@ -23,6 +23,7 @@
 #define HELLEN_R 4700
 #define ALPHA2CH_R 2700
 #define PROTEUS_R 2700
+#define PROTEUS_VBATT_MULT 9.2f
 
 #define Vdivider 5.0f
 #define IAT_VALUE(r) (Vdivider * 1000/(1000+r))
@@ -136,7 +137,7 @@ BoardConfig boardConfigs[] = {
 			{ "MAP", 1.0f, VOLT_8B * ANALOG_L, VOLT_8B * ANALOG_H_FOR_LOW_VOLTAGE },
 			{ "CLT", 1.0f, CLT_VALUE(PROTEUS_R) * ANALOG_L, CLT_VALUE(PROTEUS_R) * ANALOG_H },
 			{ "IAT", 1.0f, IAT_VALUE(PROTEUS_R) * ANALOG_L, IAT_VALUE(PROTEUS_R) * ANALOG_H },
-			{ "BATT", 9.2f, 9.0f, 15.0f },
+			{ "BATT", PROTEUS_VBATT_MULT, 9.0f, 15.0f },
 
 			{ nullptr, 0, 0, 0 }, // { "TPS2_1", 1.0f, 0.5f * ANALOG_L, 0.5f * ANALOG_H },
 			{ nullptr, 0, 0, 0 }, // { "TPS2_2", 1.0f, 0.5f * ANALOG_L, 0.5f * ANALOG_H },
@@ -167,7 +168,7 @@ BoardConfig boardConfigs[] = {
 			{ nullptr, 0, 0, 0 },//{ "MAP", 1.0f, VOLT_8B * ANALOG_L, VOLT_8B * ANALOG_H_FOR_LOW_VOLTAGE },
 			{ nullptr, 0, 0, 0 },//{ "CLT", 1.0f, CLT_VALUE(PROTEUS_R) * ANALOG_L, CLT_VALUE(PROTEUS_R) * ANALOG_H },
 			{ nullptr, 0, 0, 0 },//{ "IAT", 1.0f, IAT_VALUE(PROTEUS_R) * ANALOG_L, IAT_VALUE(PROTEUS_R) * ANALOG_H },
-			{ "BATT", 9.2f, 9.0f, 15.0f },
+			{ "BATT", PROTEUS_VBATT_MULT, 9.0f, 15.0f },
 
 			{ nullptr, 0, 0, 0 }, // { "TPS2_1", 1.0f, 0.5f * ANALOG_L, 0.5f * ANALOG_H },
 			{ nullptr, 0, 0, 0 }, // { "TPS2_2", 1.0f, 0.5f * ANALOG_L, 0.5f * ANALOG_H },
@@ -183,16 +184,17 @@ BoardConfig boardConfigs[] = {
 	{
 		.boardName = "mg1",
 		.desiredEngineConfig = -1,
-		.boardIds = { STATIC_BOARD_ID_PROTEUS_CANAM, BOARD_ID_H112_MG1_A, 0 },
+		.boardIds = { STATIC_BOARD_ID_PROTEUS_CANAM, STATIC_BOARD_ID_HELLEN_MG1, 0 },
 		.channels = {
 			{ "TPS1_1", PULLED_DOWN_RANGE(DOWN_7B, UP_7B, 680'000) },
-			{ "TPS1_2", PULLED_DOWN_RANGE(DOWN_9B, UP_9B, 680'000) },
-			{ "PPS1", PULLED_DOWN_RANGE(DOWN_10B, UP_10B, 680'000) },
-			{ "PPS2", 1, 0.96f, 1.4f },
+			{ "TPS1_2", 1, 0.767938368, /* ideally 0.860549952*/ 0.87 },
+			{ "PPS1", 1, 0.79 /*0.821830144*/, 0.920940928 },
+			{ "PPS2", PULLED_DOWN_RANGE(DOWN_11B, UP_11B, 680'000) },
 			{ "MAP", PULLED_DOWN_RANGE(DOWN_8B, UP_8B, 680'000) },
 			{ "CLT", 1.0f, CLT_VALUE(HELLEN_R) * ANALOG_L, CLT_VALUE(HELLEN_R) * ANALOG_H },
 			{ "IAT", 1.0f, IAT_VALUE(HELLEN_R) * ANALOG_L, IAT_VALUE(HELLEN_R) * ANALOG_H },
-			{ "BATT", 9.2f, 9.0f, 15.0f },
+// proteus			{ "BATT", PROTEUS_VBATT_MULT, 9.0f, 15.0f },
+			{ "BATT", HELLEN_VBATT_MULT, 9.0f, 15.0f },
 
 			{ nullptr, 0, 0, 0 }, // { "TPS2_1", 1.0f, 0.5f * ANALOG_L, 0.5f * ANALOG_H },
 			{ nullptr, 0, 0, 0 }, // { "TPS2_2", 1.0f, 0.5f * ANALOG_L, 0.5f * ANALOG_H },
