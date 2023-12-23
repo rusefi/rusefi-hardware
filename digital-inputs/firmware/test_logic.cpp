@@ -258,8 +258,8 @@ BoardConfig boardConfigs[] = {
 			{ nullptr, 0, 0, 0 }, // { "AUXL1", 1.0f, 1.35f * ANALOG_L, 1.35f * ANALOG_H },
 			{ nullptr, 0, 0, 0 }, // { "AUXL2", 1.0f, 2.23f * ANALOG_L, 2.23f * ANALOG_H },
 		},
-		/* crank neg goes to 24C crank positive 22B with a 4.7K pull up */
-		.eventExpected = {/*crank*/true, false, /*cam1*/true, false, false, false, /*vss*/false},
+		/* crank neg C19 goes to 24C crank positive 22B with a 4.7K pull up to 5v */
+		.eventExpected = {/*crank*/true, false, /*cam1*/true, /*cam2*/true, false, false, /*vss*/true},
 		.buttonExpected = {false, false, false},
 		.outputNames = {
  "B1 injector output 6",
@@ -276,6 +276,10 @@ BoardConfig boardConfigs[] = {
  "B18 Low Side output 2",
  "B10 Coil 6",
  "B11 Coil 4",
+ "B12 Coil 3",
+ "B13 Coil 5",
+ "B14 Coil 2",
+ "B15 Coil 1",
         },
         .wboUnitsCount = 1,
  	},
@@ -490,10 +494,13 @@ bool testDcOutput(size_t dcIndex) {
 
     bool isGood = true;
 
-    isGood = isGood & doTestEcuDigitalOutput(LAST_DIGITAL_PIN - 2 * globalDcIndex, /*isLowSide*/0, sender, false);
-	isGood = isGood & doTestEcuDigitalOutput(LAST_DIGITAL_PIN - 2 * globalDcIndex, /*isLowSide*/1, sender, true);
-    isGood = isGood & doTestEcuDigitalOutput(LAST_DIGITAL_PIN - 2 * globalDcIndex - 1, /*isLowSide*/0, sender, true);
-	isGood = isGood & doTestEcuDigitalOutput(LAST_DIGITAL_PIN - 2 * globalDcIndex - 1, /*isLowSide*/1, sender, false);
+    // do we have some defect in the logic or loose state? does DC validation depend on if we have just finished testing low-side or high-side pins?
+    int temp = 1;
+
+    isGood = isGood & doTestEcuDigitalOutput(LAST_DIGITAL_PIN - 2 * globalDcIndex, temp ^ /*isLowSide*/0, sender, false);
+	isGood = isGood & doTestEcuDigitalOutput(LAST_DIGITAL_PIN - 2 * globalDcIndex, temp ^ /*isLowSide*/1, sender, true);
+    isGood = isGood & doTestEcuDigitalOutput(LAST_DIGITAL_PIN - 2 * globalDcIndex - 1, temp ^ /*isLowSide*/0, sender, true);
+	isGood = isGood & doTestEcuDigitalOutput(LAST_DIGITAL_PIN - 2 * globalDcIndex - 1, temp ^ /*isLowSide*/1, sender, false);
 
 	return isGood;
 }
