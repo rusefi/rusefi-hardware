@@ -158,6 +158,7 @@ INCDIR = $(CONFDIR) \
     $(ALLINC) \
     ../../ext/libfirmware \
     ../../ext/libfirmware/util/include \
+    ../../ext/wideband/for_rusefi \
     source \
 
 

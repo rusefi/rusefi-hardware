@@ -180,6 +180,7 @@ BoardConfig boardConfigs[] = {
 		.outputNames = {"Inj 1", "Inj 2", "Coil 1", "Coil 2",
 		    "ACR 1", "ACR 2",
 				},
+		.wboUnitsCount = 2,
 	},
 	{
 		.boardName = "mg1",
@@ -208,6 +209,7 @@ BoardConfig boardConfigs[] = {
 		"mr", "starter", "ic", "acc",
 		"Coil 1", "Coil 2", "Coil 3",
 	    },
+        .wboUnitsCount = 1,
 	},
 	{
 		.boardName = "112-17",
@@ -274,7 +276,8 @@ BoardConfig boardConfigs[] = {
  "B18 Low Side output 2",
  "B10 Coil 6",
  "B11 Coil 4",
-        }
+        },
+        .wboUnitsCount = 1,
  	},
  	{
 		.boardName = "2chan",

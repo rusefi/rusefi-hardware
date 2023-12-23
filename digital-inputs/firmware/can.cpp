@@ -5,6 +5,7 @@
 #include "can/can_common.h"
 #include "global.h"
 #include "terminal_util.h"
+#include "wideband_can.h"
 
 extern BaseSequentialStream *chp;
 extern OutputMode outputMode;
@@ -21,9 +22,9 @@ static bool isGoodCanPackets = true;
 static bool hasReceivedAnalog = false;
 static bool hasReceivedBoardId = false;
 static CounterStatus counterStatus;
-static int outputCount = 0;
-static int dcOutputsCount = 0;
-static int lowSideOutputCount = 0;
+static size_t outputCount = 0;
+static size_t dcOutputsCount = 0;
+static size_t lowSideOutputCount = 0;
 
 static int boardId;
 
@@ -48,10 +49,15 @@ static void canPacketError(const char *msg, ...) {
 
 static bool rawReported[128];
 
+static bool hasSeenWbo1;
+static bool hasSeenWbo2;
+
 void startNewCanTest() {
     isGoodCanPackets = true;
     hasReceivedAnalog = false;
     hasReceivedBoardId = false;
+    hasSeenWbo1 = false;
+    hasSeenWbo2 = false;
     currentBoard = nullptr;
     dcOutputsCount = outputCount = 0;
     lowSideOutputCount = 0;
@@ -61,7 +67,10 @@ void startNewCanTest() {
 }
 
 bool isHappyCanTest() {
-    return isGoodCanPackets && hasReceivedAnalog;
+    bool isGoodWbo1 = currentBoard->wboUnitsCount < 1 || hasSeenWbo1;
+    bool isGoodWbo2 = currentBoard->wboUnitsCount < 2 || hasSeenWbo2;
+
+    return isGoodWbo1 && isGoodWbo2 && isGoodCanPackets && hasReceivedAnalog;
 }
 
 bool checkDigitalInputCounterStatus() {
@@ -197,7 +206,7 @@ static void receiveRawAnalog(const uint8_t msg[CAN_FRAME_SIZE], size_t offset) {
 		     if (!rawReported[ch]) {
 		        rawReported[ch] = true;
         		setGreenText();
-        		chprintf(chp, " ************* %s analog %d %d voltage=%f witin range %f/%f\r\n",
+        		chprintf(chp, " ************* %s analog %d %d voltage=%f within range %f/%f\r\n",
         		    currentBoard->channels[ch].name,
         		    offset,
         		    byteIndex,
@@ -243,24 +252,36 @@ void processCanRxMessage(const CANRxFrame& frame) {
 		setNormalText();
 #endif
 
-	if (CAN_EID(frame) == (int)bench_test_packet_ids_e::BOARD_STATUS) {
+    int standardId = CAN_SID(frame);
+    int extendedId = CAN_EID(frame);
+
+	if (extendedId == (int)bench_test_packet_ids_e::BOARD_STATUS) {
         printRxFrame(frame, "BENCH_TEST_BOARD_STATUS");
 		receiveBoardStatus(frame.data8);
-	} else if (CAN_EID(frame) == (int)bench_test_packet_ids_e::RAW_ANALOG_1) {
+	} else if (extendedId == (int)bench_test_packet_ids_e::RAW_ANALOG_1) {
 	    printRxFrame(frame, "BENCH_TEST_RAW_ANALOG_1");
 		receiveRawAnalog(frame.data8, 0);
-	} else if (CAN_EID(frame) == (int)bench_test_packet_ids_e::RAW_ANALOG_2) {
+	} else if (extendedId == (int)bench_test_packet_ids_e::RAW_ANALOG_2) {
 	    printRxFrame(frame, "BENCH_TEST_RAW_ANALOG_2");
         receiveRawAnalog(frame.data8, 8);
-	} else if (CAN_EID(frame) == (int)bench_test_packet_ids_e::EVENT_COUNTERS) {
+	} else if (extendedId == (int)bench_test_packet_ids_e::EVENT_COUNTERS) {
 	    printRxFrame(frame, "BENCH_TEST_EVENT_COUNTERS");
 	    receiveEventCounters(frame.data8);
-	} else if (CAN_EID(frame) == (int)bench_test_packet_ids_e::BUTTON_COUNTERS) {
+	} else if (extendedId == (int)bench_test_packet_ids_e::BUTTON_COUNTERS) {
 	    printRxFrame(frame, "BENCH_TEST_BUTTON_COUNTERS");
 	    receiveButtonCounters(frame.data8);
-	} else if (CAN_EID(frame) == (int)bench_test_packet_ids_e::IO_META_INFO) {
+	} else if (extendedId == (int)bench_test_packet_ids_e::IO_META_INFO) {
 	    printRxFrame(frame, "BENCH_TEST_IO_META_INFO");
 	    receiveOutputMetaInfo(frame.data8);
+	} else if (standardId == WB_DATA_BASE_ADDR) {
+	    if (!hasSeenWbo1) {
+	        setCyanText();
+	        chprintf(chp, " ***** WBO1 packet\n");
+	        hasSeenWbo1 = true;
+	        setNormalText();
+	    }
+	} else if (standardId == (WB_DATA_BASE_ADDR + 2)) {
+	    hasSeenWbo2 = true;
 	}
 }
 

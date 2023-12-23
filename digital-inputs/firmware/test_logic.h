@@ -62,6 +62,7 @@ public:
 	bool eventExpected[EVENT_ENUM_SIZE];
 	bool buttonExpected[BUTTON_ENUM_SIZE];
 	const char *outputNames[MAX_OUTPUT_NAMES];
+	int wboUnitsCount;
 
 	const char *getOutputName(size_t index) {
 	    return outputNames[index];
