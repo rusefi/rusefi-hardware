@@ -258,7 +258,7 @@ BoardConfig boardConfigs[] = {
 			{ nullptr, 0, 0, 0 }, // { "AUXL1", 1.0f, 1.35f * ANALOG_L, 1.35f * ANALOG_H },
 			{ nullptr, 0, 0, 0 }, // { "AUXL2", 1.0f, 2.23f * ANALOG_L, 2.23f * ANALOG_H },
 		},
-		/* crank neg C19 goes to 24C crank positive 22B with a 4.7K pull up to 5v */
+		/* crank neg C19 goes to 24C for 2.5v virtual GND. Crank positive 22B with a 4.7K pull up to 5v */
 		.eventExpected = {/*crank*/true, false, /*cam1*/true, /*cam2*/true, false, false, /*vss*/true},
 		.buttonExpected = {false, false, false},
 		.outputNames = {
