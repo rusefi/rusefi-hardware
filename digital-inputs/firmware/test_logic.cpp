@@ -94,7 +94,7 @@ public:
     bool haveSeenHigh;
 };
 
-constexpr int cycleDurationMs = 100;
+constexpr int cycleDurationMs = 2;
 constexpr int cycleCount = 4;
 
 BoardConfig boardConfigs[] = {
