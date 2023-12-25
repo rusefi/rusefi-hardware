@@ -70,6 +70,12 @@ bool isHappyCanTest() {
     bool isGoodWbo1 = currentBoard->wboUnitsCount < 1 || hasSeenWbo1;
     bool isGoodWbo2 = currentBoard->wboUnitsCount < 2 || hasSeenWbo2;
 
+    if (!isGoodWbo1 || !isGoodWbo2) {
+        setRedText();
+		chprintf(chp, "* WBO comms issue\n");
+		setNormalText();
+    }
+
     return isGoodWbo1 && isGoodWbo2 && isGoodCanPackets && hasReceivedAnalog;
 }
 
