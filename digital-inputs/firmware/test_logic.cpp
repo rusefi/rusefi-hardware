@@ -192,6 +192,8 @@ BoardConfig boardConfigs[] = {
 			{ "PPS1", 1, 0.79 /*0.821830144*/, 0.920940928 },
 			{ "PPS2", PULLED_DOWN_RANGE(DOWN_11B, UP_11B, 680'000) },
 			{ "MAP", PULLED_DOWN_RANGE(DOWN_8B, UP_8B, 680'000) },
+//			{ nullptr, 0, 0, 0 }, // skipping for Proteus
+//			{ nullptr, 0, 0, 0 }, // skipping for Proteus
 			{ "CLT", 1.0f, CLT_VALUE(HELLEN_R) * ANALOG_L, CLT_VALUE(HELLEN_R) * ANALOG_H },
 			{ "IAT", 1.0f, IAT_VALUE(HELLEN_R) * ANALOG_L, IAT_VALUE(HELLEN_R) * ANALOG_H },
 // proteus			{ "BATT", PROTEUS_VBATT_MULT, 9.0f, 15.0f },
@@ -508,7 +510,8 @@ bool testDcOutput(size_t dcIndex) {
     bool isGood = true;
 
     // do we have some defect in the logic or loose state? does DC validation depend on if we have just finished testing low-side or high-side pins?
-    int temp = 1;
+//    int temp = 1; // uaefi
+    int temp = 0; // mg1
 
     isGood = isGood & doTestEcuDigitalOutput(LAST_DIGITAL_PIN - 2 * globalDcIndex, temp ^ /*isLowSide*/0, sender, false);
 	isGood = isGood & doTestEcuDigitalOutput(LAST_DIGITAL_PIN - 2 * globalDcIndex, temp ^ /*isLowSide*/1, sender, true);
