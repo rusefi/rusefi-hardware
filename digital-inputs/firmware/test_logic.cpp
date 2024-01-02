@@ -22,6 +22,7 @@
 #define HELLEN_VBATT_MULT 5.835f
 #define HELLEN_R 4700
 #define ALPHA2CH_R 2700
+#define MRE_DEFAULT_AT_PULLUP 2700
 #define PROTEUS_R 2700
 #define PROTEUS_VBATT_MULT 9.2f
 
@@ -98,6 +99,32 @@ constexpr int cycleDurationMs = 2;
 constexpr int cycleCount = 4;
 
 BoardConfig boardConfigs[] = {
+	{
+		.boardName = "mre-m111",
+		.desiredEngineConfig = -1,
+		.boardIds = { STATIC_BOARD_ID_MRE_M111, 0 },
+		.channels = {
+			{ "TPS1_1", 1.0f, VOLT_7B * ANALOG_L, VOLT_7B * ANALOG_H },
+			{ nullptr, 0, 0, 0 },
+			{ nullptr, 0, 0, 0 },
+			{ nullptr, 0, 0, 0 },
+			{ "MAP", 1.0f, VOLT_8B * ANALOG_L, VOLT_8B * ANALOG_H },
+			{ "CLT", 1.0f, CLT_VALUE(MRE_DEFAULT_AT_PULLUP) * ANALOG_L, CLT_VALUE(MRE_DEFAULT_AT_PULLUP) * ANALOG_H },
+			{ "IAT", 1.0f, IAT_VALUE(MRE_DEFAULT_AT_PULLUP) * ANALOG_L, IAT_VALUE(MRE_DEFAULT_AT_PULLUP) * ANALOG_H },
+			{ "BATT", 8.23, 9.0f, 15.0f },
+		},
+		.eventExpected = {/*crank*/false, false, /*cam1*/true, false, false, false, false},
+		.buttonExpected = {
+		/*BrakePedal todo add wire */false,
+		/*ClutchUp*/false,
+		/*AcButton*/false},
+		.outputNames = {"inj1", "inj2", "inj3", "inj4",
+		"boost",
+		"VVT LS1",
+		"SC clutch LS2",
+		"SC Bypass",
+		},
+	},
 	{
 		.boardName = "Hellen-Honda125K",
 		.desiredEngineConfig = -1,
@@ -511,7 +538,8 @@ bool testDcOutput(size_t dcIndex) {
 
     // do we have some defect in the logic or loose state? does DC validation depend on if we have just finished testing low-side or high-side pins?
 //    int temp = 1; // uaefi
-    int temp = 0; // mg1
+//    int temp = 0; // mg1
+    int temp = 1; // mre m111
 
     isGood = isGood & doTestEcuDigitalOutput(LAST_DIGITAL_PIN - 2 * globalDcIndex, temp ^ /*isLowSide*/0, sender, false);
 	isGood = isGood & doTestEcuDigitalOutput(LAST_DIGITAL_PIN - 2 * globalDcIndex, temp ^ /*isLowSide*/1, sender, true);
