@@ -132,6 +132,8 @@ BoardConfig boardConfigs[] = {
 		"SC clutch LS2",
 		"SC Bypass",
 		},
+		.wboUnitsCount = 0,
+		.dcHackValue = 1,
 	},
 	{
 		.boardName = "Hellen-Honda125K",
@@ -447,7 +449,9 @@ BoardConfig boardConfigs[] = {
  "MIL",
  "Tach",
  "X8 AuxLS1",
-		}
+		},
+		.wboUnitsCount = 0,
+		.dcHackValue = 0,
 	},
 };
 
@@ -544,10 +548,9 @@ bool testDcOutput(size_t dcIndex) {
 
     bool isGood = true;
 
-    // do we have some defect in the logic or loose state? does DC validation depend on if we have just finished testing low-side or high-side pins?
 //    int temp = 1; // uaefi
 //    int temp = 0; // mg1
-    int temp = 1; // mre m111
+    int temp = currentBoard->dcHackValue;
 
     isGood = isGood & doTestEcuDigitalOutput(LAST_DIGITAL_PIN - 2 * globalDcIndex, temp ^ /*isLowSide*/0, sender, false);
 	isGood = isGood & doTestEcuDigitalOutput(LAST_DIGITAL_PIN - 2 * globalDcIndex, temp ^ /*isLowSide*/1, sender, true);
