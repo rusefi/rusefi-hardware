@@ -76,7 +76,6 @@ static_assert(STATIC_ASSERT_EQ_FLOAT(0.683484, PULLED_UP_VOLTAGE(DOWN_8B, UP_8B,
 #define VOLT_10B 0.9f
 #define VOLT_11B 1.1f
 #define VOLT_12B 1.4f
-#define VOLT_12B 1.4f
 #define VOLT_13B 1.6f
 #define VOLT_14B 1.9f
 
@@ -112,6 +111,15 @@ BoardConfig boardConfigs[] = {
 			{ "CLT", 1.0f, CLT_VALUE(MRE_DEFAULT_AT_PULLUP) * ANALOG_L, CLT_VALUE(MRE_DEFAULT_AT_PULLUP) * ANALOG_H },
 			{ "IAT", 1.0f, IAT_VALUE(MRE_DEFAULT_AT_PULLUP) * ANALOG_L, IAT_VALUE(MRE_DEFAULT_AT_PULLUP) * ANALOG_H },
 			{ "BATT", 8.23, 9.0f, 15.0f },
+
+			{ nullptr, 0, 0, 0 }, // { "TPS2_1", 1.0f, 0.5f * ANALOG_L, 0.5f * ANALOG_H },
+			{ nullptr, 0, 0, 0 }, // { "TPS2_2", 1.0f, 0.5f * ANALOG_L, 0.5f * ANALOG_H },
+			{ nullptr, 0, 0, 0 },//{ "AUXL1", 1.0f, 1.35f * ANALOG_L, 1.35f * ANALOG_H },
+			{ nullptr, 0, 0, 0 },//{ "AUXL2", 1.0f, 2.23f * ANALOG_L, 2.23f * ANALOG_H },
+			{ nullptr, 0, 0, 0 },//{ "oil", 1.0f, 2.23f * ANALOG_L, 2.23f * ANALOG_H },
+			{ "fuel-low", 1.0f, VOLT_12B * ANALOG_L, VOLT_12B * ANALOG_H },
+			{ nullptr, 0, 0, 0 },
+			{ nullptr, 0, 0, 0 },
 		},
 		.eventExpected = {/*crank*/false, false, /*cam1*/true, false, false, false, false},
 		.buttonExpected = {
