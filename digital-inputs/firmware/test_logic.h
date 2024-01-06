@@ -30,12 +30,12 @@ public:
 class CounterStatus {
 public:
 	Counter eventCounters[EVENT_ENUM_SIZE] = {
-		{ 0, "Primary" },
-		{ 1, "Secondary" },
-		{ 2, "VVT1" },
-		{ 3, "VVT2" },
-		{ 4, "VVT3" },		
-		{ 5, "VVT4" },
+		{ 0, "Primary Trigger" },
+		{ 1, "Secondary Trigger" },
+		{ 2, "VVT1 Sensor" },
+		{ 3, "VVT2 Sensor" },
+		{ 4, "VVT3 Sensor" },
+		{ 5, "VVT4 Sensor" },
 		{ 6, "VSS" },					
 	};
 
