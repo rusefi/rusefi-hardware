@@ -241,7 +241,11 @@ BoardConfig boardConfigs[] = {
 			{ nullptr, 0, 0, 0 },//{ "AUXL1", 1.0f, 1.35f * ANALOG_L, 1.35f * ANALOG_H },
 			{ nullptr, 0, 0, 0 },//{ "AUXL2", 1.0f, 2.23f * ANALOG_L, 2.23f * ANALOG_H },
 		},
-		.eventExpected = {/*crank*/true, false, /*cam1*/true, false, false, false, false},
+		.eventExpected = {/*crank*/true,
+		false,
+		/*cam1*/true,
+		false, false, false,
+		/*vss*/true},
 		.buttonExpected = {false, false, false},
 		.outputNames = {
  "LS1",
