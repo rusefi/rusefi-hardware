@@ -167,6 +167,7 @@ CWARN = -Wall -Wextra -Wundef -Wstrict-prototypes
 
 # Define C++ warning options here.
 CPPWARN = -Wall -Wextra -Wundef
+CPPWARN += -Werror=unused-function
 
 #
 # Project, target, sources and paths

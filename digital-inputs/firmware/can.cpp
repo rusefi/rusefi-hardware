@@ -79,6 +79,21 @@ bool isHappyCanTest() {
     return isGoodWbo1 && isGoodWbo2 && isGoodCanPackets && hasReceivedAnalog;
 }
 
+static void handleCounter(Counter *cnt, bool *isHappy, bool *eventExpected, const char *suffix) {
+		if (!eventExpected[cnt->canFrameIndex])
+			return;
+		if (cnt->nonZero) {
+		    setGreenText();
+        	chprintf(chp, "* HAPPY %s %s counter!\r\n", cnt->name, suffix);
+        	setNormalText();
+		} else {
+		    setErrorLedAndRedText();
+			chprintf(chp, "* ZERO %s %s counter!\r\n", cnt->name, suffix);
+			setNormalText();
+		}
+		*isHappy = *isHappy && cnt->nonZero;
+}
+
 bool checkDigitalInputCounterStatus() {
 	if (currentBoard == nullptr) {
 		setErrorLedAndRedText();
@@ -90,33 +105,15 @@ bool checkDigitalInputCounterStatus() {
 	bool isHappy = true;
 	
 	for (auto & evtCnt : counterStatus.eventCounters) {
-		if (!currentBoard->eventExpected[evtCnt.canFrameIndex])
-			continue;
-		if (evtCnt.nonZero) {
-		    setGreenText();
-        	chprintf(chp, "* HAPPY %s event counter!\r\n", evtCnt.name);
-        	setNormalText();
-		} else {
-		    setErrorLedAndRedText();
-			chprintf(chp, "* ZERO %s event counter!\r\n", evtCnt.name);
-			setNormalText();
-		}
-		isHappy = isHappy && evtCnt.nonZero;
+	    handleCounter(&evtCnt, &isHappy, currentBoard->eventExpected, "event");
 	}
 	
 	for (auto & btnCnt : counterStatus.buttonCounters) {
-		if (!currentBoard->buttonExpected[btnCnt.canFrameIndex])
-			continue;
-		if (btnCnt.nonZero) {
-		    setGreenText();
-        	chprintf(chp, "* HAPPY %s button counter!\r\n", btnCnt.name);
-        	setNormalText();
-		} else {
-		    setErrorLedAndRedText();
-			chprintf(chp, "* ZERO %s button counter!\r\n", btnCnt.name);
-			setNormalText();
-		}
-		isHappy = isHappy && btnCnt.nonZero;
+	    handleCounter(&btnCnt, &isHappy, currentBoard->buttonExpected, "button");
+	}
+
+	for (auto & btnCnt : counterStatus.auxDigitalCounters) {
+	    handleCounter(&btnCnt, &isHappy, currentBoard->auxDigitalExpected, "aux digital");
 	}
 
 	return isHappy;
@@ -236,6 +233,12 @@ static void receiveButtonCounters(const uint8_t msg[CAN_FRAME_SIZE]) {
 	}
 }
 
+static void receiveAuxDigitalCounters(const uint8_t msg[CAN_FRAME_SIZE]) {
+	for (auto & cnt : counterStatus.auxDigitalCounters) {
+		cnt.nonZero = cnt.nonZero || (msg[cnt.canFrameIndex] > 0);
+	}
+}
+
 static void printRxFrame(const CANRxFrame& frame, const char *msg) {
     if (!outputMode.displayCanReceive || isMuted) {
         return;
@@ -271,11 +274,14 @@ void processCanRxMessage(const CANRxFrame& frame) {
 	    printRxFrame(frame, "BENCH_TEST_RAW_ANALOG_2");
         receiveRawAnalog(frame.data8, 8);
 	} else if (extendedId == (int)bench_test_packet_ids_e::EVENT_COUNTERS) {
-	    printRxFrame(frame, "BENCH_TEST_EVENT_COUNTERS");
+	    printRxFrame(frame, "EVENT_COUNTERS");
 	    receiveEventCounters(frame.data8);
 	} else if (extendedId == (int)bench_test_packet_ids_e::BUTTON_COUNTERS) {
-	    printRxFrame(frame, "BENCH_TEST_BUTTON_COUNTERS");
+	    printRxFrame(frame, "BUTTON_COUNTERS");
 	    receiveButtonCounters(frame.data8);
+	} else if (extendedId == (int)bench_test_packet_ids_e::AUX_DIGITAL_COUNTERS) {
+	    printRxFrame(frame, "AUX_DIGITAL_COUNTERS");
+	    receiveAuxDigitalCounters(frame.data8);
 	} else if (extendedId == (int)bench_test_packet_ids_e::IO_META_INFO) {
 	    printRxFrame(frame, "BENCH_TEST_IO_META_INFO");
 	    receiveOutputMetaInfo(frame.data8);

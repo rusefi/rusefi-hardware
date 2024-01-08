@@ -26,6 +26,7 @@ public:
 
 #define EVENT_ENUM_SIZE 7
 #define BUTTON_ENUM_SIZE 3
+#define AUX_DIGITAL_SIZE 8
 
 class CounterStatus {
 public:
@@ -44,6 +45,18 @@ public:
 		{ 1, "ClutchUp" },
 		{ 2, "AcButton" },
 	};
+
+	Counter auxDigitalCounters[AUX_DIGITAL_SIZE] = {
+		{ 0, "Aux 1" },
+		{ 1, "Aux 2" },
+		{ 2, "Aux 3" },
+		{ 3, "Aux 4" },
+		{ 4, "Aux 5" },
+		{ 5, "Aux 6" },
+		{ 6, "Aux 7" },
+		{ 7, "Aux 8" },
+	};
+
 };
 
 class AnalogChannelConfig {
@@ -61,6 +74,7 @@ public:
 	AnalogChannelConfig channels[MAX_ANALOG_CHANNELS];
 	bool eventExpected[EVENT_ENUM_SIZE];
 	bool buttonExpected[BUTTON_ENUM_SIZE];
+	bool auxDigitalExpected[BUTTON_ENUM_SIZE];
 	const char *outputNames[MAX_OUTPUT_NAMES];
 	int wboUnitsCount;
     // do we have some defect in the logic or loose state? does DC validation depend on if we have just finished testing low-side or high-side pins?
