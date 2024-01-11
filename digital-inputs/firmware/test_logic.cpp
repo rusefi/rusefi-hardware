@@ -317,6 +317,8 @@ BoardConfig boardConfigs[] = {
 		/* crank neg C19 goes to 24C for 2.5v virtual GND. Crank positive 22B with a 4.7K pull up to 5v */
 		.eventExpected = {/*crank*/true, false, /*cam1*/true, /*cam2*/true, false, false, /*vss*/true},
 		.buttonExpected = {false, false, false},
+		.auxDigitalExpected = {false, false, false, false,
+		false, false, false, false},
 		.outputNames = {
  "B1 injector output 6",
  "B2 injector output 5",
@@ -338,6 +340,7 @@ BoardConfig boardConfigs[] = {
  "B15 Coil 1",
         },
         .wboUnitsCount = 1,
+		.dcHackValue = 1,
  	},
  	{
 		.boardName = "2chan",
@@ -552,7 +555,6 @@ bool testDcOutput(size_t dcIndex) {
 
     bool isGood = true;
 
-//    int temp = 1; // uaefi
 //    int temp = 0; // mg1
     int temp = currentBoard->dcHackValue;
 

@@ -74,7 +74,7 @@ public:
 	AnalogChannelConfig channels[MAX_ANALOG_CHANNELS];
 	bool eventExpected[EVENT_ENUM_SIZE];
 	bool buttonExpected[BUTTON_ENUM_SIZE];
-	bool auxDigitalExpected[BUTTON_ENUM_SIZE];
+	bool auxDigitalExpected[AUX_DIGITAL_SIZE];
 	const char *outputNames[MAX_OUTPUT_NAMES];
 	int wboUnitsCount;
     // do we have some defect in the logic or loose state? does DC validation depend on if we have just finished testing low-side or high-side pins?
