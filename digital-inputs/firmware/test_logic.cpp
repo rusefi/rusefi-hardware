@@ -377,6 +377,8 @@ BoardConfig boardConfigs[] = {
 		},
 		.eventExpected = {true, true, true, true, true, true, false},
 		.buttonExpected = {false, false, false},
+		.auxDigitalExpected = {false, false, false, false,
+		false, false, false, false},
 		.outputNames = {
  "A8 - Injector 1",
  "B8 - Injector 2",
@@ -387,6 +389,8 @@ BoardConfig boardConfigs[] = {
  "F1 - Idle2",
  "C8 - Idle",
 		},
+		.wboUnitsCount = 0,
+		.dcHackValue = 1,
 	},
 	{
 		.boardName = "8chan",
