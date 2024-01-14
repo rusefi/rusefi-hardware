@@ -464,6 +464,33 @@ BoardConfig boardConfigs[] = {
 		.wboUnitsCount = 0,
 		.dcHackValue = 0,
 	},
+	{
+		.boardName = "m74.9",
+		.desiredEngineConfig = -1,
+		.boardIds = { STATIC_BOARD_ID_M74_9, 0 },
+		.channels = {
+			{ "TPS1_1", 1.0f, VOLT_7B * ANALOG_L, VOLT_7B * ANALOG_H },
+			{ nullptr, 0, 0, 0 },
+			{ nullptr, 0, 0, 0 },
+			{ nullptr, 0, 0, 0 },
+			{ "MAP", 1.0f, MAP_MPX6400_VALUE * ANALOG_L, MAP_MPX6400_VALUE * ANALOG_H },	// internal MAP
+			{ "CLT", 1.0f, CLT_VALUE(ALPHA2CH_R) * ANALOG_L, CLT_VALUE(ALPHA2CH_R) * ANALOG_H },
+			{ "IAT", 1.0f, IAT_VALUE(ALPHA2CH_R) * ANALOG_L, IAT_VALUE(ALPHA2CH_R) * ANALOG_H },
+			{ "BATT", HELLEN_VBATT_MULT, 9.0f, 15.0f },
+		},
+		.eventExpected = {/*crank*/true, false, /*cam1*/true, /*cam2*/false, /*cam3*/false, /*cam4*/false, /*vss*/true},
+		.buttonExpected = {false, false, false},
+		.auxDigitalExpected = {false, false, false, false,
+		false, false, false, false},
+		.outputNames = {
+ "Injector 1",
+ "Injector 2",
+ "Injector 3",
+ "Injector 4",
+ 		},
+		.wboUnitsCount = 0,
+		.dcHackValue = 1,
+	},
 };
 
 BoardConfig *currentBoard = nullptr;
