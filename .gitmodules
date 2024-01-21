@@ -17,6 +17,7 @@
 [submodule "ext/libfirmware"]
 	path = ext/libfirmware
 	url = https://github.com/rusefi/libfirmware
+	branch = gain_8_7
 [submodule "ext/googletest"]
 	path = ext/googletest
 	url = https://github.com/google/googletest.git
