@@ -99,6 +99,10 @@ Two ways to program using STM32CubeProgrammer
 * st-link if you have tc2030 spring-loaded cable.
 * update over CAN or UART (J3) using OpenBLT (update over BT is in progress)
 
+TL,DR: 9600 nothing connected on main connector
+
+![image](https://github.com/rusefi/rusefi-hardware/assets/48498823/dac36691-878c-45d1-a2d9-7ee26409be4e)
+
 ## Updating over UART using DFU mode
 
 1. Disconnect main connector. If you are going to apply +12V power through main connector - make sure that nothing else is connected to WBO (LSU sensors, any load, etc). But I recommend flash using +5V from USB.
