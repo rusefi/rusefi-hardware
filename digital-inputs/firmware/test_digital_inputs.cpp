@@ -35,20 +35,25 @@ size_t getDigitalInputStepsCount() {
 }
 
 void stimulateEcuDigitalInputs(size_t startStepIndex) {
-	for (size_t idx = 0; idx < getDigitalInputStepsCount(); idx++) {
-		io_pin *pin = &stimOutputPins[idx];
+	bool bitState = true;
+	for (int toggle_i = 0; toggle_i < 10; toggle_i++) {
 
 	    setGlobalStatusText();
-		chprintf(chp, "%d/%d", startStepIndex + idx, totalStepsNumber());
+		chprintf(chp, "%d/%d", toggle_i, totalStepsNumber());
 		setNormalText();
-		chprintf(chp, "      Toggling port %d\r\n", pin->pin);
+		chprintf(chp, "      Toggling %d ports %d\r\n", getDigitalInputStepsCount(), bitState);
 
-		bool bitState = true;
-		for (int toggle_i = 0; toggle_i < 10; toggle_i++) {
+		chThdSleepMilliseconds(50);
+        for (size_t idx = 0; idx < getDigitalInputStepsCount(); idx++) {
+		    io_pin *pin = &stimOutputPins[idx];
 			palWritePad(pin->port, pin->pin, bitState ? 1 : 0);
-			bitState = !bitState;
-			chThdSleepMilliseconds(100);
 		}
+
+		bitState = !bitState;
+	}
+
+    for (size_t idx = 0; idx < getDigitalInputStepsCount(); idx++) {
+        io_pin *pin = &stimOutputPins[idx];
 		// turn the pin off for safety reasons
 		palWritePad(pin->port, pin->pin, 0);
 	}
