@@ -6,7 +6,7 @@ Claim yours at https://shop.rusefi.com
 
 * Ford Mustang 198 pins
 
-* [Hyundai 1.6 GDI PB 154 pins](https://github.com/rusefi/rusefi-hardware/blob/main/breakout-boards/Breakout_154_kia_pb/hellen-hyundai-pb-154-adapter-b-schematic.pdf)
+* [Hyundai 1.6 GDI PB 154 pins GDI](https://github.com/rusefi/rusefi-hardware/blob/main/breakout-boards/Breakout_154_kia_pb/hellen-hyundai-pb-154-adapter-b-schematic.pdf)
 
 * Bosch me17 112 pins
 
@@ -16,4 +16,4 @@ Claim yours at https://shop.rusefi.com
 
 * Mitsubishi Mirage
 
-* Volkswagen Passat 2.0 MED9.1
+* Volkswagen Passat 2.0 MED9.1 154 pins GDI
