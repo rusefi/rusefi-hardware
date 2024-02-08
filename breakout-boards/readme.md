@@ -1,17 +1,19 @@
 # Vehicle to superseal adapter
 
-Ferrari-Maserati 121 pins 
+Claim yours at https://shop.rusefi.com
 
-Ford Mustang 109 pins
+* Ferrari-Maserati 121 pins 
 
-Hyundai 1.6 GDI PB 154 pins
+* Ford Mustang 198 pins
 
-Bosch me17 112 pins
+* [Hyundai 1.6 GDI PB 154 pins](https://github.com/rusefi/rusefi-hardware/blob/main/breakout-boards/Breakout_154_kia_pb/hellen-hyundai-pb-154-adapter-b-schematic.pdf)
 
-Mazda Miata NC
+* Bosch me17 112 pins
 
-Mitsubishi Lancer Evo-x
+* [Mazda Miata NC](https://github.com/rusefi/rusefi-hardware/blob/main/breakout-boards/Breakout-mazda-nc-0.1.pdf)
 
-Mitsubishi Mirage
+* Mitsubishi Lancer Evo-x
 
-Volkswagen Passat 2.0 MED9.1
+* Mitsubishi Mirage
+
+* Volkswagen Passat 2.0 MED9.1
