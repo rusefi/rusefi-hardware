@@ -2,7 +2,7 @@
 
 Claim yours at https://shop.rusefi.com
 
-* Ferrari-Maserati 121 pins 
+* Ferrari-Maserati f136 engine 121 pins 
 
 * Ford Mustang 198 pins
 
