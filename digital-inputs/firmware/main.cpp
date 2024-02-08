@@ -125,7 +125,7 @@ static void ConsoleThread(void*) {
 
 		currentIndex += getDigitalDcOutputStepsCount();
 
-		bool isHappyUptime = numSecondsSinceReset > 30;
+		bool isHappyUptime = numSecondsSinceReset > 10;
 		if (!isHappyUptime) {
 		    setErrorLedAndRedText();
 		    chprintf(chp, "uptime is too low uptime=%d\r\n", numSecondsSinceReset);
