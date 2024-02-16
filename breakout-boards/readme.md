@@ -6,11 +6,11 @@ Claim yours at https://shop.rusefi.com
 
 * Ford Mustang 198 pins
 
-* [Hyundai 1.6 GDI PB 154 pins GDI](https://github.com/rusefi/rusefi-hardware/blob/main/breakout-boards/Breakout_154_kia_pb/hellen-hyundai-pb-154-adapter-b-schematic.pdf)
+* [Hyundai 1.6 GDI PB 154 pins GDI](https://github.com/rusefi/rusefi-hardware/blob/main/breakout-boards/Breakout_154_kia_pb/hellen-hyundai-pb-154-adapter-b-schematic.pdf) [pinout](https://rusefi.com/docs/pinouts/hellen/hellen-hyundai-pb-mt/)
 
 * Bosch me17 112 pins
 
-* [Mazda Miata NC](https://github.com/rusefi/rusefi-hardware/blob/main/breakout-boards/Breakout-mazda-nc-0.1.pdf)
+* [Mazda Miata NC](https://github.com/rusefi/rusefi-hardware/blob/main/breakout-boards/Breakout-mazda-nc-0.1.pdf) [pinout](https://rusefi.com/docs/pinouts/miata-nc/)
 
 * Mitsubishi Lancer Evo-x
 
