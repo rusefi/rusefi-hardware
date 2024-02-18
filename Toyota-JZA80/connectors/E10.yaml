@@ -1,0 +1,15 @@
+pins:
+  - pin: 1
+    function: Ignition Switch
+
+info:
+  title: JZA80
+  directory: Toyota-JZA80
+  image:
+    file: E10.png
+  pins:
+    - pin: 1
+      x: 529
+      y: 139
+
+
