@@ -1,0 +1,15 @@
+pins:
+  - pin: 4
+    function: ECU Ground
+
+info:
+  title: JZA80
+  directory: Toyota-JZA80
+  order: 0
+  image:
+    file: E9.png
+  pins:
+    - pin: 4
+      x: 501
+      y: 104
+
