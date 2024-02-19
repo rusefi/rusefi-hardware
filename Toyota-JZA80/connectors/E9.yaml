@@ -2,6 +2,9 @@ pins:
   - pin: 4
     function: ECU Ground
 
+  - pin: 80
+    function: ECU Ground
+
 info:
   title: JZA80
   directory: Toyota-JZA80
@@ -10,6 +13,10 @@ info:
     file: E9.png
   pins:
     - pin: 4
-      x: 501
+      x: 1390
       y: 104
+
+    - pin: 80
+      x: 135
+      y: 325
 
