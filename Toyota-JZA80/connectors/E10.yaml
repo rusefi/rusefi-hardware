@@ -2,6 +2,123 @@ pins:
   - pin: E10-1
     function: Ignition Switch
 
+  - pin: E10-2
+    function: No.1 Speed Sensor
+
+  - pin: E10-3
+    function: Kick Down Switch
+
+  - pin: E10-4
+    function: Stop Light Switch
+
+  - pin: E10-5
+    function: Exhaust Gas Temperature Warning Light (Catalytic Converter)
+
+  - pin: E10-6
+    function: Engine Warning Light (Check Engine Light)
+
+  - pin: E10-7
+    function: Reverse Gear Automatic Transmission Position Indicator
+
+  #  - pin: E10-8
+  #    function: 
+
+  - pin: E10-9
+    function: 2nd Gear Automatic Transmission Position Indicator
+
+  - pin: E10-10
+    function: Low Gear Automatic Transmission Position Indicator
+
+  - pin: E10-11
+    function: Auto Drive
+
+  - pin: E10-12
+    function: Over Drive Disable 1
+
+  #  - pin: E10-13
+  #    function: 
+
+  #  - pin: E10-14
+  #    function: 
+
+  - pin: E10-15
+    function: Electrical Load Sense
+
+  - pin: E10-16
+    function: tacho output
+
+  - pin: E10-17
+    function: Test Terminal
+
+  - pin: E10-18
+    function: Power / Normal Auto
+
+  - pin: E10-19
+    function: Test mode select 2
+
+  - pin: E10-20
+    function: Test mode select 1
+
+  - pin: E10-21
+    function: Diagnostic Indication - Fuel Pump Control
+
+  - pin: E10-22
+    function: Fuel Pump Control
+
+  - pin: E10-23
+    function: Air Conditioning (AC) Magnetic Clutch Relay
+
+  - pin: E10-24
+    function: EFI Main Relay
+
+  #  - pin: E10-25
+  #    function: 
+
+  #  - pin: E10-26
+  #    function: 
+
+  #  - pin: E10-27
+  #    function: 
+
+  - pin: E10-28
+    function: Over Drive Disable 2
+
+  - pin: E10-29
+    function: Catalytic Converter Temperature Sensor
+
+  - pin: E10-30
+    function: Timing Retard 0?
+
+  - pin: E10-31
+    function: EFI Main Relay Switched Power
+
+  - pin: E10-32
+    function: EFI Main Relay Switched Power
+
+  - pin: E10-33
+    function: Battery Power
+
+  - pin: E10-34
+    function: Air Conditioning (AC) Request Signal
+
+  #  - pin: E10-35
+  #    function:
+
+  #  - pin: E10-36
+  #    function: 
+
+  - pin: E10-37
+    function: Timing Retard 2
+
+  - pin: E10-38
+    function: Slave Engine Speed Sensor
+
+  - pin: E10-39
+    function: Slave Traction Control Throttle Position Sensor
+
+  - pin: E10-40
+    function: Slave Throttle Position Sensor
+
 info:
   title: JZA80
   directory: Toyota-JZA80

@@ -1,5 +1,237 @@
 pins:
+  #  - pin: E9-1
+  #    function: 
+
+  #  - pin: E9-2
+  #    function: 
+
+  - pin: E9-3
+    function: No. 2 Speed Sensor
+
   - pin: E9-4
+    function: ECU Ground
+
+  - pin: E9-5
+    function: Cam Position Sensor No.2 (Rear)
+
+  - pin: E9-6
+    function: Cam Position Sensor No.1 (Front)
+
+  - pin: E9-7
+    function: Crank Position Sensor
+
+  #  - pin: E9-8
+  #    function: 
+
+  #  - pin: E9-9
+  #    function: 
+
+  #  - pin: E9-10
+  #    function: 
+
+  #  - pin: E9-11
+  #    function: 
+
+  #  - pin: E9-12
+  #    function: 
+
+  #  - pin: E9-13
+  #    function: 
+
+  #  - pin: E9-14
+  #    function: 
+
+  - pin: E9-15
+    function: No. 6 Injector (Rear)
+
+  - pin: E9-16
+    function: No. 5 Injector
+
+  - pin: E9-17
+    function: No. 4 Injector
+
+  - pin: E9-18
+    function: No. 3 Injector
+
+  - pin: E9-19
+    function: No. 2 Injector
+
+  - pin: E9-20
+    function: No. 1 Injector (Front)
+
+  - pin: E9-21
+    function: Over Drive Direct Clutch Speed Sensor
+
+  #  - pin: E9-22
+  #    function: 
+
+  - pin: E9-23
+    function: No. 2 Speed Sensor
+
+  - pin: E9-24
+    function: Automatic Transmission Oil Temperature Sensor
+  - pin: E9-25
+    function: Cam Position Sensor No.1 (Front)
+
+  - pin: E9-26
+    function: Cam Position Sensor No.2 (Rear)
+
+  - pin: E9-27
+    function: Crank Position Sensor
+
+  #  - pin: E9-28
+  #    function: 
+
+  - pin: E9-29
+    function: Voltage Feedback
+
+  #  - pin: E9-30
+  #    function: 
+
+  - pin: E9-31
+    function: Automatic Transmission Line Pressure Control Solenoid
+
+  - pin: E9-32
+    function: Idle Speed Control Valve
+
+  - pin: E9-33
+    function: Idle Speed Control Valve
+
+  - pin: E9-34
+    function: Idle Speed Control Valve
+
+  - pin: E9-35
+    function: Idle Speed Control Valve
+
+  #  - pin: E9-36
+  #    function: 
+
+  #  - pin: E9-37
+  #    function: 
+
+  - pin: E9-38
+    function: Exhaust Bypass Valve Vacuum Switching Valve
+
+  - pin: E9-39
+    function: Exhaust Gas Control Valve Vacuum Switching Valve
+
+  - pin: E9-40
+    function: Intake Air Bypass Valve Vacuum Switching Valve
+
+  - pin: E9-41
+    function: 5V+ Regulated Power
+
+  - pin: E9-42
+    function: Traction Control Throttle Position Sensor
+
+  - pin: E9-43
+    function: Throttle Position Sensor
+
+  - pin: E9-44
+    function: Water Temperature Sensor
+
+  - pin: E9-45
+    function: Intake Air Temperature Sensor
+
+  #  - pin: E9-46
+  #    function: 
+
+  #  - pin: E9-47
+  #    function: o2 sensor 2
+
+  - pin: E9-48
+    function: Oxygen Sensor
+
+  - pin: E9-49
+    function: No.2 Knock Sensor (Rear)
+
+  - pin: E9-50
+    function: No.1 Knock Sensor (Front)
+
+  #  - pin: E9-51
+  #    function: 
+
+  - pin: E9-52
+    function: Igniter Trigger Signal Cyl 6 (Rear)
+
+  - pin: E9-53
+    function: Igniter Trigger Signal Cyl 5
+
+  - pin: E9-54
+    function: Igniter Trigger Signal Cyl 4
+ 
+  - pin: E9-55
+    function:Igniter Trigger Signal Cyl 3
+
+  - pin: E9-56
+    function: Igniter Trigger Signal Cyl 2
+
+  - pin: E9-57
+    function: Igniter Trigger Signal Cyl 1 (Front)
+
+  - pin: E9-58
+    function: Igniter Verification Signal
+
+  #  - pin: E9-59
+  #    function: 
+
+  - pin: E9-60
+    function: Pressure Modulation Control (Wastegate) Vacuum Switching Valve
+
+  #  - pin: E9-61
+  #    function: 
+
+  - pin: E9-62
+    function: Pressure Intake Manifold (MAP Sensor)
+  - pin: E9-63
+    function: Traction Control Throttle Idle Position Sensor
+
+  - pin: E9-64
+    function: Throttle Position Idle Sensor
+
+  - pin: E9-65
+    function: Sensor Ground
+
+  #  - pin: E9-66
+  #    function: maf signal
+
+  #  - pin: E9-67
+  #    function: 
+
+  #  - pin: E9-68
+  #    function: 
+
+  - pin: E9-69
+    function: ECU Ground
+
+  #  - pin: E9-70
+  #    function: 
+
+  - pin: E9-71
+    function: Oxygen Sensor Heater
+
+  #  - pin: E9-72
+  #    function: 
+
+  #  - pin: E9-73
+  #    function: 
+
+  - pin: E9-74
+    function: Evaporative Emission Control Vacuum Switching Valve
+
+  #  - pin: E9-75
+  #    function:
+
+  - pin: E9-76
+    function: Neutral & Park Switch Auto Position Indicator
+
+  - pin: E9-77
+    function: Starter Signal
+
+  #  - pin: E9-78
+  #    function: 
+
+  - pin: E9-79
     function: ECU Ground
 
   - pin: E9-80
