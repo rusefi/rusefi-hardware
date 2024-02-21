@@ -1,8 +1,8 @@
 pins:
-  - pin: 4
+  - pin: E9-4
     function: ECU Ground
 
-  - pin: 80
+  - pin: E9-80
     function: ECU Ground
 
 info:
@@ -12,11 +12,11 @@ info:
   image:
     file: E9.png
   pins:
-    - pin: 4
+    - pin: E9-4
       x: 1390
       y: 104
 
-    - pin: 80
+    - pin: E9-80
       x: 135
       y: 325
 

@@ -1,5 +1,5 @@
 pins:
-  - pin: 1
+  - pin: E10-1
     function: Ignition Switch
 
 info:
@@ -8,7 +8,7 @@ info:
   image:
     file: E10.png
   pins:
-    - pin: 1
+    - pin: E10-1
       x: 529
       y: 139
 
