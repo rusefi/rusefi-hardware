@@ -60,7 +60,7 @@ pins:
     function: No. 1 Injector (Front)
 
   - pin: E9-21
-    function: Over Drive Direct Clutch Speed Sensor
+    function: Over Drive Direct Clutch Speed Sensor UNUSED
 
   #  - pin: E9-22
   #    function: 
@@ -288,6 +288,27 @@ info:
       x: 1025
       y: 182
 
+
+
+    - pin: E9-23
+      x: 1447
+      y: 258
+
+    - pin: E9-24
+      x: 1390
+      y: 258
+
+    - pin: E9-25
+      x: 1334
+      y: 258
+
+    - pin: E9-26
+      x: 1279
+      y: 258
+
+    - pin: E9-27
+      x: 1220
+      y: 258
 
 
     - pin: E9-80
