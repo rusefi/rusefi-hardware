@@ -89,8 +89,10 @@ pins:
   - pin: E9-27
     function: Crank Position Sensor Positive
 
-  #  - pin: E9-28
-  #    function: 
+  - pin: E9-28
+# see https://rusefi.com/forum/viewtopic.php?p=49239#p49239
+    function: MAF Ground
+    type: agnd
 
   - pin: E9-29
     function: Voltage Feedback
@@ -327,6 +329,10 @@ info:
 
     - pin: E9-27
       x: 1220
+      y: 258
+
+    - pin: E9-29
+      x: 1165
       y: 258
 
     - pin: E9-29
