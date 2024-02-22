@@ -63,7 +63,7 @@ pins:
     function: Diagnostic Indication - Fuel Pump Control
 
   - pin: E10-22
-    function: Fuel Pump Control
+    function: Fuel Pump Control (5v PWM)
 
   - pin: E10-23
     function: Air Conditioning (AC) Magnetic Clutch Relay

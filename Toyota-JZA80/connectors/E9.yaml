@@ -22,6 +22,7 @@ pins:
 
   - pin: E9-7
     function: Crank Position Sensor Negative
+    type: agnd
 
   #  - pin: E9-8
   #    function: 
@@ -101,16 +102,16 @@ pins:
     function: Automatic Transmission Line Pressure Control Solenoid
 
   - pin: E9-32
-    function: Idle Speed Control Stepper Valve
+    function: Idle Speed Control Stepper Valve Coil 1
 
   - pin: E9-33
-    function: Idle Speed Control Stepper Valve
+    function: Idle Speed Control Stepper Valve Coil 2
 
   - pin: E9-34
-    function: Idle Speed Control Stepper Valve
+    function: Idle Speed Control Stepper Valve Coil 1
 
   - pin: E9-35
-    function: Idle Speed Control Stepper Valve
+    function: Idle Speed Control Stepper Valve Coil 2
 
   #  - pin: E9-36
   #    function: 
@@ -150,11 +151,11 @@ pins:
   #  - pin: E9-46
   #    function: 
 
-  #  - pin: E9-47
-  #    function: o2 sensor 2
+  - pin: E9-47
+    function: o2 sensor 2
 
   - pin: E9-48
-    function: Oxygen Sensor UNUSED
+    function: Oxygen Sensor
 
   - pin: E9-49
     function: No.2 Knock Sensor (Rear)
@@ -207,8 +208,8 @@ pins:
     function: Sensor Ground
     type: agnd
 
-  #  - pin: E9-66
-  #    function: maf signal
+  - pin: E9-66
+    function: MAF signal
 
   #  - pin: E9-67
   #    function: 
@@ -383,6 +384,12 @@ info:
       y: 104
 
 
+    - pin: E9-47
+      x: 329
+      y: 104
+    - pin: E9-48
+      x: 275
+      y: 104
     - pin: E9-49
       x: 216
       y: 104
