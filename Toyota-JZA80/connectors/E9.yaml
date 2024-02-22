@@ -6,19 +6,19 @@ pins:
   #    function: 
 
   - pin: E9-3
-    function: No. 2 Speed Sensor
+    function: No. 2 Vehicle Speed Sensor
 
   - pin: E9-4
     function: ECU Ground
 
   - pin: E9-5
-    function: Cam Position Sensor No.2 (Rear)
+    function: CAM (Rear) ground
 
   - pin: E9-6
-    function: Cam Position Sensor No.1 (Front)
+    function: Cam1 (Front) ground
 
   - pin: E9-7
-    function: Crank Position Sensor
+    function: Crank Position Sensor Negative
 
   #  - pin: E9-8
   #    function: 
@@ -71,13 +71,13 @@ pins:
   - pin: E9-24
     function: Automatic Transmission Oil Temperature Sensor
   - pin: E9-25
-    function: Cam Position Sensor No.1 (Front)
+    function: Cam1 (Front) Signal
 
   - pin: E9-26
-    function: Cam Position Sensor No.2 (Rear)
+    function: Cam2 (Rear) Signal
 
   - pin: E9-27
-    function: Crank Position Sensor
+    function: Crank Position Sensor Positive
 
   #  - pin: E9-28
   #    function: 
@@ -92,16 +92,16 @@ pins:
     function: Automatic Transmission Line Pressure Control Solenoid
 
   - pin: E9-32
-    function: Idle Speed Control Valve
+    function: Idle Speed Control Stepper Valve
 
   - pin: E9-33
-    function: Idle Speed Control Valve
+    function: Idle Speed Control Stepper Valve
 
   - pin: E9-34
-    function: Idle Speed Control Valve
+    function: Idle Speed Control Stepper Valve
 
   - pin: E9-35
-    function: Idle Speed Control Valve
+    function: Idle Speed Control Stepper Valve
 
   #  - pin: E9-36
   #    function: 
@@ -161,7 +161,7 @@ pins:
     function: Igniter Trigger Signal Cyl 4
  
   - pin: E9-55
-    function:Igniter Trigger Signal Cyl 3
+    function: Igniter Trigger Signal Cyl 3
 
   - pin: E9-56
     function: Igniter Trigger Signal Cyl 2
@@ -208,7 +208,7 @@ pins:
   #    function: 
 
   - pin: E9-71
-    function: Oxygen Sensor Heater
+    function: Oxygen Sensor Heater UNUSED
 
   #  - pin: E9-72
   #    function: 
@@ -217,7 +217,7 @@ pins:
   #    function: 
 
   - pin: E9-74
-    function: Evaporative Emission Control Vacuum Switching Valve
+    function: Evap output UNUSED
 
   #  - pin: E9-75
   #    function:
@@ -244,9 +244,31 @@ info:
   image:
     file: E9.png
   pins:
+    - pin: E9-3
+      x: 1447
+      y: 104
+
     - pin: E9-4
       x: 1390
       y: 104
+
+    - pin: E9-5
+      x: 1334
+      y: 104
+
+    - pin: E9-6
+      x: 1279
+      y: 104
+
+    - pin: E9-7
+      x: 1220
+      y: 104
+
+    - pin: E9-20
+      x: 1025
+      y: 182
+
+
 
     - pin: E9-80
       x: 135
