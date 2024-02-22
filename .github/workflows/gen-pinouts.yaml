@@ -21,7 +21,7 @@ jobs:
       uses: chuckwagoncomputing/interactive-pinout@2.13
       with:
         mapping-path: "*/connectors/*.yaml"
-        warnings: "false"
+        warnings: "notice"
         warning-no-pins: "error"
         warning-dupe: "error"
         columns: |
