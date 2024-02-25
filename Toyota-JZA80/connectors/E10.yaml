@@ -1,6 +1,6 @@
 pins:
   - pin: E10-1
-    function: Ignition Switch
+    function: IN_VIGN Ignition Switch
 
   - pin: E10-2
     function: No.1 Speed Sensor
@@ -15,7 +15,7 @@ pins:
     function: Exhaust Gas Temperature Warning Light (Catalytic Converter)
 
   - pin: E10-6
-    function: Engine Warning Light (Check Engine Light)
+    function: OUT_CHECK_ENGINE Engine Warning Light
 
   - pin: E10-7
     function: Reverse Gear Automatic Transmission Position Indicator
@@ -66,10 +66,10 @@ pins:
     function: Fuel Pump Control (5v PWM)
 
   - pin: E10-23
-    function: Air Conditioning (AC) Magnetic Clutch Relay
+    function: OUT_AC_RELAY Air Conditioning (AC) Magnetic Clutch Relay
 
   - pin: E10-24
-    function: EFI Main Relay
+    function: OUT_MAIN_RELAY
 
   #  - pin: E10-25
   #    function: 
@@ -90,16 +90,16 @@ pins:
     function: Timing Retard 0?
 
   - pin: E10-31
-    function: EFI Main Relay Switched Power
+    function: 12V_FROM_MAIN_RELAY Switched Power
 
   - pin: E10-32
-    function: EFI Main Relay Switched Power
+    function: 12V_FROM_MAIN_RELAY Switched Power
 
   - pin: E10-33
-    function: Battery Power
+    function: IN_CONSTANT_POWER
 
   - pin: E10-34
-    function: Air Conditioning (AC) Request Signal
+    function: IN_AC_REQUEST Air Conditioning (AC) Request Signal
 
   #  - pin: E10-35
   #    function:

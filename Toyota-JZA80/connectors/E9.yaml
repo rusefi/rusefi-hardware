@@ -13,7 +13,7 @@ pins:
     type: pgnd
 
   - pin: E9-5
-    function: CAM (Rear) ground
+    function: CAM2 (Rear) ground
     type: agnd
 
   - pin: E9-6
@@ -131,7 +131,7 @@ pins:
     function: Intake Air Bypass Valve Vacuum Switching Valve
 
   - pin: E9-41
-    function: 5V+ Regulated Power
+    function: +5VP Regulated Power
     type: 5v
 
   - pin: E9-42
@@ -139,15 +139,15 @@ pins:
     type: av
 
   - pin: E9-43
-    function: Throttle Position Sensor
+    function: IN_TPS Throttle Position Sensor
     type: av
 
   - pin: E9-44
-    function: Water Temperature Sensor
+    function: IN_CLT Water Temperature Sensor
     type: at
 
   - pin: E9-45
-    function: Intake Air Temperature Sensor
+    function: IN_IAT Intake Air Temperature Sensor
     type: at
 
   #  - pin: E9-46
