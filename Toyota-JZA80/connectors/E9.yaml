@@ -21,7 +21,7 @@ pins:
     type: agnd
 
   - pin: E9-7
-    function: Crank Position Sensor Negative
+    function: IN_CRANK_VR_NEG Crank Position Sensor Negative
     type: agnd
 
   #  - pin: E9-8
@@ -81,13 +81,13 @@ pins:
   - pin: E9-24
     function: Automatic Transmission Oil Temperature Sensor UNUSED
   - pin: E9-25
-    function: Cam1 (Front) Signal
+    function: IN_CAM1_POS Cam1 (Front) Signal
 
   - pin: E9-26
     function: Cam2 (Rear) Signal
 
   - pin: E9-27
-    function: Crank Position Sensor Positive
+    function: IN_CRANK_VR_POS Crank Position Sensor Positive
 
   - pin: E9-28
 # see https://rusefi.com/forum/viewtopic.php?p=49239#p49239
