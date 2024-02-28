@@ -444,7 +444,7 @@
       "netlist": "",
       "specctra_dsn": "",
       "step": "",
-      "vrml": "24pins_In_3conn.wrl"
+      "vrml": "export/24pins_In_3conn.wrl"
     },
     "page_layout_descr_file": ""
   },
