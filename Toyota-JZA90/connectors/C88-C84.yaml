@@ -1,0 +1,25 @@
+pins:
+  - pin: C88-8
+    function: Injector 3
+
+  - pin: 8-9
+    function: Injector 2
+
+  - pin: C88-10
+    function: Injector 1
+
+info:
+  title: JZA90/100
+  directory: Toyota-JZA90_100
+  image:
+    file: C88-C84.png
+  pins:
+    - pin: C88-10
+      x: 196
+      y: 195
+    - pin: 8-9
+      x: 259
+      y: 195
+    - pin: C88-8
+      x: 318
+      y: 195
