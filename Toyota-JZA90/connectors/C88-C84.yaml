@@ -11,6 +11,7 @@ pins:
 info:
   title: JZA90/100
   directory: Toyota-JZA90_100
+  order: 0
   image:
     file: C88-C84.png
   pins:

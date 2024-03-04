@@ -1,0 +1,14 @@
+pins:
+  - pin: 5-10
+    function: Fuel Pump
+
+info:
+  title: JZA90/100
+  directory: Toyota-JZA90_100
+  order: 1
+  image:
+    file: C85-C86.png
+  pins:
+    - pin: 5-10
+      x: 241
+      y: 359
