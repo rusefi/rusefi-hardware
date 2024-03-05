@@ -1,0 +1,3 @@
+(sym_lib_table
+  (lib (name tle9104)(type Legacy)(uri ${KIPRJMOD}/kicad-libraries/tle9104.lib)(options "")(descr ""))
+)
