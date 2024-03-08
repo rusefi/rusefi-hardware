@@ -293,7 +293,7 @@ void processCanRxMessage(const CANRxFrame& frame) {
 	        setNormalText();
 	    }
 	} else if (standardId == (WB_DATA_BASE_ADDR + 2)) {
-	    if (!hasSeenWbo1) {
+	    if (!hasSeenWbo2) {
 	        setCyanText();
 	        chprintf(chp, " ***** WBO2 packet\n");
 	        hasSeenWbo2 = true;
