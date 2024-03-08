@@ -1,0 +1,587 @@
+meta: config/boards/hellen_meta.h
+
+pins:
+  - pin: A1
+    function: Injector 1
+  - pin: A2
+    function: Injector 4
+
+  - pin: A3
+    function: Injector 2
+  - pin: A4
+    function: VTEC Solenoid Valve (wow high side)
+    class: outputs
+    type: hs
+
+  - pin: A5
+    function: Injector 3
+  - pin: A6
+    function: OEM O2 Heater UNUSED
+#      / rusEFI WBO heater white pin 3
+
+  - pin: A7
+    function: Fuel Pump Relay
+    class: outputs
+    type: ls
+
+#  - pin: A8
+#    function: rusEFI WBO pin 1
+
+  - pin: A9
+    function: Idle Air Control Valve
+  - pin: A10
+    function: OEM Engine Mount Control UNUSED
+      #/ rusEFI WBO pin 2
+  - pin: A11
+    function: EGR Solenoid
+    class: outputs
+    type: ls
+
+  - pin: A12
+    function: Radiator Fan Control Module
+    class: outputs
+    type: ls
+  - pin: A13
+    function: MIL Check Engine Light
+    class: outputs
+    type: ls
+
+  - pin: A14
+    function: OEM Fuel Injection Air Control UNUSED
+#      / rusEFI WBO pin 4
+  - pin: A15
+    function: A/C compressor clutch relay
+    class: outputs
+    type: ls
+
+  - pin: A16
+    function: rusEFI Aux Low Side output 1
+
+  - pin: A17
+    function: IAB intake manifold butterflies solenoid
+
+  #  - pin: A18
+#    function: rusEFI WBO pin 5
+
+#  - pin: A19
+#    function: rusEFI WBO pin 6
+
+  - pin: A20
+    function: PCS Purge Control Solenoid UNUSED / rusEFI Aux Low Side output 2
+
+  - pin: A21
+    function: ICM Coil Control
+    class: outputs
+    type: ls
+
+#  - pin: A22
+#    function:
+
+  - pin: A23
+    function: Power Ground
+    color: black
+    type: gnd
+  - pin: A24
+    function: Power Ground
+    color: black
+    type: gnd
+  - pin: A25
+    function: Ignition Switch / Battery Voltage Analog Input
+    class: analog_inputs
+    color: red
+    ts_name: ___ Voltage From Key
+  - pin: A26
+    function: Logic Ground
+    color: black
+    type: gnd
+
+  - pin: B1
+    function: Same as A25 Ignition Switch / Battery Voltage Analog Input
+    color: red
+  - pin: B2
+    function: Logic Ground
+  - pin: B3
+    function: TCU UNUSED
+  - pin: B4
+    function: TCU UNUSED
+  - pin: B5
+    function: A/C Pressure Switch (open drain)
+#  - pin: B6
+#    function: rusEFI Flex Input
+#    class: event_inputs
+
+  - pin: B7
+    function: AT Gear Pos Part UNUSED
+  - pin: B8
+    function: Power Steering Pres Switch UNUSED (open drain)
+  - pin: B9
+    function: Starter Signal +12 when cranking
+  - pin: B10
+    #Input (grounded 4 times per speedometer cable revolution)
+    function: Vehicle Speed Sensor
+  - pin: B11
+# one pulse per cam rev VR discrete
+    function: CYP Signal (1 pulse)
+  - pin: B12
+    function: CYP Ground
+  - pin: B13
+    function: TDC Signal UNUSED
+  - pin: B14
+    function: TDC Ground UNUSED
+  - pin: B15
+# Input, 24 pulses per cam
+    function: CKP Signal (24 pulses)
+  - pin: B16
+    function: CKP Ground
+
+  - pin: D1
+    function: Constant +12v UNUSED
+
+  - pin: D2
+    function: Brake Pedal (+12 when braking)
+
+  - pin: D3
+    function: Knock Sensor
+
+  - pin: D4
+    function: Diag via MIL Mode Switch (open drain)
+
+  - pin: D6
+    function: VTEC Pressure Switch UNUSED (+12 when something)
+
+  - pin: D7
+    function: K-Line UNUSED
+
+  - pin: D11
+    function: Throttle Position Sensor
+
+  - pin: D12
+    function: OEM Analog Input EGR Lift Sensor / rusEFI Aux Analog Input
+    class: analog_inputs
+
+  - pin: D13
+    function: Coolant Sensor
+
+  - pin: D14
+    function: OEM o2 UNUSED / rusEFI Aux Analog Input
+
+  - pin: D15
+    function: Intake Sensor
+
+  - pin: D17
+    function: MAP Sensor
+
+  - pin: D18
+    function: TCM Output +5V
+    type: 5v
+
+  - pin: D19
+    function: MAP Output +5V
+    type: 5v
+
+  - pin: D20
+    function: TPS Output +5V
+    type: 5v
+
+
+  - pin: D21
+    function: Sensor ground
+
+  - pin: D22
+    function: Sensor ground
+
+
+# AUX plug
+  - pin: C1
+    function: WBO Heater Power
+    color: grey
+
+  - pin: C2
+    function: WBO Heater Control sensor pin 3
+    color: white
+
+  - pin: C3
+    function: WBO VM sensor pin 2
+    color: yellow
+
+  - pin: C4
+    function: WBO IP sensor pin 1
+    color: red
+
+  - pin: C5
+    function: WBO cal R sensor pin 5
+    color: green
+
+  - pin: C6
+    function: WBO VS sensor pin 6
+    color: black
+
+  - pin: C7
+    class: event_inputs
+    ts_name: ___ - DIGITAL/FLEX
+    function: DIGITAL
+
+
+info:
+  title: Honda OBD1
+  directory: uaefi/honda-obd1
+  image:
+    file: 76pin-178780.jpg
+  pins:
+    - pin: A1
+      x: 171
+      y: 243
+    - pin: A2
+      x: 171
+      y: 369
+
+    - pin: A3
+      x: 262
+      y: 243
+    - pin: A4
+      x: 262
+      y: 369
+
+    - pin: A5
+      x: 342
+      y: 243
+    - pin: A6
+      x: 342
+      y: 369
+
+
+    - pin: A7
+      x: 411
+      y: 264
+    - pin: A8
+      x: 411
+      y: 393
+
+    - pin: A9
+      x: 491
+      y: 264
+    - pin: A10
+      x: 491
+      y: 393
+
+    - pin: A11
+      x: 557
+      y: 264
+    - pin: A12
+      x: 557
+      y: 393
+    - pin: A13
+      x: 627
+      y: 264
+    - pin: A14
+      x: 627
+      y: 393
+
+    - pin: A15
+      x: 700
+      y: 264
+    - pin: A16
+      x: 700
+      y: 393
+
+    - pin: A17
+      x: 767
+      y: 264
+    - pin: A18
+      x: 767
+      y: 393
+
+    - pin: A19
+      x: 845
+      y: 264
+    - pin: A20
+      x: 845
+      y: 393
+    - pin: A21
+      x: 915
+      y: 264
+    - pin: A22
+      x: 915
+      y: 393
+    - pin: A23
+      x: 986
+      y: 243
+    - pin: A24
+      x: 986
+      y: 369
+    - pin: A25
+      x: 1071
+      y: 243
+    - pin: A26
+      x: 1071
+      y: 369
+
+    - pin: B1
+      x: 1218
+      y: 260
+    - pin: B2
+      x: 1218
+      y: 387
+    - pin: B3
+      x: 1287
+      y: 260
+    - pin: B4
+      x: 1287
+      y: 387
+    - pin: B5
+      x: 1365
+      y: 260
+    - pin: B6
+      x: 1365
+      y: 387
+
+    - pin: B7
+      x: 1436
+      y: 260
+    - pin: B8
+      x: 1436
+      y: 387
+    - pin: B9
+      x: 1506
+      y: 260
+    - pin: B19
+      x: 1506
+      y: 387
+
+    - pin: B11
+      x: 1578
+      y: 260
+    - pin: B12
+      x: 1578
+      y: 387
+    - pin: B13
+      x: 1644
+      y: 260
+    - pin: B14
+      x: 1644
+      y: 387
+    - pin: B15
+      x: 1716
+      y: 260
+    - pin: B16
+      x: 1716
+      y: 387
+
+    - pin: B1
+      x: 1856
+      y: 260
+    - pin: B2
+      x: 1856
+      y: 387
+
+    - pin: B3
+      x: 1922
+      y: 260
+    - pin: B4
+      x: 1922
+      y: 387
+
+    - pin: B5
+      x: 2000
+      y: 260
+    - pin: B6
+      x: 2000
+      y: 387
+
+    - pin: B7
+      x: 1070
+      y: 260
+    - pin: B8
+      x: 1070
+      y: 387
+
+    - pin: C1
+      x: 1853
+      y: 260
+    - pin: C3
+      x: 1922
+      y: 260
+    - pin: C5
+      x: 1995
+      y: 260
+    - pin: C7
+      x: 2073
+      y: 260
+    - pin: C9
+      x: 2145
+      y: 260
+    - pin: C11
+      x: 2219
+      y: 260
+
+
+    - pin: C2
+      x: 1853
+      y: 387
+    - pin: C4
+      x: 1922
+      y: 387
+    - pin: C6
+      x: 1995
+      y: 387
+    - pin: C8
+      x: 2073
+      y: 387
+    - pin: C10
+      x: 2145
+      y: 387
+    - pin: C12
+      x: 2219
+      y: 387
+
+
+    - pin: D1
+      x: 2368
+      y: 220
+    - pin: D2
+      x: 2368
+      y: 350
+
+    - pin: D3
+      x: 2435
+      y: 250
+    - pin: D4
+      x: 2435
+      y: 376
+
+
+    - pin: D13
+      x: 2792
+      y: 250
+    - pin: D14
+      x: 2792
+      y: 376
+
+    - pin: D15
+      x: 2877
+      y: 250
+    - pin: D16
+      x: 2877
+      y: 376
+
+    - pin: D17
+      x: 2950
+      y: 250
+    - pin: D18
+      x: 2950
+      y: 376
+
+    - pin: D19
+      x: 3024
+      y: 220
+    - pin: D20
+      x: 3024
+      y: 350
+    - pin: D21
+      x: 3122
+      y: 220
+    - pin: D22
+      x: 3122
+      y: 350
+
+    - pin: 1C
+      x: 2038
+      y: 220
+    - pin: 1D
+      x: 2038
+      y: 350
+
+    - pin: 1E
+      x: 2950
+      y: 250
+    - pin: 1F
+      x: 2950
+      y: 376
+
+    - pin: 1G
+      x: 3624
+      y: 250
+    - pin: 1H
+      x: 3624
+      y: 376
+
+    - pin: 1I
+      x: 3508
+      y: 250
+    - pin: 1J
+      x: 3508
+      y: 376
+
+    - pin: 1M
+      x: 3284
+      y: 250
+    - pin: 1N
+      x: 3284
+      y: 376
+
+
+    - pin: 2A
+      x: 2616
+      y: 352
+      
+    - pin: 2B
+      x: 2616
+      y: 544
+
+    - pin: 2C
+      x: 2506
+      y: 352
+      
+    - pin: 2D
+      x: 2506
+      y: 544
+
+    - pin: 2E
+      x: 2396
+      y: 352
+      
+    - pin: 2F
+      x: 2396
+      y: 544
+
+    - pin: 2G
+      x: 2286
+      y: 352
+      
+    - pin: 2H
+      x: 2286
+      y: 544
+
+    - pin: 2I
+      x: 2176
+      y: 352
+      
+    - pin: 2J
+      x: 2176
+      y: 544
+  
+    - pin: 2K
+      x: 2066
+      y: 352
+      
+    - pin: 2L
+      x: 2066
+      y: 544
+
+    - pin: 2M
+      x: 1956
+      y: 352
+      
+    - pin: 2N
+      x: 1956
+      y: 544
+
+    - pin: 2O
+      x: 1846
+      y: 352
+      
+    - pin: 2P
+      x: 1846
+      y: 544
+
+
