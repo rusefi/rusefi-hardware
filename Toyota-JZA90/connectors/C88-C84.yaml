@@ -1,13 +1,108 @@
 pins:
-  - pin: C88-8
+  - pin: 8-5
+    function: Injector 6
+
+  - pin: 8-6
+    function: Injector 5
+
+  - pin: 8-7
+    function: Injector 4
+
+  - pin: 8-8
     function: Injector 3
 
   - pin: 8-9
     function: Injector 2
 
-  - pin: C88-10
+  - pin: 8-10
     function: Injector 1
 
+  - pin: 8-13
+    function: Starter Signal (Manual)
+
+  - pin: 8-14
+    function: Starter Signal (Auto)
+
+  - pin: 8-15
+    function: VVT Solenoid - Inlet (Aux 1)
+
+  - pin: 8-16
+    function: VVT Solenoid - Inlet (+14V Out)
+
+  - pin: 8-20
+    function: ISC Stepper (Aux 8)
+
+  - pin: 8-21
+    function: ISC Stepper (Aux 6)
+
+  - pin: 8-22
+    function: ISC Stepper (Aux 7)
+
+  - pin: 8-23
+    function: ISC Stepper (Aux 5)
+
+  - pin: 8-24
+    function: Ignition 1
+
+  - pin: 8-25
+    function: Ground
+
+  - pin: 8-26
+    function: +5V or Gnd (Jumper)
+
+  - pin: 8-29
+    function: Knock 2
+
+  - pin: 8-30
+    function: Knock 1
+
+  - pin: 8-32
+    function: Spare (Ignition 4)
+
+  - pin: 8-33
+    function: Ground
+
+  - pin: 8-34
+    function: Ground
+
+  - pin: 4-1
+    function: +5V Out 
+
+  - pin: 4-2
+    function: Spare (Ignition 6)
+
+  - pin: 4-5
+    function: Trig 1 (NE+) 
+
+  - pin: 4-6
+    function:  Ground (NE-) 
+
+  - pin: 4-7
+    function: TPS (Main)
+
+  - pin: 4-8
+    function: MAF Signal
+
+  - pin: 4-10
+    function: Trig 2 (VVT)
+
+  - pin: 4-11
+    function: Spare (Ignition 5)
+
+  - pin: 4-16
+    function: Ignition 3
+
+  - pin: 4-17
+    function: Ignition 2
+
+  - pin: 4-20
+    function: ECT
+
+  - pin: 4-21
+    function: MAF IAT
+
+  - pin: 4-22
+    function: Ground
 info:
   title: JZA90/100
   directory: Toyota-JZA90_100
@@ -15,12 +110,226 @@ info:
   image:
     file: C88-C84.png
   pins:
-    - pin: C88-10
-      x: 196
+    - pin: 4-1
+      x: 1205
       y: 195
+
+    - pin: 4-2
+      x: 1138
+      y: 195
+
+    - pin: 4-3
+      x: 1081
+      y: 195
+
+    - pin: 4-4
+      x: 1016
+      y: 195
+
+    - pin: 4-5
+      x: 956
+      y: 195
+
+    - pin: 4-6
+      x: 894
+      y: 195
+
+    - pin: 4-7
+      x: 1239
+      y: 278
+
+    - pin: 4-8
+      x: 1171
+      y: 278
+
+    - pin: 4-9
+      x: 982
+      y: 278
+
+    - pin: 4-10
+      x: 921
+      y: 278
+
+    - pin: 4-11
+      x: 858
+      y: 278
+
+    - pin: 4-12
+      x: 1208
+      y: 360
+
+    - pin: 4-13
+      x: 1146
+      y: 360
+
+    - pin: 4-14
+      x: 1078
+      y: 360
+
+    - pin: 4-15
+      x: 1015
+      y: 360
+
+    - pin: 4-16
+      x: 952
+      y: 360
+
+    - pin: 4-17
+      x: 888
+      y: 360
+
+    - pin: 4-18
+      x: 1240
+      y: 445
+
+    - pin: 4-19
+      x: 1176
+      y: 445
+
+    - pin: 4-20
+      x: 985
+      y: 445
+
+    - pin: 4-21
+      x: 922
+      y: 445
+
+    - pin: 4-22
+      x: 860
+      y: 445
+
+    - pin: 8-1
+      x: 754
+      y: 195
+
+    - pin: 8-2
+      x: 695
+      y: 195
+
+    - pin: 8-3
+      x: 631
+      y: 195
+
+    - pin: 8-4
+      x: 572
+      y: 195
+
+    - pin: 8-5
+      x: 512
+      y: 195
+
+    - pin: 8-6
+      x: 445
+      y: 195
+
+    - pin: 8-7
+      x: 381
+      y: 195
+
+    - pin: 8-8
+      x: 318
+      y: 195
+
     - pin: 8-9
       x: 259
       y: 195
-    - pin: C88-8
-      x: 318
+
+    - pin: 8-10
+      x: 196
       y: 195
+
+    - pin: 8-11
+      x: 726
+      y: 274
+
+    - pin: 8-12
+      x: 659
+      y: 274
+
+    - pin: 8-13
+      x: 471
+      y: 274
+
+    - pin: 8-14
+      x: 412
+      y: 274
+
+    - pin: 8-15
+      x: 221
+      y: 274
+
+    - pin: 8-16
+      x: 161
+      y: 274
+
+    - pin: 8-17
+      x: 751
+      y: 358
+
+    - pin: 8-18
+      x: 693
+      y: 358
+
+    - pin: 8-19
+      x: 630
+      y: 358
+
+    - pin: 8-20
+      x: 562
+      y: 358
+
+    - pin: 8-21
+      x: 501
+      y: 358
+
+    - pin: 8-22
+      x: 440
+      y: 358
+
+    - pin: 8-23
+      x: 379
+      y: 358
+
+    - pin: 8-24
+      x: 315
+      y: 358
+
+    - pin: 8-25
+      x: 253
+      y: 358
+
+    - pin: 8-26
+      x: 192
+      y: 358
+
+    - pin: 8-27
+      x: 721
+      y: 441
+
+    - pin: 8-28
+      x: 660
+      y: 441
+
+    - pin: 8-29
+      x: 591
+      y: 441
+
+    - pin: 8-30
+      x: 529
+      y: 441
+
+    - pin: 8-31
+      x: 341
+      y: 441
+
+    - pin: 8-32
+      x: 285
+      y: 441
+
+    - pin: 8-33
+      x: 225
+      y: 441
+
+    - pin: 8-34
+      x: 155
+      y: 441
