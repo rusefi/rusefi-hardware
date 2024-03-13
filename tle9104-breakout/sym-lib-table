@@ -1,4 +1,5 @@
 (sym_lib_table
-  (lib (name "tle9104")(type "Legacy")(uri "${KIPRJMOD}/kicad-libraries/tle9104.lib")(options "")(descr ""))
+  (version 7)
+  (lib (name "tle9104")(type "Legacy")(uri "${KIPRJMOD}/../kicad-libraries/tle9104.lib")(options "")(descr ""))
   (lib (name "tle9104-breakout-rescue")(type "Legacy")(uri "${KIPRJMOD}/tle9104-breakout-rescue.lib")(options "")(descr ""))
 )
