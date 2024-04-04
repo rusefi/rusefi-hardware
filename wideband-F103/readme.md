@@ -1,3 +1,5 @@
+🔴 RED ALERT 🔴 STATUS UNKNOWN 🔴 Most usages are either F042 or lambda-x2, this folder is a bit abandoned we never got perfect HW+FW match 🔴
+
 Self-contained LSU wideband supporting both STM32F103 and GD32F103
 
 See https://github.com/mck1117/wideband
