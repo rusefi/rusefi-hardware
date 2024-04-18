@@ -240,6 +240,7 @@ BoardConfig boardConfigs[] = {
 
 	    },
         .wboUnitsCount = 1,
+		.dcHackValue = 1,
 	},
 	{
 		.boardName = "hd",
