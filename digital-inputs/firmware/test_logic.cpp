@@ -222,9 +222,9 @@ BoardConfig boardConfigs[] = {
 		/*vss*/true},
 		.buttonExpected = {false, false, false},
 		.outputNames = {
- "LS1",
- "LS2",
- "LS3",
+ "injector 1",
+ "injector 2",
+ "injector 3",
  "Main Relay Output Control",
  "Starter Relay Output",
  "Intercooler Fan Output",
@@ -601,7 +601,6 @@ bool testDcOutput(size_t dcIndex) {
 
     bool isGood = true;
 
-//    int temp = 0; // mg1
     int temp = currentBoard->dcHackValue;
 
     isGood = isGood & doTestEcuDigitalOutput(LAST_DIGITAL_PIN - 2 * globalDcIndex, temp ^ /*isLowSide*/0, sender, false);
