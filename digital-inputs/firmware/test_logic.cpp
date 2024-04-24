@@ -245,7 +245,7 @@ BoardConfig boardConfigs[] = {
 	{
 		.boardName = "hd",
 		.desiredEngineConfig = -1,
-		.boardIds = { STATIC_BOARD_ID_PROTEUS_HARLEY, BOARD_ID_HD81_A, 0 },
+		.boardIds = { STATIC_BOARD_ID_PROTEUS_HARLEY, BOARD_ID_HD81_A, BOARD_ID_HD81_B, 0 },
 		.channels = {
 			{ "TPS1_1", PULLED_DOWN_RANGE(DOWN_7B, UP_7B, 680'000) },
 			{ "TPS1_2", 1, 0.767938368, /* ideally 0.860549952*/ 0.87 },
@@ -261,7 +261,9 @@ BoardConfig boardConfigs[] = {
 			{ nullptr, 0, 0, 0 },//{ "AUXL1", 1.0f, 1.35f * ANALOG_L, 1.35f * ANALOG_H },
 			{ nullptr, 0, 0, 0 },//{ "AUXL2", 1.0f, 2.23f * ANALOG_L, 2.23f * ANALOG_H },
 		},
-		.eventExpected = {/*crank TODO */false,
+		.eventExpected = {
+		/* crank neg goes to https://rusefi.com/docs/pinouts/stim/?connector=main&pin=24C 2.5v source, crank positive 22B with a 4.7K pull up */
+		true,
 		false,
 		/*cam1*/true,
 		false, false, false,
@@ -278,9 +280,10 @@ BoardConfig boardConfigs[] = {
 "43 Rear Coil 1",
 "4 Left Oil Fan / Coolant Pump",
 "1 Right Oil Cooling / Coolant Fan",
+"44 fan",
 	    },
         .wboUnitsCount = 2,
-		.dcHackValue = 0,
+		.dcHackValue = 1,
 	},
 	{
 		.boardName = "112-17",
