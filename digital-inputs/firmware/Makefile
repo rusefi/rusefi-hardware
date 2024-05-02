@@ -24,6 +24,8 @@ ifeq ($(USE_LINK_GC),)
   USE_LINK_GC = yes
 endif
 
+USE_OPT += -DUS_TO_NT_MULTIPLIER=1
+
 # Linker extra options here.
 ifeq ($(USE_LDOPT),)
   USE_LDOPT = 
