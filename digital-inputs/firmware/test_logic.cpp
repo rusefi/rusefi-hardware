@@ -64,6 +64,12 @@
 #define UP_12B 820.0f
 #define DOWN_12B 330.0f
 
+#define UP_13B 470.0f
+#define DOWN_13B 220.0f
+
+#define UP_14B 820.0f
+#define DOWN_14B 510.0f
+
 #define MAP_R 10000.0f
 
 #define STATIC_ASSERT_EQ_FLOAT(v1, v2) (absF(v1 - v2) < 0.000001)
@@ -252,17 +258,24 @@ BoardConfig boardConfigs[] = {
 			{ "TPS1_2", 1, 0.767938368, /* ideally 0.860549952*/ 0.87 },
 			{ "PPS1", 1, 0.79 /*0.821830144*/, 0.920940928 },
 			{ "PPS2", PULLED_DOWN_RANGE(DOWN_11B, UP_11B, 680'000) },
+
 			{ "MAP", PULLED_DOWN_RANGE(DOWN_8B, UP_8B, 680'000) },
-//			{ nullptr, 0, 0, 0 }, // skipping for Proteus
-//			{ nullptr, 0, 0, 0 }, // skipping for Proteus
-			{ "CLT", 1.0f, CLT_VALUE(HELLEN_R) * ANALOG_L, CLT_VALUE(HELLEN_R) * ANALOG_H },
-			{ "IAT", 1.0f, IAT_VALUE(HELLEN_R) * ANALOG_L, IAT_VALUE(HELLEN_R) * ANALOG_H },
+//			skipping for now
+			{ nullptr, 0, 0, 0 }, // skipping for Proteus
+//			{ "CLT", 1.0f, CLT_VALUE(PROTEUS_R) * ANALOG_L, CLT_VALUE(PROTEUS_R) * ANALOG_H },
+			{ "IAT", 1.0f, IAT_VALUE(PROTEUS_R) * ANALOG_L, IAT_VALUE(PROTEUS_R) * ANALOG_H },
 			{ "BATT", PROTEUS_VBATT_MULT, 9.0f, 15.0f },
 
-			{ nullptr, 0, 0, 0 }, // { "TPS2_1", 1.0f, 0.5f * ANALOG_L, 0.5f * ANALOG_H },
-			{ nullptr, 0, 0, 0 }, // { "TPS2_2", 1.0f, 0.5f * ANALOG_L, 0.5f * ANALOG_H },
+            // see can_bench_test.cpp values_2
+			{ "TPS2_1", 1.0f, VOLT_13B * ANALOG_L, VOLT_13B * ANALOG_H },
+			{ "TPS2_2", 1.0f, VOLT_14B * ANALOG_L, VOLT_14B * ANALOG_H },
 			{ nullptr, 0, 0, 0 },//{ "AUXL1", 1.0f, 1.35f * ANALOG_L, 1.35f * ANALOG_H },
 			{ nullptr, 0, 0, 0 },//{ "AUXL2", 1.0f, 2.23f * ANALOG_L, 2.23f * ANALOG_H },
+			{ nullptr, 0, 0, 0 },//{ "oil", 1.0f, 2.23f * ANALOG_L, 2.23f * ANALOG_H },
+//			{ "fuel-low", 1.0f, VOLT_12B * ANALOG_L, VOLT_12B * ANALOG_H },
+			{ nullptr, 0, 0, 0 }, // todo remove
+			{ nullptr, 0, 0, 0 },
+			{ nullptr, 0, 0, 0 },
 		},
 		.eventExpected = {/*crank*/true,
 		false,
