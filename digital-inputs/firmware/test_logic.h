@@ -21,7 +21,10 @@ class Counter {
 public:
 	int canFrameIndex;
 	const char *name;
-	bool nonZero = false;
+	bool seenTwoDifferentNonZeroValue = false;
+	int firstNonZeroValue = 0;
+	bool isHappy() const;
+	void applyNewValue(int value);
 };
 
 #define EVENT_ENUM_SIZE 7

@@ -82,7 +82,7 @@ bool isHappyCanTest() {
 static void handleCounter(Counter *cnt, bool *isHappy, bool *eventExpected, const char *suffix) {
 		if (!eventExpected[cnt->canFrameIndex])
 			return;
-		if (cnt->nonZero) {
+		if (cnt->isHappy()) {
 		    setGreenText();
         	chprintf(chp, "* HAPPY %s %s counter!\r\n", cnt->name, suffix);
         	setNormalText();
@@ -91,7 +91,7 @@ static void handleCounter(Counter *cnt, bool *isHappy, bool *eventExpected, cons
 			chprintf(chp, "* ZERO %s %s counter!\r\n", cnt->name, suffix);
 			setNormalText();
 		}
-		*isHappy = *isHappy && cnt->nonZero;
+		*isHappy = *isHappy && cnt->isHappy();
 }
 
 bool checkDigitalInputCounterStatus() {
@@ -221,21 +221,34 @@ static void receiveRawAnalog(const uint8_t msg[CAN_FRAME_SIZE], size_t offset) {
 	}
 }
 
+bool Counter::isHappy() const {
+    return seenTwoDifferentNonZeroValue;
+}
+
+void Counter::applyNewValue(int value) {
+   if (firstNonZeroValue == 0 && value != 0) {
+        firstNonZeroValue = value;
+   }
+   if (value != 0 && firstNonZeroValue != 0 && value != firstNonZeroValue) {
+     seenTwoDifferentNonZeroValue = true;
+   }
+}
+
 static void receiveEventCounters(const uint8_t msg[CAN_FRAME_SIZE]) {
 	for (auto & evtCnt : counterStatus.eventCounters) {
-		evtCnt.nonZero = evtCnt.nonZero || (msg[evtCnt.canFrameIndex] > 0);
+	    evtCnt.applyNewValue(msg[evtCnt.canFrameIndex]);
 	}
 }
 
 static void receiveButtonCounters(const uint8_t msg[CAN_FRAME_SIZE]) {
 	for (auto & btnCnt : counterStatus.buttonCounters) {
-		btnCnt.nonZero = btnCnt.nonZero || (msg[btnCnt.canFrameIndex] > 0);
+	    btnCnt.applyNewValue(msg[btnCnt.canFrameIndex]);
 	}
 }
 
 static void receiveAuxDigitalCounters(const uint8_t msg[CAN_FRAME_SIZE]) {
 	for (auto & cnt : counterStatus.auxDigitalCounters) {
-		cnt.nonZero = cnt.nonZero || (msg[cnt.canFrameIndex] > 0);
+	    cnt.applyNewValue(msg[cnt.canFrameIndex]);
 	}
 }
 
