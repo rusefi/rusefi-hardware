@@ -251,8 +251,7 @@ BoardConfig boardConfigs[] = {
 	{
 		.boardName = "M73",
 		.desiredEngineConfig = -1,
-		.boardIds = { (STATIC_BOARD_ID_BASE + 52), 0 },
-//		.boardIds = { STATIC_BOARD_ID_PROTEUS_M73, 0 },
+		.boardIds = { STATIC_BOARD_ID_PROTEUS_M73, 0 },
 		.channels = {
 			{ "TPS1_1", PULLED_DOWN_RANGE(DOWN_7B, UP_7B, 680'000) },
 			{ "TPS1_2", 1, 0.767938368, /* ideally 0.860549952*/ 0.87 },
@@ -260,9 +259,7 @@ BoardConfig boardConfigs[] = {
 			{ "PPS2", PULLED_DOWN_RANGE(DOWN_11B, UP_11B, 680'000) },
 
 			{ "MAP", PULLED_DOWN_RANGE(DOWN_8B, UP_8B, 680'000) },
-//			skipping for now
-			{ nullptr, 0, 0, 0 }, // skipping for Proteus
-//			{ "CLT", 1.0f, CLT_VALUE(PROTEUS_R) * ANALOG_L, CLT_VALUE(PROTEUS_R) * ANALOG_H },
+			{ "CLT", 1.0f, CLT_VALUE(PROTEUS_R) * ANALOG_L, CLT_VALUE(PROTEUS_R) * ANALOG_H },
 			{ "IAT", 1.0f, IAT_VALUE(PROTEUS_R) * ANALOG_L, IAT_VALUE(PROTEUS_R) * ANALOG_H },
 			{ "BATT", PROTEUS_VBATT_MULT, 9.0f, 15.0f },
 
@@ -277,9 +274,10 @@ BoardConfig boardConfigs[] = {
 			{ nullptr, 0, 0, 0 },
 			{ nullptr, 0, 0, 0 },
 		},
+		/* crank neg goes to https://rusefi.com/docs/pinouts/stim/?connector=main&pin=24C 2.5v source, crank positive 22B with a 4.7K pull up */
 		.eventExpected = {/*crank*/true,
 		false,
-		/*cam1*/false,
+		/*cam1*/true,
 		false, false, false,
 		/*vss*/false},
 		.buttonExpected = {false, false, false},
