@@ -2,6 +2,8 @@
 
 🟢 rev1 is known to work 🟢
 
+https://www.shop.rusefi.com/shop/p/dual-channel-wbo
+
 ![x](https://rusefi.com/forum/download/file.php?id=9478)
 
 * STM32F103 dual channel wideband AFR controller supporting Bosch LSU4.9 and LSU4.2 (LSU_ADV work in progress)
