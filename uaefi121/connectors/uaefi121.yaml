@@ -109,54 +109,65 @@ pins:
   - pin: 22a
     ts_name: EGT+
     function: EGT negative input
-
+    
+  - pin: 23a
+    class: analog_inputs
+    ts_name: IAT
+    function: IAT sensor
+    
+  - pin: 24a
+    class: analog_inputs
+    ts_name: CLT
+    function: CLT sensor  
+    
   - pin: 25a
     class: outputs
-    ts_name: INJ_1
-    function: Injector 1
-    type: inj
-    
+    ts_name: Coil 1
+    function: Coil 1
+    type: ign
+
   - pin: 26a
     class: outputs
-    ts_name: INJ_2
-    function: Injector 2
-    type: inj    
+    ts_name: Coil 2
+    function: Coil 2
+    type: ign
     
   - pin: 27a
     class: outputs
-    ts_name: INJ_3
-    function: Injector 3
-    type: inj   
-
+    ts_name: Coil 3
+    function: Coil 3
+    type: ign
+    
   - pin: 28a
     class: outputs
-    ts_name: INJ_4
-    function: Injector 4
-    type: inj    
+    ts_name: Coil 4
+    function: Coil 4
+    type: ign
     
   - pin: 29a
     class: outputs
-    ts_name: INJ_5
-    function: Injector 5
-    type: inj 
+    ts_name: Coil 5
+    function: Coil 5
+    type: ign
 
   - pin: 30a
     class: outputs
-    ts_name: INJ_6
-    function: Injector 6
-    type: inj    
-    
+    ts_name: Coil 6
+    function: Coil 6
+    type: ign
+
   - pin: 31a
     class: outputs
-    ts_name: INJ_7
-    function: Injector 7 UNUSED
-    type: inj   
-
+    ts_name: Coil 7
+    function: Coil 7 UNUSED
+    type: ign
+ 
   - pin: 32a
     class: outputs
-    ts_name: INJ_8
-    function: Injector 8 UNUSED
-    type: inj    
+    ts_name: Coil 8
+    function: Coil 8 UNUSED
+    type: ign
+
 
   - pin: 33a
     function: HALL1 Sensor
@@ -206,27 +217,60 @@ pins:
   - pin: 42a
     function: FLEX
     ts_name: FLEX  
-    
- 
-  - pin: 44a
+     
+  - pin: 43a
     class: outputs
     ts_name: HS
     function: High-side high current output
+    
+  - pin: 44a
+    class: outputs
+    ts_name: INJ_1
+    function: Injector 1
+    type: inj
+    
+  - pin: 45a
+    class: outputs
+    ts_name: INJ_2
+    function: Injector 2
+    type: inj    
+    
+  - pin: 46a
+    class: outputs
+    ts_name: INJ_3
+    function: Injector 3
+    type: inj   
+
+  - pin: 47a
+    class: outputs
+    ts_name: INJ_4
+    function: Injector 4
+    type: inj    
+    
+  - pin: 48a
+    class: outputs
+    ts_name: INJ_5
+    function: Injector 5
+    type: inj 
 
   - pin: 49a
-    function: GNDA knock sensor   
-    type: gnd
- 
-  - pin: 50a
-    class: analog_inputs
-    ts_name: IAT
-    function: IAT sensor
+    class: outputs
+    ts_name: INJ_6
+    function: Injector 6
+    type: inj    
     
-  - pin: 51a
-    class: analog_inputs
-    ts_name: CLT
-    function: CLT sensor    
+  - pin: 50a
+    class: outputs
+    ts_name: INJ_7
+    function: Injector 7 UNUSED
+    type: inj   
 
+  - pin: 51a
+    class: outputs
+    ts_name: INJ_8
+    function: Injector 8 UNUSED
+    type: inj    
+                                                                                            
   - pin: 52a
     function: GNDA HALL1 sensor  
     type: gnd
@@ -266,12 +310,12 @@ pins:
   - pin: 61a
     function: GNDA FLEX/HALL sensor  
     type: gnd
+    
+  - pin: 62a
+    function: GNDA KNOCK sensor  
+    type: gnd    
+ 
 
-
-  - pin: 68a
-    class: analog_inputs
-    ts_name: KNOCK
-    function: KNOCK sensor 
 
   - pin: 69a
     function: +5v IAT sensor
@@ -320,7 +364,12 @@ pins:
   - pin: 80a
     function: +5v FLEX/HALL sensor  
     type: 5v
-
+    
+  - pin: 81a
+    class: analog_inputs
+    ts_name: KNOCK
+    function: KNOCK sensor 
+    
   - pin: 82a
     function: CAN bus high
     type: can
