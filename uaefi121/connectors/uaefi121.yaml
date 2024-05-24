@@ -3,21 +3,18 @@ pins:
     class: outputs
     ts_name: ETB_OUT+
     function: +ETB_OUT
+    type: etb
 
   - pin: 2a
     class: outputs
     ts_name: ETB_OUT-
     function: -ETB_OUT
+    type: etb
     
   - pin: 3a
     function: GND
     type: GND
 
-  - pin: 4a
-    function: LSU 4.2 Heater1
-
-  - pin: 5a
-    function: LSU 4.2 Heater2
 
   - pin: 6a
     class: outputs
@@ -68,44 +65,50 @@ pins:
     type: ign
 
   - pin: 14a
-    ts_name: VTC Left
+    ts_name: LS1
     class: outputs
-    function: Intake VTC solenoid Bank 2
+    function: Low-Side 1 output
+    type: ls
     
   - pin: 15a
-    ts_name: VTC Right
+    ts_name: LS2
     class: outputs
-    function: Intake VTC solenoid Bank 1    
+    function: Low-Side 2 output    
+    type: ls
 
   - pin: 16a
-    id: D3
-    ts_name: 29 - VIAS
+    ts_name: LS3
     class: outputs
-    function: VIAS control Solenoid
-
+    function: Low-Side 3 output
+    type: ls
+    
   - pin: 17a
-    function: LSU 4.2 Rtrim1
+    ts_name: VR_9924+
+    function: VR_9924 positive input
+    type: vr
     
   - pin: 18a
-    function: LSU 4.2 Ip1 
-
-  - pin: 19a
-    function: LSU 4.2 Vm1    
+    ts_name: VR_9924-
+    function: VR_9924 negative input    
+    type: vr
     
+  - pin: 19a
+    ts_name: VR_DISCRETE+
+    function: VR_DISCRETE positive input
+    type: vr
+        
   - pin: 20a
-    function: LSU 4.2 Vs1    
+    ts_name: VR_DISCRETE-
+    function: VR_DISCRETE negative input       
+    type: vr
     
   - pin: 21a
-    function: LSU 4.2 Rtrim2
+    ts_name: EGT+
+    function: EGT positive input
     
   - pin: 22a
-    function: LSU 4.2 Ip2
-
-  - pin: 23a
-    function: LSU 4.2 Vm2  
-    
-  - pin: 24a
-    function: LSU 4.2 Vs2
+    ts_name: EGT+
+    function: EGT negative input
 
   - pin: 25a
     class: outputs
@@ -134,7 +137,7 @@ pins:
   - pin: 29a
     class: outputs
     ts_name: INJ_5
-    function: Injector 5s
+    function: Injector 5
     type: inj 
 
   - pin: 30a
@@ -156,21 +159,24 @@ pins:
     type: inj    
 
   - pin: 33a
-    function: Crank Sensor
-    ts_name: Crank
+    function: HALL1 Sensor
+    ts_name: HALL1
+    type: hall
     
   - pin: 34a
     function: CAM Sensor Left
-    ts_name: CAM Left    
+    ts_name: HALL2    
+    type: hall
     
   - pin: 35a
     function: CAM Sensor Right
-    ts_name: CAM Right      
+    ts_name: HALL3      
+    type: hall
 
   - pin: 36a
-    class: analog_inputs
-    ts_name: MAF
-    function: MAF signal
+    class: digital_inputs
+    ts_name: DIN
+    function: DIN signal
     
   - pin: 37a
     class: analog_inputs
@@ -201,9 +207,6 @@ pins:
     function: FLEX
     ts_name: FLEX  
     
-  - pin: 43a
-    function: AUX hall sensor input
-    ts_name: HALL   
  
   - pin: 44a
     class: outputs
@@ -212,6 +215,7 @@ pins:
 
   - pin: 49a
     function: GNDA knock sensor   
+    type: gnd
  
   - pin: 50a
     class: analog_inputs
@@ -224,37 +228,45 @@ pins:
     function: CLT sensor    
 
   - pin: 52a
-    function: GNDA crank sensor  
+    function: GNDA HALL1 sensor  
+    type: gnd
 
   - pin: 53a
-    function: GNDA cam left sensor  
+    function: GNDA HALL2 sensor  
+    type: gnd
 
   - pin: 54a
-    function: GNDA cam right sensor  
+    function: GNDA HALL3 sensor  
+    type: gnd
 
   - pin: 55a
-    function: GNDA maf sensor  
+    function: GNDA DIN sensor  
+    type: gnd
 
   - pin: 56a
     function: GNDA map sensor  
+    type: gnd
 
   - pin: 57a
     function: GNDA tps1 sensor  
+    type: gnd
 
   - pin: 58a
     function: GNDA tps2 sensor  
+    type: gnd
 
   - pin: 59a
     function: GNDA AIN1 sensor  
+    type: gnd
 
   - pin: 60a
     function: GNDA AIN2 sensor  
+    type: gnd
 
   - pin: 61a
     function: GNDA FLEX/HALL sensor  
+    type: gnd
 
-  - pin: 62a
-    function: GNDA HALL sensor  
 
   - pin: 68a
     class: analog_inputs
@@ -263,42 +275,51 @@ pins:
 
   - pin: 69a
     function: +5v IAT sensor
+    type: 5v
 
   - pin: 70a
     function: +5v CLT sensor
+    type: 5v
 
   - pin: 71a
-    function: +5v crank sensor  
+    function: +5v HALL1 sensor  
+    type: 5v
 
   - pin: 72a
-    function: +5v cam left sensor  
+    function: +5v HALL2 sensor  
+    type: 5v
 
   - pin: 73a
-    function: +5v cam right sensor  
+    function: +5v HALL3 sensor  
+    type: 5v
 
   - pin: 74a
-    function: +5v maf sensor  
+    function: +5v DIN sensor  
+    type: 5v
 
   - pin: 75a
-    function: +5v map sensor  
+    function: +5v map sensor
+    type: 5v
 
   - pin: 76a
-    function: +5v tps1 sensor  
+    function: +5v tps1 sensor 
+    type: 5v
 
   - pin: 77a
     function: +5v tps2 sensor  
+    type: 5v
 
   - pin: 78a
     function: +5v AIN1 sensor  
+    type: 5v
 
   - pin: 79a
     function: +5v AIN2 sensor  
+    type: 5v
 
   - pin: 80a
     function: +5v FLEX/HALL sensor  
-
-  - pin: 81a
-    function: +5v HALL sensor  
+    type: 5v
 
   - pin: 82a
     function: CAN bus high
@@ -310,28 +331,36 @@ pins:
 
   - pin: 84a
     class: digital_inputs
-    ts_name: BRAKE
-    function: BRAKE sensor 
+    ts_name: BUTTON1
+    function: BUTTON1 sensor 
 
   - pin: 85a
     class: digital_inputs
-    ts_name: STEERING
-    function: STEERING sensor 
+    ts_name: BUTTON2
+    function: BUTTON2 sensor 
 
   - pin: 86a
-    ts_name: ETB Relay
+    ts_name: LS_HOT2 
     class: outputs
-    function: ETB Relay control
+    function: Low-Side 2 always hot capable output
+    type: ls
 
   - pin: 87a
-    ts_name: MAIN Relay
+    ts_name: LS_HOT1
     class: outputs
-    function: MAIN Relay control
+    function: Low-Side 1 always hot capable output
+    type: ls
 
   - pin: 88a
-    ts_name: FUEL Pump Relay
+    ts_name: LS4
     class: outputs
-    function: FUEL Pump Relay control
+    function: Low-Side 4 output
+    type: ls
+
+  - pin: 89a
+    class: digital_inputs
+    ts_name: BUTTON3
+    function: BUTTON3 input 
 
   - pin: 90a
     class: analog_inputs
@@ -344,27 +373,54 @@ pins:
     function: PPS 2 sensor input   
 
   - pin: 92a
-    class: digital_inputs
-    ts_name: BUTTON
-    function: BUTTON input 
+    function: WBO2 SWD
+    
+  - pin: 93a
+    function: WBO2 SWC    
+    
+  - pin: 94a
+    function: WBO2 Rtrim
+    
+  - pin: 95a
+    function: WBO2 Ip
+
+  - pin: 96a
+    function: WBO2 Vm   
+    
+  - pin: 97a
+    function: WBO2 Vs  
 
   - pin: 98a
     function: GNDA PPS1 sensor  
 
   - pin: 99a
     function: GNDA PPS2 sensor  
-
+    
   - pin: 100a
-    function: GNDA BUTTON  
+    function: WBO1 SWD
+    
+  - pin: 101a
+    function: WBO1 SWC       
+    
+  - pin: 102a
+    function: WBO1 Rtrim
+    
+  - pin: 103a
+    function: WBO1 Ip
+
+  - pin: 104a
+    function: WBO1 Vm   
+    
+  - pin: 105a
+    function: WBO1 Vs     
 
   - pin: 106a
     function: +5v PPS1 sensor  
+    type: 5v
 
   - pin: 107a
     function: +5v PPS2 sensor  
-
-  - pin: 108a
-    function: +5v BUTTON  
+    type: 5v
 
   - pin: 109a
     function: PROG BUTTON
@@ -379,8 +435,8 @@ pins:
     function: USB D+    
 
   - pin: 113a
-    function: GND
-    type: GND   
+    function: GND USB
+    type: GND    
     
   - pin: 114a
     function: GND
@@ -391,14 +447,20 @@ pins:
     type: GND   
 
   - pin: 116a
-    function: GND
-    type: GND  
+    function: +12v Bat+ (Hot all times)
+    type: 12V  
+
+  - pin: 117a
+    function: WBO1 HTR +12
+    
+  - pin: 118a
+    function: WBO2 HTR +12    
 
   - pin: 119a
-    function: +12v Bat+ (Hot all times)
+    function: WBO1 HTR-
 
   - pin: 120a
-    function: +12v from key
+    function: WBO2 HTR-
 
   - pin: 121a
     function: +12v from main relay    
