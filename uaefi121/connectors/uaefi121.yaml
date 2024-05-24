@@ -1,354 +1,407 @@
 pins:
   - pin: 1a
-    function: GND
-    type: GND
-
-  - pin: 2a
-    function: LSU 4.2 Heater1
-
-  - pin: 4a
     class: outputs
     ts_name: ETB_OUT+
     function: +ETB_OUT
 
-  - pin: 5a
+  - pin: 2a
     class: outputs
     ts_name: ETB_OUT-
     function: -ETB_OUT
-
-  - pin: 7a
-    function: USB +
     
-  - pin: 8a
-    function: USB -
-    
- # OUT_C-IVC_L OUT_INJ7 
-  - pin: 10a
-    id: F13
-    ts_name: 10 - VTC Left
-    class: outputs
-    function: Intake VTC solenoid Bank 2
+  - pin: 3a
+    function: GND
+    type: GND
 
- # OUT_C-IVC_R OUT_INJ8
-  - pin: 11a
-    id: F14
-    ts_name: 11 - VTC Right
-    class: outputs
-    function: Intake VTC solenoid Bank 1
- 
-  - pin: 13a
-    function: Crank Sensor
-# IN_CRANK AIN24 A24
-    id: [B1]
-    class: [event_inputs]
-    ts_name: 13 - Crank
+  - pin: 4a
+    function: LSU 4.2 Heater1
 
-  - pin: 14a
-    function: Cam Sensor Left
-# IN_CAM_L IN_CAM AIN19 A19
-    id: [A6]
-    class: [event_inputs]
-    ts_name: 14 - Cam Left
-
-  - pin: 16a
-    function: LSU 4.2 UN1
-
-  - pin: 21a
-# Q307
-    id: D9
-    class: outputs
-    ts_name: 21 - INJ_5
-    function: Injector 5
-    type: inj
-
-  - pin: 22a
-# Q309
-    id: D11
-    class: outputs
-    ts_name: 22 - INJ_3
-    function: Injector 3
-    type: inj
-
-  - pin: 23a
-# Q312
-    id: G7
-    class: outputs
-    ts_name: 23 - INJ_1
-    function: Injector 1
-    type: inj
-    
-  - pin: 24a
+  - pin: 5a
     function: LSU 4.2 Heater2
 
-  - pin: 29a
+  - pin: 6a
+    class: outputs
+    ts_name: Coil 1
+    function: Coil 1
+    type: ign
+
+  - pin: 7a
+    class: outputs
+    ts_name: Coil 2
+    function: Coil 2
+    type: ign
+    
+  - pin: 8a
+    class: outputs
+    ts_name: Coil 3
+    function: Coil 3
+    type: ign
+    
+  - pin: 9a
+    class: outputs
+    ts_name: Coil 4
+    function: Coil 4
+    type: ign
+    
+  - pin: 10a
+    class: outputs
+    ts_name: Coil 5
+    function: Coil 5
+    type: ign
+
+  - pin: 11a
+    class: outputs
+    ts_name: Coil 6
+    function: Coil 6
+    type: ign
+
+  - pin: 12a
+    class: outputs
+    ts_name: Coil 7
+    function: Coil 7 UNUSED
+    type: ign
+ 
+  - pin: 13a
+    class: outputs
+    ts_name: Coil 8
+    function: Coil 8 UNUSED
+    type: ign
+
+  - pin: 14a
+    ts_name: VTC Left
+    class: outputs
+    function: Intake VTC solenoid Bank 2
+    
+  - pin: 15a
+    ts_name: VTC Right
+    class: outputs
+    function: Intake VTC solenoid Bank 1    
+
+  - pin: 16a
     id: D3
     ts_name: 29 - VIAS
     class: outputs
     function: VIAS control Solenoid
 
+  - pin: 17a
+    function: LSU 4.2 Rtrim1
+    
+  - pin: 18a
+    function: LSU 4.2 Ip1 
+
+  - pin: 19a
+    function: LSU 4.2 Vm1    
+    
+  - pin: 20a
+    function: LSU 4.2 Vs1    
+    
+  - pin: 21a
+    function: LSU 4.2 Rtrim2
+    
+  - pin: 22a
+    function: LSU 4.2 Ip2
+
+  - pin: 23a
+    function: LSU 4.2 Vm2  
+    
+  - pin: 24a
+    function: LSU 4.2 Vs2
+
+  - pin: 25a
+    class: outputs
+    ts_name: INJ_1
+    function: Injector 1
+    type: inj
+    
+  - pin: 26a
+    class: outputs
+    ts_name: INJ_2
+    function: Injector 2
+    type: inj    
+    
+  - pin: 27a
+    class: outputs
+    ts_name: INJ_3
+    function: Injector 3
+    type: inj   
+
+  - pin: 28a
+    class: outputs
+    ts_name: INJ_4
+    function: Injector 4
+    type: inj    
+    
+  - pin: 29a
+    class: outputs
+    ts_name: INJ_5
+    function: Injector 5s
+    type: inj 
+
+  - pin: 30a
+    class: outputs
+    ts_name: INJ_6
+    function: Injector 6
+    type: inj    
+    
+  - pin: 31a
+    class: outputs
+    ts_name: INJ_7
+    function: Injector 7 UNUSED
+    type: inj   
+
+  - pin: 32a
+    class: outputs
+    ts_name: INJ_8
+    function: Injector 8 UNUSED
+    type: inj    
+
   - pin: 33a
-    function: Cam Sensor Right
-# IN_CAM_R IN_AUX4 AIN20 A20
-    id: A7
-    class: event_inputs
-    ts_name: 33 - Cam Right
+    function: Crank Sensor
+    ts_name: Crank
     
   - pin: 34a
-    id: EFI_ADC_13
+    function: CAM Sensor Left
+    ts_name: CAM Left    
+    
+  - pin: 35a
+    function: CAM Sensor Right
+    ts_name: CAM Right      
+
+  - pin: 36a
     class: analog_inputs
-    ts_name: 34 - IAT
-    function: IAT sensor
+    ts_name: MAF
+    function: MAF signal
+    
+  - pin: 37a
+    class: analog_inputs
+    ts_name: MAP
+    function: MAP signal 
+
+  - pin: 38a
+    class: analog_inputs
+    ts_name: TPS 1
+    function: TPS 1 sensor input    
+
+  - pin: 39a
+    class: analog_inputs
+    ts_name: TPS 2
+    function: TPS 2 sensor input      
 
   - pin: 40a
-# Q311
-    id: F12
-    class: outputs
-    ts_name: 40 - INJ_6
-    function: Injector 6
-    type: inj
+    class: analog_inputs
+    ts_name: AIN 1
+    function: AUX analog input   
 
   - pin: 41a
-# Q310
-    id: D10
-    class: outputs
-    ts_name: 41 - INJ_4
-    function: Injector 4
-    type: inj
-
+    class: analog_inputs
+    ts_name: AIN 2
+    function: AUX analog input     
+ 
   - pin: 42a
-# Q305
-    id: G8
+    function: FLEX
+    ts_name: FLEX  
+    
+  - pin: 43a
+    function: AUX hall sensor input
+    ts_name: HALL   
+ 
+  - pin: 44a
     class: outputs
-    ts_name: 42 - INJ_2
-    function: Injector 2
-    type: inj
+    ts_name: HS
+    function: High-side high current output
 
-  - pin: 47a
-    function: +5v TPS sensors
-
-  - pin: 48a
-    function: +5v EVAP sensor
-
-
+  - pin: 49a
+    function: GNDA knock sensor   
+ 
   - pin: 50a
-# in_tps AIN17 PA4 U108
-    id: EFI_ADC_4
     class: analog_inputs
-    ts_name: 50 - TPS 1
-    function: TPS 1 sensor input
-
-  - pin: 51a_broken1
-    # H144_IN_O2S
-    id: EFI_ADC_0
+    ts_name: IAT
+    function: IAT sensor
+    
+  - pin: 51a
     class: analog_inputs
-    ts_name: 51 - MAF
-    function: MAF signal
+    ts_name: CLT
+    function: CLT sensor    
 
-  - pin: 51a_broken2
-    function: LSU 4.2 IP1
+  - pin: 52a
+    function: GNDA crank sensor  
+
+  - pin: 53a
+    function: GNDA cam left sensor  
+
+  - pin: 54a
+    function: GNDA cam right sensor  
+
+  - pin: 55a
+    function: GNDA maf sensor  
 
   - pin: 56a
-    function: LSU 4.2 IP1
+    function: GNDA map sensor  
 
   - pin: 57a
-    function: LSU 4.2 VM2
+    function: GNDA tps1 sensor  
 
   - pin: 58a
-    function: LSU 4.2 IP2
+    function: GNDA tps2 sensor  
+
+  - pin: 59a
+    function: GNDA AIN1 sensor  
 
   - pin: 60a
-    id: E2
-    class: outputs
-    ts_name: 60 - Coil 5
-    function: Coil 5
-    type: ign
+    function: GNDA AIN2 sensor  
 
   - pin: 61a
-    id: E4
-    class: outputs
-    ts_name: 61 - Coil 3
-    function: Coil 3
-    type: ign
+    function: GNDA FLEX/HALL sensor  
 
   - pin: 62a
-    # H144_IGN_1
-    id: C13
-    class: outputs
-    ts_name: 62 - Coil 1
-    function: Coil 1
-    type: ign
+    function: GNDA HALL sensor  
 
-
-  - pin: 66a
-    function: GNDA TPS sensors
-
-  - pin: 67a
-    function: GNDA many sensors
+  - pin: 68a
+    class: analog_inputs
+    ts_name: KNOCK
+    function: KNOCK sensor 
 
   - pin: 69a
-# in_aux1 AIN23 PB0 U109
-    id: EFI_ADC_8
-    class: analog_inputs
-    ts_name: 69 - TPS 2
-    function: TPS 2 sensor input  
+    function: +5v IAT sensor
 
-  - pin: P66
-    # IN_MAP1 AIN9 PC0
-    id: EFI_ADC_10
-    class: analog_inputs
-    ts_name: Aux P66
+  - pin: 70a
+    function: +5v CLT sensor
 
-  - pin: P67
-    # AIN10 PC1
-    id: EFI_ADC_11
-    class: analog_inputs
-    ts_name: Aux P67
+  - pin: 71a
+    function: +5v crank sensor  
 
-  - pin: P68
-    # H144_IN_MAP3 AIN15 A15 PA2
-    id: EFI_ADC_2
-    class: analog_inputs
-    ts_name: Aux P68
+  - pin: 72a
+    function: +5v cam left sensor  
 
   - pin: 73a
-    id: EFI_ADC_12
-    class: analog_inputs
-    ts_name: 73 - CLT
-    function: CLT sensor
+    function: +5v cam right sensor  
+
+  - pin: 74a
+    function: +5v maf sensor  
 
   - pin: 75a
-    function: LSU 4.2 IA1
+    function: +5v map sensor  
 
-  - pin: 77a_broken1
-    function: LSU 4.2 UN2
+  - pin: 76a
+    function: +5v tps1 sensor  
 
-  - pin: 77a_broken2
-    function: LSU 4.2 IA2
-
+  - pin: 77a
+    function: +5v tps2 sensor  
 
   - pin: 78a
-    function: GNDA
+    function: +5v AIN1 sensor  
 
   - pin: 79a
-    id: B8
-    class: outputs
-    ts_name: 79 - Coil 6
-    function: Coil 6
-    type: ign
+    function: +5v AIN2 sensor  
 
   - pin: 80a
-    id: E3
-    class: outputs
-    ts_name: 80 - Coil 4
-    function: Coil 4
-    type: ign
+    function: +5v FLEX/HALL sensor  
 
   - pin: 81a
-    id: E5
-    class: outputs
-    ts_name: 81 - Coil 2
-    function: Coil 2
-    type: ign
-
+    function: +5v HALL sensor  
 
   - pin: 82a
-    function: GNDA pedal sensor 1
-
-  - pin: 83a
-    function: GNDA pedal sensor 2
-
-
-  - pin: 86a
-    function: CAN bus low
-    type: can
-
-  - pin: 90a
-    function: +5v pedal sensor 1
-
-  - pin: 91a
-    function: +5v pedal sensor 2
-
-
-  - pin: 94a
     function: CAN bus high
     type: can
 
-  - pin: 98a
-# IN_AUX2 AIN21 A21 PC4 U109
-    id: EFI_ADC_14
-    class: analog_inputs
-    ts_name: 98 - PPS 2
-    function: PPS 2 sensor input 
-    
-  - pin: 101a
-    id: F9
-    class: switch_inputs
-    ts_name: 101 - Brake Input
-    function: Brake Switch
+  - pin: 83a
+    function: CAN bus low
+    type: can
 
-  - pin: 102a
-    id: F10
-    class: switch_inputs
-    ts_name: 102 - Power Steering Input
-    function: Power Steering Switch
+  - pin: 84a
+    class: digital_inputs
+    ts_name: BRAKE
+    function: BRAKE sensor 
 
-  - pin: 104a
-# LOW6_DIODE _IO4
-    id: G5
+  - pin: 85a
+    class: digital_inputs
+    ts_name: STEERING
+    function: STEERING sensor 
+
+  - pin: 86a
+    ts_name: ETB Relay
     class: outputs
-    ts_name: 104 ETB Relay
-    function: ETB relay control
-    type: ls
+    function: ETB Relay control
+
+  - pin: 87a
+    ts_name: MAIN Relay
+    class: outputs
+    function: MAIN Relay control
+
+  - pin: 88a
+    ts_name: FUEL Pump Relay
+    class: outputs
+    function: FUEL Pump Relay control
+
+  - pin: 90a
+    class: analog_inputs
+    ts_name: PPS 1
+    function: PPS 1 sensor input    
+
+  - pin: 91a
+    class: analog_inputs
+    ts_name: PPS 2
+    function: PPS 2 sensor input   
+
+  - pin: 92a
+    class: digital_inputs
+    ts_name: BUTTON
+    function: BUTTON input 
+
+  - pin: 98a
+    function: GNDA PPS1 sensor  
+
+  - pin: 99a
+    function: GNDA PPS2 sensor  
+
+  - pin: 100a
+    function: GNDA BUTTON  
 
   - pin: 106a
-# IN_PPS, AIN18, A18, PA3 U106
-    id: EFI_ADC_3
-    class: analog_inputs
-    ts_name: 106 - PPS 1
-    function: PPS 1 sensor input  
+    function: +5v PPS1 sensor  
 
+  - pin: 107a
+    function: +5v PPS2 sensor  
+
+  - pin: 108a
+    function: +5v BUTTON  
 
   - pin: 109a
-# VIGN PA5
-    id: EFI_ADC_5
-    class: analog_inputs
-    ts_name: 109 Ignition Key Voltage
-    function: +12V engine ECU power source, run/start
-
+    function: PROG BUTTON
+    
+  - pin: 110a
+    function: USB VBUS    
+    
   - pin: 111a
-# OUT_IO3
-    id: G14
-    class: outputs
-    ts_name: 111 Main Relay
-    function: Main relay control
-    type: ls
+    function: USB D-    
 
+  - pin: 112a
+    function: USB D+    
 
   - pin: 113a
-# OUT_PWM8
-    id: D12
-    class: outputs
-    ts_name: 113 Fuel Pump Relay
-    function: Fuel Pump control
-    type: ls
+    function: GND
+    type: GND   
+    
+  - pin: 114a
+    function: GND
+    type: GND   
 
   - pin: 115a
     function: GND
-    type: GND
+    type: GND   
 
   - pin: 116a
     function: GND
-    type: GND
+    type: GND  
 
   - pin: 119a
-    function: +12v from main relay
+    function: +12v Bat+ (Hot all times)
 
   - pin: 120a
-    function: +12v from main relay
+    function: +12v from key
 
   - pin: 121a
-    function: Bat+ (Hot all times), 12v 20A fuse from battery
-
+    function: +12v from main relay    
 
 info:
   title: uaEFI 121
