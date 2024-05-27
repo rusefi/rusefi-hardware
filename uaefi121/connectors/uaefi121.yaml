@@ -120,6 +120,15 @@ pins:
   - pin: 22a
     ts_name: EGT+
     function: EGT negative input
+
+  - pin: 23a
+    function: +12v from main relay OUTPUT
+    type: 12V  
+
+  - pin: 24a
+    function: +12v from main relay OUTPUT 
+    type: 12V  
+
         
   - pin: 25a
     class: outputs
@@ -530,7 +539,8 @@ pins:
     function: WBO2 HTR-
 
   - pin: 121a
-    function: +12v from main relay    
+    function: +12v from main relay INPUT
+    type: 12V  
 
 info:
   title: uaEFI 121
