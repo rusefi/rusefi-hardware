@@ -1,20 +1,31 @@
 pins:
   - pin: 1a
     class: outputs
-    ts_name: ETB_OUT+
-    function: +ETB_OUT
+    ts_name: DC1+
+    function: DC1+ output
     type: etb
 
   - pin: 2a
     class: outputs
-    ts_name: ETB_OUT-
-    function: -ETB_OUT
+    ts_name: DC1-
+    function: DC1- output
     type: etb
     
   - pin: 3a
     function: GND
     type: GND
 
+  - pin: 4a
+    class: outputs
+    ts_name: DC2+
+    function: DC2+ output
+    type: etb
+
+  - pin: 5a
+    class: outputs
+    ts_name: DC2-
+    function: DC2- output
+    type: etb
 
   - pin: 6a
     class: outputs
@@ -109,17 +120,7 @@ pins:
   - pin: 22a
     ts_name: EGT+
     function: EGT negative input
-    
-  - pin: 23a
-    class: analog_inputs
-    ts_name: IAT
-    function: IAT sensor
-    
-  - pin: 24a
-    class: analog_inputs
-    ts_name: CLT
-    function: CLT sensor  
-    
+        
   - pin: 25a
     class: outputs
     ts_name: Coil 1
@@ -187,7 +188,7 @@ pins:
   - pin: 36a
     class: digital_inputs
     ts_name: DIN
-    function: DIN signal
+    function: Digital input signal
     
   - pin: 37a
     class: analog_inputs
@@ -207,12 +208,12 @@ pins:
   - pin: 40a
     class: analog_inputs
     ts_name: AIN 1
-    function: AUX analog input   
+    function: AUX1 analog input   
 
   - pin: 41a
     class: analog_inputs
     ts_name: AIN 2
-    function: AUX analog input     
+    function: AUX2 analog input     
  
   - pin: 42a
     function: FLEX
@@ -270,7 +271,7 @@ pins:
     ts_name: INJ_8
     function: Injector 8 UNUSED
     type: inj    
-                                                                                            
+
   - pin: 52a
     function: GNDA HALL1 sensor  
     type: gnd
@@ -315,15 +316,32 @@ pins:
     function: GNDA KNOCK sensor  
     type: gnd    
  
+  - pin: 63a
+    class: analog_inputs
+    ts_name: IAT
+    function: IAT sensor
+    
+  - pin: 64a
+    function: GNDA IAT sensor
+    type: gnd
+    
+  - pin: 65a
+    class: analog_inputs
+    ts_name: CLT
+    function: CLT sensor  
 
+  - pin: 66a
+    function: GNDA CLT sensor
+    type: gnd
 
-  - pin: 69a
-    function: +5v IAT sensor
-    type: 5v
+  - pin: 67a
+    class: analog_inputs
+    ts_name: KNOCK2 
+    function: KNOCK2 UNUSED sensor 
 
-  - pin: 70a
-    function: +5v CLT sensor
-    type: 5v
+  - pin: 68a
+    function: GNDA KNOCK2 sensor
+    type: gnd
 
   - pin: 71a
     function: +5v HALL1 sensor  
