@@ -29,50 +29,50 @@ pins:
 
   - pin: 6a
     class: outputs
-    ts_name: Coil 1
-    function: Coil 1
+    ts_name: Coil 8
+    function: Coil 8 UNUSED
     type: ign
 
   - pin: 7a
     class: outputs
-    ts_name: Coil 2
-    function: Coil 2
+    ts_name: Coil 7
+    function: Coil 7 UNUSED
     type: ign
     
   - pin: 8a
     class: outputs
-    ts_name: Coil 3
-    function: Coil 3
+    ts_name: Coil 6
+    function: Coil 6
     type: ign
     
   - pin: 9a
     class: outputs
-    ts_name: Coil 4
-    function: Coil 4
+    ts_name: Coil 5
+    function: Coil 5
     type: ign
     
   - pin: 10a
     class: outputs
-    ts_name: Coil 5
-    function: Coil 5
+    ts_name: Coil 4
+    function: Coil 4
     type: ign
 
   - pin: 11a
     class: outputs
-    ts_name: Coil 6
-    function: Coil 6
+    ts_name: Coil 3
+    function: Coil 3
     type: ign
 
   - pin: 12a
     class: outputs
-    ts_name: Coil 7
-    function: Coil 7 UNUSED
+    ts_name: Coil 2
+    function: Coil 2
     type: ign
  
   - pin: 13a
     class: outputs
-    ts_name: Coil 8
-    function: Coil 8 UNUSED
+    ts_name: Coil 1
+    function: Coil 1
     type: ign
 
   - pin: 14a
@@ -94,23 +94,23 @@ pins:
     type: ls
     
   - pin: 17a
-    ts_name: VR_9924+
-    function: VR_9924 positive input
-    type: vr
-    
-  - pin: 18a
-    ts_name: VR_9924-
-    function: VR_9924 negative input    
-    type: vr
-    
-  - pin: 19a
     ts_name: VR_DISCRETE+
     function: VR_DISCRETE positive input
     type: vr
         
-  - pin: 20a
+  - pin: 18a
     ts_name: VR_DISCRETE-
     function: VR_DISCRETE negative input       
+    type: vr
+    
+  - pin: 19a
+    ts_name: VR_9924+
+    function: VR_9924 positive input
+    type: vr
+    
+  - pin: 20a
+    ts_name: VR_9924-
+    function: VR_9924 negative input    
     type: vr
     
   - pin: 21a
@@ -132,72 +132,73 @@ pins:
         
   - pin: 25a
     class: outputs
-    ts_name: Coil 1
-    function: Coil 1
-    type: ign
-
-  - pin: 26a
-    class: outputs
-    ts_name: Coil 2
-    function: Coil 2
-    type: ign
-    
-  - pin: 27a
-    class: outputs
-    ts_name: Coil 3
-    function: Coil 3
-    type: ign
-    
-  - pin: 28a
-    class: outputs
-    ts_name: Coil 4
-    function: Coil 4
-    type: ign
-    
-  - pin: 29a
-    class: outputs
-    ts_name: Coil 5
-    function: Coil 5
-    type: ign
-
-  - pin: 30a
-    class: outputs
-    ts_name: Coil 6
-    function: Coil 6
-    type: ign
-
-  - pin: 31a
-    class: outputs
-    ts_name: Coil 7
-    function: Coil 7 UNUSED
-    type: ign
- 
-  - pin: 32a
-    class: outputs
     ts_name: Coil 8
     function: Coil 8 UNUSED
     type: ign
 
+  - pin: 26a
+    class: outputs
+    ts_name: Coil 7
+    function: Coil 7 UNUSED
+    type: ign
+    
+  - pin: 27a
+    class: outputs
+    ts_name: Coil 6
+    function: Coil 6
+    type: ign
+    
+  - pin: 28a
+    class: outputs
+    ts_name: Coil 5
+    function: Coil 5
+    type: ign
+    
+  - pin: 29a
+    class: outputs
+    ts_name: Coil 4
+    function: Coil 4
+    type: ign
+
+  - pin: 30a
+    class: outputs
+    ts_name: Coil 3
+    function: Coil 3
+    type: ign
+
+  - pin: 31a
+    class: outputs
+    ts_name: Coil 2
+    function: Coil 2
+    type: ign
+ 
+  - pin: 32a
+    class: outputs
+    ts_name: Coil 1
+    function: Coil 1
+    type: ign
+
 
   - pin: 33a
-    function: HALL1 Sensor
-    ts_name: HALL1
-    type: hall
+    class: digital_inputs
+    ts_name: DIN
+    function: Digital input signal
+    
     
   - pin: 34a
     function: CAM Sensor Left
-    ts_name: HALL2    
+    ts_name: HALL3    
     type: hall
     
   - pin: 35a
     function: CAM Sensor Right
-    ts_name: HALL3      
+    ts_name: HALL2      
     type: hall
 
   - pin: 36a
-    class: digital_inputs
-    ts_name: DIN
-    function: Digital input signal
+    function: HALL1 Sensor
+    ts_name: HALL1
+    type: hall
     
   - pin: 37a
     class: analog_inputs
@@ -416,15 +417,15 @@ pins:
     function: BUTTON2 sensor 
 
   - pin: 86a
-    ts_name: LS_HOT2 
-    class: outputs
-    function: Low-Side 2 always hot capable output
-    type: ls
-
-  - pin: 87a
     ts_name: LS_HOT1
     class: outputs
     function: Low-Side 1 always hot capable output
+    type: ls
+
+  - pin: 87a
+    ts_name: LS_HOT2
+    class: outputs
+    function: Low-Side 2 always hot capable output
     type: ls
 
   - pin: 88a
@@ -536,11 +537,11 @@ pins:
     function: WBO1 HTR-
 
   - pin: 120a
-    function: WBO2 HTR-
-
-  - pin: 121a
     function: +12v from main relay INPUT
     type: 12V  
+    
+  - pin: 121a
+    function: WBO2 HTR-
 
 info:
   title: uaEFI 121
