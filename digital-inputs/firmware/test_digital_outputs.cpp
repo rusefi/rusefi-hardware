@@ -42,9 +42,6 @@ void initStimDigitalInputs() {
 
     palSetPadMode(muxOff.port, muxOff.pin, PAL_MODE_OUTPUT_PUSHPULL);
     palWritePad(muxOff.port, muxOff.pin, 0 ^ XOR_MAGIC);
-
-	// send the request early
-	setOutputCountRequest();
 }
 
 extern bool globalEverythingHappy;

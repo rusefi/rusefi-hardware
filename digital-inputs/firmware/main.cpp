@@ -190,12 +190,9 @@ int main(void) {
 
   chThdCreateStatic(consoleThread, sizeof(consoleThread), NORMALPRIO, ConsoleThread, nullptr);
 
-
-  /*
-   * Normal main() thread activity, in this demo it does nothing except
-   * sleeping in a loop and check the button state.
-   */
   while (true) {
     chThdSleepMilliseconds(500);
+    // we need to wake some boards up!
+	setOutputCountRequest();
   }
 }
