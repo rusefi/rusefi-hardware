@@ -272,13 +272,13 @@ pins:
   - pin: 50a
     class: outputs
     ts_name: INJ_7
-    function: Injector 7 UNUSED
+    function: Injector 7
     type: inj   
 
   - pin: 51a
     class: outputs
     ts_name: INJ_8
-    function: Injector 8 UNUSED
+    function: Injector 8
     type: inj    
 
   - pin: 52a
