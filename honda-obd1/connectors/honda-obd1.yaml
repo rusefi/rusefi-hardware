@@ -218,9 +218,17 @@ pins:
 
   - pin: C7
     class: event_inputs
-    ts_name: ___ - DIGITAL/FLEX
+    ts_name: C7 - DIGITAL/FLEX
     function: DIGITAL
 
+  - pin: C8
+    ts_name: Aux P17 see schematics
+
+  - pin: C9
+    ts_name: Aux P18 see schematics
+
+  - pin: C11
+    ts_name: Aux P20 see schematics
 
 info:
   title: Honda OBD1
