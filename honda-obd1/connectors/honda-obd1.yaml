@@ -232,6 +232,7 @@ pins:
 
 info:
   title: Honda OBD1
+  board_url: https://rusefi.com/s/uaefi-h-obd1
   directory: uaefi/honda-obd1
   image:
     file: 76pin-178780.jpg
