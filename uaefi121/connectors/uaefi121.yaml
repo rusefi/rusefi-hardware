@@ -14,6 +14,7 @@ pins:
   - pin: 3a
     function: GND
     type: GND
+    color: black
 
   - pin: 4a
     class: outputs
@@ -27,17 +28,17 @@ pins:
     function: DC2- output
     type: etb
 
-  - pin: 6a
-    class: outputs
-    ts_name: Coil 8
-    function: Coil 8 UNUSED
-    type: ign
-
-  - pin: 7a
-    class: outputs
-    ts_name: Coil 7
-    function: Coil 7 UNUSED
-    type: ign
+#  - pin: 6a
+#    class: outputs
+#    ts_name: Coil 8
+#    function: Coil 8 UNUSED
+#    type: ign
+#
+#  - pin: 7a
+#    class: outputs
+#    ts_name: Coil 7
+#    function: Coil 7 UNUSED
+#    type: ign
     
   - pin: 8a
     class: outputs
@@ -56,24 +57,28 @@ pins:
     ts_name: Coil 4
     function: Coil 4
     type: ign
+    color: orange
 
   - pin: 11a
     class: outputs
     ts_name: Coil 3
     function: Coil 3
     type: ign
+    color: blue
 
   - pin: 12a
     class: outputs
     ts_name: Coil 2
     function: Coil 2
     type: ign
+    color: white
  
   - pin: 13a
     class: outputs
     ts_name: Coil 1
     function: Coil 1
     type: ign
+    color: green
 
   - pin: 14a
     ts_name: LS1
@@ -203,7 +208,8 @@ pins:
   - pin: 37a
     class: analog_inputs
     ts_name: MAP
-    function: MAP signal 
+    function: MAP signal
+    color: yellow
 
   - pin: 38a
     class: analog_inputs
@@ -213,7 +219,8 @@ pins:
   - pin: 39a
     class: analog_inputs
     ts_name: TPS 2
-    function: TPS 2 sensor input      
+    function: TPS 2 sensor input
+    color: blue
 
   - pin: 40a
     class: analog_inputs
@@ -285,30 +292,37 @@ pins:
   - pin: 52a
     function: GNDA HALL1 sensor  
     type: gnd
+    color: black
 
   - pin: 53a
     function: GNDA HALL2 sensor  
     type: gnd
+    color: black
 
   - pin: 54a
     function: GNDA HALL3 sensor  
     type: gnd
+    color: black
 
   - pin: 55a
     function: GNDA DIN sensor  
     type: gnd
+    color: black
 
   - pin: 56a
     function: GNDA map sensor  
     type: gnd
+    color: black
 
   - pin: 57a
     function: GNDA tps1 sensor  
     type: gnd
+    color: black
 
   - pin: 58a
     function: GNDA tps2 sensor  
     type: gnd
+    color: black
 
   - pin: 59a
     function: GNDA AIN1 sensor  
@@ -317,32 +331,39 @@ pins:
   - pin: 60a
     function: GNDA AIN2 sensor  
     type: gnd
+    color: black
 
   - pin: 61a
     function: GNDA FLEX/HALL sensor  
     type: gnd
-    
+    color: black
+
   - pin: 62a
     function: GNDA KNOCK sensor  
-    type: gnd    
- 
+    type: gnd
+    color: black
+
   - pin: 63a
     class: analog_inputs
     ts_name: IAT
     function: IAT sensor
+    color: blue
     
   - pin: 64a
     function: GNDA IAT sensor
     type: gnd
-    
+    color: black
+
   - pin: 65a
     class: analog_inputs
     ts_name: CLT
-    function: CLT sensor  
+    function: CLT sensor
+    color: grey
 
   - pin: 66a
     function: GNDA CLT sensor
     type: gnd
+    color: black
 
   - pin: 67a
     class: analog_inputs
@@ -356,43 +377,53 @@ pins:
   - pin: 71a
     function: +5v HALL1 sensor  
     type: 5v
+    color: red
 
   - pin: 72a
     function: +5v HALL2 sensor  
     type: 5v
+    color: red
 
   - pin: 73a
     function: +5v HALL3 sensor  
     type: 5v
+    color: red
 
   - pin: 74a
     function: +5v DIN sensor  
     type: 5v
+    color: red
 
   - pin: 75a
     function: +5v map sensor
     type: 5v
+    color: red
 
   - pin: 76a
     function: +5v tps1 sensor 
     type: 5v
+    color: red
 
   - pin: 77a
     function: +5v tps2 sensor  
     type: 5v
+    color: red
 
   - pin: 78a
     function: +5v AIN1 sensor  
     type: 5v
+    color: red
 
   - pin: 79a
     function: +5v AIN2 sensor  
     type: 5v
+    color: red
 
   - pin: 80a
     function: +5v FLEX/HALL sensor  
     type: 5v
-    
+    color: red
+
   - pin: 81a
     class: analog_inputs
     ts_name: KNOCK
@@ -442,12 +473,14 @@ pins:
   - pin: 90a
     class: analog_inputs
     ts_name: PPS 1
-    function: PPS 1 sensor input    
+    function: PPS 1 sensor input
+    color: white
 
   - pin: 91a
     class: analog_inputs
     ts_name: PPS 2
-    function: PPS 2 sensor input   
+    function: PPS 2 sensor input
+    color: orange
 
   - pin: 92a
     function: WBO2 SWD
@@ -457,21 +490,26 @@ pins:
     
   - pin: 94a
     function: WBO2 Rtrim
+    color: green
     
   - pin: 95a
     function: WBO2 Ip
+    color: red
 
   - pin: 96a
-    function: WBO2 Vm   
+    function: WBO2 Vm
+    color: yellow
     
   - pin: 97a
     function: WBO2 Vs  
 
   - pin: 98a
-    function: GNDA PPS1 sensor  
+    function: GNDA PPS1 sensor
+    color: black
 
   - pin: 99a
-    function: GNDA PPS2 sensor  
+    function: GNDA PPS2 sensor
+    color: black
     
   - pin: 100a
     function: WBO1 SWD
@@ -484,23 +522,29 @@ pins:
     
   - pin: 103a
     function: WBO1 Ip
+    color: red
 
   - pin: 104a
-    function: WBO1 Vm   
-    
+    function: WBO1 Vm
+    color: yellow
+
   - pin: 105a
-    function: WBO1 Vs     
+    function: WBO1 Vs
+    color: black
 
   - pin: 106a
     function: +5v PPS1 sensor  
     type: 5v
+    color: red
 
   - pin: 107a
     function: +5v PPS2 sensor  
     type: 5v
+    color: red
 
   - pin: 109a
     function: PROG BUTTON
+    color: white
     
   - pin: 110a
     function: USB VBUS    
@@ -513,15 +557,18 @@ pins:
 
   - pin: 113a
     function: GND USB
-    type: GND    
-    
+    type: GND
+    color: red
+
   - pin: 114a
     function: GND
-    type: GND   
+    type: GND
+    color: red
 
   - pin: 115a
     function: GND
-    type: GND   
+    type: GND
+    color: red
 
   - pin: 116a
     function: +12v Bat+ (Hot all times)
@@ -535,13 +582,16 @@ pins:
 
   - pin: 119a
     function: WBO1 HTR-
+    color: white
 
   - pin: 120a
     function: +12v from main relay INPUT
-    type: 12V  
+    type: 12V
+    color: red
     
   - pin: 121a
     function: WBO2 HTR-
+    color: white
 
 info:
   title: uaEFI 121
