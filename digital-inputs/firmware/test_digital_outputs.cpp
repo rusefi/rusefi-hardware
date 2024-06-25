@@ -28,6 +28,8 @@ static io_pin pullUpDownPins[] = {
 static io_pin muxOff = {GPIOA, 7};
 
 extern BaseSequentialStream *chp;
+extern int totalErrorsCounter;
+extern bool globalEverythingHappy;
 
 void initStimDigitalInputs() {
     for (size_t i = 0;i < efi::size(addrPins);i++) {
@@ -43,8 +45,6 @@ void initStimDigitalInputs() {
     palSetPadMode(muxOff.port, muxOff.pin, PAL_MODE_OUTPUT_PUSHPULL);
     palWritePad(muxOff.port, muxOff.pin, 0 ^ XOR_MAGIC);
 }
-
-extern bool globalEverythingHappy;
 
 static void waitForMetaInfo() {
 	int timeout = 0;
@@ -105,6 +105,7 @@ bool testEcuDigitalOutputs(size_t startStepIndex) {
 		} else {
 		    setErrorLedAndRedText();
 		    globalEverythingHappy = false;
+            totalErrorsCounter++;
 			chprintf(chp, "!!!!!!! BAD channel %d %s !!!!!!!!!!!!!!!\r\n",
 			index2human(currentIndex),
 			currentBoard == nullptr ? nullptr : currentBoard->getOutputName(currentIndex));

@@ -68,6 +68,7 @@ static THD_FUNCTION(Thread1, arg) {
 }
 
 bool globalEverythingHappy;
+int totalErrorsCounter;
 extern int numSecondsSinceReset;
 
 static void setErrorLed() {
@@ -152,7 +153,7 @@ static void ConsoleThread(void*) {
 			isMuted = false;
 		} else {
 		    setErrorLedAndRedText();
-			chprintf(chp, " ************* SOMETHING BAD SEE ABOVE ************************ count=%d\r\n", executionCounter);
+			chprintf(chp, " ************* SOMETHING BAD SEE ABOVE ERRORS=%d ************************ count=%d\r\n", totalErrorsCounter, executionCounter);
 			chprintf(chp, " ************************************************************** uptime=%d\r\n", numSecondsSinceReset);
 			setNormalText();
 			isMuted = true;
