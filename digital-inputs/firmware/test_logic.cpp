@@ -301,7 +301,7 @@ BoardConfig boardConfigs[] = {
 	{
 		.boardName = "hd",
 		.desiredEngineConfig = -1,
-		.boardIds = { STATIC_BOARD_ID_PROTEUS_HARLEY, BOARD_ID_HD81_A, BOARD_ID_HD81_B, 0 },
+		.boardIds = { STATIC_BOARD_ID_PROTEUS_HARLEY, STATIC_BOARD_ID_HELLEN_HD, BOARD_ID_HD81_A, BOARD_ID_HD81_B, 0 },
 		.channels = {
 			{ "TPS1_1", PULLED_DOWN_RANGE(DOWN_7B, UP_7B, 680'000) },
 			{ "TPS1_2", 1, 0.767938368, /* ideally 0.860549952*/ 0.87 },
