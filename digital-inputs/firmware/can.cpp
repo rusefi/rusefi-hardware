@@ -26,7 +26,7 @@ static size_t outputCount = 0;
 static size_t dcOutputsCount = 0;
 static size_t lowSideOutputCount = 0;
 
-static int boardId;
+static int boardId = 0;
 
 extern bool globalEverythingHappy;
 extern bool isMuted;
