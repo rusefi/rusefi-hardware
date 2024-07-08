@@ -389,7 +389,7 @@ BoardConfig boardConfigs[] = {
 			{ "TPS1_1", PULLED_DOWN_RANGE(DOWN_7B, UP_7B, 680'000) },
 			{ "TPS1_2", 1, 0.767938368, /* ideally 0.860549952*/ 0.87 },
 			{ "PPS1", 1, 0.79 /*0.821830144*/, 0.920940928 },
-			{ "PPS2", 1, 0.97, 1.2 },
+			{ "PPS2", 1, 0.96, 1.2 },
 			{ nullptr, 0, 0, 0 },//{ "AUXL1", 1.0f, 1.35f * ANALOG_L, 1.35f * ANALOG_H },
 			{ nullptr, 0, 0, 0 },//{ "AUXL1", 1.0f, 1.35f * ANALOG_L, 1.35f * ANALOG_H },
 			{ nullptr, 0, 0, 0 },//{ "AUXL1", 1.0f, 1.35f * ANALOG_L, 1.35f * ANALOG_H },
