@@ -6,6 +6,7 @@ info:
   title: 2023 Kawasaki
   name: kawasaki
   cid: R
+  directory: kawasaki
   image:
     file: right.png
   pins:

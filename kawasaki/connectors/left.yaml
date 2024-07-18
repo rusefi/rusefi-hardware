@@ -5,6 +5,7 @@ pins:
 info:
   title: 2023 Kawasaki
   name: kawasaki
+  directory: kawasaki
   cid: L
   order: 0
   image:
