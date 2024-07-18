@@ -1,20 +1,22 @@
 pins:
-  - pin: A1
-    function: Ignition Coil 3
+  - pin: 135
+    function: Secondary Injector 4
+  - pin: 136
+    function: Secondary Injector 3
 
 info:
   title: 2023 Kawasaki
   name: kawasaki
   directory: kawasaki
   cid: L
-  order: 0
+  order: 1
   image:
     file: left.png
   pins:
-    - pin: K1
-      x: 1900
-      y: 660
-    - pin: K2
-      x: 2055
-      y: 660
+    - pin: 135
+      x: 305
+      y: 539
+    - pin: 136
+      x: 261
+      y: 539
 

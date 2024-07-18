@@ -1,19 +1,43 @@
 pins:
-  - pin: A1
+  - pin: 1
     function: Ignition Coil 3
+  - pin: 2
+    function: Ignition Coil 2
+
+  - pin: 11
+    function: Ignition Coil 1
+
+  - pin: 63
+    function: CAN bus low
+  - pin: 64
+    function: CAN bus high
+
 
 info:
   title: 2023 Kawasaki
   name: kawasaki
   cid: R
+  order: 0
   directory: kawasaki
   image:
     file: right.png
   pins:
-    - pin: K1
-      x: 1900
-      y: 660
-    - pin: K2
-      x: 2055
-      y: 660
+    - pin: 1
+      x: 1255
+      y: 372
+    - pin: 2
+      x: 1147
+      y: 372
 
+
+    - pin: 11
+      x: 1255
+      y: 507
+
+
+    - pin: 63
+      x: 355
+      y: 870
+    - pin: 64
+      x: 277
+      y: 870
