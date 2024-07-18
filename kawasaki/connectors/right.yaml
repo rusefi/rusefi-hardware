@@ -1,0 +1,18 @@
+pins:
+  - pin: A1
+    function: Ignition Coil 3
+
+info:
+  title: 2023 Kawasaki
+  name: kawasaki
+  cid: R
+  image:
+    file: right.png
+  pins:
+    - pin: K1
+      x: 1900
+      y: 660
+    - pin: K2
+      x: 2055
+      y: 660
+
