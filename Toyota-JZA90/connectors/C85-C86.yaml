@@ -38,6 +38,7 @@ pins:
 info:
   title: JZA90/100
   directory: Toyota-JZA90_100
+  cid: main1
   order: 1
   image:
     file: C85-C86.png
