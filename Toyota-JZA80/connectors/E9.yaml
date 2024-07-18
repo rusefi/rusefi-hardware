@@ -261,6 +261,7 @@ pins:
 
 info:
   title: JZA80
+  cid: main
   directory: Toyota-JZA80
   order: 0
   image:

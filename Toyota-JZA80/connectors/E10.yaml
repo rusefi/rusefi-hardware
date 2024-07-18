@@ -122,6 +122,7 @@ pins:
 info:
   title: JZA80
   directory: Toyota-JZA80
+  cid: main
   image:
     file: E10.png
   pins:
