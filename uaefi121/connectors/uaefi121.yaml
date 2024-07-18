@@ -596,6 +596,7 @@ pins:
 info:
   title: uaEFI 121
   name: uaEFI 121
+  cid: main
   order: 0
   board_url: https://github.com/rusefi/rusefi/wiki/uaefi121
   directory: hellen/uaefi121
