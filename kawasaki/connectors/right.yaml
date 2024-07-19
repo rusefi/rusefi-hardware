@@ -3,9 +3,85 @@ pins:
     function: Ignition Coil 3
   - pin: 2
     function: Ignition Coil 2
+  - pin: 3
+    function: Ignition Coil 4
+
+  - pin: 4
+    function: Primary Fuel Injector 4
+  - pin: 5
+    function: Primary Fuel Injector 3
+  - pin: 6
+    function: Primary Fuel Injector 2
+  - pin: 7
+    function: Primary Fuel Injector 1
+  - pin: 8
+    function: Power Supply to ECU (from Battery)
+  - pin: 9
+    function: Power Supply to ECU (from Battery)
+  - pin: 10
+    function: Ground For control system
 
   - pin: 11
     function: Ignition Coil 1
+  - pin: 12
+    function: Engine Ground
+  - pin: 13
+    function: Engine Ground
+  - pin: 16
+    function: Ground for Sensors
+  - pin: 18
+    function: Ignition Switch
+  - pin: 21
+    function: Power Supply to Sensor
+  - pin: 22
+    function: Power Supply to Sensors
+  - pin: 25
+    function: Side Stand Switch
+  - pin: 26
+    function: Electronic Cruise Control Button
+  - pin: 27
+    function: Electronic Cruise Control SET Button
+  - pin: 28
+    function: Electronic Cruise Control RES Button
+  - pin: 31
+    function: Electronic Cruise Control Cancel rear brake
+  - pin: 32
+    function: Brake Electronic Cruise Control
+  - pin: 34
+    function: Exhaust Butterfly Valve Actuator
+  - pin: 40
+    function: Gear Position Sensor
+  - pin: 43
+    function: Oxygen Sensor Neg
+  - pin: 45
+    function: Oxygen Sensor Pos
+  - pin: 47
+    function: Starter Lockout Switch
+  - pin: 48
+    function: External Communication Line Immobilizer
+  - pin: 49
+    function: Quick Shifter Sensor
+  - pin: 50
+    function: Vehicle-down Sensor
+  - pin: 53
+    function: Water Temperature Sensor
+  - pin: 54
+    function: Atmospheric Pressure Sensor
+  - pin: 55
+    function: Air Intake Chamber Temperature Sensor
+  - pin: 56
+    function: Air Intake Chamber Pressure Sensor
+  - pin: 57
+    function: Intake Air Pressure Sensor 2
+  - pin: 58
+    function: Intake Air Pressure Sensor 1
+  - pin: 59
+    function: Crankshaft Sensor Neg
+  - pin: 60
+    function: Crankshaft Sensor Pos
+  - pin: 62
+    function: Communication Line Immobilizer
+
 
   - pin: 63
     function: CAN bus low

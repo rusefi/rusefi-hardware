@@ -1,8 +1,66 @@
 pins:
+  - pin: 68
+    function: Exhaust Butterfly Valve Actuator Neg
+  - pin: 69
+    function: Exhaust Butterfly Valve Actuator Pos
+  - pin: 72
+    function: Power Supply to ETV Actuator
+  - pin: 73
+    function: Ground for ETV Actuator
+  - pin: 74
+    function: Power to Accelerator Position Sensor 1
+  - pin: 75
+    function: Power to Throttle Position Sensor
+  - pin: 76
+    function: Power to Accelerator Position Sensor 2
+  - pin: 77
+    function: Air Switching Valve
+
+
+  - pin: 79
+    function: Green Neutral Indicator Light
+  - pin: 82
+    function: Knock Sensor Neg
+  - pin: 83
+    function: Knock Sensor Pos
+  - pin: 86
+    function: Fuel Pump Relay
+  - pin: 88
+    function: Engine Start/Stop Switch
+  - pin: 102
+    function: Rear Wheel Sensor
+  - pin: 103
+    function: Front Wheel Sensor
+  - pin: 107
+    function: Purge Value For Supercharger
+  - pin: 111
+    function: Radiator Fan Relay
+  - pin: 124
+    function: Immobilizer Amplifier 1
+  - pin: 125
+    function: Immobilizer Amplifier 2
+  - pin: 126
+    function: Ground for Accelerator Position Sensor 2
+  - pin: 127
+    function: Ground for Accelerator Position Sensor 1
+  - pin: 128
+    function: Accelerator Position Sensor 2
+  - pin: 129
+    function: Accelerator Position Sensor 1
+  - pin: 130
+    function: Ground for Throttle Position Sensor
+  - pin: 131
+    function: Throttle Position Sensor 2
+  - pin: 132
+    function: Throttle Position Sensor 1
+  - pin: 133
+    function: Secondary Fuel Injector 1
+  - pin: 134
+    function: Secondary Fuel Injector 2
   - pin: 135
-    function: Secondary Injector 4
+    function: Secondary Fuel Injector 4
   - pin: 136
-    function: Secondary Injector 3
+    function: Secondary Fuel Injector 3
 
 info:
   title: 2023 Kawasaki
