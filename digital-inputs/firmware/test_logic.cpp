@@ -202,7 +202,10 @@ BoardConfig boardConfigs[] = {
 	{
 		.boardName = "mg1",
 		.desiredEngineConfig = -1,
-		.boardIds = { STATIC_BOARD_ID_PROTEUS_CANAM, STATIC_BOARD_ID_HELLEN_MG1, 0 },
+		.boardIds = {
+		// a bit of a hack - lazy reuse for most basic pins
+		STATIC_BOARD_ID_PROTEUS_SLINGSHOT,
+		STATIC_BOARD_ID_PROTEUS_CANAM, STATIC_BOARD_ID_HELLEN_MG1, 0 },
 		.channels = {
 			{ "TPS1_1", PULLED_DOWN_RANGE(DOWN_7B, UP_7B, 680'000) },
 			{ "TPS1_2", 1, 0.767938368, /* ideally 0.860549952*/ 0.87 },
