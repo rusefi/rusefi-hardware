@@ -1,0 +1,77 @@
+pins:
+  - pin: 1
+    function: Vign
+    type: 12v
+    color: yellow
+
+  - pin: 3
+    function: CAN High
+    type: can
+    color: blue (rusEFI green)
+
+  - pin: 4
+    function: K-line
+    color: purple
+
+  - pin: 5
+    function: Power Ground
+    type: gnd
+    color: black
+
+
+  - pin: 6
+    function: Vign
+    type: 12v
+    color: green/yellow
+
+
+  - pin: 8
+    function: CAN Low
+    type: can
+    color: pink (rusEFI blue)
+
+  - pin: 9
+    function: Starter Relay
+    color: grey
+
+  - pin: 10
+    function: Power Ground
+    type: gnd
+    color: black
+
+
+info:
+  title: Jatco G35
+  name: Jatco G35
+  cid: main
+  order: 0
+  directory: jatco_g35
+  image:
+    file: female.jpg
+  pins:
+    - pin: 1
+      x: 296
+      y: 400
+    - pin: 3
+      x: 508
+      y: 400
+    - pin: 4
+      x: 609
+      y: 400
+    - pin: 5
+      x: 707
+      y: 400
+
+
+    - pin: 6
+      x: 296
+      y: 570
+    - pin: 8
+      x: 508
+      y: 570
+    - pin: 9
+      x: 609
+      y: 570
+    - pin: 10
+      x: 707
+      y: 570
