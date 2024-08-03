@@ -795,7 +795,7 @@ static bool doTestEcuDigitalOutput(int testLineIndex, bool isLowSide, CanRequest
 	 //&& isGood
 	 ; i++) {
 		bool isSet = (i & 1) == 0;
-		chprintf(chp, "               sending line=%d value=%d\r\n", index2human(testLineIndex), isSet);
+		chprintf(chp, "               sending line=%d@%d value=%d\r\n", index2human(testLineIndex), i, isSet);
 		// toggle the ECU pin for low side mode
 		sender(testLineIndex, isSet ^ isLowSide);
 
