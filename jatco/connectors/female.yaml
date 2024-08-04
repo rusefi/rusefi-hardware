@@ -4,6 +4,11 @@ pins:
     type: 12v
     color: yellow
 
+  - pin: 2
+    function: Battery
+    type: 12v
+    color: red
+
   - pin: 3
     function: CAN High
     type: can
@@ -51,6 +56,9 @@ info:
   pins:
     - pin: 1
       x: 296
+      y: 400
+    - pin: 2
+      x: 402
       y: 400
     - pin: 3
       x: 508
