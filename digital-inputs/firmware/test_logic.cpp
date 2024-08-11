@@ -252,6 +252,41 @@ BoardConfig boardConfigs[] = {
 		.dcHackValue = 1,
 	},
 	{
+		.boardName = "4k-gdi",
+		.desiredEngineConfig = -1,
+		.boardIds = {
+		BOARD_ID_GDI4CHAN_A, 0 },
+		.channels = {
+			{ "TPS1_1", PULLED_DOWN_RANGE(DOWN_7B, UP_7B, 680'000) },
+			{ "TPS1_2", 1, 0.767938368, /* ideally 0.860549952*/ 0.87 },
+			{ "PPS1", 1, 0.79 /*0.821830144*/, 0.920940928 },
+			{ "PPS2", PULLED_DOWN_RANGE(DOWN_11B, UP_11B, 680'000) },
+			{ "MAP", PULLED_DOWN_RANGE(DOWN_8B, UP_8B, 680'000) },
+			{ "CLT", 1.0f, CLT_VALUE(HELLEN_R) * ANALOG_L, CLT_VALUE(HELLEN_R) * ANALOG_H },
+			{ "IAT", 1.0f, IAT_VALUE(HELLEN_R) * ANALOG_L, IAT_VALUE(HELLEN_R) * ANALOG_H },
+			{ "BATT", HELLEN_VBATT_MULT, 9.0f, 15.0f },
+
+			{ nullptr, 0, 0, 0 }, // { "TPS2_1", 1.0f, 0.5f * ANALOG_L, 0.5f * ANALOG_H },
+			{ nullptr, 0, 0, 0 }, // { "TPS2_2", 1.0f, 0.5f * ANALOG_L, 0.5f * ANALOG_H },
+			{ nullptr, 0, 0, 0 },//{ "AUXL1", 1.0f, 1.35f * ANALOG_L, 1.35f * ANALOG_H },
+			{ nullptr, 0, 0, 0 },//{ "AUXL2", 1.0f, 2.23f * ANALOG_L, 2.23f * ANALOG_H },
+		},
+		.eventExpected = {/*crank*/false,
+		false,
+		/*cam1*/false,
+		false, false, false,
+		/*vss*/false},
+		.buttonExpected = {false, false, false},
+		.outputNames = {
+ "injector 1",
+ "injector 2",
+ "injector 3",
+ "injector 4",
+	    },
+        .wboUnitsCount = 0,
+		.dcHackValue = 0,
+	},
+	{
 		.boardName = "polaris",
 		.desiredEngineConfig = -1,
 		.boardIds = {
