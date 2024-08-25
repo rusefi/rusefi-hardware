@@ -144,7 +144,7 @@ BoardConfig boardConfigs[] = {
 	{
 		.boardName = "Hellen-Honda125K",
 		.desiredEngineConfig = -1,
-		.boardIds = { BOARD_ID_HONDA125_A, BOARD_ID_HONDA125_B, BOARD_ID_HONDA125_C, BOARD_ID_HONDA125_D, 0 },
+		.boardIds = { BOARD_ID_HONDA125_A, BOARD_ID_HONDA125_B, BOARD_ID_HONDA125_C, BOARD_ID_HONDA125_D, BOARD_ID_HONDA125_E, 0 },
 		.channels = {
 			{ "TPS1_1", 1.0f, VOLT_7B * ANALOG_L, VOLT_7B * ANALOG_H },
 			{ nullptr, 0, 0, 0 },
