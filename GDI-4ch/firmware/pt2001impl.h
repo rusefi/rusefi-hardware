@@ -12,10 +12,10 @@ public:
 	bool init();
 
 protected:
-	void spiAcquireBus() override {
+	void acquireBus() override {
 	}
 
-	void spiReleaseBus() override {
+	void releaseBus() override {
 	}
 
 	void select() override {
