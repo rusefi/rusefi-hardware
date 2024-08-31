@@ -100,7 +100,8 @@ public:
     bool haveSeenHigh;
 };
 
-constexpr int cycleDurationMs = 2;
+// huh? until some point this was working with only '2' ms?!
+constexpr int cycleDurationMs = 50;
 constexpr int cycleCount = 4;
 
 BoardConfig boardConfigs[] = {
@@ -716,7 +717,8 @@ BoardConfig boardConfigs[] = {
 			{ nullptr, 0, 0, 0 },//{ "IAT", 1.0f, IAT_VALUE(ALPHA2CH_R) * ANALOG_L, IAT_VALUE(ALPHA2CH_R) * ANALOG_H },
 			{ "BATT", HELLEN_VBATT_MULT, 9.0f, 15.0f },
 		},
-		.eventExpected = {/*crank*/true, false, /*cam1*/false, /*cam2*/true,/*cam3*/ true, /*cam4*/false, /*vss*/false},
+		/* crank neg goes to https://rusefi.com/docs/pinouts/stim/?connector=main&pin=24C 2.5v source, crank positive 22B with a 4.7K pull up */
+		.eventExpected = {/*crank*/true, false, /*cam1*/true, /*cam2*/true,/*cam3*/ true, /*cam4*/true, /*vss*/false},
 		.buttonExpected = {false, false, false},
 		.outputNames = {
 		"inj1", "inj2", "inj3", "inj4",
