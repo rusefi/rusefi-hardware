@@ -100,8 +100,6 @@ public:
     bool haveSeenHigh;
 };
 
-// huh? until some point this was working with only '2' ms?!
-constexpr int cycleDurationMs = 50;
 constexpr int cycleCount = 4;
 
 BoardConfig boardConfigs[] = {
@@ -906,6 +904,17 @@ size_t getBoardsCount() {
 
 typedef void (*CanRequestSender) (int testLineIndex, bool value);
 
+static int getCycleDurationMs() {
+//    if (currentBoard!=nullptr)
+
+//    .boardName
+    return 2;
+//    // huh? until some point this was working with only '2' ms?!
+//    constexpr int cycleDurationMs = 50;
+//    return cycleDurationMs;
+}
+
+
 static bool doTestEcuDigitalOutput(int testLineIndex, bool isLowSide, CanRequestSender sender, bool expectation) {
 	static DigitalResult result;
 	memset(&result, 0, sizeof(result));
@@ -928,7 +937,7 @@ static bool doTestEcuDigitalOutput(int testLineIndex, bool isLowSide, CanRequest
         // see also https://github.com/rusefi/rusefi-hardware/issues/252
 		int pullUpDownPinsBitmap = isLowSide << bankIndex; // i % 2
 		setScenarioIndex(pullUpDownPinsBitmap);
-		chThdSleepMilliseconds(cycleDurationMs);
+		chThdSleepMilliseconds(getCycleDurationMs());
 
 		float voltage = getAdcValue(bankIndex);
 		// low side sends roughly 2.8 but 5v high side is closer to 1v
