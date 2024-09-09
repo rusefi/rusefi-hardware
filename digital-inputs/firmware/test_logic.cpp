@@ -603,7 +603,7 @@ BoardConfig boardConfigs[] = {
 	{
 		.boardName = "uaefi121",
 		.desiredEngineConfig = -1,
-		.boardIds = { BOARD_ID_UAEFI121_A, 0 },
+		.boardIds = { BOARD_ID_UAEFI121_A, BOARD_ID_UAEFI121_B, 0 },
 		.channels = {
 			{ nullptr, 0, 0, 0 }, // { "TPS1_1", PULLED_DOWN_RANGE(DOWN_7B, UP_7B, 680'000) },
 			{ nullptr, 0, 0, 0 }, // { "TPS1_2", PULLED_DOWN_RANGE(DOWN_9B, UP_9B, 680'000) },
