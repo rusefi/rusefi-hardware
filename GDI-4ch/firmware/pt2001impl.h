@@ -12,21 +12,12 @@ public:
 	bool init();
 
 protected:
-	void acquireBus() override {
-	}
-
-	void releaseBus() override {
-	}
-
 	void select() override {
 		spiSelect(driver);
 	}
 
 	void deselect() override {
 		spiUnselect(driver);
-	}
-
-	bool errorOnUnexpectedFlag() override {
 	}
 
 	uint16_t sendRecv(uint16_t tx) override {
