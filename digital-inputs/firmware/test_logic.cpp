@@ -670,8 +670,7 @@ BoardConfig boardConfigs[] = {
 			{ nullptr, 0, 0, 0 }, // { "AUXL1", 1.0f, 1.35f * ANALOG_L, 1.35f * ANALOG_H },
 			{ nullptr, 0, 0, 0 }, // { "AUXL2", 1.0f, 2.23f * ANALOG_L, 2.23f * ANALOG_H },
 		},
-		/* crank neg C19 goes to 24C for 2.5v virtual GND. Crank positive 22B with a 4.7K pull up to 5v */
-		.eventExpected = {/*crank*/false, false, /*cam1*/true, /*cam2*/true, false, false, /*vss*/true},
+		.eventExpected = {/*crank*/true, false, /*cam1*/false, /*cam2*/false, false, false, /*vss*/false},
 		.buttonExpected = {false, false, false},
 		.auxDigitalExpected = {false, false, false, false,
 		false, false, false, false},
@@ -684,20 +683,9 @@ BoardConfig boardConfigs[] = {
  "49a INJ_6",
  "50a INJ_7",
  "51a INJ_8",
- "14a LS1",
- "15a LS2",
- "16a LS3",
- "88a LS4",
- "ls5",
- "ls6",
- "high side",
+ "fuel pump",
  "Coil 1",
  "Coil 2",
- "Coil 3",
- "Coil 4",
- "Coil 5",
- "Coil 6",
-
         },
         .wboUnitsCount = 2,
 		.dcHackValue = 1,
@@ -905,6 +893,12 @@ size_t getBoardsCount() {
 typedef void (*CanRequestSender) (int testLineIndex, bool value);
 
 static int getCycleDurationMs() {
+extern int boardId;
+    if (boardId == STATIC_BOARD_ID_UAEFU121_SBC) {
+        // real relay needs some time to click
+        return 100;
+    }
+
 //    if (currentBoard!=nullptr)
 
 //    .boardName
