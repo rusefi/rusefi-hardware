@@ -29,7 +29,7 @@ jobs:
         run: make
 
       - name: Upload GDI binaries
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: GDI4
           path: ./GDI-4ch/firmware/build/gdi4*
