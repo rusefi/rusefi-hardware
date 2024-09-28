@@ -1,0 +1,8 @@
+﻿Designator,Footprint,Quantity,Value,LCSC Part #
+"D1, D2, D3, D4",D_SOD-123F,4,SM4007PL,C64898
+"D5, D6",TO-263-2,2,TN5015H-6G,C2971185
+"J1, J2",TerminalBlock_MetzConnect_Type055_RT01503HDWU_1x03_P5.00mm_Horizontal,2,Screw_Terminal_01x03,C557647
+J3,TerminalBlock_MetzConnect_Type055_RT01504HDWU_1x04_P5.00mm_Horizontal,1,Screw_Terminal_01x04,C173286
+"R1, R2",1206,2,200,C2962216
+"R3, R4",1206,2,10k,C175515
+"TP1, TP10, TP11, TP12, TP13, TP14, TP15, TP16, TP2, TP3, TP4, TP5, TP6, TP7, TP8, TP9",SolderWire-1sqmm_1x01_D1.4mm_OD2.7mm,16,~,
