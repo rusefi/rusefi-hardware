@@ -767,8 +767,9 @@ BoardConfig boardConfigs[] = {
 		"ls3", "ls4", "ls5", "ls6",
 		/*34C > 9C*/"ls7", /*5C > */"hs1", "hs2", "hs3",
         "ign1", "ign3", "ign5",
-
 		},
+		.wboUnitsCount = 2,
+		.dcHackValue = 0,
 	},
 	{
 		.boardName = "SILVER",
