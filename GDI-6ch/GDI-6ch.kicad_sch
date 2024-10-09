@@ -6,8 +6,8 @@
 	(paper "A2")
 	(title_block
 		(title "GDI 6ch")
-		(date "2024-08-25")
-		(rev "a")
+		(date "2024-10-09")
+		(rev "b")
 		(company "rusEFI.com")
 	)
 	(lib_symbols
@@ -4194,6 +4194,139 @@
 					(at 3.81 0 180)
 					(length 2.54)
 					(name "A"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+		)
+		(symbol "Device:Fuse"
+			(pin_numbers hide)
+			(pin_names
+				(offset 0)
+			)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(property "Reference" "F"
+				(at 2.032 0 90)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Value" "Fuse"
+				(at -1.905 0 90)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" ""
+				(at -1.778 0 90)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Datasheet" "~"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Description" "Fuse"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_keywords" "fuse"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_fp_filters" "*Fuse*"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(symbol "Fuse_0_1"
+				(rectangle
+					(start -0.762 -2.54)
+					(end 0.762 2.54)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 0 2.54) (xy 0 -2.54)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+			)
+			(symbol "Fuse_1_1"
+				(pin passive line
+					(at 0 3.81 270)
+					(length 1.27)
+					(name "~"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 0 -3.81 90)
+					(length 1.27)
+					(name "~"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -12601,164 +12734,6 @@
 				)
 			)
 		)
-		(symbol "hellen-one-common:Fuse-Pad-Pad"
-			(pin_numbers hide)
-			(pin_names
-				(offset 0.762) hide)
-			(exclude_from_sim no)
-			(in_bom yes)
-			(on_board yes)
-			(property "Reference" "F"
-				(at 0 2.54 0)
-				(effects
-					(font
-						(size 1.016 1.016)
-					)
-				)
-			)
-			(property "Value" "Fuse-Pad-Pad"
-				(at 0 -1.778 0)
-				(effects
-					(font
-						(size 1.016 1.016)
-					)
-					(hide yes)
-				)
-			)
-			(property "Footprint" "hellen-one-common:PAD-1206-PAD"
-				(at 0 -3.81 0)
-				(effects
-					(font
-						(size 1.524 1.524)
-					)
-					(hide yes)
-				)
-			)
-			(property "Datasheet" ""
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.524 1.524)
-					)
-					(hide yes)
-				)
-			)
-			(property "Description" "12H1500D"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "LCSC" "C182446"
-				(at 0 -3.81 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(symbol "Fuse-Pad-Pad_0_1"
-				(circle
-					(center -2.54 0)
-					(radius 0.762)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(arc
-					(start -1.27 0)
-					(mid -0.635 -0.4563)
-					(end 0 0)
-					(stroke
-						(width 0.0005)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(arc
-					(start 1.27 0)
-					(mid 0.635 0.398)
-					(end 0 0)
-					(stroke
-						(width 0.0005)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(circle
-					(center 2.54 0)
-					(radius 0.762)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(pin passive line
-					(at -5.08 0 0)
-					(length 2.54)
-					(name "1"
-						(effects
-							(font
-								(size 1.524 1.524)
-							)
-						)
-					)
-					(number "1"
-						(effects
-							(font
-								(size 1.524 1.524)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 5.08 0 180)
-					(length 2.54)
-					(name "2"
-						(effects
-							(font
-								(size 1.524 1.524)
-							)
-						)
-					)
-					(number "2"
-						(effects
-							(font
-								(size 1.524 1.524)
-							)
-						)
-					)
-				)
-			)
-			(symbol "Fuse-Pad-Pad_1_0"
-				(rectangle
-					(start -2.54 -1.27)
-					(end 2.54 1.27)
-					(stroke
-						(width 0.254)
-						(type default)
-					)
-					(fill
-						(type background)
-					)
-				)
-			)
-		)
 		(symbol "hellen-one-common:Jumper-Pad-Pad"
 			(pin_numbers hide)
 			(pin_names
@@ -15905,6 +15880,16 @@
 	)
 	(wire
 		(pts
+			(xy 44.45 182.88) (xy 67.31 182.88)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "04daba14-795c-4bda-b11e-4a9584d52c5b")
+	)
+	(wire
+		(pts
 			(xy 257.81 64.77) (xy 270.51 64.77)
 		)
 		(stroke
@@ -16225,6 +16210,16 @@
 	)
 	(wire
 		(pts
+			(xy 44.45 152.4) (xy 67.31 152.4)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "0ebc202f-1498-4e9b-b2f0-cb55bb490c64")
+	)
+	(wire
+		(pts
 			(xy 210.82 256.54) (xy 200.66 256.54)
 		)
 		(stroke
@@ -16422,16 +16417,6 @@
 			(type default)
 		)
 		(uuid "1464d763-c2b2-4ba8-8e05-8098c9e9d40e")
-	)
-	(wire
-		(pts
-			(xy 54.61 167.64) (xy 67.31 167.64)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "1514f19f-9ebb-4746-96f3-e7e72ff509be")
 	)
 	(wire
 		(pts
@@ -16755,6 +16740,16 @@
 	)
 	(wire
 		(pts
+			(xy 44.45 172.72) (xy 67.31 172.72)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "1f9b728b-02fe-4b21-9eac-21a4bc53a3c3")
+	)
+	(wire
+		(pts
 			(xy 212.09 87.63) (xy 224.79 87.63)
 		)
 		(stroke
@@ -16895,6 +16890,16 @@
 	)
 	(wire
 		(pts
+			(xy 44.45 165.1) (xy 67.31 165.1)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "24aa40fa-2bde-4911-868e-8707e2afed5e")
+	)
+	(wire
+		(pts
 			(xy 425.45 128.27) (xy 414.02 128.27)
 		)
 		(stroke
@@ -17025,7 +17030,7 @@
 	)
 	(wire
 		(pts
-			(xy 45.72 24.13) (xy 52.07 24.13)
+			(xy 45.72 24.13) (xy 54.61 24.13)
 		)
 		(stroke
 			(width 0)
@@ -17102,16 +17107,6 @@
 			(type default)
 		)
 		(uuid "2c8eedf4-4f12-456b-a4b9-bdc45575e2d5")
-	)
-	(wire
-		(pts
-			(xy 54.61 66.04) (xy 69.85 66.04)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "2cbb6529-6727-4c13-af52-c0399f650653")
 	)
 	(wire
 		(pts
@@ -17425,16 +17420,6 @@
 	)
 	(wire
 		(pts
-			(xy 54.61 172.72) (xy 67.31 172.72)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "342d1b07-c99c-47fe-b81d-510478854ca0")
-	)
-	(wire
-		(pts
 			(xy 179.07 355.6) (xy 186.69 355.6)
 		)
 		(stroke
@@ -17545,6 +17530,16 @@
 	)
 	(wire
 		(pts
+			(xy 44.45 162.56) (xy 67.31 162.56)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "37899ff8-f1b1-4daf-8386-bbfaf2cf70a8")
+	)
+	(wire
+		(pts
 			(xy 212.09 72.39) (xy 224.79 72.39)
 		)
 		(stroke
@@ -17562,6 +17557,16 @@
 			(type default)
 		)
 		(uuid "37db62be-439c-4e56-992c-50a50bf4846b")
+	)
+	(wire
+		(pts
+			(xy 44.45 170.18) (xy 67.31 170.18)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "37ff2a02-a9c2-4343-9b60-1b55a8c12d37")
 	)
 	(wire
 		(pts
@@ -17805,16 +17810,6 @@
 	)
 	(wire
 		(pts
-			(xy 54.61 60.96) (xy 69.85 60.96)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "3f07ccb5-8811-4473-8a1b-a36927f02ad8")
-	)
-	(wire
-		(pts
 			(xy 208.28 328.93) (xy 210.82 328.93)
 		)
 		(stroke
@@ -17842,16 +17837,6 @@
 			(type default)
 		)
 		(uuid "3f39750c-d425-4d28-89d8-54454da7c832")
-	)
-	(wire
-		(pts
-			(xy 69.85 101.6) (xy 58.42 101.6)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "3f401e78-6d02-4bd6-a639-90da1babc63b")
 	)
 	(wire
 		(pts
@@ -17885,7 +17870,7 @@
 	)
 	(wire
 		(pts
-			(xy 45.72 45.72) (xy 58.42 45.72)
+			(xy 45.72 45.72) (xy 68.58 45.72)
 		)
 		(stroke
 			(width 0)
@@ -18085,7 +18070,17 @@
 	)
 	(wire
 		(pts
-			(xy 45.72 38.1) (xy 58.42 38.1)
+			(xy 44.45 167.64) (xy 67.31 167.64)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "45b8c0a9-8240-4a14-a309-478aa4700200")
+	)
+	(wire
+		(pts
+			(xy 45.72 38.1) (xy 68.58 38.1)
 		)
 		(stroke
 			(width 0)
@@ -18273,6 +18268,16 @@
 		)
 		(uuid "4e6e92f7-801f-4447-abc5-c57a58706f48")
 	)
+	(wire
+		(pts
+			(xy 44.45 60.96) (xy 68.58 60.96)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "4ecf0e2e-274b-4099-b1c5-dd1ccc0eab4e")
+	)
 	(polyline
 		(pts
 			(xy 486.41 270.51) (xy 486.41 300.99)
@@ -18292,16 +18297,6 @@
 			(type default)
 		)
 		(uuid "4efa0593-3f72-4cc8-9012-dc618da5c7b1")
-	)
-	(wire
-		(pts
-			(xy 54.61 175.26) (xy 67.31 175.26)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "4f1e8f41-865b-4703-89c6-df5a1616d42b")
 	)
 	(wire
 		(pts
@@ -18345,7 +18340,7 @@
 	)
 	(wire
 		(pts
-			(xy 44.45 307.34) (xy 59.69 307.34)
+			(xy 44.45 307.34) (xy 71.12 307.34)
 		)
 		(stroke
 			(width 0)
@@ -18645,7 +18640,7 @@
 	)
 	(wire
 		(pts
-			(xy 44.5042 63.5) (xy 44.45 63.5)
+			(xy 44.45 63.5) (xy 68.58 63.5)
 		)
 		(stroke
 			(width 0)
@@ -18712,16 +18707,6 @@
 			(type default)
 		)
 		(uuid "629ddc5c-d62f-4ba2-9089-5c5841dbd4ae")
-	)
-	(wire
-		(pts
-			(xy 54.61 165.1) (xy 67.31 165.1)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "62b2372b-2a04-4a6b-aa3b-f89b46e41f95")
 	)
 	(wire
 		(pts
@@ -18915,7 +18900,7 @@
 	)
 	(wire
 		(pts
-			(xy 44.45 302.26) (xy 59.69 302.26)
+			(xy 44.45 302.26) (xy 71.12 302.26)
 		)
 		(stroke
 			(width 0)
@@ -18925,7 +18910,7 @@
 	)
 	(wire
 		(pts
-			(xy 44.45 292.1) (xy 59.69 292.1)
+			(xy 44.45 292.1) (xy 71.12 292.1)
 		)
 		(stroke
 			(width 0)
@@ -18975,7 +18960,7 @@
 	)
 	(wire
 		(pts
-			(xy 45.72 48.26) (xy 58.42 48.26)
+			(xy 45.72 48.26) (xy 68.58 48.26)
 		)
 		(stroke
 			(width 0)
@@ -19265,7 +19250,7 @@
 	)
 	(wire
 		(pts
-			(xy 45.72 43.18) (xy 58.42 43.18)
+			(xy 45.72 43.18) (xy 68.58 43.18)
 		)
 		(stroke
 			(width 0)
@@ -19295,6 +19280,16 @@
 	)
 	(wire
 		(pts
+			(xy 44.45 185.42) (xy 67.31 185.42)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "72a8bbfc-b7c5-4597-804c-0913d8809bd6")
+	)
+	(wire
+		(pts
 			(xy 132.08 226.06) (xy 154.94 226.06)
 		)
 		(stroke
@@ -19315,16 +19310,6 @@
 	)
 	(wire
 		(pts
-			(xy 54.61 170.18) (xy 67.31 170.18)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "738cfd76-49cd-44fb-87d9-2522a33ce487")
-	)
-	(wire
-		(pts
 			(xy 113.03 334.01) (xy 127 334.01)
 		)
 		(stroke
@@ -19335,7 +19320,7 @@
 	)
 	(wire
 		(pts
-			(xy 44.45 297.18) (xy 59.69 297.18)
+			(xy 44.45 297.18) (xy 71.12 297.18)
 		)
 		(stroke
 			(width 0)
@@ -19643,6 +19628,16 @@
 		)
 		(uuid "7f16b05c-e1f2-4f24-a89a-50b3df7af9cb")
 	)
+	(wire
+		(pts
+			(xy 44.45 175.26) (xy 67.31 175.26)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "7f621752-4779-415e-86b3-ec2bad389618")
+	)
 	(polyline
 		(pts
 			(xy 134.62 336.55) (xy 134.62 336.55)
@@ -19895,16 +19890,6 @@
 	)
 	(wire
 		(pts
-			(xy 54.61 182.88) (xy 67.31 182.88)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "8a67f0e3-0ff9-4550-a75a-c70f148d657b")
-	)
-	(wire
-		(pts
 			(xy 114.3 269.24) (xy 121.92 269.24)
 		)
 		(stroke
@@ -20085,6 +20070,16 @@
 	)
 	(wire
 		(pts
+			(xy 44.45 68.58) (xy 68.58 68.58)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "90509784-2a97-4a9a-86b2-a11e2275ee11")
+	)
+	(wire
+		(pts
 			(xy 278.13 26.67) (xy 288.29 26.67)
 		)
 		(stroke
@@ -20135,7 +20130,7 @@
 	)
 	(wire
 		(pts
-			(xy 45.72 40.64) (xy 58.42 40.64)
+			(xy 45.72 40.64) (xy 68.58 40.64)
 		)
 		(stroke
 			(width 0)
@@ -20305,16 +20300,6 @@
 	)
 	(wire
 		(pts
-			(xy 54.61 152.4) (xy 67.31 152.4)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "974505dd-3ddd-43a2-bc1a-b059c628641d")
-	)
-	(wire
-		(pts
 			(xy 237.49 97.79) (xy 237.49 99.695)
 		)
 		(stroke
@@ -20392,16 +20377,6 @@
 			(type default)
 		)
 		(uuid "98886134-6ded-4798-b76f-8d8ca57f1de8")
-	)
-	(wire
-		(pts
-			(xy 54.61 185.42) (xy 67.31 185.42)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "98cadfde-8792-4ce1-b74e-aa5ec8c45b5e")
 	)
 	(wire
 		(pts
@@ -20905,16 +20880,6 @@
 	)
 	(wire
 		(pts
-			(xy 54.6642 63.5) (xy 69.85 63.5)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "ae74ae3a-c70b-451b-afcd-e1da133aa62a")
-	)
-	(wire
-		(pts
 			(xy 318.77 107.95) (xy 322.58 107.95)
 		)
 		(stroke
@@ -21165,7 +21130,7 @@
 	)
 	(wire
 		(pts
-			(xy 45.72 30.48) (xy 58.42 30.48)
+			(xy 45.72 30.48) (xy 68.58 30.48)
 		)
 		(stroke
 			(width 0)
@@ -21325,16 +21290,6 @@
 	)
 	(wire
 		(pts
-			(xy 54.61 162.56) (xy 67.31 162.56)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "bd5318b7-ad20-4861-9c8d-8576a59d71ea")
-	)
-	(wire
-		(pts
 			(xy 186.69 363.22) (xy 186.69 360.68)
 		)
 		(stroke
@@ -21445,6 +21400,16 @@
 	)
 	(wire
 		(pts
+			(xy 44.45 66.04) (xy 68.58 66.04)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "c1b9d736-c189-445c-99ee-7fa850e2ae60")
+	)
+	(wire
+		(pts
 			(xy 240.03 337.82) (xy 240.03 341.63)
 		)
 		(stroke
@@ -21465,7 +21430,7 @@
 	)
 	(wire
 		(pts
-			(xy 44.45 101.6) (xy 48.26 101.6)
+			(xy 44.45 101.6) (xy 69.85 101.6)
 		)
 		(stroke
 			(width 0)
@@ -21552,16 +21517,6 @@
 			(type default)
 		)
 		(uuid "c566733d-9113-4aba-97f8-6e33e16a47cf")
-	)
-	(wire
-		(pts
-			(xy 54.61 68.58) (xy 69.85 68.58)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "c56efc35-e69a-43d2-9c59-f20a402c1812")
 	)
 	(wire
 		(pts
@@ -21725,7 +21680,7 @@
 	)
 	(wire
 		(pts
-			(xy 44.45 106.68) (xy 48.26 106.68)
+			(xy 44.45 106.68) (xy 69.85 106.68)
 		)
 		(stroke
 			(width 0)
@@ -21905,7 +21860,7 @@
 	)
 	(wire
 		(pts
-			(xy 45.72 33.02) (xy 58.42 33.02)
+			(xy 45.72 33.02) (xy 68.58 33.02)
 		)
 		(stroke
 			(width 0)
@@ -22585,7 +22540,7 @@
 	)
 	(wire
 		(pts
-			(xy 45.72 35.56) (xy 58.42 35.56)
+			(xy 45.72 35.56) (xy 68.58 35.56)
 		)
 		(stroke
 			(width 0)
@@ -22735,7 +22690,7 @@
 	)
 	(wire
 		(pts
-			(xy 44.45 274.32) (xy 59.69 274.32)
+			(xy 44.45 274.32) (xy 71.12 274.32)
 		)
 		(stroke
 			(width 0)
@@ -22762,16 +22717,6 @@
 			(type default)
 		)
 		(uuid "f0fcef12-d564-4653-bc37-12af6e9a7b09")
-	)
-	(wire
-		(pts
-			(xy 69.85 106.68) (xy 58.42 106.68)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "f11debbf-daef-4a96-8e5a-4b619d186adc")
 	)
 	(wire
 		(pts
@@ -23095,7 +23040,7 @@
 	)
 	(wire
 		(pts
-			(xy 44.45 269.24) (xy 59.69 269.24)
+			(xy 44.45 269.24) (xy 71.12 269.24)
 		)
 		(stroke
 			(width 0)
@@ -23365,7 +23310,7 @@
 		(uuid "ea7b99a3-51d5-4ce1-8413-1c10acec191a")
 	)
 	(label "L3"
-		(at 69.85 292.1 0)
+		(at 71.12 292.1 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -23486,7 +23431,7 @@
 		(uuid "0d8bd60d-aa7a-4efb-b7cd-07008c7e6860")
 	)
 	(label "L6"
-		(at 68.58 33.02 0)
+		(at 66.04 33.02 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -23508,7 +23453,7 @@
 		(uuid "0f465148-8ff9-4066-ab98-d24fc81e9d3b")
 	)
 	(label "H1"
-		(at 68.58 40.64 0)
+		(at 66.04 40.64 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -23618,7 +23563,7 @@
 		(uuid "15c86530-4d16-4839-9bc6-a23bfedaa98a")
 	)
 	(label "L4"
-		(at 69.85 297.18 0)
+		(at 71.12 297.18 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -23640,7 +23585,7 @@
 		(uuid "1b31c30a-0037-4d9f-a09d-03e8735b7aa8")
 	)
 	(label "IN_A3"
-		(at 69.85 68.58 180)
+		(at 68.58 68.58 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -23706,7 +23651,7 @@
 		(uuid "1e7ae541-fd5a-480a-b56b-9a67dcd65893")
 	)
 	(label "H3"
-		(at 69.85 302.26 0)
+		(at 71.12 302.26 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -23772,7 +23717,7 @@
 		(uuid "2473c864-5121-400d-a7c0-5543cc602070")
 	)
 	(label "H6"
-		(at 68.58 45.72 0)
+		(at 66.04 45.72 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -24003,7 +23948,7 @@
 		(uuid "475ed8b3-90bf-48cd-bce5-d8f48b689541")
 	)
 	(label "H7"
-		(at 69.85 269.24 0)
+		(at 71.12 269.24 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -24058,7 +24003,7 @@
 		(uuid "4a4364dc-e02b-4100-bcf3-d8abd243d075")
 	)
 	(label "IN_A2"
-		(at 69.85 66.04 180)
+		(at 68.58 66.04 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -24124,7 +24069,7 @@
 		(uuid "5347b95d-808f-44d1-9f47-8905b41e4222")
 	)
 	(label "H5"
-		(at 68.58 35.56 0)
+		(at 66.04 35.56 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -24212,7 +24157,7 @@
 		(uuid "5c352cf6-5c79-43a4-94c6-79ce3c25125a")
 	)
 	(label "L2"
-		(at 68.58 43.18 0)
+		(at 66.04 43.18 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -24223,7 +24168,7 @@
 		(uuid "5c72860c-0419-4a05-a875-d3eacbf616d3")
 	)
 	(label "L5"
-		(at 68.58 38.1 0)
+		(at 66.04 38.1 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -24278,7 +24223,7 @@
 		(uuid "6cc94cc2-2da4-4aac-a502-28ca19494a9c")
 	)
 	(label "H4"
-		(at 69.85 307.34 0)
+		(at 71.12 307.34 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -24421,7 +24366,7 @@
 		(uuid "7e339bd2-1ec1-40bc-ad06-67739f2557e7")
 	)
 	(label "L7"
-		(at 69.85 274.32 0)
+		(at 71.12 274.32 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -24817,7 +24762,7 @@
 		(uuid "b721537d-e9f2-42bf-8122-4b61d98cac42")
 	)
 	(label "IN_A1"
-		(at 69.85 63.5 180)
+		(at 68.58 63.5 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -25125,7 +25070,7 @@
 		(uuid "dbbdc859-20af-41f3-af0a-670ec258254b")
 	)
 	(label "H2"
-		(at 68.58 48.26 0)
+		(at 66.04 48.26 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -25213,7 +25158,7 @@
 		(uuid "e60ffad4-e949-4431-9192-20d17a072493")
 	)
 	(label "IN_A0"
-		(at 69.85 60.96 180)
+		(at 68.58 60.96 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -25389,7 +25334,7 @@
 		(uuid "ff6a7d87-c5e6-4509-8918-1525dc85be70")
 	)
 	(label "L1"
-		(at 68.58 30.48 0)
+		(at 66.04 30.48 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -27801,83 +27746,6 @@
 		)
 	)
 	(symbol
-		(lib_id "hellen-one-common:Jumper-Pad-Pad")
-		(at 49.5842 63.5 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "0302a6c4-5ebc-4afe-b636-c397dc6b43be")
-		(property "Reference" "R67"
-			(at 53.3942 62.23 0)
-			(effects
-				(font
-					(size 1.016 1.016)
-				)
-			)
-		)
-		(property "Value" "Jumper-Pad-Pad"
-			(at 49.5842 65.278 0)
-			(effects
-				(font
-					(size 1.016 1.016)
-				)
-				(hide yes)
-			)
-		)
-		(property "Footprint" "hellen-one-common:PAD-0805-PAD"
-			(at 49.5842 67.31 0)
-			(effects
-				(font
-					(size 1.524 1.524)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 49.5842 63.5 0)
-			(effects
-				(font
-					(size 1.524 1.524)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" ""
-			(at 49.5842 63.5 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "LCSC" "C17477"
-			(at 49.5842 67.31 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "e2454b7a-74b0-4beb-bf38-241afc9bd288")
-		)
-		(pin "2"
-			(uuid "cf3b6fdc-c02f-4131-8f7e-64b92570fa76")
-		)
-		(instances
-			(project ""
-				(path "/03caada9-9e22-4e2d-9035-b15433dfbb17"
-					(reference "R67")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "power:+3.3V")
 		(at 543.56 101.6 90)
 		(unit 1)
@@ -30126,83 +29994,6 @@
 		)
 	)
 	(symbol
-		(lib_id "hellen-one-common:Jumper-Pad-Pad")
-		(at 49.53 185.42 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "151de19c-877f-451a-8925-19a7b7dd351e")
-		(property "Reference" "R66"
-			(at 53.34 184.15 0)
-			(effects
-				(font
-					(size 1.016 1.016)
-				)
-			)
-		)
-		(property "Value" "Jumper-Pad-Pad"
-			(at 49.53 187.198 0)
-			(effects
-				(font
-					(size 1.016 1.016)
-				)
-				(hide yes)
-			)
-		)
-		(property "Footprint" "hellen-one-common:PAD-0805-PAD"
-			(at 49.53 189.23 0)
-			(effects
-				(font
-					(size 1.524 1.524)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 49.53 185.42 0)
-			(effects
-				(font
-					(size 1.524 1.524)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" ""
-			(at 49.53 185.42 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "LCSC" "C17477"
-			(at 49.53 189.23 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "fa550f19-ed80-45ce-b4bf-dfc54015ab51")
-		)
-		(pin "2"
-			(uuid "6806fbeb-3571-44fa-bbc8-099f9e249918")
-		)
-		(instances
-			(project ""
-				(path "/03caada9-9e22-4e2d-9035-b15433dfbb17"
-					(reference "R66")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "Connector_Generic:Conn_01x08")
 		(at 292.1 49.53 0)
 		(mirror y)
@@ -30716,83 +30507,6 @@
 		)
 	)
 	(symbol
-		(lib_id "hellen-one-common:Jumper-Pad-Pad")
-		(at 49.53 162.56 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "199a9938-8948-43ef-9e7c-227ffac159ff")
-		(property "Reference" "R61"
-			(at 53.34 161.29 0)
-			(effects
-				(font
-					(size 1.016 1.016)
-				)
-			)
-		)
-		(property "Value" "Jumper-Pad-Pad"
-			(at 49.53 164.338 0)
-			(effects
-				(font
-					(size 1.016 1.016)
-				)
-				(hide yes)
-			)
-		)
-		(property "Footprint" "hellen-one-common:PAD-0805-PAD"
-			(at 49.53 166.37 0)
-			(effects
-				(font
-					(size 1.524 1.524)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 49.53 162.56 0)
-			(effects
-				(font
-					(size 1.524 1.524)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" ""
-			(at 49.53 162.56 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "LCSC" "C17477"
-			(at 49.53 166.37 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "edd38356-e3dd-408a-a854-d8e8b6b43b64")
-		)
-		(pin "2"
-			(uuid "0b0ea606-1c08-432b-b550-9ab7b66e9547")
-		)
-		(instances
-			(project ""
-				(path "/03caada9-9e22-4e2d-9035-b15433dfbb17"
-					(reference "R61")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "power:GND")
 		(at 273.05 208.28 0)
 		(unit 1)
@@ -31135,83 +30849,6 @@
 			(project ""
 				(path "/03caada9-9e22-4e2d-9035-b15433dfbb17"
 					(reference "R81")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "hellen-one-common:Jumper-Pad-Pad")
-		(at 53.34 101.6 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "21560519-dbd4-461c-ae32-f40f7cd1ddc6")
-		(property "Reference" "R68"
-			(at 57.15 100.33 0)
-			(effects
-				(font
-					(size 1.016 1.016)
-				)
-			)
-		)
-		(property "Value" "Jumper-Pad-Pad"
-			(at 53.34 103.378 0)
-			(effects
-				(font
-					(size 1.016 1.016)
-				)
-				(hide yes)
-			)
-		)
-		(property "Footprint" "hellen-one-common:PAD-0805-PAD"
-			(at 53.34 105.41 0)
-			(effects
-				(font
-					(size 1.524 1.524)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 53.34 101.6 0)
-			(effects
-				(font
-					(size 1.524 1.524)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" ""
-			(at 53.34 101.6 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "LCSC" "C17477"
-			(at 53.34 105.41 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "5b38d020-5546-4c85-8036-952cf3f73663")
-		)
-		(pin "2"
-			(uuid "91c6c8e9-3160-4f8d-aa27-6b6c9f623f81")
-		)
-		(instances
-			(project ""
-				(path "/03caada9-9e22-4e2d-9035-b15433dfbb17"
-					(reference "R68")
 					(unit 1)
 				)
 			)
@@ -31765,83 +31402,6 @@
 			(project ""
 				(path "/03caada9-9e22-4e2d-9035-b15433dfbb17"
 					(reference "C60")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "hellen-one-common:Jumper-Pad-Pad")
-		(at 63.5 38.1 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "276750db-0e61-414c-a1f4-64c3115bc917")
-		(property "Reference" "R86"
-			(at 67.31 36.83 0)
-			(effects
-				(font
-					(size 1.016 1.016)
-				)
-			)
-		)
-		(property "Value" "Jumper-Pad-Pad"
-			(at 63.5 39.878 0)
-			(effects
-				(font
-					(size 1.016 1.016)
-				)
-				(hide yes)
-			)
-		)
-		(property "Footprint" "hellen-one-common:PAD-0805-PAD"
-			(at 63.5 41.91 0)
-			(effects
-				(font
-					(size 1.524 1.524)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 63.5 38.1 0)
-			(effects
-				(font
-					(size 1.524 1.524)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" ""
-			(at 63.5 38.1 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "LCSC" "C17477"
-			(at 63.5 41.91 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "a4f12c77-9320-446b-bf87-cd25c99f3505")
-		)
-		(pin "2"
-			(uuid "22e461e3-7945-4892-9f88-66d6ab697b3a")
-		)
-		(instances
-			(project ""
-				(path "/03caada9-9e22-4e2d-9035-b15433dfbb17"
-					(reference "R86")
 					(unit 1)
 				)
 			)
@@ -33569,160 +33129,6 @@
 		)
 	)
 	(symbol
-		(lib_id "hellen-one-common:Jumper-Pad-Pad")
-		(at 49.53 68.58 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "32206553-da2e-4f60-a58e-b1ea8f71500b")
-		(property "Reference" "R59"
-			(at 53.34 67.31 0)
-			(effects
-				(font
-					(size 1.016 1.016)
-				)
-			)
-		)
-		(property "Value" "Jumper-Pad-Pad"
-			(at 49.53 70.358 0)
-			(effects
-				(font
-					(size 1.016 1.016)
-				)
-				(hide yes)
-			)
-		)
-		(property "Footprint" "hellen-one-common:PAD-0805-PAD"
-			(at 49.53 72.39 0)
-			(effects
-				(font
-					(size 1.524 1.524)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 49.53 68.58 0)
-			(effects
-				(font
-					(size 1.524 1.524)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" ""
-			(at 49.53 68.58 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "LCSC" "C17477"
-			(at 49.53 72.39 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "bd218f5e-d030-4498-908c-74c353dc4559")
-		)
-		(pin "2"
-			(uuid "cb0be20d-1fea-4983-89d6-c844bd74c45f")
-		)
-		(instances
-			(project ""
-				(path "/03caada9-9e22-4e2d-9035-b15433dfbb17"
-					(reference "R59")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "hellen-one-common:Jumper-Pad-Pad")
-		(at 49.53 152.4 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "3283de7b-2683-4f81-927b-9799f7e4087a")
-		(property "Reference" "R56"
-			(at 53.34 151.13 0)
-			(effects
-				(font
-					(size 1.016 1.016)
-				)
-			)
-		)
-		(property "Value" "Jumper-Pad-Pad"
-			(at 49.53 154.178 0)
-			(effects
-				(font
-					(size 1.016 1.016)
-				)
-				(hide yes)
-			)
-		)
-		(property "Footprint" "hellen-one-common:PAD-0805-PAD"
-			(at 49.53 156.21 0)
-			(effects
-				(font
-					(size 1.524 1.524)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 49.53 152.4 0)
-			(effects
-				(font
-					(size 1.524 1.524)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" ""
-			(at 49.53 152.4 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "LCSC" "C17477"
-			(at 49.53 156.21 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "f58113f7-55bf-4679-b310-9449931f1c47")
-		)
-		(pin "2"
-			(uuid "660cb55a-0b77-4ff2-b85f-f007d4f15d52")
-		)
-		(instances
-			(project ""
-				(path "/03caada9-9e22-4e2d-9035-b15433dfbb17"
-					(reference "R56")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "power:GND")
 		(at 295.91 74.93 90)
 		(unit 1)
@@ -33990,83 +33396,6 @@
 			(project ""
 				(path "/03caada9-9e22-4e2d-9035-b15433dfbb17"
 					(reference "#PWR0156")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "hellen-one-common:Jumper-Pad-Pad")
-		(at 63.5 48.26 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "36a6163d-81d3-4fa5-907e-05535e27638e")
-		(property "Reference" "R73"
-			(at 67.31 46.99 0)
-			(effects
-				(font
-					(size 1.016 1.016)
-				)
-			)
-		)
-		(property "Value" "Jumper-Pad-Pad"
-			(at 63.5 50.038 0)
-			(effects
-				(font
-					(size 1.016 1.016)
-				)
-				(hide yes)
-			)
-		)
-		(property "Footprint" "hellen-one-common:PAD-0805-PAD"
-			(at 63.5 52.07 0)
-			(effects
-				(font
-					(size 1.524 1.524)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 63.5 48.26 0)
-			(effects
-				(font
-					(size 1.524 1.524)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" ""
-			(at 63.5 48.26 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "LCSC" "C17477"
-			(at 63.5 52.07 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "a5d7b1d3-a3a9-40c1-99be-a023ec56d799")
-		)
-		(pin "2"
-			(uuid "ce9dbf57-a0fa-497c-b262-449850262f60")
-		)
-		(instances
-			(project ""
-				(path "/03caada9-9e22-4e2d-9035-b15433dfbb17"
-					(reference "R73")
 					(unit 1)
 				)
 			)
@@ -34355,160 +33684,6 @@
 			(project ""
 				(path "/03caada9-9e22-4e2d-9035-b15433dfbb17"
 					(reference "#PWR042")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "hellen-one-common:Jumper-Pad-Pad")
-		(at 63.5 43.18 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "3bda3ab2-db5e-4d3c-8408-63579cac1bf1")
-		(property "Reference" "R72"
-			(at 67.31 41.91 0)
-			(effects
-				(font
-					(size 1.016 1.016)
-				)
-			)
-		)
-		(property "Value" "Jumper-Pad-Pad"
-			(at 63.5 44.958 0)
-			(effects
-				(font
-					(size 1.016 1.016)
-				)
-				(hide yes)
-			)
-		)
-		(property "Footprint" "hellen-one-common:PAD-0805-PAD"
-			(at 63.5 46.99 0)
-			(effects
-				(font
-					(size 1.524 1.524)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 63.5 43.18 0)
-			(effects
-				(font
-					(size 1.524 1.524)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" ""
-			(at 63.5 43.18 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "LCSC" "C17477"
-			(at 63.5 46.99 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "ec665eb5-9a22-452f-8c4e-c29f87c9b768")
-		)
-		(pin "2"
-			(uuid "5016545d-503a-46c2-a431-b03963515a46")
-		)
-		(instances
-			(project ""
-				(path "/03caada9-9e22-4e2d-9035-b15433dfbb17"
-					(reference "R72")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "hellen-one-common:Jumper-Pad-Pad")
-		(at 63.5 33.02 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "3bf30990-78b6-43b1-957e-4b773d1888f0")
-		(property "Reference" "R84"
-			(at 67.31 31.75 0)
-			(effects
-				(font
-					(size 1.016 1.016)
-				)
-			)
-		)
-		(property "Value" "Jumper-Pad-Pad"
-			(at 63.5 34.798 0)
-			(effects
-				(font
-					(size 1.016 1.016)
-				)
-				(hide yes)
-			)
-		)
-		(property "Footprint" "hellen-one-common:PAD-0805-PAD"
-			(at 63.5 36.83 0)
-			(effects
-				(font
-					(size 1.524 1.524)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 63.5 33.02 0)
-			(effects
-				(font
-					(size 1.524 1.524)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" ""
-			(at 63.5 33.02 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "LCSC" "C17477"
-			(at 63.5 36.83 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "39482db5-8dcd-4190-ab1b-b2900cf78fb8")
-		)
-		(pin "2"
-			(uuid "4f85e1a7-8bcb-403c-88d7-54a0d63dfb83")
-		)
-		(instances
-			(project ""
-				(path "/03caada9-9e22-4e2d-9035-b15433dfbb17"
-					(reference "R84")
 					(unit 1)
 				)
 			)
@@ -35677,83 +34852,6 @@
 		)
 	)
 	(symbol
-		(lib_id "hellen-one-common:Jumper-Pad-Pad")
-		(at 49.53 60.96 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "43594bca-1467-40ed-8873-2353ec517950")
-		(property "Reference" "R57"
-			(at 53.34 59.69 0)
-			(effects
-				(font
-					(size 1.016 1.016)
-				)
-			)
-		)
-		(property "Value" "Jumper-Pad-Pad"
-			(at 49.53 62.738 0)
-			(effects
-				(font
-					(size 1.016 1.016)
-				)
-				(hide yes)
-			)
-		)
-		(property "Footprint" "hellen-one-common:PAD-0805-PAD"
-			(at 49.53 64.77 0)
-			(effects
-				(font
-					(size 1.524 1.524)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 49.53 60.96 0)
-			(effects
-				(font
-					(size 1.524 1.524)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" ""
-			(at 49.53 60.96 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "LCSC" "C17477"
-			(at 49.53 64.77 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "be6eb8f9-4223-42a9-80cc-ab14a45823d6")
-		)
-		(pin "2"
-			(uuid "205df7cd-01c2-4de0-8b20-d1c131337ccc")
-		)
-		(instances
-			(project ""
-				(path "/03caada9-9e22-4e2d-9035-b15433dfbb17"
-					(reference "R57")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "hellen-one-common:Cap")
 		(at 273.05 241.3 90)
 		(unit 1)
@@ -35892,83 +34990,6 @@
 			(project ""
 				(path "/03caada9-9e22-4e2d-9035-b15433dfbb17"
 					(reference "#PWR0143")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "hellen-one-common:Jumper-Pad-Pad")
-		(at 64.77 292.1 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "4505f6ce-8d94-43d0-a688-36c269cd04c2")
-		(property "Reference" "R76"
-			(at 68.58 290.83 0)
-			(effects
-				(font
-					(size 1.016 1.016)
-				)
-			)
-		)
-		(property "Value" "Jumper-Pad-Pad"
-			(at 64.77 293.878 0)
-			(effects
-				(font
-					(size 1.016 1.016)
-				)
-				(hide yes)
-			)
-		)
-		(property "Footprint" "hellen-one-common:PAD-0805-PAD"
-			(at 64.77 295.91 0)
-			(effects
-				(font
-					(size 1.524 1.524)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 64.77 292.1 0)
-			(effects
-				(font
-					(size 1.524 1.524)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" ""
-			(at 64.77 292.1 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "LCSC" "C17477"
-			(at 64.77 295.91 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "889977a1-4d26-4e7a-9c95-48d33722072c")
-		)
-		(pin "2"
-			(uuid "5bfdda62-79d3-4beb-84d1-89e38095d97b")
-		)
-		(instances
-			(project ""
-				(path "/03caada9-9e22-4e2d-9035-b15433dfbb17"
-					(reference "R76")
 					(unit 1)
 				)
 			)
@@ -39467,83 +38488,6 @@
 		)
 	)
 	(symbol
-		(lib_id "hellen-one-common:Jumper-Pad-Pad")
-		(at 49.53 66.04 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "5d37f128-bbbf-4726-8f02-94f4c6b4946d")
-		(property "Reference" "R58"
-			(at 53.34 64.77 0)
-			(effects
-				(font
-					(size 1.016 1.016)
-				)
-			)
-		)
-		(property "Value" "Jumper-Pad-Pad"
-			(at 49.53 67.818 0)
-			(effects
-				(font
-					(size 1.016 1.016)
-				)
-				(hide yes)
-			)
-		)
-		(property "Footprint" "hellen-one-common:PAD-0805-PAD"
-			(at 49.53 69.85 0)
-			(effects
-				(font
-					(size 1.524 1.524)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 49.53 66.04 0)
-			(effects
-				(font
-					(size 1.524 1.524)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" ""
-			(at 49.53 66.04 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "LCSC" "C17477"
-			(at 49.53 69.85 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "16c64ab5-032c-4d2f-86c4-92c1048fd3b9")
-		)
-		(pin "2"
-			(uuid "d15f206b-c906-44a5-9c43-8f6a42ceb33a")
-		)
-		(instances
-			(project ""
-				(path "/03caada9-9e22-4e2d-9035-b15433dfbb17"
-					(reference "R58")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "power:Vdrive")
 		(at 302.26 212.09 90)
 		(unit 1)
@@ -40517,83 +39461,6 @@
 		)
 	)
 	(symbol
-		(lib_id "hellen-one-common:Jumper-Pad-Pad")
-		(at 63.5 35.56 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "63cfdb42-8bb3-4c88-9896-dd519ab34e0e")
-		(property "Reference" "R85"
-			(at 67.31 34.29 0)
-			(effects
-				(font
-					(size 1.016 1.016)
-				)
-			)
-		)
-		(property "Value" "Jumper-Pad-Pad"
-			(at 63.5 37.338 0)
-			(effects
-				(font
-					(size 1.016 1.016)
-				)
-				(hide yes)
-			)
-		)
-		(property "Footprint" "hellen-one-common:PAD-0805-PAD"
-			(at 63.5 39.37 0)
-			(effects
-				(font
-					(size 1.524 1.524)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 63.5 35.56 0)
-			(effects
-				(font
-					(size 1.524 1.524)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" ""
-			(at 63.5 35.56 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "LCSC" "C17477"
-			(at 63.5 39.37 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "fc66f68f-8ad4-4bed-86e7-ddbf6f9c5f1d")
-		)
-		(pin "2"
-			(uuid "5e47c843-970a-4ccc-ae8f-8a870eed1df0")
-		)
-		(instances
-			(project ""
-				(path "/03caada9-9e22-4e2d-9035-b15433dfbb17"
-					(reference "R85")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "Device:LED")
 		(at 208.28 87.63 0)
 		(unit 1)
@@ -41345,91 +40212,6 @@
 		)
 	)
 	(symbol
-		(lib_id "hellen-one-common:Fuse-Pad-Pad")
-		(at 57.15 24.13 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "686018fd-d436-4cab-b284-2f8048ed362a")
-		(property "Reference" "F1"
-			(at 57.15 21.59 0)
-			(effects
-				(font
-					(size 1.016 1.016)
-				)
-			)
-		)
-		(property "Value" "Fuse-Pad-Pad"
-			(at 57.15 25.908 0)
-			(effects
-				(font
-					(size 1.016 1.016)
-				)
-				(hide yes)
-			)
-		)
-		(property "Footprint" "hellen-one-common:PAD-1206-PAD"
-			(at 57.15 27.94 0)
-			(effects
-				(font
-					(size 1.524 1.524)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 57.15 24.13 0)
-			(effects
-				(font
-					(size 1.524 1.524)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" ""
-			(at 57.15 24.13 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "LCSC" "C136354"
-			(at 57.15 27.94 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "MyComment" "10A"
-			(at 57.15 26.67 0)
-			(effects
-				(font
-					(size 1.524 1.524)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "d4932c0d-3bc7-4b4e-9f77-b0c4aa2c2a00")
-		)
-		(pin "2"
-			(uuid "04282042-98fc-4ce5-8b59-8a3bd0569038")
-		)
-		(instances
-			(project ""
-				(path "/03caada9-9e22-4e2d-9035-b15433dfbb17"
-					(reference "F1")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "Device:R")
 		(at 116.84 351.79 0)
 		(unit 1)
@@ -41820,83 +40602,6 @@
 			(project ""
 				(path "/03caada9-9e22-4e2d-9035-b15433dfbb17"
 					(reference "R23")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "hellen-one-common:Jumper-Pad-Pad")
-		(at 49.53 170.18 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "6ca64244-0566-4416-984c-1845a348a220")
-		(property "Reference" "R41"
-			(at 53.34 168.91 0)
-			(effects
-				(font
-					(size 1.016 1.016)
-				)
-			)
-		)
-		(property "Value" "Jumper-Pad-Pad"
-			(at 49.53 171.958 0)
-			(effects
-				(font
-					(size 1.016 1.016)
-				)
-				(hide yes)
-			)
-		)
-		(property "Footprint" "hellen-one-common:PAD-0805-PAD"
-			(at 49.53 173.99 0)
-			(effects
-				(font
-					(size 1.524 1.524)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 49.53 170.18 0)
-			(effects
-				(font
-					(size 1.524 1.524)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" ""
-			(at 49.53 170.18 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "LCSC" "C17477"
-			(at 49.53 173.99 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "49fb31fe-37bc-41a7-a3f5-57a5334da73d")
-		)
-		(pin "2"
-			(uuid "032bed7a-465d-4d10-9d6e-eca039be7700")
-		)
-		(instances
-			(project ""
-				(path "/03caada9-9e22-4e2d-9035-b15433dfbb17"
-					(reference "R41")
 					(unit 1)
 				)
 			)
@@ -43912,83 +42617,6 @@
 		)
 	)
 	(symbol
-		(lib_id "hellen-one-common:Jumper-Pad-Pad")
-		(at 64.77 307.34 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "7d442f39-55ca-4c98-bfb7-5cef773dfb1c")
-		(property "Reference" "R79"
-			(at 68.58 306.07 0)
-			(effects
-				(font
-					(size 1.016 1.016)
-				)
-			)
-		)
-		(property "Value" "Jumper-Pad-Pad"
-			(at 64.77 309.118 0)
-			(effects
-				(font
-					(size 1.016 1.016)
-				)
-				(hide yes)
-			)
-		)
-		(property "Footprint" "hellen-one-common:PAD-0805-PAD"
-			(at 64.77 311.15 0)
-			(effects
-				(font
-					(size 1.524 1.524)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 64.77 307.34 0)
-			(effects
-				(font
-					(size 1.524 1.524)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" ""
-			(at 64.77 307.34 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "LCSC" "C17477"
-			(at 64.77 311.15 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "8ab68ddc-4afa-4f1a-8cd5-9dfc0c233725")
-		)
-		(pin "2"
-			(uuid "1e5f591f-1b07-40fa-bbe8-a560c5fab99e")
-		)
-		(instances
-			(project ""
-				(path "/03caada9-9e22-4e2d-9035-b15433dfbb17"
-					(reference "R79")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "Device:R")
 		(at 506.73 276.86 0)
 		(unit 1)
@@ -44287,160 +42915,6 @@
 		)
 	)
 	(symbol
-		(lib_id "hellen-one-common:Jumper-Pad-Pad")
-		(at 49.53 172.72 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "7f224d28-3196-4ce2-8d09-8ead31a642aa")
-		(property "Reference" "R62"
-			(at 53.34 171.45 0)
-			(effects
-				(font
-					(size 1.016 1.016)
-				)
-			)
-		)
-		(property "Value" "Jumper-Pad-Pad"
-			(at 49.53 174.498 0)
-			(effects
-				(font
-					(size 1.016 1.016)
-				)
-				(hide yes)
-			)
-		)
-		(property "Footprint" "hellen-one-common:PAD-0805-PAD"
-			(at 49.53 176.53 0)
-			(effects
-				(font
-					(size 1.524 1.524)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 49.53 172.72 0)
-			(effects
-				(font
-					(size 1.524 1.524)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" ""
-			(at 49.53 172.72 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "LCSC" "C17477"
-			(at 49.53 176.53 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "73682635-8e1e-4e4b-a0ac-166842a1382a")
-		)
-		(pin "2"
-			(uuid "1a3171cb-0841-491f-80d5-8cd8b01c84b4")
-		)
-		(instances
-			(project ""
-				(path "/03caada9-9e22-4e2d-9035-b15433dfbb17"
-					(reference "R62")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "hellen-one-common:Jumper-Pad-Pad")
-		(at 49.53 167.64 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "7f7f5128-0030-4512-bba1-f9a6954a423f")
-		(property "Reference" "R63"
-			(at 53.34 166.37 0)
-			(effects
-				(font
-					(size 1.016 1.016)
-				)
-			)
-		)
-		(property "Value" "Jumper-Pad-Pad"
-			(at 49.53 169.418 0)
-			(effects
-				(font
-					(size 1.016 1.016)
-				)
-				(hide yes)
-			)
-		)
-		(property "Footprint" "hellen-one-common:PAD-0805-PAD"
-			(at 49.53 171.45 0)
-			(effects
-				(font
-					(size 1.524 1.524)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 49.53 167.64 0)
-			(effects
-				(font
-					(size 1.524 1.524)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" ""
-			(at 49.53 167.64 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "LCSC" "C17477"
-			(at 49.53 171.45 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "34450841-9a80-46b5-8759-dbaaf673458f")
-		)
-		(pin "2"
-			(uuid "79464f97-5545-4a48-a45c-855e2718d923")
-		)
-		(instances
-			(project ""
-				(path "/03caada9-9e22-4e2d-9035-b15433dfbb17"
-					(reference "R63")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "power:+BATT")
 		(at 318.77 328.93 90)
 		(unit 1)
@@ -44500,83 +42974,6 @@
 			(project ""
 				(path "/03caada9-9e22-4e2d-9035-b15433dfbb17"
 					(reference "#PWR0123")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "hellen-one-common:Jumper-Pad-Pad")
-		(at 63.5 40.64 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "81e7964d-1f21-489b-9f1e-5b3d3c96ab94")
-		(property "Reference" "R71"
-			(at 67.31 39.37 0)
-			(effects
-				(font
-					(size 1.016 1.016)
-				)
-			)
-		)
-		(property "Value" "Jumper-Pad-Pad"
-			(at 63.5 42.418 0)
-			(effects
-				(font
-					(size 1.016 1.016)
-				)
-				(hide yes)
-			)
-		)
-		(property "Footprint" "hellen-one-common:PAD-0805-PAD"
-			(at 63.5 44.45 0)
-			(effects
-				(font
-					(size 1.524 1.524)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 63.5 40.64 0)
-			(effects
-				(font
-					(size 1.524 1.524)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" ""
-			(at 63.5 40.64 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "LCSC" "C17477"
-			(at 63.5 44.45 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "520ccde9-3d52-444a-8e7c-d658d629a5ab")
-		)
-		(pin "2"
-			(uuid "257b0206-5aa1-4695-86dc-f50867c36bc7")
-		)
-		(instances
-			(project ""
-				(path "/03caada9-9e22-4e2d-9035-b15433dfbb17"
-					(reference "R71")
 					(unit 1)
 				)
 			)
@@ -47487,6 +45884,82 @@
 		)
 	)
 	(symbol
+		(lib_id "Device:Fuse")
+		(at 58.42 24.13 90)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "9dcff2a5-f1f7-4601-b781-03a38fd26bc3")
+		(property "Reference" "F1"
+			(at 58.42 22.098 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "10A"
+			(at 58.166 26.162 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Fuse:Fuse_1206_3216Metric"
+			(at 58.42 25.908 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 58.42 24.13 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Fuse"
+			(at 58.42 24.13 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C136354"
+			(at 58.42 24.13 90)
+			(effects
+				(font
+					(size 1.524 1.524)
+				)
+				(hide yes)
+			)
+		)
+		(pin "2"
+			(uuid "112db406-af36-482d-8f93-5fcd4a8769d5")
+		)
+		(pin "1"
+			(uuid "8b0bac46-6a40-493b-875c-d7889a286e43")
+		)
+		(instances
+			(project ""
+				(path "/03caada9-9e22-4e2d-9035-b15433dfbb17"
+					(reference "F1")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "power:Vdrive")
 		(at 119.38 44.45 0)
 		(unit 1)
@@ -49264,83 +47737,6 @@
 		)
 	)
 	(symbol
-		(lib_id "hellen-one-common:Jumper-Pad-Pad")
-		(at 64.77 302.26 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "b69cde45-cd5d-418f-89d3-4aec164d67b6")
-		(property "Reference" "R78"
-			(at 68.58 300.99 0)
-			(effects
-				(font
-					(size 1.016 1.016)
-				)
-			)
-		)
-		(property "Value" "Jumper-Pad-Pad"
-			(at 64.77 304.038 0)
-			(effects
-				(font
-					(size 1.016 1.016)
-				)
-				(hide yes)
-			)
-		)
-		(property "Footprint" "hellen-one-common:PAD-0805-PAD"
-			(at 64.77 306.07 0)
-			(effects
-				(font
-					(size 1.524 1.524)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 64.77 302.26 0)
-			(effects
-				(font
-					(size 1.524 1.524)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" ""
-			(at 64.77 302.26 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "LCSC" "C17477"
-			(at 64.77 306.07 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "c082b600-fb38-41a7-8748-00a95987a370")
-		)
-		(pin "2"
-			(uuid "38cb0113-d076-48c2-8623-dfbe8a177719")
-		)
-		(instances
-			(project ""
-				(path "/03caada9-9e22-4e2d-9035-b15433dfbb17"
-					(reference "R78")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "Device:R")
 		(at 344.17 143.51 270)
 		(unit 1)
@@ -49774,83 +48170,6 @@
 			(project ""
 				(path "/03caada9-9e22-4e2d-9035-b15433dfbb17"
 					(reference "R5")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "hellen-one-common:Jumper-Pad-Pad")
-		(at 53.34 106.68 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "b872c43d-c61b-40b0-94b3-18597e96830f")
-		(property "Reference" "R69"
-			(at 57.15 105.41 0)
-			(effects
-				(font
-					(size 1.016 1.016)
-				)
-			)
-		)
-		(property "Value" "Jumper-Pad-Pad"
-			(at 53.34 108.458 0)
-			(effects
-				(font
-					(size 1.016 1.016)
-				)
-				(hide yes)
-			)
-		)
-		(property "Footprint" "hellen-one-common:PAD-0805-PAD"
-			(at 53.34 110.49 0)
-			(effects
-				(font
-					(size 1.524 1.524)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 53.34 106.68 0)
-			(effects
-				(font
-					(size 1.524 1.524)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" ""
-			(at 53.34 106.68 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "LCSC" "C17477"
-			(at 53.34 110.49 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "56f8c9ce-4e0d-4e7a-8a5d-6bc27b625e80")
-		)
-		(pin "2"
-			(uuid "e95dff90-04c3-41b6-a0d8-d260826bcce1")
-		)
-		(instances
-			(project ""
-				(path "/03caada9-9e22-4e2d-9035-b15433dfbb17"
-					(reference "R69")
 					(unit 1)
 				)
 			)
@@ -51163,83 +49482,6 @@
 		)
 	)
 	(symbol
-		(lib_id "hellen-one-common:Jumper-Pad-Pad")
-		(at 63.5 30.48 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "c6539f25-e7a7-45c2-b539-3a002da4775e")
-		(property "Reference" "R70"
-			(at 67.31 29.21 0)
-			(effects
-				(font
-					(size 1.016 1.016)
-				)
-			)
-		)
-		(property "Value" "Jumper-Pad-Pad"
-			(at 63.5 32.258 0)
-			(effects
-				(font
-					(size 1.016 1.016)
-				)
-				(hide yes)
-			)
-		)
-		(property "Footprint" "hellen-one-common:PAD-0805-PAD"
-			(at 63.5 34.29 0)
-			(effects
-				(font
-					(size 1.524 1.524)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 63.5 30.48 0)
-			(effects
-				(font
-					(size 1.524 1.524)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" ""
-			(at 63.5 30.48 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "LCSC" "C17477"
-			(at 63.5 34.29 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "36c31f5c-55fd-45f4-a370-fdc844079d81")
-		)
-		(pin "2"
-			(uuid "63766e59-23ea-433c-b8ea-476104ac2eb3")
-		)
-		(instances
-			(project ""
-				(path "/03caada9-9e22-4e2d-9035-b15433dfbb17"
-					(reference "R70")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "Device:D_Schottky_Small")
 		(at 304.8 285.75 0)
 		(unit 1)
@@ -52057,6 +50299,91 @@
 			(project ""
 				(path "/03caada9-9e22-4e2d-9035-b15433dfbb17"
 					(reference "C14")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Connector_Generic:Conn_01x08")
+		(at 430.53 135.89 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp yes)
+		(uuid "ce0e3602-d323-460a-9b3d-326094eabb84")
+		(property "Reference" "J10"
+			(at 430.53 125.73 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "Conn_01x08"
+			(at 430.53 148.59 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Connector_PinHeader_2.54mm:PinHeader_1x08_P2.54mm_Vertical"
+			(at 430.53 135.89 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 430.53 135.89 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Generic connector, single row, 01x08, script generated (kicad-library-utils/schlib/autogen/connector/)"
+			(at 430.53 135.89 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "ebb46b2e-7d08-4ea0-9bde-e9a30b6b3b73")
+		)
+		(pin "2"
+			(uuid "7121b2c8-4954-4e79-b065-63c2c4169be0")
+		)
+		(pin "3"
+			(uuid "099fe939-c126-4642-ad46-c8263d485446")
+		)
+		(pin "4"
+			(uuid "7e6d799f-f030-4482-8144-b4046a581090")
+		)
+		(pin "5"
+			(uuid "be6b52d0-f5dc-4a99-85b3-9c3b43bb8f0f")
+		)
+		(pin "8"
+			(uuid "79b81462-58f8-46c8-a113-3407ccaf6975")
+		)
+		(pin "6"
+			(uuid "91d2b205-d453-4e0b-8294-1d882beced7a")
+		)
+		(pin "7"
+			(uuid "07e93da3-ce60-4663-934e-e1e29d25f26f")
+		)
+		(instances
+			(project "GDI-6ch"
+				(path "/03caada9-9e22-4e2d-9035-b15433dfbb17"
+					(reference "J10")
 					(unit 1)
 				)
 			)
@@ -54352,83 +52679,6 @@
 		)
 	)
 	(symbol
-		(lib_id "hellen-one-common:Jumper-Pad-Pad")
-		(at 64.77 269.24 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "df7b32de-78a3-4514-a20b-1c3b7f538696")
-		(property "Reference" "R74"
-			(at 68.58 267.97 0)
-			(effects
-				(font
-					(size 1.016 1.016)
-				)
-			)
-		)
-		(property "Value" "Jumper-Pad-Pad"
-			(at 64.77 271.018 0)
-			(effects
-				(font
-					(size 1.016 1.016)
-				)
-				(hide yes)
-			)
-		)
-		(property "Footprint" "hellen-one-common:PAD-0805-PAD"
-			(at 64.77 273.05 0)
-			(effects
-				(font
-					(size 1.524 1.524)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 64.77 269.24 0)
-			(effects
-				(font
-					(size 1.524 1.524)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" ""
-			(at 64.77 269.24 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "LCSC" "C17477"
-			(at 64.77 273.05 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "e83b5539-eb7c-47fd-b03b-a38d3420a9c0")
-		)
-		(pin "2"
-			(uuid "384bcd18-c495-4122-af9c-327ef2fe848f")
-		)
-		(instances
-			(project ""
-				(path "/03caada9-9e22-4e2d-9035-b15433dfbb17"
-					(reference "R74")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "power:GND")
 		(at 114.3 287.02 0)
 		(unit 1)
@@ -54847,160 +53097,6 @@
 			(project ""
 				(path "/03caada9-9e22-4e2d-9035-b15433dfbb17"
 					(reference "C82")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "hellen-one-common:Jumper-Pad-Pad")
-		(at 49.53 182.88 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "e5f28498-3446-40de-9fab-d8fcfda6419c")
-		(property "Reference" "R65"
-			(at 53.34 181.61 0)
-			(effects
-				(font
-					(size 1.016 1.016)
-				)
-			)
-		)
-		(property "Value" "Jumper-Pad-Pad"
-			(at 49.53 184.658 0)
-			(effects
-				(font
-					(size 1.016 1.016)
-				)
-				(hide yes)
-			)
-		)
-		(property "Footprint" "hellen-one-common:PAD-0805-PAD"
-			(at 49.53 186.69 0)
-			(effects
-				(font
-					(size 1.524 1.524)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 49.53 182.88 0)
-			(effects
-				(font
-					(size 1.524 1.524)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" ""
-			(at 49.53 182.88 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "LCSC" "C17477"
-			(at 49.53 186.69 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "66b2f440-4f2f-4eaa-8c7a-6deb889bfa2c")
-		)
-		(pin "2"
-			(uuid "0bb65eab-b5b9-4fc8-8b8f-56f08f417c2c")
-		)
-		(instances
-			(project ""
-				(path "/03caada9-9e22-4e2d-9035-b15433dfbb17"
-					(reference "R65")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "hellen-one-common:Jumper-Pad-Pad")
-		(at 49.53 165.1 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "e61601a3-7f2a-4f86-ac55-ff712b6b80d5")
-		(property "Reference" "R37"
-			(at 53.34 163.83 0)
-			(effects
-				(font
-					(size 1.016 1.016)
-				)
-			)
-		)
-		(property "Value" "Jumper-Pad-Pad"
-			(at 49.53 166.878 0)
-			(effects
-				(font
-					(size 1.016 1.016)
-				)
-				(hide yes)
-			)
-		)
-		(property "Footprint" "hellen-one-common:PAD-0805-PAD"
-			(at 49.53 168.91 0)
-			(effects
-				(font
-					(size 1.524 1.524)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 49.53 165.1 0)
-			(effects
-				(font
-					(size 1.524 1.524)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" ""
-			(at 49.53 165.1 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "LCSC" "C17477"
-			(at 49.53 168.91 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "18bbdfbf-6e37-4669-b13d-574508abaef4")
-		)
-		(pin "2"
-			(uuid "a6d8637e-99b1-4013-b4b6-3fa8f03f0491")
-		)
-		(instances
-			(project ""
-				(path "/03caada9-9e22-4e2d-9035-b15433dfbb17"
-					(reference "R37")
 					(unit 1)
 				)
 			)
@@ -55612,83 +53708,6 @@
 			(project ""
 				(path "/03caada9-9e22-4e2d-9035-b15433dfbb17"
 					(reference "#PWR03")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "hellen-one-common:Jumper-Pad-Pad")
-		(at 64.77 274.32 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "e998cfa1-d4ca-4928-ae92-dd869082fe6a")
-		(property "Reference" "R75"
-			(at 68.58 273.05 0)
-			(effects
-				(font
-					(size 1.016 1.016)
-				)
-			)
-		)
-		(property "Value" "Jumper-Pad-Pad"
-			(at 64.77 276.098 0)
-			(effects
-				(font
-					(size 1.016 1.016)
-				)
-				(hide yes)
-			)
-		)
-		(property "Footprint" "hellen-one-common:PAD-0805-PAD"
-			(at 64.77 278.13 0)
-			(effects
-				(font
-					(size 1.524 1.524)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 64.77 274.32 0)
-			(effects
-				(font
-					(size 1.524 1.524)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" ""
-			(at 64.77 274.32 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "LCSC" "C17477"
-			(at 64.77 278.13 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "4c699081-928f-4c1c-99df-c9c433d700f4")
-		)
-		(pin "2"
-			(uuid "6f75bb44-341d-4bdb-b312-4fa393d5fdfe")
-		)
-		(instances
-			(project ""
-				(path "/03caada9-9e22-4e2d-9035-b15433dfbb17"
-					(reference "R75")
 					(unit 1)
 				)
 			)
@@ -56835,83 +54854,6 @@
 			(project ""
 				(path "/03caada9-9e22-4e2d-9035-b15433dfbb17"
 					(reference "#PWR07")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "hellen-one-common:Jumper-Pad-Pad")
-		(at 64.77 297.18 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "f1767977-5633-4671-89b2-6b8db564b703")
-		(property "Reference" "R77"
-			(at 68.58 295.91 0)
-			(effects
-				(font
-					(size 1.016 1.016)
-				)
-			)
-		)
-		(property "Value" "Jumper-Pad-Pad"
-			(at 64.77 298.958 0)
-			(effects
-				(font
-					(size 1.016 1.016)
-				)
-				(hide yes)
-			)
-		)
-		(property "Footprint" "hellen-one-common:PAD-0805-PAD"
-			(at 64.77 300.99 0)
-			(effects
-				(font
-					(size 1.524 1.524)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 64.77 297.18 0)
-			(effects
-				(font
-					(size 1.524 1.524)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" ""
-			(at 64.77 297.18 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "LCSC" "C17477"
-			(at 64.77 300.99 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "e30b6a95-1c17-4051-ad3d-a87d6052de87")
-		)
-		(pin "2"
-			(uuid "937a231d-e454-43ff-a3f6-ecd3fc236803")
-		)
-		(instances
-			(project ""
-				(path "/03caada9-9e22-4e2d-9035-b15433dfbb17"
-					(reference "R77")
 					(unit 1)
 				)
 			)
@@ -58130,83 +56072,6 @@
 			(project ""
 				(path "/03caada9-9e22-4e2d-9035-b15433dfbb17"
 					(reference "R15")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "hellen-one-common:Jumper-Pad-Pad")
-		(at 63.5 45.72 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "f896a6df-e4c5-4634-bf78-5f70ced2f3b6")
-		(property "Reference" "R87"
-			(at 67.31 44.45 0)
-			(effects
-				(font
-					(size 1.016 1.016)
-				)
-			)
-		)
-		(property "Value" "Jumper-Pad-Pad"
-			(at 63.5 47.498 0)
-			(effects
-				(font
-					(size 1.016 1.016)
-				)
-				(hide yes)
-			)
-		)
-		(property "Footprint" "hellen-one-common:PAD-0805-PAD"
-			(at 63.5 49.53 0)
-			(effects
-				(font
-					(size 1.524 1.524)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 63.5 45.72 0)
-			(effects
-				(font
-					(size 1.524 1.524)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" ""
-			(at 63.5 45.72 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "LCSC" "C17477"
-			(at 63.5 49.53 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "bbe548e6-a29f-464b-97d2-ee577b23a086")
-		)
-		(pin "2"
-			(uuid "0c5377a1-7fdd-41a4-a4b7-b977a7dadaa5")
-		)
-		(instances
-			(project ""
-				(path "/03caada9-9e22-4e2d-9035-b15433dfbb17"
-					(reference "R87")
 					(unit 1)
 				)
 			)
@@ -59597,83 +57462,6 @@
 			(project ""
 				(path "/03caada9-9e22-4e2d-9035-b15433dfbb17"
 					(reference "R51")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "hellen-one-common:Jumper-Pad-Pad")
-		(at 49.53 175.26 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "ff5217ca-f1c4-4e1e-bb54-a13a91357b3c")
-		(property "Reference" "R64"
-			(at 53.34 173.99 0)
-			(effects
-				(font
-					(size 1.016 1.016)
-				)
-			)
-		)
-		(property "Value" "Jumper-Pad-Pad"
-			(at 49.53 177.038 0)
-			(effects
-				(font
-					(size 1.016 1.016)
-				)
-				(hide yes)
-			)
-		)
-		(property "Footprint" "hellen-one-common:PAD-0805-PAD"
-			(at 49.53 179.07 0)
-			(effects
-				(font
-					(size 1.524 1.524)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 49.53 175.26 0)
-			(effects
-				(font
-					(size 1.524 1.524)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" ""
-			(at 49.53 175.26 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "LCSC" "C17477"
-			(at 49.53 179.07 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "31224965-c14b-4b97-a83f-2e30dd3d598d")
-		)
-		(pin "2"
-			(uuid "194d31df-dff0-42b1-b63a-052347c8fff4")
-		)
-		(instances
-			(project ""
-				(path "/03caada9-9e22-4e2d-9035-b15433dfbb17"
-					(reference "R64")
 					(unit 1)
 				)
 			)
