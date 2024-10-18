@@ -33,6 +33,8 @@
 #include "can.h"
 #include "terminal_util.h"
 
+#define VERSION 20241018
+
 BaseSequentialStream *chp = (BaseSequentialStream *)&EFI_CONSOLE_USB_DEVICE;
 
 OutputMode outputMode;
@@ -141,6 +143,7 @@ static void ConsoleThread(void*) {
 
 		executionCounter++;
 
+		chprintf(chp, " *********************************************** version=%d\r\n", VERSION);
 		if (isAllGood) {
 		    setGreenText();
 		    totalGood++;
