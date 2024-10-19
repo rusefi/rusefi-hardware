@@ -19,7 +19,7 @@ static io_pin addrPins[] = {
 };
 
 static io_pin pullUpDownPins[] = {
-#if 1
+#if 0
 {GPIOB, 12}, // OUT0 - this controls pull-up/pull-down on pads  #1-16 rev 0.2
 #else
 {GPIOD, 8}, // OUT0 - this controls pull-up/pull-down on pads  #1-16 rev C
