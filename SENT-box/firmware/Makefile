@@ -130,6 +130,7 @@ CPPSRC = $(ALLCPPSRC) \
         main.cpp \
 	can.cpp \
 	uart.cpp \
+	sent_gm_fuel_sensor.cpp \
 	sent.cpp \
 	sent_hw_icu.cpp \
 	sent_hw_pal.cpp \
@@ -150,6 +151,8 @@ CWARN = -Wall -Wextra -Wundef -Wstrict-prototypes
 
 # Define C++ warning options here.
 CPPWARN = -Wall -Wextra -Wundef
+
+CPPWARN += -Werror=undef
 
 #
 # Project, target, sources and paths

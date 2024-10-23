@@ -9,6 +9,7 @@
 #include "hal.h"
 
 #include "sent.h"
+#include "sent_gm_fuel_sensor.h"
 
 struct sent_channel {
     SM_SENT_enum state;
@@ -43,10 +44,7 @@ static struct sent_channel channels[SENT_CHANNELS_NUM];
 int32_t si7215_magnetic[SENT_CHANNELS_NUM];
 int32_t si7215_counter[SENT_CHANNELS_NUM];
 
-/* GM DI fuel pressure, temperature sensor decoded data */
-int32_t gm_sig0[SENT_CHANNELS_NUM];
-int32_t gm_sig1[SENT_CHANNELS_NUM];
-int32_t gm_stat[SENT_CHANNELS_NUM];
+SentGmFuelSensor sentGmFuelSensor;
 
 #if SENT_DEV == SENT_GM_ETB
 
@@ -439,42 +437,6 @@ int32_t Si7215_GetCounter(uint32_t n)
     return si7215_counter[n];
 }
 
-/* GM DI fuel pressure, temperature sensor data */
-int32_t gm_GetSig0(uint32_t n)
-{
-    return gm_sig0[n];
-}
-
-int32_t gm_GetSig1(uint32_t n)
-{
-    return gm_sig1[n];
-}
-
-int32_t gm_GetStat(uint32_t n)
-{
-    return gm_stat[n];
-}
-
-int32_t gm_GetPressure(uint32_t n)
-{
-    /* two pressure signals:
-     * Sig0 occupie 3 first nibbles in MSB..LSB order
-     * Sig1 occupit next 3 nibbles in LSB..MSB order
-     * Signals are close, but not identical.
-     * Sig0 shows about 197..198 at 1 Atm (open air) and 282 at 1000 KPa (9.86 Atm)
-     * Sig1 shows abour 202..203 at 1 Atm (open air) and 283 at 1000 KPa (9.86 Atm)
-     * So for 8.86 Atm delta there are:
-     * 84..85 units for sig0
-     * 80..81 units for sig1
-     * Measurements are not ideal, so lets ASSUME 10 units per 1 Atm
-     * Offset is 187..188 for Sig0 and 192..193 for Sig1.
-     * Average offset is 180.
-     */
-
-    /* in 0.001 Atm */
-    return ((gm_GetSig0(n) - 198 + 10 + gm_GetSig1(n) - 202 + 10) * 100 / 2);
-}
-
 /* 4 per channel should be enougth */
 #define SENT_MB_SIZE        (4 * SENT_CH_MAX)
 
@@ -501,17 +463,17 @@ static void SentDecoderThread(void*)
         /* TODO: handle ret */
         if (ret == MSG_OK) {
             uint16_t tick = msg & 0xffff;
-            uint8_t n = (msg >> 16) & 0xff;
-            struct sent_channel *ch = &channels[n];
+            uint8_t channleIndex = (msg >> 16) & 0xff;
+            struct sent_channel *ch = &channels[channleIndex];
 
             if (SENT_Decoder(ch, tick) > 0) {
                 /* decode Si7215 packet */
                 if (((~ch->nibbles[1 + 5]) & 0x0f) == ch->nibbles[1 + 0]) {
-                    si7215_magnetic[n] =
+                    si7215_magnetic[channleIndex] =
                         ((ch->nibbles[1 + 0] << 8) |
                          (ch->nibbles[1 + 1] << 4) |
                          (ch->nibbles[1 + 2] << 0)) - 2048;
-                    si7215_counter[n] =
+                    si7215_counter[channleIndex] =
                         (ch->nibbles[1 + 3] << 4) |
                         (ch->nibbles[1 + 4] << 0);
                 }
@@ -519,15 +481,15 @@ static void SentDecoderThread(void*)
                 if (1) {
                     /* Sig0 occupie first 3 nibbles in MSB..LSB order
                      * Sig1 occupit next 3 nibbles in LSB..MSB order */
-                    gm_sig0[n] =
+                    sentGmFuelSensor.gm_sig0[channleIndex] =
                         (ch->nibbles[1 + 0] << 8) |
                         (ch->nibbles[1 + 1] << 4) |
                         (ch->nibbles[1 + 2] << 0);
-                    gm_sig1[n] =
+                    sentGmFuelSensor.gm_sig1[channleIndex] =
                         (ch->nibbles[1 + 3] << 0) |
                         (ch->nibbles[1 + 4] << 4) |
                         (ch->nibbles[1 + 5] << 8);
-                    gm_stat[n] =
+                    sentGmFuelSensor.gm_stat[channleIndex] =
                         ch->nibbles[0];
                 }
             }

@@ -15,11 +15,7 @@
 
 #define SENT_DEV  SENT_GM_ETB
 
-#if SENT_DEV == SENT_GM_ETB
-#define SENT_CHANNELS_NUM 2 // Number of sent channels
-#elif SENT_DEV == SENT_SILABS_SENS
-#define SENT_CHANNELS_NUM 4 // Number of sent channels
-#endif
+#include "sent_conf.h"
 
 #define SENT_OFFSET_INTERVAL 12
 #define SENT_SYNC_INTERVAL   (56 - SENT_OFFSET_INTERVAL) // 56 ticks - 12
@@ -103,10 +99,3 @@ uint16_t SENT_GetSlowMessageID(uint32_t n, uint32_t i);
 /* Si7215 decoded data */
 int32_t Si7215_GetMagneticField(uint32_t n);
 int32_t Si7215_GetCounter(uint32_t n);
-
-/* GM DI fuel pressure, temperature sensor data */
-int32_t gm_GetSig0(uint32_t n);
-int32_t gm_GetSig1(uint32_t n);
-int32_t gm_GetStat(uint32_t n);
-int32_t gm_GetPressure(uint32_t n);
-
