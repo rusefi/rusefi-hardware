@@ -25,6 +25,21 @@ int32_t gm_GetStat() {
     return gm_stat;
 }
 
+void read(uint8_t nibbles[SENT_MSG_PAYLOAD_SIZE]) {
+                    /* Sig0 occupie first 3 nibbles in MSB..LSB order
+                     * Sig1 occupit next 3 nibbles in LSB..MSB order */
+                    gm_sig0 =
+                        (nibbles[1 + 0] << 8) |
+                        (nibbles[1 + 1] << 4) |
+                        (nibbles[1 + 2] << 0);
+                    gm_sig1 =
+                        (nibbles[1 + 3] << 0) |
+                        (nibbles[1 + 4] << 4) |
+                        (nibbles[1 + 5] << 8);
+                    gm_stat =
+                        nibbles[0];
+}
+
 int32_t gm_GetPressure() {
     /* two pressure signals:
      * Sig0 occupie 3 first nibbles in MSB..LSB order

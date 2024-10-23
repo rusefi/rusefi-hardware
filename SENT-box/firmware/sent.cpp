@@ -479,22 +479,7 @@ static void SentDecoderThread(void*)
                 }
                 /* decode GM DI fuel pressure, temperature sensor */
                 if (1) {
-                    /* Sig0 occupie first 3 nibbles in MSB..LSB order
-                     * Sig1 occupit next 3 nibbles in LSB..MSB order */
-                    int32_t gm_sig0 =
-                        (ch->nibbles[1 + 0] << 8) |
-                        (ch->nibbles[1 + 1] << 4) |
-                        (ch->nibbles[1 + 2] << 0);
-                    int32_t gm_sig1 =
-                        (ch->nibbles[1 + 3] << 0) |
-                        (ch->nibbles[1 + 4] << 4) |
-                        (ch->nibbles[1 + 5] << 8);
-                    int32_t gm_stat =
-                        ch->nibbles[0];
-
-                    sentGmFuelSensor[channleIndex].gm_sig0 = gm_sig0;
-                    sentGmFuelSensor[channleIndex].gm_sig1 = gm_sig1;
-                    sentGmFuelSensor[channleIndex].gm_stat = gm_stat;
+                    sentGmFuelSensor[channleIndex].read(ch->nibbles);
                 }
             }
         }
