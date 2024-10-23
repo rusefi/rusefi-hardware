@@ -8,7 +8,7 @@
 #include "mcu-util.h"
 #include "sent_gm_fuel_sensor.h"
 
-extern SentGmFuelSensor sentGmFuelSensor;
+extern SentGmFuelSensor sentGmFuelSensor[SENT_CHANNELS_NUM];
 
 static const UARTConfig uartCfg =
 {
@@ -71,10 +71,11 @@ static void UartThread(void*)
                 SENT_GetFrameCnt(0)
                 );
             #else
-            uint32_t gm_pressure = sentGmFuelSensor.gm_GetPressure(0);
+            uint32_t gm_pressure = sentGmFuelSensor[0].gm_GetPressure();
             writeCount += chsnprintf(printBuffer + writeCount, BUFFER_SIZE - writeCount,
                 " GM: St %x, Sig0 %04d, Sig1 %04d, %d.%03d Atm Tick = %04d nS.\r\n",
-                sentGmFuelSensor.gm_GetStat(0), sentGmFuelSensor.gm_GetSig0(0), sentGmFuelSensor.gm_GetSig1(0), gm_pressure / 1000, gm_pressure % 1000,
+                sentGmFuelSensor[0].gm_GetStat(), sentGmFuelSensor[0].gm_GetSig0(),
+                sentGmFuelSensor[0].gm_GetSig1(), gm_pressure / 1000, gm_pressure % 1000,
                 SENT_GetTickTimeNs()
                 );
 

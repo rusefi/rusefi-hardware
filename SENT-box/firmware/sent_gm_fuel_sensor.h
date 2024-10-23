@@ -8,28 +8,24 @@ class SentGmFuelSensor {
     public:
 
 /* GM DI fuel pressure, temperature sensor decoded data */
-int32_t gm_sig0[SENT_CHANNELS_NUM];
-int32_t gm_sig1[SENT_CHANNELS_NUM];
-int32_t gm_stat[SENT_CHANNELS_NUM];
+int32_t gm_sig0;
+int32_t gm_sig1;
+int32_t gm_stat;
 
 /* GM DI fuel pressure, temperature sensor data */
-int32_t gm_GetSig0(uint32_t n)
-{
-    return gm_sig0[n];
+int32_t gm_GetSig0() {
+    return gm_sig0;
 }
 
-int32_t gm_GetSig1(uint32_t n)
-{
-    return gm_sig1[n];
+int32_t gm_GetSig1() {
+    return gm_sig1;
 }
 
-int32_t gm_GetStat(uint32_t n)
-{
-    return gm_stat[n];
+int32_t gm_GetStat() {
+    return gm_stat;
 }
 
-int32_t gm_GetPressure(uint32_t n)
-{
+int32_t gm_GetPressure() {
     /* two pressure signals:
      * Sig0 occupie 3 first nibbles in MSB..LSB order
      * Sig1 occupit next 3 nibbles in LSB..MSB order
@@ -45,7 +41,7 @@ int32_t gm_GetPressure(uint32_t n)
      */
 
     /* in 0.001 Atm */
-    return ((gm_GetSig0(n) - 198 + 10 + gm_GetSig1(n) - 202 + 10) * 100 / 2);
+    return ((gm_GetSig0() - 198 + 10 + gm_GetSig1() - 202 + 10) * 100 / 2);
 }
 
 };

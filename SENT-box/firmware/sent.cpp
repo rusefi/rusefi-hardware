@@ -44,7 +44,7 @@ static struct sent_channel channels[SENT_CHANNELS_NUM];
 int32_t si7215_magnetic[SENT_CHANNELS_NUM];
 int32_t si7215_counter[SENT_CHANNELS_NUM];
 
-SentGmFuelSensor sentGmFuelSensor;
+SentGmFuelSensor sentGmFuelSensor[SENT_CHANNELS_NUM];
 
 #if SENT_DEV == SENT_GM_ETB
 
@@ -481,16 +481,20 @@ static void SentDecoderThread(void*)
                 if (1) {
                     /* Sig0 occupie first 3 nibbles in MSB..LSB order
                      * Sig1 occupit next 3 nibbles in LSB..MSB order */
-                    sentGmFuelSensor.gm_sig0[channleIndex] =
+                    int32_t gm_sig0 =
                         (ch->nibbles[1 + 0] << 8) |
                         (ch->nibbles[1 + 1] << 4) |
                         (ch->nibbles[1 + 2] << 0);
-                    sentGmFuelSensor.gm_sig1[channleIndex] =
+                    int32_t gm_sig1 =
                         (ch->nibbles[1 + 3] << 0) |
                         (ch->nibbles[1 + 4] << 4) |
                         (ch->nibbles[1 + 5] << 8);
-                    sentGmFuelSensor.gm_stat[channleIndex] =
+                    int32_t gm_stat =
                         ch->nibbles[0];
+
+                    sentGmFuelSensor[channleIndex].gm_sig0 = gm_sig0;
+                    sentGmFuelSensor[channleIndex].gm_sig1 = gm_sig1;
+                    sentGmFuelSensor[channleIndex].gm_stat = gm_stat;
                 }
             }
         }
