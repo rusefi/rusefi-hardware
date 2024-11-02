@@ -12,6 +12,7 @@
 #define CAN_ISX(f) ((f).IDE)
 #endif
 
+// 0.02v precision
 #define getVoltageFrom8Bit(b) (5.0f * (b) / 255)
 
 void initCan();
