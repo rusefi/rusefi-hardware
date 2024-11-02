@@ -197,14 +197,17 @@ static void receiveRawAnalog(const uint8_t msg[CAN_FRAME_SIZE], size_t offset) {
 		// channel not used for this board
 		if (currentBoard->channels[ch].name == nullptr)
 			continue;
-		float voltage = getVoltageFrom8Bit(msg[byteIndex]) * currentBoard->channels[ch].mulCoef;
-
+		float mult = currentBoard->channels[ch].mulCoef;
+		float voltage = getVoltageFrom8Bit(msg[byteIndex]) * mult;
+        float acceptMin = currentBoard->channels[ch].acceptMin;
+        float acceptMax = currentBoard->channels[ch].acceptMax;
 
 		// check if in acceptable range for this board
-		if (voltage < currentBoard->channels[ch].acceptMin || voltage > currentBoard->channels[ch].acceptMax) {
-			canPacketError(" * BAD channel %d (%s): voltage %f (raw %d) not in range (%f..%f)\r\n",
+		if (voltage < acceptMin || voltage > acceptMax) {
+			canPacketError(" * BAD analog channel %d (%s): voltage %f (raw %d) not in range (%f..%f) mult=%f\r\n",
 				ch, currentBoard->channels[ch].name, voltage, msg[byteIndex],
-				currentBoard->channels[ch].acceptMin, currentBoard->channels[ch].acceptMax);
+				acceptMin, acceptMax,
+				mult);
 		} else {
 		     if (!rawReported[ch]) {
 		        rawReported[ch] = true;
@@ -214,7 +217,7 @@ static void receiveRawAnalog(const uint8_t msg[CAN_FRAME_SIZE], size_t offset) {
         		    offset,
         		    byteIndex,
         		    voltage,
-        		    currentBoard->channels[ch].acceptMin, currentBoard->channels[ch].acceptMax);
+        		    acceptMin, acceptMax);
         		setNormalText();
              }
         }
