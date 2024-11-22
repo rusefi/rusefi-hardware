@@ -26,8 +26,8 @@ int32_t gm_GetStat() {
 }
 
 void read(uint8_t nibbles[SENT_MSG_PAYLOAD_SIZE]) {
-                    /* Sig0 occupie first 3 nibbles in MSB..LSB order
-                     * Sig1 occupit next 3 nibbles in LSB..MSB order */
+                    /* Sig0 occupies first 3 nibbles in MSB..LSB order
+                     * Sig1 occupies next 3 nibbles in LSB..MSB order */
                     gm_sig0 =
                         (nibbles[1 + 0] << 8) |
                         (nibbles[1 + 1] << 4) |
@@ -42,8 +42,8 @@ void read(uint8_t nibbles[SENT_MSG_PAYLOAD_SIZE]) {
 
 int32_t gm_GetPressure() {
     /* two pressure signals:
-     * Sig0 occupie 3 first nibbles in MSB..LSB order
-     * Sig1 occupit next 3 nibbles in LSB..MSB order
+     * Sig0 occupies 3 first nibbles in MSB..LSB order
+     * Sig1 occupies next 3 nibbles in LSB..MSB order
      * Signals are close, but not identical.
      * Sig0 shows about 197..198 at 1 Atm (open air) and 282 at 1000 KPa (9.86 Atm)
      * Sig1 shows abour 202..203 at 1 Atm (open air) and 283 at 1000 KPa (9.86 Atm)
