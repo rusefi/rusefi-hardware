@@ -131,6 +131,7 @@ pins:
 info:
   title: GDI4
   name: GDI4
+  cid: main
   board_url: https://rusefi.com/s/gdi4
   directory: GDI4
   image:
