@@ -9,6 +9,7 @@
 
 #include "ch.h"
 #include "hal.h"
+#include "chprintf.h"
 
 #include "sent.h"
 
@@ -18,40 +19,10 @@
 
 static sent_channel channels[SENT_INPUT_COUNT];
 
-#if 0
-void sent_channel::Info() {
-	uint8_t stat;
-	uint16_t sig0, sig1;
-
-	efiPrintf("Unit time %lu timer ticks", tickPerUnit);
-	efiPrintf("Pause pulse detected %s", pausePulseReceived ? "Yes" : "No");
-	efiPrintf("Total pulses %lu", pulseCounter);
-
-	if (GetSignals(&stat, &sig0, &sig1) == 0) {
-		efiPrintf("Last valid fast msg Status 0x%01x Sig0 0x%03x Sig1 0x%03x", stat, sig0, sig1);
-	}
-
-	if (scMsgFlags) {
-		efiPrintf("Slow channels:");
-		for (int i = 0; i < SENT_SLOW_CHANNELS_MAX; i++) {
-			if (scMsgFlags & BIT(i)) {
-				efiPrintf(" ID %d: %d", scMsg[i].id, scMsg[i].data);
-			}
-		}
-	}
-
-	#if SENT_STATISTIC_COUNTERS
-		efiPrintf("HW overflows %lu\n", statistic.hwOverflowCnt);
-
-		efiPrintf("Pause pulses %lu\n", statistic.PauseCnt);
-		efiPrintf("Restarts %lu", statistic.RestartCnt);
-		efiPrintf("Interval errors %lu short, %lu long", statistic.ShortIntervalErr, statistic.LongIntervalErr);
-		efiPrintf("Total frames %lu with CRC error %lu (%f%%)", statistic.FrameCnt, statistic.CrcErrCnt, statistic.CrcErrCnt * 100.0 / statistic.FrameCnt);
-		efiPrintf("Total slow channel messages %lu with crc6 errors %lu (%f%%)", statistic.sc, statistic.scCrcErr, statistic.scCrcErr * 100.0 / statistic.sc);
-		efiPrintf("Sync errors %lu", statistic.SyncErr);
-	#endif
-}
-#endif
+/*==========================================================================*/
+/* Misc helpers.															*/
+/*==========================================================================*/
+#define BIT(n) (UINT32_C(1) << (n))
 
 /*==========================================================================*/
 /* ICU driver.																*/
@@ -193,6 +164,58 @@ void startSent() {
 	}
 }
 #endif //HAL_USE_ICU
+
+/*==========================================================================*/
+/* Debug.																	*/
+/*==========================================================================*/
+extern BaseSequentialStream *chp;
+
+void sent_channel::Info() {
+	uint8_t stat;
+	uint16_t sig0, sig1;
+
+	chprintf(chp, "Unit time %lu timer ticks\r\n", tickPerUnit);
+	chprintf(chp, "Pause pulse detected %s\r\n", pausePulseReceived ? "Yes" : "No");
+	chprintf(chp, "Total pulses %lu\r\n", pulseCounter);
+
+	if (GetSignals(&stat, &sig0, &sig1) == 0) {
+		chprintf(chp, "Last valid fast msg Status 0x%01x Sig0 0x%03x Sig1 0x%03x\r\n", stat, sig0, sig1);
+	}
+
+	if (scMsgFlags) {
+		chprintf(chp, "Slow channels:\r\n");
+		for (int i = 0; i < SENT_SLOW_CHANNELS_MAX; i++) {
+			if (scMsgFlags & BIT(i)) {
+				chprintf(chp, " ID %d: %d\r\n", scMsg[i].id, scMsg[i].data);
+			}
+		}
+	}
+
+	#if SENT_STATISTIC_COUNTERS
+		chprintf(chp, "HW overflows %lu\r\n", statistic.hwOverflowCnt);
+
+		chprintf(chp, "Pause pulses %lu\r\n", statistic.PauseCnt);
+		chprintf(chp, "Restarts %lu\r\n", statistic.RestartCnt);
+		chprintf(chp, "Interval errors %lu short, %lu long\r\n", statistic.ShortIntervalErr, statistic.LongIntervalErr);
+		chprintf(chp, "Total frames %lu with CRC error %lu (%d%%)\r\n", statistic.FrameCnt, statistic.CrcErrCnt, 100 * statistic.CrcErrCnt / statistic.FrameCnt);
+		chprintf(chp, "Total slow channel messages %lu with crc6 errors %lu (%d%%)\r\n", statistic.sc, statistic.scCrcErr, 100 * statistic.scCrcErr / statistic.sc);
+		chprintf(chp, "Sync errors %lu\r\n", statistic.SyncErr);
+	#endif
+}
+
+void sentDebug(void)
+{
+	for (int i = 0; i < SENT_INPUT_COUNT; i++) {
+		if (icudrivers[i] == nullptr)
+			continue;
+
+		sent_channel &channel = channels[i];
+
+		chprintf(chp, "---- SENT input %d ----\r\n", i);
+		channel.Info();
+		chprintf(chp, "--------------------\r\n");
+	}
+}
 
 /*==========================================================================*/
 /* Decoder thread settings.													*/

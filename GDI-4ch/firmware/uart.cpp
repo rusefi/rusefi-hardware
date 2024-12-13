@@ -7,6 +7,7 @@
 #include "persistence.h"
 #include "fault.h"
 #include "pt2001impl.h"
+#include "sent.h"
 
 /**
  * @brief Global variables
@@ -55,6 +56,8 @@ static void UartThread(void*)
                 (int)flashState, counter,
                 canWriteOk, canWriteNotOk);
         }
+
+        sentDebug();
 
         chThdSleepMilliseconds(200);
     }
