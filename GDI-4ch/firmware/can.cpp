@@ -31,7 +31,7 @@ static const CANConfig canConfig500 =
 
 int canWriteOk = 0;
 int canWriteNotOk = 0;
-static char printBuffer[200];
+//static char printBuffer[200];
 
 static void countTxResult(msg_t msg) {
 	if (msg == MSG_OK) {
@@ -215,8 +215,8 @@ void CanRxThread(void*)
                 saveConfiguration();
                 chip.restart();
             }
-            if (writeCount > 0)
-                uartStartSend(&UARTD1, writeCount, printBuffer);
+//            if (writeCount > 0)
+//                uartStartSend(&UARTD1, writeCount, printBuffer);
 
         chThdSleepMilliseconds(100);
     }
