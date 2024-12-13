@@ -104,6 +104,7 @@ endif
 RUSEFI_LIB = ../../ext/libfirmware
 include $(RUSEFI_LIB)/util/util.mk
 include $(RUSEFI_LIB)/pt2001/pt2001.mk
+include $(RUSEFI_LIB)/sent/sent.mk
 
 # Licensing files.
 include $(CHIBIOS)/os/license/license.mk
@@ -140,6 +141,7 @@ CPPSRC = $(ALLCPPSRC) \
         uart.cpp \
         persistence.cpp \
         can.cpp \
+        sent.cpp \
         fault.cpp \
         main.cpp
 
