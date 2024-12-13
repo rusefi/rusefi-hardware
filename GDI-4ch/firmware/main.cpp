@@ -3,6 +3,7 @@
 #include "can.h"
 #include "fault.h"
 #include "uart.h"
+#include "sent.h"
 #include "io_pins.h"
 #include "can_common.h"
 
@@ -116,6 +117,7 @@ int main() {
 
     InitCan();
     InitUart();
+    initSent();
 
 	palSetPadMode(LED_BLUE_PORT, LED_BLUE_PIN, PAL_MODE_OUTPUT_PUSHPULL);
 	palClearPad(LED_BLUE_PORT, LED_BLUE_PIN);
