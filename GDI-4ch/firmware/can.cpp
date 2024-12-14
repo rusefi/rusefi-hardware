@@ -10,6 +10,7 @@
 #include "can_common.h"
 #include "pt2001impl.h"
 #include "chprintf.h"
+#include "sent.h"
 
 #define GDI4_CAN_SET_TAG 0x78
 #include <rusefi/manifest.h>
@@ -120,6 +121,29 @@ static void sendOutVersion() {
     	countTxResult(msg);
 }
 
+static void sendOutSentData() {
+    // TODO: start using CanTxTyped helper
+    CANTxFrame m_frame;
+
+    m_frame.IDE = CAN_IDE_EXT;
+    m_frame.SID = 0;
+    m_frame.EID = configuration.outputCanID + 6;
+    m_frame.RTR = CAN_RTR_DATA;
+    m_frame.DLC = 8;
+
+    // See scaled_high_pressure scaled_channel, 0.1 bar resolution
+    uint16_t press = GmPressureGetPressure() * 10;
+    // See scaled_temperature scaled_channel, 0.001 deg C resolution
+    int16_t temp = GmPressureGetTemperature() * 100;
+
+    m_frame.data16[0] = press;
+    m_frame.data16[1] = temp;
+    m_frame.data32[1] = 0xdeadbeef;
+
+    msg_t msg = canTransmitTimeout(&CAND1, CAN_ANY_MAILBOX, &m_frame, CAN_TX_TIMEOUT_100_MS);
+    countTxResult(msg);
+}
+
 #define CAN_TX_PERIOD_MS 100
 
 static int intTxCounter = 0;
@@ -143,6 +167,8 @@ void CanTxThread(void*)
         }
 
         SendSomething();
+
+        sendOutSentData();
     }
 }
 
