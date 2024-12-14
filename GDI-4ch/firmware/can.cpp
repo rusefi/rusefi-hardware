@@ -3,6 +3,7 @@
 
 #include <cstdint>
 #include <cstring>
+#include "sent_canbus_protocol.h"
 
 #include "fault.h"
 #include "io_pins.h"
@@ -132,9 +133,9 @@ static void sendOutSentData() {
     m_frame.DLC = 8;
 
     // See scaled_high_pressure scaled_channel, 0.1 bar resolution
-    uint16_t press = GmPressureGetPressure() * 10;
+    uint16_t press = GmPressureGetPressure() * GM_SENT_CANBUS_SCALE_PRESSURE;
     // See scaled_temperature scaled_channel, 0.001 deg C resolution
-    int16_t temp = GmPressureGetTemperature() * 100;
+    int16_t temp = GmPressureGetTemperature() * GM_SENT_CANBUS_SCALE_TEMPERATURE;
 
     m_frame.data16[0] = press;
     m_frame.data16[1] = temp;
