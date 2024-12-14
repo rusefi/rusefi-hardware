@@ -197,6 +197,7 @@ void sent_channel::Info() {
 	}
 
 	#if SENT_STATISTIC_COUNTERS
+	    static int aliveCounter = 0;
 		chprintf(chp, "HW overflows %lu\r\n", statistic.hwOverflowCnt);
 
 		chprintf(chp, "Pause pulses %lu\r\n", statistic.PauseCnt);
@@ -204,7 +205,7 @@ void sent_channel::Info() {
 		chprintf(chp, "Interval errors %lu short, %lu long\r\n", statistic.ShortIntervalErr, statistic.LongIntervalErr);
 		chprintf(chp, "Total frames %lu with CRC error %lu (%d%%)\r\n", statistic.FrameCnt, statistic.CrcErrCnt, 100 * statistic.CrcErrCnt / statistic.FrameCnt);
 		chprintf(chp, "Total slow channel messages %lu + %lu with crc6 errors %lu (%d%%)\r\n", statistic.sc12, statistic.sc16, statistic.scCrcErr, 100 * statistic.scCrcErr / (statistic.sc12 + statistic.sc16));
-		chprintf(chp, "Sync errors %lu\r\n", statistic.SyncErr);
+		chprintf(chp, "Sync errors %lu alive=%d\n", statistic.SyncErr, aliveCounter++);
 	#endif
 	GmPressureDebug();
 }
