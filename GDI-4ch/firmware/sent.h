@@ -20,3 +20,7 @@ void SENT_ISR_Handler(uint8_t channels, uint16_t clocks, uint8_t flags);
 int getSentValues(size_t index, uint16_t *sig0, uint16_t *sig1);
 
 void sentDebug(void);
+
+/* sensor decoders */
+float GmPressureGetPressure(void);
+float GmPressureGetTemperature(void);

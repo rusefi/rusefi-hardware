@@ -166,6 +166,13 @@ void startSent() {
 #endif //HAL_USE_ICU
 
 /*==========================================================================*/
+/* Forward declarations.													*/
+/*==========================================================================*/
+
+static int GmPressureDecode(size_t index);
+static void GmPressureDebug(void);
+
+/*==========================================================================*/
 /* Debug.																	*/
 /*==========================================================================*/
 extern BaseSequentialStream *chp;
@@ -199,6 +206,7 @@ void sent_channel::Info() {
 		chprintf(chp, "Total slow channel messages %lu + %lu with crc6 errors %lu (%d%%)\r\n", statistic.sc12, statistic.sc16, statistic.scCrcErr, 100 * statistic.scCrcErr / (statistic.sc12 + statistic.sc16));
 		chprintf(chp, "Sync errors %lu\r\n", statistic.SyncErr);
 	#endif
+	GmPressureDebug();
 }
 
 void sentDebug(void)
@@ -216,9 +224,8 @@ void sentDebug(void)
 }
 
 /*==========================================================================*/
-/* Decoder thread settings.													*/
+/* Decoder feed handler and mailbox											*/
 /*==========================================================================*/
-
 /* 4 per channel should be enough */
 #define SENT_MB_SIZE		(4 * SENT_INPUT_COUNT)
 
@@ -237,6 +244,9 @@ void SENT_ISR_Handler(uint8_t channel, uint16_t clocks, uint8_t flags) {
 	chSysUnlockFromISR();
 }
 
+/*==========================================================================*/
+/* Decoder thread.															*/
+/*==========================================================================*/
 static void SentDecoderThread(void*) {
 	while (true) {
 		msg_t ret;
@@ -254,7 +264,7 @@ static void SentDecoderThread(void*) {
 
 				if (channel.Decoder(tick, flags) > 0) {
 					/* Call high level decoder from here */
-					/* TODO: implemnet subscribers, like it is done for ADC */
+					GmPressureDecode(n);
 				}
 			}
 		}
@@ -280,5 +290,86 @@ int getSentValues(size_t index, uint16_t *sig0, uint16_t *sig1) {
 	}
 
 	/* invalid channel */
-    return -1;
+	return -1;
+}
+
+int getSentSlowChannelValue(size_t index, size_t id)
+{
+	if (index < SENT_INPUT_COUNT) {
+		sent_channel &channel = channels[index];
+
+		return channel.GetSlowChannelValue(id);
+	}
+
+	/* invalid channel */
+	return -1;
+}
+
+/*==========================================================================*/
+/* Sensor handler(s)														*/
+/*==========================================================================*/
+
+static bool gm_valid = false;
+static float gm_pres = 0.0;
+static float gm_temp = -273.0;
+
+static int GmPressureDecode(size_t index)
+{
+	int t1, t2;
+
+	/* Slow channels 16 and 22 transmit temperature */
+	t1 = getSentSlowChannelValue(index, 16);
+	t2 = getSentSlowChannelValue(index, 22);
+
+	if ((t1 < 0) || (t2 < 0)) {
+		/* this is not GM pressure sensor or slow channels is not received yet */
+		return 0;
+	}
+
+	/* TODO: this is just a guess */
+	/* average, 8 per degree C, 65 offset */
+	gm_temp = (((float)t1 + (float)t2) / 2.0 - 512.0) / 8.0;
+
+	/*
+     * Sig0 shows about 197..198 at 1 Atm (open air) and 282 at 1000 KPa (9.86 Atm)
+     * Sig1 shows about 202..203 at 1 Atm (open air) and 283 at 1000 KPa (9.86 Atm)
+     * So for 8.86 Atm delta there are:
+     * 84..85 units for sig0
+     * 80..81 units for sig1
+     * Measurements are not ideal, so lets ASSUME 10 units per 1 Atm
+     * Offset is 187..188 for Sig0 and 192..193 for Sig1.
+     * Average offset is 190 for 0 Atm.
+     */
+	uint16_t sig0, sig1;
+	getSentValues(index, &sig0, &sig1);
+
+	gm_pres = (((float)sig0 + (float)sig1) / 2 - 190) / 10.0;
+
+	/* TODO: timestamp value */
+
+	gm_valid = true;
+
+	return 1;
+}
+
+static void GmPressureDebug(void)
+{
+	if (!gm_valid)
+		return;
+
+	/* We can not print float */
+	int pres = gm_pres * 1000;
+	int temp = gm_temp * 1000;
+
+	chprintf(chp, "GM: press %d.%03d, temp %d.%03d\r\n", pres / 1000, pres % 1000, temp / 1000, temp % 1000);
+}
+
+float GmPressureGetPressure(void)
+{
+	return gm_pres;
+}
+
+float GmPressureGetTemperature(void)
+{
+	return gm_temp;
 }
