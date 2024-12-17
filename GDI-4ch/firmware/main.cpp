@@ -6,6 +6,7 @@
 #include "sent.h"
 #include "io_pins.h"
 #include "can_common.h"
+#include "misc.h"
 
 #include <algorithm>
 
@@ -108,6 +109,8 @@ mfs_error_t flashState;
 int main() {
     halInit();
     chSysInit();
+
+    miscInit();
 
     // Fire up all of our threads
     InitPins();

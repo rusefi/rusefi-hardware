@@ -12,6 +12,7 @@
 #include "pt2001impl.h"
 #include "chprintf.h"
 #include "sent.h"
+#include "misc.h"
 
 #define GDI4_CAN_SET_TAG 0x78
 #include <rusefi/manifest.h>
@@ -43,12 +44,22 @@ static void countTxResult(msg_t msg) {
 	}
 }
 
-void SendSomething() {
+int canGetOutputCanIdBase(void)
+{
+    return (configuration.outputCanID + boardGetId() * GDI4_BASE_ADDRESS_OFFSET);
+}
+
+int canGetInputCanIdBase()
+{
+    return (configuration.inputCanID + boardGetId() * GDI4_BASE_ADDRESS_OFFSET);
+}
+
+void SendSomething(int baseID) {
         CANTxFrame m_frame;
 
 	    m_frame.IDE = CAN_IDE_EXT;
 	    m_frame.SID = 0;
-	    m_frame.EID = configuration.outputCanID;
+	    m_frame.EID = baseID + 0;
 	    m_frame.RTR = CAN_RTR_DATA;
 	    m_frame.DLC = 8;
 	    memset(m_frame.data8, 0, sizeof(m_frame.data8));
@@ -63,7 +74,7 @@ void SendSomething() {
     	countTxResult(msg);
 }
 
-static void sendOutConfiguration() {
+static void sendOutConfiguration(int baseID) {
         CANTxFrame m_frame;
 
 	    m_frame.IDE = CAN_IDE_EXT;
@@ -77,7 +88,7 @@ static void sendOutConfiguration() {
 	    m_frame.data16[1] = float2short128(configuration.BoostCurrent);
 	    m_frame.data16[2] =                configuration.TBoostMin;
 	    m_frame.data16[3] =                configuration.TBoostMax;
-	    m_frame.EID = configuration.outputCanID + 1;
+	    m_frame.EID = baseID + 1;
     	msg_t msg = canTransmitTimeout(&CAND1, CAN_ANY_MAILBOX, &m_frame, CAN_TX_TIMEOUT_100_MS);
     	countTxResult(msg);
 
@@ -87,7 +98,7 @@ static void sendOutConfiguration() {
 	    m_frame.data16[1] =                configuration.TpeakDuration;
 	    m_frame.data16[2] =                configuration.TpeakOff;
 	    m_frame.data16[3] =                configuration.Tbypass;
-	    m_frame.EID = configuration.outputCanID + 2;
+	    m_frame.EID = baseID + 2;
     	msg = canTransmitTimeout(&CAND1, CAN_ANY_MAILBOX, &m_frame, CAN_TX_TIMEOUT_100_MS);
     	countTxResult(msg);
 
@@ -97,24 +108,24 @@ static void sendOutConfiguration() {
 	    m_frame.data16[1] =                configuration.TholdOff;
 	    m_frame.data16[2] =                configuration.THoldDuration;
 	    m_frame.data16[3] = float2short128(configuration.PumpPeakCurrent);
-	    m_frame.EID = configuration.outputCanID + 3;
+	    m_frame.EID = baseID + 3;
     	msg = canTransmitTimeout(&CAND1, CAN_ANY_MAILBOX, &m_frame, CAN_TX_TIMEOUT_100_MS);
     	countTxResult(msg);
 
 	    // CanConfiguration4
 	    m_frame.DLC = 2;
 	    m_frame.data16[0] = float2short128(configuration.PumpHoldCurrent);
-	    m_frame.EID = configuration.outputCanID + 4;
+	    m_frame.EID = baseID + 4;
     	msg = canTransmitTimeout(&CAND1, CAN_ANY_MAILBOX, &m_frame, CAN_TX_TIMEOUT_100_MS);
     	countTxResult(msg);
 }
 
-static void sendOutVersion() {
+static void sendOutVersion(int baseID) {
         CANTxFrame m_frame;
 
 	    m_frame.IDE = CAN_IDE_EXT;
 	    m_frame.SID = 0;
-	    m_frame.EID = configuration.outputCanID + 5;
+	    m_frame.EID = baseID + 5;
 	    m_frame.RTR = CAN_RTR_DATA;
 	    m_frame.DLC = sizeof(VERSION);
 	    memcpy(m_frame.data8, VERSION, sizeof(VERSION));
@@ -122,13 +133,13 @@ static void sendOutVersion() {
     	countTxResult(msg);
 }
 
-static void sendOutSentData() {
+static void sendOutSentData(int baseID) {
     // TODO: start using CanTxTyped helper
     CANTxFrame m_frame;
 
     m_frame.IDE = CAN_IDE_EXT;
     m_frame.SID = 0;
-    m_frame.EID = configuration.outputCanID + 6;
+    m_frame.EID = baseID + 6;
     m_frame.RTR = CAN_RTR_DATA;
     m_frame.DLC = 8;
 
@@ -160,16 +171,19 @@ void CanTxThread(void*)
             continue; // we were told to be silent
         }
 
+        // keep constant while sending whole banch of messages
+        int outID = canGetOutputCanIdBase();
+
         if (intTxCounter % (1000 / CAN_TX_PERIOD_MS) == 0) {
-            sendOutConfiguration();
+            sendOutConfiguration(outID);
         }
         if (intTxCounter % (1000 / CAN_TX_PERIOD_MS) == 0) {
-            sendOutVersion();
+            sendOutVersion(outID);
         }
 
-        SendSomething();
+        SendSomething(outID);
 
-        sendOutSentData();
+        sendOutSentData(outID);
     }
 }
 
@@ -218,23 +232,25 @@ void CanRxThread(void*)
             }
 
             bool withNewValue = false;
-            if (frame.EID == configuration.inputCanID) {
+            int inputID = canGetInputCanIdBase();
+            // TODO: valudate DLC and IDE
+            if (frame.EID == inputID) {
                 ASSIGN_IF_CHANGED(configuration.BoostVoltage,  getInt(&frame,   1));
                 ASSIGN_IF_CHANGED(configuration.BoostCurrent,  getFloat(&frame, 3));
                 ASSIGN_IF_CHANGED(configuration.TBoostMin,     getInt(&frame,   5));
-            } else if (frame.EID == configuration.inputCanID + 1) {
+            } else if (frame.EID == inputID + 1) {
                 ASSIGN_IF_CHANGED(configuration.TBoostMax,     getInt(&frame,   1));
                 ASSIGN_IF_CHANGED(configuration.PeakCurrent,   getFloat(&frame, 3));
                 ASSIGN_IF_CHANGED(configuration.TpeakDuration, getInt(&frame,   5));
-            } else if (frame.EID == configuration.inputCanID + 2) {
+            } else if (frame.EID == inputID + 2) {
                 ASSIGN_IF_CHANGED(configuration.TpeakOff,      getInt(&frame,   1));
                 ASSIGN_IF_CHANGED(configuration.Tbypass,       getInt(&frame,   3));
                 ASSIGN_IF_CHANGED(configuration.HoldCurrent,   getFloat(&frame, 5));
-            } else if (frame.EID == configuration.inputCanID + 3) {
+            } else if (frame.EID == inputID + 3) {
                 ASSIGN_IF_CHANGED(configuration.TholdOff,      getInt(&frame,   1));
                 ASSIGN_IF_CHANGED(configuration.THoldDuration, getInt(&frame,   3));
                 ASSIGN_IF_CHANGED(configuration.PumpPeakCurrent,   getFloat(&frame, 5));
-            } else if (frame.EID == configuration.inputCanID + 4) {
+            } else if (frame.EID == inputID + 4) {
                 ASSIGN_IF_CHANGED(configuration.PumpHoldCurrent,   getFloat(&frame, 1));
                 ASSIGN_IF_CHANGED(configuration.outputCanID, getInt(&frame,   3));
             }

@@ -25,5 +25,9 @@
 #define CAN_TX_PIN				12
 #define CAN_RX_PIN				11
 
+// Board ID (TODO: sample analog input?)
+#define BOARD_ID_PORT			GPIOA
+#define BOARD_ID_PIN			1
+
 // Communication - UART
 #define UART_BAUD_RATE      115200
