@@ -143,6 +143,7 @@ CPPSRC = $(ALLCPPSRC) \
         can.cpp \
         sent.cpp \
         fault.cpp \
+        misc.cpp \
         main.cpp
 
 # List ASM source files here.
