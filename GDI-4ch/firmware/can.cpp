@@ -145,7 +145,7 @@ static void sendOutSentData(int baseID) {
 
     // See scaled_high_pressure scaled_channel, 0.1 bar resolution
     uint16_t press = GmPressureGetPressure() * GM_SENT_CANBUS_SCALE_PRESSURE;
-    // See scaled_temperature scaled_channel, 0.001 deg C resolution
+    // See scaled_temperature scaled_channel, 0.01 deg C resolution
     int16_t temp = GmPressureGetTemperature() * GM_SENT_CANBUS_SCALE_TEMPERATURE;
 
     m_frame.data16[0] = press;
