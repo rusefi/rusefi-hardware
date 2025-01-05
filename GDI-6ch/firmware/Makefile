@@ -5,7 +5,7 @@
 
 # Compiler options here.
 ifeq ($(USE_OPT),)
-  USE_OPT = -O2 -ggdb -fomit-frame-pointer -falign-functions=16 -fsingle-precision-constant
+  USE_OPT = -O0 -ggdb -fomit-frame-pointer -falign-functions=16 -fsingle-precision-constant
 endif
 
 # C specific options here (added to USE_OPT).
@@ -15,7 +15,7 @@ endif
 
 # C++ specific options here (added to USE_OPT).
 ifeq ($(USE_CPPOPT),)
-  USE_CPPOPT = -fno-rtti -fno-exceptions -ffast-math -funsafe-math-optimizations -fno-threadsafe-statics -fno-use-cxa-atexit
+  USE_CPPOPT = -fno-rtti -fno-exceptions -ffast-math -funsafe-math-optimizations -fno-threadsafe-statics -fno-use-cxa-atexit -std=c++17
 endif
 
 # Enable this if you want the linker to remove unused code and data.
@@ -83,7 +83,7 @@ endif
 #
 
 # Define project name here
-PROJECT = gdi4
+PROJECT = gdi6
 
 # Target settings.
 MCU  = cortex-m3
@@ -100,6 +100,9 @@ ifeq ("$(wildcard $(CHIBIOS)/os/license/license.mk)","")
 $(error Please run 'git submodule update --init --recursive' before trying to build!)
 endif
 
+# Configure libfirmware Paths/Includes
+RUSEFI_LIB = ../../ext/libfirmware
+
 # Licensing files.
 include $(CHIBIOS)/os/license/license.mk
 # Startup files.
@@ -115,25 +118,30 @@ include $(CHIBIOS)/os/common/ports/ARMCMx/compilers/GCC/mk/port_v7m.mk
 # Auto-build files in ./source recursively.
 include $(CHIBIOS)/tools/mk/autobuild.mk
 # Other files (optional).
+include $(CHIBIOS)/os/hal/lib/complex/mfs/hal_mfs.mk
 include $(CHIBIOS)/os/hal/lib/streams/streams.mk
 
 # Define linker script file here
-LDSCRIPT= $(STARTUPLD)/STM32F103xB.ld
+#LDSCRIPT= $(STARTUPLD)/STM32F103xB.ld
+LDSCRIPT= gdi.ld
 
 # C sources that can be compiled in ARM or THUMB mode depending on the global
 # setting.
 CSRC = $(ALLCSRC) \
-      mc33816_data.c
+       $(RUSEFI_LIB_C) \
+        PT2000_LoadData.c
 
 
 # C++ sources that can be compiled in ARM or THUMB mode depending on the global
 # setting.
 CPPSRC = $(ALLCPPSRC) \
+        $(RUSEFI_LIB_CPP) \
         uart.cpp \
-        mc33816_control.cpp \
+        persistence.cpp \
+        pt2000.cpp \
         can.cpp \
         fault.cpp \
-          main.cpp
+        main.cpp
 
 # List ASM source files here.
 ASMSRC = $(ALLASMSRC)
@@ -142,7 +150,9 @@ ASMSRC = $(ALLASMSRC)
 ASMXSRC = $(ALLXASMSRC)
 
 # Inclusion directories.
-INCDIR = $(CONFDIR) $(ALLINC)
+INCDIR = $(CONFDIR) $(ALLINC) \
+  $(RUSEFI_LIB_INC) \
+  $(RUSEFI_LIB)/can
 
 # Define C warning options here.
 CWARN = -Wall -Wextra -Wundef -Wstrict-prototypes

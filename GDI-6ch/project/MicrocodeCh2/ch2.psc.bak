@@ -1,0 +1,28 @@
+* Because we use the same timings across all injectors
+* it doesn't make sense to keep track of uploading it twice
+* .. so instead let's just include the first channel's dram
+#include "..\DRAM\injectors.def";
+
+* This microcore will control BANK3
+
+#define HSBatB3   hs5 ;
+#define HSBoostB3 hs6 ;
+#define LS1B3     ls5 ;
+#define LS2B3     ls6 ;
+
+*cur5L for uCore0
+*ucore1 not used
+
+
+* ### Initialization phase ###
+init0:      stgn gain8.68 osoc;                     * Set the gain of the opamp of the current measure block 1 
+            jmpr init0;
+
+* ### End of Channel 1 - uCore0 code ###
+
+* ### CHANNEL2 UCORE1 useless code (only here to avoid issue when dual core are enabled) #####
+
+init1:  ldirh 52h _rst;
+        ldirl 52h _rst;
+        ldirh 52h _rst;
+        jmpr init1;

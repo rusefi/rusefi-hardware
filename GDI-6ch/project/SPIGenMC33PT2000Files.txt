@@ -1,0 +1,12 @@
+bin\ch1.cip.bin
+bin\ch2.cip.bin
+bin\ch3.cip.bin
+registers\dram1.bin
+registers\dram2.bin
+registers\dram3.bin
+registers\main_config_reg.bin
+registers\ch1_config_reg.bin
+registers\ch2_config_reg.bin
+registers\ch3_config_reg.bin
+registers\io_config_reg.bin
+registers\diag_config_reg.bin
