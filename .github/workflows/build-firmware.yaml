@@ -24,9 +24,17 @@ jobs:
       - name: Test Compiler
         run: arm-none-eabi-gcc -v
 
-      - name: Build GDI Firmware
+      - name: Discover cores
+        if: ${{ matrix.os != 'macos-latest' }}
+        run: lscpu | egrep 'Model name|Socket|Thread|NUMA|CPU\(s\)'
+
+      - name: Build GDI4 Firmware
         working-directory: ./GDI-4ch/firmware
-        run: make
+        run: make -j4
+
+      - name: Build GDI6 Firmware
+        working-directory: ./GDI-6ch/firmware
+        run: make -j4
 
       - name: Upload GDI binaries
         uses: actions/upload-artifact@v4
