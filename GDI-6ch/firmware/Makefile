@@ -129,6 +129,7 @@ LDSCRIPT= gdi.ld
 # setting.
 CSRC = $(ALLCSRC) \
        $(RUSEFI_LIB_C) \
+        gdi6_gcc_version_check.c \
         PT2000_LoadData.c
 
 
