@@ -7,5 +7,6 @@
 
 // Firmware builds require at least GCC 11.3.1
 #if (GCC_VERSION < 1131)
+// versions 9 and 10 have nasty 'more undefined references to `__cxa_pure_virtual' follow' issue
 	#error "GCC compiler >= 11.3.1 required"
 #endif
