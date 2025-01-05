@@ -1,0 +1,8 @@
+#define Vboost_high 0;
+#define Vboost_low 1;
+#define Iboost_H 2;
+#define Iboost_L 3;
+#define HPFP_Ipeak 5;
+#define HPFP_Ihold 6;
+#define HPFP_Thold_off 7;
+#define HPFP_Thold_tot 8;
