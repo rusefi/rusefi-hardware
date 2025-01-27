@@ -1,12 +1,12 @@
 pins:
-  #  - pin: E9-1
-  #    function: 
+  - pin: E9-1
+    function: Input Shaft Speed (B21) ground
 
   #  - pin: E9-2
   #    function: 
 
   - pin: E9-3
-    function: No. 2 Vehicle Speed Sensor
+    function: No. 2 Vehicle Speed Sensor / VSS Ground
 
   - pin: E9-4
     function: ECU Ground
@@ -24,26 +24,26 @@ pins:
     function: IN_CRANK_VR_NEG Crank Position Sensor Negative
     type: agnd
 
-  #  - pin: E9-8
-  #    function: 
+  - pin: E9-8
+    function: Auto Trans Sol No3 S3
 
-  #  - pin: E9-9
-  #    function: 
+  - pin: E9-9
+    function: Auto Trans Sol No2 S2
 
-  #  - pin: E9-10
-  #    function: 
+  - pin: E9-10
+    function: Auto Trans Sol No1 S1
 
-  #  - pin: E9-11
-  #    function: 
+  - pin: E9-11
+    function: 5V Sensor Reference power
 
-  #  - pin: E9-12
-  #    function: 
+  - pin: E9-12
+    function: A/T Sol No5
 
-  #  - pin: E9-13
-  #    function: 
+  - pin: E9-13
+    function: A/T Sol No4
 
-  #  - pin: E9-14
-  #    function: 
+  - pin: E9-14
+    function: A/T Sol No3
 
   - pin: E9-15
     function: No. 6 Injector (Rear)
@@ -96,7 +96,7 @@ pins:
     type: agnd
 
   - pin: E9-29
-    function: Voltage Feedback
+    function: Voltage Feedback / DATALINK connector
 
   #  - pin: E9-30
   #    function: 
@@ -116,8 +116,8 @@ pins:
   - pin: E9-35
     function: Idle Speed Control Stepper Valve Coil 2
 
-  #  - pin: E9-36
-  #    function: 
+  - pin: E9-36
+    function: Fuel Pressure Up solenoid valve
 
   #  - pin: E9-37
   #    function: 
@@ -151,8 +151,8 @@ pins:
     function: IN_IAT Intake Air Temperature Sensor
     type: at
 
-  #  - pin: E9-46
-  #    function: 
+  - pin: E9-46
+    function: EGR gas Temp Sensor
 
   - pin: E9-47
     function: o2 sensor 2
@@ -166,8 +166,8 @@ pins:
   - pin: E9-50
     function: No.1 Knock Sensor (Front)
 
-  #  - pin: E9-51
-  #    function: 
+  - pin: E9-51
+    function: FAIL (98 only)
 
   - pin: E9-52
     function: Igniter Trigger Signal Cyl 6 (Rear)
@@ -194,13 +194,14 @@ pins:
   #    function: 
 
   - pin: E9-60
-    function: Pressure Modulation Control (Wastegate) Vacuum Switching Valve
+    function: Pressure Modulation Control (Wastegate) Vacuum Switching Valve / Boost Control
 
   #  - pin: E9-61
   #    function: 
 
   - pin: E9-62
     function: Pressure Intake Manifold (MAP Sensor)
+
   - pin: E9-63
     function: Traction Control Throttle Idle Position Sensor
 
@@ -212,10 +213,10 @@ pins:
     type: agnd
 
   - pin: E9-66
-    function: MAF signal
+    function: MAF signal / VG signal for Airflow meter
 
-  #  - pin: E9-67
-  #    function: 
+  - pin: E9-67
+    function: EFIF (98)
 
   #  - pin: E9-68
   #    function: 
@@ -230,17 +231,17 @@ pins:
   - pin: E9-71
     function: Oxygen Sensor Heater UNUSED
 
-  #  - pin: E9-72
-  #    function: 
+  - pin: E9-72
+    function: Oxygen Sensor 2 Heater UNUSED
 
-  #  - pin: E9-73
-  #    function: 
+  - pin: E9-73
+    function: Fuel Pressure up VSV
 
   - pin: E9-74
     function: Evap output UNUSED
 
-  #  - pin: E9-75
-  #    function:
+  - pin: E9-75
+    function: EGR Solenoid
 
   - pin: E9-76
     function: Neutral & Park Switch Auto Position Indicator
@@ -248,8 +249,9 @@ pins:
   - pin: E9-77
     function: Starter Signal
 
-  #  - pin: E9-78
-  #    function: 
+  - pin: E9-78
+    function: ECU Ground
+    type: pgnd
 
   - pin: E9-79
     function: ECU Ground

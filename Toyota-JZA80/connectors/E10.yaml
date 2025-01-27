@@ -9,7 +9,7 @@ pins:
     function: Kick Down Switch
 
   - pin: E10-4
-    function: Stop Light Switch
+    function: Stop Light Switch / Brake switch input
 
   - pin: E10-5
     function: Exhaust Gas Temperature Warning Light (Catalytic Converter)
@@ -20,8 +20,8 @@ pins:
   - pin: E10-7
     function: Reverse Gear Automatic Transmission Position Indicator
 
-  #  - pin: E10-8
-  #    function: 
+  - pin: E10-8
+    function: SDL to datalink connector
 
   - pin: E10-9
     function: 2nd Gear Automatic Transmission Position Indicator
@@ -30,19 +30,19 @@ pins:
     function: Low Gear Automatic Transmission Position Indicator
 
   - pin: E10-11
-    function: Auto Drive
+    function: Auto Drive / ABS to ABS and TRAC ECU
 
   - pin: E10-12
     function: Over Drive Disable 1
 
-  #  - pin: E10-13
-  #    function: 
+  - pin: E10-13
+    function: TRC- To TRAC ECU
 
-  #  - pin: E10-14
-  #    function: 
+  - pin: E10-14
+    function: TRC+ To TRAC ECU
 
   - pin: E10-15
-    function: Electrical Load Sense
+    function: Electrical Load Sense / ELS for Idle up Diode
 
   - pin: E10-16
     function: tacho output
@@ -71,14 +71,14 @@ pins:
   - pin: E10-24
     function: OUT_MAIN_RELAY
 
-  #  - pin: E10-25
-  #    function: 
+  - pin: E10-25
+    function: Manual indicator light
 
-  #  - pin: E10-26
-  #    function: 
+  - pin: E10-26
+    function: EFI- to TRAC ECU
 
-  #  - pin: E10-27
-  #    function: 
+  - pin: E10-27
+    function: EFI+ to TRAC ECU
 
   - pin: E10-28
     function: Over Drive Disable 2
@@ -87,7 +87,7 @@ pins:
     function: Catalytic Converter Temperature Sensor
 
   - pin: E10-30
-    function: Timing Retard 0?
+    function: Timing Retard 0? / Sub O2 signal
 
   - pin: E10-31
     function: 12V_FROM_MAIN_RELAY Switched Power
@@ -101,23 +101,23 @@ pins:
   - pin: E10-34
     function: IN_AC_REQUEST Air Conditioning (AC) Request Signal
 
-  #  - pin: E10-35
-  #    function:
+  - pin: E10-35
+    function: Ps Power Steering
 
-  #  - pin: E10-36
-  #    function: 
+  - pin: E10-36
+    function: Sub O2 sensor heater control
 
   - pin: E10-37
     function: Timing Retard 2
 
   - pin: E10-38
-    function: Slave Engine Speed Sensor
+    function: Slave Engine Speed Sensor / NEO to TRAC ECU
 
   - pin: E10-39
-    function: Slave Traction Control Throttle Position Sensor
+    function: Slave Traction Control Throttle Position Sensor / VTO2 (98)
 
   - pin: E10-40
-    function: Slave Throttle Position Sensor
+    function: Slave Throttle Position Sensor / VTO1 (98)
 
 info:
   title: JZA80
