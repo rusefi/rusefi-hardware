@@ -10,6 +10,7 @@ class Pt2001 : public Pt2001Base {
 public:
 	// returns true if init successful
 	bool init();
+	bool init(SPIDriver *spi, const SPIConfig *cfg);
 
 protected:
 	void acquireBus() override {
@@ -19,14 +20,23 @@ protected:
 	}
 
 	void select() override {
+		/* Acquire ownership of the bus. */
+		spiAcquireBus(driver);
+		/* Setup transfer parameters. */
+		spiStart(driver, spiCfg);
+		/* Slave Select assertion. */
 		spiSelect(driver);
 	}
 
 	void deselect() override {
+		/* Slave Select de-assertion. */
 		spiUnselect(driver);
+		/* Ownership release. */
+		spiReleaseBus(driver);
 	}
 
 	bool errorOnUnexpectedFlag() override {
+		return false;
 	}
 
 	uint16_t sendRecv(uint16_t tx) override {
@@ -141,4 +151,5 @@ protected:
 
 private:
 	SPIDriver* driver;
+	const SPIConfig* spiCfg;
 };

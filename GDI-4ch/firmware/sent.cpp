@@ -205,7 +205,7 @@ void sent_channel::Info() {
 		chprintf(chp, "Interval errors %lu short, %lu long\r\n", statistic.ShortIntervalErr, statistic.LongIntervalErr);
 		chprintf(chp, "Total frames %lu with CRC error %lu (%d%%)\r\n", statistic.FrameCnt, statistic.CrcErrCnt, 100 * statistic.CrcErrCnt / statistic.FrameCnt);
 		chprintf(chp, "Total slow channel messages %lu + %lu with crc6 errors %lu (%d%%)\r\n", statistic.sc12, statistic.sc16, statistic.scCrcErr, 100 * statistic.scCrcErr / (statistic.sc12 + statistic.sc16));
-		chprintf(chp, "Sync errors %lu alive=%d\n", statistic.SyncErr, aliveCounter++);
+		chprintf(chp, "Sync errors %lu alive=%d\r\n", statistic.SyncErr, aliveCounter++);
 	#endif
 	GmPressureDebug();
 }
@@ -249,6 +249,8 @@ void SENT_ISR_Handler(uint8_t channel, uint16_t clocks, uint8_t flags) {
 /* Decoder thread.															*/
 /*==========================================================================*/
 static void SentDecoderThread(void*) {
+	chRegSetThreadName("SEND RX");
+
 	while (true) {
 		msg_t ret;
 		msg_t msg;

@@ -1,6 +1,8 @@
 #include "can.h"
 #include "hal.h"
 
+#include "efifeatures.h"
+
 #include <cstdint>
 #include <cstring>
 #include "sent_canbus_protocol.h"
@@ -21,7 +23,7 @@
 static char VERSION[] = {compilationYear() / 100, compilationYear() % 100, compilationMonth(), compilationDay()};
 
 extern GDIConfiguration configuration;
-extern Pt2001 chip;
+extern Pt2001 chips[EFI_PT2001_CHIPS];
 extern bool isOverallHappyStatus;
 
 static const CANConfig canConfig500 =
@@ -44,17 +46,17 @@ static void countTxResult(msg_t msg) {
 	}
 }
 
-int canGetOutputCanIdBase(void)
+int canGetOutputCanIdBase(size_t chip)
 {
-    return (configuration.outputCanID + boardGetId() * GDI4_BASE_ADDRESS_OFFSET);
+    return (configuration.outputCanID + (boardGetId() + chip) * GDI4_BASE_ADDRESS_OFFSET);
 }
 
-int canGetInputCanIdBase()
+int canGetInputCanIdBase(size_t chip)
 {
-    return (configuration.inputCanID + boardGetId() * GDI4_BASE_ADDRESS_OFFSET);
+    return (configuration.inputCanID + (boardGetId() + chip) * GDI4_BASE_ADDRESS_OFFSET);
 }
 
-void SendSomething(int baseID) {
+void SendSomething(size_t chip, int baseID) {
         CANTxFrame m_frame;
 
 	    m_frame.IDE = CAN_IDE_EXT;
@@ -67,7 +69,7 @@ void SendSomething(int baseID) {
 	    m_frame.data8[0] = configuration.inputCanID;
 	    m_frame.data8[1] = configuration.updateCounter;
 	    m_frame.data8[2] = isOverallHappyStatus;
-	    m_frame.data8[6] = (int)chip.fault;
+	    m_frame.data8[6] = (int)chips[chip].fault;
 	    m_frame.data8[7] = GDI4_MAGIC;
 
     	msg_t msg = canTransmitTimeout(&CAND1, CAN_ANY_MAILBOX, &m_frame, CAN_TX_TIMEOUT_100_MS);
@@ -163,6 +165,8 @@ static int intTxCounter = 0;
 static THD_WORKING_AREA(waCanTxThread, 256);
 void CanTxThread(void*)
 {
+    chRegSetThreadName("CAN TX");
+
     while (1) {
         intTxCounter++;
         chThdSleepMilliseconds(1000 / CAN_TX_PERIOD_MS);
@@ -171,19 +175,23 @@ void CanTxThread(void*)
             continue; // we were told to be silent
         }
 
-        // keep constant while sending whole banch of messages
-        int outID = canGetOutputCanIdBase();
+        for (size_t i = 0; i < EFI_PT2001_CHIPS; i++) {
+            // keep constant while sending whole banch of messages
+            int outID = canGetOutputCanIdBase(i);
 
-        if (intTxCounter % (1000 / CAN_TX_PERIOD_MS) == 0) {
-            sendOutConfiguration(outID);
+            if (intTxCounter % (1000 / CAN_TX_PERIOD_MS) == 0) {
+                sendOutConfiguration(outID);
+            }
+            if (intTxCounter % (1000 / CAN_TX_PERIOD_MS) == 0) {
+                sendOutVersion(outID);
+            }
+
+            SendSomething(i, outID);
+
+            if (i == 0) {
+                sendOutSentData(outID);
+            }
         }
-        if (intTxCounter % (1000 / CAN_TX_PERIOD_MS) == 0) {
-            sendOutVersion(outID);
-        }
-
-        SendSomething(outID);
-
-        sendOutSentData(outID);
     }
 }
 
@@ -205,6 +213,8 @@ static float getFloat(CANRxFrame *frame, int offset) {
 static THD_WORKING_AREA(waCanRxThread, 256);
 void CanRxThread(void*)
 {
+    chRegSetThreadName("CAN RX");
+
     while (1) {
             CANRxFrame frame;
             msg_t msg = canReceiveTimeout(&CAND1, CAN_ANY_MAILBOX, &frame, TIME_INFINITE);
@@ -213,13 +223,6 @@ void CanRxThread(void*)
             if (msg != MSG_OK) {
                 continue;
             }
-            size_t writeCount = 0;
-
-//                writeCount  = chsnprintf(printBuffer, sizeof(printBuffer), "eid=%d data[0]=%d dlc=%d\n\n\n\n\n\n\n",
-//                frame.EID,
-//                frame.data8[0],
-//                frame.DLC);
-
 
             // Ignore std frames, only listen to ext
             if (frame.IDE != CAN_IDE_EXT) {
@@ -231,35 +234,44 @@ void CanRxThread(void*)
                 continue;
             }
 
-            bool withNewValue = false;
-            int inputID = canGetInputCanIdBase();
-            // TODO: valudate DLC and IDE
-            if (frame.EID == inputID) {
-                ASSIGN_IF_CHANGED(configuration.BoostVoltage,  getInt(&frame,   1));
-                ASSIGN_IF_CHANGED(configuration.BoostCurrent,  getFloat(&frame, 3));
-                ASSIGN_IF_CHANGED(configuration.TBoostMin,     getInt(&frame,   5));
-            } else if (frame.EID == inputID + 1) {
-                ASSIGN_IF_CHANGED(configuration.TBoostMax,     getInt(&frame,   1));
-                ASSIGN_IF_CHANGED(configuration.PeakCurrent,   getFloat(&frame, 3));
-                ASSIGN_IF_CHANGED(configuration.TpeakDuration, getInt(&frame,   5));
-            } else if (frame.EID == inputID + 2) {
-                ASSIGN_IF_CHANGED(configuration.TpeakOff,      getInt(&frame,   1));
-                ASSIGN_IF_CHANGED(configuration.Tbypass,       getInt(&frame,   3));
-                ASSIGN_IF_CHANGED(configuration.HoldCurrent,   getFloat(&frame, 5));
-            } else if (frame.EID == inputID + 3) {
-                ASSIGN_IF_CHANGED(configuration.TholdOff,      getInt(&frame,   1));
-                ASSIGN_IF_CHANGED(configuration.THoldDuration, getInt(&frame,   3));
-                ASSIGN_IF_CHANGED(configuration.PumpPeakCurrent,   getFloat(&frame, 5));
-            } else if (frame.EID == inputID + 4) {
-                ASSIGN_IF_CHANGED(configuration.PumpHoldCurrent,   getFloat(&frame, 1));
-                ASSIGN_IF_CHANGED(configuration.outputCanID, getInt(&frame,   3));
+            for (size_t i = 0; i < EFI_PT2001_CHIPS; i++) {
+//                size_t writeCount = 0;
+
+//                writeCount  = chsnprintf(printBuffer, sizeof(printBuffer), "eid=%d data[0]=%d dlc=%d\n\n\n\n\n\n\n",
+//                frame.EID,
+//                frame.data8[0],
+//                frame.DLC);
+
+                bool withNewValue = false;
+                int inputID = canGetInputCanIdBase(i);
+                // TODO: valudate DLC and IDE
+                if (frame.EID == inputID) {
+                    ASSIGN_IF_CHANGED(configuration.BoostVoltage,  getInt(&frame,   1));
+                    ASSIGN_IF_CHANGED(configuration.BoostCurrent,  getFloat(&frame, 3));
+                    ASSIGN_IF_CHANGED(configuration.TBoostMin,     getInt(&frame,   5));
+                } else if (frame.EID == inputID + 1) {
+                    ASSIGN_IF_CHANGED(configuration.TBoostMax,     getInt(&frame,   1));
+                    ASSIGN_IF_CHANGED(configuration.PeakCurrent,   getFloat(&frame, 3));
+                    ASSIGN_IF_CHANGED(configuration.TpeakDuration, getInt(&frame,   5));
+                } else if (frame.EID == inputID + 2) {
+                    ASSIGN_IF_CHANGED(configuration.TpeakOff,      getInt(&frame,   1));
+                    ASSIGN_IF_CHANGED(configuration.Tbypass,       getInt(&frame,   3));
+                    ASSIGN_IF_CHANGED(configuration.HoldCurrent,   getFloat(&frame, 5));
+                } else if (frame.EID == inputID + 3) {
+                    ASSIGN_IF_CHANGED(configuration.TholdOff,      getInt(&frame,   1));
+                    ASSIGN_IF_CHANGED(configuration.THoldDuration, getInt(&frame,   3));
+                    ASSIGN_IF_CHANGED(configuration.PumpPeakCurrent,   getFloat(&frame, 5));
+                } else if (frame.EID == inputID + 4) {
+                    ASSIGN_IF_CHANGED(configuration.PumpHoldCurrent,   getFloat(&frame, 1));
+                    ASSIGN_IF_CHANGED(configuration.outputCanID, getInt(&frame,   3));
+                }
+                if (withNewValue) {
+                    saveConfiguration();
+                    chips[i].restart();
+                }
+    //            if (writeCount > 0)
+    //                uartStartSend(&UARTD1, writeCount, printBuffer);
             }
-            if (withNewValue) {
-                saveConfiguration();
-                chip.restart();
-            }
-//            if (writeCount > 0)
-//                uartStartSend(&UARTD1, writeCount, printBuffer);
 
         chThdSleepMilliseconds(100);
     }

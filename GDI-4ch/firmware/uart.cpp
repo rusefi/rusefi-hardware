@@ -2,12 +2,15 @@
 #include "hal.h"
 #include "chprintf.h"
 
+#include "efifeatures.h"
+
 #include "uart.h"
 #include "io_pins.h"
 #include "persistence.h"
 #include "fault.h"
 #include "pt2001impl.h"
 #include "sent.h"
+#include "can.h"
 
 /**
  * @brief Global variables
@@ -26,7 +29,7 @@ extern bool isOverallHappyStatus;
 extern mfs_error_t flashState;
 extern int canWriteOk;
 extern int canWriteNotOk;
-extern Pt2001 chip;
+extern Pt2001 chips[EFI_PT2001_CHIPS];
 extern GDIConfiguration configuration;
 
 static int counter = 0;
@@ -34,27 +37,34 @@ static int counter = 0;
 static THD_WORKING_AREA(waUartThread, 256);
 static void UartThread(void*)
 {
+    chRegSetThreadName("UART debug");
     while (true) {
         counter = (counter + 1) % 1000;
 
-        if (chip.fault != McFault::None) {
-            chprintf(chp, "FAULT fault=%d status=%x status2=%x 0x1A6=%x 0x1A7=%x 0x1A8=%x\r\n",
-                (int)chip.fault,
-                chip.status,
-                chip.status5,
-                chip.status6,
-                chip.status7,
-                chip.status8);
-        } else {
-            chprintf(chp, "%x %d %d HAPPY fault=%d status=%x status2=%x flash=%d %d CAN o/e %d %d\r\n",
-                configuration.inputCanID,
-                (int)(configuration.PumpPeakCurrent * 1000),
-                configuration.updateCounter,
-                (int)chip.fault,
-                chip.status,
-                chip.status5,
-                (int)flashState, counter,
-                canWriteOk, canWriteNotOk);
+
+		chprintf(chp, "Flash=%d %d CAN o/e %d %d\r\n",
+			(int)flashState, counter,
+			canWriteOk, canWriteNotOk);
+        for (size_t i = 0; i < EFI_PT2001_CHIPS; i++) {
+            if (chips[i].fault != McFault::None) {
+                chprintf(chp, "%d: FAULT fault=%d status=%x status2=%x 0x1A6=%x 0x1A7=%x 0x1A8=%x\r\n",
+                    i,
+                    (int)chips[i].fault,
+                    chips[i].status,
+                    chips[i].status5,
+                    chips[i].status6,
+                    chips[i].status7,
+                    chips[i].status8);
+            } else {
+                chprintf(chp, "%d: 0x%03x %d %d HAPPY fault=%d status=%x status2=%x\r\n",
+                    i,
+                    canGetInputCanIdBase(i),
+                    (int)(configuration.PumpPeakCurrent * 1000),
+                    configuration.updateCounter,
+                    (int)chips[i].fault,
+                    chips[i].status,
+                    chips[i].status5);
+            }
         }
 
         sentDebug();
