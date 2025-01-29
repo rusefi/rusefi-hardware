@@ -1,6 +1,7 @@
 #include "ch.h"
 #include "hal.h"
 #include "persistence.h"
+#include "efifeatures.h"
 
 #include <rusefi/pt2001.h>
 
@@ -50,19 +51,29 @@ protected:
 
 	// GPIO reset and enable pins
 	void setResetB(bool state) override {
+#if (EFI_PT2001_CHIPS == 1)
 		if (state) {
 			palSetPad(GPIOB, 5);
 		} else {
 			palClearPad(GPIOB, 5);
 		}
+#else
+		//do not drive shared gpio
+		(void)state;
+#endif
 	}
 
 	void setDriveEN(bool state) override {
+#if (EFI_PT2001_CHIPS == 1)
 		if (state) {
 			palSetPad(GPIOB, 4);
 		} else {
 			palClearPad(GPIOB, 4);
 		}
+#else
+		//do not drive shared gpio
+		(void)state;
+#endif
 	}
 
 	// GPIO inputs for various pins we need

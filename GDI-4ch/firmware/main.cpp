@@ -109,6 +109,12 @@ void initPt2001Interface() {
 	palClearPad(GPIOB, 5);
 
 	palSetPadMode(GPIOB, 7, PAL_MODE_INPUT_PULLDOWN);	// flag0
+
+#if (EFI_PT2001_CHIPS > 1)
+	// release reset (if shared between chips)
+	chThdSleepMilliseconds(1);
+	palSetPad(GPIOB, 5);
+#endif
 }
 
 bool Pt2001::init(SPIDriver *spi, const SPIConfig *cfg) {
@@ -154,6 +160,10 @@ int main() {
     initPt2001Interface();
 	// Wait 1/2 second for things to wake up
 	chThdSleepMilliseconds(500);
+#if (EFI_PT2001_CHIPS > 1)
+	// DRVEN = 1 (if shared between chips)
+	palSetPad(GPIOB, 4);
+#endif
     // reminder that +12v is required for PT2001 to start
     for (size_t i = 0; i < EFI_PT2001_CHIPS; i++) {
 		isOverallHappyStatus &= chips[i].init(&SPID1, &spiCfg[i]);
