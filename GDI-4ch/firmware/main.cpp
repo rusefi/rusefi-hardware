@@ -1,3 +1,5 @@
+#include "efifeatures.h"
+
 #include "pt2001impl.h"
 
 #include "can.h"
@@ -24,16 +26,31 @@ static void InitPins() {
 
 bool isOverallHappyStatus = false;
 
-static const SPIConfig spiCfg = {
-    .circular = false,
-    .end_cb = nullptr,
-    .ssport = GPIOB,
-    .sspad = 2,
-    .cr1 =
-				SPI_CR1_DFF |
-				SPI_CR1_MSTR |
-		SPI_CR1_CPHA | SPI_CR1_BR_1 | SPI_CR1_SPE,
+static const SPIConfig spiCfg[EFI_PT2001_CHIPS] = {
+	{
+		.circular = false,
+		.end_cb = nullptr,
+		.ssport = GPIOB,
+		.sspad = 2,
+		.cr1 =
+			SPI_CR1_DFF |
+			SPI_CR1_MSTR |
+			SPI_CR1_CPHA | SPI_CR1_BR_1 | SPI_CR1_SPE,
 		.cr2 = SPI_CR2_SSOE
+	},
+#if (EFI_PT2001_CHIPS > 1)
+	{
+		.circular = false,
+		.end_cb = nullptr,
+		.ssport = GPIOB,
+		.sspad = 3,
+		.cr1 =
+			SPI_CR1_DFF |
+			SPI_CR1_MSTR |
+			SPI_CR1_CPHA | SPI_CR1_BR_1 | SPI_CR1_SPE,
+		.cr2 = SPI_CR2_SSOE
+	},
+#endif
 };
 
 void GDIConfiguration::resetToDefaults() {
@@ -68,8 +85,7 @@ GDIConfiguration *getConfiguration() {
     return &configuration;
 }
 
-
-bool Pt2001::init() {
+void initPt2001Interface() {
 	palSetPadMode(GPIOA, 5, PAL_MODE_STM32_ALTERNATE_PUSHPULL);    // sck
 	palSetPadMode(GPIOA, 6, PAL_MODE_INPUT);    // miso
 	palSetPadMode(GPIOA, 7, PAL_MODE_STM32_ALTERNATE_PUSHPULL);    // mosi
@@ -78,6 +94,11 @@ bool Pt2001::init() {
 	palSetPadMode(GPIOB, 1, PAL_MODE_INPUT);
 	palSetPadMode(GPIOB, 2, PAL_MODE_OUTPUT_PUSHPULL);	// chip select
 	palSetPad(GPIOB, 2);
+
+#if (EFI_PT2001_CHIPS > 1)
+	palSetPadMode(GPIOB, 3, PAL_MODE_OUTPUT_PUSHPULL);	// chip select for second chip
+	palSetPad(GPIOB, 3);
+#endif
 
 	// Set debug pins remap mode to use PB4 as normal pin
 	AFIO->MAPR = AFIO_MAPR_SWJ_CFG_JTAGDISABLE;
@@ -88,18 +109,19 @@ bool Pt2001::init() {
 	palClearPad(GPIOB, 5);
 
 	palSetPadMode(GPIOB, 7, PAL_MODE_INPUT_PULLDOWN);	// flag0
+}
 
-	driver = &SPID1;
-	spiStart(driver, &spiCfg);
+bool Pt2001::init(SPIDriver *spi, const SPIConfig *cfg) {
+	driver = spi;
+	spiCfg = cfg;
+
+	spiStart(driver, spiCfg);
 	spiUnselect(driver);
-
-	// Wait 1/2 second for things to wake up
-	chThdSleepMilliseconds(500);
 
 	return restart();
 }
 
-Pt2001 chip;
+Pt2001 chips[EFI_PT2001_CHIPS];
 
 mfs_error_t flashState;
 
@@ -127,10 +149,15 @@ int main() {
 	palSetPadMode(LED_GREEN_PORT, LED_GREEN_PIN, PAL_MODE_OUTPUT_PUSHPULL);
 	palClearPad(LED_GREEN_PORT, LED_GREEN_PIN);
 
-    bool isOverallHappyStatus = false;
+    bool isOverallHappyStatus = true;
 
+    initPt2001Interface();
+	// Wait 1/2 second for things to wake up
+	chThdSleepMilliseconds(500);
     // reminder that +12v is required for PT2001 to start
-	isOverallHappyStatus = chip.init();
+    for (size_t i = 0; i < EFI_PT2001_CHIPS; i++) {
+		isOverallHappyStatus &= chips[i].init(&SPID1, &spiCfg[i]);
+	}
 
     while (true) {
         if (isOverallHappyStatus) {
