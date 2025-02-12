@@ -141,6 +141,101 @@ BoardConfig boardConfigs[] = {
 		.dcHackValue = 1,
 	},
 	{
+		.boardName = "gold",
+		.desiredEngineConfig = -1,
+		.boardIds = { STATIC_BOARD_ID_ALPHAX_GOLD, 0 },
+		.channels = {
+			{ "TPS1_1", PULLED_DOWN_RANGE(DOWN_7B, UP_7B, 680'000) },
+			{ "TPS1_2", 1, 0.767938368, /* ideally 0.860549952*/ 0.87 },
+			{ "PPS1", 1, 0.79 /*0.821830144*/, 0.920940928 },
+			{ "PPS2", PULLED_DOWN_RANGE(DOWN_11B, UP_11B, 680'000) },
+			{ "MAP", PULLED_DOWN_RANGE(DOWN_8B, UP_8B, 680'000) },
+			{ "CLT", 1.0f, CLT_VALUE(HELLEN_R) * ANALOG_L, CLT_VALUE(HELLEN_R) * ANALOG_H },
+			{ "IAT", 1.0f, IAT_VALUE(HELLEN_R) * ANALOG_L, IAT_VALUE(HELLEN_R) * ANALOG_H },
+			{ "BATT", HELLEN_VBATT_MULT, 9.0f, 15.0f },
+
+			{ nullptr, 0, 0, 0 }, // { "TPS2_1", 1.0f, 0.5f * ANALOG_L, 0.5f * ANALOG_H },
+			{ nullptr, 0, 0, 0 }, // { "TPS2_2", 1.0f, 0.5f * ANALOG_L, 0.5f * ANALOG_H },
+			{ nullptr, 0, 0, 0 },//{ "AUXL1", 1.0f, 1.35f * ANALOG_L, 1.35f * ANALOG_H },
+			{ nullptr, 0, 0, 0 },//{ "AUXL2", 1.0f, 2.23f * ANALOG_L, 2.23f * ANALOG_H },
+		},
+		.eventExpected = {
+		/* crank neg goes to https://rusefi.com/docs/pinouts/stim/?connector=main&pin=24C 2.5v source, crank positive 22B with a 4.7K pull up */
+		true,
+		false,
+		/*cam1*/true,
+		false, false, false,
+		/*vss*/false},
+		.buttonExpected = {false, false, false},
+		.outputNames = {
+	    },
+        .wboUnitsCount = 1,
+		.dcHackValue = 1,
+	},
+	{
+		.boardName = "chuma",
+		.desiredEngineConfig = -1,
+		.boardIds = { STATIC_BOARD_ID_CHUMA, 0 },
+		.channels = {
+			{ "TPS1_1", PULLED_DOWN_RANGE(DOWN_7B, UP_7B, 680'000) },
+			{ nullptr, 0, 0, 0 }, // TPS1_2
+			{ nullptr, 0, 0, 0 }, // PPS1
+			{ nullptr, 0, 0, 0 }, // PPS2
+			{ "MAP", PULLED_DOWN_RANGE(DOWN_8B, UP_8B, 680'000) },
+			{ "CLT", 1.0f, CLT_VALUE(HELLEN_R) * ANALOG_L, CLT_VALUE(HELLEN_R) * ANALOG_H },
+			{ nullptr, 0, 0, 0 }, // { "IAT", 1.0f, IAT_VALUE(HELLEN_R) * ANALOG_L, IAT_VALUE(HELLEN_R) * ANALOG_H },
+			{ "BATT", HELLEN_VBATT_MULT, 9.0f, 15.0f },
+
+			{ nullptr, 0, 0, 0 }, // { "TPS2_1", 1.0f, 0.5f * ANALOG_L, 0.5f * ANALOG_H },
+			{ nullptr, 0, 0, 0 }, // { "TPS2_2", 1.0f, 0.5f * ANALOG_L, 0.5f * ANALOG_H },
+			{ nullptr, 0, 0, 0 },//{ "AUXL1", 1.0f, 1.35f * ANALOG_L, 1.35f * ANALOG_H },
+			{ nullptr, 0, 0, 0 },//{ "AUXL2", 1.0f, 2.23f * ANALOG_L, 2.23f * ANALOG_H },
+		},
+		.eventExpected = {
+		/* crank neg goes to https://rusefi.com/docs/pinouts/stim/?connector=main&pin=24C 2.5v source, crank positive 22B with a 4.7K pull up */
+		true,
+		false,
+		/*cam1*/false,
+		false, false, false,
+		/*vss*/false},
+		.buttonExpected = {false, false, false},
+		.outputNames = {
+	    },
+        .wboUnitsCount = 0,
+		.dcHackValue = 1,
+	},
+	{
+		.boardName = "e92",
+		.desiredEngineConfig = -1,
+		.boardIds = { STATIC_BOARD_ID_HELLEN_E92, 0 },
+		.channels = {
+			{ nullptr, 0, 0, 0 }, // SENT not TPS1_1
+			{ nullptr, 0, 0, 0 }, // SENT not TPS1_2
+			{ "PPS1", 1, 0.79 /*0.821830144*/, 0.920940928 },
+			{ "PPS2", PULLED_DOWN_RANGE(DOWN_11B, UP_11B, 680'000) },
+			{ "MAP", PULLED_DOWN_RANGE(DOWN_8B, UP_8B, 680'000) },
+			{ "CLT", 1.0f, CLT_VALUE(HELLEN_R) * ANALOG_L, CLT_VALUE(HELLEN_R) * ANALOG_H },
+			{ "IAT", 1.0f, IAT_VALUE(HELLEN_R) * ANALOG_L, IAT_VALUE(HELLEN_R) * ANALOG_H },
+			{ "BATT", HELLEN_VBATT_MULT, 9.0f, 15.0f },
+
+			{ nullptr, 0, 0, 0 }, // { "TPS2_1", 1.0f, 0.5f * ANALOG_L, 0.5f * ANALOG_H },
+			{ nullptr, 0, 0, 0 }, // { "TPS2_2", 1.0f, 0.5f * ANALOG_L, 0.5f * ANALOG_H },
+			{ nullptr, 0, 0, 0 },//{ "AUXL1", 1.0f, 1.35f * ANALOG_L, 1.35f * ANALOG_H },
+			{ nullptr, 0, 0, 0 },//{ "AUXL2", 1.0f, 2.23f * ANALOG_L, 2.23f * ANALOG_H },
+		},
+		.eventExpected = {
+		true,
+		false,
+		/*cam1*/true,
+		false, false, false,
+		/*vss*/false},
+		.buttonExpected = {false, false, false},
+		.outputNames = {
+	    },
+        .wboUnitsCount = 2,
+		.dcHackValue = 1,
+	},
+	{
 		.boardName = "Hellen-Honda125K",
 		.desiredEngineConfig = -1,
 		.boardIds = { BOARD_ID_HONDA125_A, BOARD_ID_HONDA125_B, BOARD_ID_HONDA125_C, BOARD_ID_HONDA125_D, BOARD_ID_HONDA125_E, 0 },
