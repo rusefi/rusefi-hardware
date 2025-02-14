@@ -200,6 +200,11 @@ BoardConfig boardConfigs[] = {
 		/*vss*/false},
 		.buttonExpected = {false, false, false},
 		.outputNames = {
+ "10 injector",
+ "11 fuel pump",
+ "2 idle",
+ "9 coil",
+ "8 tach",
 	    },
         .wboUnitsCount = 0,
 		.dcHackValue = 1,
