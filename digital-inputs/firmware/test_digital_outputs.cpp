@@ -96,7 +96,16 @@ bool testEcuDigitalOutputs(size_t overallProcessingStepIndex) {
 
 	for (size_t currentIndex = 0; currentIndex < numOutputs; currentIndex++) {
 	    bool isLowSideOutput = currentIndex < lowSideOutputs;
-		bool isThisGood = testEcuDigitalOutput(currentIndex, isLowSideOutput);
+	    size_t testLineIndex;
+	    if (currentBoard->highSizeStartingIndex != 0 && !isLowSideOutput) {
+	        // sometimes high sides go after low sides, sometimes there is an explicit start index for high side
+	        size_t highSideIndex = currentIndex - lowSideOutputs;
+	        testLineIndex = currentBoard->highSizeStartingIndex + highSideIndex;
+	    } else {
+	        testLineIndex = currentIndex;
+	    }
+
+		bool isThisGood = testEcuDigitalOutput(testLineIndex, isLowSideOutput);
 		if (isThisGood) {
 		    setGlobalStatusText();
 			chprintf(chp, "%d/%d %s ",
