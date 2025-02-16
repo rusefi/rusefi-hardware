@@ -60,7 +60,7 @@ static void waitForMetaInfo() {
 	}
 }
 
-bool testEcuDcOutputs(size_t startStepIndex) {
+bool testEcuDcOutputs(size_t overallProcessingStepIndex) {
     waitForMetaInfo();
 
 	bool isGood = true;
@@ -80,7 +80,7 @@ bool testEcuDcOutputs(size_t startStepIndex) {
 	return isGood;
 }
 
-bool testEcuDigitalOutputs(size_t startStepIndex) {
+bool testEcuDigitalOutputs(size_t overallProcessingStepIndex) {
     waitForMetaInfo();
 
 	bool isGood = true;
@@ -95,11 +95,12 @@ bool testEcuDigitalOutputs(size_t startStepIndex) {
 		return false;
 
 	for (size_t currentIndex = 0; currentIndex < numOutputs; currentIndex++) {
-		bool isThisGood = testEcuDigitalOutput(currentIndex, currentIndex < lowSideOutputs);
+	    bool isLowSideOutput = currentIndex < lowSideOutputs;
+		bool isThisGood = testEcuDigitalOutput(currentIndex, isLowSideOutput);
 		if (isThisGood) {
 		    setGlobalStatusText();
 			chprintf(chp, "%d/%d %s ",
-			    startStepIndex + currentIndex,
+			    overallProcessingStepIndex + currentIndex,
 			    totalStepsNumber(),
 			    currentBoard == nullptr ? nullptr : currentBoard->getOutputName(currentIndex)
 			    );
@@ -111,8 +112,9 @@ bool testEcuDigitalOutputs(size_t startStepIndex) {
 		    globalEverythingHappy = false;
             totalErrorsCounter++;
 			chprintf(chp, "!!!!!!! BAD channel %d %s !!!!!!!!!!!!!!!\r\n",
-			index2human(currentIndex),
-			currentBoard == nullptr ? nullptr : currentBoard->getOutputName(currentIndex));
+			    index2human(currentIndex),
+			    currentBoard == nullptr ? nullptr : currentBoard->getOutputName(currentIndex)
+			    );
 			setNormalText();
 			chThdSleepMilliseconds(1000);
 		}
