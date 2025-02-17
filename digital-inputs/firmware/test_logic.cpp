@@ -131,6 +131,7 @@ BoardConfig boardConfigs[] = {
 		/*BrakePedal todo add wire */false,
 		/*ClutchUp*/false,
 		/*AcButton*/false},
+		.auxDigitalExpected = {false, false, false, false, false, false, false, false},
 		.outputNames = {"inj1", "inj2", "inj3", "inj4",
 		"boost",
 		"VVT LS1",
@@ -139,6 +140,7 @@ BoardConfig boardConfigs[] = {
 		},
 		.wboUnitsCount = 0,
 		.dcHackValue = 1,
+		.highSizeStartingIndex = 0
 	},
 	{
 		.boardName = "gold",
@@ -167,10 +169,12 @@ BoardConfig boardConfigs[] = {
 		false, false, false,
 		/*vss*/false},
 		.buttonExpected = {false, false, false},
+		.auxDigitalExpected = {false, false, false, false, false, false, false, false},
 		.outputNames = {
 	    },
         .wboUnitsCount = 1,
 		.dcHackValue = 1,
+		.highSizeStartingIndex = 0
 	},
 	{
 		.boardName = "chuma",
@@ -199,6 +203,7 @@ BoardConfig boardConfigs[] = {
 		false, false, false,
 		/*vss*/false},
 		.buttonExpected = {false, false, false},
+		.auxDigitalExpected = {false, false, false, false, false, false, false, false},
 		.outputNames = {
  "10 injector",
  "11 fuel pump",
@@ -208,6 +213,7 @@ BoardConfig boardConfigs[] = {
 	    },
         .wboUnitsCount = 0,
 		.dcHackValue = 1,
+		.highSizeStartingIndex = 0
 	},
 	{
 		.boardName = "e92",
@@ -218,9 +224,9 @@ BoardConfig boardConfigs[] = {
 			{ nullptr, 0, 0, 0 }, // SENT not TPS1_2
 			{ "PPS1", 1, 0.79 /*0.821830144*/, 0.920940928 },
 			{ "PPS2", PULLED_DOWN_RANGE(DOWN_11B, UP_11B, 680'000) },
-			{ "MAP", PULLED_DOWN_RANGE(DOWN_8B, UP_8B, 680'000) },
-			{ "CLT", 1.0f, CLT_VALUE(HELLEN_R) * ANALOG_L, CLT_VALUE(HELLEN_R) * ANALOG_H },
-			{ "IAT", 1.0f, IAT_VALUE(HELLEN_R) * ANALOG_L, IAT_VALUE(HELLEN_R) * ANALOG_H },
+			{ "MAP", 1, 0.56 /* 0.597992960 PULLED_DOWN_RANGE(DOWN_8B, UP_8B, 680'000) */, 0.670109504},
+			{ nullptr, 0, 0, 0 }, // grey { "CLT", 1.0f, CLT_VALUE(HELLEN_R) * ANALOG_L, CLT_VALUE(HELLEN_R) * ANALOG_H },
+			{ "IAT", 1.0f, 0.80 /* 0.811403520 IAT_VALUE(HELLEN_R) * ANALOG_L*/, IAT_VALUE(HELLEN_R) * ANALOG_H },
 			{ "BATT", HELLEN_VBATT_MULT, 9.0f, 15.0f },
 
 			{ nullptr, 0, 0, 0 }, // { "TPS2_1", 1.0f, 0.5f * ANALOG_L, 0.5f * ANALOG_H },
@@ -235,10 +241,17 @@ BoardConfig boardConfigs[] = {
 		false, false, false,
 		/*vss*/false},
 		.buttonExpected = {false, false, false},
+		.auxDigitalExpected = {false, false, false, false, false, false, false, false},
 		.outputNames = {
+ "Main relay control output",
+ "OIL PUMP COMMAND SOLENOID",
+ "CAM SHAFT VVT ACTUATOR LO",
+ // high side
+ "FUEL PUMP CONTROLLER DATA OUT SIG",
 	    },
-        .wboUnitsCount = 2,
+        .wboUnitsCount = 0,
 		.dcHackValue = 1,
+		.highSizeStartingIndex = 0
 	},
 	{
 		.boardName = "Hellen-Honda125K",
@@ -259,6 +272,7 @@ BoardConfig boardConfigs[] = {
 		/*BrakePedal todo add wire */false,
 		/*ClutchUp*/false,
 		/*AcButton*/false},
+		.auxDigitalExpected = {false, false, false, false, false, false, false, false},
 		.outputNames = {"inj1", "inj2", "inj3", "inj4",
 		"A/C relay", "idle air", "intake runner", "Lockout Solenoid",
 		"Radiator", "B21 - EVAP", "B23 VTC VVT", "E7 Main Relay",
@@ -266,6 +280,9 @@ BoardConfig boardConfigs[] = {
         "E26 Tachometer", "B15 VTEC/VTS Output",
         "A30 - IGN1", "A29 - IGN2", "A28 - IGN3", "A27 - IGN4"
 		},
+		.wboUnitsCount = 0,
+		.dcHackValue = 0,
+		.highSizeStartingIndex = 0
 	},
 	{
 		.boardName = "Proteus",
@@ -288,6 +305,8 @@ BoardConfig boardConfigs[] = {
 		},
 		.eventExpected = {true, true, true, true, false, false, true},
 		.buttonExpected = {true, false, false},
+		.auxDigitalExpected = {false, false, false, false,
+		false, false, false, false},
 		.outputNames = {"LS 1", "LS 2", "LS 3", "LS 4",
 		"LS 5", "LS 6", "LS 7", "LS 8",
 		"LS 9", "LS 10", "LS 11", "LS 12",
@@ -297,6 +316,9 @@ BoardConfig boardConfigs[] = {
 		"IGN 9", "IGN 10", "IGN 11", "IGN 12",
 		"HS 1", "HS 2", "HS 3", "HS 4",
 				},
+		.wboUnitsCount = 0,
+		.dcHackValue = 0,
+		.highSizeStartingIndex = 0
 	},
 	{
 		.boardName = "mg1",
@@ -329,6 +351,7 @@ BoardConfig boardConfigs[] = {
 		false, false, false,
 		/*vss*/true},
 		.buttonExpected = {false, false, false},
+		.auxDigitalExpected = {false, false, false, false, false, false, false, false},
 		.outputNames = {
  "injector 1",
  "injector 2",
@@ -349,6 +372,7 @@ BoardConfig boardConfigs[] = {
 	    },
         .wboUnitsCount = 1,
 		.dcHackValue = 1,
+		.highSizeStartingIndex = 0
 	},
 	{
 		.boardName = "4k-gdi",
@@ -376,6 +400,7 @@ BoardConfig boardConfigs[] = {
 		false, false, false,
 		/*vss*/false},
 		.buttonExpected = {false, false, false},
+		.auxDigitalExpected = {false, false, false, false, false, false, false, false},
 		.outputNames = {
  "14A Ignition 1",
  "13A Ignition 2",
@@ -398,6 +423,7 @@ BoardConfig boardConfigs[] = {
 	    },
         .wboUnitsCount = 0,
 		.dcHackValue = 0,
+		.highSizeStartingIndex = 0
 	},
 	{
 		.boardName = "polaris",
@@ -425,6 +451,7 @@ BoardConfig boardConfigs[] = {
 		false, false, false,
 		/*vss*/true},
 		.buttonExpected = {false, false, false},
+		.auxDigitalExpected = {false, false, false, false, false, false, false, false},
 		.outputNames = {
  "injector 1",
  "injector 2",
@@ -444,6 +471,7 @@ BoardConfig boardConfigs[] = {
 	    },
         .wboUnitsCount = 1,
 		.dcHackValue = 0,
+		.highSizeStartingIndex = 0
 	},
 	{
 		.boardName = "M73",
@@ -478,6 +506,7 @@ BoardConfig boardConfigs[] = {
 		false, false, false,
 		/*vss*/false},
 		.buttonExpected = {false, false, false},
+		.auxDigitalExpected = {false, false, false, false, false, false, false, false},
 		.outputNames = {
  "injector 1",
  "injector 2",
@@ -494,6 +523,7 @@ BoardConfig boardConfigs[] = {
 	    },
         .wboUnitsCount = 0,
 		.dcHackValue = 1,
+		.highSizeStartingIndex = 0
 	},
 	{
 		.boardName = "hd",
@@ -525,6 +555,8 @@ BoardConfig boardConfigs[] = {
 		false, false, false,
 		/*vss*/false},
 		.buttonExpected = {false, false, false},
+		.auxDigitalExpected = {false, false, false, false,
+		false, false, false, false},
 		.outputNames = {
  "Injector 2",
  "Injector 1",
@@ -540,6 +572,7 @@ BoardConfig boardConfigs[] = {
 	    },
         .wboUnitsCount = 2,
 		.dcHackValue = 1,
+		.highSizeStartingIndex = 0
 	},
 	{
 		.boardName = "121vag",
@@ -576,10 +609,13 @@ BoardConfig boardConfigs[] = {
 		false, false, false,
 		/*vss*/false},
 		.buttonExpected = {false, false, false},
+		.auxDigitalExpected = {false, false, false, false,
+		false, false, false, false},
 		.outputNames = {
 	    },
         .wboUnitsCount = 1,
 		.dcHackValue = 1,
+		.highSizeStartingIndex = 0
 	},
 	{
 		.boardName = "121nissan",
@@ -613,6 +649,8 @@ BoardConfig boardConfigs[] = {
 		/*cam1 bank 2*/true, false,
 		/*vss*/false},
 		.buttonExpected = {false, false, false},
+		.auxDigitalExpected = {false, false, false, false,
+		false, false, false, false},
 		.outputNames = {
  "111 Main Relay",
  "113 Fuel Pump Relay",
@@ -627,6 +665,7 @@ BoardConfig boardConfigs[] = {
 	    },
         .wboUnitsCount = 2,
 		.dcHackValue = 0,
+		.highSizeStartingIndex = 0
 	},
 	{
 		.boardName = "112-17",
@@ -650,11 +689,17 @@ BoardConfig boardConfigs[] = {
 		/* crank neg goes to https://rusefi.com/docs/pinouts/stim/?connector=main&pin=24C 2.5v source, crank positive 22B with a 4.7K pull up */
 		.eventExpected = {/*crank*/true, false, /*cam1*/true, false, false, false, /*vss*/true},
 		.buttonExpected = {false, false, false},
+				.auxDigitalExpected = {false, false, false, false,
+        		false, false, false, false},
+
 		.outputNames = {"inj1", "inj2", "inj3", "inj4",
 		"coil 1","coil 2","coil 3","coil 4",
 		"pin 235", "pin 101", "pin 102", "main Relay",
 		"pin 131", "pin 140", "Fan Relay", "Fuel Relay",
-		"pin 151", "pin 152", "pin 246" }
+		"pin 151", "pin 152", "pin 246" },
+		.wboUnitsCount = 0,
+		.dcHackValue = 0,
+		.highSizeStartingIndex = 0
 	},
 	{
 		.boardName = "uaefi",
@@ -702,6 +747,7 @@ BoardConfig boardConfigs[] = {
         },
         .wboUnitsCount = 1,
 		.dcHackValue = 1,
+		.highSizeStartingIndex = 0
  	},
 	{
 		.boardName = "uaefi121",
@@ -753,6 +799,7 @@ BoardConfig boardConfigs[] = {
         },
         .wboUnitsCount = 2,
 		.dcHackValue = 1,
+		.highSizeStartingIndex = 0
  	},
 	{
 		.boardName = "uaefi121-sbc",
@@ -792,6 +839,7 @@ BoardConfig boardConfigs[] = {
         },
         .wboUnitsCount = 2,
 		.dcHackValue = 1,
+		.highSizeStartingIndex = 0
  	},
  	{
 		.boardName = "2chan",
@@ -810,7 +858,12 @@ BoardConfig boardConfigs[] = {
 		},
 		.eventExpected = {true, true, true, true, true, true, true},
 		.buttonExpected = {true, true, true},
+		.auxDigitalExpected = {false, false, false, false,
+		false, false, false, false},
 		.outputNames = {},
+		.wboUnitsCount = 0,
+		.dcHackValue = 0,
+		.highSizeStartingIndex = 0
 	},
 	{
 		.boardName = "4chan",
@@ -842,6 +895,7 @@ BoardConfig boardConfigs[] = {
 		},
 		.wboUnitsCount = 0,
 		.dcHackValue = 1,
+		.highSizeStartingIndex = 0
 	},
 	{
 		.boardName = "8chan",
@@ -860,6 +914,8 @@ BoardConfig boardConfigs[] = {
 		/* crank neg goes to https://rusefi.com/docs/pinouts/stim/?connector=main&pin=24C 2.5v source, crank positive 22B with a 4.7K pull up */
 		.eventExpected = {/*crank*/true, false, /*cam1*/true, /*cam2*/true,/*cam3*/ true, /*cam4*/true, /*vss*/false},
 		.buttonExpected = {false, false, false},
+		.auxDigitalExpected = {false, false, false, false,
+		false, false, false, false},
 		.outputNames = {
 		"inj1", "inj2", "inj3", "inj4",
 		"inj5", "inj6", "inj7", "vvt1",
@@ -873,6 +929,7 @@ BoardConfig boardConfigs[] = {
 		},
 		.wboUnitsCount = 2,
 		.dcHackValue = 0,
+		.highSizeStartingIndex = 0
 	},
 	{
 		.boardName = "SILVER",
@@ -908,6 +965,7 @@ BoardConfig boardConfigs[] = {
 		},
 		.wboUnitsCount = 1,
 		.dcHackValue = 0,
+		.highSizeStartingIndex = 0
 	},
 	// https://github.com/rusefi/rusefi/wiki/Hellen-154-Hyundai
 	{
@@ -930,6 +988,8 @@ BoardConfig boardConfigs[] = {
 		// https://github.com/rusefi/hellen154hyundai/issues/120
 		.eventExpected = {/*crank*/true, false, /*cam1*/true, /*cam2*/true, /*cam3*/false, /*cam4*/false, /*vss*//*low priority since CANtrue*/false},
 		.buttonExpected = {/*BrakePedal*//*+12v button true*/false, /*ClutchUp*//*+12v button true*/false, /*AcButton*//*+12v button true*/false},
+		.auxDigitalExpected = {false, false, false, false,
+		false, false, false, false},
 		.outputNames = {
  "INJ_1 k25",
  "INJ_2 k26",
@@ -953,6 +1013,7 @@ BoardConfig boardConfigs[] = {
 		},
 		.wboUnitsCount = 0,
 		.dcHackValue = 0,
+		.highSizeStartingIndex = 0
 	},
 	{
 		.boardName = "m74.9",
@@ -980,6 +1041,7 @@ BoardConfig boardConfigs[] = {
  		},
 		.wboUnitsCount = 0,
 		.dcHackValue = 1,
+		.highSizeStartingIndex = 0
 	},
 };
 
