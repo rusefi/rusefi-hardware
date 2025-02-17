@@ -251,7 +251,7 @@ BoardConfig boardConfigs[] = {
 	    },
         .wboUnitsCount = 0,
 		.dcHackValue = 1,
-		.highSizeStartingIndex = 0
+		.highSizeStartingIndex = 37 /* human index 38 */
 	},
 	{
 		.boardName = "Hellen-Honda125K",
@@ -1075,7 +1075,9 @@ extern int boardId;
 }
 
 
-static bool doTestEcuDigitalOutput(int testLineIndex, bool isLowSide, CanRequestSender sender, bool expectation) {
+static bool doTestEcuDigitalOutput2(size_t testLineIndex,
+    size_t ecuLineIndex,
+    bool isLowSide, CanRequestSender sender, bool expectation) {
 	static DigitalResult result;
 	memset(&result, 0, sizeof(result));
 
@@ -1090,7 +1092,7 @@ static bool doTestEcuDigitalOutput(int testLineIndex, bool isLowSide, CanRequest
 		bool isSet = (i & 1) == 0;
 		chprintf(chp, "               sending line=%d@%d value=%d\r\n", index2human(testLineIndex), i, isSet);
 		// toggle the ECU pin for low side mode
-		sender(testLineIndex, isSet ^ isLowSide);
+		sender(ecuLineIndex, isSet ^ isLowSide);
 
         // at the moment we test both high-side and low-side in pull-up mode only
         // effectively we could have just used constant 1111b pullUpDownPinsBitmap
@@ -1135,8 +1137,16 @@ static bool doTestEcuDigitalOutput(int testLineIndex, bool isLowSide, CanRequest
 	return isGood;
 }
 
+static bool doTestEcuDigitalOutput(int testLineIndex, bool isLowSide, CanRequestSender sender, bool expectation) {
+    doTestEcuDigitalOutput2(testLineIndex, testLineIndex, isLowSide, sender, expectation);
+}
+
 bool testEcuDigitalOutput(int testLineIndex, bool isLowSide) {
-    return doTestEcuDigitalOutput(testLineIndex, isLowSide, [](int testLineIndex, bool value) {
+    testEcuDigitalOutput2(testLineIndex, testLineIndex, isLowSide);
+}
+
+bool testEcuDigitalOutput2(int testLineIndex, size_t ecuLineIndex, bool isLowSide) {
+    return doTestEcuDigitalOutput2(testLineIndex, ecuLineIndex, isLowSide, [](int testLineIndex, bool value) {
 		sendCanPinState(testLineIndex, value);
     }, true);
 }

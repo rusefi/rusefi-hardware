@@ -5,7 +5,8 @@
 
 # Compiler options here.
 ifeq ($(USE_OPT),)
-  USE_OPT = -O2 -ggdb -fomit-frame-pointer -falign-functions=16
+  DEBUG_LEVEL_OPT=-O0 -ggdb -g
+  USE_OPT = ${DEBUG_LEVEL_OPT} -fomit-frame-pointer -falign-functions=16
 endif
 
 # C specific options here (added to USE_OPT).
