@@ -249,13 +249,17 @@ BoardConfig boardConfigs[] = {
  "ECU wake-up relay control output",
  "A/C-CLUTCH RLY CTRL",
  // high side
+ "IGN CTRL 3",
+ "IGN CTRL 4",
+ "IGN CTRL 5",
+ "IGN CTRL 6",
  "IGN CTRL 7",
  "IGN CTRL 8",
  "FUEL PUMP CONTROLLER DATA OUT SIG",
 	    },
         .wboUnitsCount = 0,
 		.dcHackValue = 1,
-		.highSizeStartingIndex = 37 /* human index 38 */
+		.highSizeStartingIndex = 31 /* human index 32 */
 	},
 	{
 		.boardName = "Hellen-Honda125K",
