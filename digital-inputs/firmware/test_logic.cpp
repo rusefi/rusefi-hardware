@@ -246,7 +246,11 @@ BoardConfig boardConfigs[] = {
  "Main relay control output",
  "OIL PUMP COMMAND SOLENOID",
  "CAM SHAFT VVT ACTUATOR LO",
+ "ECU wake-up relay control output",
+ "A/C-CLUTCH RLY CTRL",
  // high side
+ "IGN CTRL 7",
+ "IGN CTRL 8",
  "FUEL PUMP CONTROLLER DATA OUT SIG",
 	    },
         .wboUnitsCount = 0,
