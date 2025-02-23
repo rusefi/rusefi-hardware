@@ -195,7 +195,7 @@ BoardConfig boardConfigs[] = {
  "12B Coil 6",
  "13B Coil 5",
 	    },
-        .wboUnitsCount = 1,
+        .wboUnitsCount = 2,
 		.dcHackValue = 1,
 		.highSizeStartingIndex = 0
 	},
