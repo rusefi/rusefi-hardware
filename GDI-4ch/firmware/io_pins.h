@@ -8,6 +8,8 @@
 
 #pragma once
 
+#include "efifeatures.h"
+
 // D20
 #define LED_BLUE_PORT GPIOB
 #define LED_BLUE_PIN 13
@@ -17,8 +19,13 @@
 //#define LED_BLUE_PIN 13
 
 // D21
-#define LED_GREEN_PORT GPIOA
-#define LED_GREEN_PIN 8
+#if EFI_BOARD_E92
+	#define LED_GREEN_PORT GPIOB
+	#define LED_GREEN_PIN 14
+#else
+	#define LED_GREEN_PORT GPIOA
+	#define LED_GREEN_PIN 8
+#endif
 
 // Communication - CAN1
 #define CAN_GPIO_PORT				GPIOA
