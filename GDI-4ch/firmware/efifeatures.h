@@ -9,3 +9,7 @@
 #ifndef EFI_PT2001_CHIPS
 	#define EFI_PT2001_CHIPS	1
 #endif
+
+#ifndef EFI_BOARD_E92
+	#define EFI_BOARD_E92		1
+#endif
