@@ -46,14 +46,16 @@ static void countTxResult(msg_t msg) {
 	}
 }
 
-int canGetOutputCanIdBase(size_t chip)
+int canGetOutputCanIdBase(size_t chipIndexOnThisBoard)
 {
-    return (configuration.outputCanID + (boardGetId() + chip) * GDI4_BASE_ADDRESS_OFFSET);
+    return (configuration.outputCanID + (boardGetId() + chipIndexOnThisBoard) * GDI4_BASE_ADDRESS_OFFSET);
 }
 
-int canGetInputCanIdBase(size_t chip)
+int canGetInputCanIdBase(size_t chipIndexOnThisBoard)
 {
-    return (configuration.inputCanID + (boardGetId() + chip) * GDI4_BASE_ADDRESS_OFFSET);
+    return (configuration.inputCanID
+     // + (boardGetId() + chip) * GDI4_BASE_ADDRESS_OFFSET
+     );
 }
 
 void SendSomething(size_t chip, int baseID) {

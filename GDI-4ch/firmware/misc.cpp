@@ -11,7 +11,9 @@ void miscInit(void)
     palSetPadMode(BOARD_ID_PORT, BOARD_ID_PIN, PAL_MODE_INPUT);
 }
 
-int boardGetId(void)
-{
+/**
+ * return 0 or 1
+ */
+int boardGetId(void) {
 	return !!palReadPad(BOARD_ID_PORT, BOARD_ID_PIN);
 }
