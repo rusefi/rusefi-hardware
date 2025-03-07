@@ -15,5 +15,6 @@ void miscInit(void)
  * return 0 or 1
  */
 int boardGetId(void) {
+    // you would not believe it: double-exclamation mark is a feature here to guarantee 0 or 1 value
 	return !!palReadPad(BOARD_ID_PORT, BOARD_ID_PIN);
 }
