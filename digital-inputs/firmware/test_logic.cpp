@@ -409,7 +409,9 @@ BoardConfig boardConfigs[] = {
 		.boardName = "4k-gdi",
 		.desiredEngineConfig = -1,
 		.boardIds = {
-		BOARD_ID_GDI4CHAN_A, 0 },
+		BOARD_ID_GDI4CHAN_A,
+		BOARD_ID_GDI4CHAN_B,
+		0 },
 		.channels = {
 			{ "TPS1_1", 1, 0.490196096, /* ideally 0.509172384..* PULLED_DOWN_RANGE(DOWN_7B, UP_7B, 680'000) */ 0.570577344},
 			{ "TPS1_2", 1, 0.76, /* ideally 0.860549952*/ 0.87 },
