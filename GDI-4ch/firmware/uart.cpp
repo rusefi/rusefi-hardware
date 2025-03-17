@@ -47,23 +47,24 @@ static void UartThread(void*)
 			canWriteOk, canWriteNotOk);
         for (size_t i = 0; i < EFI_PT2001_CHIPS; i++) {
             if (chips[i].fault != McFault::None) {
-                chprintf(chp, "%d: FAULT fault=%d status=%x status2=%x 0x1A6=%x 0x1A7=%x 0x1A8=%x\r\n",
+                chprintf(chp, "%d: FAULT fault=%d status=%x\r\n",
                     i,
                     (int)chips[i].fault,
-                    chips[i].status,
-                    chips[i].status5,
-                    chips[i].status6,
-                    chips[i].status7,
-                    chips[i].status8);
+                    chips[i].status
+//                    ,
+//                    chips[i].status5,
+//                    chips[i].status6,
+//                    chips[i].status7,
+//                    chips[i].status8
+                    );
             } else {
-                chprintf(chp, "%d: 0x%03x %d %d HAPPY fault=%d status=%x status2=%x\r\n",
+                chprintf(chp, "%d: 0x%03x %d %d HAPPY fault=%d status=%x\r\n",
                     i,
                     canGetInputCanIdBase(i),
                     (int)(configuration.PumpPeakCurrent * 1000),
                     configuration.updateCounter,
                     (int)chips[i].fault,
-                    chips[i].status,
-                    chips[i].status5);
+                    chips[i].status);
             }
         }
 
