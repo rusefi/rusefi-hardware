@@ -178,12 +178,8 @@ int main() {
         }
 
         chThdSleepMilliseconds(100);
-    }
-
-    while (true) {
-        //auto fault = GetCurrentFault();
-
-        //palTogglePad(LED_BLUE_PORT, LED_BLUE_PIN);
-        chThdSleepMilliseconds(100);
+        for (size_t i = 0; i < EFI_PT2001_CHIPS; i++) {
+        	chips[i].periodicCallback();
+        }
     }
 }
