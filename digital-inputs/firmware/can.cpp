@@ -94,10 +94,12 @@ static void handleCounter(Counter *cnt, bool *isHappy, bool *eventExpected, cons
 		*isHappy = *isHappy && cnt->isHappy();
 }
 
+static int canRxCounter = 0;
+
 bool checkDigitalInputCounterStatus() {
 	if (currentBoard == nullptr) {
 		setErrorLedAndRedText();
-		chprintf(chp, "* UNKNOWN BOARD ID [%d] while trying to check digital input event counter!\r\n", boardId);
+		chprintf(chp, "* UNKNOWN BOARD ID [%d] while trying to check digital input event counter! CAN RX=%d\r\n", boardId, canRxCounter);
 	    setNormalText();
 		return false;
 	}
@@ -270,6 +272,7 @@ static void printRxFrame(const CANRxFrame& frame, const char *msg) {
 }
 
 void processCanRxMessage(const CANRxFrame& frame) {
+    canRxCounter++;
 #if 0
 		setGreenText();
 		chprintf(chp, " ************* GOT CAN %x\r\n",
