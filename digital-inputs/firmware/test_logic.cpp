@@ -1171,11 +1171,11 @@ static bool doTestEcuDigitalOutput2(size_t testLineIndex,
 }
 
 static bool doTestEcuDigitalOutput(int testLineIndex, bool isLowSide, CanRequestSender sender, bool expectation) {
-    doTestEcuDigitalOutput2(testLineIndex, testLineIndex, isLowSide, sender, expectation);
+    return doTestEcuDigitalOutput2(testLineIndex, testLineIndex, isLowSide, sender, expectation);
 }
 
 bool testEcuDigitalOutput(int testLineIndex, bool isLowSide) {
-    testEcuDigitalOutput2(testLineIndex, testLineIndex, isLowSide);
+    return testEcuDigitalOutput2(testLineIndex, testLineIndex, isLowSide);
 }
 
 bool testEcuDigitalOutput2(int testLineIndex, size_t ecuLineIndex, bool isLowSide) {
