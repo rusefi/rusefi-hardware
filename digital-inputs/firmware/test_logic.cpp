@@ -933,7 +933,9 @@ BoardConfig boardConfigs[] = {
 	{
 		.boardName = "8chan",
 		.desiredEngineConfig = -1,
-		.boardIds = { BOARD_ID_ALPHA8CH_C, 0 },
+		.boardIds = { BOARD_ID_ALPHA8CH_C,
+		315/*?!?!*/,
+		0 },
 		.channels = {
 			{ "TPS1_1", PULLED_DOWN_RANGE(DOWN_7B, UP_7B, 680'000) },
 			{ "TPS1_2", PULLED_DOWN_RANGE(DOWN_9B, UP_9B, 680'000) },
