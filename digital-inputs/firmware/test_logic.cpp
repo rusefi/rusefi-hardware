@@ -1011,7 +1011,7 @@ BoardConfig boardConfigs[] = {
 			{ nullptr, 0, 0, 0 },
 			{ nullptr, 0, 0, 0 },
 			{ nullptr, 0, 0, 0 },
-			{ "MAP", 1.0f, 1.05/*MAP_MPX6400_VALUE * ANALOG_L*/, MAP_MPX6400_VALUE * ANALOG_H },	// internal MAP
+			{ "MAP", PULLED_DOWN_RANGE(DOWN_8B, UP_8B, 680'000) },
 			{ "CLT", 1.0f, CLT_VALUE(HELLEN_R) * ANALOG_L, CLT_VALUE(HELLEN_R) * ANALOG_H },
 			{ "IAT", 1.0f, IAT_VALUE(HELLEN_R) * ANALOG_L, IAT_VALUE(HELLEN_R) * ANALOG_H },
 			{ "BATT", HELLEN_VBATT_MULT, 9.0f, 15.0f },
