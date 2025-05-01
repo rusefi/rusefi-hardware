@@ -1,3 +1,7 @@
+/**
+ * see GDI4_BASE_ADDRESS from libfirmware, here we consume it as outputCanID default value
+ */
+
 #include "can.h"
 #include "hal.h"
 
