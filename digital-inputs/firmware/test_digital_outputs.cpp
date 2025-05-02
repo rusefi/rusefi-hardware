@@ -88,11 +88,16 @@ bool testEcuDigitalOutputs(size_t overallProcessingStepIndex) {
 	int numOutputs = getDigitalOutputStepsCount();
 	int lowSideOutputs = getLowSideOutputCount();
 
-	chprintf(chp, "                      numOutputs %d\r\n", numOutputs);
 
 	// wait for "output meta info" CAN packet
-	if (numOutputs <= 0)
+	if (numOutputs <= 0) {
+		    setErrorLedAndRedText();
+	        chprintf(chp, "                      ZERO OUTPUTS CONFIGURED\r\n");
 		return false;
+    }
+
+	chprintf(chp, "                      numOutputs %d\r\n", numOutputs);
+
 
 	for (size_t currentIndex = 0; currentIndex < numOutputs; currentIndex++) {
 	    bool isLowSideOutput = currentIndex < lowSideOutputs;
