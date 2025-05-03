@@ -1009,9 +1009,45 @@ BoardConfig boardConfigs[] = {
 		.highSizeStartingIndex = 0
 	},
 	{
-		.boardName = "SILVER",
+		.boardName = "SILVER-A",
 		.desiredEngineConfig = -1,
 		.boardIds = { BOARD_ID_ALPHAX_SILVER_A, 0 },
+		.channels = {
+			{ "TPS1_1", 1.0f, VOLT_7B * ANALOG_L, VOLT_7B * ANALOG_H },
+			{ nullptr, 0, 0, 0 },
+			{ nullptr, 0, 0, 0 },
+			{ nullptr, 0, 0, 0 },
+			{ "MAP", 1.0f, 1.05/*MAP_MPX6400_VALUE * ANALOG_L*/, MAP_MPX6400_VALUE * ANALOG_H },	// internal MAP
+			{ "CLT", 1.0f, CLT_VALUE(ALPHA2CH_R) * ANALOG_L, CLT_VALUE(ALPHA2CH_R) * ANALOG_H },
+			{ "IAT", 1.0f, IAT_VALUE(ALPHA2CH_R) * ANALOG_L, IAT_VALUE(ALPHA2CH_R) * ANALOG_H },
+			{ "BATT", HELLEN_VBATT_MULT, 9.0f, 15.0f },
+		},
+		.eventExpected = {false, false, false, false, false, false, false},
+		.buttonExpected = {false, false, false},
+		.auxDigitalExpected = {false, false, false, false,
+		false, false, false, false},
+		.outputNames = {
+ "A4 - Injector 1",
+ "A3 - Injector 2",
+ "A2 - Injector 3",
+ "A1 - Injector 4",
+"Fuel Pump",
+"Idle Output",
+"Fan Relay",
+ "14A Tach Output",
+ "13A Coil 1",
+ "12A Coil 2",
+ "11A Coil 3",
+ "10A Coil 4",
+		},
+		.wboUnitsCount = 1,
+		.dcHackValue = 0,
+		.highSizeStartingIndex = 0
+	},
+	{
+		.boardName = "SILVER",
+		.desiredEngineConfig = -1,
+		.boardIds = { BOARD_ID_ALPHAX_SILVER_B, 0 },
 		.channels = {
 			{ "TPS1_1", 1.0f, VOLT_7B * ANALOG_L, VOLT_7B * ANALOG_H },
 			{ nullptr, 0, 0, 0 },
