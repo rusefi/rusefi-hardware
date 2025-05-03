@@ -129,6 +129,24 @@ bool Pt2001::init(SPIDriver *spi, const SPIConfig *cfg) {
 
 Pt2001 chips[EFI_PT2001_CHIPS];
 
+static THD_WORKING_AREA(waPtWorkerThread, 256);
+void PtWorkerThread(void*)
+{
+	chRegSetThreadName("PT2001 worker");
+
+	while (1) {
+		for (size_t i = 0; i < EFI_PT2001_CHIPS; i++) {
+			chips[i].periodicCallback();
+
+			if (chips[i].fault != McFault::None) {
+				chips[i].restart();
+			}
+		}
+
+		chThdSleepMilliseconds(100);
+	}
+}
+
 mfs_error_t flashState;
 
 /*
@@ -164,22 +182,42 @@ int main() {
 	// DRVEN = 1 (if shared between chips)
 	palSetPad(GPIOB, 4);
 #endif
-    // reminder that +12v is required for PT2001 to start
-    for (size_t i = 0; i < EFI_PT2001_CHIPS; i++) {
+
+	// reminder that +12v is required for PT2001 to start
+	for (size_t i = 0; i < EFI_PT2001_CHIPS; i++) {
 		isOverallHappyStatus &= chips[i].init(&SPID1, &spiCfg[i]);
 	}
 
-    while (true) {
-        if (isOverallHappyStatus) {
-            // happy board - green D21 blinking
-            palTogglePad(LED_GREEN_PORT, LED_GREEN_PIN);
-        } else {
-            palTogglePad(LED_BLUE_PORT, LED_BLUE_PIN);
-        }
+	chThdCreateStatic(waPtWorkerThread, sizeof(waPtWorkerThread), NORMALPRIO, PtWorkerThread, nullptr);
 
+	while (true) {
+		McFault faults[EFI_PT2001_CHIPS];
+		for (size_t i = 0; i < EFI_PT2001_CHIPS; i++) {
+			int fault = (int)chips[i].fault;
+
+			if (fault == 0) {
+				palSetPad(LED_GREEN_PORT, LED_GREEN_PIN);
+				chThdSleepMilliseconds(500);
+				palClearPad(LED_GREEN_PORT, LED_GREEN_PIN);
+				chThdSleepMilliseconds(500);
+			} else {
+				for (int t = 0; t < 2 * fault; t++) {
+				// Blue is blinking
+				palTogglePad(LED_BLUE_PORT, LED_BLUE_PIN);
+
+				// fast blink
+				chThdSleepMilliseconds(300);
+				}
+			}
+		}
+
+		chThdSleepMilliseconds(2000);
+	}
+
+    while (true) {
+        //auto fault = GetCurrentFault();
+
+        //palTogglePad(LED_BLUE_PORT, LED_BLUE_PIN);
         chThdSleepMilliseconds(100);
-        for (size_t i = 0; i < EFI_PT2001_CHIPS; i++) {
-        	chips[i].periodicCallback();
-        }
     }
 }
