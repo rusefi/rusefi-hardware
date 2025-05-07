@@ -235,7 +235,7 @@ void CanRxThread(void*)
             }
 
             // ignore packets not starting with magic byte or of unexpected length
-            if (frame.data8[0] != GDI4_CAN_SET_TAG || frame.DLC != 7) {
+            if (frame.data8[0] != GDI4_CAN_SET_TAG || frame.DLC != GDI4_CAN_SET_DLC) {
                 continue;
             }
 
