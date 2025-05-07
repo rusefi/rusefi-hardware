@@ -20,7 +20,6 @@
 #include "sent.h"
 #include "misc.h"
 
-#define GDI4_CAN_SET_TAG 0x78
 #include <rusefi/manifest.h>
 
 // Decimal hex date presented as hex
