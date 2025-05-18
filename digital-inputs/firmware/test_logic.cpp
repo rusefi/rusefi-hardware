@@ -281,6 +281,41 @@ BoardConfig boardConfigs[] = {
 		.highSizeStartingIndex = 0
 	},
 	{
+		.boardName = "nano",
+		.desiredEngineConfig = -1,
+		.boardIds = { STATIC_BOARD_ID_NANO, 0 },
+		.channels = {
+			{ "TPS1_1", PULLED_DOWN_RANGE(DOWN_7B, UP_7B, 680'000) },
+			{ nullptr, 0, 0, 0 }, // TPS1_2
+			{ nullptr, 0, 0, 0 }, // PPS1
+			{ nullptr, 0, 0, 0 }, // PPS2
+			{ "MAP", PULLED_DOWN_RANGE(DOWN_8B, UP_8B, 680'000) },
+			{ "CLT", 1.0f, CLT_VALUE(HELLEN_R) * ANALOG_L, 1.61 /*1.604477632 CLT_VALUE(HELLEN_R) * ANALOG_H */ },
+			{ nullptr, 0, 0, 0 }, // { "IAT", 1.0f, IAT_VALUE(HELLEN_R) * ANALOG_L, IAT_VALUE(HELLEN_R) * ANALOG_H },
+			{ "BATT", HELLEN_VBATT_MULT, 9.0f, 15.0f },
+
+			{ nullptr, 0, 0, 0 }, // { "TPS2_1", 1.0f, 0.5f * ANALOG_L, 0.5f * ANALOG_H },
+			{ nullptr, 0, 0, 0 }, // { "TPS2_2", 1.0f, 0.5f * ANALOG_L, 0.5f * ANALOG_H },
+			{ nullptr, 0, 0, 0 },//{ "AUXL1", 1.0f, 1.35f * ANALOG_L, 1.35f * ANALOG_H },
+			{ nullptr, 0, 0, 0 },//{ "AUXL2", 1.0f, 2.23f * ANALOG_L, 2.23f * ANALOG_H },
+		},
+		.eventExpected = {
+		/* crank neg goes to https://rusefi.com/docs/pinouts/stim/?connector=main&pin=24C 2.5v source, crank positive 22B with a 4.7K pull up */
+		false,
+		false,
+		/*cam1*/false,
+		false, false, false,
+		/*vss*/false},
+		.buttonExpected = {false, false, false},
+		.auxDigitalExpected = {false, false, false, false, false, false, false, false},
+		.outputNames = {
+ "injector1",
+	    },
+        .wboUnitsCount = 0,
+		.dcHackValue = 1,
+		.highSizeStartingIndex = 0
+	},
+	{
 		.boardName = "e92",
 		.desiredEngineConfig = -1,
 		.boardIds = { STATIC_BOARD_ID_HELLEN_E92, 0 },
