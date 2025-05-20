@@ -301,7 +301,7 @@ BoardConfig boardConfigs[] = {
 		},
 		.eventExpected = {
 		/* crank neg goes to https://rusefi.com/docs/pinouts/stim/?connector=main&pin=24C 2.5v source, crank positive 22B with a 4.7K pull up */
-		false,
+		true,
 		false,
 		/*cam1*/false,
 		false, false, false,
@@ -310,6 +310,13 @@ BoardConfig boardConfigs[] = {
 		.auxDigitalExpected = {false, false, false, false, false, false, false, false},
 		.outputNames = {
  "injector1",
+ "OUT_LS",
+ "OUT_INJ2",
+ "OUT_IDLE",
+ "OUT_FUEL_PUMP_REL",
+ "OUT_IGN1",
+ "OUT_IGN2",
+ "OUT_TACH",
 	    },
         .wboUnitsCount = 0,
 		.dcHackValue = 1,
