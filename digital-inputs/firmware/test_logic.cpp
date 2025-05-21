@@ -290,7 +290,7 @@ BoardConfig boardConfigs[] = {
 			{ nullptr, 0, 0, 0 }, // PPS1
 			{ nullptr, 0, 0, 0 }, // PPS2
 			{ "MAP", PULLED_DOWN_RANGE(DOWN_8B, UP_8B, 680'000) },
-			{ "CLT", 1.0f, CLT_VALUE(HELLEN_R) * ANALOG_L, 1.61 /*1.604477632 CLT_VALUE(HELLEN_R) * ANALOG_H */ },
+			{ "CLT", 1.0f, CLT_VALUE(HELLEN_R) * ANALOG_L, 1.63 /*1.604477632 CLT_VALUE(HELLEN_R) * ANALOG_H */ },
 			{ nullptr, 0, 0, 0 }, // { "IAT", 1.0f, IAT_VALUE(HELLEN_R) * ANALOG_L, IAT_VALUE(HELLEN_R) * ANALOG_H },
 			{ "BATT", HELLEN_VBATT_MULT, 9.0f, 15.0f },
 
