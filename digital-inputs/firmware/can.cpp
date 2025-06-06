@@ -160,7 +160,7 @@ static void receiveBoardStatus(const uint8_t msg[CAN_FRAME_SIZE]) {
 					chprintf(chp, " * Board detected: %s rev index %d\r\n", currentBoard->boardName, currentBoardRev);
 
 					if (c.desiredEngineConfig != -1 && c.desiredEngineConfig != engineType) {
-					    sendCanTxMessage((int)bench_test_packet_ids_e::IO_CONTROL, { BENCH_HEADER, (int)bench_test_io_control_e::CAN_BENCH_SET_ENGINE_TYPE, c.desiredEngineConfig });
+					    sendCanTxMessage((int)bench_test_packet_ids_e::HW_QC_IO_CONTROL, { BENCH_HEADER, (int)bench_test_io_control_e::CAN_BENCH_SET_ENGINE_TYPE, c.desiredEngineConfig });
 
 					    chprintf(chp, " !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!\r\n");
 					    chprintf(chp, " !!!!!!!!!!!!!!!!!!!!!!!!!!! changing engine type !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!\r\n");
@@ -322,15 +322,15 @@ void processCanRxMessage(const CANRxFrame& frame) {
 }
 
 void sendCanPinState(uint8_t pinIdx, bool isSet) {
-	sendCanTxMessage((int)bench_test_packet_ids_e::IO_CONTROL, { BENCH_HEADER, (uint8_t)(isSet ? (int)bench_test_io_control_e::CAN_QC_OUTPUT_CONTROL_SET : (int)bench_test_io_control_e::CAN_QC_OUTPUT_CONTROL_CLEAR), pinIdx });
+	sendCanTxMessage((int)bench_test_packet_ids_e::HW_QC_IO_CONTROL, { BENCH_HEADER, (uint8_t)(isSet ? (int)bench_test_io_control_e::CAN_QC_OUTPUT_CONTROL_SET : (int)bench_test_io_control_e::CAN_QC_OUTPUT_CONTROL_CLEAR), pinIdx });
 }
 
 void sendCanDcState(uint8_t dcIndex, bool isSet) {
-	sendCanTxMessage((int)bench_test_packet_ids_e::IO_CONTROL, { BENCH_HEADER, (int)bench_test_io_control_e::CAN_QC_ETB, dcIndex, isSet });
+	sendCanTxMessage((int)bench_test_packet_ids_e::HW_QC_IO_CONTROL, { BENCH_HEADER, (int)bench_test_io_control_e::CAN_QC_ETB, dcIndex, isSet });
 }
 
 void setOutputCountRequest() {
-	sendCanTxMessage((int)bench_test_packet_ids_e::IO_CONTROL, { BENCH_HEADER, (int)bench_test_io_control_e::CAN_BENCH_GET_COUNT });
+	sendCanTxMessage((int)bench_test_packet_ids_e::HW_QC_IO_CONTROL, { BENCH_HEADER, (int)bench_test_io_control_e::CAN_BENCH_GET_COUNT });
 }
 
 static THD_WORKING_AREA(can_rx_wa, THREAD_STACK);
