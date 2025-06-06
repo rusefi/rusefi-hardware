@@ -958,6 +958,37 @@ BoardConfig boardConfigs[] = {
 		.dcHackValue = 1,
 		.highSizeStartingIndex = 0
  	},
+	{
+		.boardName = "super-uaefi",
+		.desiredEngineConfig = -1,
+		.boardIds = { STATIC_BOARD_ID_SUPER_UAEFI, 0 },
+		.channels = {
+			{ nullptr, 0, 0, 0 }, // { "TPS1_1", PULLED_DOWN_RANGE(DOWN_7B, UP_7B, 680'000) },
+			{ nullptr, 0, 0, 0 }, // { "TPS1_2", PULLED_DOWN_RANGE(DOWN_9B, UP_9B, 680'000) },
+			{ nullptr, 0, 0, 0 }, // { "PPS1", PULLED_DOWN_RANGE(DOWN_10B, UP_10B, 680'000) },
+			{ nullptr, 0, 0, 0 }, // { "PPS2", 1, 0.96f, 1.4f },
+			{ nullptr, 0, 0, 0 }, // { "MAP", PULLED_DOWN_RANGE(DOWN_8B, UP_8B, 680'000) },
+			{ nullptr, 0, 0, 0 }, // { "CLT", 1.0f, CLT_VALUE(HELLEN_R) * ANALOG_L, CLT_VALUE(HELLEN_R) * ANALOG_H },
+			{ nullptr, 0, 0, 0 }, // { "IAT", 1.0f, IAT_VALUE(HELLEN_R) * ANALOG_L, IAT_VALUE(HELLEN_R) * ANALOG_H },
+			{ nullptr, 0, 0, 0 }, // { "BATT", HELLEN_VBATT_MULT, 9.0f, 15.0f },
+
+			{ nullptr, 0, 0, 0 }, // "TPS2_1"
+			{ nullptr, 0, 0, 0 }, // "TPS2_2"
+			{ nullptr, 0, 0, 0 }, // { "AUXL1", 1.0f, 1.35f * ANALOG_L, 1.35f * ANALOG_H },
+			{ nullptr, 0, 0, 0 }, // { "AUXL2", 1.0f, 2.23f * ANALOG_L, 2.23f * ANALOG_H },
+		},
+		/* crank neg C19 goes to 24C for 2.5v virtual GND. Crank positive 22B with a 4.7K pull up to 5v */
+		.eventExpected = {/*crank*/false, false, /*cam1*/true, /*cam2*/true, false, false, /*vss*/true},
+		.buttonExpected = {false, false, false},
+		.auxDigitalExpected = {false, false, false, false,
+		false, false, false, false},
+		.outputNames = {
+ "INJ_1",
+        },
+        .wboUnitsCount = 2,
+		.dcHackValue = 1,
+		.highSizeStartingIndex = 0
+ 	},
  	{
 		.boardName = "2chan",
 		.desiredEngineConfig = -1,
