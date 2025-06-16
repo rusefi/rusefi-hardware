@@ -1082,6 +1082,34 @@ BoardConfig boardConfigs[] = {
 		.highSizeStartingIndex = 0
 	},
 	{
+		.boardName = "8chan-gm-gen4",
+		.desiredEngineConfig = -1,
+		.boardIds = { STATIC_BOARD_ID_PLATINUM_GM_GEN4,
+		0 },
+		.channels = {
+			{ nullptr, 0, 0, 0 },//{ "TPS1_1", PULLED_DOWN_RANGE(DOWN_7B, UP_7B, 680'000) },
+			{ nullptr, 0, 0, 0 },//{ "TPS1_2", PULLED_DOWN_RANGE(DOWN_9B, UP_9B, 680'000) },
+			{ nullptr, 0, 0, 0 },//{ "PPS1", PULLED_DOWN_RANGE(DOWN_10B, UP_10B, 680'000) },
+			{ nullptr, 0, 0, 0 },//{ "PPS2", PULLED_DOWN_RANGE(DOWN_11B, UP_11B, 680'000) },
+			{ nullptr, 0, 0, 0 },
+			{ nullptr, 0, 0, 0 },//{ "CLT", 1.0f, CLT_VALUE(ALPHA2CH_R) * ANALOG_L, CLT_VALUE(ALPHA2CH_R) * ANALOG_H },
+			{ nullptr, 0, 0, 0 },//{ "IAT", 1.0f, IAT_VALUE(ALPHA2CH_R) * ANALOG_L, IAT_VALUE(ALPHA2CH_R) * ANALOG_H },
+			{ "BATT", HELLEN_VBATT_MULT, 9.0f, 15.0f },
+		},
+		/* crank neg goes to https://rusefi.com/docs/pinouts/stim/?connector=main&pin=24C 2.5v source, crank positive 22B with a 4.7K pull up */
+		.eventExpected = {/*crank*/false, false, /*cam1*/false, /*cam2*/false,/*cam3*/ false, /*cam4*/false, /*vss*/false},
+		.buttonExpected = {false, false, false},
+		.auxDigitalExpected = {false, false, false, false,
+		false, false, false, false},
+		.outputNames = {
+		"inj1", "inj2", "inj3", "inj4",
+		"inj5", "inj6", "inj7", "inj8",
+		},
+		.wboUnitsCount = 2,
+		.dcHackValue = 0,
+		.highSizeStartingIndex = 0
+	},
+	{
 		.boardName = "SILVER-A",
 		.desiredEngineConfig = -1,
 		.boardIds = { BOARD_ID_ALPHAX_SILVER_A, 0 },
