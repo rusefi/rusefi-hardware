@@ -38,6 +38,6 @@ jobs:
           name: GDI4
           path: ./GDI-4ch/firmware/build/gdi4*
 
-      - name: Build Digital Inputs Firmware
+      - name: Build "Digital Inputs" (meaning HW QC board) Firmware
         working-directory: ./digital-inputs/firmware
         run: make
