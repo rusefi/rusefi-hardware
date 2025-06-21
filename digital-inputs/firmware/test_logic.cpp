@@ -3,7 +3,7 @@
 #include "adc.h"
 #include "test_digital_outputs.h"
 #include "test_logic.h"
-#include "rusefi/math.h"
+#include "rusefi/rusefi_math.h"
 #include "can.h"
 #include "terminal_util.h"
 #include "board_id/boards_id.h"
