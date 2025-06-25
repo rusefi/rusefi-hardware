@@ -1121,8 +1121,8 @@ BoardConfig boardConfigs[] = {
 			{ nullptr, 0, 0, 0 },//{ "PPS1", PULLED_DOWN_RANGE(DOWN_10B, UP_10B, 680'000) },
 			{ nullptr, 0, 0, 0 },//{ "PPS2", PULLED_DOWN_RANGE(DOWN_11B, UP_11B, 680'000) },
 			{ nullptr, 0, 0, 0 },//{ "MAP", PULLED_DOWN_RANGE(DOWN_8B, UP_8B, MAP_R)},
-			{ "CLT", 1.0f, CLT_VALUE(ALPHA2CH_R) * ANALOG_L, CLT_VALUE(ALPHA2CH_R) * ANALOG_H },
-			{ "IAT", 1.0f, IAT_VALUE(ALPHA2CH_R) * ANALOG_L, IAT_VALUE(ALPHA2CH_R) * ANALOG_H },
+			{ "CLT", 1.0f, CLT_VALUE(HELLEN_R) * ANALOG_L, CLT_VALUE(HELLEN_R) * ANALOG_H },
+			{ "IAT", 1.0f, IAT_VALUE(HELLEN_R) * ANALOG_L, IAT_VALUE(HELLEN_R) * ANALOG_H },
 			{ "BATT", HELLEN_VBATT_MULT, 9.0f, 15.0f },
 		},
 		/* crank neg goes to https://rusefi.com/docs/pinouts/stim/?connector=main&pin=24C 2.5v source, crank positive 22B with a 4.7K pull up */
