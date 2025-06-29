@@ -1133,8 +1133,16 @@ BoardConfig boardConfigs[] = {
 		.outputNames = {
 		"inj1", "inj2", "inj3", "inj4",
 		"inj5", "inj6", "inj7", "inj8",
-		"main relay", "fan1",
-		},
+		"main relay",
+		"fan1",
+ "Evap ctrl (Low side)",
+ "AC Ctrl (low side)",
+ "Skip Shift Sol (LOW side)",
+ "J1-67 Starter Relay (LOW side)",
+ "CEL (low Side)",
+ "Evap purge sol (Low side)",
+ "J1-52 Start Relay (High side)",
+ "VSS Output (High side)",		},
 		.wboUnitsCount = 0,
 		.dcHackValue = 0,
 		.highSizeStartingIndex = 0
