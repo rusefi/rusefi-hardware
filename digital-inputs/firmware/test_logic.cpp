@@ -1142,7 +1142,9 @@ BoardConfig boardConfigs[] = {
  "CEL (low Side)",
  "Evap purge sol (Low side)",
  "J1-52 Start Relay (High side)",
- "VSS Output (High side)",		},
+ "VVT",
+ "FP1",
+ 		},
 		.wboUnitsCount = 0,
 		.dcHackValue = 0,
 		.highSizeStartingIndex = 0
