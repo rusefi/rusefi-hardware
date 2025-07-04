@@ -1145,7 +1145,7 @@ BoardConfig boardConfigs[] = {
  "VVT",
  "FP1",
  		},
-		.wboUnitsCount = 0,
+		.wboUnitsCount = 2,
 		.dcHackValue = 0,
 		.highSizeStartingIndex = 0
 	},
