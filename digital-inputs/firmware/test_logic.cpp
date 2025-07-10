@@ -984,6 +984,15 @@ BoardConfig boardConfigs[] = {
 		false, false, false, false},
 		.outputNames = {
  "INJ_1",
+ "INJ_2",
+ "INJ_3",
+ "INJ_4",
+ "INJ_5",
+ "INJ_6",
+ "INJ_7",
+ "INJ_8",
+ "LS1",
+ "LS2"
         },
         .wboUnitsCount = 2,
 		.dcHackValue = 1,
