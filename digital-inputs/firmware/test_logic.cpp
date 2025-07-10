@@ -992,7 +992,11 @@ BoardConfig boardConfigs[] = {
  "INJ_7",
  "INJ_8",
  "LS1",
- "LS2"
+ "LS2",
+ "LS3",
+ "LS4",
+ "LS5",
+ "LS6",
         },
         .wboUnitsCount = 2,
 		.dcHackValue = 1,
