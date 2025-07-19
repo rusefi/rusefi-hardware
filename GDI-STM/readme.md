@@ -1,4 +1,6 @@
+https://github.com/rusefi/rusefi-hardware/issues/306
 
+https://github.com/rusefi/rusefi-hardware/issues/307
 
 
 
