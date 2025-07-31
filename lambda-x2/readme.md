@@ -2,6 +2,8 @@
 
 🟢 rev1 is known to work 🟢
 
+pinout source https://github.com/rusefi/rusefi/tree/master/firmware/config/boards/lambda-x2
+
 https://www.shop.rusefi.com/shop/p/dual-channel-wbo
 
 ![x](https://rusefi.com/forum/download/file.php?id=9478)
