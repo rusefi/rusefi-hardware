@@ -103,10 +103,10 @@ bool testEcuDigitalOutputs(size_t overallProcessingStepIndex) {
 	    bool isLowSideOutput = currentIndex < lowSideOutputs;
 //	    chprintf(chp, "temp %d/%d %d\r\n", currentIndex, lowSideOutputs, isLowSideOutput);
 	    size_t testLineIndex;
-	    if (currentBoard->highSizeStartingIndex != 0 && !isLowSideOutput) {
+	    if (currentBoard->highSideStartingIndex != 0 && !isLowSideOutput) {
 	        // sometimes high sides go after low sides, sometimes there is an explicit start index for high side
 	        size_t highSideIndex = currentIndex - lowSideOutputs;
-	        testLineIndex = currentBoard->highSizeStartingIndex + highSideIndex;
+	        testLineIndex = currentBoard->highSideStartingIndex + highSideIndex;
 //chprintf(chp, "highSideIndex %d/%d\r\n", highSideIndex, testLineIndex);
 
 	    } else {
