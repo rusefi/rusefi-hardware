@@ -84,6 +84,7 @@ public:
     // do we have some defect in the logic or loose state? does DC validation depend on if we have just finished testing low-side or high-side pins?
 	int dcHackValue;
 	int highSideStartingIndex;
+	int wboStartIndex;
 
 	const char *getOutputName(size_t index) {
 	    return outputNames[index];

@@ -304,14 +304,14 @@ void processCanRxMessage(const CANRxFrame& frame) {
 	} else if (extendedId == (int)bench_test_packet_ids_e::IO_META_INFO) {
 	    printRxFrame(frame, "BENCH_TEST_IO_META_INFO");
 	    receiveOutputMetaInfo(frame.data8);
-	} else if (standardId == WB_DATA_BASE_ADDR) {
+	} else if (standardId == WB_DATA_BASE_ADDR + 2 * currentBoard->wboStartIndex) {
 	    if (!hasSeenWbo1) {
 	        setCyanText();
 	        chprintf(chp, " ***** WBO1 packet\n");
 	        hasSeenWbo1 = true;
 	        setNormalText();
 	    }
-	} else if (standardId == (WB_DATA_BASE_ADDR + 2)) {
+	} else if (standardId == (WB_DATA_BASE_ADDR + 2 + 2 * currentBoard->wboStartIndex)) {
 	    if (!hasSeenWbo2) {
 	        setCyanText();
 	        chprintf(chp, " ***** WBO2 packet\n");

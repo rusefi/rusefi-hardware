@@ -140,7 +140,7 @@ BoardConfig boardConfigs[] = {
 		},
 		.wboUnitsCount = 0,
 		.dcHackValue = 1,
-		.highSideStartingIndex = 0
+		.highSideStartingIndex = 0, .wboStartIndex = 0,
 	},
 	{
 		.boardName = "gold",
@@ -197,7 +197,7 @@ BoardConfig boardConfigs[] = {
 	    },
         .wboUnitsCount = 2,
 		.dcHackValue = 1,
-		.highSideStartingIndex = 0
+		.highSideStartingIndex = 0, .wboStartIndex = 0,
 	},
 	{
 		.boardName = "subaru",
@@ -239,7 +239,7 @@ BoardConfig boardConfigs[] = {
 	    },
         .wboUnitsCount = 1,
 		.dcHackValue = 1,
-		.highSideStartingIndex = 0
+		.highSideStartingIndex = 0, .wboStartIndex = 0,
 	},
 	{
 		.boardName = "chuma",
@@ -278,7 +278,7 @@ BoardConfig boardConfigs[] = {
 	    },
         .wboUnitsCount = 0,
 		.dcHackValue = 1,
-		.highSideStartingIndex = 0
+		.highSideStartingIndex = 0, .wboStartIndex = 0,
 	},
 	{
 		.boardName = "nano",
@@ -320,7 +320,7 @@ BoardConfig boardConfigs[] = {
 	    },
         .wboUnitsCount = 0,
 		.dcHackValue = 1,
-		.highSideStartingIndex = 0
+		.highSideStartingIndex = 0, .wboStartIndex = 0,
 	},
 	{
 		.boardName = "e92",
@@ -366,7 +366,8 @@ BoardConfig boardConfigs[] = {
 	    },
         .wboUnitsCount = 0,
 		.dcHackValue = 1,
-		.highSideStartingIndex = 31 /* human index 32 */
+		.highSideStartingIndex = 31 /* human index 32 */,
+		.wboStartIndex = 0,
 	},
 	{
 		.boardName = "Hellen-Honda125K",
@@ -397,7 +398,7 @@ BoardConfig boardConfigs[] = {
 		},
 		.wboUnitsCount = 0,
 		.dcHackValue = 0,
-		.highSideStartingIndex = 0
+		.highSideStartingIndex = 0, .wboStartIndex = 0,
 	},
 	{
 		.boardName = "Proteus",
@@ -433,7 +434,7 @@ BoardConfig boardConfigs[] = {
 				},
 		.wboUnitsCount = 0,
 		.dcHackValue = 0,
-		.highSideStartingIndex = 0
+		.highSideStartingIndex = 0, .wboStartIndex = 0,
 	},
 	{
 		.boardName = "mg1",
@@ -487,7 +488,7 @@ BoardConfig boardConfigs[] = {
 	    },
         .wboUnitsCount = 1,
 		.dcHackValue = 1,
-		.highSideStartingIndex = 0
+		.highSideStartingIndex = 0, .wboStartIndex = 0,
 	},
 	{
 		.boardName = "4k-gdi",
@@ -540,7 +541,7 @@ BoardConfig boardConfigs[] = {
 	    },
         .wboUnitsCount = 0,
 		.dcHackValue = 0,
-		.highSideStartingIndex = 0
+		.highSideStartingIndex = 0, .wboStartIndex = 0,
 	},
 	{
 		.boardName = "polaris",
@@ -588,7 +589,7 @@ BoardConfig boardConfigs[] = {
 	    },
         .wboUnitsCount = 1,
 		.dcHackValue = 0,
-		.highSideStartingIndex = 0
+		.highSideStartingIndex = 0, .wboStartIndex = 0,
 	},
 	{
 		.boardName = "M73",
@@ -640,7 +641,7 @@ BoardConfig boardConfigs[] = {
 	    },
         .wboUnitsCount = 0,
 		.dcHackValue = 1,
-		.highSideStartingIndex = 0
+		.highSideStartingIndex = 0, .wboStartIndex = 0,
 	},
 	{
 		.boardName = "hd",
@@ -689,7 +690,7 @@ BoardConfig boardConfigs[] = {
 	    },
         .wboUnitsCount = 2,
 		.dcHackValue = 1,
-		.highSideStartingIndex = 0
+		.highSideStartingIndex = 0, .wboStartIndex = 0,
 	},
 	{
 		.boardName = "121vag",
@@ -732,7 +733,7 @@ BoardConfig boardConfigs[] = {
 	    },
         .wboUnitsCount = 1,
 		.dcHackValue = 1,
-		.highSideStartingIndex = 0
+		.highSideStartingIndex = 0, .wboStartIndex = 0,
 	},
 	{
 		.boardName = "121nissan",
@@ -782,7 +783,7 @@ BoardConfig boardConfigs[] = {
 	    },
         .wboUnitsCount = 2,
 		.dcHackValue = 0,
-		.highSideStartingIndex = 0
+		.highSideStartingIndex = 0, .wboStartIndex = 0,
 	},
 	{
 		.boardName = "112-17",
@@ -816,7 +817,7 @@ BoardConfig boardConfigs[] = {
 		"pin 151", "pin 152", "pin 246" },
 		.wboUnitsCount = 0,
 		.dcHackValue = 0,
-		.highSideStartingIndex = 0
+		.highSideStartingIndex = 0, .wboStartIndex = 0,
 	},
 	{
 		.boardName = "uaefi",
@@ -864,7 +865,7 @@ BoardConfig boardConfigs[] = {
         },
         .wboUnitsCount = 1,
 		.dcHackValue = 1,
-		.highSideStartingIndex = 0
+		.highSideStartingIndex = 0, .wboStartIndex = 0,
  	},
 	{
 		.boardName = "uaefi121",
@@ -916,7 +917,7 @@ BoardConfig boardConfigs[] = {
         },
         .wboUnitsCount = 2,
 		.dcHackValue = 1,
-		.highSideStartingIndex = 0
+		.highSideStartingIndex = 0, .wboStartIndex = 0,
  	},
 	{
 		.boardName = "uaefi121-sbc",
@@ -956,7 +957,7 @@ BoardConfig boardConfigs[] = {
         },
         .wboUnitsCount = 2,
 		.dcHackValue = 1,
-		.highSideStartingIndex = 0
+		.highSideStartingIndex = 0, .wboStartIndex = 0,
  	},
 	{
 		.boardName = "super-uaefi",
@@ -1007,7 +1008,7 @@ BoardConfig boardConfigs[] = {
         },
         .wboUnitsCount = 2,
 		.dcHackValue = 1,
-		.highSideStartingIndex = 0
+		.highSideStartingIndex = 0, .wboStartIndex = 0,
  	},
  	{
 		.boardName = "2chan",
@@ -1031,7 +1032,7 @@ BoardConfig boardConfigs[] = {
 		.outputNames = {},
 		.wboUnitsCount = 0,
 		.dcHackValue = 0,
-		.highSideStartingIndex = 0
+		.highSideStartingIndex = 0, .wboStartIndex = 0,
 	},
 	{
 		.boardName = "4chan",
@@ -1063,7 +1064,7 @@ BoardConfig boardConfigs[] = {
 		},
 		.wboUnitsCount = 0,
 		.dcHackValue = 1,
-		.highSideStartingIndex = 0
+		.highSideStartingIndex = 0, .wboStartIndex = 0,
 	},
 	{
 		.boardName = "8chan",
@@ -1099,7 +1100,7 @@ BoardConfig boardConfigs[] = {
 		},
 		.wboUnitsCount = 2,
 		.dcHackValue = 0,
-		.highSideStartingIndex = 0
+		.highSideStartingIndex = 0, .wboStartIndex = 0,
 	},
 	{
 		.boardName = "8chan-gm-gen4",
@@ -1128,7 +1129,7 @@ BoardConfig boardConfigs[] = {
 		},
 		.wboUnitsCount = 0,
 		.dcHackValue = 0,
-		.highSideStartingIndex = 0
+		.highSideStartingIndex = 0, .wboStartIndex = 0,
 	},
 	{
 		.boardName = "hellen-e38",
@@ -1167,7 +1168,8 @@ BoardConfig boardConfigs[] = {
  		},
 		.wboUnitsCount = 2,
 		.dcHackValue = 0,
-		.highSideStartingIndex = 0
+		.highSideStartingIndex = 0,
+		.wboStartIndex = 1,
 	},
 	{
 		.boardName = "SILVER-A",
@@ -1203,7 +1205,7 @@ BoardConfig boardConfigs[] = {
 		},
 		.wboUnitsCount = 1,
 		.dcHackValue = 0,
-		.highSideStartingIndex = 0
+		.highSideStartingIndex = 0, .wboStartIndex = 0,
 	},
 	{
 		.boardName = "SILVER",
@@ -1239,7 +1241,7 @@ BoardConfig boardConfigs[] = {
 		},
 		.wboUnitsCount = 1,
 		.dcHackValue = 0,
-		.highSideStartingIndex = 0
+		.highSideStartingIndex = 0, .wboStartIndex = 0,
 	},
 	{
 		.boardName = "obd1",
@@ -1276,7 +1278,7 @@ BoardConfig boardConfigs[] = {
  		},
 		.wboUnitsCount = 1,
 		.dcHackValue = 0,
-		.highSideStartingIndex = 0
+		.highSideStartingIndex = 0, .wboStartIndex = 0,
 	},
 	// https://github.com/rusefi/rusefi/wiki/Hellen-154-Hyundai
 	{
@@ -1324,7 +1326,7 @@ BoardConfig boardConfigs[] = {
 		},
 		.wboUnitsCount = 0,
 		.dcHackValue = 0,
-		.highSideStartingIndex = 0
+		.highSideStartingIndex = 0, .wboStartIndex = 0,
 	},
 	{
 		.boardName = "m74.9",
@@ -1352,7 +1354,7 @@ BoardConfig boardConfigs[] = {
  		},
 		.wboUnitsCount = 0,
 		.dcHackValue = 1,
-		.highSideStartingIndex = 0
+		.highSideStartingIndex = 0, .wboStartIndex = 0,
 	},
 };
 
