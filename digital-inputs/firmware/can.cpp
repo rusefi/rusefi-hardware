@@ -195,7 +195,10 @@ static void receiveRawAnalog(const uint8_t msg[CAN_FRAME_SIZE], size_t offset) {
 
 
 	for (size_t byteIndex = 0; byteIndex < CAN_FRAME_SIZE; byteIndex++) {
-        size_t ch = offset + byteIndex;
+		size_t ch = offset + byteIndex;
+		if (ch >= MAX_ANALOG_CHANNELS) {
+			continue;
+		}
 		// channel not used for this board
 		if (currentBoard->channels[ch].name == nullptr)
 			continue;
@@ -292,6 +295,12 @@ void processCanRxMessage(const CANRxFrame& frame) {
 	} else if (extendedId == (int)bench_test_packet_ids_e::RAW_ANALOG_2) {
 	    printRxFrame(frame, "BENCH_TEST_RAW_ANALOG_2");
         receiveRawAnalog(frame.data8, 8);
+	} else if (extendedId == (int)bench_test_packet_ids_e::RAW_LUA_ANALOG_1) {
+	    printRxFrame(frame, "BENCH_TEST_RAW_LUA_ANALOG_1");
+        receiveRawAnalog(frame.data8, 16);
+	} else if (extendedId == (int)bench_test_packet_ids_e::RAW_LUA_ANALOG_2) {
+	    printRxFrame(frame, "BENCH_TEST_RAW_LUA_ANALOG_2");
+        receiveRawAnalog(frame.data8, 24);
 	} else if (extendedId == (int)bench_test_packet_ids_e::EVENT_COUNTERS) {
 	    printRxFrame(frame, "EVENT_COUNTERS");
 	    receiveEventCounters(frame.data8);
