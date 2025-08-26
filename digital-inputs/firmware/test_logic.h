@@ -4,7 +4,7 @@
 
 #include "cstring"
 
-#define MAX_ANALOG_CHANNELS 16
+#define MAX_ANALOG_CHANNELS 32
 #define MAX_BOARD_REVS 32
 #define MAX_OUTPUT_NAMES 64
 #define index2human(x) ((x) + 1)
