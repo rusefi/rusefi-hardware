@@ -711,7 +711,13 @@ BoardConfig boardConfigs[] = {
 				0.87f * PULLED_UP_VOLTAGE(DOWN_14B, UP_14B, 4'700),
 				1.05f * PULLED_UP_VOLTAGE(DOWN_14B, UP_14B, 4'700),
 
-			}
+			},
+			{ nullptr, 0, 0, 0 },
+			{ nullptr, 0, 0, 0 },
+			{ nullptr, 0, 0, 0 },
+			{ nullptr, 0, 0, 0 },
+			// 55 - with 4.7K pull up
+			{ "AT1", 1.0f, CLT_VALUE(HELLEN_R) * ANALOG_L, CLT_VALUE(HELLEN_R) * ANALOG_H },
 
 		},
 		.eventExpected = {
