@@ -4,6 +4,12 @@
 	(generator_version "9.0")
 	(uuid "99e1bfc9-2a46-41a1-a4e6-a3360e403902")
 	(paper "A4")
+	(title_block
+		(title "GDI-STM")
+		(date "2025-08-29")
+		(rev "a")
+		(company "rusEFI.com")
+	)
 	(lib_symbols
 		(symbol "Amplifier_Instrumentation:INA821xD"
 			(pin_names
@@ -943,293 +949,6 @@
 			)
 			(embedded_fonts no)
 		)
-		(symbol "Device:Q_NMOS_GDS"
-			(pin_names
-				(offset 0)
-				(hide yes)
-			)
-			(exclude_from_sim no)
-			(in_bom yes)
-			(on_board yes)
-			(property "Reference" "Q"
-				(at 5.08 1.27 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left)
-				)
-			)
-			(property "Value" "Q_NMOS_GDS"
-				(at 5.08 -1.27 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left)
-				)
-			)
-			(property "Footprint" ""
-				(at 5.08 2.54 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Datasheet" "~"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Description" "N-MOSFET transistor, gate/drain/source"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "ki_keywords" "transistor NMOS N-MOS N-MOSFET"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(symbol "Q_NMOS_GDS_0_1"
-				(polyline
-					(pts
-						(xy 0.254 1.905) (xy 0.254 -1.905)
-					)
-					(stroke
-						(width 0.254)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 0.254 0) (xy -2.54 0)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 0.762 2.286) (xy 0.762 1.27)
-					)
-					(stroke
-						(width 0.254)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 0.762 0.508) (xy 0.762 -0.508)
-					)
-					(stroke
-						(width 0.254)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 0.762 -1.27) (xy 0.762 -2.286)
-					)
-					(stroke
-						(width 0.254)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 0.762 -1.778) (xy 3.302 -1.778) (xy 3.302 1.778) (xy 0.762 1.778)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 1.016 0) (xy 2.032 0.381) (xy 2.032 -0.381) (xy 1.016 0)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type outline)
-					)
-				)
-				(circle
-					(center 1.651 0)
-					(radius 2.794)
-					(stroke
-						(width 0.254)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 2.54 2.54) (xy 2.54 1.778)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(circle
-					(center 2.54 1.778)
-					(radius 0.254)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type outline)
-					)
-				)
-				(circle
-					(center 2.54 -1.778)
-					(radius 0.254)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type outline)
-					)
-				)
-				(polyline
-					(pts
-						(xy 2.54 -2.54) (xy 2.54 0) (xy 0.762 0)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 2.794 0.508) (xy 2.921 0.381) (xy 3.683 0.381) (xy 3.81 0.254)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 3.302 0.381) (xy 2.921 -0.254) (xy 3.683 -0.254) (xy 3.302 0.381)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-			)
-			(symbol "Q_NMOS_GDS_1_1"
-				(pin input line
-					(at -5.08 0 0)
-					(length 2.54)
-					(name "G"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 2.54 5.08 270)
-					(length 2.54)
-					(name "D"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "2"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 2.54 -5.08 90)
-					(length 2.54)
-					(name "S"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "3"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-			)
-			(embedded_fonts no)
-		)
 		(symbol "Device:R"
 			(pin_numbers
 				(hide yes)
@@ -1767,6 +1486,293 @@
 			)
 			(embedded_fonts no)
 		)
+		(symbol "Transistor_FET:Q_NMOS_GDS"
+			(pin_names
+				(offset 0)
+				(hide yes)
+			)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(property "Reference" "Q"
+				(at 5.08 1.905 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left)
+				)
+			)
+			(property "Value" "Q_NMOS_GDS"
+				(at 5.08 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left)
+				)
+			)
+			(property "Footprint" ""
+				(at 5.08 2.54 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Datasheet" "~"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Description" "N-MOSFET transistor, gate/drain/source"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_keywords" "transistor NMOS N-MOS N-MOSFET"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(symbol "Q_NMOS_GDS_0_1"
+				(polyline
+					(pts
+						(xy 0.254 1.905) (xy 0.254 -1.905)
+					)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 0.254 0) (xy -2.54 0)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 0.762 2.286) (xy 0.762 1.27)
+					)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 0.762 0.508) (xy 0.762 -0.508)
+					)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 0.762 -1.27) (xy 0.762 -2.286)
+					)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 0.762 -1.778) (xy 3.302 -1.778) (xy 3.302 1.778) (xy 0.762 1.778)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 1.016 0) (xy 2.032 0.381) (xy 2.032 -0.381) (xy 1.016 0)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type outline)
+					)
+				)
+				(circle
+					(center 1.651 0)
+					(radius 2.794)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 2.54 2.54) (xy 2.54 1.778)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(circle
+					(center 2.54 1.778)
+					(radius 0.254)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type outline)
+					)
+				)
+				(circle
+					(center 2.54 -1.778)
+					(radius 0.254)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type outline)
+					)
+				)
+				(polyline
+					(pts
+						(xy 2.54 -2.54) (xy 2.54 0) (xy 0.762 0)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 2.921 0.381) (xy 3.683 0.381)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 3.302 0.381) (xy 2.921 -0.254) (xy 3.683 -0.254) (xy 3.302 0.381)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+			)
+			(symbol "Q_NMOS_GDS_1_1"
+				(pin input line
+					(at -5.08 0 0)
+					(length 2.54)
+					(name "G"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 2.54 5.08 270)
+					(length 2.54)
+					(name "D"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 2.54 -5.08 90)
+					(length 2.54)
+					(name "S"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "3"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
 		(symbol "hellen-one-common:Cap"
 			(pin_numbers
 				(hide yes)
@@ -1916,8 +1922,12 @@
 		)
 		(symbol "power:+3.3V"
 			(power)
+			(pin_numbers
+				(hide yes)
+			)
 			(pin_names
 				(offset 0)
+				(hide yes)
 			)
 			(exclude_from_sim no)
 			(in_bom yes)
@@ -1966,7 +1976,7 @@
 					(hide yes)
 				)
 			)
-			(property "ki_keywords" "power-flag"
+			(property "ki_keywords" "global power"
 				(at 0 0 0)
 				(effects
 					(font
@@ -2017,8 +2027,7 @@
 				(pin power_in line
 					(at 0 0 90)
 					(length 0)
-					(hide yes)
-					(name "+3V3"
+					(name "~"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -2038,8 +2047,12 @@
 		)
 		(symbol "power:+BATT"
 			(power)
+			(pin_numbers
+				(hide yes)
+			)
 			(pin_names
 				(offset 0)
+				(hide yes)
 			)
 			(exclude_from_sim no)
 			(in_bom yes)
@@ -2088,7 +2101,7 @@
 					(hide yes)
 				)
 			)
-			(property "ki_keywords" "power-flag battery"
+			(property "ki_keywords" "global power battery"
 				(at 0 0 0)
 				(effects
 					(font
@@ -2139,8 +2152,7 @@
 				(pin power_in line
 					(at 0 0 90)
 					(length 0)
-					(hide yes)
-					(name "+BATT"
+					(name "~"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -2160,8 +2172,12 @@
 		)
 		(symbol "power:GND"
 			(power)
+			(pin_numbers
+				(hide yes)
+			)
 			(pin_names
 				(offset 0)
+				(hide yes)
 			)
 			(exclude_from_sim no)
 			(in_bom yes)
@@ -2210,7 +2226,7 @@
 					(hide yes)
 				)
 			)
-			(property "ki_keywords" "power-flag"
+			(property "ki_keywords" "global power"
 				(at 0 0 0)
 				(effects
 					(font
@@ -2237,8 +2253,7 @@
 				(pin power_in line
 					(at 0 0 270)
 					(length 0)
-					(hide yes)
-					(name "GND"
+					(name "~"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -2258,14 +2273,18 @@
 		)
 		(symbol "power:Vdrive"
 			(power)
+			(pin_numbers
+				(hide yes)
+			)
 			(pin_names
 				(offset 0)
+				(hide yes)
 			)
 			(exclude_from_sim no)
 			(in_bom yes)
 			(on_board yes)
 			(property "Reference" "#PWR"
-				(at -5.08 -3.81 0)
+				(at 0 -3.81 0)
 				(effects
 					(font
 						(size 1.27 1.27)
@@ -2274,7 +2293,7 @@
 				)
 			)
 			(property "Value" "Vdrive"
-				(at 0 3.81 0)
+				(at 0 3.556 0)
 				(effects
 					(font
 						(size 1.27 1.27)
@@ -2308,7 +2327,7 @@
 					(hide yes)
 				)
 			)
-			(property "ki_keywords" "power-flag"
+			(property "ki_keywords" "global power"
 				(at 0 0 0)
 				(effects
 					(font
@@ -2359,8 +2378,7 @@
 				(pin power_in line
 					(at 0 0 90)
 					(length 0)
-					(hide yes)
-					(name "Vdrive"
+					(name "~"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -3905,7 +3923,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "0464c55a-3e93-402f-8df2-76b0f3b86f4d")
-		(property "Reference" "C?"
+		(property "Reference" "C43"
 			(at 149.86 55.88 0)
 			(effects
 				(font
@@ -3968,19 +3986,19 @@
 		(instances
 			(project "GDI-STM"
 				(path "/03caada9-9e22-4e2d-9035-b15433dfbb17/03351135-9cc9-422f-b1c4-096ea7d8acfa"
-					(reference "C?")
+					(reference "C43")
 					(unit 1)
 				)
 				(path "/03caada9-9e22-4e2d-9035-b15433dfbb17/3e093d68-78a8-4af4-b389-2900f3f4a898"
-					(reference "C142")
+					(reference "C94")
 					(unit 1)
 				)
 				(path "/03caada9-9e22-4e2d-9035-b15433dfbb17/66965367-94ca-4a16-a49b-a38c1de4eaa0"
-					(reference "C101")
+					(reference "C60")
 					(unit 1)
 				)
 				(path "/03caada9-9e22-4e2d-9035-b15433dfbb17/6f978b6e-947a-4a6e-a6d6-ddbcf36b4403"
-					(reference "C125")
+					(reference "C77")
 					(unit 1)
 				)
 			)
@@ -4030,7 +4048,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" ""
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
 			(at 76.2 139.7 0)
 			(effects
 				(font
@@ -4107,7 +4125,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" ""
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
 			(at 209.55 54.61 0)
 			(effects
 				(font
@@ -4149,7 +4167,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "1930eef0-a089-4ca4-94e6-4f752fa425be")
-		(property "Reference" "R118"
+		(property "Reference" "R32"
 			(at 177.8 100.838 90)
 			(effects
 				(font
@@ -4210,11 +4228,11 @@
 		(instances
 			(project "GDI-STM"
 				(path "/03caada9-9e22-4e2d-9035-b15433dfbb17/03351135-9cc9-422f-b1c4-096ea7d8acfa"
-					(reference "R118")
+					(reference "R32")
 					(unit 1)
 				)
 				(path "/03caada9-9e22-4e2d-9035-b15433dfbb17/3e093d68-78a8-4af4-b389-2900f3f4a898"
-					(reference "R120")
+					(reference "R83")
 					(unit 1)
 				)
 				(path "/03caada9-9e22-4e2d-9035-b15433dfbb17/66965367-94ca-4a16-a49b-a38c1de4eaa0"
@@ -4222,7 +4240,7 @@
 					(unit 1)
 				)
 				(path "/03caada9-9e22-4e2d-9035-b15433dfbb17/6f978b6e-947a-4a6e-a6d6-ddbcf36b4403"
-					(reference "R79")
+					(reference "R66")
 					(unit 1)
 				)
 			)
@@ -4237,7 +4255,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "246e818b-da8e-476a-ac40-796db5e36342")
-		(property "Reference" "R61"
+		(property "Reference" "R17"
 			(at 74.168 128.27 90)
 			(effects
 				(font
@@ -4298,15 +4316,15 @@
 		(instances
 			(project "GDI-STM"
 				(path "/03caada9-9e22-4e2d-9035-b15433dfbb17/03351135-9cc9-422f-b1c4-096ea7d8acfa"
-					(reference "R61")
+					(reference "R17")
 					(unit 1)
 				)
 				(path "/03caada9-9e22-4e2d-9035-b15433dfbb17/3e093d68-78a8-4af4-b389-2900f3f4a898"
-					(reference "R85")
+					(reference "R68")
 					(unit 1)
 				)
 				(path "/03caada9-9e22-4e2d-9035-b15433dfbb17/66965367-94ca-4a16-a49b-a38c1de4eaa0"
-					(reference "R5")
+					(reference "R34")
 					(unit 1)
 				)
 				(path "/03caada9-9e22-4e2d-9035-b15433dfbb17/6f978b6e-947a-4a6e-a6d6-ddbcf36b4403"
@@ -4360,7 +4378,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" ""
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
 			(at 200.66 143.51 0)
 			(effects
 				(font
@@ -4402,7 +4420,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "271c1b42-980e-4a02-b226-2948452f122b")
-		(property "Reference" "R?"
+		(property "Reference" "R27"
 			(at 166.37 68.58 90)
 			(effects
 				(font
@@ -4463,26 +4481,26 @@
 		(instances
 			(project "GDI-STM"
 				(path "/03caada9-9e22-4e2d-9035-b15433dfbb17/03351135-9cc9-422f-b1c4-096ea7d8acfa"
-					(reference "R?")
+					(reference "R27")
 					(unit 1)
 				)
 				(path "/03caada9-9e22-4e2d-9035-b15433dfbb17/3e093d68-78a8-4af4-b389-2900f3f4a898"
-					(reference "R114")
+					(reference "R78")
 					(unit 1)
 				)
 				(path "/03caada9-9e22-4e2d-9035-b15433dfbb17/66965367-94ca-4a16-a49b-a38c1de4eaa0"
-					(reference "R41")
+					(reference "R44")
 					(unit 1)
 				)
 				(path "/03caada9-9e22-4e2d-9035-b15433dfbb17/6f978b6e-947a-4a6e-a6d6-ddbcf36b4403"
-					(reference "R74")
+					(reference "R61")
 					(unit 1)
 				)
 			)
 		)
 	)
 	(symbol
-		(lib_id "Device:Q_NMOS_GDS")
+		(lib_id "Transistor_FET:Q_NMOS_GDS")
 		(at 143.51 54.61 0)
 		(mirror y)
 		(unit 1)
@@ -4491,7 +4509,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "29135a67-f984-4d8b-85b1-4b0353f8a7ed")
-		(property "Reference" "Q19"
+		(property "Reference" "Q3"
 			(at 134.366 52.07 0)
 			(effects
 				(font
@@ -4510,24 +4528,24 @@
 			)
 		)
 		(property "Footprint" "Package_TO_SOT_SMD:TO-252-2"
-			(at 163.068 19.685 90)
+			(at 138.43 52.07 0)
 			(effects
 				(font
-					(size 1.524 1.524)
+					(size 1.27 1.27)
 				)
 				(hide yes)
 			)
 		)
-		(property "Datasheet" ""
-			(at 73.66 19.05 0)
+		(property "Datasheet" "~"
+			(at 143.51 54.61 0)
 			(effects
 				(font
-					(size 1.524 1.524)
+					(size 1.27 1.27)
 				)
 				(hide yes)
 			)
 		)
-		(property "Description" ""
+		(property "Description" "N-MOSFET transistor, gate/drain/source"
 			(at 143.51 54.61 0)
 			(effects
 				(font
@@ -4557,19 +4575,19 @@
 		(instances
 			(project "GDI-STM"
 				(path "/03caada9-9e22-4e2d-9035-b15433dfbb17/03351135-9cc9-422f-b1c4-096ea7d8acfa"
-					(reference "Q19")
+					(reference "Q3")
 					(unit 1)
 				)
 				(path "/03caada9-9e22-4e2d-9035-b15433dfbb17/3e093d68-78a8-4af4-b389-2900f3f4a898"
-					(reference "Q30")
-					(unit 1)
-				)
-				(path "/03caada9-9e22-4e2d-9035-b15433dfbb17/66965367-94ca-4a16-a49b-a38c1de4eaa0"
 					(reference "Q15")
 					(unit 1)
 				)
+				(path "/03caada9-9e22-4e2d-9035-b15433dfbb17/66965367-94ca-4a16-a49b-a38c1de4eaa0"
+					(reference "Q7")
+					(unit 1)
+				)
 				(path "/03caada9-9e22-4e2d-9035-b15433dfbb17/6f978b6e-947a-4a6e-a6d6-ddbcf36b4403"
-					(reference "Q26")
+					(reference "Q11")
 					(unit 1)
 				)
 			)
@@ -4584,7 +4602,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "2927decb-f45e-4d2e-9957-f4907230a048")
-		(property "Reference" "#PWR?"
+		(property "Reference" "#PWR0105"
 			(at 78.74 67.31 0)
 			(effects
 				(font
@@ -4619,7 +4637,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" ""
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
 			(at 78.74 60.96 0)
 			(effects
 				(font
@@ -4634,7 +4652,7 @@
 		(instances
 			(project "GDI-STM"
 				(path "/03caada9-9e22-4e2d-9035-b15433dfbb17/03351135-9cc9-422f-b1c4-096ea7d8acfa"
-					(reference "#PWR?")
+					(reference "#PWR0105")
 					(unit 1)
 				)
 				(path "/03caada9-9e22-4e2d-9035-b15433dfbb17/3e093d68-78a8-4af4-b389-2900f3f4a898"
@@ -4662,7 +4680,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "2bc3ecfc-da62-416c-99c7-e4acb723ba84")
-		(property "Reference" "C?"
+		(property "Reference" "C46"
 			(at 154.94 43.18 90)
 			(effects
 				(font
@@ -4725,26 +4743,26 @@
 		(instances
 			(project "GDI-STM"
 				(path "/03caada9-9e22-4e2d-9035-b15433dfbb17/03351135-9cc9-422f-b1c4-096ea7d8acfa"
-					(reference "C?")
+					(reference "C46")
 					(unit 1)
 				)
 				(path "/03caada9-9e22-4e2d-9035-b15433dfbb17/3e093d68-78a8-4af4-b389-2900f3f4a898"
-					(reference "C145")
+					(reference "C97")
 					(unit 1)
 				)
 				(path "/03caada9-9e22-4e2d-9035-b15433dfbb17/66965367-94ca-4a16-a49b-a38c1de4eaa0"
-					(reference "C104")
+					(reference "C63")
 					(unit 1)
 				)
 				(path "/03caada9-9e22-4e2d-9035-b15433dfbb17/6f978b6e-947a-4a6e-a6d6-ddbcf36b4403"
-					(reference "C128")
+					(reference "C80")
 					(unit 1)
 				)
 			)
 		)
 	)
 	(symbol
-		(lib_id "Device:Q_NMOS_GDS")
+		(lib_id "Transistor_FET:Q_NMOS_GDS")
 		(at 143.51 85.09 0)
 		(mirror y)
 		(unit 1)
@@ -4753,7 +4771,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "2f071b19-a0da-4196-b318-139207e637a4")
-		(property "Reference" "Q21"
+		(property "Reference" "Q5"
 			(at 134.366 82.55 0)
 			(effects
 				(font
@@ -4772,24 +4790,24 @@
 			)
 		)
 		(property "Footprint" "Package_TO_SOT_SMD:TO-252-2"
-			(at 163.068 50.165 90)
+			(at 138.43 82.55 0)
 			(effects
 				(font
-					(size 1.524 1.524)
+					(size 1.27 1.27)
 				)
 				(hide yes)
 			)
 		)
-		(property "Datasheet" ""
-			(at 73.66 49.53 0)
+		(property "Datasheet" "~"
+			(at 143.51 85.09 0)
 			(effects
 				(font
-					(size 1.524 1.524)
+					(size 1.27 1.27)
 				)
 				(hide yes)
 			)
 		)
-		(property "Description" ""
+		(property "Description" "N-MOSFET transistor, gate/drain/source"
 			(at 143.51 85.09 0)
 			(effects
 				(font
@@ -4819,19 +4837,19 @@
 		(instances
 			(project "GDI-STM"
 				(path "/03caada9-9e22-4e2d-9035-b15433dfbb17/03351135-9cc9-422f-b1c4-096ea7d8acfa"
-					(reference "Q21")
+					(reference "Q5")
 					(unit 1)
 				)
 				(path "/03caada9-9e22-4e2d-9035-b15433dfbb17/3e093d68-78a8-4af4-b389-2900f3f4a898"
-					(reference "Q32")
+					(reference "Q17")
 					(unit 1)
 				)
 				(path "/03caada9-9e22-4e2d-9035-b15433dfbb17/66965367-94ca-4a16-a49b-a38c1de4eaa0"
-					(reference "Q23")
+					(reference "Q9")
 					(unit 1)
 				)
 				(path "/03caada9-9e22-4e2d-9035-b15433dfbb17/6f978b6e-947a-4a6e-a6d6-ddbcf36b4403"
-					(reference "Q28")
+					(reference "Q13")
 					(unit 1)
 				)
 			)
@@ -4846,7 +4864,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "3084072a-f97a-412f-957a-46ccfe6ee9b5")
-		(property "Reference" "#PWR?"
+		(property "Reference" "#PWR0103"
 			(at 140.97 34.29 0)
 			(effects
 				(font
@@ -4881,7 +4899,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" ""
+		(property "Description" "Power symbol creates a global label with name \"+BATT\""
 			(at 137.16 34.29 0)
 			(effects
 				(font
@@ -4896,7 +4914,7 @@
 		(instances
 			(project "GDI-STM"
 				(path "/03caada9-9e22-4e2d-9035-b15433dfbb17/03351135-9cc9-422f-b1c4-096ea7d8acfa"
-					(reference "#PWR?")
+					(reference "#PWR0103")
 					(unit 1)
 				)
 				(path "/03caada9-9e22-4e2d-9035-b15433dfbb17/3e093d68-78a8-4af4-b389-2900f3f4a898"
@@ -4924,7 +4942,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "32e3fe02-14ca-4a84-950b-08bb2c8b5e4c")
-		(property "Reference" "C?"
+		(property "Reference" "C39"
 			(at 80.01 76.2 90)
 			(effects
 				(font
@@ -4987,19 +5005,19 @@
 		(instances
 			(project "GDI-STM"
 				(path "/03caada9-9e22-4e2d-9035-b15433dfbb17/03351135-9cc9-422f-b1c4-096ea7d8acfa"
-					(reference "C?")
+					(reference "C39")
 					(unit 1)
 				)
 				(path "/03caada9-9e22-4e2d-9035-b15433dfbb17/3e093d68-78a8-4af4-b389-2900f3f4a898"
-					(reference "C138")
+					(reference "C90")
 					(unit 1)
 				)
 				(path "/03caada9-9e22-4e2d-9035-b15433dfbb17/66965367-94ca-4a16-a49b-a38c1de4eaa0"
-					(reference "C69")
+					(reference "C56")
 					(unit 1)
 				)
 				(path "/03caada9-9e22-4e2d-9035-b15433dfbb17/6f978b6e-947a-4a6e-a6d6-ddbcf36b4403"
-					(reference "C121")
+					(reference "C73")
 					(unit 1)
 				)
 			)
@@ -5014,7 +5032,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "330e8be0-1e6e-45a1-9f85-b007009e4c10")
-		(property "Reference" "R?"
+		(property "Reference" "R25"
 			(at 166.37 38.1 90)
 			(effects
 				(font
@@ -5075,26 +5093,26 @@
 		(instances
 			(project "GDI-STM"
 				(path "/03caada9-9e22-4e2d-9035-b15433dfbb17/03351135-9cc9-422f-b1c4-096ea7d8acfa"
-					(reference "R?")
+					(reference "R25")
 					(unit 1)
 				)
 				(path "/03caada9-9e22-4e2d-9035-b15433dfbb17/3e093d68-78a8-4af4-b389-2900f3f4a898"
-					(reference "R112")
+					(reference "R76")
 					(unit 1)
 				)
 				(path "/03caada9-9e22-4e2d-9035-b15433dfbb17/66965367-94ca-4a16-a49b-a38c1de4eaa0"
-					(reference "R34")
+					(reference "R42")
 					(unit 1)
 				)
 				(path "/03caada9-9e22-4e2d-9035-b15433dfbb17/6f978b6e-947a-4a6e-a6d6-ddbcf36b4403"
-					(reference "R72")
+					(reference "R59")
 					(unit 1)
 				)
 			)
 		)
 	)
 	(symbol
-		(lib_id "Device:Q_NMOS_GDS")
+		(lib_id "Transistor_FET:Q_NMOS_GDS")
 		(at 143.51 69.85 0)
 		(mirror y)
 		(unit 1)
@@ -5103,7 +5121,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "4869ff02-d050-4c2a-9ddd-cef4f37c880c")
-		(property "Reference" "Q20"
+		(property "Reference" "Q4"
 			(at 134.366 67.31 0)
 			(effects
 				(font
@@ -5122,24 +5140,24 @@
 			)
 		)
 		(property "Footprint" "Package_TO_SOT_SMD:TO-252-2"
-			(at 163.068 34.925 90)
+			(at 138.43 67.31 0)
 			(effects
 				(font
-					(size 1.524 1.524)
+					(size 1.27 1.27)
 				)
 				(hide yes)
 			)
 		)
-		(property "Datasheet" ""
-			(at 73.66 34.29 0)
+		(property "Datasheet" "~"
+			(at 143.51 69.85 0)
 			(effects
 				(font
-					(size 1.524 1.524)
+					(size 1.27 1.27)
 				)
 				(hide yes)
 			)
 		)
-		(property "Description" ""
+		(property "Description" "N-MOSFET transistor, gate/drain/source"
 			(at 143.51 69.85 0)
 			(effects
 				(font
@@ -5169,19 +5187,19 @@
 		(instances
 			(project "GDI-STM"
 				(path "/03caada9-9e22-4e2d-9035-b15433dfbb17/03351135-9cc9-422f-b1c4-096ea7d8acfa"
-					(reference "Q20")
+					(reference "Q4")
 					(unit 1)
 				)
 				(path "/03caada9-9e22-4e2d-9035-b15433dfbb17/3e093d68-78a8-4af4-b389-2900f3f4a898"
-					(reference "Q31")
+					(reference "Q16")
 					(unit 1)
 				)
 				(path "/03caada9-9e22-4e2d-9035-b15433dfbb17/66965367-94ca-4a16-a49b-a38c1de4eaa0"
-					(reference "Q22")
+					(reference "Q8")
 					(unit 1)
 				)
 				(path "/03caada9-9e22-4e2d-9035-b15433dfbb17/6f978b6e-947a-4a6e-a6d6-ddbcf36b4403"
-					(reference "Q27")
+					(reference "Q12")
 					(unit 1)
 				)
 			)
@@ -5196,7 +5214,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "4a1a5037-0ae2-4497-9800-c923e8ba4f8f")
-		(property "Reference" "R66"
+		(property "Reference" "R24"
 			(at 157.988 134.62 90)
 			(effects
 				(font
@@ -5257,19 +5275,19 @@
 		(instances
 			(project "GDI-STM"
 				(path "/03caada9-9e22-4e2d-9035-b15433dfbb17/03351135-9cc9-422f-b1c4-096ea7d8acfa"
-					(reference "R66")
+					(reference "R24")
 					(unit 1)
 				)
 				(path "/03caada9-9e22-4e2d-9035-b15433dfbb17/3e093d68-78a8-4af4-b389-2900f3f4a898"
-					(reference "R111")
+					(reference "R75")
 					(unit 1)
 				)
 				(path "/03caada9-9e22-4e2d-9035-b15433dfbb17/66965367-94ca-4a16-a49b-a38c1de4eaa0"
-					(reference "R33")
+					(reference "R41")
 					(unit 1)
 				)
 				(path "/03caada9-9e22-4e2d-9035-b15433dfbb17/6f978b6e-947a-4a6e-a6d6-ddbcf36b4403"
-					(reference "R71")
+					(reference "R58")
 					(unit 1)
 				)
 			)
@@ -5284,7 +5302,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "4beaf83e-4053-4521-b5d0-20e94b94c882")
-		(property "Reference" "#PWR?"
+		(property "Reference" "#PWR0109"
 			(at 111.76 69.85 0)
 			(effects
 				(font
@@ -5319,7 +5337,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" ""
+		(property "Description" "Power symbol creates a global label with name \"Vdrive\""
 			(at 107.95 64.77 0)
 			(effects
 				(font
@@ -5334,7 +5352,7 @@
 		(instances
 			(project "GDI-STM"
 				(path "/03caada9-9e22-4e2d-9035-b15433dfbb17/03351135-9cc9-422f-b1c4-096ea7d8acfa"
-					(reference "#PWR?")
+					(reference "#PWR0109")
 					(unit 1)
 				)
 				(path "/03caada9-9e22-4e2d-9035-b15433dfbb17/3e093d68-78a8-4af4-b389-2900f3f4a898"
@@ -5396,7 +5414,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" ""
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
 			(at 189.23 68.58 0)
 			(effects
 				(font
@@ -5438,7 +5456,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "52a3f082-f2c9-434a-b04e-48453cb8381f")
-		(property "Reference" "R68"
+		(property "Reference" "R30"
 			(at 165.608 144.78 90)
 			(effects
 				(font
@@ -5499,11 +5517,11 @@
 		(instances
 			(project "GDI-STM"
 				(path "/03caada9-9e22-4e2d-9035-b15433dfbb17/03351135-9cc9-422f-b1c4-096ea7d8acfa"
-					(reference "R68")
+					(reference "R30")
 					(unit 1)
 				)
 				(path "/03caada9-9e22-4e2d-9035-b15433dfbb17/3e093d68-78a8-4af4-b389-2900f3f4a898"
-					(reference "R117")
+					(reference "R81")
 					(unit 1)
 				)
 				(path "/03caada9-9e22-4e2d-9035-b15433dfbb17/66965367-94ca-4a16-a49b-a38c1de4eaa0"
@@ -5511,7 +5529,7 @@
 					(unit 1)
 				)
 				(path "/03caada9-9e22-4e2d-9035-b15433dfbb17/6f978b6e-947a-4a6e-a6d6-ddbcf36b4403"
-					(reference "R77")
+					(reference "R64")
 					(unit 1)
 				)
 			)
@@ -5526,7 +5544,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "58a4db8f-6b8b-4ad1-8bca-872d4986355a")
-		(property "Reference" "D?"
+		(property "Reference" "D13"
 			(at 106.68 63.5 0)
 			(effects
 				(font
@@ -5534,7 +5552,7 @@
 				)
 			)
 		)
-		(property "Value" "STPS2H100UY"
+		(property "Value" "SS520B"
 			(at 118.11 63.5 0)
 			(effects
 				(font
@@ -5569,7 +5587,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC" "C163541"
+		(property "LCSC" "C382826"
 			(at 110.49 64.77 0)
 			(effects
 				(font
@@ -5587,19 +5605,19 @@
 		(instances
 			(project "GDI-STM"
 				(path "/03caada9-9e22-4e2d-9035-b15433dfbb17/03351135-9cc9-422f-b1c4-096ea7d8acfa"
-					(reference "D?")
+					(reference "D13")
 					(unit 1)
 				)
 				(path "/03caada9-9e22-4e2d-9035-b15433dfbb17/3e093d68-78a8-4af4-b389-2900f3f4a898"
-					(reference "D37")
+					(reference "D28")
 					(unit 1)
 				)
 				(path "/03caada9-9e22-4e2d-9035-b15433dfbb17/66965367-94ca-4a16-a49b-a38c1de4eaa0"
-					(reference "D6")
+					(reference "D18")
 					(unit 1)
 				)
 				(path "/03caada9-9e22-4e2d-9035-b15433dfbb17/6f978b6e-947a-4a6e-a6d6-ddbcf36b4403"
-					(reference "D26")
+					(reference "D23")
 					(unit 1)
 				)
 			)
@@ -5615,7 +5633,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "5aa60d68-a5f1-4d25-be8a-e20e46df87d2")
-		(property "Reference" "C?"
+		(property "Reference" "C38"
 			(at 80.01 54.61 90)
 			(effects
 				(font
@@ -5678,19 +5696,19 @@
 		(instances
 			(project "GDI-STM"
 				(path "/03caada9-9e22-4e2d-9035-b15433dfbb17/03351135-9cc9-422f-b1c4-096ea7d8acfa"
-					(reference "C?")
+					(reference "C38")
 					(unit 1)
 				)
 				(path "/03caada9-9e22-4e2d-9035-b15433dfbb17/3e093d68-78a8-4af4-b389-2900f3f4a898"
-					(reference "C137")
+					(reference "C89")
 					(unit 1)
 				)
 				(path "/03caada9-9e22-4e2d-9035-b15433dfbb17/66965367-94ca-4a16-a49b-a38c1de4eaa0"
-					(reference "C66")
+					(reference "C55")
 					(unit 1)
 				)
 				(path "/03caada9-9e22-4e2d-9035-b15433dfbb17/6f978b6e-947a-4a6e-a6d6-ddbcf36b4403"
-					(reference "C120")
+					(reference "C72")
 					(unit 1)
 				)
 			)
@@ -5705,7 +5723,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "5db3db7f-31d5-4c4c-bbf5-2f0b91b7dd52")
-		(property "Reference" "R58"
+		(property "Reference" "R18"
 			(at 74.168 135.89 90)
 			(effects
 				(font
@@ -5766,15 +5784,15 @@
 		(instances
 			(project "GDI-STM"
 				(path "/03caada9-9e22-4e2d-9035-b15433dfbb17/03351135-9cc9-422f-b1c4-096ea7d8acfa"
-					(reference "R58")
+					(reference "R18")
 					(unit 1)
 				)
 				(path "/03caada9-9e22-4e2d-9035-b15433dfbb17/3e093d68-78a8-4af4-b389-2900f3f4a898"
-					(reference "R86")
+					(reference "R69")
 					(unit 1)
 				)
 				(path "/03caada9-9e22-4e2d-9035-b15433dfbb17/66965367-94ca-4a16-a49b-a38c1de4eaa0"
-					(reference "R6")
+					(reference "R35")
 					(unit 1)
 				)
 				(path "/03caada9-9e22-4e2d-9035-b15433dfbb17/6f978b6e-947a-4a6e-a6d6-ddbcf36b4403"
@@ -5793,7 +5811,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "62592d8e-5aac-41e5-a8aa-35355b10e836")
-		(property "Reference" "#PWR?"
+		(property "Reference" "#PWR0110"
 			(at 111.76 85.09 0)
 			(effects
 				(font
@@ -5828,7 +5846,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" ""
+		(property "Description" "Power symbol creates a global label with name \"Vdrive\""
 			(at 107.95 80.01 0)
 			(effects
 				(font
@@ -5843,7 +5861,7 @@
 		(instances
 			(project "GDI-STM"
 				(path "/03caada9-9e22-4e2d-9035-b15433dfbb17/03351135-9cc9-422f-b1c4-096ea7d8acfa"
-					(reference "#PWR?")
+					(reference "#PWR0110")
 					(unit 1)
 				)
 				(path "/03caada9-9e22-4e2d-9035-b15433dfbb17/3e093d68-78a8-4af4-b389-2900f3f4a898"
@@ -5870,7 +5888,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "639f4594-2bf5-4ec8-9a5b-3e298e33551f")
-		(property "Reference" "C111"
+		(property "Reference" "C49"
 			(at 189.6592 23.6653 90)
 			(effects
 				(font
@@ -5933,19 +5951,19 @@
 		(instances
 			(project "GDI-STM"
 				(path "/03caada9-9e22-4e2d-9035-b15433dfbb17/03351135-9cc9-422f-b1c4-096ea7d8acfa"
-					(reference "C111")
+					(reference "C49")
 					(unit 1)
 				)
 				(path "/03caada9-9e22-4e2d-9035-b15433dfbb17/3e093d68-78a8-4af4-b389-2900f3f4a898"
-					(reference "C148")
+					(reference "C100")
 					(unit 1)
 				)
 				(path "/03caada9-9e22-4e2d-9035-b15433dfbb17/66965367-94ca-4a16-a49b-a38c1de4eaa0"
-					(reference "C108")
+					(reference "C66")
 					(unit 1)
 				)
 				(path "/03caada9-9e22-4e2d-9035-b15433dfbb17/6f978b6e-947a-4a6e-a6d6-ddbcf36b4403"
-					(reference "C131")
+					(reference "C83")
 					(unit 1)
 				)
 			)
@@ -5961,7 +5979,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "65546867-e1ac-4fac-9382-3e66bde3c972")
-		(property "Reference" "U12"
+		(property "Reference" "U9"
 			(at 217.17 129.4698 0)
 			(effects
 				(font
@@ -6040,19 +6058,19 @@
 		(instances
 			(project "GDI-STM"
 				(path "/03caada9-9e22-4e2d-9035-b15433dfbb17/03351135-9cc9-422f-b1c4-096ea7d8acfa"
-					(reference "U12")
+					(reference "U9")
 					(unit 1)
 				)
 				(path "/03caada9-9e22-4e2d-9035-b15433dfbb17/3e093d68-78a8-4af4-b389-2900f3f4a898"
-					(reference "U18")
+					(reference "U21")
 					(unit 1)
 				)
 				(path "/03caada9-9e22-4e2d-9035-b15433dfbb17/66965367-94ca-4a16-a49b-a38c1de4eaa0"
-					(reference "U7")
+					(reference "U13")
 					(unit 1)
 				)
 				(path "/03caada9-9e22-4e2d-9035-b15433dfbb17/6f978b6e-947a-4a6e-a6d6-ddbcf36b4403"
-					(reference "U14")
+					(reference "U17")
 					(unit 1)
 				)
 			)
@@ -6067,7 +6085,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "6a72a438-2cb9-4842-a13f-1668aeea0929")
-		(property "Reference" "D?"
+		(property "Reference" "D16"
 			(at 180.848 62.23 90)
 			(effects
 				(font
@@ -6130,19 +6148,19 @@
 		(instances
 			(project "GDI-STM"
 				(path "/03caada9-9e22-4e2d-9035-b15433dfbb17/03351135-9cc9-422f-b1c4-096ea7d8acfa"
-					(reference "D?")
+					(reference "D16")
 					(unit 1)
 				)
 				(path "/03caada9-9e22-4e2d-9035-b15433dfbb17/3e093d68-78a8-4af4-b389-2900f3f4a898"
-					(reference "D40")
+					(reference "D31")
 					(unit 1)
 				)
 				(path "/03caada9-9e22-4e2d-9035-b15433dfbb17/66965367-94ca-4a16-a49b-a38c1de4eaa0"
-					(reference "D24")
+					(reference "D21")
 					(unit 1)
 				)
 				(path "/03caada9-9e22-4e2d-9035-b15433dfbb17/6f978b6e-947a-4a6e-a6d6-ddbcf36b4403"
-					(reference "D35")
+					(reference "D26")
 					(unit 1)
 				)
 			)
@@ -6192,7 +6210,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" ""
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
 			(at 189.23 29.21 0)
 			(effects
 				(font
@@ -6234,7 +6252,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "6cd10d42-ee3c-49a1-bccd-b2c522a06aed")
-		(property "Reference" "C113"
+		(property "Reference" "C52"
 			(at 199.39 63.5 90)
 			(effects
 				(font
@@ -6297,19 +6315,19 @@
 		(instances
 			(project "GDI-STM"
 				(path "/03caada9-9e22-4e2d-9035-b15433dfbb17/03351135-9cc9-422f-b1c4-096ea7d8acfa"
-					(reference "C113")
+					(reference "C52")
 					(unit 1)
 				)
 				(path "/03caada9-9e22-4e2d-9035-b15433dfbb17/3e093d68-78a8-4af4-b389-2900f3f4a898"
-					(reference "C151")
+					(reference "C103")
 					(unit 1)
 				)
 				(path "/03caada9-9e22-4e2d-9035-b15433dfbb17/66965367-94ca-4a16-a49b-a38c1de4eaa0"
-					(reference "C117")
+					(reference "C69")
 					(unit 1)
 				)
 				(path "/03caada9-9e22-4e2d-9035-b15433dfbb17/6f978b6e-947a-4a6e-a6d6-ddbcf36b4403"
-					(reference "C134")
+					(reference "C86")
 					(unit 1)
 				)
 			)
@@ -6325,7 +6343,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "6dd296cb-3dca-42f8-a45c-67c608ae1340")
-		(property "Reference" "C?"
+		(property "Reference" "C42"
 			(at 149.86 40.64 0)
 			(effects
 				(font
@@ -6388,19 +6406,19 @@
 		(instances
 			(project "GDI-STM"
 				(path "/03caada9-9e22-4e2d-9035-b15433dfbb17/03351135-9cc9-422f-b1c4-096ea7d8acfa"
-					(reference "C?")
+					(reference "C42")
 					(unit 1)
 				)
 				(path "/03caada9-9e22-4e2d-9035-b15433dfbb17/3e093d68-78a8-4af4-b389-2900f3f4a898"
-					(reference "C141")
+					(reference "C93")
 					(unit 1)
 				)
 				(path "/03caada9-9e22-4e2d-9035-b15433dfbb17/66965367-94ca-4a16-a49b-a38c1de4eaa0"
-					(reference "C100")
+					(reference "C59")
 					(unit 1)
 				)
 				(path "/03caada9-9e22-4e2d-9035-b15433dfbb17/6f978b6e-947a-4a6e-a6d6-ddbcf36b4403"
-					(reference "C124")
+					(reference "C76")
 					(unit 1)
 				)
 			)
@@ -6415,7 +6433,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "6feb5af1-68e9-45e5-903d-8ba490a08833")
-		(property "Reference" "#PWR?"
+		(property "Reference" "#PWR0107"
 			(at 135.89 109.22 0)
 			(effects
 				(font
@@ -6450,7 +6468,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" ""
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
 			(at 135.89 102.87 0)
 			(effects
 				(font
@@ -6465,7 +6483,7 @@
 		(instances
 			(project "GDI-STM"
 				(path "/03caada9-9e22-4e2d-9035-b15433dfbb17/03351135-9cc9-422f-b1c4-096ea7d8acfa"
-					(reference "#PWR?")
+					(reference "#PWR0107")
 					(unit 1)
 				)
 				(path "/03caada9-9e22-4e2d-9035-b15433dfbb17/3e093d68-78a8-4af4-b389-2900f3f4a898"
@@ -6493,7 +6511,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "786ad4b6-af6e-4f61-9bbf-efa45a92051d")
-		(property "Reference" "C?"
+		(property "Reference" "C40"
 			(at 80.01 91.44 90)
 			(effects
 				(font
@@ -6556,19 +6574,19 @@
 		(instances
 			(project "GDI-STM"
 				(path "/03caada9-9e22-4e2d-9035-b15433dfbb17/03351135-9cc9-422f-b1c4-096ea7d8acfa"
-					(reference "C?")
+					(reference "C40")
 					(unit 1)
 				)
 				(path "/03caada9-9e22-4e2d-9035-b15433dfbb17/3e093d68-78a8-4af4-b389-2900f3f4a898"
-					(reference "C139")
+					(reference "C91")
 					(unit 1)
 				)
 				(path "/03caada9-9e22-4e2d-9035-b15433dfbb17/66965367-94ca-4a16-a49b-a38c1de4eaa0"
-					(reference "C70")
+					(reference "C57")
 					(unit 1)
 				)
 				(path "/03caada9-9e22-4e2d-9035-b15433dfbb17/6f978b6e-947a-4a6e-a6d6-ddbcf36b4403"
-					(reference "C122")
+					(reference "C74")
 					(unit 1)
 				)
 			)
@@ -6585,7 +6603,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "7ac9b854-bc2a-466e-b587-a411e1535b4f")
-		(property "Reference" "U10"
+		(property "Reference" "U11"
 			(at 212.6681 66.04 0)
 			(effects
 				(font
@@ -6667,19 +6685,19 @@
 		(instances
 			(project "GDI-STM"
 				(path "/03caada9-9e22-4e2d-9035-b15433dfbb17/03351135-9cc9-422f-b1c4-096ea7d8acfa"
-					(reference "U10")
-					(unit 1)
-				)
-				(path "/03caada9-9e22-4e2d-9035-b15433dfbb17/3e093d68-78a8-4af4-b389-2900f3f4a898"
-					(reference "U20")
-					(unit 1)
-				)
-				(path "/03caada9-9e22-4e2d-9035-b15433dfbb17/66965367-94ca-4a16-a49b-a38c1de4eaa0"
 					(reference "U11")
 					(unit 1)
 				)
+				(path "/03caada9-9e22-4e2d-9035-b15433dfbb17/3e093d68-78a8-4af4-b389-2900f3f4a898"
+					(reference "U23")
+					(unit 1)
+				)
+				(path "/03caada9-9e22-4e2d-9035-b15433dfbb17/66965367-94ca-4a16-a49b-a38c1de4eaa0"
+					(reference "U15")
+					(unit 1)
+				)
 				(path "/03caada9-9e22-4e2d-9035-b15433dfbb17/6f978b6e-947a-4a6e-a6d6-ddbcf36b4403"
-					(reference "U16")
+					(reference "U19")
 					(unit 1)
 				)
 			)
@@ -6694,7 +6712,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "7ee4e47d-a796-4338-87c3-ef4266ab294f")
-		(property "Reference" "R62"
+		(property "Reference" "R20"
 			(at 81.788 146.05 90)
 			(effects
 				(font
@@ -6755,19 +6773,19 @@
 		(instances
 			(project "GDI-STM"
 				(path "/03caada9-9e22-4e2d-9035-b15433dfbb17/03351135-9cc9-422f-b1c4-096ea7d8acfa"
-					(reference "R62")
+					(reference "R20")
 					(unit 1)
 				)
 				(path "/03caada9-9e22-4e2d-9035-b15433dfbb17/3e093d68-78a8-4af4-b389-2900f3f4a898"
-					(reference "R107")
+					(reference "R71")
 					(unit 1)
 				)
 				(path "/03caada9-9e22-4e2d-9035-b15433dfbb17/66965367-94ca-4a16-a49b-a38c1de4eaa0"
-					(reference "R29")
+					(reference "R37")
 					(unit 1)
 				)
 				(path "/03caada9-9e22-4e2d-9035-b15433dfbb17/6f978b6e-947a-4a6e-a6d6-ddbcf36b4403"
-					(reference "R55")
+					(reference "R54")
 					(unit 1)
 				)
 			)
@@ -6817,7 +6835,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" ""
+		(property "Description" "Power symbol creates a global label with name \"+BATT\""
 			(at 189.23 58.42 0)
 			(effects
 				(font
@@ -6894,7 +6912,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" ""
+		(property "Description" "Power symbol creates a global label with name \"+BATT\""
 			(at 189.23 19.05 0)
 			(effects
 				(font
@@ -6936,7 +6954,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "8782391c-8d2e-463c-b6d8-5ba32ddff6fd")
-		(property "Reference" "#PWR?"
+		(property "Reference" "#PWR0108"
 			(at 78.74 104.14 0)
 			(effects
 				(font
@@ -6971,7 +6989,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" ""
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
 			(at 78.74 97.79 0)
 			(effects
 				(font
@@ -6986,7 +7004,7 @@
 		(instances
 			(project "GDI-STM"
 				(path "/03caada9-9e22-4e2d-9035-b15433dfbb17/03351135-9cc9-422f-b1c4-096ea7d8acfa"
-					(reference "#PWR?")
+					(reference "#PWR0108")
 					(unit 1)
 				)
 				(path "/03caada9-9e22-4e2d-9035-b15433dfbb17/3e093d68-78a8-4af4-b389-2900f3f4a898"
@@ -7013,7 +7031,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "899e8f96-a016-445a-8161-945da92fef1a")
-		(property "Reference" "C116"
+		(property "Reference" "C53"
 			(at 205.74 119.38 90)
 			(effects
 				(font
@@ -7076,19 +7094,19 @@
 		(instances
 			(project "GDI-STM"
 				(path "/03caada9-9e22-4e2d-9035-b15433dfbb17/03351135-9cc9-422f-b1c4-096ea7d8acfa"
-					(reference "C116")
+					(reference "C53")
 					(unit 1)
 				)
 				(path "/03caada9-9e22-4e2d-9035-b15433dfbb17/3e093d68-78a8-4af4-b389-2900f3f4a898"
-					(reference "C152")
+					(reference "C104")
 					(unit 1)
 				)
 				(path "/03caada9-9e22-4e2d-9035-b15433dfbb17/66965367-94ca-4a16-a49b-a38c1de4eaa0"
-					(reference "C118")
+					(reference "C70")
 					(unit 1)
 				)
 				(path "/03caada9-9e22-4e2d-9035-b15433dfbb17/6f978b6e-947a-4a6e-a6d6-ddbcf36b4403"
-					(reference "C135")
+					(reference "C87")
 					(unit 1)
 				)
 			)
@@ -7105,7 +7123,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "934dae78-3278-4e15-af42-939605da0fdd")
-		(property "Reference" "U?"
+		(property "Reference" "U10"
 			(at 212.6681 26.67 0)
 			(effects
 				(font
@@ -7187,19 +7205,19 @@
 		(instances
 			(project "GDI-STM"
 				(path "/03caada9-9e22-4e2d-9035-b15433dfbb17/03351135-9cc9-422f-b1c4-096ea7d8acfa"
-					(reference "U?")
+					(reference "U10")
 					(unit 1)
 				)
 				(path "/03caada9-9e22-4e2d-9035-b15433dfbb17/3e093d68-78a8-4af4-b389-2900f3f4a898"
-					(reference "U19")
+					(reference "U22")
 					(unit 1)
 				)
 				(path "/03caada9-9e22-4e2d-9035-b15433dfbb17/66965367-94ca-4a16-a49b-a38c1de4eaa0"
-					(reference "U9")
+					(reference "U14")
 					(unit 1)
 				)
 				(path "/03caada9-9e22-4e2d-9035-b15433dfbb17/6f978b6e-947a-4a6e-a6d6-ddbcf36b4403"
-					(reference "U15")
+					(reference "U18")
 					(unit 1)
 				)
 			)
@@ -7215,7 +7233,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "93ab4f2f-65fe-4515-9c73-0503bbf05f4d")
-		(property "Reference" "C?"
+		(property "Reference" "C44"
 			(at 149.86 71.12 0)
 			(effects
 				(font
@@ -7278,19 +7296,19 @@
 		(instances
 			(project "GDI-STM"
 				(path "/03caada9-9e22-4e2d-9035-b15433dfbb17/03351135-9cc9-422f-b1c4-096ea7d8acfa"
-					(reference "C?")
+					(reference "C44")
 					(unit 1)
 				)
 				(path "/03caada9-9e22-4e2d-9035-b15433dfbb17/3e093d68-78a8-4af4-b389-2900f3f4a898"
-					(reference "C143")
+					(reference "C95")
 					(unit 1)
 				)
 				(path "/03caada9-9e22-4e2d-9035-b15433dfbb17/66965367-94ca-4a16-a49b-a38c1de4eaa0"
-					(reference "C102")
+					(reference "C61")
 					(unit 1)
 				)
 				(path "/03caada9-9e22-4e2d-9035-b15433dfbb17/6f978b6e-947a-4a6e-a6d6-ddbcf36b4403"
-					(reference "C126")
+					(reference "C78")
 					(unit 1)
 				)
 			)
@@ -7340,7 +7358,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" ""
+		(property "Description" "Power symbol creates a global label with name \"+3.3V\""
 			(at 204.47 116.84 0)
 			(effects
 				(font
@@ -7383,7 +7401,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "a3191568-6e0f-45b2-a25e-2c58b79d78a7")
-		(property "Reference" "C?"
+		(property "Reference" "C47"
 			(at 154.94 58.42 90)
 			(effects
 				(font
@@ -7446,19 +7464,19 @@
 		(instances
 			(project "GDI-STM"
 				(path "/03caada9-9e22-4e2d-9035-b15433dfbb17/03351135-9cc9-422f-b1c4-096ea7d8acfa"
-					(reference "C?")
+					(reference "C47")
 					(unit 1)
 				)
 				(path "/03caada9-9e22-4e2d-9035-b15433dfbb17/3e093d68-78a8-4af4-b389-2900f3f4a898"
-					(reference "C146")
+					(reference "C98")
 					(unit 1)
 				)
 				(path "/03caada9-9e22-4e2d-9035-b15433dfbb17/66965367-94ca-4a16-a49b-a38c1de4eaa0"
-					(reference "C105")
+					(reference "C64")
 					(unit 1)
 				)
 				(path "/03caada9-9e22-4e2d-9035-b15433dfbb17/6f978b6e-947a-4a6e-a6d6-ddbcf36b4403"
-					(reference "C129")
+					(reference "C81")
 					(unit 1)
 				)
 			)
@@ -7473,7 +7491,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "a35ae02a-4329-4953-a00f-16a83f206574")
-		(property "Reference" "R65"
+		(property "Reference" "R23"
 			(at 157.988 127 90)
 			(effects
 				(font
@@ -7534,19 +7552,19 @@
 		(instances
 			(project "GDI-STM"
 				(path "/03caada9-9e22-4e2d-9035-b15433dfbb17/03351135-9cc9-422f-b1c4-096ea7d8acfa"
-					(reference "R65")
+					(reference "R23")
 					(unit 1)
 				)
 				(path "/03caada9-9e22-4e2d-9035-b15433dfbb17/3e093d68-78a8-4af4-b389-2900f3f4a898"
-					(reference "R110")
+					(reference "R74")
 					(unit 1)
 				)
 				(path "/03caada9-9e22-4e2d-9035-b15433dfbb17/66965367-94ca-4a16-a49b-a38c1de4eaa0"
-					(reference "R32")
+					(reference "R40")
 					(unit 1)
 				)
 				(path "/03caada9-9e22-4e2d-9035-b15433dfbb17/6f978b6e-947a-4a6e-a6d6-ddbcf36b4403"
-					(reference "R70")
+					(reference "R57")
 					(unit 1)
 				)
 			)
@@ -7561,7 +7579,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "a4aad463-252a-445a-a3aa-11bd1d922253")
-		(property "Reference" "R69"
+		(property "Reference" "R33"
 			(at 187.198 135.89 90)
 			(effects
 				(font
@@ -7622,11 +7640,11 @@
 		(instances
 			(project "GDI-STM"
 				(path "/03caada9-9e22-4e2d-9035-b15433dfbb17/03351135-9cc9-422f-b1c4-096ea7d8acfa"
-					(reference "R69")
+					(reference "R33")
 					(unit 1)
 				)
 				(path "/03caada9-9e22-4e2d-9035-b15433dfbb17/3e093d68-78a8-4af4-b389-2900f3f4a898"
-					(reference "R121")
+					(reference "R84")
 					(unit 1)
 				)
 				(path "/03caada9-9e22-4e2d-9035-b15433dfbb17/66965367-94ca-4a16-a49b-a38c1de4eaa0"
@@ -7634,14 +7652,14 @@
 					(unit 1)
 				)
 				(path "/03caada9-9e22-4e2d-9035-b15433dfbb17/6f978b6e-947a-4a6e-a6d6-ddbcf36b4403"
-					(reference "R84")
+					(reference "R67")
 					(unit 1)
 				)
 			)
 		)
 	)
 	(symbol
-		(lib_id "Device:Q_NMOS_GDS")
+		(lib_id "Transistor_FET:Q_NMOS_GDS")
 		(at 143.51 39.37 0)
 		(mirror y)
 		(unit 1)
@@ -7650,7 +7668,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "a76145a2-aeb7-4298-bbdc-e46da81cc592")
-		(property "Reference" "Q24"
+		(property "Reference" "Q2"
 			(at 134.366 36.83 0)
 			(effects
 				(font
@@ -7669,24 +7687,24 @@
 			)
 		)
 		(property "Footprint" "Package_TO_SOT_SMD:TO-252-2"
-			(at 163.068 4.445 90)
+			(at 138.43 36.83 0)
 			(effects
 				(font
-					(size 1.524 1.524)
+					(size 1.27 1.27)
 				)
 				(hide yes)
 			)
 		)
-		(property "Datasheet" ""
-			(at 73.66 3.81 0)
+		(property "Datasheet" "~"
+			(at 143.51 39.37 0)
 			(effects
 				(font
-					(size 1.524 1.524)
+					(size 1.27 1.27)
 				)
 				(hide yes)
 			)
 		)
-		(property "Description" ""
+		(property "Description" "N-MOSFET transistor, gate/drain/source"
 			(at 143.51 39.37 0)
 			(effects
 				(font
@@ -7716,19 +7734,19 @@
 		(instances
 			(project "GDI-STM"
 				(path "/03caada9-9e22-4e2d-9035-b15433dfbb17/03351135-9cc9-422f-b1c4-096ea7d8acfa"
-					(reference "Q24")
+					(reference "Q2")
 					(unit 1)
 				)
 				(path "/03caada9-9e22-4e2d-9035-b15433dfbb17/3e093d68-78a8-4af4-b389-2900f3f4a898"
-					(reference "Q29")
-					(unit 1)
-				)
-				(path "/03caada9-9e22-4e2d-9035-b15433dfbb17/66965367-94ca-4a16-a49b-a38c1de4eaa0"
 					(reference "Q14")
 					(unit 1)
 				)
+				(path "/03caada9-9e22-4e2d-9035-b15433dfbb17/66965367-94ca-4a16-a49b-a38c1de4eaa0"
+					(reference "Q6")
+					(unit 1)
+				)
 				(path "/03caada9-9e22-4e2d-9035-b15433dfbb17/6f978b6e-947a-4a6e-a6d6-ddbcf36b4403"
-					(reference "Q25")
+					(reference "Q10")
 					(unit 1)
 				)
 			)
@@ -7778,7 +7796,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" ""
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
 			(at 198.12 29.21 0)
 			(effects
 				(font
@@ -7820,7 +7838,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "ad837b7f-94e2-4ea9-b162-57cf68a225b5")
-		(property "Reference" "D27"
+		(property "Reference" "D15"
 			(at 180.848 22.86 90)
 			(effects
 				(font
@@ -7883,19 +7901,19 @@
 		(instances
 			(project "GDI-STM"
 				(path "/03caada9-9e22-4e2d-9035-b15433dfbb17/03351135-9cc9-422f-b1c4-096ea7d8acfa"
-					(reference "D27")
+					(reference "D15")
 					(unit 1)
 				)
 				(path "/03caada9-9e22-4e2d-9035-b15433dfbb17/3e093d68-78a8-4af4-b389-2900f3f4a898"
-					(reference "D39")
+					(reference "D30")
 					(unit 1)
 				)
 				(path "/03caada9-9e22-4e2d-9035-b15433dfbb17/66965367-94ca-4a16-a49b-a38c1de4eaa0"
-					(reference "D23")
+					(reference "D20")
 					(unit 1)
 				)
 				(path "/03caada9-9e22-4e2d-9035-b15433dfbb17/6f978b6e-947a-4a6e-a6d6-ddbcf36b4403"
-					(reference "D30")
+					(reference "D25")
 					(unit 1)
 				)
 			)
@@ -7945,7 +7963,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" ""
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
 			(at 160.02 138.43 0)
 			(effects
 				(font
@@ -7987,7 +8005,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "b40e022a-68ff-4213-a088-66ec7f801704")
-		(property "Reference" "C107"
+		(property "Reference" "C51"
 			(at 199.39 24.13 90)
 			(effects
 				(font
@@ -8050,19 +8068,19 @@
 		(instances
 			(project "GDI-STM"
 				(path "/03caada9-9e22-4e2d-9035-b15433dfbb17/03351135-9cc9-422f-b1c4-096ea7d8acfa"
-					(reference "C107")
+					(reference "C51")
 					(unit 1)
 				)
 				(path "/03caada9-9e22-4e2d-9035-b15433dfbb17/3e093d68-78a8-4af4-b389-2900f3f4a898"
-					(reference "C150")
+					(reference "C102")
 					(unit 1)
 				)
 				(path "/03caada9-9e22-4e2d-9035-b15433dfbb17/66965367-94ca-4a16-a49b-a38c1de4eaa0"
-					(reference "C110")
+					(reference "C68")
 					(unit 1)
 				)
 				(path "/03caada9-9e22-4e2d-9035-b15433dfbb17/6f978b6e-947a-4a6e-a6d6-ddbcf36b4403"
-					(reference "C133")
+					(reference "C85")
 					(unit 1)
 				)
 			)
@@ -8112,7 +8130,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" ""
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
 			(at 120.65 125.73 0)
 			(effects
 				(font
@@ -8155,7 +8173,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "b65bcc19-005b-4277-a43e-2a24800fd74f")
-		(property "Reference" "C112"
+		(property "Reference" "C45"
 			(at 149.86 86.36 0)
 			(effects
 				(font
@@ -8218,19 +8236,19 @@
 		(instances
 			(project "GDI-STM"
 				(path "/03caada9-9e22-4e2d-9035-b15433dfbb17/03351135-9cc9-422f-b1c4-096ea7d8acfa"
-					(reference "C112")
+					(reference "C45")
 					(unit 1)
 				)
 				(path "/03caada9-9e22-4e2d-9035-b15433dfbb17/3e093d68-78a8-4af4-b389-2900f3f4a898"
-					(reference "C144")
+					(reference "C96")
 					(unit 1)
 				)
 				(path "/03caada9-9e22-4e2d-9035-b15433dfbb17/66965367-94ca-4a16-a49b-a38c1de4eaa0"
-					(reference "C103")
+					(reference "C62")
 					(unit 1)
 				)
 				(path "/03caada9-9e22-4e2d-9035-b15433dfbb17/6f978b6e-947a-4a6e-a6d6-ddbcf36b4403"
-					(reference "C127")
+					(reference "C79")
 					(unit 1)
 				)
 			)
@@ -8245,7 +8263,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "b8959643-e880-4d36-9e51-0db686de0914")
-		(property "Reference" "#PWR?"
+		(property "Reference" "#PWR0111"
 			(at 78.74 88.9 0)
 			(effects
 				(font
@@ -8280,7 +8298,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" ""
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
 			(at 78.74 82.55 0)
 			(effects
 				(font
@@ -8295,7 +8313,7 @@
 		(instances
 			(project "GDI-STM"
 				(path "/03caada9-9e22-4e2d-9035-b15433dfbb17/03351135-9cc9-422f-b1c4-096ea7d8acfa"
-					(reference "#PWR?")
+					(reference "#PWR0111")
 					(unit 1)
 				)
 				(path "/03caada9-9e22-4e2d-9035-b15433dfbb17/3e093d68-78a8-4af4-b389-2900f3f4a898"
@@ -8322,7 +8340,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "b9665ddc-6d85-40fa-af94-4deb85b88f02")
-		(property "Reference" "R?"
+		(property "Reference" "R26"
 			(at 166.37 53.34 90)
 			(effects
 				(font
@@ -8383,19 +8401,19 @@
 		(instances
 			(project "GDI-STM"
 				(path "/03caada9-9e22-4e2d-9035-b15433dfbb17/03351135-9cc9-422f-b1c4-096ea7d8acfa"
-					(reference "R?")
+					(reference "R26")
 					(unit 1)
 				)
 				(path "/03caada9-9e22-4e2d-9035-b15433dfbb17/3e093d68-78a8-4af4-b389-2900f3f4a898"
-					(reference "R113")
+					(reference "R77")
 					(unit 1)
 				)
 				(path "/03caada9-9e22-4e2d-9035-b15433dfbb17/66965367-94ca-4a16-a49b-a38c1de4eaa0"
-					(reference "R35")
+					(reference "R43")
 					(unit 1)
 				)
 				(path "/03caada9-9e22-4e2d-9035-b15433dfbb17/6f978b6e-947a-4a6e-a6d6-ddbcf36b4403"
-					(reference "R73")
+					(reference "R60")
 					(unit 1)
 				)
 			)
@@ -8445,7 +8463,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" ""
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
 			(at 83.82 149.86 0)
 			(effects
 				(font
@@ -8522,7 +8540,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" ""
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
 			(at 167.64 148.59 0)
 			(effects
 				(font
@@ -8564,7 +8582,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "bdbfe17b-754c-4721-a68b-7cf133595157")
-		(property "Reference" "C115"
+		(property "Reference" "C41"
 			(at 121.92 120.65 90)
 			(effects
 				(font
@@ -8627,19 +8645,19 @@
 		(instances
 			(project "GDI-STM"
 				(path "/03caada9-9e22-4e2d-9035-b15433dfbb17/03351135-9cc9-422f-b1c4-096ea7d8acfa"
-					(reference "C115")
+					(reference "C41")
 					(unit 1)
 				)
 				(path "/03caada9-9e22-4e2d-9035-b15433dfbb17/3e093d68-78a8-4af4-b389-2900f3f4a898"
-					(reference "C140")
+					(reference "C92")
 					(unit 1)
 				)
 				(path "/03caada9-9e22-4e2d-9035-b15433dfbb17/66965367-94ca-4a16-a49b-a38c1de4eaa0"
-					(reference "C72")
+					(reference "C58")
 					(unit 1)
 				)
 				(path "/03caada9-9e22-4e2d-9035-b15433dfbb17/6f978b6e-947a-4a6e-a6d6-ddbcf36b4403"
-					(reference "C123")
+					(reference "C75")
 					(unit 1)
 				)
 			)
@@ -8654,7 +8672,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "bf9ab62b-e17c-476b-ae95-218b61d1b21d")
-		(property "Reference" "#PWR?"
+		(property "Reference" "#PWR0104"
 			(at 78.74 52.07 0)
 			(effects
 				(font
@@ -8689,7 +8707,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" ""
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
 			(at 78.74 45.72 0)
 			(effects
 				(font
@@ -8704,7 +8722,7 @@
 		(instances
 			(project "GDI-STM"
 				(path "/03caada9-9e22-4e2d-9035-b15433dfbb17/03351135-9cc9-422f-b1c4-096ea7d8acfa"
-					(reference "#PWR?")
+					(reference "#PWR0104")
 					(unit 1)
 				)
 				(path "/03caada9-9e22-4e2d-9035-b15433dfbb17/3e093d68-78a8-4af4-b389-2900f3f4a898"
@@ -8766,7 +8784,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" ""
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
 			(at 116.84 144.78 0)
 			(effects
 				(font
@@ -8808,7 +8826,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "c8ccc453-9ef2-4351-9154-af47a8069179")
-		(property "Reference" "R37"
+		(property "Reference" "R31"
 			(at 170.18 100.838 90)
 			(effects
 				(font
@@ -8869,11 +8887,11 @@
 		(instances
 			(project "GDI-STM"
 				(path "/03caada9-9e22-4e2d-9035-b15433dfbb17/03351135-9cc9-422f-b1c4-096ea7d8acfa"
-					(reference "R37")
+					(reference "R31")
 					(unit 1)
 				)
 				(path "/03caada9-9e22-4e2d-9035-b15433dfbb17/3e093d68-78a8-4af4-b389-2900f3f4a898"
-					(reference "R119")
+					(reference "R82")
 					(unit 1)
 				)
 				(path "/03caada9-9e22-4e2d-9035-b15433dfbb17/66965367-94ca-4a16-a49b-a38c1de4eaa0"
@@ -8881,7 +8899,7 @@
 					(unit 1)
 				)
 				(path "/03caada9-9e22-4e2d-9035-b15433dfbb17/6f978b6e-947a-4a6e-a6d6-ddbcf36b4403"
-					(reference "R78")
+					(reference "R65")
 					(unit 1)
 				)
 			)
@@ -8931,7 +8949,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" ""
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
 			(at 209.55 93.98 0)
 			(effects
 				(font
@@ -8973,7 +8991,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "dc4c7363-c53c-4026-81b7-0462bac99388")
-		(property "Reference" "#PWR?"
+		(property "Reference" "#PWR0102"
 			(at 140.97 54.61 0)
 			(effects
 				(font
@@ -9008,7 +9026,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" ""
+		(property "Description" "Power symbol creates a global label with name \"Vdrive\""
 			(at 137.16 49.53 0)
 			(effects
 				(font
@@ -9023,7 +9041,7 @@
 		(instances
 			(project "GDI-STM"
 				(path "/03caada9-9e22-4e2d-9035-b15433dfbb17/03351135-9cc9-422f-b1c4-096ea7d8acfa"
-					(reference "#PWR?")
+					(reference "#PWR0102")
 					(unit 1)
 				)
 				(path "/03caada9-9e22-4e2d-9035-b15433dfbb17/3e093d68-78a8-4af4-b389-2900f3f4a898"
@@ -9085,7 +9103,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" ""
+		(property "Description" "Power symbol creates a global label with name \"+3.3V\""
 			(at 120.65 118.11 0)
 			(effects
 				(font
@@ -9127,7 +9145,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "df78645d-2d64-42d9-9554-9e06b8019360")
-		(property "Reference" "R64"
+		(property "Reference" "R21"
 			(at 103.378 137.16 90)
 			(effects
 				(font
@@ -9188,19 +9206,19 @@
 		(instances
 			(project "GDI-STM"
 				(path "/03caada9-9e22-4e2d-9035-b15433dfbb17/03351135-9cc9-422f-b1c4-096ea7d8acfa"
-					(reference "R64")
+					(reference "R21")
 					(unit 1)
 				)
 				(path "/03caada9-9e22-4e2d-9035-b15433dfbb17/3e093d68-78a8-4af4-b389-2900f3f4a898"
-					(reference "R108")
+					(reference "R72")
 					(unit 1)
 				)
 				(path "/03caada9-9e22-4e2d-9035-b15433dfbb17/66965367-94ca-4a16-a49b-a38c1de4eaa0"
-					(reference "R30")
+					(reference "R38")
 					(unit 1)
 				)
 				(path "/03caada9-9e22-4e2d-9035-b15433dfbb17/6f978b6e-947a-4a6e-a6d6-ddbcf36b4403"
-					(reference "R56")
+					(reference "R55")
 					(unit 1)
 				)
 			)
@@ -9215,7 +9233,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "dfbd25ee-88f4-40f1-ab58-778b955a20ae")
-		(property "Reference" "R?"
+		(property "Reference" "R22"
 			(at 133.35 97.79 90)
 			(effects
 				(font
@@ -9282,19 +9300,19 @@
 		(instances
 			(project "GDI-STM"
 				(path "/03caada9-9e22-4e2d-9035-b15433dfbb17/03351135-9cc9-422f-b1c4-096ea7d8acfa"
-					(reference "R?")
+					(reference "R22")
 					(unit 1)
 				)
 				(path "/03caada9-9e22-4e2d-9035-b15433dfbb17/3e093d68-78a8-4af4-b389-2900f3f4a898"
-					(reference "R109")
+					(reference "R73")
 					(unit 1)
 				)
 				(path "/03caada9-9e22-4e2d-9035-b15433dfbb17/66965367-94ca-4a16-a49b-a38c1de4eaa0"
-					(reference "R31")
+					(reference "R39")
 					(unit 1)
 				)
 				(path "/03caada9-9e22-4e2d-9035-b15433dfbb17/6f978b6e-947a-4a6e-a6d6-ddbcf36b4403"
-					(reference "R57")
+					(reference "R56")
 					(unit 1)
 				)
 			)
@@ -9310,7 +9328,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "e1106350-a378-4a9b-b704-085f890bfff9")
-		(property "Reference" "U?"
+		(property "Reference" "U8"
 			(at 133.35 130.7398 0)
 			(effects
 				(font
@@ -9389,19 +9407,19 @@
 		(instances
 			(project "GDI-STM"
 				(path "/03caada9-9e22-4e2d-9035-b15433dfbb17/03351135-9cc9-422f-b1c4-096ea7d8acfa"
-					(reference "U?")
+					(reference "U8")
 					(unit 1)
 				)
 				(path "/03caada9-9e22-4e2d-9035-b15433dfbb17/3e093d68-78a8-4af4-b389-2900f3f4a898"
-					(reference "U17")
+					(reference "U20")
 					(unit 1)
 				)
 				(path "/03caada9-9e22-4e2d-9035-b15433dfbb17/66965367-94ca-4a16-a49b-a38c1de4eaa0"
-					(reference "U6")
+					(reference "U12")
 					(unit 1)
 				)
 				(path "/03caada9-9e22-4e2d-9035-b15433dfbb17/6f978b6e-947a-4a6e-a6d6-ddbcf36b4403"
-					(reference "U13")
+					(reference "U16")
 					(unit 1)
 				)
 			)
@@ -9416,7 +9434,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "e211b37a-0fde-499c-8e4e-8a3f7cd70264")
-		(property "Reference" "R67"
+		(property "Reference" "R29"
 			(at 165.608 137.16 90)
 			(effects
 				(font
@@ -9477,11 +9495,11 @@
 		(instances
 			(project "GDI-STM"
 				(path "/03caada9-9e22-4e2d-9035-b15433dfbb17/03351135-9cc9-422f-b1c4-096ea7d8acfa"
-					(reference "R67")
+					(reference "R29")
 					(unit 1)
 				)
 				(path "/03caada9-9e22-4e2d-9035-b15433dfbb17/3e093d68-78a8-4af4-b389-2900f3f4a898"
-					(reference "R116")
+					(reference "R80")
 					(unit 1)
 				)
 				(path "/03caada9-9e22-4e2d-9035-b15433dfbb17/66965367-94ca-4a16-a49b-a38c1de4eaa0"
@@ -9489,7 +9507,7 @@
 					(unit 1)
 				)
 				(path "/03caada9-9e22-4e2d-9035-b15433dfbb17/6f978b6e-947a-4a6e-a6d6-ddbcf36b4403"
-					(reference "R76")
+					(reference "R63")
 					(unit 1)
 				)
 			)
@@ -9504,7 +9522,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "e265c284-7751-4d41-b380-92030b2911d1")
-		(property "Reference" "C114"
+		(property "Reference" "C50"
 			(at 189.6592 63.0353 90)
 			(effects
 				(font
@@ -9567,19 +9585,19 @@
 		(instances
 			(project "GDI-STM"
 				(path "/03caada9-9e22-4e2d-9035-b15433dfbb17/03351135-9cc9-422f-b1c4-096ea7d8acfa"
-					(reference "C114")
+					(reference "C50")
 					(unit 1)
 				)
 				(path "/03caada9-9e22-4e2d-9035-b15433dfbb17/3e093d68-78a8-4af4-b389-2900f3f4a898"
-					(reference "C149")
+					(reference "C101")
 					(unit 1)
 				)
 				(path "/03caada9-9e22-4e2d-9035-b15433dfbb17/66965367-94ca-4a16-a49b-a38c1de4eaa0"
-					(reference "C109")
+					(reference "C67")
 					(unit 1)
 				)
 				(path "/03caada9-9e22-4e2d-9035-b15433dfbb17/6f978b6e-947a-4a6e-a6d6-ddbcf36b4403"
-					(reference "C132")
+					(reference "C84")
 					(unit 1)
 				)
 			)
@@ -9594,7 +9612,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "e3e9310e-077b-46d7-bb44-240aa61ad552")
-		(property "Reference" "D?"
+		(property "Reference" "D14"
 			(at 106.68 78.74 0)
 			(effects
 				(font
@@ -9602,7 +9620,7 @@
 				)
 			)
 		)
-		(property "Value" "STPS2H100UY"
+		(property "Value" "SS520B"
 			(at 118.11 78.74 0)
 			(effects
 				(font
@@ -9637,7 +9655,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC" "C163541"
+		(property "LCSC" "C382826"
 			(at 110.49 80.01 0)
 			(effects
 				(font
@@ -9655,19 +9673,19 @@
 		(instances
 			(project "GDI-STM"
 				(path "/03caada9-9e22-4e2d-9035-b15433dfbb17/03351135-9cc9-422f-b1c4-096ea7d8acfa"
-					(reference "D?")
+					(reference "D14")
 					(unit 1)
 				)
 				(path "/03caada9-9e22-4e2d-9035-b15433dfbb17/3e093d68-78a8-4af4-b389-2900f3f4a898"
-					(reference "D38")
+					(reference "D29")
 					(unit 1)
 				)
 				(path "/03caada9-9e22-4e2d-9035-b15433dfbb17/66965367-94ca-4a16-a49b-a38c1de4eaa0"
-					(reference "D18")
+					(reference "D19")
 					(unit 1)
 				)
 				(path "/03caada9-9e22-4e2d-9035-b15433dfbb17/6f978b6e-947a-4a6e-a6d6-ddbcf36b4403"
-					(reference "D29")
+					(reference "D24")
 					(unit 1)
 				)
 			)
@@ -9682,7 +9700,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "e5531976-84bc-42bc-8979-fee9f7ca12c5")
-		(property "Reference" "C?"
+		(property "Reference" "C48"
 			(at 162.8141 97.9106 90)
 			(effects
 				(font
@@ -9745,19 +9763,19 @@
 		(instances
 			(project "GDI-STM"
 				(path "/03caada9-9e22-4e2d-9035-b15433dfbb17/03351135-9cc9-422f-b1c4-096ea7d8acfa"
-					(reference "C?")
+					(reference "C48")
 					(unit 1)
 				)
 				(path "/03caada9-9e22-4e2d-9035-b15433dfbb17/3e093d68-78a8-4af4-b389-2900f3f4a898"
-					(reference "C147")
+					(reference "C99")
 					(unit 1)
 				)
 				(path "/03caada9-9e22-4e2d-9035-b15433dfbb17/66965367-94ca-4a16-a49b-a38c1de4eaa0"
-					(reference "C106")
+					(reference "C65")
 					(unit 1)
 				)
 				(path "/03caada9-9e22-4e2d-9035-b15433dfbb17/6f978b6e-947a-4a6e-a6d6-ddbcf36b4403"
-					(reference "C130")
+					(reference "C82")
 					(unit 1)
 				)
 			)
@@ -9772,7 +9790,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "e76943ca-e14e-4030-ad63-5eab435b5258")
-		(property "Reference" "D?"
+		(property "Reference" "D12"
 			(at 96.52 60.96 0)
 			(effects
 				(font
@@ -9817,7 +9835,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC" "C135494"
+		(property "LCSC" "C459529"
 			(at 93.98 62.23 90)
 			(effects
 				(font
@@ -9838,19 +9856,19 @@
 		(instances
 			(project "GDI-STM"
 				(path "/03caada9-9e22-4e2d-9035-b15433dfbb17/03351135-9cc9-422f-b1c4-096ea7d8acfa"
-					(reference "D?")
+					(reference "D12")
 					(unit 1)
 				)
 				(path "/03caada9-9e22-4e2d-9035-b15433dfbb17/3e093d68-78a8-4af4-b389-2900f3f4a898"
-					(reference "D36")
+					(reference "D27")
 					(unit 1)
 				)
 				(path "/03caada9-9e22-4e2d-9035-b15433dfbb17/66965367-94ca-4a16-a49b-a38c1de4eaa0"
-					(reference "D5")
+					(reference "D17")
 					(unit 1)
 				)
 				(path "/03caada9-9e22-4e2d-9035-b15433dfbb17/6f978b6e-947a-4a6e-a6d6-ddbcf36b4403"
-					(reference "D25")
+					(reference "D22")
 					(unit 1)
 				)
 			)
@@ -9865,7 +9883,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "e953720a-e94d-4882-a7d4-8c8b82aa5726")
-		(property "Reference" "#PWR?"
+		(property "Reference" "#PWR0106"
 			(at 93.98 76.2 0)
 			(effects
 				(font
@@ -9900,7 +9918,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" ""
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
 			(at 93.98 69.85 0)
 			(effects
 				(font
@@ -9915,7 +9933,7 @@
 		(instances
 			(project "GDI-STM"
 				(path "/03caada9-9e22-4e2d-9035-b15433dfbb17/03351135-9cc9-422f-b1c4-096ea7d8acfa"
-					(reference "#PWR?")
+					(reference "#PWR0106")
 					(unit 1)
 				)
 				(path "/03caada9-9e22-4e2d-9035-b15433dfbb17/3e093d68-78a8-4af4-b389-2900f3f4a898"
@@ -9943,7 +9961,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "ee4aa5f6-3f7d-4b38-9989-14595e118366")
-		(property "Reference" "C?"
+		(property "Reference" "C37"
 			(at 80.01 39.37 90)
 			(effects
 				(font
@@ -10006,19 +10024,19 @@
 		(instances
 			(project "GDI-STM"
 				(path "/03caada9-9e22-4e2d-9035-b15433dfbb17/03351135-9cc9-422f-b1c4-096ea7d8acfa"
-					(reference "C?")
+					(reference "C37")
 					(unit 1)
 				)
 				(path "/03caada9-9e22-4e2d-9035-b15433dfbb17/3e093d68-78a8-4af4-b389-2900f3f4a898"
-					(reference "C136")
+					(reference "C88")
 					(unit 1)
 				)
 				(path "/03caada9-9e22-4e2d-9035-b15433dfbb17/66965367-94ca-4a16-a49b-a38c1de4eaa0"
-					(reference "C8")
+					(reference "C54")
 					(unit 1)
 				)
 				(path "/03caada9-9e22-4e2d-9035-b15433dfbb17/6f978b6e-947a-4a6e-a6d6-ddbcf36b4403"
-					(reference "C119")
+					(reference "C71")
 					(unit 1)
 				)
 			)
@@ -10033,7 +10051,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "f17b609d-bf90-486d-82ca-a3ba18c90332")
-		(property "Reference" "R63"
+		(property "Reference" "R19"
 			(at 81.788 138.43 90)
 			(effects
 				(font
@@ -10094,15 +10112,15 @@
 		(instances
 			(project "GDI-STM"
 				(path "/03caada9-9e22-4e2d-9035-b15433dfbb17/03351135-9cc9-422f-b1c4-096ea7d8acfa"
-					(reference "R63")
+					(reference "R19")
 					(unit 1)
 				)
 				(path "/03caada9-9e22-4e2d-9035-b15433dfbb17/3e093d68-78a8-4af4-b389-2900f3f4a898"
-					(reference "R87")
+					(reference "R70")
 					(unit 1)
 				)
 				(path "/03caada9-9e22-4e2d-9035-b15433dfbb17/66965367-94ca-4a16-a49b-a38c1de4eaa0"
-					(reference "R28")
+					(reference "R36")
 					(unit 1)
 				)
 				(path "/03caada9-9e22-4e2d-9035-b15433dfbb17/6f978b6e-947a-4a6e-a6d6-ddbcf36b4403"
@@ -10121,7 +10139,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "fa095809-0c57-4480-9da4-950732baa4b1")
-		(property "Reference" "R59"
+		(property "Reference" "R28"
 			(at 166.37 83.82 90)
 			(effects
 				(font
@@ -10182,19 +10200,19 @@
 		(instances
 			(project "GDI-STM"
 				(path "/03caada9-9e22-4e2d-9035-b15433dfbb17/03351135-9cc9-422f-b1c4-096ea7d8acfa"
-					(reference "R59")
+					(reference "R28")
 					(unit 1)
 				)
 				(path "/03caada9-9e22-4e2d-9035-b15433dfbb17/3e093d68-78a8-4af4-b389-2900f3f4a898"
-					(reference "R115")
+					(reference "R79")
 					(unit 1)
 				)
 				(path "/03caada9-9e22-4e2d-9035-b15433dfbb17/66965367-94ca-4a16-a49b-a38c1de4eaa0"
-					(reference "R44")
+					(reference "R45")
 					(unit 1)
 				)
 				(path "/03caada9-9e22-4e2d-9035-b15433dfbb17/6f978b6e-947a-4a6e-a6d6-ddbcf36b4403"
-					(reference "R75")
+					(reference "R62")
 					(unit 1)
 				)
 			)
@@ -10244,7 +10262,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" ""
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
 			(at 204.47 124.46 0)
 			(effects
 				(font
@@ -10321,7 +10339,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" ""
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
 			(at 198.12 68.58 0)
 			(effects
 				(font
