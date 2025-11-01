@@ -1318,17 +1318,18 @@ BoardConfig boardConfigs[] = {
 		.auxDigitalExpected = {false, false, false, false,
 		false, false, false, false},
 		.outputNames = {
- "A1 INJ_1",
+ "A1 INJ_1", // 1
  "A2 INJ_4",
  "A3 INJ_2",
  "A5 INJ_3",
- "Fuel Pump Relay",
+ "Fuel Pump Relay", // 5
  "A9 IAC",
  "A13 MIL",
  "A21 ICM Coil Control",
  "Radiator Fan Control Module",
- "A/C compressor clutch relay",
+ "A/C compressor clutch relay", // 10
  "IAB intake manifold butterflies solenoid",
+ "EGR Solenoid",
  "VTEC Solenoid Valve",
  		},
 		.wboUnitsCount = 1,
