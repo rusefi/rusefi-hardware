@@ -1,0 +1,24 @@
+pins:
+  - pin: A-1
+    function: A-1
+
+  - pin: B-1
+    function: B-1
+
+info:
+  title: BMW E92
+  name: BMW E92
+  directory: BMW-E92
+  cid: R
+  order: 2
+  image:
+    file: right.png
+  pins:
+    - pin: A-1
+      x: 192
+      y: 404
+
+    - pin: B-1
+      x: 346
+      y: 400
+
