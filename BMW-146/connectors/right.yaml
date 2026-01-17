@@ -5,6 +5,9 @@ pins:
   - pin: B-1
     function: B-1
 
+  - pin: C-1
+    function: C-1
+
 info:
   title: BMW E92
   name: BMW E92
@@ -21,4 +24,8 @@ info:
     - pin: B-1
       x: 346
       y: 400
+
+    - pin: C-1
+      x: 349
+      y: 254
 
