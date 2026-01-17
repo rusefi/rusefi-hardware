@@ -1,12 +1,14 @@
 pins:
-  - pin: A-1
-    function: A-1
-
-  - pin: B-1
-    function: B-1
-
-  - pin: C-1
+  - pin: 1-1
     function: C-1
+
+  - pin: 2-1
+    function: 2-1
+
+  - pin: 3-1
+    function: 3-1
+
+
 
 info:
   title: BMW E92
@@ -17,15 +19,14 @@ info:
   image:
     file: right.png
   pins:
-    - pin: A-1
-      x: 192
-      y: 404
-
-    - pin: B-1
-      x: 346
-      y: 400
-
-    - pin: C-1
+    - pin: 1-1
       x: 349
       y: 254
 
+    - pin: 2-1
+      x: 346
+      y: 400
+
+    - pin: 3-1
+      x: 192
+      y: 404
