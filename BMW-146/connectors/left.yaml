@@ -1,6 +1,7 @@
 pins:
   - pin: 4-1
-    function: 4-1
+    function: xxx
+
   - pin: 4-2
     function: 4-2
   - pin: 4-3
@@ -20,7 +21,7 @@ info:
   name: BMW E92
   directory: BMW-E92
   cid: L
-  order: 1
+  order: 2
   image:
     file: left.png
   pins:

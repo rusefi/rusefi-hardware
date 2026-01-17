@@ -1,9 +1,96 @@
 pins:
   - pin: 1-1
-    function: C-1
+    function: CAN L
+  - pin: 1-2
+    function: START SIG
+  - pin: 1-3
+    function: BSD SIG
+  - pin: 1-4
+    function: BRK LGHT SIG
+  - pin: 1-5
+    function: EXH FLAP SIG
+  - pin: 1-6
+    function: SENSOR SIG
+  - pin: 1-7
+    function: ACC PDL SIG
+  - pin: 1-8
+    function: ELEC FAN SIG
+  - pin: 1-10
+    function: ACC PDL GRD
+  - pin: 1-11
+    function: ACC PDL (+)
 
-  - pin: 2-1
-    function: 2-1
+  - pin: 1-13
+    function: AIR PMP (+)
+  - pin: 1-14
+    function: CAN H
+  - pin: 1-15
+    function: VEH IMMOB SIG
+  - pin: 1-16
+    function: BRK LGHT SIG
+  - pin: 1-17
+    function: RR SPD SIG
+  - pin: 1-18
+    function: CLUTCH SW
+  - pin: 1-19
+    function: SENSOR SIG
+  - pin: 1-20
+    function: ACC PDL SIG
+  - pin: 1-21
+    function: TD SIG
+
+  - pin: 1-23
+    function: ACC PDL GRD
+  - pin: 1-24
+    function: ACC PDL (+)
+  - pin: 1-26
+    function: E BOX SIG
+
+  - pin: 2-2
+    function: BRK SENS
+  - pin: 2-5
+    function: SENSOR SIG
+  - pin: 2-6
+    function: SENSOR SIG
+  - pin: 2-7
+    function: SENSOR SIG
+  - pin: 2-8
+    function: SENSOR SIG
+  - pin: 2-9
+    function: SENSOR SIG
+  - pin: 2-10
+    function: SENSOR GRD
+  - pin: 2-11
+    function: SENSOR GRD
+  - pin: 2-12
+    function: SENSOR SIG
+  - pin: 2-13
+    function: SENSOR SIG
+  - pin: 2-14
+    function: BRK SENS
+  - pin: 2-15
+    function: BRK SENS
+  - pin: 2-16
+    function: LEAK DIAG SIG
+  - pin: 2-17
+    function: LEAK DIAG SIG
+  - pin: 2-18
+    function: SENSOR SIG
+  - pin: 2-19
+    function: SENSOR SIG
+  - pin: 2-20
+    function: SENSOR SIG
+  - pin: 2-22
+    function: LEAK DIAG SIG
+  - pin: 2-23
+    function: SENSOR GRD
+  - pin: 2-24
+    function: SENSOR GRD
+  - pin: 2-25
+    function: SENSOR SIG
+  - pin: 2-26
+    function: SENSOR SIG
+
 
   - pin: 3-1
     function: 3-1
@@ -15,7 +102,7 @@ info:
   name: BMW E92
   directory: BMW-E92
   cid: R
-  order: 2
+  order: 1
   image:
     file: right.png
   pins:
