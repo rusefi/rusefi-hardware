@@ -1,20 +1,107 @@
 pins:
   - pin: 4-1
-    function: xxx
-
+    function: IGN 1 SIG
   - pin: 4-2
-    function: 4-2
+    function: IGN 2 SIG
   - pin: 4-3
-    function: 4-3
+    function: IGN 3 SIG
+  - pin: 4-4
+    function: IGN 4 SIG
+  - pin: 4-5
+    function: IGN 5 SIG
+  - pin: 4-6
+    function: IGN 6 SIG
 
   - pin: 6-1
-    function: 6-1
+    function: INJ 1 SIG
+  - pin: 6-2
+    function: INJ 2 SIG
+  - pin: 6-3
+    function: INJ 3 SIG
+  - pin: 6-4
+    function: INJ 4 SIG
+  - pin: 6-5
+    function: INJ 5 SIG
+  - pin: 6-6
+    function: INJ 6 SIG
+  - pin: 6-7
+    function: INJ 1 SIG
+  - pin: 6-8
+    function: INJ 2 SIG
+  - pin: 6-9
+    function: INJ 3 SIG
+  - pin: 6-10
+    function: INJ 4 SIG
+  - pin: 6-11
+    function: INJ 5 SIG
+  - pin: 6-12
+    function: INJ 6 SIG
 
-  - pin: 5-1
-    function: 5-1
+  - pin: 5-4
+    function: VOL CNTRL
+  - pin: 5-13
+    function: DME RLY
+  - pin: 5-14
+    function: THROTTLE (-)
+  - pin: 5-15
+    function: THROTTLE SIG
+  - pin: 5-16
+    function: THROTTLE SIG
+  - pin: 5-19
+    function: SENSOR SIG
+  - pin: 5-20
+    function: SENSOR SIG
+  - pin: 5-23
+    function: FUEL TANK SIG
+  - pin: 5-29
+    function: SENSOR SIG
+  - pin: 5-30
+    function: SENSOR GRD
+  - pin: 5-31
+    function: SENSOR (+)
+  - pin: 5-32
+    function: SENSOR GRD
+  - pin: 5-33
+    function: SENSOR SIG
+  - pin: 5-35
+    function: BSD SIG
+  - pin: 5-36
+    function: THROTTLE SIG
+  - pin: 5-37
+    function: THROTTLE SIG
+  - pin: 5-38
+    function: THROTTLE GRD
+  - pin: 5-41
+    function: SENSOR SIG
+  - pin: 5-42
+    function: SENSOR SIG
 
-  - pin: 7-1
-    function: 7-1
+  - pin: 7-4
+    function: SENSOR SIG
+  - pin: 7-5
+    function: VANOS (+)
+  - pin: 7-7
+    function: WASTE VAL 1
+  - pin: 7-11
+    function: SENSOR 1 SIG
+  - pin: 7-12
+    function: SENSOR 2 SIG
+  - pin: 7-13
+    function: OIL SW SIG
+  - pin: 7-14
+    function: WASTE VAL 2
+  - pin: 7-17
+    function: SENSOR GRD
+  - pin: 7-18
+    function: VANOS (+)
+  - pin: 7-19
+    function: THERMO SIG
+  - pin: 7-24
+    function: SENSOR 1 GRD
+  - pin: 7-25
+    function: SENSOR 2 GRD
+  - pin: 7-26
+    function: BSD SIG
 
 info:
   title: BMW E92
