@@ -2,7 +2,7 @@
 
 E9x 2006 to 2010 with "35" engine would be N54
 
-For some years they had both N54 and N55 depending on trim. 335is would be N54
+For some years they had both N54 and N55 depending on trim. 335is would be N54, N55 would be newer engine with 204 pin ECU
 
 https://rusefi.com/docs/pinouts/BMW-E92/
 
