@@ -50,7 +50,7 @@ pins:
     function: ACC PDL (+)
     type: 5v
   - pin: 1-26
-    function: E BOX SIG
+    function: E BOX SIG fan control
 
   - pin: 2-2
     function: BRK SENS
@@ -77,9 +77,9 @@ pins:
   - pin: 2-15
     function: BRK SENS
   - pin: 2-16
-    function: LEAK DIAG SIG
+    function: UNUSED LEAK DIAG SIG
   - pin: 2-17
-    function: LEAK DIAG SIG
+    function: UNUSED LEAK DIAG SIG
   - pin: 2-18
     function: SENSOR SIG
   - pin: 2-19
