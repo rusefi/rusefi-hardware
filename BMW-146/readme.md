@@ -1,5 +1,9 @@
 # N54
 
+E9x 2006 to 2010 with "35" engine would be N54
+
+For some years they had both N54 and N55 depending on trim. 335is would be N54
+
 https://rusefi.com/docs/pinouts/BMW-E92/
 
 https://github.com/rusefi/rusefi_documentation/blob/master/OEM-Docs/Bmw/2010%20BMW%20335i%20Coupe%20(E92)%20N54.pdf
