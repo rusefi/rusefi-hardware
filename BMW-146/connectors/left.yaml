@@ -13,29 +13,29 @@ pins:
     function: IGN 6 SIG
 
   - pin: 6-1
-    function: INJ 1 SIG
+    function: INJ 1 SIG +
   - pin: 6-2
-    function: INJ 2 SIG
+    function: INJ 2 SIG +
   - pin: 6-3
-    function: INJ 3 SIG
+    function: INJ 3 SIG +
   - pin: 6-4
-    function: INJ 4 SIG
+    function: INJ 4 SIG +
   - pin: 6-5
-    function: INJ 5 SIG
+    function: INJ 5 SIG +
   - pin: 6-6
-    function: INJ 6 SIG
+    function: INJ 6 SIG +
   - pin: 6-7
-    function: INJ 1 SIG
+    function: INJ 1 SIG -
   - pin: 6-8
-    function: INJ 2 SIG
+    function: INJ 2 SIG -
   - pin: 6-9
-    function: INJ 3 SIG
+    function: INJ 3 SIG -
   - pin: 6-10
-    function: INJ 4 SIG
+    function: INJ 4 SIG -
   - pin: 6-11
-    function: INJ 5 SIG
+    function: INJ 5 SIG -
   - pin: 6-12
-    function: INJ 6 SIG
+    function: INJ 6 SIG -
 
   - pin: 5-4
     function: VOL CNTRL
@@ -48,19 +48,19 @@ pins:
   - pin: 5-16
     function: THROTTLE SIG
   - pin: 5-19
-    function: SENSOR SIG
+    function: SIGNAL DOUBLE KNOCK SENSOR CYL 1-3
   - pin: 5-20
-    function: SENSOR SIG
+    function: SIGNAL DOUBLE KNOCK SENSOR CYL 4-6
   - pin: 5-23
     function: FUEL TANK SIG
   - pin: 5-29
-    function: SENSOR SIG
+    function: SIGNAL CRANKSHAFT SENSOR
   - pin: 5-30
-    function: SENSOR GRD
+    function: GROUND CRANKSHAFT SENSOR
   - pin: 5-31
-    function: SENSOR (+)
+    function: SUPPLY INTAKE MANIFOLD PRESSURE SENSOR
   - pin: 5-32
-    function: SENSOR GRD
+    function: GROUND INTAKE MANIFOLD PRESSURE SENSOR
   - pin: 5-33
     function: SENSOR SIG
   - pin: 5-35
@@ -72,34 +72,34 @@ pins:
   - pin: 5-38
     function: THROTTLE GRD
   - pin: 5-41
-    function: SENSOR SIG
+    function: SIGNAL DOUBLE KNOCK SENSOR CYL 1-3
   - pin: 5-42
-    function: SENSOR SIG
+    function: SIGNAL DOUBLE KNOCK SENSOR CYL 4-6
 
   - pin: 7-4
-    function: SENSOR SIG
+    function: SIGNAL, COOLANT TEMPERATURE
   - pin: 7-5
-    function: VANOS (+)
+    function: ACTIVATION VANOS SOLENOID VALVE, INTAKE
   - pin: 7-7
     function: WASTE VAL 1
   - pin: 7-11
-    function: SENSOR 1 SIG
+    function: SIGNAL CAMSHAFT SENSOR INTAKE
   - pin: 7-12
-    function: SENSOR 2 SIG
+    function: SIGNAL CAMSHAFT SENSOR EXHAUST
   - pin: 7-13
-    function: OIL SW SIG
+    function: SIGNAL, OIL PRESSURE LOW SWITCH
   - pin: 7-14
     function: WASTE VAL 2
   - pin: 7-17
-    function: SENSOR GRD
+    function: GROUND ENGINE COOLANT TEMPERATURE SENSOR
   - pin: 7-18
-    function: VANOS (+)
+    function: ACTIVATION VANOS SOLENOID VALVE, EXHAUST
   - pin: 7-19
-    function: THERMO SIG
+    function: SIGNAL CHARACTERISTIC MAP THERMOSTAT
   - pin: 7-24
-    function: SENSOR 1 GRD
+    function: GROUND CAMSHAFT SENSOR INTAKE
   - pin: 7-25
-    function: SENSOR 2 GRD
+    function: GROUND CAMSHAFT SENSOR EXHAUST
   - pin: 7-26
     function: BSD SIG
 
