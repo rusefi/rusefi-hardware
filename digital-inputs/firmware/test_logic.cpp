@@ -299,7 +299,7 @@ BoardConfig boardConfigs[] = {
 	{
 		.boardName = "nano",
 		.desiredEngineConfig = -1,
-		.boardIds = { STATIC_BOARD_ID_NANO, 0 },
+		.boardIds = { STATIC_BOARD_ID_NANO, BOARD_ID_NANO_A, 0 },
 		.channels = {
 			{ "TPS1_1", PULLED_DOWN_RANGE(DOWN_7B, UP_7B, 680'000) },
 			{ nullptr, 0, 0, 0 }, // TPS1_2
