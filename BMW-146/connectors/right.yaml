@@ -118,7 +118,7 @@ info:
   name: BMW E92
   directory: BMW-E92
   cid: R
-  order: 1
+  order: 2
   image:
     file: right.png
   pins:
