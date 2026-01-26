@@ -11,38 +11,40 @@ pins:
   - pin: 1-5
     function: EXH FLAP SIG
   - pin: 1-6
-    function: SENSOR SIG
+    function: RADIATOR TEMPERATURE SENSOR SIG
+
   - pin: 1-7
-    function: ACC PDL SIG
+    function: SIGNAL ACCELERATOR PEDAL MODULE ACC PDL SIG
   - pin: 1-8
     function: ELEC FAN SIG
   - pin: 1-10
     function: GROUND ACCELERATOR PEDAL MODULE
     type: agnd
   - pin: 1-11
-    function: ACC PDL (+)
+    function: SUPPLY ACCELERATOR PEDAL MODULE
     type: 5v
 
   - pin: 1-13
-    function: AIR PMP (+)
+    function: UNUSED AIR PMP positive
+
   - pin: 1-14
-    function: CAN High
+    function: SIGNAL PT-CAN HIGH
     type: can
   - pin: 1-15
-    function: VEH IMMOB SIG
+    function: UNUSED VEH IMMOB SIG
   - pin: 1-16
-    function: BRK LGHT SIG
+    function: UNUSED BRK LGHT SIG
   - pin: 1-17
-    function: RR SPD SIG
+    function: UNUSED RR SPD SIG
   - pin: 1-18
     function: CLUTCH SW
+
   - pin: 1-19
-    function: SENSOR SIG
-  - pin: 1-20
+    function: RADIATOR TEMPERATURE SENSOR SIG
+  - PIN: 1-20
     function: ACC PDL SIG
   - pin: 1-21
-    function: TD SIG
-
+    function: TD SIG OBD?
   - pin: 1-23
     function: ACC PDL GRD
     type: agnd
@@ -52,8 +54,10 @@ pins:
   - pin: 1-26
     function: E BOX SIG FAN CONTROL
 
+  - pin: 2-1
+    function: Wake-up signal, terminal 15
   - pin: 2-2
-    function: BRK SENS
+    function: UNUSED BRK VACUUM SENS
   - pin: 2-5
     function: Oxygen sensor 2 before catalytic converter
   - pin: 2-6
@@ -71,32 +75,34 @@ pins:
   - pin: 2-12
     function: Signal, oxygen sensor heating
   - pin: 2-13
-    function: SENSOR SIG
+    function: Signal, oxygen sensor heating
+
   - pin: 2-14
-    function: BRK SENS
+    function: UNUSED BRK VACUUM SENS
   - pin: 2-15
-    function: BRK SENS
+    function: UNUSED BRK VACUUM SENS
   - pin: 2-16
     function: UNUSED LEAK DIAG SIG
   - pin: 2-17
     function: UNUSED LEAK DIAG SIG
-  - pin: 2-18
-    function: SENSOR SIG
-  - pin: 2-19
-    function: SENSOR SIG
-  - pin: 2-20
-    function: SENSOR SIG
-  - pin: 2-22
-    function: LEAK DIAG SIG
-  - pin: 2-23
-    function: SENSOR GRD
-  - pin: 2-24
-    function: SENSOR GRD
-  - pin: 2-25
-    function: SENSOR SIG
-  - pin: 2-26
-    function: SENSOR SIG
 
+
+  - pin: 2-18
+    function: Signal, oxygen sensor
+  - pin: 2-19
+    function: UNUSED SENSOR SIG
+  - pin: 2-20
+    function: UNUSED SENSOR SIG
+  - pin: 2-22
+    function: UNUSED LEAK DIAG SIG
+  - pin: 2-23
+    function: UNUSED SENSOR GRD
+  - pin: 2-24
+    function: UNUSED SENSOR GRD
+  - pin: 2-25
+    function: UNUSED SENSOR SIG
+  - pin: 2-26
+    function: UNUSED SENSOR SIG
 
   - pin: 3-1
     function: Supply, terminal 30
