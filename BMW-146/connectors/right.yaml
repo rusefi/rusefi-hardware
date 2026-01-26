@@ -120,8 +120,8 @@ pins:
 
 
 info:
-  title: BMW E92
-  name: BMW E92
+  title: BMW E92 N54
+  name: BMW E92 N54
   directory: BMW-E92
   cid: R
   order: 2
