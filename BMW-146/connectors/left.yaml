@@ -37,22 +37,44 @@ pins:
   - pin: 6-12
     function: INJ 6 SIG -
 
-  - pin: 5-4
-    function: VOL CNTRL
+  - pin: 5-3
+    function: HPFP VOLune CoNTRoL valve
+    class: outputs
+    type: ls
+
+  - pin: 5-7
+    function: GROUND LOW PRESSURE FUEL SENSOR
+    type: agnd
+
+  - pin: 5-8
+    function: SUPPLY LOW PRESSURE FUEL SENSOR
+    type: 5v
+  - pin: 5-9
+    function: GROUND INTAKE AIR TEMPERATURE/BOOST PRESSURE SENSOR
+    type: agnd
+  - pin: 5-10
+    function: SIGNAL INTAKE AIR TEMPERATURE/BOOST PRESSURE SENSOR charge Pipe IAT/Boost?
+  - pin: 5-11
+    function: SUPPLY INTAKE AIR TEMPERATURE/BOOST PRESSURE SENSOR
+    type: 5v
+
   - pin: 5-13
-    function: DME RLY
+    function: DME RLY main relay control
+    class: outputs
+    type: ls
+
   - pin: 5-14
     function: THROTTLE (-)
   - pin: 5-15
     function: THROTTLE SIG
   - pin: 5-16
     function: THROTTLE SIG
+  - pin: 5-17
+    function: SIGNAL INTAKE AIR TEMPERATURE/BOOST PRESSURE SENSOR charge Pipe IAT/Boost?
   - pin: 5-19
     function: SIGNAL DOUBLE KNOCK SENSOR CYL 1-3
   - pin: 5-20
     function: SIGNAL DOUBLE KNOCK SENSOR CYL 4-6
-  - pin: 5-23
-    function: FUEL TANK SIG
   - pin: 5-29
     function: SIGNAL CRANKSHAFT SENSOR
   - pin: 5-30
@@ -62,15 +84,22 @@ pins:
   - pin: 5-32
     function: GROUND INTAKE MANIFOLD PRESSURE SENSOR
   - pin: 5-33
-    function: SENSOR SIG
+    function: SIGNAL INTAKE MANIFOLD PRESSURE SENSOR
+
+  - pin: 5-34
+    function: SIGNAL LOW PRESSURE FUEL SENSOR
+    type: av
+
   - pin: 5-35
-    function: BSD SIG
+    function: BSD SIG something digital?
   - pin: 5-36
     function: THROTTLE SIG
   - pin: 5-37
     function: THROTTLE SIG
   - pin: 5-38
     function: THROTTLE GRD
+    type: agnd
+
   - pin: 5-41
     function: SIGNAL DOUBLE KNOCK SENSOR CYL 1-3
   - pin: 5-42
