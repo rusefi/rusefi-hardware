@@ -59,23 +59,25 @@ pins:
   - pin: 2-2
     function: UNUSED BRK VACUUM SENS
   - pin: 2-5
-    function: Oxygen sensor 2 before catalytic converter
+    function: WBO2 pin5 Oxygen sensor 2 before catalytic converter
   - pin: 2-6
-    function: Oxygen sensor before catalytic converter
+    function: WBO1 pin1 Oxygen sensor before catalytic converter
   - pin: 2-7
-    function: Oxygen sensor 2 before catalytic converter
+    function: WBO2 pin1 Oxygen sensor 2 before catalytic converter
   - pin: 2-8
-    function: Oxygen sensor before catalytic converter
+    function: WBO1 pin6 Oxygen sensor before catalytic converter
   - pin: 2-9
-    function: Oxygen sensor 2 before catalytic converter
+    function: WBO2 pin6 Oxygen sensor 2 before catalytic converter
   - pin: 2-10
-    function: Ground Oxygen sensor before catalytic converter
+    function: WBO1 pin2 virtual Ground Oxygen sensor before catalytic converter
   - pin: 2-11
-    function: Ground Oxygen sensor 2 before catalytic converter
+    function: WBO2 pin2 Ground Oxygen sensor 2 before catalytic converter
   - pin: 2-12
-    function: Signal, oxygen sensor heating
+    function: WBO1 pin3 heater
+    type: ls
   - pin: 2-13
-    function: Signal, oxygen sensor heating
+    function: WBO2 pin3 heater
+    type: ls
 
   - pin: 2-14
     function: UNUSED BRK VACUUM SENS
@@ -86,9 +88,9 @@ pins:
   - pin: 2-17
     function: UNUSED LEAK DIAG SIG
 
-
   - pin: 2-18
-    function: Signal, oxygen sensor
+    function: WBO1 pin5 Signal, oxygen sensor
+
   - pin: 2-19
     function: UNUSED SENSOR SIG
   - pin: 2-20
