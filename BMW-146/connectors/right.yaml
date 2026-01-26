@@ -11,7 +11,7 @@ pins:
   - pin: 1-5
     function: EXH FLAP SIG
   - pin: 1-6
-    function: RADIATOR TEMPERATURE SENSOR SIG
+    function: UNUSED RADIATOR TEMPERATURE SENSOR SIG LOOKS LIKE ONLY DIESEL
 
   - pin: 1-7
     function: SIGNAL ACCELERATOR PEDAL MODULE ACC PDL SIG
@@ -40,7 +40,7 @@ pins:
     function: CLUTCH SW
 
   - pin: 1-19
-    function: RADIATOR TEMPERATURE SENSOR SIG
+    function: UNUSED RADIATOR TEMPERATURE SENSOR SIG LOOKS LIKE ONLY DIESEL
   - PIN: 1-20
     function: ACC PDL SIG
   - pin: 1-21
