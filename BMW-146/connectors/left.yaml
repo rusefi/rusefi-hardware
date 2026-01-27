@@ -75,11 +75,16 @@ pins:
     type: ls
 
   - pin: 5-14
-    function: THROTTLE (-)
+    function: THROTTLE TPS power
+    type: 5v
+
   - pin: 5-15
-    function: THROTTLE SIG
+    function: THROTTLE MOTOR
+    type: etb
   - pin: 5-16
-    function: THROTTLE SIG
+    function: THROTTLE MOTOR
+    type: etb
+
   - pin: 5-17
     function: SIGNAL INTAKE AIR TEMPERATURE/BOOST PRESSURE SENSOR charge Pipe IAT/Boost?
   - pin: 5-19
@@ -88,12 +93,18 @@ pins:
     function: SIGNAL DOUBLE KNOCK SENSOR CYL 4-6
   - pin: 5-29
     function: SIGNAL CRANKSHAFT SENSOR
+
   - pin: 5-30
     function: GROUND CRANKSHAFT SENSOR
+    type: agnd
+
   - pin: 5-31
     function: SUPPLY INTAKE MANIFOLD PRESSURE SENSOR
+    type: 5v
   - pin: 5-32
     function: GROUND INTAKE MANIFOLD PRESSURE SENSOR
+    type: agnd
+
   - pin: 5-33
     function: SIGNAL INTAKE MANIFOLD PRESSURE SENSOR
 
@@ -104,42 +115,69 @@ pins:
   - pin: 5-35
     function: BSD SIG something digital?
   - pin: 5-36
-    function: THROTTLE SIG
+    function: TPS1 THROTTLE SIG
+    type: av
   - pin: 5-37
-    function: THROTTLE SIG
+    function: TPS2 THROTTLE SIG
+    type: av
+
+
   - pin: 5-38
-    function: THROTTLE GRD
+    function: TPS THROTTLE GRD
     type: agnd
 
   - pin: 5-41
     function: SIGNAL DOUBLE KNOCK SENSOR CYL 1-3
+    type: agnd
   - pin: 5-42
     function: SIGNAL DOUBLE KNOCK SENSOR CYL 4-6
+    type: agnd
 
   - pin: 7-4
     function: SIGNAL, COOLANT TEMPERATURE
   - pin: 7-5
     function: ACTIVATION VANOS SOLENOID VALVE, INTAKE
+    class: outputs
+    type: ls
+
   - pin: 7-7
     function: WASTE VAL 1
+    class: outputs
+    type: ls
+
   - pin: 7-11
     function: SIGNAL CAMSHAFT SENSOR INTAKE
+    type: din
   - pin: 7-12
     function: SIGNAL CAMSHAFT SENSOR EXHAUST
+    type: din
   - pin: 7-13
     function: SIGNAL, OIL PRESSURE LOW SWITCH
+    type: din
+
   - pin: 7-14
     function: WASTE VAL 2
+    class: outputs
+    type: ls
+
   - pin: 7-17
     function: GROUND ENGINE COOLANT TEMPERATURE SENSOR
+    type: agnd
   - pin: 7-18
     function: ACTIVATION VANOS SOLENOID VALVE, EXHAUST
+    class: outputs
+    type: ls
+
   - pin: 7-19
     function: SIGNAL CHARACTERISTIC MAP THERMOSTAT
+
   - pin: 7-24
     function: GROUND CAMSHAFT SENSOR INTAKE
+    type: agnd
   - pin: 7-25
     function: GROUND CAMSHAFT SENSOR EXHAUST
+    type: agnd
+
   - pin: 7-26
     function: BSD SIG
 

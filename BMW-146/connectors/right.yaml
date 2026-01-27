@@ -14,14 +14,15 @@ pins:
     function: UNUSED RADIATOR TEMPERATURE SENSOR SIG LOOKS LIKE ONLY DIESEL
 
   - pin: 1-7
-    function: SIGNAL ACCELERATOR PEDAL MODULE ACC PDL SIG
+    function: PPS SIGNAL ACCELERATOR PEDAL MODULE ACC PDL SIG
+    type: av
   - pin: 1-8
     function: ELEC FAN SIG
   - pin: 1-10
-    function: GROUND ACCELERATOR PEDAL MODULE
+    function: PPS GROUND ACCELERATOR PEDAL MODULE
     type: agnd
   - pin: 1-11
-    function: SUPPLY ACCELERATOR PEDAL MODULE
+    function: PPS SUPPLY ACCELERATOR PEDAL MODULE
     type: 5v
 
   - pin: 1-13
@@ -42,14 +43,16 @@ pins:
   - pin: 1-19
     function: UNUSED RADIATOR TEMPERATURE SENSOR SIG LOOKS LIKE ONLY DIESEL
   - PIN: 1-20
-    function: ACC PDL SIG
+    function: PPS ACCELERATOR PEDAL SIG
+    type: av
+
   - pin: 1-21
     function: TD SIG OBD?
   - pin: 1-23
-    function: ACC PDL GRD
+    function: PPS ACCELERATOR PEDAL GRD
     type: agnd
   - pin: 1-24
-    function: ACC PDL (+)
+    function: PPS ACCELERATOR PEDAL supply
     type: 5v
   - pin: 1-26
     function: E BOX SIG FAN CONTROL
