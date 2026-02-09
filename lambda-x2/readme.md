@@ -26,7 +26,7 @@ See [interactive pinout](https://rusefi.com/docs/pinouts/lambda-x2/)
 
 See [wire colors](https://github.com/rusefi/rusefi/wiki/WBO#naming-convention) for standart LSU wire collors and connectors pinouts.
 
-Current stable [FW release](https://github.com/dron0gus/wideband/releases/tag/release_zero)
+Current stable [FW release](https://github.com/dron0gus/wideband/releases/tag/release_zero) use "dual-rev1" files
 
 Firmware [sources](https://github.com/dron0gus/wideband) (based on https://github.com/mck1117/wideband).
 
