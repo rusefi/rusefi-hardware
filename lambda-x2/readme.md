@@ -6,7 +6,7 @@ pinout source https://github.com/rusefi/rusefi/tree/master/firmware/config/board
 
 https://www.shop.rusefi.com/shop/p/dual-channel-wbo
 
-![Uploading Screenshot from 2022-04-24 12-51-07.png…]()
+<img width="1122" height="854" alt="Screenshot from 2022-04-24 12-51-07" src="https://github.com/user-attachments/assets/dc4f702d-9733-4740-91f7-ba183e14ac25" />
 
 Features:
 * STM32F103 dual channel wideband AFR controller supporting Bosch LSU4.9 and LSU4.2 (LSU_ADV work in progress)
