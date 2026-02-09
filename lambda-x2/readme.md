@@ -6,22 +6,29 @@ pinout source https://github.com/rusefi/rusefi/tree/master/firmware/config/board
 
 https://www.shop.rusefi.com/shop/p/dual-channel-wbo
 
-![x](https://rusefi.com/forum/download/file.php?id=9478)
+![Uploading Screenshot from 2022-04-24 12-51-07.png…]()
 
+Features:
 * STM32F103 dual channel wideband AFR controller supporting Bosch LSU4.9 and LSU4.2 (LSU_ADV work in progress)
 * CAN and analog output
+* Bluetooth or USRT TunerStudio connectivity
+
+Options (not icluded in default BOM)
 * x2 EGT input using MAX31855KASA or MAX31856
 * x2 auxilary analog input: 0..5V with pull-up or pull-down (configurable by soldering resistor). One can be used to source 5V to external sensor.
 * x2 2 auxilary output 0..5V. Also can be used for slow PWM signal output.
-* x2 open drain outputs: BTS3028 (5A)
-* Bluetooth or USRT TunerStudio connectivity
+* x2 open drain outputs
+
+In development:
 * MegaSquirt compatible pass-through connection over CAN http://www.msgpio.com/manuals/mshift/cpt.html (in progress)
 
 See [interactive pinout](https://rusefi.com/docs/pinouts/lambda-x2/)
 
 See [wire colors](https://github.com/rusefi/rusefi/wiki/WBO#naming-convention) for standart LSU wire collors and connectors pinouts.
 
-For firmware see https://github.com/dron0gus/wideband (based on https://github.com/mck1117/wideband)
+Current stable [FW release](https://github.com/dron0gus/wideband/releases/tag/release_zero)
+
+Firmware [sources](https://github.com/dron0gus/wideband) (based on https://github.com/mck1117/wideband).
 
 See rusEFI forum: [F103 dual channel wideband controller + EGT + 2 x AUX In + 2 Aux out](https://rusefi.com/forum/viewtopic.php?f=4&t=2314)
 
@@ -101,7 +108,7 @@ Rev0 share same UART for both interfaces.
 
 Two ways to program using STM32CubeProgrammer
 
-* recommended way: using UART connectivity. Power device up while shorting BOOT0 jumper to enter DFU mode.
+* recommended way: using UART connectivity. Power device up while shorting BOOT0 jumper to enter DFU mode (see "DFU mode/floating PB2" issue above)
 * st-link if you have tc2030 spring-loaded cable.
 * update over CAN or UART (J3) using OpenBLT (update over BT is in progress)
 
@@ -113,31 +120,35 @@ TL,DR: 9600 nothing connected on main connector
 
 1. Disconnect main connector. If you are going to apply +12V power through main connector - make sure that nothing else is connected to WBO (LSU sensors, any load, etc). But I recommend flash using +5V from USB.
    
-3. connect USB to uart connector to J3 connector: gnd, rx and tx.
+2. connect USB to uart connector to J3 connector: gnd, rx and tx.
 Don't forget to cross Rx-`Tx (adapter's Tx goes to WBO's Rx, WBO's Tx goes to adapter's Rx).
-If you going to power WBO from USB port - also attach 5V line. Do not connect +5 from USB adapter if you are going to use +12V supply through main connector. 
+If you going to power WBO from USB port - also attach 5V line. Do not connect +5 from USB adapter if you are going to use +12V supply through main connector.
+
 ![20230923_125247](https://github.com/rusefi/rusefi-hardware/assets/28624689/04b9595a-4832-4e9d-92f6-b6955232a969)
 
 3. Download and install STM32 Flash Loader Demonstrator. (Alternative tool is stm32flash - not covered in this instruction)
 
-5. Figure out USB to serial serial port number: 
+4. Figure out USB to serial serial port number: 
+
 ![device manager](https://github.com/rusefi/rusefi-hardware/assets/28624689/6bf0a0fc-8c34-4061-bd9a-e3c64491b45d)
 
 5. Start Flash Loader Demonstrator GUI application, select correct COM port. Optional: reduce timeout to 1 second:
+
 ![stm32 flasher](https://github.com/rusefi/rusefi-hardware/assets/28624689/b5a6767c-59d1-41b7-a17b-9218185aa7b0)
 
 6. Press and hold BOOT0 button on the bottom of PCB. Or short BOOT0 PCB jumper if button is not populated on your board.
 
-8. Apply power (while holding BOOT0 button) to board and press Next in application.
-After app detects chip you should see something similar to:
+7. Apply power (while holding BOOT0 button) to board and press Next in application. After app detects chip you should see something similar to:
+
 ![stm32 flasher 2](https://github.com/rusefi/rusefi-hardware/assets/28624689/bc78d3d1-68d1-4648-b5f3-19e4711ce60b)
 
-8. Press next, select "Download to device", select wideband.bin file.
-Select "Jump to user application" and "Verify after download"
+8. Press next, select "Download to device", select wideband.bin file. Select "Jump to user application" and "Verify after download"
+
 ![stm32 flasher 3](https://github.com/rusefi/rusefi-hardware/assets/28624689/aa6137e8-ad5c-4747-9fae-2e42df8d1ff3)
 
 9. Press Next and wait for flash/verification ends.
- ![stm32 flasher 4](https://github.com/rusefi/rusefi-hardware/assets/28624689/329a686d-6a6e-42fe-9674-fb4d2ad88d72)
+
+![stm32 flasher 4](https://github.com/rusefi/rusefi-hardware/assets/28624689/329a686d-6a6e-42fe-9674-fb4d2ad88d72)
 
 ## Updating using JTAG
 
