@@ -8,9 +8,7 @@
 #include "injector_bridge.hpp"
 #include "injector_control.hpp"
 #include "high_side_control.hpp"
-#include "lua_scripting.hpp"
 #include "safety_monitor.hpp"
-#include "spi_driver.hpp"
 
 #include "stm32g4xx_hal.h"
 
@@ -21,12 +19,8 @@ InjectorControl injectorControl;
 InjectorBridge injectorBridge;
 CanDriver canDriver;
 GdiCanProtocol gdiProtocol{canDriver};
-SpiDriver spiDriver;
-LuaScripting luaScripting;
 SafetyMonitor safetyMonitor;
 AdcSampler adcSampler;
-
-SPI_HandleTypeDef hspi1;
 
 static void SystemClock_Config();
 static void DefaultTask(void*);
@@ -55,8 +49,6 @@ int main(void) {
     (void)injectorControl.init();
     (void)injectorBridge.init(injectorControl, safetyMonitor);
     (void)canDriver.init();
-    (void)spiDriver.init();
-    (void)luaScripting.init();
     (void)adcSampler.init();
     boost::init();
 

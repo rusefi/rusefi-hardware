@@ -74,9 +74,7 @@ set(FREERTOS_KERNEL_DIR ${FREERTOS_REPO_DIR}/FreeRTOS/Source)
          src/high_side_control.cpp
          src/injector_bridge.cpp
          src/injector_control.cpp
-         src/lua_scripting.cpp
          src/safety_monitor.cpp
-         src/spi_driver.cpp
         src/stm32g4xx_hal_msp.c
         src/startup_stm32g474xx.s
         ${STM32CUBE_DIR}/Projects/STM32G474E-EVAL1/Templates_LL/Src/system_stm32g4xx.c
@@ -98,7 +96,6 @@ set(FREERTOS_KERNEL_DIR ${FREERTOS_REPO_DIR}/FreeRTOS/Source)
         ${STM32_HAL_DIR}/Src/stm32g4xx_hal_rcc_ex.c
         ${STM32_HAL_DIR}/Src/stm32g4xx_hal_tim.c
         ${STM32_HAL_DIR}/Src/stm32g4xx_hal_tim_ex.c
-        ${STM32_HAL_DIR}/Src/stm32g4xx_hal_spi.c
         ${STM32_HAL_DIR}/Src/stm32g4xx_hal_fdcan.c
         ${STM32_HAL_DIR}/Src/stm32g4xx_hal_iwdg.c
     )
@@ -113,37 +110,6 @@ set(FREERTOS_KERNEL_DIR ${FREERTOS_REPO_DIR}/FreeRTOS/Source)
         ${FREERTOS_KERNEL_DIR}/portable/MemMang/heap_4.c
     )
 
-    add_library(lua STATIC
-        lib/lua/lapi.c
-        lib/lua/lauxlib.c
-        lib/lua/lbaselib.c
-        lib/lua/lcode.c
-        lib/lua/lctype.c
-        lib/lua/ldebug.c
-        lib/lua/ldo.c
-        lib/lua/ldump.c
-        lib/lua/lfunc.c
-        lib/lua/lgc.c
-        lib/lua/linit.c
-        lib/lua/llex.c
-        lib/lua/lmathlib.c
-        lib/lua/lmem.c
-        lib/lua/lobject.c
-        lib/lua/lopcodes.c
-        lib/lua/lparser.c
-        lib/lua/lstate.c
-        lib/lua/lstring.c
-        lib/lua/lstrlib.c
-        lib/lua/ltable.c
-        lib/lua/ltablib.c
-        lib/lua/ltm.c
-        lib/lua/lundump.c
-        lib/lua/lutf8lib.c
-        lib/lua/lvm.c
-        lib/lua/lzio.c
-    )
-    target_include_directories(lua PUBLIC lib/lua)
-
     add_executable(GDI_STM_Firmware
         ${FIRMWARE_SOURCES}
         ${HAL_SOURCES}
@@ -152,7 +118,6 @@ set(FREERTOS_KERNEL_DIR ${FREERTOS_REPO_DIR}/FreeRTOS/Source)
 
     target_include_directories(GDI_STM_Firmware PRIVATE
         ${PROJECT_INC_DIR}
-        lib/lua
         ${STM32_HAL_DIR}/Inc
         ${STM32_HAL_DIR}/Inc/Legacy
         ${STM32_CMSIS_CORE_DIR}/Include
@@ -183,8 +148,6 @@ set(FREERTOS_KERNEL_DIR ${FREERTOS_REPO_DIR}/FreeRTOS/Source)
         --specs=nosys.specs
     )
 
-    target_link_libraries(GDI_STM_Firmware PRIVATE lua)
-
     add_custom_command(TARGET GDI_STM_Firmware POST_BUILD
         COMMAND ${CMAKE_OBJCOPY} -O ihex $<TARGET_FILE:GDI_STM_Firmware> $<TARGET_FILE_DIR:GDI_STM_Firmware>/$<TARGET_FILE_BASE_NAME:GDI_STM_Firmware>.hex
         COMMAND ${CMAKE_OBJCOPY} -O binary $<TARGET_FILE:GDI_STM_Firmware> $<TARGET_FILE_DIR:GDI_STM_Firmware>/$<TARGET_FILE_BASE_NAME:GDI_STM_Firmware>.bin
@@ -207,14 +170,11 @@ if(GDI_BUILD_TESTS)
 
     add_executable(unit_tests
         tests/test_main.cpp
-        tests/test_spi_driver.cpp
-        tests/test_lua_scripting.cpp
         tests/integration/test_can_integration.cpp
     )
 
     target_include_directories(unit_tests PRIVATE
         ${PROJECT_INC_DIR}
-        lib/lua
     )
 
     target_link_libraries(unit_tests PRIVATE
@@ -222,7 +182,6 @@ if(GDI_BUILD_TESTS)
         gtest_main
         gmock
         gmock_main
-        lua
     )
 
     add_test(NAME UnitTests COMMAND unit_tests)

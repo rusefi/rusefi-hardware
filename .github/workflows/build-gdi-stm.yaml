@@ -1,9 +1,17 @@
 name: Build GDI-STM Firmware
 
 on:
-  #  push:
-  #  pull_request:
   workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'GDI-STM/**'
+      - '.github/workflows/build-gdi-stm.yaml'
+  pull_request:
+    branches: [main]
+    paths:
+      - 'GDI-STM/**'
+      - '.github/workflows/build-gdi-stm.yaml'
 
 jobs:
   build-firmware:
