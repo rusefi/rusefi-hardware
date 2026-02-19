@@ -1,0 +1,41 @@
+name: Build GDI-STM Firmware
+
+on:
+  #  push:
+  #  pull_request:
+  workflow_dispatch:
+
+jobs:
+  build-firmware:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          submodules: recursive
+
+      - name: Acquire GCC
+        uses: carlosperate/arm-none-eabi-gcc-action@v1
+        with:
+          release: '12.3.Rel1'
+
+      - name: Test Compiler
+        run: arm-none-eabi-gcc -v
+
+      - name: Configure CMake
+        working-directory: ./GDI-STM/firmware
+        run: cmake -B build -DCMAKE_TOOLCHAIN_FILE=arm-gcc-toolchain.cmake
+
+      - name: Build Firmware
+        working-directory: ./GDI-STM/firmware
+        run: cmake --build build -j$(nproc)
+
+      - name: Upload GDI-STM binaries
+        uses: actions/upload-artifact@v4
+        with:
+          name: GDI-STM-Firmware
+          path: |
+            ./GDI-STM/firmware/build/*.hex
+            ./GDI-STM/firmware/build/*.bin
+            ./GDI-STM/firmware/build/*.elf
+            ./GDI-STM/firmware/build/*.map
