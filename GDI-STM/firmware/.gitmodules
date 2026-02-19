@@ -1,0 +1,9 @@
+[submodule "lib/FreeRTOS"]
+	path = lib/FreeRTOS
+	url = https://github.com/FreeRTOS/FreeRTOS.git
+[submodule "lib/lua"]
+	path = lib/lua
+	url = https://github.com/lua/lua.git
+[submodule "lib/STM32CubeG4"]
+	path = lib/STM32CubeG4
+	url = https://github.com/STMicroelectronics/STM32CubeG4.git
