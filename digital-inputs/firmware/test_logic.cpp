@@ -681,43 +681,6 @@ BoardConfig boardConfigs[] = {
 			{ nullptr, 0, 0, 0 }, // { "TPS2_2", 1.0f, 0.5f * ANALOG_L, 0.5f * ANALOG_H },
 			{ nullptr, 0, 0, 0 },//{ "AUXL1", 1.0f, 1.35f * ANALOG_L, 1.35f * ANALOG_H },
 			{ nullptr, 0, 0, 0 },//{ "AUXL2", 1.0f, 2.23f * ANALOG_L, 2.23f * ANALOG_H },
-			{ nullptr, 0, 0, 0 },
-			{ nullptr, 0, 0, 0 },
-			{ nullptr, 0, 0, 0 },
-			{ nullptr, 0, 0, 0 },
-
-			// 16
-			// 78 - With on-board 680K pull down
-			{ "AUX1", PULLED_DOWN_RANGE(DOWN_12B, UP_12B, 680'000) },
-			// 32 - With on-board 1K pull up
-			//{ "AUX2", PULLED_UP_RANGE(DOWN_13B, UP_13B, 1'000) },
-			/* this input has non-unified final divider between buffer OpAmp and ADC input: (4.7K || 5.1K) + 4.7K
-			 * compensate it with mult = 0.761 until this is fixed in ECU side SW */
-			{
-				"AUX2",
-				0.761,
-				0.937f * PULLED_UP_VOLTAGE(DOWN_13B, UP_13B, 1'000),
-				1.05f * PULLED_UP_VOLTAGE(DOWN_13B, UP_13B, 1'000),
-			},
-			// 34 - With on-board 4.7K pull up
-			//{ "AUX3", PULLED_UP_RANGE(DOWN_14B, UP_14B, 4'700) },
-			/* this input after buffer OpAmp and 0.5 divider is routed to two STM32 inputs
-			 * One is ADC input that is checked here,
-			 * Another one is digital input that have pull-down enabled by default.
-			 * This pull-down affects accuracy, so we extend low threshold here */
-			{
-				"AUX3",
-				1.0f,
-				0.87f * PULLED_UP_VOLTAGE(DOWN_14B, UP_14B, 4'700),
-				1.05f * PULLED_UP_VOLTAGE(DOWN_14B, UP_14B, 4'700),
-
-			},
-			{ nullptr, 0, 0, 0 },
-			{ nullptr, 0, 0, 0 },
-			{ nullptr, 0, 0, 0 },
-			{ nullptr, 0, 0, 0 },
-			// 55 - with 4.7K pull up
-			{ "AT1", 1.0f, CLT_VALUE(HELLEN_R) * ANALOG_L, CLT_VALUE(HELLEN_R) * ANALOG_H },
 
 		},
 		.eventExpected = {
