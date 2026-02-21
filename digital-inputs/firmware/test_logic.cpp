@@ -704,7 +704,7 @@ BoardConfig boardConfigs[] = {
 			/* this input after buffer OpAmp and 0.5 divider is routed to two STM32 inputs
 			 * One is ADC input that is checked here,
 			 * Another one is digital input that have pull-down enabled by default.
-			 * This pull-down affects accutracity, so we extend low threshold here */
+			 * This pull-down affects accuracy, so we extend low threshold here */
 			{
 				"AUX3",
 				1.0f,
