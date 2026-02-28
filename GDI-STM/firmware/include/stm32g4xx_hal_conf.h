@@ -17,7 +17,6 @@ extern "C" {
 #define HAL_PWR_MODULE_ENABLED
 #define HAL_TIM_MODULE_ENABLED
 #define HAL_DMA_MODULE_ENABLED
-#define HAL_SPI_MODULE_ENABLED
 #define HAL_FDCAN_MODULE_ENABLED
 #define HAL_IWDG_MODULE_ENABLED
 #define HAL_ADC_MODULE_ENABLED
@@ -72,7 +71,6 @@ extern "C" {
 #include "stm32g4xx_hal_pwr_ex.h"
 #include "stm32g4xx_hal_tim.h"
 #include "stm32g4xx_hal_tim_ex.h"
-#include "stm32g4xx_hal_spi.h"
 #include "stm32g4xx_hal_fdcan.h"
 #include "stm32g4xx_hal_iwdg.h"
 #include "stm32g4xx_hal_adc.h"

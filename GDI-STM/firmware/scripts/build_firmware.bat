@@ -92,7 +92,7 @@ echo Build completed successfully!
 echo Firmware files created in build/ directory
 echo.
 echo Verifying produced PCB pinmap against firmware definitions...
-python ..\\scripts\\verify_pcb_vs_firmware.py --pcb ..\\GDI-STM.kicad_pcb --board-pins ..\\include\\board_pins.hpp
+python scripts\\verify_pcb_vs_firmware.py --pcb GDI-STM.kicad_pcb --board-pins include\\board_pins.hpp
 if errorlevel 1 (
     echo ERROR: Pinmap verification failed. Check PCB vs firmware pin definitions.
     exit /b 1

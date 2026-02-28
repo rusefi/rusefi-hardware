@@ -24,3 +24,9 @@
 [submodule "ext/wideband"]
 	path = ext/wideband
 	url = https://github.com/mck1117/wideband
+[submodule "GDI-STM/firmware/lib/FreeRTOS"]
+	path = GDI-STM/firmware/lib/FreeRTOS
+	url = https://github.com/FreeRTOS/FreeRTOS.git
+[submodule "GDI-STM/firmware/lib/STM32CubeG4"]
+	path = GDI-STM/firmware/lib/STM32CubeG4
+	url = https://github.com/STMicroelectronics/STM32CubeG4.git
