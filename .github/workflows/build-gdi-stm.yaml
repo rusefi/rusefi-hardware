@@ -22,6 +22,13 @@ jobs:
         with:
           submodules: recursive
 
+      # Nested submodules (FreeRTOS kernel, STM32CubeG4 HAL/CMSIS) are required for the build.
+      - name: Init GDI-STM firmware submodules
+        run: |
+          git submodule update --init GDI-STM/firmware/lib/FreeRTOS GDI-STM/firmware/lib/STM32CubeG4
+          (cd GDI-STM/firmware/lib/FreeRTOS && git submodule update --init FreeRTOS/Source)
+          (cd GDI-STM/firmware/lib/STM32CubeG4 && git submodule update --init Drivers/STM32G4xx_HAL_Driver Drivers/CMSIS/Device/ST/STM32G4xx)
+
       - name: Acquire GCC
         uses: carlosperate/arm-none-eabi-gcc-action@v1
         with:
