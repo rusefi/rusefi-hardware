@@ -125,8 +125,8 @@ pins:
 
 
 info:
-  title: BMW E92 N54
-  name: BMW E92 N54
+  title: BMW E9x N54
+  name: BMW E9x N54
   directory: BMW-N54-146
   cid: R
   order: 2
