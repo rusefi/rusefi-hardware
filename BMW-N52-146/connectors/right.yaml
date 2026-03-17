@@ -46,7 +46,7 @@ pins:
     type: av
   - pin: 1-21
     function: TD SIG
-  - pin: 1-21
+  - pin: 1-22
     function: SPLY TERM 15
   - pin: 1-23
     function: PPS ACCELERATOR PEDAL GRD
