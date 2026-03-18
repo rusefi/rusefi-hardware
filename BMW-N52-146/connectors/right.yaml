@@ -32,15 +32,15 @@ pins:
     function: CAN HIGH
     type: can
   - pin: 1-15
-    function: VEH IMMOB SIG //UNUSED
+    function: VEH IMMOB SIG //mb UNUSED
   - pin: 1-16
-    function: BRK LGHT SIG //UNUSED
+    function: BRK LGHT SIG //mb UNUSED
   - pin: 1-17
-    function: RR SPD SIG //UNUSED
+    function: RR SPD SIG //mb UNUSED
   - pin: 1-18
     function: CLUTCH SW
   - pin: 1-19
-    function: OUTLET TEMP //UNUSED
+    function: OUTLET TEMP //mb UNUSED
   - PIN: 1-20
     function: PPS ACCELERATOR PEDAL SIG
     type: av
@@ -61,7 +61,7 @@ pins:
   - pin: 2-1
     function: WAKE-UP SIG
   - pin: 2-2
-    function: BRK VACUUM SENS //UNUSED
+    function: BRK VACUUM SENS //mb UNUSED
   - pin: 2-5
     function: WBO2 pin5 Oxygen sensor 2 before catalytic converter
   - pin: 2-6
@@ -86,35 +86,35 @@ pins:
     type: ls
 
   - pin: 2-14
-    function: BRK VACUUM SENS //UNUSED
+    function: BRK VACUUM SENS //mb UNUSED
   - pin: 2-15
     function: BRK VACUUM SENS OR FUEL TANK LEAKAGE //UNUSED
   - pin: 2-16
-    function: LEAK DIAG SIG //UNUSED
+    function: LEAK DIAG SIG //mb UNUSED
   - pin: 2-17
-    function: LEAK DIAG SIG //UNUSED
+    function: LEAK DIAG SIG //mb UNUSED
 
   - pin: 2-18
     function: WBO1 pin5 Signal, oxygen sensor
 
   - pin: 2-19
-    function: OXYGEN SENSOR 2 pin4 SIG BEHIND CATALYTIC //UNUSED
+    function: OXYGEN SENSOR 2 pin4 SIG BEHIND CATALYTIC //mb UNUSED
   - pin: 2-20
-    function: OXYGEN SENSOR 1 pin4 SIG BEHIND CATALYTIC //UNUSED
+    function: OXYGEN SENSOR 1 pin4 SIG BEHIND CATALYTIC //mb UNUSED
 
   - pin: 2-22
     function: ANTI-THEFT SYSTEM
 
   - pin: 2-23
-    function: OXYGEN SENSOR 1 pin3 GRD BEHIND CATALYTIC //UNUSED
+    function: OXYGEN SENSOR 1 pin3 GRD BEHIND CATALYTIC //mb UNUSED
     type: gnd
   - pin: 2-24
-    function: OXYGEN SENSOR 2 pin3 GRD BEHIND CATALYTIC //UNUSED
+    function: OXYGEN SENSOR 2 pin3 GRD BEHIND CATALYTIC //mb UNUSED
     type: gnd
   - pin: 2-25
-    function: OXYGEN SENSOR 2 pin2 SIG BEHIND CATALYTIC //UNUSED
+    function: OXYGEN SENSOR 2 pin2 SIG BEHIND CATALYTIC //mb UNUSED
   - pin: 2-26
-    function: OXYGEN SENSOR 1 pin2 SIG BEHIND CATALYTIC //UNUSED
+    function: OXYGEN SENSOR 1 pin2 SIG BEHIND CATALYTIC //mb UNUSED
 
   - pin: 3-1
     function: Supply, terminal 30
