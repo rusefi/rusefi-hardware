@@ -8,6 +8,8 @@
 
 #pragma once
 
+// TODO: some pins are hard coded in main.cpp
+
 #include "efifeatures.h"
 
 // D20

@@ -1,3 +1,5 @@
+baud rate 115200
+
 # Changelog
 
 See EFI_BOARD_E92 for alternative LED pinout
