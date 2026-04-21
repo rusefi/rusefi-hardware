@@ -126,6 +126,20 @@ If you going to power WBO from USB port - also attach 5V line. Do not connect +5
 
 ![20230923_125247](https://github.com/rusefi/rusefi-hardware/assets/28624689/04b9595a-4832-4e9d-92f6-b6955232a969)
 
+### Linux way
+
+3. Install stm32flash utility
+
+`apt-get install stm32flash`
+
+4. Press and hold BOOT0 button on the bottom of PCB. Or short BOOT0 PCB jumper if button is not populated on your board.
+
+6. Run
+
+`stm32flash /dev/ttyUSB0 -w wideband.hex`
+
+### Windows way
+
 3. Download and install STM32 Flash Loader Demonstrator. (Alternative tool is stm32flash - not covered in this instruction)
 
 4. Figure out USB to serial serial port number: 
