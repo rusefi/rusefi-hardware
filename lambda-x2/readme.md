@@ -134,6 +134,8 @@ If you going to power WBO from USB port - also attach 5V line. Do not connect +5
 
 4. Press and hold BOOT0 button on the bottom of PCB. Or short BOOT0 PCB jumper if button is not populated on your board.
 
+5. Apply power (while still holding BOOT0 button) to board
+
 6. Run
 
 `stm32flash /dev/ttyUSB0 -w wideband.hex`
