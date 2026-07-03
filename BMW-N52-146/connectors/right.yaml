@@ -117,9 +117,13 @@ pins:
     function: OXYGEN SENSOR 1 pin2 SIG BEHIND CATALYTIC //mb UNUSED
 
   - pin: 3-1
-    function: Supply, terminal 30
+    function: constant Supply terminal 30, terminal 30
+    type: 12v
+
   - pin: 3-2
-    function: Supply, terminal 87
+    function: switched Supply from main relay, terminal 87
+    type: 12v
+
   - pin: 3-3
     function: GROUND
     type: gnd
