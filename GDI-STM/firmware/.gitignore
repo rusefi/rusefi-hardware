@@ -1,0 +1,8 @@
+build/
+release/
+artifacts/
+scripts/tools/
+*.log
+*.tmp
+__pycache__/
+*.pyc
