@@ -14,17 +14,17 @@ pins:
     function: VAR GEAR SIG pin1
 
   - pin: 6-1
-    function: INJ 1 SIG
+    function: Ignition/Coil 1
   - pin: 6-2
-    function: INJ 2 SIG
+    function: Ignition/Coil 2
   - pin: 6-3
-    function: INJ 3 SIG
+    function: Ignition/Coil 3
   - pin: 6-4
-    function: INJ 4 SIG
+    function: Ignition/Coil 4
   - pin: 6-5
-    function: INJ 5 SIG
+    function: Ignition/Coil 5
   - pin: 6-6
-    function: INJ 6 SIG
+    function: Ignition/Coil 6
 
   - pin: 5-4
     function: HOT FILM AIR MASS METER OR Neutral sensor maybe Clutch Pedal
@@ -107,11 +107,11 @@ pins:
     type: agnd
 
   - pin: 7-1
-    function: INJ 1 SIG
+    function: Injector 1
   - pin: 7-2
-    function: INJ 2 SIG
+    function: Injector 2
   - pin: 7-3
-    function: INJ 3 SIG
+    function: Injector 3
   - pin: 7-4
     function: SIGNAL, COOLANT TEMPERATURE
   - pin: 7-5
@@ -141,11 +141,11 @@ pins:
     type: din
 
   - pin: 7-14
-    function: INJ 4 SIG
+    function: Injector 4
   - pin: 7-15
-    function: INJ 5 SIG
+    function: Injector 5
   - pin: 7-16
-    function: INJ 6 SIG
+    function: Injector 6
 
   - pin: 7-17
     function: GROUND ENGINE COOLANT TEMPERATURE SENSOR
