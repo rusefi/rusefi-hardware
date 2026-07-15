@@ -77,13 +77,14 @@ pins:
     type: agnd
 
   - pin: 5-31
-    function: SUPPLY INTAKE PIPE PRESSURE SENSOR
+    function: MAP SUPPLY INTAKE PIPE PRESSURE SENSOR
     type: 5v
   - pin: 5-32
-    function: GROUND INTAKE PIPE PRESSURE SENSOR
+    function: MAP GROUND INTAKE PIPE PRESSURE SENSOR
     type: agnd
   - pin: 5-33
-    function: SIGNAL INTAKE PIPE PRESSURE SENSOR
+    function: MAP SIGNAL INTAKE PIPE PRESSURE SENSOR
+    type: av
 
   - pin: 5-35
     function: BSD SIG (OIL CONDITION OR STARTING/CHARGING)
