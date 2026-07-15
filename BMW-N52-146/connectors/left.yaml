@@ -179,6 +179,7 @@ pins:
     function: BSD SIG
 
 info:
+  board_url: https://wiki.rusefi.com/BMW-N52/
   title: BMW E9x N52
   name: BMW E9x N52
   directory: BMW-N52-146
