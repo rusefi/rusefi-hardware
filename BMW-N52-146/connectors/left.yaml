@@ -15,16 +15,32 @@ pins:
 
   - pin: 6-1
     function: Ignition/Coil 1
+    class: outputs
+    type: ls
   - pin: 6-2
     function: Ignition/Coil 2
+    class: outputs
+    type: ls
+
   - pin: 6-3
     function: Ignition/Coil 3
+    class: outputs
+    type: ls
+
   - pin: 6-4
     function: Ignition/Coil 4
+    class: outputs
+    type: ls
+
   - pin: 6-5
     function: Ignition/Coil 5
+    class: outputs
+    type: ls
+
   - pin: 6-6
     function: Ignition/Coil 6
+    class: outputs
+    type: ls
 
   - pin: 5-4
     function: HOT FILM AIR MASS METER OR Neutral sensor maybe Clutch Pedal
@@ -108,10 +124,16 @@ pins:
 
   - pin: 7-1
     function: Injector 1
+    class: outputs
+    type: ls
   - pin: 7-2
     function: Injector 2
+    class: outputs
+    type: ls
   - pin: 7-3
     function: Injector 3
+    class: outputs
+    type: ls
   - pin: 7-4
     function: SIGNAL, COOLANT TEMPERATURE
   - pin: 7-5
@@ -142,10 +164,16 @@ pins:
 
   - pin: 7-14
     function: Injector 4
+    class: outputs
+    type: ls
   - pin: 7-15
     function: Injector 5
+    class: outputs
+    type: ls
   - pin: 7-16
     function: Injector 6
+    class: outputs
+    type: ls
 
   - pin: 7-17
     function: GROUND ENGINE COOLANT TEMPERATURE SENSOR
