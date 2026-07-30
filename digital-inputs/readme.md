@@ -1,5 +1,7 @@
 Report results are posted into USB Serial, also green/red LED once test cycle is complete.
 
+[⏩ Interactive Pinout ⏪](https://rusefi.com/docs/pinouts/stim/)
+
 See https://github.com/rusefi/stim for hardware
 
 Uses STM32 Nucleo-F429ZI https://os.mbed.com/platforms/ST-Nucleo-F429ZI/
