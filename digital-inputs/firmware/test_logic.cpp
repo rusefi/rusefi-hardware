@@ -957,16 +957,13 @@ BoardConfig boardConfigs[] = {
 		.desiredEngineConfig = -1,
 		.boardIds = { STATIC_BOARD_ID_UAEFI_Z31, 0 },
 		.channels = {
-// 			{ "TPS1_1", PULLED_DOWN_RANGE(DOWN_7B, UP_7B, 680'000) },
-			{ nullptr, 0, 0, 0 }, // TPS1_1
+ 			{ "TPS1_1", PULLED_DOWN_RANGE(DOWN_7B, UP_7B, 680'000) },
 			{ nullptr, 0, 0, 0 }, // TPS1_2
 			{ nullptr, 0, 0, 0 }, // PPS1
 			{ nullptr, 0, 0, 0 }, // PPS2
-//			{ nullptr, 0, 0, 0 }, // MAP
 			{ "MAP", PULLED_DOWN_RANGE(DOWN_8B, UP_8B, 680'000) },
 			{ "CLT", 1.0f, CLT_VALUE(HELLEN_R) * ANALOG_L, CLT_VALUE(HELLEN_R) * ANALOG_H },
-			{ nullptr, 0, 0, 0 }, // IAT
-// 			{ "IAT", 1.0f, IAT_VALUE(HELLEN_R) * ANALOG_L, IAT_VALUE(HELLEN_R) * ANALOG_H },
+ 			{ "IAT", 1.0f, IAT_VALUE(HELLEN_R) * ANALOG_L, IAT_VALUE(HELLEN_R) * ANALOG_H },
 			{ "BATT", HELLEN_VBATT_MULT, 9.0f, 15.0f },
 
 			{ nullptr, 0, 0, 0 }, // "TPS2_1"
@@ -985,7 +982,15 @@ BoardConfig boardConfigs[] = {
  "104 INJ_4",
  "105 INJ_5",
  "106 INJ_6",
- "5 OUT_IGN power transistor",
+"2 - Idle Air Valve",
+"5 - Ignition",
+"6 - Main Relay",
+"20 - Fuel Pump Relay",
+"J1.7 - Low Side 3",
+"J1.8 - Low Side 1",
+"J1.9 - Ignition Aux 3",
+"J1.17 - Ignition Aux 4",
+"J1.25 - Ignition Aux 5",
         },
         .wboUnitsCount = 1,
 		.dcHackValue = 1,
