@@ -1,3 +1,32 @@
+/**
+ * QC expectation table: one BoardStimMeta entry per production board, keyed by board ID.
+ *
+ * The boards under test are defined in the main rusefi repo (sibling checkout assumed
+ * at ../rusefi relative to this repo root), under ../rusefi/firmware/config/boards/:
+ *   - "uaefi", "uaefi121", "super-uaefi"           -> hellen/uaefi, hellen/uaefi121, hellen/super-uaefi
+ *   - "2chan"/"4chan"/"8chan"/"gold"/"SILVER*"     -> hellen/alphax-2chan, -4chan, -8chan, -gold, -silver*
+ *   - "4k-gdi"                                     -> hellen/alphax-4K-GDI
+ *   - "121vag", "121nissan", "112-17", "154HYUNDAI" -> hellen/hellen121vag, hellen121nissan,
+ *                                                     hellen-112-17, hellen154hyundai
+ *   - "Hellen-Honda125K"                           -> hellen/hellen-honda-k
+ *   - "e92"                                        -> hellen/hellen88bmw
+ *   - "Proteus" (+ mg1/M73/hd/subaru/polaris variants) -> proteus, proteus_meta.h
+ *   - "mre-m111"                                   -> microrusefi
+ *   - "m74.9"                                      -> m74_9
+ * Analog input divider values (HELLEN_R, PROTEUS_R, UP_xx/DOWN_xx) must match the input
+ * schematics of those boards; e.g. HELLEN_VBATT_MULT matches
+ * ../rusefi/firmware/config/boards/hellen/hellen_common.cpp, per-board input dividers
+ * live in each board's board_configuration.cpp.
+ *
+ * Board ID constants (STATIC_BOARD_ID_*, BOARD_ID_*) come from the shared libfirmware
+ * submodule: ext/libfirmware/board_id/boards_dictionary.h — the same library the ECU
+ * side builds as ../rusefi/firmware/libfirmware/board_id/.
+ *
+ * The ECU-side counterpart of this QC CAN protocol (bench_test_packet_ids_e in
+ * ext/libfirmware/can/can_common.h) is handled by
+ * ../rusefi/firmware/controllers/can/can_bench_test.cpp and
+ * ../rusefi/firmware/controllers/bench_test.cpp.
+ */
 
 #include "global.h"
 #include "adc.h"
