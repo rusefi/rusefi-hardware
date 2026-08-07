@@ -3,51 +3,21 @@ pins:
     function: OUT4 coil 4
     type: ign
 
-  - pin: 2B
-    function:
-
   - pin: 3B
     function: OUT3 coil 3
     type: ign
-
-  - pin: 4B
-    function:
 
   - pin: 5B
     function: OUT2 coil 2
     type: ign
 
-  - pin: 6B
-    function:
-
   - pin: 7B
     function: OUT1 coil 1
     type: ign
 
-  - pin: 8B
-    function:
-
-  - pin: 9B
-    function:
-
-  - pin: 10B
-    function:
-
-  - pin: 11B
-    function:
-
-  - pin: 12B
-    function:
-
-  - pin: 13B
-    function:
-
   - pin: 14B
     function: IN3 signal
     type: din
-
-  - pin: 15B
-    function:
 
   - pin: 16B
     function: GND
@@ -57,9 +27,6 @@ pins:
     function: GND
     type: gnd
 
-  - pin: 18B
-    function:
-
   - pin: 19B
     function: IN2 signal
     type: din
@@ -67,9 +34,6 @@ pins:
   - pin: 20B
     function: IN4 signal
     type: din
-
-  - pin: 21B
-    function:
 
   - pin: 22B
     function: GND
@@ -82,9 +46,6 @@ pins:
   - pin: 24B
     function: GND
     type: gnd
-
-  - pin: 25B
-    function:
 
   - pin: 26B
     function: IN1 signal
