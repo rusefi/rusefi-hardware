@@ -1,0 +1,177 @@
+pins:
+  - pin: 1B
+    function: OUT4 coil 4
+    type: ign
+
+  - pin: 2B
+    function:
+
+  - pin: 3B
+    function: OUT3 coil 3
+    type: ign
+
+  - pin: 4B
+    function:
+
+  - pin: 5B
+    function: OUT2 coil 2
+    type: ign
+
+  - pin: 6B
+    function:
+
+  - pin: 7B
+    function: OUT1 coil 1
+    type: ign
+
+  - pin: 8B
+    function:
+
+  - pin: 9B
+    function:
+
+  - pin: 10B
+    function:
+
+  - pin: 11B
+    function:
+
+  - pin: 12B
+    function:
+
+  - pin: 13B
+    function:
+
+  - pin: 14B
+    function: IN3 signal
+    type: din
+
+  - pin: 15B
+    function:
+
+  - pin: 16B
+    function: GND
+    type: gnd
+
+  - pin: 17B
+    function: GND
+    type: gnd
+
+  - pin: 18B
+    function:
+
+  - pin: 19B
+    function: IN2 signal
+    type: din
+
+  - pin: 20B
+    function: IN4 signal
+    type: din
+
+  - pin: 21B
+    function:
+
+  - pin: 22B
+    function: GND
+    type: gnd
+
+  - pin: 23B
+    function: GND
+    type: gnd
+
+  - pin: 24B
+    function: GND
+    type: gnd
+
+  - pin: 25B
+    function:
+
+  - pin: 26B
+    function: IN1 signal
+    type: din
+
+info:
+  title: superseal-igbt
+  cid: main
+  name: superseal-igbt
+  image:
+    file: 26pins-4k.jpg
+  pins:
+    - pin: 1B
+      x: 85
+      y: 90
+    - pin: 2B
+      x: 110
+      y: 90
+    - pin: 3B
+      x: 135
+      y: 90
+    - pin: 4B
+      x: 160
+      y: 90
+    - pin: 5B
+      x: 185
+      y: 90
+    - pin: 6B
+      x: 205
+      y: 90
+    - pin: 7B
+      x: 230
+      y: 90
+    - pin: 8B
+      x: 100
+      y: 120
+    - pin: 9B
+      x: 125
+      y: 120
+    - pin: 10B
+      x: 145
+      y: 120
+    - pin: 11B
+      x: 170
+      y: 120
+    - pin: 12B
+      x: 195
+      y: 120
+    - pin: 13B
+      x: 220
+      y: 120
+    - pin: 14B
+      x: 100
+      y: 150
+    - pin: 15B
+      x: 125
+      y: 150
+    - pin: 16B
+      x: 145
+      y: 150
+    - pin: 17B
+      x: 170
+      y: 150
+    - pin: 18B
+      x: 195
+      y: 150
+    - pin: 19B
+      x: 220
+      y: 150
+    - pin: 20B
+      x: 85
+      y: 180
+    - pin: 21B
+      x: 110
+      y: 180
+    - pin: 22B
+      x: 135
+      y: 180
+    - pin: 23B
+      x: 155
+      y: 180
+    - pin: 24B
+      x: 180
+      y: 180
+    - pin: 25B
+      x: 205
+      y: 180
+    - pin: 26B
+      x: 230
+      y: 180
