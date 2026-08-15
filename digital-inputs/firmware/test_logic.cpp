@@ -720,11 +720,9 @@ BoardConfig boardConfigs[] = {
 			{ "AUX1", PULLED_DOWN_RANGE(DOWN_12B, UP_12B, 680'000) },
 			// 32 - With on-board 1K pull up
 			//{ "AUX2", PULLED_UP_RANGE(DOWN_13B, UP_13B, 1'000) },
-			/* this input has non-unified final divider between buffer OpAmp and ADC input: (4.7K || 5.1K) + 4.7K
-			 * compensate it with mult = 0.761 until this is fixed in ECU side SW */
 			{
 				"AUX2",
-				0.761,
+				1.0f,
 				0.937f * PULLED_UP_VOLTAGE(DOWN_13B, UP_13B, 1'000),
 				1.05f * PULLED_UP_VOLTAGE(DOWN_13B, UP_13B, 1'000),
 			},
