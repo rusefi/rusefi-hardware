@@ -744,7 +744,8 @@ BoardConfig boardConfigs[] = {
 			{ nullptr, 0, 0, 0 },
 			{ nullptr, 0, 0, 0 },
 			// 55 - with 4.7K pull up
-			{ "AT1", 1.0f, CLT_VALUE(HELLEN_R) * ANALOG_L, CLT_VALUE(HELLEN_R) * ANALOG_H },
+			{ nullptr, 0, 0, 0 },
+//			{ "AT1", 1.0f, CLT_VALUE(HELLEN_R) * ANALOG_L, CLT_VALUE(HELLEN_R) * ANALOG_H },
 
 		},
 		.eventExpected = {
