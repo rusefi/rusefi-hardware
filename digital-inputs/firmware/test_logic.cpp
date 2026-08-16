@@ -743,7 +743,7 @@ BoardConfig boardConfigs[] = {
 			{ nullptr, 0, 0, 0 },
 			{ nullptr, 0, 0, 0 },
 			{ nullptr, 0, 0, 0 },
-			// 55 - with 4.7K pull up
+			// 55 - with 4.7K pull up. Secondary 2K on 22C
 			{ "AT1", 1.0f, CLT_VALUE(HELLEN_R) * ANALOG_L, CLT_VALUE(HELLEN_R) * ANALOG_H },
 
 		},
