@@ -52,7 +52,11 @@ static bool rawReported[128];
 static bool hasSeenWbo1;
 static bool hasSeenWbo2;
 
+static bool wasBoardDetectError = false;
+
 void startNewCanTest() {
+    // report unknown board once per test cycle rather than once per power-up
+    wasBoardDetectError = false;
     isGoodCanPackets = true;
     hasReceivedAnalog = false;
     hasReceivedBoardId = false;
@@ -67,6 +71,12 @@ void startNewCanTest() {
 }
 
 bool isHappyCanTest() {
+    if (currentBoard == nullptr) {
+        setRedText();
+        chprintf(chp, "* no board detected, CAN test not happy\n");
+        setNormalText();
+        return false;
+    }
     bool isGoodWbo1 = currentBoard->wboUnitsCount < 1 || hasSeenWbo1;
     bool isGoodWbo2 = currentBoard->wboUnitsCount < 2 || hasSeenWbo2;
 
@@ -133,7 +143,6 @@ int getLowSideOutputCount() {
 	return lowSideOutputCount;
 }
 
-static bool wasBoardDetectError = false;
 int numSecondsSinceReset;
 
 static void receiveBoardStatus(const uint8_t msg[CAN_FRAME_SIZE]) {
@@ -313,6 +322,8 @@ void processCanRxMessage(const CANRxFrame& frame) {
 	} else if (extendedId == (int)bench_test_packet_ids_e::IO_META_INFO) {
 	    printRxFrame(frame, "BENCH_TEST_IO_META_INFO");
 	    receiveOutputMetaInfo(frame.data8);
+	} else if (currentBoard == nullptr) {
+	    // no WBO frame matching before the board is detected
 	} else if (standardId == WB_DATA_BASE_ADDR + 2 * currentBoard->wboStartIndex) {
 	    if (!hasSeenWbo1) {
 	        setCyanText();

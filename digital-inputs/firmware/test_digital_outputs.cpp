@@ -54,14 +54,31 @@ static void waitForMetaInfo() {
 	int timeout = 0;
 
 #define SLEEP_CHUNK 100
-	while (getDigitalOutputStepsCount() <= 0 && currentBoard == nullptr && timeout < (5000 / SLEEP_CHUNK)) {
+	// we need both the IO_META_INFO packet and the BOARD_STATUS packet: they arrive independently
+	while ((getDigitalOutputStepsCount() <= 0 || currentBoard == nullptr) && timeout < (5000 / SLEEP_CHUNK)) {
 	    chThdSleepMilliseconds(SLEEP_CHUNK);
 	    timeout ++;
 	}
 }
 
+// dereferencing null currentBoard does not fault on STM32 (address 0 aliases flash), it silently
+// reads garbage - e.g. garbage highSideStartingIndex once sent a wild index into getAdcValue()
+// which hard faulted and froze the whole tester
+static bool isBoardDetected() {
+	if (currentBoard != nullptr) {
+	    return true;
+	}
+	setErrorLedAndRedText();
+	chprintf(chp, "                      BOARD NOT DETECTED no BOARD_STATUS, cannot test outputs\r\n");
+	setNormalText();
+	return false;
+}
+
 bool testEcuDcOutputs(size_t overallProcessingStepIndex) {
     waitForMetaInfo();
+    if (!isBoardDetected()) {
+        return false;
+    }
 
 	bool isGood = true;
 
@@ -82,6 +99,9 @@ bool testEcuDcOutputs(size_t overallProcessingStepIndex) {
 
 bool testEcuDigitalOutputs(size_t overallProcessingStepIndex) {
     waitForMetaInfo();
+    if (!isBoardDetected()) {
+        return false;
+    }
 
 	bool isGood = true;
 

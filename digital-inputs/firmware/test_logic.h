@@ -87,6 +87,10 @@ public:
 	int wboStartIndex;
 
 	const char *getOutputName(size_t index) {
+	    // output count comes from the ECU over CAN and can exceed our name table
+	    if (index >= MAX_OUTPUT_NAMES) {
+	        return nullptr;
+	    }
 	    return outputNames[index];
 //	    for (size_t i = 0;i<MAX_OUTPUT_NAMES;i++) {
 //	        if (outputNames[i] == nullptr) {

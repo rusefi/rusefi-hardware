@@ -61,6 +61,10 @@ Note: the `pixi run build-fw` / `pixi run test` tasks in `pixi.toml` reference `
 - All CH_DBG_* checks are disabled in `cfg/chconf.h`; stack overflows corrupt
   silently. A 512-byte THREAD_STACK once caused exactly the frozen-blue symptom
   on error-heavy boards (chvprintf with %f is stack-hungry) - now 2048.
+- `currentBoard` is nullptr until a known board ID arrives over CAN and is
+  re-nulled by `startNewCanTest()` every cycle. Dereferencing it while null
+  does NOT fault on STM32 (address 0 aliases flash) - it reads garbage, which
+  once produced a wild ADC index and a hard fault. Guard every use.
 - Console output (`chp`) goes through a non-blocking wrapper
   (`getNonBlockingConsole()` in `source/usbconsole.cpp`) that drops output when
   no USB host is draining SDU1. Never point `chp` back at SDU1 directly:

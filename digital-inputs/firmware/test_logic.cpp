@@ -1522,6 +1522,13 @@ static bool doTestEcuDigitalOutput2(size_t testLineIndex,
 	static DigitalResult result;
 	memset(&result, 0, sizeof(result));
 
+	if (testLineIndex >= COUNT) {
+	    setErrorLedAndRedText();
+	    chprintf(chp, "ERROR! testLineIndex %d out of range, refusing to test\r\n", testLineIndex);
+	    setNormalText();
+	    return false;
+	}
+
 	setOutputAddrIndex(testLineIndex % DIGITAL_INPUT_BANK_SIZE);
 	int bankIndex = testLineIndex / DIGITAL_INPUT_BANK_SIZE;
 
