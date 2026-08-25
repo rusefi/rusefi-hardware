@@ -7,6 +7,8 @@
 
 #pragma once
 
+#include "hal.h"
+
 #ifdef __cplusplus
 extern "C"
 {
@@ -18,3 +20,6 @@ bool is_usb_serial_ready();
 #ifdef __cplusplus
 }
 #endif /* __cplusplus */
+
+// console stream which never blocks: drops output while no USB host is consuming it
+BaseSequentialStream *getNonBlockingConsole();

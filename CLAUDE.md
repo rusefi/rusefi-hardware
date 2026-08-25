@@ -52,6 +52,21 @@ pixi run make -C GDI-4ch/firmware -j12    # one-off
 ```
 Note: the `pixi run build-fw` / `pixi run test` tasks in `pixi.toml` reference `firmware/` and `unit_tests/` directories from the main rusefi repo that do not exist here — use `make -C <project>/firmware` instead.
 
+## digital-inputs QC tester (Nucleo-144 F429ZI)
+
+- LED semantics: blue (LD2) is a dedicated alive-blinker thread and must always
+  blink at 10Hz; green/red latch the last test verdict. RED with blue *frozen*
+  means the firmware itself crashed (hard fault / halt) - there is no watchdog
+  and the ChibiOS halt hook is empty, so it stays frozen until power cycle.
+- All CH_DBG_* checks are disabled in `cfg/chconf.h`; stack overflows corrupt
+  silently. A 512-byte THREAD_STACK once caused exactly the frozen-blue symptom
+  on error-heavy boards (chvprintf with %f is stack-hungry) - now 2048.
+- Console output (`chp`) goes through a non-blocking wrapper
+  (`getNonBlockingConsole()` in `source/usbconsole.cpp`) that drops output when
+  no USB host is draining SDU1. Never point `chp` back at SDU1 directly:
+  chprintf blocks forever once the queue fills, and the tester must run
+  standalone on +12v with no USB.
+
 ## Connector pinouts
 
 `*/connectors/*.yaml` files are consumed by the interactive-pinout CI job (`.github/workflows/gen-pinouts.yaml`, see https://github.com/rusefi/rusefi/wiki/Connector-Mapping). Each entry has `pin`, `function`, and optionally `ts_name`, `class`, `type`, `color`. The workflow runs with `warnings: error` — duplicate pins or pins missing from the diagram fail the build. `type` values must come from the color map in that workflow (`12v`, `5v`, `gnd`, `ls`, `hs`, `ign`, `inj`, `din`, `av`, `at`, `can`, `vr`, `hall`, ...).

@@ -43,3 +43,47 @@ bool is_usb_serial_ready() {
 	return isUsbSerialInitialized && EFI_CONSOLE_USB_DEVICE.config->usbp->state == USB_ACTIVE;
 }
 
+// once a put times out we keep dropping without waiting until the host drains the queue again,
+// so an enumerated-but-not-open port costs one timeout, not one per character
+static bool isDroppingOutput = false;
+
+static msg_t console_put(void *instance, uint8_t b) {
+	(void)instance;
+	if (!is_usb_serial_ready()) {
+		return MSG_OK;
+	}
+	sysinterval_t timeout = isDroppingOutput ? TIME_IMMEDIATE : TIME_MS2I(100);
+	msg_t result = chnPutTimeout(&EFI_CONSOLE_USB_DEVICE, b, timeout);
+	isDroppingOutput = result != MSG_OK;
+	return MSG_OK;
+}
+
+static size_t console_write(void *instance, const uint8_t *bp, size_t n) {
+	for (size_t i = 0; i < n; i++) {
+		console_put(instance, bp[i]);
+	}
+	return n;
+}
+
+static size_t console_read(void *instance, uint8_t *bp, size_t n) {
+	(void)instance;
+	(void)bp;
+	(void)n;
+	return 0;
+}
+
+static msg_t console_get(void *instance) {
+	(void)instance;
+	return MSG_RESET;
+}
+
+static const struct BaseSequentialStreamVMT nonBlockingConsoleVmt = {
+	(size_t)0, console_write, console_read, console_put, console_get
+};
+
+static BaseSequentialStream nonBlockingConsole = { &nonBlockingConsoleVmt };
+
+BaseSequentialStream *getNonBlockingConsole() {
+	return &nonBlockingConsole;
+}
+

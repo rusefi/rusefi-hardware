@@ -35,7 +35,7 @@
 
 #define VERSION 20241018
 
-BaseSequentialStream *chp = (BaseSequentialStream *)&EFI_CONSOLE_USB_DEVICE;
+BaseSequentialStream *chp = getNonBlockingConsole();
 
 OutputMode outputMode;
 bool isMuted = false;
