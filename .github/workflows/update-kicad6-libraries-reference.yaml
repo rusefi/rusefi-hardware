@@ -1,0 +1,12 @@
+name: Update kicad6-libraries Reference
+
+on:
+  workflow_dispatch:
+
+jobs:
+  update-git:
+    # Cross-repo reusable workflow: only the workflow file is fetched from
+    # rusefi/rusefi; actions/checkout inside it checks out *this* repo.
+    uses: rusefi/rusefi/.github/workflows/update-submodule-reference.yaml@master
+    with:
+      submodule: ext/kicad6-libraries
