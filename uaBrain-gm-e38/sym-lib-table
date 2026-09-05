@@ -1,0 +1,5 @@
+(sym_lib_table
+  (version 7)
+  (lib (name "e38-connectors")(type "KiCad")(uri "${KIPRJMOD}/e38-connectors.kicad_sym")(options "")(descr "GM E38 73/80-pin single-unit connector symbols, copied from hellen-gm-e38"))
+  (lib (name "hw-uaBrain")(type "KiCad")(uri "${KIPRJMOD}/../ext/kicad6-libraries/hw-uaBrain.kicad_sym")(options "")(descr ""))
+)

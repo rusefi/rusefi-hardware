@@ -60,6 +60,7 @@ Vehicle connector pinouts (no board, just `connectors/*.yaml` for [interactive p
 * [frequency divider](frequency-divider)
 * [quad IGBT](quad-igbt) and [superseal IGBT](superseal-igbt) ignition drivers
 * [stm32 Brain board 48pin](mini48-stm32)
+* [uaBrain GM E38](uaBrain-gm-e38) hw-uaBrain module carrier for GM E38 (draft)
 * [GDI-4ch](GDI-4ch), [GDI-6ch](GDI-6ch), [GDI-STM](GDI-STM) direct injection drivers
 * [lambda-x2](lambda-x2), [wideband-F103](wideband-F103) wideband controllers
 * [CDI-test](CDI-test), [stim](stim), [digital-inputs](digital-inputs) test and QC boards
