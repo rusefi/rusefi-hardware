@@ -1,0 +1,96 @@
+#pragma once
+
+#include "test_logic.h"
+
+// 7.5% accuracy
+#define ANALOG_L (1.0f - 0.075f)
+#define ANALOG_H (1.0f + 0.075f)
+// 10% for low voltage
+#define ANALOG_H_FOR_LOW_VOLTAGE (1.0f + 0.12f)
+
+#define HELLEN_VBATT_MULT 5.835f
+#define HELLEN_R 4700
+#define ALPHA2CH_R 2700
+#define MRE_DEFAULT_AT_PULLUP 2700
+#define PROTEUS_R 2700
+#define PROTEUS_VBATT_MULT 9.2f
+
+#define Vdivider 5.0f
+#define IAT_VALUE(r) (Vdivider * 1000/(1000+r))
+#define CLT_VALUE(r) (Vdivider * 2000/(2000+r))
+
+// normal atmospheric pressure is 101.3 kPa
+// transfer function taken from https://www.nxp.com/docs/en/data-sheet/MPXH6400A.pdf
+#define MAP_MPX6400_VALUE (5.0f * (0.002421 * 101.3 - 0.00842))
+
+#define VOLT_7B 0.5f
+#define VOLT_8B 0.6f
+
+#define R_PARALLEL(R1, R2)	((R1 * R2) / (R1 + R2))
+
+#define PULLED_UP_VOLTAGE(RESISTOR_DIVIDER_LOWER_SIDE, RESISTOR_DIVIDER_UPPER_SIDE, RESISTANCE) \
+			(Vdivider * RESISTOR_DIVIDER_LOWER_SIDE \
+				/ (R_PARALLEL(RESISTOR_DIVIDER_UPPER_SIDE, RESISTANCE) + RESISTOR_DIVIDER_LOWER_SIDE))
+
+#define PULLED_DOWN_VOLTAGE(RESISTOR_DIVIDER_LOWER_SIDE, RESISTOR_DIVIDER_UPPER_SIDE, RESISTANCE) \
+			(Vdivider * R_PARALLEL(RESISTOR_DIVIDER_LOWER_SIDE, RESISTANCE) \
+				/ (RESISTOR_DIVIDER_UPPER_SIDE + R_PARALLEL(RESISTOR_DIVIDER_LOWER_SIDE, RESISTANCE)))
+
+#define PULLED_DOWN_RANGE(RESISTOR_DIVIDER_LOWER_SIDE, RESISTOR_DIVIDER_UPPER_SIDE, RESISTANCE) \
+			/* mult*/1, \
+			(0.937f* PULLED_DOWN_VOLTAGE(RESISTOR_DIVIDER_LOWER_SIDE, RESISTOR_DIVIDER_UPPER_SIDE, RESISTANCE)), \
+			1.05f*PULLED_DOWN_VOLTAGE(RESISTOR_DIVIDER_LOWER_SIDE, RESISTOR_DIVIDER_UPPER_SIDE, RESISTANCE)
+
+#define PULLED_UP_RANGE(RESISTOR_DIVIDER_LOWER_SIDE, RESISTOR_DIVIDER_UPPER_SIDE, RESISTANCE) \
+			/* mult*/1, \
+			(0.937f* PULLED_UP_VOLTAGE(RESISTOR_DIVIDER_LOWER_SIDE, RESISTOR_DIVIDER_UPPER_SIDE, RESISTANCE)), \
+			1.05f*PULLED_UP_VOLTAGE(RESISTOR_DIVIDER_LOWER_SIDE, RESISTOR_DIVIDER_UPPER_SIDE, RESISTANCE)
+
+
+// usually TPS1
+#define UP_7B 820.0f
+#define DOWN_7B 100.0f
+
+// usually MAP
+#define UP_8B 820.0f
+#define DOWN_8B 120.0f
+
+#define UP_9B 510.0f
+#define DOWN_9B 100.0f
+
+// uses AV_1
+#define UP_10B 470.0f
+#define DOWN_10B 100.0f
+
+// uses AV_2
+#define UP_11B 820.0f
+#define DOWN_11B 220.0f
+
+#define UP_12B 820.0f
+#define DOWN_12B 330.0f
+
+#define UP_13B 470.0f
+#define DOWN_13B 220.0f
+
+#define UP_14B 820.0f
+#define DOWN_14B 510.0f
+
+#define MAP_R 10000.0f
+
+#define VOLT_9B 0.8f
+#define VOLT_10B 0.9f
+#define VOLT_11B 1.1f
+#define VOLT_12B 1.4f
+#define VOLT_13B 1.6f
+#define VOLT_14B 1.9f
+
+#define VOLT_23C 2.1f
+#define VOLT_24C 2.5f
+#define VOLT_25C 2.9f
+#define VOLT_26C 3.1f
+#define VOLT_27C 3.4f
+#define VOLT_28C 3.8f
+
+BoardConfig makeHarleyBoardConfig();
+BoardConfig makeNissan121BoardConfig();
+BoardConfig makeNissanZ31BoardConfig();

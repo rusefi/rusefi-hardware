@@ -32,6 +32,7 @@
 #include "adc.h"
 #include "test_digital_outputs.h"
 #include "test_logic.h"
+#include "test_logic_config.h"
 #include "rusefi/rusefi_math.h"
 #include "can.h"
 #include "terminal_util.h"
@@ -40,102 +41,13 @@
 #include "board_id/qc_stim_meta.h"
 
 #define COUNT 48
-// 7.5% accuracy
-#define ANALOG_L (1.0f - 0.075f)
-#define ANALOG_H (1.0f + 0.075f)
-// 10% for low voltage
-#define ANALOG_H_FOR_LOW_VOLTAGE (1.0f + 0.12f)
-
 #define LAST_DIGITAL_PIN 39
-
-#define HELLEN_VBATT_MULT 5.835f
-#define HELLEN_R 4700
-#define ALPHA2CH_R 2700
-#define MRE_DEFAULT_AT_PULLUP 2700
-#define PROTEUS_R 2700
-#define PROTEUS_VBATT_MULT 9.2f
-
-#define Vdivider 5.0f
-#define IAT_VALUE(r) (Vdivider * 1000/(1000+r))
-#define CLT_VALUE(r) (Vdivider * 2000/(2000+r))
-
-// normal atmospheric pressure is 101.3 kPa
-// transfer function taken from https://www.nxp.com/docs/en/data-sheet/MPXH6400A.pdf
-#define MAP_MPX6400_VALUE (5.0f * (0.002421 * 101.3 - 0.00842))
-
-#define VOLT_7B 0.5f
-#define VOLT_8B 0.6f
-
-#define R_PARALLEL(R1, R2)	((R1 * R2) / (R1 + R2))
-
-#define PULLED_UP_VOLTAGE(RESISTOR_DIVIDER_LOWER_SIDE, RESISTOR_DIVIDER_UPPER_SIDE, RESISTANCE) \
-			(Vdivider * RESISTOR_DIVIDER_LOWER_SIDE \
-				/ (R_PARALLEL(RESISTOR_DIVIDER_UPPER_SIDE, RESISTANCE) + RESISTOR_DIVIDER_LOWER_SIDE))
-
-#define PULLED_DOWN_VOLTAGE(RESISTOR_DIVIDER_LOWER_SIDE, RESISTOR_DIVIDER_UPPER_SIDE, RESISTANCE) \
-			(Vdivider * R_PARALLEL(RESISTOR_DIVIDER_LOWER_SIDE, RESISTANCE) \
-				/ (RESISTOR_DIVIDER_UPPER_SIDE + R_PARALLEL(RESISTOR_DIVIDER_LOWER_SIDE, RESISTANCE)))
-
-#define PULLED_DOWN_RANGE(RESISTOR_DIVIDER_LOWER_SIDE, RESISTOR_DIVIDER_UPPER_SIDE, RESISTANCE) \
-			/* mult*/1, \
-			(0.937f* PULLED_DOWN_VOLTAGE(RESISTOR_DIVIDER_LOWER_SIDE, RESISTOR_DIVIDER_UPPER_SIDE, RESISTANCE)), \
-			1.05f*PULLED_DOWN_VOLTAGE(RESISTOR_DIVIDER_LOWER_SIDE, RESISTOR_DIVIDER_UPPER_SIDE, RESISTANCE)
-
-#define PULLED_UP_RANGE(RESISTOR_DIVIDER_LOWER_SIDE, RESISTOR_DIVIDER_UPPER_SIDE, RESISTANCE) \
-			/* mult*/1, \
-			(0.937f* PULLED_UP_VOLTAGE(RESISTOR_DIVIDER_LOWER_SIDE, RESISTOR_DIVIDER_UPPER_SIDE, RESISTANCE)), \
-			1.05f*PULLED_UP_VOLTAGE(RESISTOR_DIVIDER_LOWER_SIDE, RESISTOR_DIVIDER_UPPER_SIDE, RESISTANCE)
-
-
-// usually TPS1
-#define UP_7B 820.0f
-#define DOWN_7B 100.0f
-
-// usually MAP
-#define UP_8B 820.0f
-#define DOWN_8B 120.0f
-
-#define UP_9B 510.0f
-#define DOWN_9B 100.0f
-
-// uses AV_1
-#define UP_10B 470.0f
-#define DOWN_10B 100.0f
-
-// uses AV_2
-#define UP_11B 820.0f
-#define DOWN_11B 220.0f
-
-#define UP_12B 820.0f
-#define DOWN_12B 330.0f
-
-#define UP_13B 470.0f
-#define DOWN_13B 220.0f
-
-#define UP_14B 820.0f
-#define DOWN_14B 510.0f
-
-#define MAP_R 10000.0f
 
 #define STATIC_ASSERT_EQ_FLOAT(v1, v2) (absF(v1 - v2) < 0.000001)
 
 // let's just test our macro here
 static_assert(STATIC_ASSERT_EQ_FLOAT(0.631685, PULLED_DOWN_VOLTAGE(DOWN_8B, UP_8B, 10000.0f)));
 static_assert(STATIC_ASSERT_EQ_FLOAT(0.683484, PULLED_UP_VOLTAGE(DOWN_8B, UP_8B, 10000.0f)));
-
-#define VOLT_9B 0.8f
-#define VOLT_10B 0.9f
-#define VOLT_11B 1.1f
-#define VOLT_12B 1.4f
-#define VOLT_13B 1.6f
-#define VOLT_14B 1.9f
-
-#define VOLT_23C 2.1f
-#define VOLT_24C 2.5f
-#define VOLT_25C 2.9f
-#define VOLT_26C 3.1f
-#define VOLT_27C 3.4f
-#define VOLT_28C 3.8f
 
 extern BaseSequentialStream *chp;
 
@@ -688,92 +600,7 @@ BoardConfig boardConfigs[] = {
 		.dcHackValue = 1,
 		.highSideStartingIndex = 0, .wboStartIndex = 0,
 	},
-	{
-		.boardName = "hd",
-		.desiredEngineConfig = -1,
-		.boardIds = { STATIC_BOARD_ID_PROTEUS_HARLEY, STATIC_BOARD_ID_HELLEN_HD, BOARD_ID_HD81_A, BOARD_ID_HD81_B, 0 },
-		.channels = {
-			// 0
-			{ "TPS1_1", PULLED_DOWN_RANGE(DOWN_7B, UP_7B, 680'000) },
-			{ "TPS1_2", PULLED_DOWN_RANGE(DOWN_9B, UP_9B, 680'000) },
-//			{ "PPS1",   PULLED_DOWN_RANGE(DOWN_10B, UP_10B, 680'000) },
-			{ "PPS1", 1, 0.79 /*0.821830144*/, 0.920940928 },
-			{ "PPS2", PULLED_DOWN_RANGE(DOWN_11B, UP_11B, 680'000) },
-//			{ "MAP", 1, 0.62, 0.670109504 },
-			{ "MAP", PULLED_DOWN_RANGE(DOWN_8B, UP_8B, 680'000) },
-			{ "CLT", 1.0f, CLT_VALUE(HELLEN_R) * ANALOG_L, CLT_VALUE(HELLEN_R) * ANALOG_H },
-			{ "IAT", 1.0f, IAT_VALUE(HELLEN_R) * ANALOG_L, IAT_VALUE(HELLEN_R) * ANALOG_H },
-			{ "BATT", HELLEN_VBATT_MULT, 9.0f, 15.0f },
-
-			// 8
-			{ nullptr, 0, 0, 0 }, // { "TPS2_1", 1.0f, 0.5f * ANALOG_L, 0.5f * ANALOG_H },
-			{ nullptr, 0, 0, 0 }, // { "TPS2_2", 1.0f, 0.5f * ANALOG_L, 0.5f * ANALOG_H },
-			{ nullptr, 0, 0, 0 },//{ "AUXL1", 1.0f, 1.35f * ANALOG_L, 1.35f * ANALOG_H },
-			{ nullptr, 0, 0, 0 },//{ "AUXL2", 1.0f, 2.23f * ANALOG_L, 2.23f * ANALOG_H },
-			{ nullptr, 0, 0, 0 },
-			{ nullptr, 0, 0, 0 },
-			{ nullptr, 0, 0, 0 },
-			{ nullptr, 0, 0, 0 },
-
-			// 16
-			// 78 - With on-board 680K pull down
-			{ "AUX1", PULLED_DOWN_RANGE(DOWN_12B, UP_12B, 680'000) },
-			// 32 - With on-board 1K pull up
-			//{ "AUX2", PULLED_UP_RANGE(DOWN_13B, UP_13B, 1'000) },
-			{
-				"AUX2",
-				1.0f,
-				0.937f * PULLED_UP_VOLTAGE(DOWN_13B, UP_13B, 1'000),
-				1.05f * PULLED_UP_VOLTAGE(DOWN_13B, UP_13B, 1'000),
-			},
-			// 34 - With on-board 4.7K pull up
-			//{ "AUX3", PULLED_UP_RANGE(DOWN_14B, UP_14B, 4'700) },
-			/* this input after buffer OpAmp and 0.5 divider is routed to two STM32 inputs
-			 * One is ADC input that is checked here,
-			 * Another one is digital input that have pull-down enabled by default.
-			 * This pull-down affects accuracy, so we extend low threshold here */
-			{
-				"AUX3",
-				1.0f,
-				0.87f * PULLED_UP_VOLTAGE(DOWN_14B, UP_14B, 4'700),
-				1.05f * PULLED_UP_VOLTAGE(DOWN_14B, UP_14B, 4'700),
-
-			},
-			{ nullptr, 0, 0, 0 },
-			{ nullptr, 0, 0, 0 },
-			{ nullptr, 0, 0, 0 },
-			{ nullptr, 0, 0, 0 },
-			// 55 - with 4.7K pull up. Secondary 2K on 22C
-			{ "AT1", 1.0f, CLT_VALUE(HELLEN_R) * ANALOG_L, CLT_VALUE(HELLEN_R) * ANALOG_H },
-
-		},
-		.eventExpected = {
-		/* crank neg goes to https://rusefi.com/docs/pinouts/stim/?connector=main&pin=24C 2.5v source, crank positive 22B with a 4.7K pull up */
-		true,
-		false,
-		/*cam1*/true,
-		false, false, false,
-		/*vss*/false},
-		.buttonExpected = {false, false, false},
-		.auxDigitalExpected = {false, false, false, false,
-		false, false, false, false},
-		.outputNames = {
- "Injector 2",
- "Injector 1",
-"25 Front ACR",
- "8 Rear ACR",
-"VVT Control",
-"63 Cooling Pump",
-"24 Front Coil 2",
-"43 Rear Coil 1",
-"4 Left Oil Fan / Coolant Pump",
-"1 Right Oil Cooling / Coolant Fan",
-"44 fan",
-	    },
-        .wboUnitsCount = 2,
-		.dcHackValue = 1,
-		.highSideStartingIndex = 0, .wboStartIndex = 0,
-	},
+	makeHarleyBoardConfig(),
 	{
 		.boardName = "121vag",
 		.desiredEngineConfig = -1,
@@ -817,56 +644,7 @@ BoardConfig boardConfigs[] = {
 		.dcHackValue = 1,
 		.highSideStartingIndex = 0, .wboStartIndex = 0,
 	},
-	{
-		.boardName = "121nissan",
-		.desiredEngineConfig = -1,
-		.boardIds = { BOARD_ID_NISSAN121_D, 0 },
-		.channels = {
-			{ "TPS1_1", PULLED_DOWN_RANGE(DOWN_7B, UP_7B, 680'000) },
-			{ "TPS1_2", 1, 0.767938368, /* ideally 0.860549952*/ 0.87 },
-			{ "PPS1", 1, 0.79 /*0.821830144*/, 0.920940928 },
-			{ "PPS2", 1, 0.96, 1.2 },
-			{ nullptr, 0, 0, 0 },//{ "AUXL1", 1.0f, 1.35f * ANALOG_L, 1.35f * ANALOG_H },
-			{ nullptr, 0, 0, 0 },//{ "AUXL1", 1.0f, 1.35f * ANALOG_L, 1.35f * ANALOG_H },
-			{ nullptr, 0, 0, 0 },//{ "AUXL1", 1.0f, 1.35f * ANALOG_L, 1.35f * ANALOG_H },
-			{ nullptr, 0, 0, 0 },//{ "AUXL1", 1.0f, 1.35f * ANALOG_L, 1.35f * ANALOG_H },
-
-//			{ "MAP", PULLED_DOWN_RANGE(DOWN_8B, UP_8B, 680'000) },
-//			{ "CLT", 1.0f, CLT_VALUE(HELLEN_R) * ANALOG_L, CLT_VALUE(HELLEN_R) * ANALOG_H },
-//			{ "IAT", 1.0f, IAT_VALUE(HELLEN_R) * ANALOG_L, IAT_VALUE(HELLEN_R) * ANALOG_H },
-//			{ "BATT", HELLEN_VBATT_MULT, 9.0f, 15.0f },
-
-			{ nullptr, 0, 0, 0 }, // { "TPS2_1", 1.0f, 0.5f * ANALOG_L, 0.5f * ANALOG_H },
-			{ nullptr, 0, 0, 0 }, // { "TPS2_2", 1.0f, 0.5f * ANALOG_L, 0.5f * ANALOG_H },
-			{ nullptr, 0, 0, 0 },//{ "AUXL1", 1.0f, 1.35f * ANALOG_L, 1.35f * ANALOG_H },
-			{ nullptr, 0, 0, 0 },//{ "AUXL2", 1.0f, 2.23f * ANALOG_L, 2.23f * ANALOG_H },
-		},
-		.eventExpected = {
-		/* crank neg goes to https://rusefi.com/docs/pinouts/stim/?connector=main&pin=24C 2.5v source, crank positive 22B with a 4.7K pull up */
-		/*crank*/true,
-		false,
-		/*cam1 bank 1*/true, /*cam2 bank 1*/false,
-		/*cam1 bank 2*/true, false,
-		/*vss*/false},
-		.buttonExpected = {false, false, false},
-		.auxDigitalExpected = {false, false, false, false,
-		false, false, false, false},
-		.outputNames = {
- "111 Main Relay",
- "113 Fuel Pump Relay",
- "21 - INJ_5",
- "22 - INJ_3",
- "23 - INJ_1",
- "40 - INJ_6",
- "41 - INJ_4",
- "42 - INJ_2",
- "10 - VTC Left",
- "11 - VTC Right",
-	    },
-        .wboUnitsCount = 2,
-		.dcHackValue = 0,
-		.highSideStartingIndex = 0, .wboStartIndex = 0,
-	},
+	makeNissan121BoardConfig(),
 	{
 		.boardName = "112-17",
 		.desiredEngineConfig = -1,
@@ -949,51 +727,7 @@ BoardConfig boardConfigs[] = {
 		.dcHackValue = 1,
 		.highSideStartingIndex = 0, .wboStartIndex = 0,
  	},
-	{
-		// Nissan Z31 300ZX (VG30E/ET) plug-n-play, mega-uaefi module + mcu100-f7
-		.boardName = "nissan-z31",
-		.desiredEngineConfig = -1,
-		.boardIds = { STATIC_BOARD_ID_UAEFI_Z31, 0 },
-		.channels = {
- 			{ "TPS1_1", PULLED_DOWN_RANGE(DOWN_7B, UP_7B, 680'000) },
-			{ nullptr, 0, 0, 0 }, // TPS1_2
-			{ nullptr, 0, 0, 0 }, // PPS1
-			{ nullptr, 0, 0, 0 }, // PPS2
-			{ "MAP", PULLED_DOWN_RANGE(DOWN_8B, UP_8B, 680'000) },
-			{ "CLT", 1.0f, CLT_VALUE(HELLEN_R) * ANALOG_L, CLT_VALUE(HELLEN_R) * ANALOG_H },
- 			{ "IAT", 1.0f, IAT_VALUE(HELLEN_R) * ANALOG_L, IAT_VALUE(HELLEN_R) * ANALOG_H },
-			{ "BATT", HELLEN_VBATT_MULT, 9.0f, 15.0f },
-
-			{ nullptr, 0, 0, 0 }, // "TPS2_1"
-			{ nullptr, 0, 0, 0 }, // "TPS2_2"
-			{ nullptr, 0, 0, 0 }, // { "AUXL1", 1.0f, 1.35f * ANALOG_L, 1.35f * ANALOG_H },
-			{ nullptr, 0, 0, 0 }, // { "AUXL2", 1.0f, 2.23f * ANALOG_L, 2.23f * ANALOG_H },
-		},
-		.eventExpected = {/*crank*/true, false, /*cam1*/true, /*cam2*/false, false, false, /*vss*/true},
-		.buttonExpected = {false, false, false},
-		.auxDigitalExpected = {false, false, false, false,
-		false, false, false, false},
-		.outputNames = {
- "101 INJ_1",
- "102 INJ_2",
- "103 INJ_3",
- "104 INJ_4",
- "105 INJ_5",
- "106 INJ_6",
-"2 - Idle Air Valve",
-"20 - Fuel Pump Relay",
-"6 - Main Relay",
-"J1.8 - Low Side 1",
-"J1.7 - Low Side 3",
-"5 - Ignition",
-"J1.9 - Ignition Aux 3",
-"J1.17 - Ignition Aux 4",
-"J1.25 - Ignition Aux 5",
-        },
-        .wboUnitsCount = 1,
-		.dcHackValue = 1,
-		.highSideStartingIndex = 0, .wboStartIndex = 0,
- 	},
+	makeNissanZ31BoardConfig(),
 	{
 		.boardName = "uaefi121",
 		.desiredEngineConfig = -1,

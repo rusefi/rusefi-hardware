@@ -2,6 +2,7 @@
 
 #pragma once
 
+#include <cstdint>
 #include "cstring"
 
 #define MAX_ANALOG_CHANNELS 32
