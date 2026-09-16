@@ -92,5 +92,6 @@
 #define VOLT_28C 3.8f
 
 BoardConfig makeHarleyBoardConfig();
+BoardConfig makeHarley54BoardConfig();
 BoardConfig makeNissan121BoardConfig();
 BoardConfig makeNissanZ31BoardConfig();

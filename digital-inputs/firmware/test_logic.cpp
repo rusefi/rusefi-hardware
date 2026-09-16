@@ -601,6 +601,7 @@ BoardConfig boardConfigs[] = {
 		.highSideStartingIndex = 0, .wboStartIndex = 0,
 	},
 	makeHarleyBoardConfig(),
+	makeHarley54BoardConfig(),
 	{
 		.boardName = "121vag",
 		.desiredEngineConfig = -1,
