@@ -1,123 +1,95 @@
+# Function names and types follow the corresponding Superseal adapter pinout and rusEFI pinout language conventions.
 pins:
-  - pin: E10-1
-    function: IN_VIGN Ignition Switch
-
-  - pin: E10-2
-    function: No.1 Speed Sensor
-
-  - pin: E10-3
-    function: Kick Down Switch
-
-  - pin: E10-4
-    function: Stop Light Switch / Brake switch input
-
-  - pin: E10-5
-    function: Exhaust Gas Temperature Warning Light (Catalytic Converter)
-
-  - pin: E10-6
-    function: OUT_CHECK_ENGINE Engine Warning Light
-
-  - pin: E10-7
-    function: Reverse Gear Automatic Transmission Position Indicator
-
-  - pin: E10-8
-    function: SDL to datalink connector
-
-  - pin: E10-9
-    function: 2nd Gear Automatic Transmission Position Indicator
-
-  - pin: E10-10
-    function: Low Gear Automatic Transmission Position Indicator
-
-  - pin: E10-11
-    function: Auto Drive / ABS to ABS and TRAC ECU
-
-  - pin: E10-12
-    function: Over Drive Disable 1
-
-  - pin: E10-13
-    function: TRC- To TRAC ECU
-
-  - pin: E10-14
-    function: TRC+ To TRAC ECU
-
-  - pin: E10-15
-    function: Electrical Load Sense / ELS for Idle up Diode
-
-  - pin: E10-16
-    function: tacho output
-
-  - pin: E10-17
-    function: Test Terminal
-
-  - pin: E10-18
-    function: Power / Normal Auto
-
-  - pin: E10-19
-    function: Test mode select 2
-
-  - pin: E10-20
-    function: Test mode select 1
-
-  - pin: E10-21
-    function: Diagnostic Indication - Fuel Pump Control
-
-  - pin: E10-22
-    function: Fuel Pump Control (5v PWM)
-
-  - pin: E10-23
-    function: OUT_AC_RELAY Air Conditioning (AC) Magnetic Clutch Relay
-
-  - pin: E10-24
-    function: OUT_MAIN_RELAY
-
-  - pin: E10-25
-    function: Manual indicator light
-
-  - pin: E10-26
-    function: EFI- to TRAC ECU
-
-  - pin: E10-27
-    function: EFI+ to TRAC ECU
-
-  - pin: E10-28
-    function: Over Drive Disable 2
-
-  - pin: E10-29
-    function: Catalytic Converter Temperature Sensor
-
-  - pin: E10-30
-    function: Timing Retard 0? / Sub O2 signal
-
-  - pin: E10-31
-    function: 12V_FROM_MAIN_RELAY Switched Power
-
-  - pin: E10-32
-    function: 12V_FROM_MAIN_RELAY Switched Power
-
-  - pin: E10-33
-    function: IN_CONSTANT_POWER
-
-  - pin: E10-34
-    function: IN_AC_REQUEST Air Conditioning (AC) Request Signal
-
-  - pin: E10-35
-    function: Ps Power Steering
-
-  - pin: E10-36
-    function: Sub O2 sensor heater control
-
-  - pin: E10-37
-    function: Timing Retard 2
-
-  - pin: E10-38
-    function: Slave Engine Speed Sensor / NEO to TRAC ECU
-
-  - pin: E10-39
-    function: Slave Traction Control Throttle Position Sensor / VTO2 (98)
-
-  - pin: E10-40
-    function: Slave Throttle Position Sensor / VTO1 (98)
+- pin: E10-1
+  function: IN_VIGN Ignition Switch
+  type: din
+- pin: E10-2
+  function: No.1 Speed Sensor
+- pin: E10-3
+  function: Kick Down Switch
+  type: din
+- pin: E10-4
+  function: Stop Light Switch / Brake switch input
+  type: din
+- pin: E10-5
+  function: Exhaust Gas Temperature Warning Light (Catalytic Converter)
+- pin: E10-6
+  function: OUT_CHECK_ENGINE Engine Warning Light
+  type: ls
+- pin: E10-7
+  function: Reverse Gear Automatic Transmission Position Indicator
+- pin: E10-8
+  function: SDL to datalink connector
+- pin: E10-9
+  function: 2nd Gear Automatic Transmission Position Indicator
+- pin: E10-10
+  function: Low Gear Automatic Transmission Position Indicator
+- pin: E10-11
+  function: Auto Drive / ABS to ABS and TRAC ECU
+- pin: E10-12
+  function: Over Drive Disable 1
+- pin: E10-13
+  function: TRC- To TRAC ECU
+- pin: E10-14
+  function: TRC+ To TRAC ECU
+- pin: E10-15
+  function: Electrical Load Sense / ELS for Idle up Diode
+- pin: E10-16
+  function: tacho output
+- pin: E10-17
+  function: Test Terminal
+- pin: E10-18
+  function: Power / Normal Auto
+- pin: E10-19
+  function: Test mode select 2
+- pin: E10-20
+  function: Test mode select 1
+- pin: E10-21
+  function: Diagnostic Indication - Fuel Pump Control
+- pin: E10-22
+  function: Fuel Pump Control (5v PWM)
+- pin: E10-23
+  function: OUT_AC_RELAY Air Conditioning (AC) Magnetic Clutch Relay
+  type: ls
+- pin: E10-24
+  function: OUT_MAIN_RELAY
+  type: ls
+- pin: E10-25
+  function: Manual indicator light
+- pin: E10-26
+  function: EFI- to TRAC ECU
+- pin: E10-27
+  function: EFI+ to TRAC ECU
+- pin: E10-28
+  function: Over Drive Disable 2
+- pin: E10-29
+  function: Catalytic Converter Temperature Sensor
+- pin: E10-30
+  function: Timing Retard 0? / Sub O2 signal
+- pin: E10-31
+  function: 12V_FROM_MAIN_RELAY Switched Power
+  type: 12v
+- pin: E10-32
+  function: 12V_FROM_MAIN_RELAY Switched Power
+  type: 12v
+- pin: E10-33
+  function: IN_CONSTANT_POWER
+  type: 12v
+- pin: E10-34
+  function: IN_AC_REQUEST Air Conditioning (AC) Request Signal
+- pin: E10-35
+  function: Ps Power Steering
+- pin: E10-36
+  function: Sub O2 sensor heater control
+  type: ls
+- pin: E10-37
+  function: Timing Retard 2
+- pin: E10-38
+  function: Slave Engine Speed Sensor / NEO to TRAC ECU
+- pin: E10-39
+  function: Slave Traction Control Throttle Position Sensor / VTO2 (98)
+- pin: E10-40
+  function: Slave Throttle Position Sensor / VTO1 (98)
 
 info:
   title: JZA80
