@@ -93,36 +93,64 @@ BoardConfig makeHarleyBoardConfig() {
 
 
 BoardConfig makeHarley54BoardConfig() {
-	// Shared analog expectations assume the same stim signals as the HD81 harness.
-	auto config = makeHarleyBoardConfig();
-	config.boardName = "hd54";
-	for (auto& id : config.boardIds) {
-		id = 0;
-	}
-	config.boardIds[0] = STATIC_BOARD_ID_HARLEY54;
+	return {
+		.boardName = "hd54",
+		.desiredEngineConfig = -1,
+		.boardIds = { STATIC_BOARD_ID_HARLEY54, 0 },
+		.channels = {
+			// Analog expectations assume the same stim signals as the HD81 harness.
+			// 0
+			{ "TPS1_1", PULLED_DOWN_RANGE(DOWN_7B, UP_7B, 680'000) },
+			{ "TPS1_2", PULLED_DOWN_RANGE(DOWN_9B, UP_9B, 680'000) },
+			{ "PPS1", 1, 0.79 /*0.821830144*/, 0.920940928 },
+			{ "PPS2", PULLED_DOWN_RANGE(DOWN_11B, UP_11B, 680'000) },
+			{ "MAP", PULLED_DOWN_RANGE(DOWN_8B, UP_8B, 680'000) },
+			// The default 2021 tune publishes head temperature as CLT.
+			{ "CLT", 1.0f, CLT_VALUE(HELLEN_R) * ANALOG_L, CLT_VALUE(HELLEN_R) * ANALOG_H },
+			{ "IAT", 1.0f, IAT_VALUE(HELLEN_R) * ANALOG_L, IAT_VALUE(HELLEN_R) * ANALOG_H },
+			{ "BATT", HELLEN_VBATT_MULT, 9.0f, 15.0f },
 
-	// HD54 has no cam or analog gear input; JSS is digital and is not
-	// published through the ECU's auxiliary digital QC counters.
-	config.eventExpected[2] = false;
-	config.channels[16] = {}; // AuxAnalog1: no analog gear sensor
-	config.channels[18] = {}; // AuxAnalog3: no analog JSS sensor
-	// The default 2021 tune publishes head temperature as CLT and coolant
-	// temperature as AuxAnalog8 (channel 23); both use the temperature range.
-	config.channels[23].name = "Coolant";
+			// 8
+			{ nullptr, 0, 0, 0 },
+			{ nullptr, 0, 0, 0 },
+			{ nullptr, 0, 0, 0 },
+			{ nullptr, 0, 0, 0 },
+			{ nullptr, 0, 0, 0 },
+			{ nullptr, 0, 0, 0 },
+			{ nullptr, 0, 0, 0 },
+			{ nullptr, 0, 0, 0 },
 
-	// Must match fw-iws/firmware/hardware/board_hw_test.cpp OUTPUTS order,
-	// which differs from the generated connector output list.
-	for (auto& name : config.outputNames) {
-		name = nullptr;
-	}
-	config.outputNames[0] = "J4.5 Front Injector 2";
-	config.outputNames[1] = "J4.6 Rear Injector 1";
-	config.outputNames[2] = "J2.4 ACR";
-	config.outputNames[3] = "J2.1 Chassis Fan";
-	config.outputNames[4] = "J2.3 Coolant Pump";
-	config.outputNames[5] = "J4.2 Front Coil 2";
-	config.outputNames[6] = "J4.1 Rear Coil 1";
-	config.outputNames[7] = "J1.1 Left Cooling Fan";
-	config.outputNames[8] = "J1.5 Right Cooling Fan";
-	return config;
+			// 16
+			{ nullptr, 0, 0, 0 }, // AuxAnalog1: no analog gear sensor
+			{ nullptr, 0, 0, 0 }, // { "AUX2", PULLED_UP_RANGE(DOWN_13B, UP_13B, 1'000) },
+			{ nullptr, 0, 0, 0 }, // AuxAnalog3: no analog JSS sensor
+			{ nullptr, 0, 0, 0 },
+			{ nullptr, 0, 0, 0 },
+			{ nullptr, 0, 0, 0 },
+			{ nullptr, 0, 0, 0 },
+			// The default 2021 tune publishes coolant temperature as AuxAnalog8.
+			{ "Coolant", 1.0f, CLT_VALUE(HELLEN_R) * ANALOG_L, CLT_VALUE(HELLEN_R) * ANALOG_H },
+		},
+		// HD54 has no cam input.
+		.eventExpected = {/*crank*/true, false, /*cam1*/false, false, false, false, /*vss*/false},
+		.buttonExpected = {false, false, false},
+		// JSS is digital and is not published through the ECU's auxiliary digital QC counters.
+		.auxDigitalExpected = {false, false, false, false, false, false, false, false},
+		// Must match fw-iws/firmware/hardware/board_hw_test.cpp OUTPUTS order,
+		// which differs from the generated connector output list.
+		.outputNames = {
+			"J4.5 Front Injector 2",
+			"J4.6 Rear Injector 1",
+			"J2.4 ACR",
+			"J2.1 Chassis Fan",
+			"J2.3 Coolant Pump",
+			"J4.2 Front Coil 2",
+			"J4.1 Rear Coil 1",
+			"J1.1 Left Cooling Fan",
+			"J1.5 Right Cooling Fan",
+		},
+		.wboUnitsCount = 2,
+		.dcHackValue = 1,
+		.highSideStartingIndex = 0, .wboStartIndex = 0,
+	};
 }
