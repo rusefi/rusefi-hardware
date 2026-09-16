@@ -103,10 +103,10 @@ BoardConfig makeHarley54BoardConfig() {
 			{ "TPS1_1", PULLED_DOWN_RANGE(DOWN_7B, UP_7B, 680'000) },
 			{ "TPS1_2", PULLED_DOWN_RANGE(DOWN_9B, UP_9B, 680'000) },
 			{ "PPS1", 1, 0.79 /*0.821830144*/, 0.920940928 },
-			{ "PPS2", PULLED_DOWN_RANGE(DOWN_11B, UP_11B, 680'000) },
+			{ "PPS2", 1, 0.97, 1.13 /*PULLED_DOWN_RANGE(DOWN_11B, UP_11B, 680'000)*/ },
 			{ "MAP", PULLED_DOWN_RANGE(DOWN_8B, UP_8B, 680'000) },
 			// The default 2021 tune publishes head temperature as CLT.
-			{ "CLT", 1.0f, CLT_VALUE(HELLEN_R) * ANALOG_L, CLT_VALUE(HELLEN_R) * ANALOG_H },
+			{ nullptr, 0, 0, 0 }, //{ "CLT", 1.0f, CLT_VALUE(HELLEN_R) * ANALOG_L, CLT_VALUE(HELLEN_R) * ANALOG_H },
 			{ "IAT", 1.0f, IAT_VALUE(HELLEN_R) * ANALOG_L, IAT_VALUE(HELLEN_R) * ANALOG_H },
 			{ "BATT", HELLEN_VBATT_MULT, 9.0f, 15.0f },
 
@@ -129,7 +129,7 @@ BoardConfig makeHarley54BoardConfig() {
 			{ nullptr, 0, 0, 0 },
 			{ nullptr, 0, 0, 0 },
 			// The default 2021 tune publishes coolant temperature as AuxAnalog8.
-			{ "Coolant", 1.0f, CLT_VALUE(HELLEN_R) * ANALOG_L, CLT_VALUE(HELLEN_R) * ANALOG_H },
+			{ nullptr, 0, 0, 0 }, //{ "Coolant", 1.0f, CLT_VALUE(HELLEN_R) * ANALOG_L, CLT_VALUE(HELLEN_R) * ANALOG_H },
 		},
 		// HD54 has no cam input.
 		.eventExpected = {/*crank*/true, false, /*cam1*/false, false, false, false, /*vss*/false},
