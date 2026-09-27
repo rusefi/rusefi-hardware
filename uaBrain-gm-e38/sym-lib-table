@@ -1,5 +1,15 @@
 (sym_lib_table
   (version 7)
-  (lib (name "e38-connectors")(type "KiCad")(uri "${KIPRJMOD}/e38-connectors.kicad_sym")(options "")(descr "GM E38 73/80-pin single-unit connector symbols, copied from hellen-gm-e38"))
   (lib (name "hw-uaBrain")(type "KiCad")(uri "${KIPRJMOD}/../ext/kicad6-libraries/hw-uaBrain.kicad_sym")(options "")(descr ""))
+  (lib (name "power")(type "KiCad")(uri "${KICAD10_SYMBOL_DIR}/power.kicad_sym")(options "")(descr "KiCad power symbols"))
+  (lib (name "Molex_313872014_73pin_Connector")(type "KiCad")(uri "${KIPRJMOD}/../ext/kicad6-libraries/Molex_313872014_73pin_Connector.kicad_sym")(options "")(descr ""))
+  (lib (name "Molex_313874018_80pin_Connector")(type "KiCad")(uri "${KIPRJMOD}/../ext/kicad6-libraries/Molex_313874018_80pin_Connector.kicad_sym")(options "")(descr ""))
+
+  (lib (name "chips")(type "KiCad")(uri "${KIPRJMOD}/../ext/kicad6-libraries/chips.kicad_sym")(options "")(descr ""))
+
+  (lib (name "hellen-one-common")(type "KiCad")(uri "${KIPRJMOD}/../ext/hellen-one/kicad/hellen-one-common.kicad_sym")(options "")(descr ""))
+
+  (lib (name "Amplifier_Operational")(type "KiCad")(uri "${KICAD10_SYMBOL_DIR}/Amplifier_Operational.kicad_sym")(options "")(descr ""))
+
+  (lib (name "Power_Protection")(type "KiCad")(uri "${KICAD10_SYMBOL_DIR}/Power_Protection.kicad_sym")(options "")(descr ""))
 )

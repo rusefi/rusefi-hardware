@@ -1,0 +1,7711 @@
+(kicad_sch
+	(version 20260306)
+	(generator "eeschema")
+	(generator_version "10.0")
+	(uuid "45593178-7c4e-4554-a088-c30a943121ca")
+	(paper "A4")
+	(title_block
+		(title "uaBrain-gm-e38")
+		(date "2026-09-27")
+		(rev "a")
+		(company "rusEFI")
+		(comment 7 "https://rusefi.com/s/e38")
+	)
+	(lib_symbols
+		(symbol "Device:C_Small"
+			(pin_numbers
+				(hide yes)
+			)
+			(pin_names
+				(offset 0.254)
+				(hide yes)
+			)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(in_pos_files yes)
+			(duplicate_pin_numbers_are_jumpers no)
+			(property "Reference" "C"
+				(at 0.254 1.778 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left)
+				)
+			)
+			(property "Value" "C_Small"
+				(at 0.254 -2.032 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left)
+				)
+			)
+			(property "Footprint" ""
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Datasheet" ""
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Description" "Unpolarized capacitor, small symbol"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "ki_keywords" "capacitor cap"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "ki_fp_filters" "C_*"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(symbol "C_Small_0_1"
+				(polyline
+					(pts
+						(xy -1.524 0.508) (xy 1.524 0.508)
+					)
+					(stroke
+						(width 0.3048)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy -1.524 -0.508) (xy 1.524 -0.508)
+					)
+					(stroke
+						(width 0.3302)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+			)
+			(symbol "C_Small_1_1"
+				(pin passive line
+					(at 0 2.54 270)
+					(length 2.032)
+					(name ""
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 0 -2.54 90)
+					(length 2.032)
+					(name ""
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
+		(symbol "chips:BSP762"
+			(pin_names
+				(offset 1.016)
+			)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(in_pos_files yes)
+			(duplicate_pin_numbers_are_jumpers no)
+			(property "Reference" "U17"
+				(at 9.144 7.62 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left)
+				)
+			)
+			(property "Value" "BSP762TXUMA1"
+				(at -17.272 7.62 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left)
+				)
+			)
+			(property "Footprint" "Package_SO:SOIC-8_3.9x4.9mm_P1.27mm"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Datasheet" ""
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Description" ""
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "LCSC" "C2653781"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(symbol "BSP762_0_1"
+				(polyline
+					(pts
+						(xy -7.62 6.35) (xy 12.7 6.35) (xy 12.7 -6.35) (xy -7.62 -6.35) (xy -7.62 6.35)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+			)
+			(symbol "BSP762_1_1"
+				(pin bidirectional line
+					(at 2.54 -8.89 90)
+					(length 2.54)
+					(name "GND"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin input line
+					(at -10.16 2.54 0)
+					(length 2.54)
+					(name "IN"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin power_out line
+					(at 15.24 0 180)
+					(length 2.54)
+					(name "OUT"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "3"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin open_collector line
+					(at -10.16 -3.81 0)
+					(length 2.54)
+					(name "ST"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "4"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin power_in line
+					(at -1.27 8.89 270)
+					(length 2.54)
+					(name "VS"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "5"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin power_in line
+					(at 1.27 8.89 270)
+					(length 2.54)
+					(name "VS"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "6"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin power_in line
+					(at 3.81 8.89 270)
+					(length 2.54)
+					(name "VS"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "7"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin power_in line
+					(at 6.35 8.89 270)
+					(length 2.54)
+					(name "VS"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "8"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
+		(symbol "hellen-one-common:+12V_RAW"
+			(power global)
+			(pin_names
+				(offset 0)
+			)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(in_pos_files yes)
+			(duplicate_pin_numbers_are_jumpers no)
+			(property "Reference" "#PWR"
+				(at 0 -3.81 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Value" "+12V_RAW"
+				(at 0 3.556 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" ""
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Datasheet" ""
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Description" "Power symbol creates a global label with name \"+12V_RAW\""
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "ki_keywords" "power-flag"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(symbol "+12V_RAW_0_1"
+				(polyline
+					(pts
+						(xy -0.762 1.27) (xy 0 2.54)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 0 2.54) (xy 0.762 1.27)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 0 0) (xy 0 2.54)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+			)
+			(symbol "+12V_RAW_1_1"
+				(pin power_in line
+					(at 0 0 90)
+					(length 0)
+					(hide yes)
+					(name "+12V_RAW"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
+		(symbol "hellen-one-common:1N4148WS"
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(in_pos_files yes)
+			(duplicate_pin_numbers_are_jumpers no)
+			(property "Reference" "D"
+				(at 0 2.54 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Value" "1N4148WS"
+				(at 0 -3.81 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" "hellen-one-common:SOD-323"
+				(at 2.54 -6.35 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Datasheet" ""
+				(at 0 2.54 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Description" ""
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "LCSC" "C2128"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(symbol "1N4148WS_1_0"
+				(polyline
+					(pts
+						(xy 0 -2.54) (xy 2.54 0) (xy 0 2.54) (xy 0 -2.54)
+					)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type outline)
+					)
+				)
+				(polyline
+					(pts
+						(xy 2.54 2.54) (xy 2.54 -2.54)
+					)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(pin passive line
+					(at 7.62 0 180)
+					(length 5.08)
+					(name "K"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at -5.08 0 0)
+					(length 5.08)
+					(name "A"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
+		(symbol "hellen-one-common:Res"
+			(pin_numbers
+				(hide yes)
+			)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(in_pos_files yes)
+			(duplicate_pin_numbers_are_jumpers no)
+			(property "Reference" "R"
+				(at 3.81 2.54 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Value" "Res"
+				(at 5.08 -2.54 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" "hellen-one-common:R0603"
+				(at 3.81 -3.81 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Datasheet" ""
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Description" "Resistor"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "LCSC" ""
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(symbol "Res_1_0"
+				(rectangle
+					(start 2.54 -1.27)
+					(end 7.62 1.27)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type background)
+					)
+				)
+				(pin passive line
+					(at 0 0 0)
+					(length 2.54)
+					(name ""
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 10.16 0 180)
+					(length 2.54)
+					(name ""
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
+		(symbol "power:+3V3"
+			(power global)
+			(pin_numbers
+				(hide yes)
+			)
+			(pin_names
+				(offset 0)
+				(hide yes)
+			)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(in_pos_files yes)
+			(duplicate_pin_numbers_are_jumpers no)
+			(property "Reference" "#PWR"
+				(at 0 -3.81 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Value" "+3V3"
+				(at 0 3.556 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" ""
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Datasheet" ""
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Description" "Power symbol creates a global label with name \"+3V3\""
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "ki_keywords" "global power"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(symbol "+3V3_0_1"
+				(polyline
+					(pts
+						(xy -0.762 1.27) (xy 0 2.54)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 0 2.54) (xy 0.762 1.27)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 0 0) (xy 0 2.54)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+			)
+			(symbol "+3V3_1_1"
+				(pin power_in line
+					(at 0 0 90)
+					(length 0)
+					(name ""
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
+		(symbol "power:GND"
+			(power global)
+			(pin_numbers
+				(hide yes)
+			)
+			(pin_names
+				(offset 0)
+				(hide yes)
+			)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(in_pos_files yes)
+			(duplicate_pin_numbers_are_jumpers no)
+			(property "Reference" "#PWR"
+				(at 0 -6.35 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Value" "GND"
+				(at 0 -3.81 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" ""
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Datasheet" ""
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "ki_keywords" "global power"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(symbol "GND_0_1"
+				(polyline
+					(pts
+						(xy 0 0) (xy 0 -1.27) (xy 1.27 -1.27) (xy 0 -2.54) (xy -1.27 -1.27) (xy 0 -1.27)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+			)
+			(symbol "GND_1_1"
+				(pin power_in line
+					(at 0 0 270)
+					(length 0)
+					(name ""
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
+	)
+	(junction
+		(at 104.14 91.44)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "0c4a403a-0741-41dc-9a9f-4cdffeed20ce")
+	)
+	(junction
+		(at 129.54 17.78)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "14f6c847-d19c-4d15-bb6b-5fc525c91d83")
+	)
+	(junction
+		(at 104.14 62.23)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "1a3e93dc-e5f7-46ab-a1fc-16fae4c8eb6e")
+	)
+	(junction
+		(at 132.08 49.53)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "2010f376-a6fc-47d4-97fe-75bac715b66f")
+	)
+	(junction
+		(at 132.08 78.74)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "2783a80e-ef3b-482a-80ba-d264110bb358")
+	)
+	(junction
+		(at 115.57 120.65)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "37236f35-e854-4c68-85aa-9f27ae7978c5")
+	)
+	(junction
+		(at 104.14 149.86)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "4e453461-ebcf-4c76-bb17-4a39654279b1")
+	)
+	(junction
+		(at 115.57 149.86)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "537c550d-60e0-4f6a-8f06-8190240a4a29")
+	)
+	(junction
+		(at 129.54 49.53)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "5ced579e-e42d-42e6-9743-0c70ba5f8df4")
+	)
+	(junction
+		(at 127 78.74)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "5e7a49bf-e509-4dfa-a44b-3298ed6e4847")
+	)
+	(junction
+		(at 127 137.16)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "662191eb-6fde-4b41-b197-5111d8eb4b4d")
+	)
+	(junction
+		(at 115.57 30.48)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "75b47bf7-c47c-4771-9b98-8889eda72571")
+	)
+	(junction
+		(at 127 49.53)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "7b49395f-7d01-4647-8f61-09f596430682")
+	)
+	(junction
+		(at 127 107.95)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "8e12d4cb-f0c0-4733-843b-13012fe0ca63")
+	)
+	(junction
+		(at 104.14 30.48)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "92ab174b-d93c-4504-a453-127904a76dcd")
+	)
+	(junction
+		(at 132.08 17.78)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "934323b8-1f89-42b1-90ef-54091f99e336")
+	)
+	(junction
+		(at 115.57 62.23)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "9e9b42fe-96cb-4f18-8b5d-8a4d3449400d")
+	)
+	(junction
+		(at 132.08 107.95)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "a1734821-7533-4591-83ba-edeedcdf1f40")
+	)
+	(junction
+		(at 115.57 91.44)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "b0af2c1a-93ac-4995-9308-a83c1302cb00")
+	)
+	(junction
+		(at 129.54 137.16)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "c2bf3c5d-8192-495d-9eb8-53df83a20162")
+	)
+	(junction
+		(at 104.14 120.65)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "c2f7c790-f41f-4703-bcd1-3dcc91975fb4")
+	)
+	(junction
+		(at 129.54 107.95)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "d116c06f-01da-43f8-85fe-be6d28f31c79")
+	)
+	(junction
+		(at 132.08 137.16)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "d1786f82-6cd7-44d4-96b7-5785796a8d20")
+	)
+	(junction
+		(at 127 17.78)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "d9b3bb08-08c4-4955-b328-9089537874e7")
+	)
+	(junction
+		(at 129.54 78.74)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "f8c2ee01-4462-4c99-bb00-fe8bd2c8db33")
+	)
+	(wire
+		(pts
+			(xy 132.08 111.76) (xy 132.08 107.95)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "02ac7d50-a0ff-4ad5-a04e-1a82e9cc4ee4")
+	)
+	(wire
+		(pts
+			(xy 97.79 30.48) (xy 104.14 30.48)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "049d06bf-3414-4485-ad10-7063741c5138")
+	)
+	(wire
+		(pts
+			(xy 129.54 78.74) (xy 127 78.74)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "0ba0e6d8-47a6-4c06-adb1-37483e3fd4da")
+	)
+	(wire
+		(pts
+			(xy 129.54 137.16) (xy 127 137.16)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "0e2e3411-8c13-4ac1-b29e-ca6dcf786b2d")
+	)
+	(wire
+		(pts
+			(xy 134.62 78.74) (xy 132.08 78.74)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "101dbfea-a0fc-43db-ada6-76b34cd45c16")
+	)
+	(wire
+		(pts
+			(xy 143.51 59.69) (xy 163.83 59.69)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "16673b29-742c-4378-ae2e-033a207a67cd")
+	)
+	(wire
+		(pts
+			(xy 134.62 21.59) (xy 134.62 17.78)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "1756de4f-a137-4976-a18e-e26730161af8")
+	)
+	(wire
+		(pts
+			(xy 118.11 91.44) (xy 115.57 91.44)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "18847772-c8dc-49e1-9912-6c218bde24a5")
+	)
+	(wire
+		(pts
+			(xy 143.51 147.32) (xy 163.83 147.32)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "19dc9521-90b4-4d9f-8b4d-b522a1c10886")
+	)
+	(wire
+		(pts
+			(xy 118.11 120.65) (xy 115.57 120.65)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "1db1b472-72a4-4815-b34a-2db6a3e7b5a8")
+	)
+	(wire
+		(pts
+			(xy 129.54 78.74) (xy 129.54 82.55)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "1e476c07-ba12-4023-be31-c7fdab0cce20")
+	)
+	(wire
+		(pts
+			(xy 115.57 91.44) (xy 115.57 95.25)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "210506df-b1c9-45be-bddf-b7e39915fce5")
+	)
+	(wire
+		(pts
+			(xy 143.51 27.94) (xy 163.83 27.94)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "21ef918d-0335-4e1c-9f78-66a44a3568ca")
+	)
+	(wire
+		(pts
+			(xy 115.57 62.23) (xy 115.57 66.04)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "223da41b-8de7-4603-8c8d-35b99c9d0594")
+	)
+	(wire
+		(pts
+			(xy 97.79 149.86) (xy 104.14 149.86)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "27d7adbc-a907-400b-990c-e48ab8ba8d15")
+	)
+	(wire
+		(pts
+			(xy 115.57 30.48) (xy 115.57 34.29)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "27f6c10f-35c9-4634-849f-08dcc357d3a9")
+	)
+	(wire
+		(pts
+			(xy 127 78.74) (xy 127 82.55)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "2de2b477-2f25-4ad6-8c1b-ded368172306")
+	)
+	(wire
+		(pts
+			(xy 134.62 140.97) (xy 134.62 137.16)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "329df614-42cc-46e0-9ba4-b7f33eb38a90")
+	)
+	(wire
+		(pts
+			(xy 104.14 149.86) (xy 115.57 149.86)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "33cea7e7-ceff-4aee-ba4e-f2a68ed84d17")
+	)
+	(wire
+		(pts
+			(xy 104.14 91.44) (xy 115.57 91.44)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "36746d0b-ee62-4ee1-9657-8b43c0c771bb")
+	)
+	(wire
+		(pts
+			(xy 143.51 118.11) (xy 163.83 118.11)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "38777a47-b068-4539-adfe-e19d812d48b8")
+	)
+	(wire
+		(pts
+			(xy 129.54 137.16) (xy 129.54 140.97)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "3e5c4062-a648-43dc-bb5b-e33e8188595b")
+	)
+	(wire
+		(pts
+			(xy 129.54 107.95) (xy 129.54 111.76)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "45382c1b-3afb-478f-a35b-b74926e78198")
+	)
+	(wire
+		(pts
+			(xy 132.08 17.78) (xy 129.54 17.78)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "4c3532ca-c031-465e-8df6-c1ef29784b35")
+	)
+	(wire
+		(pts
+			(xy 134.62 107.95) (xy 132.08 107.95)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "4dee9ee6-dcc7-42f5-bb4a-01cb836c2290")
+	)
+	(wire
+		(pts
+			(xy 104.14 93.98) (xy 104.14 91.44)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "527e16a1-c701-4178-9d81-58716b858e46")
+	)
+	(wire
+		(pts
+			(xy 132.08 78.74) (xy 129.54 78.74)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "52ae859c-9552-4376-8743-670ec712968f")
+	)
+	(wire
+		(pts
+			(xy 118.11 30.48) (xy 115.57 30.48)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "54abc46e-686d-4aff-ac7c-5300389ee95c")
+	)
+	(wire
+		(pts
+			(xy 129.54 49.53) (xy 129.54 53.34)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "55771f63-6ca4-4156-923a-cccc30ffe9f6")
+	)
+	(wire
+		(pts
+			(xy 130.81 129.54) (xy 130.81 130.81)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "5a97b475-3213-44fc-a941-6ac0abfeceac")
+	)
+	(wire
+		(pts
+			(xy 104.14 33.02) (xy 104.14 30.48)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "5b3b93f8-4d66-4211-b3a3-38f91166af84")
+	)
+	(wire
+		(pts
+			(xy 134.62 49.53) (xy 132.08 49.53)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "623f0d97-45fc-49cc-9952-40f9e31a6a55")
+	)
+	(wire
+		(pts
+			(xy 134.62 137.16) (xy 132.08 137.16)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "63cddaf4-ffd6-4b1f-bb1c-05218b19803e")
+	)
+	(wire
+		(pts
+			(xy 127 137.16) (xy 127 140.97)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "6565174b-ae0a-4dfe-874b-798c1e8558a8")
+	)
+	(wire
+		(pts
+			(xy 104.14 120.65) (xy 115.57 120.65)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "6a4c43e5-99bd-4dfb-90f7-789fe861ecd2")
+	)
+	(wire
+		(pts
+			(xy 127 49.53) (xy 127 53.34)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "6b79d944-34ae-4d85-94d5-4102bcecfe63")
+	)
+	(wire
+		(pts
+			(xy 97.79 62.23) (xy 104.14 62.23)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "76aaccf8-317d-4000-af0c-a16cddc16cb1")
+	)
+	(wire
+		(pts
+			(xy 130.81 100.33) (xy 130.81 101.6)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "77014a99-e7de-4019-9e3f-090639039143")
+	)
+	(wire
+		(pts
+			(xy 129.54 17.78) (xy 129.54 21.59)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "79d057b0-8359-46f6-9ce0-9daddfddb350")
+	)
+	(wire
+		(pts
+			(xy 115.57 149.86) (xy 115.57 153.67)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "7cb5aea1-eaf0-43b0-a87a-600fa441c84e")
+	)
+	(wire
+		(pts
+			(xy 134.62 53.34) (xy 134.62 49.53)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "813f11f1-c84c-430e-a2c0-8f2acda8b6bc")
+	)
+	(wire
+		(pts
+			(xy 132.08 137.16) (xy 129.54 137.16)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "8495ab5a-fb67-4299-ae27-35a5ac84e5f6")
+	)
+	(wire
+		(pts
+			(xy 132.08 21.59) (xy 132.08 17.78)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "8720f1fd-6cd7-4812-9ca3-c0c46da8d7cb")
+	)
+	(wire
+		(pts
+			(xy 104.14 152.4) (xy 104.14 149.86)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "891b757b-5703-4291-a3c8-e5d88b593b8a")
+	)
+	(wire
+		(pts
+			(xy 129.54 107.95) (xy 127 107.95)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "8d3ff570-40fc-4747-ab88-feb14cffe5a0")
+	)
+	(wire
+		(pts
+			(xy 97.79 91.44) (xy 104.14 91.44)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "8d50924a-5b24-4eb2-a809-8d7171f3983b")
+	)
+	(wire
+		(pts
+			(xy 115.57 90.17) (xy 115.57 91.44)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "919915d2-45d0-40f6-a775-5dc50c72605e")
+	)
+	(wire
+		(pts
+			(xy 104.14 30.48) (xy 115.57 30.48)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "94a41315-82c6-45b2-a5f0-257210a0cd05")
+	)
+	(wire
+		(pts
+			(xy 115.57 120.65) (xy 115.57 124.46)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "96df9ab3-1fa9-43cf-b915-9f2106ec8f53")
+	)
+	(wire
+		(pts
+			(xy 115.57 148.59) (xy 115.57 149.86)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "9a332d73-8499-4e3b-b358-ad8934503afb")
+	)
+	(wire
+		(pts
+			(xy 118.11 62.23) (xy 115.57 62.23)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "9ba64b05-18a5-49f7-92c5-7ddbbeffad26")
+	)
+	(wire
+		(pts
+			(xy 127 107.95) (xy 127 111.76)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "a032174f-93f8-4b0c-9ff0-d423e06f099e")
+	)
+	(wire
+		(pts
+			(xy 104.14 62.23) (xy 115.57 62.23)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "a23dc726-759c-4ce3-896b-a771d7a41a29")
+	)
+	(wire
+		(pts
+			(xy 115.57 60.96) (xy 115.57 62.23)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "a24b2d17-74ff-442e-8b29-0fe81e2552e7")
+	)
+	(wire
+		(pts
+			(xy 104.14 64.77) (xy 104.14 62.23)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "a383ad02-621d-4fd8-8424-d56580da583b")
+	)
+	(wire
+		(pts
+			(xy 97.79 120.65) (xy 104.14 120.65)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "b002bd9e-34a5-481c-9cea-ea69f40ed5cf")
+	)
+	(wire
+		(pts
+			(xy 130.81 39.37) (xy 130.81 40.64)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "b10680c6-7b99-490a-a0cb-edf1ac38f71d")
+	)
+	(wire
+		(pts
+			(xy 132.08 82.55) (xy 132.08 78.74)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "bedf8b98-51c9-4c5e-a9e3-793e48db78d9")
+	)
+	(wire
+		(pts
+			(xy 129.54 17.78) (xy 127 17.78)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "c220785e-43a1-4f56-aaf8-0b4cacd47b02")
+	)
+	(wire
+		(pts
+			(xy 127 17.78) (xy 127 21.59)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "c6a8c437-fc5f-401d-86f6-54510b2cbaa0")
+	)
+	(wire
+		(pts
+			(xy 132.08 107.95) (xy 129.54 107.95)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "c7832079-7dea-48fd-b22a-e02e08fc3925")
+	)
+	(wire
+		(pts
+			(xy 130.81 71.12) (xy 130.81 72.39)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "c7b5fad8-8561-430e-a26d-0e2f20386875")
+	)
+	(wire
+		(pts
+			(xy 132.08 49.53) (xy 129.54 49.53)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "ce3f237b-afa1-40db-a2ce-72f5611737e9")
+	)
+	(wire
+		(pts
+			(xy 129.54 49.53) (xy 127 49.53)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "cfaea912-1d9f-4d21-b875-249d380790bf")
+	)
+	(wire
+		(pts
+			(xy 130.81 158.75) (xy 130.81 160.02)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "d6b9a77e-bd6b-48d0-839b-8bbe58a70f06")
+	)
+	(wire
+		(pts
+			(xy 143.51 88.9) (xy 163.83 88.9)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "ea6afcd3-e3d5-49ca-b895-590c2c2fa596")
+	)
+	(wire
+		(pts
+			(xy 134.62 111.76) (xy 134.62 107.95)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "ef8f6ce5-885d-4db0-8893-1b250472d4fd")
+	)
+	(wire
+		(pts
+			(xy 132.08 53.34) (xy 132.08 49.53)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "f0f8bb31-8427-4653-ae88-73139199772a")
+	)
+	(wire
+		(pts
+			(xy 118.11 149.86) (xy 115.57 149.86)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "f17ba71c-b9f1-4531-9894-a2a55fc7323b")
+	)
+	(wire
+		(pts
+			(xy 115.57 119.38) (xy 115.57 120.65)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "f461e32f-8f66-497b-9bce-aebe2a3b8bd5")
+	)
+	(wire
+		(pts
+			(xy 104.14 123.19) (xy 104.14 120.65)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "f54ffac2-1d2d-41df-ac5c-ef134fd75541")
+	)
+	(wire
+		(pts
+			(xy 134.62 17.78) (xy 132.08 17.78)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "f59cfd0c-d540-48c5-b144-cac679444eca")
+	)
+	(wire
+		(pts
+			(xy 134.62 82.55) (xy 134.62 78.74)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "f62c0cf7-a0fa-439b-b347-d3019ca9301b")
+	)
+	(wire
+		(pts
+			(xy 115.57 29.21) (xy 115.57 30.48)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "f86f4074-fed2-46f4-bbc9-b0dc43c77a9c")
+	)
+	(wire
+		(pts
+			(xy 132.08 140.97) (xy 132.08 137.16)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "fc141c2a-fe3b-4302-b5cd-026bd24f03b2")
+	)
+	(hierarchical_label "OUT5"
+		(shape output)
+		(at 97.79 149.86 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "1e45ade3-b180-434a-9fe6-d8968a55b6cc")
+	)
+	(hierarchical_label "IN3"
+		(shape input)
+		(at 163.83 88.9 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "2e4b5ab1-0a56-48b0-a234-6524d09c2c9f")
+	)
+	(hierarchical_label "IN1"
+		(shape input)
+		(at 163.83 27.94 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "3692b4cc-f325-496f-9264-852e2d88a455")
+	)
+	(hierarchical_label "IN2"
+		(shape input)
+		(at 163.83 59.69 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "409af90a-3c1b-430a-a108-1f929158542d")
+	)
+	(hierarchical_label "IN4"
+		(shape input)
+		(at 163.83 118.11 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "4da92f92-aea7-40fe-bb73-411df205ff60")
+	)
+	(hierarchical_label "IN5"
+		(shape input)
+		(at 163.83 147.32 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "90a1a051-b757-4373-97a4-d02402495d4c")
+	)
+	(hierarchical_label "OUT2"
+		(shape output)
+		(at 97.79 62.23 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "abf4a4b6-f1ae-4258-9203-ab25eea35fdf")
+	)
+	(hierarchical_label "OUT1"
+		(shape output)
+		(at 97.79 30.48 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "c9604dcf-8641-4437-bb2a-8dc81afaacc0")
+	)
+	(hierarchical_label "OUT3"
+		(shape output)
+		(at 97.79 91.44 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "e8ebcc35-ddfc-47f4-a9ff-d7ff5fea82d3")
+	)
+	(hierarchical_label "OUT4"
+		(shape output)
+		(at 97.79 120.65 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "f2f1c9cd-2f25-4dc0-99a1-4cd891a02225")
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 140.97 101.6 90)
+		(mirror x)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "04e2598c-eff3-41e8-9851-942bdc3520dc")
+		(property "Reference" "#PWR0194"
+			(at 147.32 101.6 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "GND"
+			(at 145.3642 101.727 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 140.97 101.6 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 140.97 101.6 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 140.97 101.6 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "4661f6e5-defb-4065-b53e-8b60eef92f90")
+		)
+		(instances
+			(project "uaBrain-gm-e38"
+				(path "/260474c3-12d9-4949-89fb-23ae88769f73/8910d97b-dab7-4bb0-9c71-97f47070d086"
+					(reference "#PWR0194")
+					(unit 1)
+				)
+			)
+			(project "hellen-gm-e38"
+				(path "/63d2dd9f-d5ff-4811-a88d-0ba932475460/aec3561d-e53f-4e50-96c1-f5dc7f3a87ab"
+					(reference "#PWR0194")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 115.57 39.37 0)
+		(mirror y)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "055b2ca5-1b0e-4ef7-9b6a-767f7f2c6c7b")
+		(property "Reference" "#PWR0149"
+			(at 115.57 45.72 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "GND"
+			(at 115.443 43.7642 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 115.57 39.37 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 115.57 39.37 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 115.57 39.37 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "92c219f1-4f44-4abe-a90d-b2c6df8c8885")
+		)
+		(instances
+			(project "uaBrain-gm-e38"
+				(path "/260474c3-12d9-4949-89fb-23ae88769f73/8910d97b-dab7-4bb0-9c71-97f47070d086"
+					(reference "#PWR0149")
+					(unit 1)
+				)
+			)
+			(project "hellen-gm-e38"
+				(path "/63d2dd9f-d5ff-4811-a88d-0ba932475460/aec3561d-e53f-4e50-96c1-f5dc7f3a87ab"
+					(reference "#PWR0149")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "hellen-one-common:+12V_RAW")
+		(at 127 17.78 0)
+		(mirror y)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "09fb0d44-1063-46d4-a30b-18a466074adc")
+		(property "Reference" "#PWR0160"
+			(at 127 21.59 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "+12V_RAW"
+			(at 127 13.97 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 127 17.78 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 127 17.78 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 127 17.78 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "61e0aa51-e6d4-4a81-a908-899ceba48f22")
+		)
+		(instances
+			(project "uaBrain-gm-e38"
+				(path "/260474c3-12d9-4949-89fb-23ae88769f73/8910d97b-dab7-4bb0-9c71-97f47070d086"
+					(reference "#PWR0160")
+					(unit 1)
+				)
+			)
+			(project "hellen-gm-e38"
+				(path "/63d2dd9f-d5ff-4811-a88d-0ba932475460/aec3561d-e53f-4e50-96c1-f5dc7f3a87ab"
+					(reference "#PWR0160")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 115.57 80.01 0)
+		(mirror x)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "1142b194-ea35-4939-b5a5-610a8eb6085b")
+		(property "Reference" "#PWR0154"
+			(at 115.57 73.66 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "GND"
+			(at 115.697 75.6158 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 115.57 80.01 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 115.57 80.01 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 115.57 80.01 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "d220103d-629c-4f56-8afb-a32f748aa38d")
+		)
+		(instances
+			(project "uaBrain-gm-e38"
+				(path "/260474c3-12d9-4949-89fb-23ae88769f73/8910d97b-dab7-4bb0-9c71-97f47070d086"
+					(reference "#PWR0154")
+					(unit 1)
+				)
+			)
+			(project "hellen-gm-e38"
+				(path "/63d2dd9f-d5ff-4811-a88d-0ba932475460/aec3561d-e53f-4e50-96c1-f5dc7f3a87ab"
+					(reference "#PWR0154")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 115.57 100.33 0)
+		(mirror y)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "14327bbc-a60f-40d3-8579-c239b671acf1")
+		(property "Reference" "#PWR0155"
+			(at 115.57 106.68 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "GND"
+			(at 115.443 104.7242 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 115.57 100.33 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 115.57 100.33 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 115.57 100.33 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "85d790cb-2697-435a-a344-70b236273f18")
+		)
+		(instances
+			(project "uaBrain-gm-e38"
+				(path "/260474c3-12d9-4949-89fb-23ae88769f73/8910d97b-dab7-4bb0-9c71-97f47070d086"
+					(reference "#PWR0155")
+					(unit 1)
+				)
+			)
+			(project "hellen-gm-e38"
+				(path "/63d2dd9f-d5ff-4811-a88d-0ba932475460/aec3561d-e53f-4e50-96c1-f5dc7f3a87ab"
+					(reference "#PWR0155")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "hellen-one-common:Res")
+		(at 153.67 34.29 0)
+		(mirror y)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "18f280b3-02ee-48a9-baa5-d1f9699ea4a6")
+		(property "Reference" "R45"
+			(at 148.59 31.75 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "10k"
+			(at 148.59 34.29 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "hellen-one-common:R0603"
+			(at 149.86 38.1 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 153.67 34.29 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 153.67 34.29 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C25804"
+			(at 153.67 34.29 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "82dd556c-aef6-461e-9ac4-1fd3ad2053ac")
+		)
+		(pin "2"
+			(uuid "0c9787a2-1f99-41f8-8ecc-8c72d7323497")
+		)
+		(instances
+			(project "uaBrain-gm-e38"
+				(path "/260474c3-12d9-4949-89fb-23ae88769f73/8910d97b-dab7-4bb0-9c71-97f47070d086"
+					(reference "R45")
+					(unit 1)
+				)
+			)
+			(project "hellen-gm-e38"
+				(path "/63d2dd9f-d5ff-4811-a88d-0ba932475460/aec3561d-e53f-4e50-96c1-f5dc7f3a87ab"
+					(reference "R88")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "chips:BSP762")
+		(at 133.35 30.48 0)
+		(mirror y)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "1a024004-7c32-4d41-8597-ce343a87226c")
+		(property "Reference" "U5"
+			(at 124.206 22.86 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "BSP762TXUMA1"
+			(at 150.622 22.86 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Package_SO:SOIC-8_3.9x4.9mm_P1.27mm"
+			(at 133.35 30.48 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 133.35 30.48 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 133.35 30.48 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C2653781"
+			(at 133.35 30.48 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "70ff3e19-7841-43c3-9a24-05db9adcd79e")
+		)
+		(pin "2"
+			(uuid "b07417a6-4477-4dd1-b430-9e5bbb5101ef")
+		)
+		(pin "3"
+			(uuid "c9319205-3306-4526-85f3-8a5233c3bc5e")
+		)
+		(pin "4"
+			(uuid "1c3b2664-cf00-40fe-b4e8-8ea7681e2266")
+		)
+		(pin "5"
+			(uuid "e1268d62-fd09-4412-a21b-dc8cc0fff328")
+		)
+		(pin "6"
+			(uuid "6b5f3c75-d060-4292-b498-1dde4d5bb3af")
+		)
+		(pin "7"
+			(uuid "2bee449d-c273-4133-a9c3-61a0bb62a055")
+		)
+		(pin "8"
+			(uuid "215f4ccf-7b5d-4f21-ad7a-38d5d0ced400")
+		)
+		(instances
+			(project "uaBrain-gm-e38"
+				(path "/260474c3-12d9-4949-89fb-23ae88769f73/8910d97b-dab7-4bb0-9c71-97f47070d086"
+					(reference "U5")
+					(unit 1)
+				)
+			)
+			(project "hellen-gm-e38"
+				(path "/63d2dd9f-d5ff-4811-a88d-0ba932475460/aec3561d-e53f-4e50-96c1-f5dc7f3a87ab"
+					(reference "U15")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "hellen-one-common:Res")
+		(at 115.57 138.43 270)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "1bb33f67-ef40-4f1c-bc24-8ae9e070a5bf")
+		(property "Reference" "R39"
+			(at 111.76 143.51 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "4.7k"
+			(at 115.57 143.51 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "hellen-one-common:R0603"
+			(at 111.76 142.24 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 115.57 138.43 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 115.57 138.43 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C23162"
+			(at 115.57 138.43 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "36d8de6e-ab96-4cc4-97b3-0ae5183c4ad6")
+		)
+		(pin "2"
+			(uuid "661ddd31-ad53-45eb-b20f-ba7f0e8e8ebb")
+		)
+		(instances
+			(project "uaBrain-gm-e38"
+				(path "/260474c3-12d9-4949-89fb-23ae88769f73/8910d97b-dab7-4bb0-9c71-97f47070d086"
+					(reference "R39")
+					(unit 1)
+				)
+			)
+			(project "hellen-gm-e38"
+				(path "/63d2dd9f-d5ff-4811-a88d-0ba932475460/aec3561d-e53f-4e50-96c1-f5dc7f3a87ab"
+					(reference "R75")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "chips:BSP762")
+		(at 133.35 120.65 0)
+		(mirror y)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "1db92b51-68d3-4a97-8c3a-ffc19cca6be6")
+		(property "Reference" "U9"
+			(at 124.206 113.03 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "BSP762TXUMA1"
+			(at 150.622 113.03 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Package_SO:SOIC-8_3.9x4.9mm_P1.27mm"
+			(at 133.35 120.65 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 133.35 120.65 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 133.35 120.65 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C2653781"
+			(at 133.35 120.65 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "d6a77cbc-128b-4848-aad4-ddd09136b9aa")
+		)
+		(pin "2"
+			(uuid "b2a9b051-7f78-4f52-bb9f-1d5cb7efaeb2")
+		)
+		(pin "3"
+			(uuid "6f5f1d86-4dd0-4283-997d-d635cdb4a697")
+		)
+		(pin "4"
+			(uuid "cad1104b-1fc8-42f6-b8de-90b7ba10d56e")
+		)
+		(pin "5"
+			(uuid "b3eadc3b-9fa1-41aa-be14-9c43a273a308")
+		)
+		(pin "6"
+			(uuid "4b71eacc-c6fb-42fa-b31b-bb8c0e0618cd")
+		)
+		(pin "7"
+			(uuid "185189d9-69f5-4bb2-9b01-1605b0ca62e0")
+		)
+		(pin "8"
+			(uuid "f8037d33-7b8e-43cf-a566-dd857d4d3bff")
+		)
+		(instances
+			(project "uaBrain-gm-e38"
+				(path "/260474c3-12d9-4949-89fb-23ae88769f73/8910d97b-dab7-4bb0-9c71-97f47070d086"
+					(reference "U9")
+					(unit 1)
+				)
+			)
+			(project "hellen-gm-e38"
+				(path "/63d2dd9f-d5ff-4811-a88d-0ba932475460/aec3561d-e53f-4e50-96c1-f5dc7f3a87ab"
+					(reference "U19")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "hellen-one-common:+12V_RAW")
+		(at 127 137.16 0)
+		(mirror y)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "1fb94f09-4ea6-45d2-bde1-68fe5d2628e1")
+		(property "Reference" "#PWR0165"
+			(at 127 140.97 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "+12V_RAW"
+			(at 127 133.35 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 127 137.16 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 127 137.16 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 127 137.16 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "25e6b568-c323-4231-ac7a-452f25aba091")
+		)
+		(instances
+			(project "uaBrain-gm-e38"
+				(path "/260474c3-12d9-4949-89fb-23ae88769f73/8910d97b-dab7-4bb0-9c71-97f47070d086"
+					(reference "#PWR0165")
+					(unit 1)
+				)
+			)
+			(project "hellen-gm-e38"
+				(path "/63d2dd9f-d5ff-4811-a88d-0ba932475460/aec3561d-e53f-4e50-96c1-f5dc7f3a87ab"
+					(reference "#PWR0165")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "chips:BSP762")
+		(at 133.35 91.44 0)
+		(mirror y)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "2a5d045b-6989-4c89-9649-b5d8585882c7")
+		(property "Reference" "U8"
+			(at 124.206 83.82 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "BSP762TXUMA1"
+			(at 150.622 83.82 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Package_SO:SOIC-8_3.9x4.9mm_P1.27mm"
+			(at 133.35 91.44 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 133.35 91.44 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 133.35 91.44 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C2653781"
+			(at 133.35 91.44 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "6c61a641-4f61-4f30-8353-5dca98258f41")
+		)
+		(pin "2"
+			(uuid "35015eb6-dcc0-47b0-8140-f2746f5287b9")
+		)
+		(pin "3"
+			(uuid "25292539-ff16-491d-b31c-abf0ff1f7b16")
+		)
+		(pin "4"
+			(uuid "50a10429-1798-44a5-bb90-3a80f235d9a2")
+		)
+		(pin "5"
+			(uuid "62d4b3de-c0dc-47a5-a005-081842899aaa")
+		)
+		(pin "6"
+			(uuid "7b906329-0b67-4c7d-b0aa-098da9f844ad")
+		)
+		(pin "7"
+			(uuid "42140652-9830-49ec-8f8b-3340d10c076b")
+		)
+		(pin "8"
+			(uuid "2f8f0aef-f570-4573-95db-d894c993a58b")
+		)
+		(instances
+			(project "uaBrain-gm-e38"
+				(path "/260474c3-12d9-4949-89fb-23ae88769f73/8910d97b-dab7-4bb0-9c71-97f47070d086"
+					(reference "U8")
+					(unit 1)
+				)
+			)
+			(project "hellen-gm-e38"
+				(path "/63d2dd9f-d5ff-4811-a88d-0ba932475460/aec3561d-e53f-4e50-96c1-f5dc7f3a87ab"
+					(reference "U18")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:C_Small")
+		(at 115.57 156.21 0)
+		(mirror y)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "31113c51-e169-4e3a-aaa2-15876533d387")
+		(property "Reference" "C26"
+			(at 113.2332 155.0416 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "10n"
+			(at 114.3 158.115 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
+			(at 115.57 156.21 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 115.57 156.21 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 115.57 156.21 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "PN" "CGA3E2X7R1H103M080AA"
+			(at 115.57 156.21 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C57112"
+			(at 115.57 156.21 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC_ext" "0"
+			(at 115.57 156.21 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "ea2e50ca-767d-4ad3-9a46-bd82031eaf16")
+		)
+		(pin "2"
+			(uuid "70cf4b89-978f-433b-ac6f-21f4a7090f24")
+		)
+		(instances
+			(project "uaBrain-gm-e38"
+				(path "/260474c3-12d9-4949-89fb-23ae88769f73/8910d97b-dab7-4bb0-9c71-97f47070d086"
+					(reference "C26")
+					(unit 1)
+				)
+			)
+			(project "hellen-gm-e38"
+				(path "/63d2dd9f-d5ff-4811-a88d-0ba932475460/aec3561d-e53f-4e50-96c1-f5dc7f3a87ab"
+					(reference "C11")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:C_Small")
+		(at 115.57 36.83 0)
+		(mirror y)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "36c321d7-7624-40a7-9ffc-2ee9b9668ac4")
+		(property "Reference" "C22"
+			(at 113.2332 35.6616 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "10n"
+			(at 114.3 38.735 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
+			(at 115.57 36.83 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 115.57 36.83 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 115.57 36.83 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "PN" "CGA3E2X7R1H103M080AA"
+			(at 115.57 36.83 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C57112"
+			(at 115.57 36.83 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC_ext" "0"
+			(at 115.57 36.83 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "de9f2933-2af2-4a48-9f14-e5b9cb821412")
+		)
+		(pin "2"
+			(uuid "80c0de26-41a0-46f0-ac5d-b7faf3cc5656")
+		)
+		(instances
+			(project "uaBrain-gm-e38"
+				(path "/260474c3-12d9-4949-89fb-23ae88769f73/8910d97b-dab7-4bb0-9c71-97f47070d086"
+					(reference "C22")
+					(unit 1)
+				)
+			)
+			(project "hellen-gm-e38"
+				(path "/63d2dd9f-d5ff-4811-a88d-0ba932475460/aec3561d-e53f-4e50-96c1-f5dc7f3a87ab"
+					(reference "C6")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 104.14 106.68 0)
+		(mirror y)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "36eeebe1-bfba-4f8e-88c0-4b5ea750f8f2")
+		(property "Reference" "#PWR0145"
+			(at 104.14 113.03 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "GND"
+			(at 104.14 110.49 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 104.14 106.68 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 104.14 106.68 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 104.14 106.68 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "399a8b50-e882-4ff8-b5a9-a0197fff1a30")
+		)
+		(instances
+			(project "uaBrain-gm-e38"
+				(path "/260474c3-12d9-4949-89fb-23ae88769f73/8910d97b-dab7-4bb0-9c71-97f47070d086"
+					(reference "#PWR0145")
+					(unit 1)
+				)
+			)
+			(project "hellen-gm-e38"
+				(path "/63d2dd9f-d5ff-4811-a88d-0ba932475460/aec3561d-e53f-4e50-96c1-f5dc7f3a87ab"
+					(reference "#PWR0145")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 115.57 71.12 0)
+		(mirror y)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "3a6f58c6-d474-4625-ab3e-d5cfec8a2504")
+		(property "Reference" "#PWR0153"
+			(at 115.57 77.47 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "GND"
+			(at 115.443 75.5142 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 115.57 71.12 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 115.57 71.12 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 115.57 71.12 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "8daacd62-021c-49ba-aacf-9baba28f8585")
+		)
+		(instances
+			(project "uaBrain-gm-e38"
+				(path "/260474c3-12d9-4949-89fb-23ae88769f73/8910d97b-dab7-4bb0-9c71-97f47070d086"
+					(reference "#PWR0153")
+					(unit 1)
+				)
+			)
+			(project "hellen-gm-e38"
+				(path "/63d2dd9f-d5ff-4811-a88d-0ba932475460/aec3561d-e53f-4e50-96c1-f5dc7f3a87ab"
+					(reference "#PWR0153")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:C_Small")
+		(at 115.57 127 0)
+		(mirror y)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "3dd31998-b272-4d5d-a430-8416b4c03e0d")
+		(property "Reference" "C25"
+			(at 113.2332 125.8316 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "10n"
+			(at 114.3 128.905 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
+			(at 115.57 127 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 115.57 127 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 115.57 127 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "PN" "CGA3E2X7R1H103M080AA"
+			(at 115.57 127 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C57112"
+			(at 115.57 127 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC_ext" "0"
+			(at 115.57 127 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "23ec877e-e99a-4593-9569-be134e7a8a4d")
+		)
+		(pin "2"
+			(uuid "2b03de4c-229c-4500-90c4-a3a9de393e52")
+		)
+		(instances
+			(project "uaBrain-gm-e38"
+				(path "/260474c3-12d9-4949-89fb-23ae88769f73/8910d97b-dab7-4bb0-9c71-97f47070d086"
+					(reference "C25")
+					(unit 1)
+				)
+			)
+			(project "hellen-gm-e38"
+				(path "/63d2dd9f-d5ff-4811-a88d-0ba932475460/aec3561d-e53f-4e50-96c1-f5dc7f3a87ab"
+					(reference "C10")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:C_Small")
+		(at 115.57 68.58 0)
+		(mirror y)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "3dee8480-d7b4-4635-83ee-d6765f7d3635")
+		(property "Reference" "C23"
+			(at 113.2332 67.4116 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "10n"
+			(at 114.3 70.485 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
+			(at 115.57 68.58 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 115.57 68.58 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 115.57 68.58 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "PN" "CGA3E2X7R1H103M080AA"
+			(at 115.57 68.58 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C57112"
+			(at 115.57 68.58 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC_ext" "0"
+			(at 115.57 68.58 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "b30e845c-688e-4d50-9357-6b92d9cc2f95")
+		)
+		(pin "2"
+			(uuid "d2317ce9-690c-4368-8a04-10857ddba76e")
+		)
+		(instances
+			(project "uaBrain-gm-e38"
+				(path "/260474c3-12d9-4949-89fb-23ae88769f73/8910d97b-dab7-4bb0-9c71-97f47070d086"
+					(reference "C23")
+					(unit 1)
+				)
+			)
+			(project "hellen-gm-e38"
+				(path "/63d2dd9f-d5ff-4811-a88d-0ba932475460/aec3561d-e53f-4e50-96c1-f5dc7f3a87ab"
+					(reference "C8")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "hellen-one-common:1N4148WS")
+		(at 104.14 130.81 270)
+		(mirror x)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "3e4e51a8-0629-4515-928c-1e6e8c589485")
+		(property "Reference" "D6"
+			(at 100.33 127 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "B5819W"
+			(at 105.41 124.46 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "hellen-one-common:SOD-123"
+			(at 97.79 128.27 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 106.68 130.81 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 104.14 130.81 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C8598"
+			(at 104.14 130.81 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "4f6ac109-4fa8-4c6a-994e-1047078c7629")
+		)
+		(pin "2"
+			(uuid "f073fde3-94cf-4082-97b2-e8feceab671c")
+		)
+		(instances
+			(project "uaBrain-gm-e38"
+				(path "/260474c3-12d9-4949-89fb-23ae88769f73/8910d97b-dab7-4bb0-9c71-97f47070d086"
+					(reference "D6")
+					(unit 1)
+				)
+			)
+			(project "hellen-gm-e38"
+				(path "/63d2dd9f-d5ff-4811-a88d-0ba932475460/aec3561d-e53f-4e50-96c1-f5dc7f3a87ab"
+					(reference "D28")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "hellen-one-common:1N4148WS")
+		(at 104.14 72.39 270)
+		(mirror x)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "449bc8e5-1e8e-423f-bd04-da62cda3e876")
+		(property "Reference" "D4"
+			(at 100.33 68.58 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "B5819W"
+			(at 105.41 66.04 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "hellen-one-common:SOD-123"
+			(at 97.79 69.85 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 106.68 72.39 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 104.14 72.39 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C8598"
+			(at 104.14 72.39 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "9c99efa6-4a6a-4091-a6ae-3238c6c383f2")
+		)
+		(pin "2"
+			(uuid "0d073626-6b85-4043-832c-dfbe00b693aa")
+		)
+		(instances
+			(project "uaBrain-gm-e38"
+				(path "/260474c3-12d9-4949-89fb-23ae88769f73/8910d97b-dab7-4bb0-9c71-97f47070d086"
+					(reference "D4")
+					(unit 1)
+				)
+			)
+			(project "hellen-gm-e38"
+				(path "/63d2dd9f-d5ff-4811-a88d-0ba932475460/aec3561d-e53f-4e50-96c1-f5dc7f3a87ab"
+					(reference "D26")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 104.14 165.1 0)
+		(mirror y)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "4bfb7b37-8f28-43a7-a263-951d6107a828")
+		(property "Reference" "#PWR0147"
+			(at 104.14 171.45 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "GND"
+			(at 104.14 168.91 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 104.14 165.1 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 104.14 165.1 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 104.14 165.1 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "c51d4fba-011c-4398-ae0c-63ad9f79e3be")
+		)
+		(instances
+			(project "uaBrain-gm-e38"
+				(path "/260474c3-12d9-4949-89fb-23ae88769f73/8910d97b-dab7-4bb0-9c71-97f47070d086"
+					(reference "#PWR0147")
+					(unit 1)
+				)
+			)
+			(project "hellen-gm-e38"
+				(path "/63d2dd9f-d5ff-4811-a88d-0ba932475460/aec3561d-e53f-4e50-96c1-f5dc7f3a87ab"
+					(reference "#PWR0147")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "hellen-one-common:Res")
+		(at 115.57 19.05 270)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "4d035058-3f85-4578-a712-c8e6b0396565")
+		(property "Reference" "R33"
+			(at 111.76 24.13 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "4.7k"
+			(at 115.57 24.13 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "hellen-one-common:R0603"
+			(at 111.76 22.86 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 115.57 19.05 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 115.57 19.05 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C23162"
+			(at 115.57 19.05 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "c5086378-c3c3-4781-8d8f-cd77e2853b9c")
+		)
+		(pin "2"
+			(uuid "c5fca77f-4020-439e-8cd6-e8ae5710bec7")
+		)
+		(instances
+			(project "uaBrain-gm-e38"
+				(path "/260474c3-12d9-4949-89fb-23ae88769f73/8910d97b-dab7-4bb0-9c71-97f47070d086"
+					(reference "R33")
+					(unit 1)
+				)
+			)
+			(project "hellen-gm-e38"
+				(path "/63d2dd9f-d5ff-4811-a88d-0ba932475460/aec3561d-e53f-4e50-96c1-f5dc7f3a87ab"
+					(reference "R70")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "hellen-one-common:Res")
+		(at 115.57 109.22 270)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "52b3482d-c221-4cdb-8b74-a22f7146ce62")
+		(property "Reference" "R38"
+			(at 111.76 114.3 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "4.7k"
+			(at 115.57 114.3 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "hellen-one-common:R0603"
+			(at 111.76 113.03 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 115.57 109.22 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 115.57 109.22 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C23162"
+			(at 115.57 109.22 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "abd40bc6-891e-4aef-b316-0544537bea3b")
+		)
+		(pin "2"
+			(uuid "bd1b7386-7197-4b73-9cb0-a364a1f08fe3")
+		)
+		(instances
+			(project "uaBrain-gm-e38"
+				(path "/260474c3-12d9-4949-89fb-23ae88769f73/8910d97b-dab7-4bb0-9c71-97f47070d086"
+					(reference "R38")
+					(unit 1)
+				)
+			)
+			(project "hellen-gm-e38"
+				(path "/63d2dd9f-d5ff-4811-a88d-0ba932475460/aec3561d-e53f-4e50-96c1-f5dc7f3a87ab"
+					(reference "R74")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "hellen-one-common:1N4148WS")
+		(at 104.14 40.64 270)
+		(mirror x)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "5a312448-c1a9-469a-bd51-736adbafeaa2")
+		(property "Reference" "D3"
+			(at 100.33 36.83 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "B5819W"
+			(at 105.41 34.29 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "hellen-one-common:SOD-123"
+			(at 97.79 38.1 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 106.68 40.64 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 104.14 40.64 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C8598"
+			(at 104.14 40.64 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "721ce5b3-62aa-468e-b796-9642e29842bf")
+		)
+		(pin "2"
+			(uuid "a86ac5cf-1a2b-47cc-8c1a-0ef3cc6f0beb")
+		)
+		(instances
+			(project "uaBrain-gm-e38"
+				(path "/260474c3-12d9-4949-89fb-23ae88769f73/8910d97b-dab7-4bb0-9c71-97f47070d086"
+					(reference "D3")
+					(unit 1)
+				)
+			)
+			(project "hellen-gm-e38"
+				(path "/63d2dd9f-d5ff-4811-a88d-0ba932475460/aec3561d-e53f-4e50-96c1-f5dc7f3a87ab"
+					(reference "D24")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:+3V3")
+		(at 153.67 153.67 270)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "5aa66cc5-6818-4212-90ba-2f164e65477d")
+		(property "Reference" "#PWR0202"
+			(at 149.86 153.67 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "+3V3"
+			(at 158.75 153.67 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 153.67 153.67 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 153.67 153.67 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"+3V3\""
+			(at 153.67 153.67 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "b7b9bda2-6228-4f6c-8734-afd3065064c1")
+		)
+		(instances
+			(project "uaBrain-gm-e38"
+				(path "/260474c3-12d9-4949-89fb-23ae88769f73/8910d97b-dab7-4bb0-9c71-97f47070d086"
+					(reference "#PWR0202")
+					(unit 1)
+				)
+			)
+			(project "hellen-gm-e38"
+				(path "/63d2dd9f-d5ff-4811-a88d-0ba932475460/aec3561d-e53f-4e50-96c1-f5dc7f3a87ab"
+					(reference "#PWR0202")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "hellen-one-common:Res")
+		(at 140.97 101.6 0)
+		(mirror y)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "650abbb2-215c-410d-a4d2-08d670d4111e")
+		(property "Reference" "R42"
+			(at 134.62 104.14 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "120"
+			(at 135.89 101.6 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "hellen-one-common:R0603"
+			(at 137.16 105.41 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 140.97 101.6 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 140.97 101.6 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C22787"
+			(at 140.97 101.6 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "bb6fef38-06e7-4390-8d8b-716a6e3b50af")
+		)
+		(pin "2"
+			(uuid "96350f82-ed78-4112-8002-46e53d04559d")
+		)
+		(instances
+			(project "uaBrain-gm-e38"
+				(path "/260474c3-12d9-4949-89fb-23ae88769f73/8910d97b-dab7-4bb0-9c71-97f47070d086"
+					(reference "R42")
+					(unit 1)
+				)
+			)
+			(project "hellen-gm-e38"
+				(path "/63d2dd9f-d5ff-4811-a88d-0ba932475460/aec3561d-e53f-4e50-96c1-f5dc7f3a87ab"
+					(reference "R79")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 104.14 135.89 0)
+		(mirror y)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "66372f33-fbca-4eff-9b77-de1710561e9b")
+		(property "Reference" "#PWR0146"
+			(at 104.14 142.24 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "GND"
+			(at 104.14 139.7 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 104.14 135.89 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 104.14 135.89 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 104.14 135.89 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "a7448fdf-43ea-43f7-8035-5e522938ec7f")
+		)
+		(instances
+			(project "uaBrain-gm-e38"
+				(path "/260474c3-12d9-4949-89fb-23ae88769f73/8910d97b-dab7-4bb0-9c71-97f47070d086"
+					(reference "#PWR0146")
+					(unit 1)
+				)
+			)
+			(project "hellen-gm-e38"
+				(path "/63d2dd9f-d5ff-4811-a88d-0ba932475460/aec3561d-e53f-4e50-96c1-f5dc7f3a87ab"
+					(reference "#PWR0146")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:+3V3")
+		(at 153.67 66.04 270)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "6880d0bc-b146-48fe-a76c-37252b5abc2e")
+		(property "Reference" "#PWR0199"
+			(at 149.86 66.04 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "+3V3"
+			(at 158.75 66.04 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 153.67 66.04 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 153.67 66.04 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"+3V3\""
+			(at 153.67 66.04 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "d504bf7d-a5af-4d34-bcdc-5519de5ecf7b")
+		)
+		(instances
+			(project "uaBrain-gm-e38"
+				(path "/260474c3-12d9-4949-89fb-23ae88769f73/8910d97b-dab7-4bb0-9c71-97f47070d086"
+					(reference "#PWR0199")
+					(unit 1)
+				)
+			)
+			(project "hellen-gm-e38"
+				(path "/63d2dd9f-d5ff-4811-a88d-0ba932475460/aec3561d-e53f-4e50-96c1-f5dc7f3a87ab"
+					(reference "#PWR0199")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 115.57 50.8 0)
+		(mirror x)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "688afb70-9840-4583-be28-1263c8588a0f")
+		(property "Reference" "#PWR0152"
+			(at 115.57 44.45 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "GND"
+			(at 115.697 46.4058 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 115.57 50.8 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 115.57 50.8 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 115.57 50.8 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "cea1dc89-c138-434b-8808-07b821476a49")
+		)
+		(instances
+			(project "uaBrain-gm-e38"
+				(path "/260474c3-12d9-4949-89fb-23ae88769f73/8910d97b-dab7-4bb0-9c71-97f47070d086"
+					(reference "#PWR0152")
+					(unit 1)
+				)
+			)
+			(project "hellen-gm-e38"
+				(path "/63d2dd9f-d5ff-4811-a88d-0ba932475460/aec3561d-e53f-4e50-96c1-f5dc7f3a87ab"
+					(reference "#PWR0152")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "hellen-one-common:Res")
+		(at 153.67 66.04 0)
+		(mirror y)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "6c88d5e3-ecb3-4617-a4da-8778aa391cb4")
+		(property "Reference" "R46"
+			(at 148.59 63.5 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "10k"
+			(at 148.59 66.04 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "hellen-one-common:R0603"
+			(at 149.86 69.85 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 153.67 66.04 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 153.67 66.04 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C25804"
+			(at 153.67 66.04 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "66c5ab1d-7ac9-495d-87b0-5eabfc2e7799")
+		)
+		(pin "2"
+			(uuid "3221172a-4156-4186-8a3e-084454f525cd")
+		)
+		(instances
+			(project "uaBrain-gm-e38"
+				(path "/260474c3-12d9-4949-89fb-23ae88769f73/8910d97b-dab7-4bb0-9c71-97f47070d086"
+					(reference "R46")
+					(unit 1)
+				)
+			)
+			(project "hellen-gm-e38"
+				(path "/63d2dd9f-d5ff-4811-a88d-0ba932475460/aec3561d-e53f-4e50-96c1-f5dc7f3a87ab"
+					(reference "R90")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:C_Small")
+		(at 115.57 97.79 0)
+		(mirror y)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "707ad57a-d178-4742-bb39-38cb4de0a628")
+		(property "Reference" "C24"
+			(at 113.2332 96.6216 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "10n"
+			(at 114.3 99.695 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
+			(at 115.57 97.79 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 115.57 97.79 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 115.57 97.79 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "PN" "CGA3E2X7R1H103M080AA"
+			(at 115.57 97.79 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C57112"
+			(at 115.57 97.79 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC_ext" "0"
+			(at 115.57 97.79 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "d9bf98ba-3eee-43d6-912a-01929a862026")
+		)
+		(pin "2"
+			(uuid "d13f958b-f96d-4445-9a50-76444c5482ca")
+		)
+		(instances
+			(project "uaBrain-gm-e38"
+				(path "/260474c3-12d9-4949-89fb-23ae88769f73/8910d97b-dab7-4bb0-9c71-97f47070d086"
+					(reference "C24")
+					(unit 1)
+				)
+			)
+			(project "hellen-gm-e38"
+				(path "/63d2dd9f-d5ff-4811-a88d-0ba932475460/aec3561d-e53f-4e50-96c1-f5dc7f3a87ab"
+					(reference "C9")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "hellen-one-common:+12V_RAW")
+		(at 127 49.53 0)
+		(mirror y)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "82b66562-529e-428f-b1c3-f0b49c448986")
+		(property "Reference" "#PWR0162"
+			(at 127 53.34 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "+12V_RAW"
+			(at 127 45.72 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 127 49.53 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 127 49.53 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 127 49.53 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "0e5ebe4d-4b20-4df3-ab6e-53a253719be1")
+		)
+		(instances
+			(project "uaBrain-gm-e38"
+				(path "/260474c3-12d9-4949-89fb-23ae88769f73/8910d97b-dab7-4bb0-9c71-97f47070d086"
+					(reference "#PWR0162")
+					(unit 1)
+				)
+			)
+			(project "hellen-gm-e38"
+				(path "/63d2dd9f-d5ff-4811-a88d-0ba932475460/aec3561d-e53f-4e50-96c1-f5dc7f3a87ab"
+					(reference "#PWR0162")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "hellen-one-common:1N4148WS")
+		(at 104.14 101.6 270)
+		(mirror x)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "8905447e-0f5f-4ba4-a5c4-af6045ef5aac")
+		(property "Reference" "D5"
+			(at 100.33 97.79 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "B5819W"
+			(at 105.41 95.25 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "hellen-one-common:SOD-123"
+			(at 97.79 99.06 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 106.68 101.6 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 104.14 101.6 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C8598"
+			(at 104.14 101.6 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "23fa3944-714e-4c16-afc6-82a2c716d4de")
+		)
+		(pin "2"
+			(uuid "622bd2e1-6946-4dca-a3e8-8b409293aec3")
+		)
+		(instances
+			(project "uaBrain-gm-e38"
+				(path "/260474c3-12d9-4949-89fb-23ae88769f73/8910d97b-dab7-4bb0-9c71-97f47070d086"
+					(reference "D5")
+					(unit 1)
+				)
+			)
+			(project "hellen-gm-e38"
+				(path "/63d2dd9f-d5ff-4811-a88d-0ba932475460/aec3561d-e53f-4e50-96c1-f5dc7f3a87ab"
+					(reference "D27")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 115.57 138.43 0)
+		(mirror x)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "91ac015a-69b3-4c36-8019-8f5286c9942a")
+		(property "Reference" "#PWR0158"
+			(at 115.57 132.08 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "GND"
+			(at 115.697 134.0358 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 115.57 138.43 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 115.57 138.43 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 115.57 138.43 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "3b484a30-9c0f-43ed-a695-bec167f60661")
+		)
+		(instances
+			(project "uaBrain-gm-e38"
+				(path "/260474c3-12d9-4949-89fb-23ae88769f73/8910d97b-dab7-4bb0-9c71-97f47070d086"
+					(reference "#PWR0158")
+					(unit 1)
+				)
+			)
+			(project "hellen-gm-e38"
+				(path "/63d2dd9f-d5ff-4811-a88d-0ba932475460/aec3561d-e53f-4e50-96c1-f5dc7f3a87ab"
+					(reference "#PWR0158")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:+3V3")
+		(at 153.67 124.46 270)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "93acb87d-6be7-4309-b005-a9743c84124a")
+		(property "Reference" "#PWR0201"
+			(at 149.86 124.46 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "+3V3"
+			(at 158.75 124.46 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 153.67 124.46 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 153.67 124.46 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"+3V3\""
+			(at 153.67 124.46 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "9b0ef1c6-6051-4d07-92fa-88cacc2b976c")
+		)
+		(instances
+			(project "uaBrain-gm-e38"
+				(path "/260474c3-12d9-4949-89fb-23ae88769f73/8910d97b-dab7-4bb0-9c71-97f47070d086"
+					(reference "#PWR0201")
+					(unit 1)
+				)
+			)
+			(project "hellen-gm-e38"
+				(path "/63d2dd9f-d5ff-4811-a88d-0ba932475460/aec3561d-e53f-4e50-96c1-f5dc7f3a87ab"
+					(reference "#PWR0201")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "hellen-one-common:+12V_RAW")
+		(at 127 107.95 0)
+		(mirror y)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "9645297d-1119-4b16-90e5-a194cc4229d7")
+		(property "Reference" "#PWR0164"
+			(at 127 111.76 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "+12V_RAW"
+			(at 127 104.14 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 127 107.95 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 127 107.95 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 127 107.95 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "ca42522d-c039-480b-a9d9-39b10bf5a7b5")
+		)
+		(instances
+			(project "uaBrain-gm-e38"
+				(path "/260474c3-12d9-4949-89fb-23ae88769f73/8910d97b-dab7-4bb0-9c71-97f47070d086"
+					(reference "#PWR0164")
+					(unit 1)
+				)
+			)
+			(project "hellen-gm-e38"
+				(path "/63d2dd9f-d5ff-4811-a88d-0ba932475460/aec3561d-e53f-4e50-96c1-f5dc7f3a87ab"
+					(reference "#PWR0164")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "hellen-one-common:+12V_RAW")
+		(at 127 78.74 0)
+		(mirror y)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "991e8e3a-fb5a-4cc8-8d79-73ce762942cf")
+		(property "Reference" "#PWR0163"
+			(at 127 82.55 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "+12V_RAW"
+			(at 127 74.93 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 127 78.74 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 127 78.74 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 127 78.74 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "814d9e03-735a-4e30-9b27-e004459af09e")
+		)
+		(instances
+			(project "uaBrain-gm-e38"
+				(path "/260474c3-12d9-4949-89fb-23ae88769f73/8910d97b-dab7-4bb0-9c71-97f47070d086"
+					(reference "#PWR0163")
+					(unit 1)
+				)
+			)
+			(project "hellen-gm-e38"
+				(path "/63d2dd9f-d5ff-4811-a88d-0ba932475460/aec3561d-e53f-4e50-96c1-f5dc7f3a87ab"
+					(reference "#PWR0163")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:+3V3")
+		(at 153.67 95.25 270)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "a110a24d-d63a-454a-b93f-272d0c253f4c")
+		(property "Reference" "#PWR0200"
+			(at 149.86 95.25 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "+3V3"
+			(at 158.75 95.25 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 153.67 95.25 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 153.67 95.25 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"+3V3\""
+			(at 153.67 95.25 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "7c9ed00c-9882-4fe5-b50e-83032eaba5c2")
+		)
+		(instances
+			(project "uaBrain-gm-e38"
+				(path "/260474c3-12d9-4949-89fb-23ae88769f73/8910d97b-dab7-4bb0-9c71-97f47070d086"
+					(reference "#PWR0200")
+					(unit 1)
+				)
+			)
+			(project "hellen-gm-e38"
+				(path "/63d2dd9f-d5ff-4811-a88d-0ba932475460/aec3561d-e53f-4e50-96c1-f5dc7f3a87ab"
+					(reference "#PWR0200")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "hellen-one-common:Res")
+		(at 115.57 50.8 270)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "a40303ba-0daf-40fe-9037-c015c7e51a64")
+		(property "Reference" "R36"
+			(at 111.76 55.88 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "4.7k"
+			(at 115.57 55.88 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "hellen-one-common:R0603"
+			(at 111.76 54.61 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 115.57 50.8 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 115.57 50.8 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C23162"
+			(at 115.57 50.8 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "d734ada9-569b-487f-b3d5-6b75e06ed474")
+		)
+		(pin "2"
+			(uuid "178edaff-fa2b-47eb-8d51-72d04e610bec")
+		)
+		(instances
+			(project "uaBrain-gm-e38"
+				(path "/260474c3-12d9-4949-89fb-23ae88769f73/8910d97b-dab7-4bb0-9c71-97f47070d086"
+					(reference "R36")
+					(unit 1)
+				)
+			)
+			(project "hellen-gm-e38"
+				(path "/63d2dd9f-d5ff-4811-a88d-0ba932475460/aec3561d-e53f-4e50-96c1-f5dc7f3a87ab"
+					(reference "R72")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "hellen-one-common:Res")
+		(at 115.57 80.01 270)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "a45b5a94-87b2-479b-a3dd-c8bc601b85b1")
+		(property "Reference" "R37"
+			(at 111.76 85.09 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "4.7k"
+			(at 115.57 85.09 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "hellen-one-common:R0603"
+			(at 111.76 83.82 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 115.57 80.01 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 115.57 80.01 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C23162"
+			(at 115.57 80.01 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "f38fd013-b533-491e-b941-090599978581")
+		)
+		(pin "2"
+			(uuid "88e66eb1-beac-4fc9-bd4f-a645ceb97b22")
+		)
+		(instances
+			(project "uaBrain-gm-e38"
+				(path "/260474c3-12d9-4949-89fb-23ae88769f73/8910d97b-dab7-4bb0-9c71-97f47070d086"
+					(reference "R37")
+					(unit 1)
+				)
+			)
+			(project "hellen-gm-e38"
+				(path "/63d2dd9f-d5ff-4811-a88d-0ba932475460/aec3561d-e53f-4e50-96c1-f5dc7f3a87ab"
+					(reference "R73")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "hellen-one-common:Res")
+		(at 140.97 72.39 0)
+		(mirror y)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "a46a4339-697a-489f-878b-76da0d2baf8f")
+		(property "Reference" "R41"
+			(at 134.62 74.93 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "120"
+			(at 135.89 72.39 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "hellen-one-common:R0603"
+			(at 137.16 76.2 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 140.97 72.39 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 140.97 72.39 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C22787"
+			(at 140.97 72.39 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "d61d2f24-a615-447e-93e7-f6387a02afd8")
+		)
+		(pin "2"
+			(uuid "5376eee7-41a5-4b84-8bd6-ab3297a9f963")
+		)
+		(instances
+			(project "uaBrain-gm-e38"
+				(path "/260474c3-12d9-4949-89fb-23ae88769f73/8910d97b-dab7-4bb0-9c71-97f47070d086"
+					(reference "R41")
+					(unit 1)
+				)
+			)
+			(project "hellen-gm-e38"
+				(path "/63d2dd9f-d5ff-4811-a88d-0ba932475460/aec3561d-e53f-4e50-96c1-f5dc7f3a87ab"
+					(reference "R78")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "hellen-one-common:1N4148WS")
+		(at 104.14 160.02 270)
+		(mirror x)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "a4adc449-52a9-400f-b4d0-934b46cf009b")
+		(property "Reference" "D7"
+			(at 100.33 156.21 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "B5819W"
+			(at 105.41 153.67 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "hellen-one-common:SOD-123"
+			(at 97.79 157.48 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 106.68 160.02 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 104.14 160.02 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C8598"
+			(at 104.14 160.02 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "9b0d9365-c8cd-45da-a367-9f919adb6abb")
+		)
+		(pin "2"
+			(uuid "05a9eb3b-cee3-4364-85ab-a15e6c00b7e7")
+		)
+		(instances
+			(project "uaBrain-gm-e38"
+				(path "/260474c3-12d9-4949-89fb-23ae88769f73/8910d97b-dab7-4bb0-9c71-97f47070d086"
+					(reference "D7")
+					(unit 1)
+				)
+			)
+			(project "hellen-gm-e38"
+				(path "/63d2dd9f-d5ff-4811-a88d-0ba932475460/aec3561d-e53f-4e50-96c1-f5dc7f3a87ab"
+					(reference "D29")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 140.97 160.02 90)
+		(mirror x)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "a7d9b36b-73c9-4223-a032-89bbec97a20d")
+		(property "Reference" "#PWR0196"
+			(at 147.32 160.02 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "GND"
+			(at 145.3642 160.147 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 140.97 160.02 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 140.97 160.02 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 140.97 160.02 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "e74ffcc7-0226-4943-8eff-69e51cdc8964")
+		)
+		(instances
+			(project "uaBrain-gm-e38"
+				(path "/260474c3-12d9-4949-89fb-23ae88769f73/8910d97b-dab7-4bb0-9c71-97f47070d086"
+					(reference "#PWR0196")
+					(unit 1)
+				)
+			)
+			(project "hellen-gm-e38"
+				(path "/63d2dd9f-d5ff-4811-a88d-0ba932475460/aec3561d-e53f-4e50-96c1-f5dc7f3a87ab"
+					(reference "#PWR0196")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "hellen-one-common:Res")
+		(at 140.97 40.64 0)
+		(mirror y)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "ac7fd6df-4f38-4066-9369-f0caa0305d8f")
+		(property "Reference" "R40"
+			(at 134.62 43.18 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "120"
+			(at 135.89 40.64 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "hellen-one-common:R0603"
+			(at 137.16 44.45 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 140.97 40.64 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 140.97 40.64 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C22787"
+			(at 140.97 40.64 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "ce967b4d-9b99-4cc4-b704-f259d47b2856")
+		)
+		(pin "2"
+			(uuid "bd93d619-0797-497c-9942-d6edef8d2bed")
+		)
+		(instances
+			(project "uaBrain-gm-e38"
+				(path "/260474c3-12d9-4949-89fb-23ae88769f73/8910d97b-dab7-4bb0-9c71-97f47070d086"
+					(reference "R40")
+					(unit 1)
+				)
+			)
+			(project "hellen-gm-e38"
+				(path "/63d2dd9f-d5ff-4811-a88d-0ba932475460/aec3561d-e53f-4e50-96c1-f5dc7f3a87ab"
+					(reference "R76")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 115.57 129.54 0)
+		(mirror y)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "b7916a3d-8d44-4557-8034-198a300b385c")
+		(property "Reference" "#PWR0157"
+			(at 115.57 135.89 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "GND"
+			(at 115.443 133.9342 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 115.57 129.54 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 115.57 129.54 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 115.57 129.54 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "f76b2458-3893-4f87-92dc-5b8d373f5586")
+		)
+		(instances
+			(project "uaBrain-gm-e38"
+				(path "/260474c3-12d9-4949-89fb-23ae88769f73/8910d97b-dab7-4bb0-9c71-97f47070d086"
+					(reference "#PWR0157")
+					(unit 1)
+				)
+			)
+			(project "hellen-gm-e38"
+				(path "/63d2dd9f-d5ff-4811-a88d-0ba932475460/aec3561d-e53f-4e50-96c1-f5dc7f3a87ab"
+					(reference "#PWR0157")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 104.14 45.72 0)
+		(mirror y)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "b84a0381-6bc5-4ce9-9ece-77dfe9f743cf")
+		(property "Reference" "#PWR0142"
+			(at 104.14 52.07 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "GND"
+			(at 104.14 49.53 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 104.14 45.72 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 104.14 45.72 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 104.14 45.72 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "ce17f0ca-7541-4ec6-a6aa-a5f1cf415141")
+		)
+		(instances
+			(project "uaBrain-gm-e38"
+				(path "/260474c3-12d9-4949-89fb-23ae88769f73/8910d97b-dab7-4bb0-9c71-97f47070d086"
+					(reference "#PWR0142")
+					(unit 1)
+				)
+			)
+			(project "hellen-gm-e38"
+				(path "/63d2dd9f-d5ff-4811-a88d-0ba932475460/aec3561d-e53f-4e50-96c1-f5dc7f3a87ab"
+					(reference "#PWR0142")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 140.97 130.81 90)
+		(mirror x)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "b95d8600-b894-4e0c-bc92-3d7e485cf1b2")
+		(property "Reference" "#PWR0195"
+			(at 147.32 130.81 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "GND"
+			(at 145.3642 130.937 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 140.97 130.81 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 140.97 130.81 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 140.97 130.81 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "97830618-814c-4268-a4b1-b083f3549029")
+		)
+		(instances
+			(project "uaBrain-gm-e38"
+				(path "/260474c3-12d9-4949-89fb-23ae88769f73/8910d97b-dab7-4bb0-9c71-97f47070d086"
+					(reference "#PWR0195")
+					(unit 1)
+				)
+			)
+			(project "hellen-gm-e38"
+				(path "/63d2dd9f-d5ff-4811-a88d-0ba932475460/aec3561d-e53f-4e50-96c1-f5dc7f3a87ab"
+					(reference "#PWR0195")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 104.14 77.47 0)
+		(mirror y)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "c02bf165-11ed-4f7d-af2c-f5972a8778f9")
+		(property "Reference" "#PWR0144"
+			(at 104.14 83.82 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "GND"
+			(at 104.14 81.28 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 104.14 77.47 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 104.14 77.47 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 104.14 77.47 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "cfdbbf04-af51-42af-a6c0-94110be1c469")
+		)
+		(instances
+			(project "uaBrain-gm-e38"
+				(path "/260474c3-12d9-4949-89fb-23ae88769f73/8910d97b-dab7-4bb0-9c71-97f47070d086"
+					(reference "#PWR0144")
+					(unit 1)
+				)
+			)
+			(project "hellen-gm-e38"
+				(path "/63d2dd9f-d5ff-4811-a88d-0ba932475460/aec3561d-e53f-4e50-96c1-f5dc7f3a87ab"
+					(reference "#PWR0144")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:+3V3")
+		(at 153.67 34.29 270)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "c1e19653-06d7-428a-80ac-dab2a7802da7")
+		(property "Reference" "#PWR0197"
+			(at 149.86 34.29 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "+3V3"
+			(at 158.75 34.29 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 153.67 34.29 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 153.67 34.29 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"+3V3\""
+			(at 153.67 34.29 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "2da5c9c6-8831-4c83-8e72-b0ae7fd04718")
+		)
+		(instances
+			(project "uaBrain-gm-e38"
+				(path "/260474c3-12d9-4949-89fb-23ae88769f73/8910d97b-dab7-4bb0-9c71-97f47070d086"
+					(reference "#PWR0197")
+					(unit 1)
+				)
+			)
+			(project "hellen-gm-e38"
+				(path "/63d2dd9f-d5ff-4811-a88d-0ba932475460/aec3561d-e53f-4e50-96c1-f5dc7f3a87ab"
+					(reference "#PWR0197")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "hellen-one-common:Res")
+		(at 153.67 153.67 0)
+		(mirror y)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "c74588cc-5105-4823-888e-141123d679fd")
+		(property "Reference" "R51"
+			(at 148.59 151.13 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "10k"
+			(at 148.59 153.67 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "hellen-one-common:R0603"
+			(at 149.86 157.48 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 153.67 153.67 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 153.67 153.67 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C25804"
+			(at 153.67 153.67 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "19c1ea68-f04f-405d-8511-c2b8c226b9a9")
+		)
+		(pin "2"
+			(uuid "ba6ae522-b400-4c50-aae3-45c41ece7d0d")
+		)
+		(instances
+			(project "uaBrain-gm-e38"
+				(path "/260474c3-12d9-4949-89fb-23ae88769f73/8910d97b-dab7-4bb0-9c71-97f47070d086"
+					(reference "R51")
+					(unit 1)
+				)
+			)
+			(project "hellen-gm-e38"
+				(path "/63d2dd9f-d5ff-4811-a88d-0ba932475460/aec3561d-e53f-4e50-96c1-f5dc7f3a87ab"
+					(reference "R93")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "hellen-one-common:Res")
+		(at 153.67 95.25 0)
+		(mirror y)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "cbebd54e-c6a1-4817-b52a-1aed185df248")
+		(property "Reference" "R47"
+			(at 148.59 92.71 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "10k"
+			(at 148.59 95.25 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "hellen-one-common:R0603"
+			(at 149.86 99.06 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 153.67 95.25 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 153.67 95.25 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C25804"
+			(at 153.67 95.25 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "47e223ed-86de-401c-9efa-d645398871c5")
+		)
+		(pin "2"
+			(uuid "455e5dc3-c5ab-49ca-a68b-c0c53f380dbf")
+		)
+		(instances
+			(project "uaBrain-gm-e38"
+				(path "/260474c3-12d9-4949-89fb-23ae88769f73/8910d97b-dab7-4bb0-9c71-97f47070d086"
+					(reference "R47")
+					(unit 1)
+				)
+			)
+			(project "hellen-gm-e38"
+				(path "/63d2dd9f-d5ff-4811-a88d-0ba932475460/aec3561d-e53f-4e50-96c1-f5dc7f3a87ab"
+					(reference "R91")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "hellen-one-common:Res")
+		(at 140.97 160.02 0)
+		(mirror y)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "d46ef77a-7d3f-4817-b291-806c362e1f5f")
+		(property "Reference" "R44"
+			(at 134.62 162.56 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "120"
+			(at 135.89 160.02 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "hellen-one-common:R0603"
+			(at 137.16 163.83 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 140.97 160.02 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 140.97 160.02 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C22787"
+			(at 140.97 160.02 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "a9390c75-c0d4-448f-b537-6d4f1dfd54d2")
+		)
+		(pin "2"
+			(uuid "561d6dcc-f7a5-42ed-bcdc-75326aecc4cf")
+		)
+		(instances
+			(project "uaBrain-gm-e38"
+				(path "/260474c3-12d9-4949-89fb-23ae88769f73/8910d97b-dab7-4bb0-9c71-97f47070d086"
+					(reference "R44")
+					(unit 1)
+				)
+			)
+			(project "hellen-gm-e38"
+				(path "/63d2dd9f-d5ff-4811-a88d-0ba932475460/aec3561d-e53f-4e50-96c1-f5dc7f3a87ab"
+					(reference "R81")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 115.57 19.05 0)
+		(mirror x)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "d5d83457-52d8-47c6-b202-01aaa9d7992f")
+		(property "Reference" "#PWR0148"
+			(at 115.57 12.7 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "GND"
+			(at 115.697 14.6558 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 115.57 19.05 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 115.57 19.05 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 115.57 19.05 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "97582a2f-51d3-49f6-ad6b-9652262d4e4f")
+		)
+		(instances
+			(project "uaBrain-gm-e38"
+				(path "/260474c3-12d9-4949-89fb-23ae88769f73/8910d97b-dab7-4bb0-9c71-97f47070d086"
+					(reference "#PWR0148")
+					(unit 1)
+				)
+			)
+			(project "hellen-gm-e38"
+				(path "/63d2dd9f-d5ff-4811-a88d-0ba932475460/aec3561d-e53f-4e50-96c1-f5dc7f3a87ab"
+					(reference "#PWR0148")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "chips:BSP762")
+		(at 133.35 149.86 0)
+		(mirror y)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "d761489b-9896-4ccb-ac0e-8f4ec419035f")
+		(property "Reference" "U10"
+			(at 124.206 142.24 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "BSP762TXUMA1"
+			(at 150.622 142.24 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Package_SO:SOIC-8_3.9x4.9mm_P1.27mm"
+			(at 133.35 149.86 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 133.35 149.86 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 133.35 149.86 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C2653781"
+			(at 133.35 149.86 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "e66c31bc-0ed2-4197-907f-c88c22fbeca1")
+		)
+		(pin "2"
+			(uuid "a008f724-bb8c-4b51-9ed2-13e1734fca03")
+		)
+		(pin "3"
+			(uuid "f3be46f1-107d-4ef3-84af-393277148553")
+		)
+		(pin "4"
+			(uuid "c1525277-5ca2-40cf-9024-7e2a41b7ca8f")
+		)
+		(pin "5"
+			(uuid "0cceeb04-cdef-4b5d-bce6-b257bde2439d")
+		)
+		(pin "6"
+			(uuid "9bd37009-c9cb-4f74-a259-635e44ba07e1")
+		)
+		(pin "7"
+			(uuid "582ebaa2-234b-4b38-804f-81d596ad187e")
+		)
+		(pin "8"
+			(uuid "aa6e466e-4d23-4839-8c32-1c66c7aaf359")
+		)
+		(instances
+			(project "uaBrain-gm-e38"
+				(path "/260474c3-12d9-4949-89fb-23ae88769f73/8910d97b-dab7-4bb0-9c71-97f47070d086"
+					(reference "U10")
+					(unit 1)
+				)
+			)
+			(project "hellen-gm-e38"
+				(path "/63d2dd9f-d5ff-4811-a88d-0ba932475460/aec3561d-e53f-4e50-96c1-f5dc7f3a87ab"
+					(reference "U20")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 115.57 109.22 0)
+		(mirror x)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "d9edc4c8-4aba-49ea-8760-5c608167b096")
+		(property "Reference" "#PWR0156"
+			(at 115.57 102.87 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "GND"
+			(at 115.697 104.8258 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 115.57 109.22 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 115.57 109.22 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 115.57 109.22 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "2cdf5228-95bd-405b-ae3e-f904b8b5a10d")
+		)
+		(instances
+			(project "uaBrain-gm-e38"
+				(path "/260474c3-12d9-4949-89fb-23ae88769f73/8910d97b-dab7-4bb0-9c71-97f47070d086"
+					(reference "#PWR0156")
+					(unit 1)
+				)
+			)
+			(project "hellen-gm-e38"
+				(path "/63d2dd9f-d5ff-4811-a88d-0ba932475460/aec3561d-e53f-4e50-96c1-f5dc7f3a87ab"
+					(reference "#PWR0156")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "hellen-one-common:Res")
+		(at 140.97 130.81 0)
+		(mirror y)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "db6e05fb-387b-4cef-8638-9981df7c2e0c")
+		(property "Reference" "R43"
+			(at 134.62 133.35 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "120"
+			(at 135.89 130.81 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "hellen-one-common:R0603"
+			(at 137.16 134.62 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 140.97 130.81 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 140.97 130.81 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C22787"
+			(at 140.97 130.81 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "2ee13be4-d6e7-45bb-9456-d9dce5def4fd")
+		)
+		(pin "2"
+			(uuid "70ea1985-ef21-4f32-8fad-b4256716b82b")
+		)
+		(instances
+			(project "uaBrain-gm-e38"
+				(path "/260474c3-12d9-4949-89fb-23ae88769f73/8910d97b-dab7-4bb0-9c71-97f47070d086"
+					(reference "R43")
+					(unit 1)
+				)
+			)
+			(project "hellen-gm-e38"
+				(path "/63d2dd9f-d5ff-4811-a88d-0ba932475460/aec3561d-e53f-4e50-96c1-f5dc7f3a87ab"
+					(reference "R80")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 140.97 72.39 90)
+		(mirror x)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "e433f183-7628-4040-9a39-0ebbc0fcf95c")
+		(property "Reference" "#PWR0193"
+			(at 147.32 72.39 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "GND"
+			(at 145.3642 72.517 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 140.97 72.39 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 140.97 72.39 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 140.97 72.39 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "79f38eaf-bc3d-4ac9-8f1f-d7ca24b67eba")
+		)
+		(instances
+			(project "uaBrain-gm-e38"
+				(path "/260474c3-12d9-4949-89fb-23ae88769f73/8910d97b-dab7-4bb0-9c71-97f47070d086"
+					(reference "#PWR0193")
+					(unit 1)
+				)
+			)
+			(project "hellen-gm-e38"
+				(path "/63d2dd9f-d5ff-4811-a88d-0ba932475460/aec3561d-e53f-4e50-96c1-f5dc7f3a87ab"
+					(reference "#PWR0193")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 115.57 158.75 0)
+		(mirror y)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "e804033a-4112-4226-a47d-13fc967f4003")
+		(property "Reference" "#PWR0159"
+			(at 115.57 165.1 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "GND"
+			(at 115.443 163.1442 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 115.57 158.75 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 115.57 158.75 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 115.57 158.75 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "a567f8e3-fb0a-4815-ac87-d94e0c1bef2a")
+		)
+		(instances
+			(project "uaBrain-gm-e38"
+				(path "/260474c3-12d9-4949-89fb-23ae88769f73/8910d97b-dab7-4bb0-9c71-97f47070d086"
+					(reference "#PWR0159")
+					(unit 1)
+				)
+			)
+			(project "hellen-gm-e38"
+				(path "/63d2dd9f-d5ff-4811-a88d-0ba932475460/aec3561d-e53f-4e50-96c1-f5dc7f3a87ab"
+					(reference "#PWR0159")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "chips:BSP762")
+		(at 133.35 62.23 0)
+		(mirror y)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "e8d613c3-4fbc-4239-b039-5f6cdb013171")
+		(property "Reference" "U6"
+			(at 124.206 54.61 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "BSP762TXUMA1"
+			(at 150.622 54.61 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Package_SO:SOIC-8_3.9x4.9mm_P1.27mm"
+			(at 133.35 62.23 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 133.35 62.23 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 133.35 62.23 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C2653781"
+			(at 133.35 62.23 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "bf62764c-cada-45d1-a066-7c7e7cfd9557")
+		)
+		(pin "2"
+			(uuid "43d771eb-7f88-4d4e-8aff-78fc2f581bf2")
+		)
+		(pin "3"
+			(uuid "b044f4ac-3bc2-4a16-b2e8-9f9f4e03aee6")
+		)
+		(pin "4"
+			(uuid "3d9966bf-f027-44ce-8269-12da2262960c")
+		)
+		(pin "5"
+			(uuid "57bf7719-2d4f-4eb1-8e3e-b2edfbb11d1c")
+		)
+		(pin "6"
+			(uuid "56c10a1d-fd97-409b-a7d1-b9e2d0b158f5")
+		)
+		(pin "7"
+			(uuid "f4e25eba-ff30-464b-9127-a7d3e235034c")
+		)
+		(pin "8"
+			(uuid "6876e28b-26ee-4eb5-b5d7-db0a9726adb7")
+		)
+		(instances
+			(project "uaBrain-gm-e38"
+				(path "/260474c3-12d9-4949-89fb-23ae88769f73/8910d97b-dab7-4bb0-9c71-97f47070d086"
+					(reference "U6")
+					(unit 1)
+				)
+			)
+			(project "hellen-gm-e38"
+				(path "/63d2dd9f-d5ff-4811-a88d-0ba932475460/aec3561d-e53f-4e50-96c1-f5dc7f3a87ab"
+					(reference "U17")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 140.97 40.64 90)
+		(mirror x)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "e8e1a3f7-a080-4243-8590-f6c806185f21")
+		(property "Reference" "#PWR0191"
+			(at 147.32 40.64 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "GND"
+			(at 145.3642 40.767 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 140.97 40.64 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 140.97 40.64 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 140.97 40.64 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "402cd970-cf3b-46d6-ad0d-83a4fcb2286a")
+		)
+		(instances
+			(project "uaBrain-gm-e38"
+				(path "/260474c3-12d9-4949-89fb-23ae88769f73/8910d97b-dab7-4bb0-9c71-97f47070d086"
+					(reference "#PWR0191")
+					(unit 1)
+				)
+			)
+			(project "hellen-gm-e38"
+				(path "/63d2dd9f-d5ff-4811-a88d-0ba932475460/aec3561d-e53f-4e50-96c1-f5dc7f3a87ab"
+					(reference "#PWR0191")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "hellen-one-common:Res")
+		(at 153.67 124.46 0)
+		(mirror y)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "edec449d-8149-4340-a60b-9673313bda54")
+		(property "Reference" "R50"
+			(at 148.59 121.92 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "10k"
+			(at 148.59 124.46 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "hellen-one-common:R0603"
+			(at 149.86 128.27 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 153.67 124.46 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 153.67 124.46 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C25804"
+			(at 153.67 124.46 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "7dd12791-589b-4f00-96a1-c48b6f8d71aa")
+		)
+		(pin "2"
+			(uuid "9392ca45-f790-4e4e-8d41-05980788dbde")
+		)
+		(instances
+			(project "uaBrain-gm-e38"
+				(path "/260474c3-12d9-4949-89fb-23ae88769f73/8910d97b-dab7-4bb0-9c71-97f47070d086"
+					(reference "R50")
+					(unit 1)
+				)
+			)
+			(project "hellen-gm-e38"
+				(path "/63d2dd9f-d5ff-4811-a88d-0ba932475460/aec3561d-e53f-4e50-96c1-f5dc7f3a87ab"
+					(reference "R92")
+					(unit 1)
+				)
+			)
+		)
+	)
+)
