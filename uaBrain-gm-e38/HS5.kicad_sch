@@ -2075,7 +2075,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "04e2598c-eff3-41e8-9851-942bdc3520dc")
-		(property "Reference" "#PWR0194"
+		(property "Reference" "#PWR0158"
 			(at 147.32 101.6 0)
 			(hide yes)
 			(show_name no)
@@ -2087,13 +2087,14 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 145.3642 101.727 90)
+			(at 144.145 101.6 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(justify right)
 			)
 		)
 		(property "Footprint" ""
@@ -2135,7 +2136,7 @@
 		(instances
 			(project "uaBrain-gm-e38"
 				(path "/260474c3-12d9-4949-89fb-23ae88769f73/8910d97b-dab7-4bb0-9c71-97f47070d086"
-					(reference "#PWR0194")
+					(reference "#PWR0158")
 					(unit 1)
 				)
 			)
@@ -2159,7 +2160,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "055b2ca5-1b0e-4ef7-9b6a-767f7f2c6c7b")
-		(property "Reference" "#PWR0149"
+		(property "Reference" "#PWR0142"
 			(at 115.57 45.72 0)
 			(hide yes)
 			(show_name no)
@@ -2171,7 +2172,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 115.443 43.7642 0)
+			(at 115.57 43.18 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -2219,7 +2220,7 @@
 		(instances
 			(project "uaBrain-gm-e38"
 				(path "/260474c3-12d9-4949-89fb-23ae88769f73/8910d97b-dab7-4bb0-9c71-97f47070d086"
-					(reference "#PWR0149")
+					(reference "#PWR0142")
 					(unit 1)
 				)
 			)
@@ -2243,7 +2244,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "09fb0d44-1063-46d4-a30b-18a466074adc")
-		(property "Reference" "#PWR0160"
+		(property "Reference" "#PWR0151"
 			(at 127 21.59 0)
 			(hide yes)
 			(show_name no)
@@ -2303,7 +2304,7 @@
 		(instances
 			(project "uaBrain-gm-e38"
 				(path "/260474c3-12d9-4949-89fb-23ae88769f73/8910d97b-dab7-4bb0-9c71-97f47070d086"
-					(reference "#PWR0160")
+					(reference "#PWR0151")
 					(unit 1)
 				)
 			)
@@ -2327,7 +2328,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "1142b194-ea35-4939-b5a5-610a8eb6085b")
-		(property "Reference" "#PWR0154"
+		(property "Reference" "#PWR0145"
 			(at 115.57 73.66 0)
 			(hide yes)
 			(show_name no)
@@ -2388,7 +2389,7 @@
 		(instances
 			(project "uaBrain-gm-e38"
 				(path "/260474c3-12d9-4949-89fb-23ae88769f73/8910d97b-dab7-4bb0-9c71-97f47070d086"
-					(reference "#PWR0154")
+					(reference "#PWR0145")
 					(unit 1)
 				)
 			)
@@ -2412,7 +2413,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "14327bbc-a60f-40d3-8579-c239b671acf1")
-		(property "Reference" "#PWR0155"
+		(property "Reference" "#PWR0146"
 			(at 115.57 106.68 0)
 			(hide yes)
 			(show_name no)
@@ -2424,7 +2425,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 115.443 104.7242 0)
+			(at 115.57 104.14 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -2472,7 +2473,7 @@
 		(instances
 			(project "uaBrain-gm-e38"
 				(path "/260474c3-12d9-4949-89fb-23ae88769f73/8910d97b-dab7-4bb0-9c71-97f47070d086"
-					(reference "#PWR0155")
+					(reference "#PWR0146")
 					(unit 1)
 				)
 			)
@@ -2496,7 +2497,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "18f280b3-02ee-48a9-baa5-d1f9699ea4a6")
-		(property "Reference" "R45"
+		(property "Reference" "R46"
 			(at 148.59 31.75 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2569,7 +2570,7 @@
 		(instances
 			(project "uaBrain-gm-e38"
 				(path "/260474c3-12d9-4949-89fb-23ae88769f73/8910d97b-dab7-4bb0-9c71-97f47070d086"
-					(reference "R45")
+					(reference "R46")
 					(unit 1)
 				)
 			)
@@ -2709,7 +2710,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "1bb33f67-ef40-4f1c-bc24-8ae9e070a5bf")
-		(property "Reference" "R39"
+		(property "Reference" "R40"
 			(at 111.76 143.51 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2782,7 +2783,7 @@
 		(instances
 			(project "uaBrain-gm-e38"
 				(path "/260474c3-12d9-4949-89fb-23ae88769f73/8910d97b-dab7-4bb0-9c71-97f47070d086"
-					(reference "R39")
+					(reference "R40")
 					(unit 1)
 				)
 			)
@@ -2806,7 +2807,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "1db92b51-68d3-4a97-8c3a-ffc19cca6be6")
-		(property "Reference" "U9"
+		(property "Reference" "U8"
 			(at 124.206 113.03 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2899,7 +2900,7 @@
 		(instances
 			(project "uaBrain-gm-e38"
 				(path "/260474c3-12d9-4949-89fb-23ae88769f73/8910d97b-dab7-4bb0-9c71-97f47070d086"
-					(reference "U9")
+					(reference "U8")
 					(unit 1)
 				)
 			)
@@ -2923,7 +2924,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "1fb94f09-4ea6-45d2-bde1-68fe5d2628e1")
-		(property "Reference" "#PWR0165"
+		(property "Reference" "#PWR0155"
 			(at 127 140.97 0)
 			(hide yes)
 			(show_name no)
@@ -2983,7 +2984,7 @@
 		(instances
 			(project "uaBrain-gm-e38"
 				(path "/260474c3-12d9-4949-89fb-23ae88769f73/8910d97b-dab7-4bb0-9c71-97f47070d086"
-					(reference "#PWR0165")
+					(reference "#PWR0155")
 					(unit 1)
 				)
 			)
@@ -3007,7 +3008,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "2a5d045b-6989-4c89-9649-b5d8585882c7")
-		(property "Reference" "U8"
+		(property "Reference" "U7"
 			(at 124.206 83.82 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3100,7 +3101,7 @@
 		(instances
 			(project "uaBrain-gm-e38"
 				(path "/260474c3-12d9-4949-89fb-23ae88769f73/8910d97b-dab7-4bb0-9c71-97f47070d086"
-					(reference "U8")
+					(reference "U7")
 					(unit 1)
 				)
 			)
@@ -3366,7 +3367,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "36eeebe1-bfba-4f8e-88c0-4b5ea750f8f2")
-		(property "Reference" "#PWR0145"
+		(property "Reference" "#PWR0138"
 			(at 104.14 113.03 0)
 			(hide yes)
 			(show_name no)
@@ -3426,7 +3427,7 @@
 		(instances
 			(project "uaBrain-gm-e38"
 				(path "/260474c3-12d9-4949-89fb-23ae88769f73/8910d97b-dab7-4bb0-9c71-97f47070d086"
-					(reference "#PWR0145")
+					(reference "#PWR0138")
 					(unit 1)
 				)
 			)
@@ -3450,7 +3451,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "3a6f58c6-d474-4625-ab3e-d5cfec8a2504")
-		(property "Reference" "#PWR0153"
+		(property "Reference" "#PWR0144"
 			(at 115.57 77.47 0)
 			(hide yes)
 			(show_name no)
@@ -3462,7 +3463,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 115.443 75.5142 0)
+			(at 115.57 74.93 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -3510,7 +3511,7 @@
 		(instances
 			(project "uaBrain-gm-e38"
 				(path "/260474c3-12d9-4949-89fb-23ae88769f73/8910d97b-dab7-4bb0-9c71-97f47070d086"
-					(reference "#PWR0153")
+					(reference "#PWR0144")
 					(unit 1)
 				)
 			)
@@ -3970,7 +3971,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "4bfb7b37-8f28-43a7-a263-951d6107a828")
-		(property "Reference" "#PWR0147"
+		(property "Reference" "#PWR0140"
 			(at 104.14 171.45 0)
 			(hide yes)
 			(show_name no)
@@ -4030,7 +4031,7 @@
 		(instances
 			(project "uaBrain-gm-e38"
 				(path "/260474c3-12d9-4949-89fb-23ae88769f73/8910d97b-dab7-4bb0-9c71-97f47070d086"
-					(reference "#PWR0147")
+					(reference "#PWR0140")
 					(unit 1)
 				)
 			)
@@ -4053,7 +4054,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "4d035058-3f85-4578-a712-c8e6b0396565")
-		(property "Reference" "R33"
+		(property "Reference" "R36"
 			(at 111.76 24.13 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4126,7 +4127,7 @@
 		(instances
 			(project "uaBrain-gm-e38"
 				(path "/260474c3-12d9-4949-89fb-23ae88769f73/8910d97b-dab7-4bb0-9c71-97f47070d086"
-					(reference "R33")
+					(reference "R36")
 					(unit 1)
 				)
 			)
@@ -4149,7 +4150,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "52b3482d-c221-4cdb-8b74-a22f7146ce62")
-		(property "Reference" "R38"
+		(property "Reference" "R39"
 			(at 111.76 114.3 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4222,7 +4223,7 @@
 		(instances
 			(project "uaBrain-gm-e38"
 				(path "/260474c3-12d9-4949-89fb-23ae88769f73/8910d97b-dab7-4bb0-9c71-97f47070d086"
-					(reference "R38")
+					(reference "R39")
 					(unit 1)
 				)
 			)
@@ -4342,7 +4343,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "5aa66cc5-6818-4212-90ba-2f164e65477d")
-		(property "Reference" "#PWR0202"
+		(property "Reference" "#PWR0165"
 			(at 149.86 153.67 0)
 			(hide yes)
 			(show_name no)
@@ -4354,13 +4355,14 @@
 			)
 		)
 		(property "Value" "+3V3"
-			(at 158.75 153.67 90)
+			(at 156.845 153.67 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(justify left)
 			)
 		)
 		(property "Footprint" ""
@@ -4402,7 +4404,7 @@
 		(instances
 			(project "uaBrain-gm-e38"
 				(path "/260474c3-12d9-4949-89fb-23ae88769f73/8910d97b-dab7-4bb0-9c71-97f47070d086"
-					(reference "#PWR0202")
+					(reference "#PWR0165")
 					(unit 1)
 				)
 			)
@@ -4426,7 +4428,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "650abbb2-215c-410d-a4d2-08d670d4111e")
-		(property "Reference" "R42"
+		(property "Reference" "R43"
 			(at 134.62 104.14 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4499,7 +4501,7 @@
 		(instances
 			(project "uaBrain-gm-e38"
 				(path "/260474c3-12d9-4949-89fb-23ae88769f73/8910d97b-dab7-4bb0-9c71-97f47070d086"
-					(reference "R42")
+					(reference "R43")
 					(unit 1)
 				)
 			)
@@ -4523,7 +4525,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "66372f33-fbca-4eff-9b77-de1710561e9b")
-		(property "Reference" "#PWR0146"
+		(property "Reference" "#PWR0139"
 			(at 104.14 142.24 0)
 			(hide yes)
 			(show_name no)
@@ -4583,7 +4585,7 @@
 		(instances
 			(project "uaBrain-gm-e38"
 				(path "/260474c3-12d9-4949-89fb-23ae88769f73/8910d97b-dab7-4bb0-9c71-97f47070d086"
-					(reference "#PWR0146")
+					(reference "#PWR0139")
 					(unit 1)
 				)
 			)
@@ -4606,7 +4608,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "6880d0bc-b146-48fe-a76c-37252b5abc2e")
-		(property "Reference" "#PWR0199"
+		(property "Reference" "#PWR0162"
 			(at 149.86 66.04 0)
 			(hide yes)
 			(show_name no)
@@ -4618,13 +4620,14 @@
 			)
 		)
 		(property "Value" "+3V3"
-			(at 158.75 66.04 90)
+			(at 156.845 66.04 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(justify left)
 			)
 		)
 		(property "Footprint" ""
@@ -4666,7 +4669,7 @@
 		(instances
 			(project "uaBrain-gm-e38"
 				(path "/260474c3-12d9-4949-89fb-23ae88769f73/8910d97b-dab7-4bb0-9c71-97f47070d086"
-					(reference "#PWR0199")
+					(reference "#PWR0162")
 					(unit 1)
 				)
 			)
@@ -4690,7 +4693,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "688afb70-9840-4583-be28-1263c8588a0f")
-		(property "Reference" "#PWR0152"
+		(property "Reference" "#PWR0143"
 			(at 115.57 44.45 0)
 			(hide yes)
 			(show_name no)
@@ -4751,7 +4754,7 @@
 		(instances
 			(project "uaBrain-gm-e38"
 				(path "/260474c3-12d9-4949-89fb-23ae88769f73/8910d97b-dab7-4bb0-9c71-97f47070d086"
-					(reference "#PWR0152")
+					(reference "#PWR0143")
 					(unit 1)
 				)
 			)
@@ -4775,7 +4778,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "6c88d5e3-ecb3-4617-a4da-8778aa391cb4")
-		(property "Reference" "R46"
+		(property "Reference" "R47"
 			(at 148.59 63.5 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4848,7 +4851,7 @@
 		(instances
 			(project "uaBrain-gm-e38"
 				(path "/260474c3-12d9-4949-89fb-23ae88769f73/8910d97b-dab7-4bb0-9c71-97f47070d086"
-					(reference "R46")
+					(reference "R47")
 					(unit 1)
 				)
 			)
@@ -4993,7 +4996,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "82b66562-529e-428f-b1c3-f0b49c448986")
-		(property "Reference" "#PWR0162"
+		(property "Reference" "#PWR0152"
 			(at 127 53.34 0)
 			(hide yes)
 			(show_name no)
@@ -5053,7 +5056,7 @@
 		(instances
 			(project "uaBrain-gm-e38"
 				(path "/260474c3-12d9-4949-89fb-23ae88769f73/8910d97b-dab7-4bb0-9c71-97f47070d086"
-					(reference "#PWR0162")
+					(reference "#PWR0152")
 					(unit 1)
 				)
 			)
@@ -5174,7 +5177,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "91ac015a-69b3-4c36-8019-8f5286c9942a")
-		(property "Reference" "#PWR0158"
+		(property "Reference" "#PWR0149"
 			(at 115.57 132.08 0)
 			(hide yes)
 			(show_name no)
@@ -5235,7 +5238,7 @@
 		(instances
 			(project "uaBrain-gm-e38"
 				(path "/260474c3-12d9-4949-89fb-23ae88769f73/8910d97b-dab7-4bb0-9c71-97f47070d086"
-					(reference "#PWR0158")
+					(reference "#PWR0149")
 					(unit 1)
 				)
 			)
@@ -5258,7 +5261,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "93acb87d-6be7-4309-b005-a9743c84124a")
-		(property "Reference" "#PWR0201"
+		(property "Reference" "#PWR0164"
 			(at 149.86 124.46 0)
 			(hide yes)
 			(show_name no)
@@ -5270,13 +5273,14 @@
 			)
 		)
 		(property "Value" "+3V3"
-			(at 158.75 124.46 90)
+			(at 156.845 124.46 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(justify left)
 			)
 		)
 		(property "Footprint" ""
@@ -5318,7 +5322,7 @@
 		(instances
 			(project "uaBrain-gm-e38"
 				(path "/260474c3-12d9-4949-89fb-23ae88769f73/8910d97b-dab7-4bb0-9c71-97f47070d086"
-					(reference "#PWR0201")
+					(reference "#PWR0164")
 					(unit 1)
 				)
 			)
@@ -5342,7 +5346,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "9645297d-1119-4b16-90e5-a194cc4229d7")
-		(property "Reference" "#PWR0164"
+		(property "Reference" "#PWR0154"
 			(at 127 111.76 0)
 			(hide yes)
 			(show_name no)
@@ -5402,7 +5406,7 @@
 		(instances
 			(project "uaBrain-gm-e38"
 				(path "/260474c3-12d9-4949-89fb-23ae88769f73/8910d97b-dab7-4bb0-9c71-97f47070d086"
-					(reference "#PWR0164")
+					(reference "#PWR0154")
 					(unit 1)
 				)
 			)
@@ -5426,7 +5430,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "991e8e3a-fb5a-4cc8-8d79-73ce762942cf")
-		(property "Reference" "#PWR0163"
+		(property "Reference" "#PWR0153"
 			(at 127 82.55 0)
 			(hide yes)
 			(show_name no)
@@ -5486,7 +5490,7 @@
 		(instances
 			(project "uaBrain-gm-e38"
 				(path "/260474c3-12d9-4949-89fb-23ae88769f73/8910d97b-dab7-4bb0-9c71-97f47070d086"
-					(reference "#PWR0163")
+					(reference "#PWR0153")
 					(unit 1)
 				)
 			)
@@ -5509,7 +5513,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "a110a24d-d63a-454a-b93f-272d0c253f4c")
-		(property "Reference" "#PWR0200"
+		(property "Reference" "#PWR0163"
 			(at 149.86 95.25 0)
 			(hide yes)
 			(show_name no)
@@ -5521,13 +5525,14 @@
 			)
 		)
 		(property "Value" "+3V3"
-			(at 158.75 95.25 90)
+			(at 156.845 95.25 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(justify left)
 			)
 		)
 		(property "Footprint" ""
@@ -5569,7 +5574,7 @@
 		(instances
 			(project "uaBrain-gm-e38"
 				(path "/260474c3-12d9-4949-89fb-23ae88769f73/8910d97b-dab7-4bb0-9c71-97f47070d086"
-					(reference "#PWR0200")
+					(reference "#PWR0163")
 					(unit 1)
 				)
 			)
@@ -5592,7 +5597,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "a40303ba-0daf-40fe-9037-c015c7e51a64")
-		(property "Reference" "R36"
+		(property "Reference" "R37"
 			(at 111.76 55.88 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5665,7 +5670,7 @@
 		(instances
 			(project "uaBrain-gm-e38"
 				(path "/260474c3-12d9-4949-89fb-23ae88769f73/8910d97b-dab7-4bb0-9c71-97f47070d086"
-					(reference "R36")
+					(reference "R37")
 					(unit 1)
 				)
 			)
@@ -5688,7 +5693,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "a45b5a94-87b2-479b-a3dd-c8bc601b85b1")
-		(property "Reference" "R37"
+		(property "Reference" "R38"
 			(at 111.76 85.09 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5761,7 +5766,7 @@
 		(instances
 			(project "uaBrain-gm-e38"
 				(path "/260474c3-12d9-4949-89fb-23ae88769f73/8910d97b-dab7-4bb0-9c71-97f47070d086"
-					(reference "R37")
+					(reference "R38")
 					(unit 1)
 				)
 			)
@@ -5785,7 +5790,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "a46a4339-697a-489f-878b-76da0d2baf8f")
-		(property "Reference" "R41"
+		(property "Reference" "R42"
 			(at 134.62 74.93 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5858,7 +5863,7 @@
 		(instances
 			(project "uaBrain-gm-e38"
 				(path "/260474c3-12d9-4949-89fb-23ae88769f73/8910d97b-dab7-4bb0-9c71-97f47070d086"
-					(reference "R41")
+					(reference "R42")
 					(unit 1)
 				)
 			)
@@ -5979,7 +5984,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "a7d9b36b-73c9-4223-a032-89bbec97a20d")
-		(property "Reference" "#PWR0196"
+		(property "Reference" "#PWR0160"
 			(at 147.32 160.02 0)
 			(hide yes)
 			(show_name no)
@@ -5991,13 +5996,14 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 145.3642 160.147 90)
+			(at 144.145 160.02 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(justify right)
 			)
 		)
 		(property "Footprint" ""
@@ -6039,7 +6045,7 @@
 		(instances
 			(project "uaBrain-gm-e38"
 				(path "/260474c3-12d9-4949-89fb-23ae88769f73/8910d97b-dab7-4bb0-9c71-97f47070d086"
-					(reference "#PWR0196")
+					(reference "#PWR0160")
 					(unit 1)
 				)
 			)
@@ -6063,7 +6069,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "ac7fd6df-4f38-4066-9369-f0caa0305d8f")
-		(property "Reference" "R40"
+		(property "Reference" "R41"
 			(at 134.62 43.18 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6136,7 +6142,7 @@
 		(instances
 			(project "uaBrain-gm-e38"
 				(path "/260474c3-12d9-4949-89fb-23ae88769f73/8910d97b-dab7-4bb0-9c71-97f47070d086"
-					(reference "R40")
+					(reference "R41")
 					(unit 1)
 				)
 			)
@@ -6160,7 +6166,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "b7916a3d-8d44-4557-8034-198a300b385c")
-		(property "Reference" "#PWR0157"
+		(property "Reference" "#PWR0148"
 			(at 115.57 135.89 0)
 			(hide yes)
 			(show_name no)
@@ -6172,7 +6178,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 115.443 133.9342 0)
+			(at 115.57 133.35 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -6220,7 +6226,7 @@
 		(instances
 			(project "uaBrain-gm-e38"
 				(path "/260474c3-12d9-4949-89fb-23ae88769f73/8910d97b-dab7-4bb0-9c71-97f47070d086"
-					(reference "#PWR0157")
+					(reference "#PWR0148")
 					(unit 1)
 				)
 			)
@@ -6244,7 +6250,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "b84a0381-6bc5-4ce9-9ece-77dfe9f743cf")
-		(property "Reference" "#PWR0142"
+		(property "Reference" "#PWR0136"
 			(at 104.14 52.07 0)
 			(hide yes)
 			(show_name no)
@@ -6304,7 +6310,7 @@
 		(instances
 			(project "uaBrain-gm-e38"
 				(path "/260474c3-12d9-4949-89fb-23ae88769f73/8910d97b-dab7-4bb0-9c71-97f47070d086"
-					(reference "#PWR0142")
+					(reference "#PWR0136")
 					(unit 1)
 				)
 			)
@@ -6328,7 +6334,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "b95d8600-b894-4e0c-bc92-3d7e485cf1b2")
-		(property "Reference" "#PWR0195"
+		(property "Reference" "#PWR0159"
 			(at 147.32 130.81 0)
 			(hide yes)
 			(show_name no)
@@ -6340,13 +6346,14 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 145.3642 130.937 90)
+			(at 144.145 130.81 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(justify right)
 			)
 		)
 		(property "Footprint" ""
@@ -6388,7 +6395,7 @@
 		(instances
 			(project "uaBrain-gm-e38"
 				(path "/260474c3-12d9-4949-89fb-23ae88769f73/8910d97b-dab7-4bb0-9c71-97f47070d086"
-					(reference "#PWR0195")
+					(reference "#PWR0159")
 					(unit 1)
 				)
 			)
@@ -6412,7 +6419,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "c02bf165-11ed-4f7d-af2c-f5972a8778f9")
-		(property "Reference" "#PWR0144"
+		(property "Reference" "#PWR0137"
 			(at 104.14 83.82 0)
 			(hide yes)
 			(show_name no)
@@ -6472,7 +6479,7 @@
 		(instances
 			(project "uaBrain-gm-e38"
 				(path "/260474c3-12d9-4949-89fb-23ae88769f73/8910d97b-dab7-4bb0-9c71-97f47070d086"
-					(reference "#PWR0144")
+					(reference "#PWR0137")
 					(unit 1)
 				)
 			)
@@ -6495,7 +6502,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "c1e19653-06d7-428a-80ac-dab2a7802da7")
-		(property "Reference" "#PWR0197"
+		(property "Reference" "#PWR0161"
 			(at 149.86 34.29 0)
 			(hide yes)
 			(show_name no)
@@ -6507,13 +6514,14 @@
 			)
 		)
 		(property "Value" "+3V3"
-			(at 158.75 34.29 90)
+			(at 156.845 34.29 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(justify left)
 			)
 		)
 		(property "Footprint" ""
@@ -6555,7 +6563,7 @@
 		(instances
 			(project "uaBrain-gm-e38"
 				(path "/260474c3-12d9-4949-89fb-23ae88769f73/8910d97b-dab7-4bb0-9c71-97f47070d086"
-					(reference "#PWR0197")
+					(reference "#PWR0161")
 					(unit 1)
 				)
 			)
@@ -6579,7 +6587,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "c74588cc-5105-4823-888e-141123d679fd")
-		(property "Reference" "R51"
+		(property "Reference" "R50"
 			(at 148.59 151.13 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6652,7 +6660,7 @@
 		(instances
 			(project "uaBrain-gm-e38"
 				(path "/260474c3-12d9-4949-89fb-23ae88769f73/8910d97b-dab7-4bb0-9c71-97f47070d086"
-					(reference "R51")
+					(reference "R50")
 					(unit 1)
 				)
 			)
@@ -6676,7 +6684,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "cbebd54e-c6a1-4817-b52a-1aed185df248")
-		(property "Reference" "R47"
+		(property "Reference" "R48"
 			(at 148.59 92.71 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6749,7 +6757,7 @@
 		(instances
 			(project "uaBrain-gm-e38"
 				(path "/260474c3-12d9-4949-89fb-23ae88769f73/8910d97b-dab7-4bb0-9c71-97f47070d086"
-					(reference "R47")
+					(reference "R48")
 					(unit 1)
 				)
 			)
@@ -6773,7 +6781,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "d46ef77a-7d3f-4817-b291-806c362e1f5f")
-		(property "Reference" "R44"
+		(property "Reference" "R45"
 			(at 134.62 162.56 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6846,7 +6854,7 @@
 		(instances
 			(project "uaBrain-gm-e38"
 				(path "/260474c3-12d9-4949-89fb-23ae88769f73/8910d97b-dab7-4bb0-9c71-97f47070d086"
-					(reference "R44")
+					(reference "R45")
 					(unit 1)
 				)
 			)
@@ -6870,7 +6878,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "d5d83457-52d8-47c6-b202-01aaa9d7992f")
-		(property "Reference" "#PWR0148"
+		(property "Reference" "#PWR0141"
 			(at 115.57 12.7 0)
 			(hide yes)
 			(show_name no)
@@ -6931,7 +6939,7 @@
 		(instances
 			(project "uaBrain-gm-e38"
 				(path "/260474c3-12d9-4949-89fb-23ae88769f73/8910d97b-dab7-4bb0-9c71-97f47070d086"
-					(reference "#PWR0148")
+					(reference "#PWR0141")
 					(unit 1)
 				)
 			)
@@ -6955,7 +6963,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "d761489b-9896-4ccb-ac0e-8f4ec419035f")
-		(property "Reference" "U10"
+		(property "Reference" "U9"
 			(at 124.206 142.24 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7048,7 +7056,7 @@
 		(instances
 			(project "uaBrain-gm-e38"
 				(path "/260474c3-12d9-4949-89fb-23ae88769f73/8910d97b-dab7-4bb0-9c71-97f47070d086"
-					(reference "U10")
+					(reference "U9")
 					(unit 1)
 				)
 			)
@@ -7072,7 +7080,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "d9edc4c8-4aba-49ea-8760-5c608167b096")
-		(property "Reference" "#PWR0156"
+		(property "Reference" "#PWR0147"
 			(at 115.57 102.87 0)
 			(hide yes)
 			(show_name no)
@@ -7133,7 +7141,7 @@
 		(instances
 			(project "uaBrain-gm-e38"
 				(path "/260474c3-12d9-4949-89fb-23ae88769f73/8910d97b-dab7-4bb0-9c71-97f47070d086"
-					(reference "#PWR0156")
+					(reference "#PWR0147")
 					(unit 1)
 				)
 			)
@@ -7157,7 +7165,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "db6e05fb-387b-4cef-8638-9981df7c2e0c")
-		(property "Reference" "R43"
+		(property "Reference" "R44"
 			(at 134.62 133.35 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7230,7 +7238,7 @@
 		(instances
 			(project "uaBrain-gm-e38"
 				(path "/260474c3-12d9-4949-89fb-23ae88769f73/8910d97b-dab7-4bb0-9c71-97f47070d086"
-					(reference "R43")
+					(reference "R44")
 					(unit 1)
 				)
 			)
@@ -7254,7 +7262,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "e433f183-7628-4040-9a39-0ebbc0fcf95c")
-		(property "Reference" "#PWR0193"
+		(property "Reference" "#PWR0157"
 			(at 147.32 72.39 0)
 			(hide yes)
 			(show_name no)
@@ -7266,13 +7274,14 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 145.3642 72.517 90)
+			(at 144.145 72.39 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(justify right)
 			)
 		)
 		(property "Footprint" ""
@@ -7314,7 +7323,7 @@
 		(instances
 			(project "uaBrain-gm-e38"
 				(path "/260474c3-12d9-4949-89fb-23ae88769f73/8910d97b-dab7-4bb0-9c71-97f47070d086"
-					(reference "#PWR0193")
+					(reference "#PWR0157")
 					(unit 1)
 				)
 			)
@@ -7338,7 +7347,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "e804033a-4112-4226-a47d-13fc967f4003")
-		(property "Reference" "#PWR0159"
+		(property "Reference" "#PWR0150"
 			(at 115.57 165.1 0)
 			(hide yes)
 			(show_name no)
@@ -7350,7 +7359,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 115.443 163.1442 0)
+			(at 115.57 162.56 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -7398,7 +7407,7 @@
 		(instances
 			(project "uaBrain-gm-e38"
 				(path "/260474c3-12d9-4949-89fb-23ae88769f73/8910d97b-dab7-4bb0-9c71-97f47070d086"
-					(reference "#PWR0159")
+					(reference "#PWR0150")
 					(unit 1)
 				)
 			)
@@ -7539,7 +7548,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "e8e1a3f7-a080-4243-8590-f6c806185f21")
-		(property "Reference" "#PWR0191"
+		(property "Reference" "#PWR0156"
 			(at 147.32 40.64 0)
 			(hide yes)
 			(show_name no)
@@ -7551,13 +7560,14 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 145.3642 40.767 90)
+			(at 144.145 40.64 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(justify right)
 			)
 		)
 		(property "Footprint" ""
@@ -7599,7 +7609,7 @@
 		(instances
 			(project "uaBrain-gm-e38"
 				(path "/260474c3-12d9-4949-89fb-23ae88769f73/8910d97b-dab7-4bb0-9c71-97f47070d086"
-					(reference "#PWR0191")
+					(reference "#PWR0156")
 					(unit 1)
 				)
 			)
@@ -7623,7 +7633,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "edec449d-8149-4340-a60b-9673313bda54")
-		(property "Reference" "R50"
+		(property "Reference" "R49"
 			(at 148.59 121.92 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7696,7 +7706,7 @@
 		(instances
 			(project "uaBrain-gm-e38"
 				(path "/260474c3-12d9-4949-89fb-23ae88769f73/8910d97b-dab7-4bb0-9c71-97f47070d086"
-					(reference "R50")
+					(reference "R49")
 					(unit 1)
 				)
 			)

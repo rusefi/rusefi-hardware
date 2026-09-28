@@ -702,9 +702,14 @@
         "filename": "uaBrain-gm-e38.kicad_sch",
         "name": "uaBrain-gm-e38",
         "uuid": "260474c3-12d9-4949-89fb-23ae88769f73"
+      },
+      {
+        "filename": "ls6.kicad_sch",
+        "name": "LS6",
+        "uuid": "0746b229-474b-41c0-8f57-b872e883daab"
       }
     ],
-    "used_designators": "R1-51,J3-5,J10,J28-29,D1-7,#PWR3,#PWR59,#PWR69,#PWR74,#PWR76,#PWR78-90,#PWR92-136,#PWR161,#PWR166-169,C1-26,U1-10",
+    "used_designators": "J1-6,J10,J28-29,R1-77,R96,#PWR1-183,D1-7,C1-26,M1,U1-16",
     "variants": []
   },
   "sheets": [
@@ -719,6 +724,14 @@
     [
       "8910d97b-dab7-4bb0-9c71-97f47070d086",
       "HS5"
+    ],
+    [
+      "0746b229-474b-41c0-8f57-b872e883daab",
+      "LS6"
+    ],
+    [
+      "4ebeb6e9-f938-47d8-be41-58c86f7350e1",
+      "LS6"
     ]
   ],
   "text_variables": {
