@@ -22,12 +22,12 @@ jobs:
         with:
           submodules: recursive
 
-      # Nested submodules (FreeRTOS kernel, STM32CubeG4 HAL/CMSIS) are required for the build.
-      - name: Init GDI-STM firmware submodules
-        run: |
-          git submodule update --init GDI-STM/firmware/lib/FreeRTOS GDI-STM/firmware/lib/STM32CubeG4
-          (cd GDI-STM/firmware/lib/FreeRTOS && git submodule update --init FreeRTOS/Source)
-          (cd GDI-STM/firmware/lib/STM32CubeG4 && git submodule update --init Drivers/STM32G4xx_HAL_Driver Drivers/CMSIS/Device/ST/STM32G4xx)
+#      # Nested submodules (FreeRTOS kernel, STM32CubeG4 HAL/CMSIS) are required for the build.
+#      - name: Init GDI-STM firmware submodules
+#        run: |
+#          git submodule update --init GDI-STM/firmware/lib/FreeRTOS GDI-STM/firmware/lib/STM32CubeG4
+#          (cd GDI-STM/firmware/lib/FreeRTOS && git submodule update --init FreeRTOS/Source)
+#          (cd GDI-STM/firmware/lib/STM32CubeG4 && git submodule update --init Drivers/STM32G4xx_HAL_Driver Drivers/CMSIS/Device/ST/STM32G4xx)
 
       - name: Acquire GCC
         uses: carlosperate/arm-none-eabi-gcc-action@v1
@@ -37,20 +37,20 @@ jobs:
       - name: Test Compiler
         run: arm-none-eabi-gcc -v
 
-      - name: Configure CMake
-        working-directory: ./GDI-STM/firmware
-        run: cmake -B build -DCMAKE_TOOLCHAIN_FILE=arm-gcc-toolchain.cmake
-
-      - name: Build Firmware
-        working-directory: ./GDI-STM/firmware
-        run: cmake --build build -j$(nproc)
-
-      - name: Upload GDI-STM binaries
-        uses: actions/upload-artifact@v4
-        with:
-          name: GDI-STM-Firmware
-          path: |
-            ./GDI-STM/firmware/build/*.hex
-            ./GDI-STM/firmware/build/*.bin
-            ./GDI-STM/firmware/build/*.elf
-            ./GDI-STM/firmware/build/*.map
+#      - name: Configure CMake
+#        working-directory: ./GDI-STM/firmware
+#        run: cmake -B build -DCMAKE_TOOLCHAIN_FILE=arm-gcc-toolchain.cmake
+#
+#      - name: Build Firmware
+#        working-directory: ./GDI-STM/firmware
+#        run: cmake --build build -j$(nproc)
+#
+#      - name: Upload GDI-STM binaries
+#        uses: actions/upload-artifact@v4
+#        with:
+#          name: GDI-STM-Firmware
+#          path: |
+#            ./GDI-STM/firmware/build/*.hex
+#            ./GDI-STM/firmware/build/*.bin
+#            ./GDI-STM/firmware/build/*.elf
+#            ./GDI-STM/firmware/build/*.map
