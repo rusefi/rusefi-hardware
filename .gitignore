@@ -7,7 +7,7 @@ rescue-backup
 *.sch-bak
 deliver
 *obj*
-*bin*
+*.bin
 fp-info-cache
 
 
