@@ -1,142 +1,194 @@
 pins:
   - pin: 1-1
-    function: CAN LOW
+    function: CAN bus Low
     type: can
+
   - pin: 1-2
-    function: START SIG
+    function: Start request input
+    type: din
+
   - pin: 1-3
-    function: BSD SIG
+    function: BSD bus - alternator
+
   - pin: 1-4
-    function: BRK LGHT SIG
+    function: Brake light switch input (X60001-4)
+    type: din
+
   - pin: 1-5
-    function: EXH FLAP SIG
+    function: Exhaust flap control
+
   - pin: 1-6
-    function: SPLY (-)
-  - pin: 1-7
-    function: PPS SIGNAL ACCELERATOR PEDAL MODULE ACC PDL SIG
-    type: av
-  - pin: 1-8
-    function: ELEC FAN SIG
-  - pin: 1-9
-    function: ACTIVATION
-  - pin: 1-10
-    function: PPS GROUND ACCELERATOR PEDAL MODULE
+    function: GNDA Analog/Sensor Ground (radiator outlet temperature sensor)
     type: agnd
+
+  - pin: 1-7
+    function: Universal analog input. Suggested PPS input 2 (pedal terminal 6)
+    type: av
+
+  - pin: 1-8
+    function: Electric cooling fan control signal
+
+  - pin: 1-9
+    function: Cooling fan activation
+
+  - pin: 1-10
+    function: GNDA Analog/Sensor Ground (PPS 2, pedal terminal 1)
+    type: agnd
+
   - pin: 1-11
-    function: PPS SUPPLY ACCELERATOR PEDAL MODULE
+    function: 5V Sensor Supply (PPS 2, pedal terminal 5)
     type: 5v
 
   - pin: 1-13
-    function: AIR PMP //UNUSED
+    function: Secondary air pump relay control
+    type: ls
+
   - pin: 1-14
-    function: CAN HIGH
+    function: CAN bus High
     type: can
+
   - pin: 1-15
-    function: VEH IMMOB SIG //mb UNUSED
+    function: Vehicle immobilizer signal
+
   - pin: 1-16
-    function: BRK LGHT SIG //mb UNUSED
+    function: Brake light switch input (X60001-16)
+    type: din
+
   - pin: 1-17
-    function: RR SPD SIG //mb UNUSED
+    function: Rear wheel speed input
+    type: din
+
   - pin: 1-18
-    function: CLUTCH SW
+    function: Clutch switch input
+    type: din
+
   - pin: 1-19
-    function: OUTLET TEMP //mb UNUSED
-  - PIN: 1-20
-    function: PPS ACCELERATOR PEDAL SIG
+    function: Radiator outlet temperature sensor input
+    type: at
+
+  - pin: 1-20
+    function: Universal analog input. Suggested PPS input 1 (pedal terminal 4)
     type: av
+
   - pin: 1-21
-    function: TD SIG
+    function: Tachometer output (TD signal)
+
   - pin: 1-22
-    function: SPLY TERM 15
+    function: Ignition Switch / Battery Voltage Analog Input (terminal 15)
+    type: 12v
+
   - pin: 1-23
-    function: PPS ACCELERATOR PEDAL GRD
+    function: GNDA Analog/Sensor Ground (PPS 1, pedal terminal 2)
     type: agnd
+
   - pin: 1-24
-    function: PPS ACCELERATOR PEDAL supply
+    function: 5V Sensor Supply (PPS 1, pedal terminal 3)
     type: 5v
 
   - pin: 1-26
-    function: E BOX SIG FAN CONTROL
+    function: E-box fan control
 
   - pin: 2-1
-    function: WAKE-UP SIG
+    function: Wake-up supply
+    type: 12v
+
   - pin: 2-2
-    function: BRK VACUUM SENS //mb UNUSED
+    function: Brake vacuum sensor return (verify equipment variant)
+
   - pin: 2-5
-    function: WBO2 pin5 Oxygen sensor 2 before catalytic converter
+    function: WBO2 calibration resistor (sensor terminal 5; dedicated wideband controller)
+
   - pin: 2-6
-    function: WBO1 pin1 Oxygen sensor before catalytic converter
+    function: WBO1 pump current Ip (sensor terminal 1; dedicated wideband controller)
+
   - pin: 2-7
-    function: WBO2 pin1 Oxygen sensor 2 before catalytic converter
+    function: WBO2 pump current Ip (sensor terminal 1; dedicated wideband controller)
+
   - pin: 2-8
-    function: WBO1 pin6 Oxygen sensor before catalytic converter
+    function: WBO1 Nernst voltage Vs/Un (sensor terminal 6; dedicated wideband controller)
+
   - pin: 2-9
-    function: WBO2 pin6 Oxygen sensor 2 before catalytic converter
+    function: WBO2 Nernst voltage Vs/Un (sensor terminal 6; dedicated wideband controller)
+
   - pin: 2-10
-    function: WBO1 pin2 virtual Ground Oxygen sensor before catalytic converter
-    type: gnd
+    function: WBO1 virtual ground Vm (sensor terminal 2; do not connect to chassis ground)
+
   - pin: 2-11
-    function: WBO2 pin2 Ground Oxygen sensor 2 before catalytic converter
-    type: gnd
+    function: WBO2 virtual ground Vm (sensor terminal 2; do not connect to chassis ground)
+
   - pin: 2-12
-    function: WBO1 pin3 heater
+    function: WBO1 heater negative (sensor terminal 3; wideband controller heater output)
     type: ls
+
   - pin: 2-13
-    function: WBO2 pin3 heater
+    function: WBO2 heater negative (sensor terminal 3; wideband controller heater output)
     type: ls
 
   - pin: 2-14
-    function: BRK VACUUM SENS //mb UNUSED
+    function: Brake vacuum sensor supply (verify voltage)
+
   - pin: 2-15
-    function: BRK VACUUM SENS OR FUEL TANK LEAKAGE //UNUSED
+    function: Brake vacuum sensor signal or crankshaft breather heater control (equipment dependent)
+
   - pin: 2-16
-    function: LEAK DIAG SIG //mb UNUSED
+    function: Fuel tank leak diagnostic module control (terminal 4)
+
   - pin: 2-17
-    function: LEAK DIAG SIG //mb UNUSED
+    function: Fuel tank leak diagnostic module control (terminal 1)
 
   - pin: 2-18
-    function: WBO1 pin5 Signal, oxygen sensor
+    function: WBO1 calibration resistor (sensor terminal 5; dedicated wideband controller)
 
   - pin: 2-19
-    function: OXYGEN SENSOR 2 pin4 SIG BEHIND CATALYTIC //mb UNUSED
-  - pin: 2-20
-    function: OXYGEN SENSOR 1 pin4 SIG BEHIND CATALYTIC //mb UNUSED
+    function: Post-cat oxygen sensor 2 signal (sensor terminal 4)
+    type: av
 
-  - pin: 2-22
-    function: ANTI-THEFT SYSTEM
+  - pin: 2-20
+    function: Post-cat oxygen sensor 1 signal (sensor terminal 4)
+    type: av
+
+  - pin: 2-21
+    function: Anti-theft system signal (not routed by this adapter)
 
   - pin: 2-23
-    function: OXYGEN SENSOR 1 pin3 GRD BEHIND CATALYTIC //mb UNUSED
-    type: gnd
+    function: GNDA Analog/Sensor Ground (post-cat oxygen sensor 1, terminal 3)
+    type: agnd
+
   - pin: 2-24
-    function: OXYGEN SENSOR 2 pin3 GRD BEHIND CATALYTIC //mb UNUSED
-    type: gnd
+    function: GNDA Analog/Sensor Ground (post-cat oxygen sensor 2, terminal 3)
+    type: agnd
+
   - pin: 2-25
-    function: OXYGEN SENSOR 2 pin2 SIG BEHIND CATALYTIC //mb UNUSED
+    function: Post-cat oxygen sensor 2 heater negative (sensor terminal 2)
+    type: ls
+
   - pin: 2-26
-    function: OXYGEN SENSOR 1 pin2 SIG BEHIND CATALYTIC //mb UNUSED
+    function: Post-cat oxygen sensor 1 heater negative (sensor terminal 2)
+    type: ls
 
   - pin: 3-1
-    function: constant Supply terminal 30, terminal 30
+    function: 12V Battery Supply (constant, terminal 30)
     type: 12v
 
   - pin: 3-2
-    function: switched Supply from main relay, terminal 87
+    function: 12V supply from main relay (switched, terminal 87)
     type: 12v
 
   - pin: 3-3
-    function: GROUND
-    type: gnd
-  - pin: 3-4
-    function: GROUND
-    type: gnd
-  - pin: 3-5
-    function: GROUND
-    type: gnd
-  - pin: 3-6
-    function: GROUND
+    function: Power/Chassis GND ground (X60003-3)
     type: gnd
 
+  - pin: 3-4
+    function: Power/Chassis GND ground (X60003-4)
+    type: gnd
+
+  - pin: 3-5
+    function: Power/Chassis GND ground (X60003-5)
+    type: gnd
+
+  - pin: 3-6
+    function: Power/Chassis GND ground (X60003-6)
+    type: gnd
 
 info:
   title: BMW E9x N52

@@ -1,210 +1,265 @@
 
 pins:
   - pin: 4-1
-    function: Supply, terminal 87
+    function: 12V supply from main relay (Valvetronic, X60004-1)
+    type: 12v
+
   - pin: 4-2
-    function: Supply, terminal 87
+    function: 12V supply from main relay (Valvetronic, X60004-2)
+    type: 12v
+
   - pin: 4-3
-    function: VAR GEAR SIG pin2
+    function: Valvetronic motor terminal 2 (X60004-3)
+    type: etb
+
   - pin: 4-4
-    function: VAR GEAR SIG pin1
+    function: Valvetronic motor terminal 1 (X60004-4)
+    type: etb
+
   - pin: 4-5
-    function: VAR GEAR SIG pin2
+    function: Valvetronic motor terminal 2 (X60004-5)
+    type: etb
+
   - pin: 4-6
-    function: VAR GEAR SIG pin1
+    function: Valvetronic motor terminal 1 (X60004-6)
+    type: etb
 
   - pin: 6-1
-    function: Ignition/Coil 1
-    class: outputs
+    function: Ignition coil 1 primary control (power ignition driver required)
     type: ls
+    class: outputs
+
   - pin: 6-2
-    function: Ignition/Coil 2
-    class: outputs
+    function: Ignition coil 2 primary control (power ignition driver required)
     type: ls
+    class: outputs
 
   - pin: 6-3
-    function: Ignition/Coil 3
-    class: outputs
+    function: Ignition coil 3 primary control (power ignition driver required)
     type: ls
+    class: outputs
 
   - pin: 6-4
-    function: Ignition/Coil 4
-    class: outputs
+    function: Ignition coil 4 primary control (power ignition driver required)
     type: ls
+    class: outputs
 
   - pin: 6-5
-    function: Ignition/Coil 5
-    class: outputs
+    function: Ignition coil 5 primary control (power ignition driver required)
     type: ls
+    class: outputs
 
   - pin: 6-6
-    function: Ignition/Coil 6
-    class: outputs
+    function: Ignition coil 6 primary control (power ignition driver required)
     type: ls
+    class: outputs
 
   - pin: 5-4
-    function: HOT FILM AIR MASS METER OR Neutral sensor maybe Clutch Pedal
+    function: Hot-film air mass meter signal or neutral sensor terminal 3 (equipment dependent)
 
   - pin: 5-5
-    function: Neutral sensor //maybe ground
+    function: Neutral sensor terminal 4 (ground assignment unconfirmed; JP3)
+
   - pin: 5-6
-    function: Neutral sensor 
+    function: Neutral sensor terminal 2 (interface unspecified)
 
   - pin: 5-12
-    function: ENG HEAT RLY
-  - pin: 5-13
-    function: DME RLY main relay control
-    class: outputs
+    function: Engine breather heating relay control
     type: ls
 
+  - pin: 5-13
+    function: Main relay control output (DME relay)
+    type: ls
+    class: outputs
+
   - pin: 5-14
-    function: THROTTLE TPS power
+    function: 5V Sensor Supply (TPS, throttle actuator terminal 2)
     type: 5v
 
   - pin: 5-15
-    function: THROTTLE MOTOR
+    function: Electronic throttle motor terminal 3
     type: etb
+
   - pin: 5-16
-    function: THROTTLE MOTOR
+    function: Electronic throttle motor terminal 5
     type: etb
 
   - pin: 5-18
-    function: DISA SIG CONTROLLER 2
+    function: DISA actuator 2 control (actuator terminal 1)
+
   - pin: 5-19
-    function: SIGNAL DOUBLE KNOCK SENSOR CYL 1-3
+    function: Knock sensor 1 signal (cylinders 1-3)
+
   - pin: 5-20
-    function: SIGNAL DOUBLE KNOCK SENSOR CYL 4-6
+    function: Knock sensor 2 signal (cylinders 4-6)
+
   - pin: 5-23
-    function: FUEL TANK SIG
+    function: Fuel tank vent valve control
+    type: ls
+
   - pin: 5-25
-    function: MASS AIR FLOW SENSOR pin2
+    function: Mass air flow sensor terminal 2 (equipment dependent)
+
   - pin: 5-26
-    function: MASS AIR FLOW SENSOR pin1
+    function: Mass air flow sensor terminal 1 (equipment dependent)
+
   - pin: 5-27
-    function: SENSOR GRD MASS AIR FLOW pin4 OR INTAKE AIR TEMP OR HOT FILM AIR MASS METER
+    function: GNDA Analog/Sensor Ground (IAT, separate sensor or air mass meter terminal 4)
     type: agnd
+
   - pin: 5-28
-    function: SENSOR SIG MASS AIR FLOW pin5 OR INTAKE AIR TEMP OR HOT FILM AIR MASS METER
+    function: IAT Sensor Input (separate sensor or air mass meter terminal 5)
+    type: at
 
   - pin: 5-29
-    function: SIGNAL CRANKSHAFT SENSOR
+    function: Crankshaft position sensor input
+    type: hall
+
   - pin: 5-30
-    function: GROUND CRANKSHAFT SENSOR
+    function: GNDA Analog/Sensor Ground (crankshaft position sensor)
     type: agnd
 
   - pin: 5-31
-    function: MAP SUPPLY INTAKE PIPE PRESSURE SENSOR
+    function: 5V Sensor Supply (MAP)
     type: 5v
+
   - pin: 5-32
-    function: MAP GROUND INTAKE PIPE PRESSURE SENSOR
+    function: GNDA Analog/Sensor Ground (MAP)
     type: agnd
+
   - pin: 5-33
-    function: MAP SIGNAL INTAKE PIPE PRESSURE SENSOR
+    function: MAP sensor input
     type: av
 
   - pin: 5-35
-    function: BSD SIG (OIL CONDITION OR STARTING/CHARGING)
+    function: BSD bus - oil condition sensor / charging system
+
   - pin: 5-36
-    function: TPS1 THROTTLE SIG
+    function: Universal analog input. Suggested TPS 1 sensor input (throttle actuator terminal 4)
     type: av
+
   - pin: 5-37
-    function: TPS2 THROTTLE SIG
+    function: Universal analog input. Suggested TPS 2 sensor input (throttle actuator terminal 1)
     type: av
+
   - pin: 5-38
-    function: TPS THROTTLE GRD
+    function: GNDA Analog/Sensor Ground (TPS, throttle actuator terminal 6)
     type: agnd
+
   - pin: 5-40
-    function: DISA SIG CONTROLLER 2
+    function: DISA actuator 1 control (actuator terminal 1)
+
   - pin: 5-41
-    function: SIGNAL DOUBLE KNOCK SENSOR CYL 1-3
+    function: GNDA Analog/Sensor Ground (knock sensor 1, cylinders 1-3)
     type: agnd
+
   - pin: 5-42
-    function: SIGNAL DOUBLE KNOCK SENSOR CYL 4-6
+    function: GNDA Analog/Sensor Ground (knock sensor 2, cylinders 4-6)
     type: agnd
 
   - pin: 7-1
     function: Injector 1
+    type: inj
     class: outputs
-    type: ls
+
   - pin: 7-2
     function: Injector 2
+    type: inj
     class: outputs
-    type: ls
+
   - pin: 7-3
     function: Injector 3
+    type: inj
     class: outputs
-    type: ls
+
   - pin: 7-4
-    function: SIGNAL, COOLANT TEMPERATURE
+    function: ECT CLT Coolant Sensor Input
+    type: at
+
   - pin: 7-5
-    function: ACTIVATION VANOS SOLENOID VALVE, INTAKE
-    class: outputs
+    function: Intake VANOS solenoid control
     type: ls
+    class: outputs
 
   - pin: 7-6
-    function: SENSOR SIG pin8 ECCENTRIC SHAFT SENSOR
+    function: Eccentric shaft sensor terminal 8
+
   - pin: 7-7
-    function: SENSOR SIG pin3 ECCENTRIC SHAFT SENSOR
+    function: Eccentric shaft sensor terminal 3
+
   - pin: 7-8
-    function: SENSOR SIG pin7 ECCENTRIC SHAFT SENSOR
+    function: Eccentric shaft sensor terminal 7
+
   - pin: 7-9
-    function: SENSOR SIG pin9 ECCENTRIC SHAFT SENSOR
+    function: Eccentric shaft sensor terminal 9
+
   - pin: 7-10
-    function: SHIELD pin4 ECCENTRIC SHAFT SENSOR
+    function: Eccentric shaft sensor shield (terminal 4)
 
   - pin: 7-11
-    function: SIGNAL CAMSHAFT SENSOR INTAKE
-    type: din
+    function: Intake camshaft position sensor input
+    type: hall
+
   - pin: 7-12
-    function: SIGNAL CAMSHAFT SENSOR EXHAUST
-    type: din
+    function: Exhaust camshaft position sensor input
+    type: hall
+
   - pin: 7-13
-    function: SIGNAL, OIL PRESSURE LOW SWITCH
+    function: Oil pressure switch input
     type: din
 
   - pin: 7-14
     function: Injector 4
+    type: inj
     class: outputs
-    type: ls
+
   - pin: 7-15
     function: Injector 5
+    type: inj
     class: outputs
-    type: ls
+
   - pin: 7-16
     function: Injector 6
+    type: inj
     class: outputs
-    type: ls
 
   - pin: 7-17
-    function: GROUND ENGINE COOLANT TEMPERATURE SENSOR
+    function: GNDA Analog/Sensor Ground (ECT CLT coolant sensor)
     type: agnd
+
   - pin: 7-18
-    function: ACTIVATION VANOS SOLENOID VALVE, EXHAUST
-    class: outputs
+    function: Exhaust VANOS solenoid control
     type: ls
+    class: outputs
 
   - pin: 7-19
-    function: SIGNAL CHARACTERISTIC MAP THERMOSTAT
+    function: Map-controlled thermostat heater control
+    type: ls
 
   - pin: 7-20
-    function: SENSOR GRD pin5 ECCENTRIC SHAFT SENSOR
+    function: GNDA Analog/Sensor Ground (eccentric shaft sensor terminal 5)
+    type: agnd
+
   - pin: 7-21
-    function: SENSOR (+) pin6 ECCENTRIC SHAFT SENSOR
+    function: Eccentric shaft sensor supply (terminal 6; JP7 can select 5V)
+
   - pin: 7-22
-    function: SENSOR SIG pin1 ECCENTRIC SHAFT SENSOR
+    function: Eccentric shaft sensor terminal 1
 
   - pin: 7-23
-    function: VVT RLY
+    function: Valvetronic relay control
+    type: ls
 
   - pin: 7-24
-    function: GROUND CAMSHAFT SENSOR INTAKE
+    function: GNDA Analog/Sensor Ground (intake camshaft position sensor)
     type: agnd
+
   - pin: 7-25
-    function: GROUND CAMSHAFT SENSOR EXHAUST
+    function: GNDA Analog/Sensor Ground (exhaust camshaft position sensor)
     type: agnd
 
   - pin: 7-26
-    function: BSD SIG
+    function: BSD bus - electric coolant pump
 
 info:
   board_url: https://wiki.rusefi.com/BMW-N52/
