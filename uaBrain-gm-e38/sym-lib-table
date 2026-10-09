@@ -12,4 +12,6 @@
   (lib (name "Amplifier_Operational")(type "KiCad")(uri "${KICAD10_SYMBOL_DIR}/Amplifier_Operational.kicad_sym")(options "")(descr ""))
 
   (lib (name "Power_Protection")(type "KiCad")(uri "${KICAD10_SYMBOL_DIR}/Power_Protection.kicad_sym")(options "")(descr ""))
+  (lib (name "Connector_Generic")(type "KiCad")(uri "${KICAD10_SYMBOL_DIR}/Connector_Generic.kicad_sym")(options "")(descr ""))
+  (lib (name "Mechanical")(type "KiCad")(uri "${KICAD10_SYMBOL_DIR}/Mechanical.kicad_sym")(options "")(descr ""))
 )

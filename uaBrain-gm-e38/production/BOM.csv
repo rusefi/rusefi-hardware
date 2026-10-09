@@ -1,0 +1,24 @@
+Comment,Designator,Footprint,LCSC Part #,Quantity
+100n,"C1,C2,C3,C4,C5,C6,C7,C8,C9,C10",hellen-one-common:C0603,C14663,10
+160p,"C11,C12,C13,C14,C15,C16,C17,C18",hellen-one-common:C0603,C327274,8
+1u,"C19,C20,C21,C27",hellen-one-common:C0603,C15849,4
+10n,"C22,C23,C24,C25,C26",Capacitor_SMD:C_0603_1608Metric,C57112,5
+SRV05-4-P-T7,"D1,D2",Package_TO_SOT_SMD:SOT-23-6,C6454456,2
+B5819W,"D3,D4,D5,D6,D7",hellen-one-common:SOD-123,C8598,5
+Molex_313872014_singleside,J1,kicad6-libraries:Molex_313872014_73pin_Connector,,1
+Molex_313874018_singleside,J2,kicad6-libraries:Molex_313874018_80pin_Connector,,1
+5569-06A2,"J3,J4",Connector_Molex:Molex_Mini-Fit_Jr_5569-06A2_2x03_P4.20mm_Horizontal,C293509,2
+5569-04A2,J5,Connector_Molex:Molex_Mini-Fit_Jr_5569-04A2_2x02_P4.20mm_Horizontal,C234187,1
+C4201WR-F-2x8P,"J6,J7",Connector_Molex:Molex_Mini-Fit_Jr_5569-16A2_2x08_P4.20mm_Horizontal,C5355564,2
+PH2.54-01-16PZD,"J8,J9,J10,J11,J12,J13,J14",Connector_PinHeader_2.54mm:PinHeader_1x16_P2.54mm_Vertical,C7501590,7
+100,"R1,R2,R3",Resistor_SMD:R_2512_6332Metric_Pad1.40x3.35mm_HandSolder,C24920,3
+4.7k,"R4,R18,R36,R37,R38,R39,R40,R63,R64,R65,R66,R67,R68,R69,R70,R71,R72,R73,R74",hellen-one-common:R0603,C23162,19
+680k,"R7,R9,R11,R13,R17",hellen-one-common:R0603,C25822,5
+10k,"R14,R20,R21,R22,R23,R24,R25,R26,R27,R28,R29,R30,R31,R32,R33,R34,R35",hellen-one-common:R0603,C15401,17
+120,"R41,R42,R43,R44,R45",hellen-one-common:R0603,C22787,5
+10k,"R46,R47,R48,R49,R50",hellen-one-common:R0603,C25804,5
+PCA9685PW,U1,Package_SO:TSSOP-28_4.4x9.7mm_P0.65mm,C2678753,1
+MCP6004,"U2,U3",Package_SO:TSSOP-14_4.4x5mm_P0.65mm,C50282,2
+ADS7128,U4,Package_DFN_QFN:WQFN-16-1EP_3x3mm_P0.5mm_EP1.68x1.68mm_ThermalVias,C2867992,1
+BSP762TXUMA1,"U5,U6,U7,U8,U9",Package_SO:SOIC-8_3.9x4.9mm_P1.27mm,C2653781,5
+VNLD5160TR-E,"U13,U14,U15",Package_SO:SOIC-8_3.9x4.9mm_P1.27mm,C377942,3

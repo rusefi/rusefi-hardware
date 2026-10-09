@@ -1519,7 +1519,7 @@
 			(symbol "ADS7128_0_1"
 				(rectangle
 					(start -6.35 13.97)
-					(end 19.05 -11.43)
+					(end 19.05 -13.97)
 					(stroke
 						(width 0)
 						(type default)
@@ -1675,7 +1675,7 @@
 					)
 				)
 				(pin power_in line
-					(at 22.86 -8.89 180)
+					(at 22.86 -11.43 180)
 					(length 3.81)
 					(name "GND"
 						(effects
@@ -1818,11 +1818,10 @@
 						)
 					)
 				)
-				(pin power_in line
+				(pin passive line
 					(at 22.86 -8.89 180)
 					(length 3.81)
-					(hide yes)
-					(name "GND"
+					(name "EP"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -2402,7 +2401,7 @@
 			)
 			(embedded_fonts no)
 		)
-		(symbol "power:GND"
+		(symbol "power:GNDA"
 			(power global)
 			(pin_numbers
 				(hide yes)
@@ -2427,7 +2426,7 @@
 					)
 				)
 			)
-			(property "Value" "GND"
+			(property "Value" "GNDA"
 				(at 0 -3.81 0)
 				(show_name no)
 				(do_not_autoplace no)
@@ -2459,7 +2458,7 @@
 					)
 				)
 			)
-			(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(property "Description" "Power symbol creates a global label with name \"GNDA\" , analog ground"
 				(at 0 0 0)
 				(show_name no)
 				(do_not_autoplace no)
@@ -2481,7 +2480,7 @@
 					)
 				)
 			)
-			(symbol "GND_0_1"
+			(symbol "GNDA_0_1"
 				(polyline
 					(pts
 						(xy 0 0) (xy 0 -1.27) (xy 1.27 -1.27) (xy 0 -2.54) (xy -1.27 -1.27) (xy 0 -1.27)
@@ -2495,7 +2494,7 @@
 					)
 				)
 			)
-			(symbol "GND_1_1"
+			(symbol "GNDA_1_1"
 				(pin power_in line
 					(at 0 0 270)
 					(length 0)
@@ -2615,7 +2614,7 @@
 		(uuid "4eb394f1-f342-479e-a2be-593bee9ccccb")
 	)
 	(junction
-		(at 82.55 158.75)
+		(at 82.55 163.83)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "4ec8f4d8-f1d9-4048-8301-f392e2bedcae")
@@ -2633,7 +2632,7 @@
 		(uuid "55e5d61e-f85c-4f56-889d-709da549b74c")
 	)
 	(junction
-		(at 90.17 158.75)
+		(at 90.17 163.83)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "5d512f62-52fa-4ae7-be2f-52bf249d7763")
@@ -2717,7 +2716,7 @@
 		(uuid "8e60afd0-6811-43f5-8af4-3de5f8fc0195")
 	)
 	(junction
-		(at 86.36 158.75)
+		(at 86.36 163.83)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "90bf8d75-77d9-4626-8941-e8dc9a34c3e5")
@@ -2751,6 +2750,12 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "a72db8ff-245c-4cb6-a43e-1acbe214c7de")
+	)
+	(junction
+		(at 261.62 143.51)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "ab498727-93db-47aa-b2a1-a18b354debe8")
 	)
 	(junction
 		(at 135.89 128.27)
@@ -2978,7 +2983,7 @@
 	)
 	(wire
 		(pts
-			(xy 82.55 158.75) (xy 86.36 158.75)
+			(xy 82.55 163.83) (xy 86.36 163.83)
 		)
 		(stroke
 			(width 0)
@@ -3218,7 +3223,7 @@
 	)
 	(wire
 		(pts
-			(xy 90.17 171.45) (xy 90.17 185.42)
+			(xy 90.17 176.53) (xy 90.17 185.42)
 		)
 		(stroke
 			(width 0)
@@ -3238,7 +3243,7 @@
 	)
 	(wire
 		(pts
-			(xy 86.36 158.75) (xy 86.36 161.29)
+			(xy 86.36 163.83) (xy 86.36 166.37)
 		)
 		(stroke
 			(width 0)
@@ -3278,7 +3283,7 @@
 	)
 	(wire
 		(pts
-			(xy 82.55 158.75) (xy 82.55 161.29)
+			(xy 82.55 163.83) (xy 82.55 166.37)
 		)
 		(stroke
 			(width 0)
@@ -3358,7 +3363,7 @@
 	)
 	(wire
 		(pts
-			(xy 82.55 171.45) (xy 82.55 180.34)
+			(xy 82.55 176.53) (xy 82.55 180.34)
 		)
 		(stroke
 			(width 0)
@@ -3495,16 +3500,6 @@
 			(type default)
 		)
 		(uuid "3d33853c-0e7b-4614-a387-34450b8610c0")
-	)
-	(wire
-		(pts
-			(xy 82.55 149.86) (xy 82.55 151.13)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "3e0b8218-188a-4c01-941f-263c2868448f")
 	)
 	(wire
 		(pts
@@ -3798,7 +3793,7 @@
 	)
 	(wire
 		(pts
-			(xy 78.74 158.75) (xy 82.55 158.75)
+			(xy 78.74 163.83) (xy 82.55 163.83)
 		)
 		(stroke
 			(width 0)
@@ -3825,16 +3820,6 @@
 			(type default)
 		)
 		(uuid "5ff4c299-4515-42a7-8bc5-7fd3c01e32af")
-	)
-	(wire
-		(pts
-			(xy 114.3 172.72) (xy 114.3 173.99)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "61f9463e-8b0d-4825-ab8d-3477db3a01cb")
 	)
 	(wire
 		(pts
@@ -3958,7 +3943,7 @@
 	)
 	(wire
 		(pts
-			(xy 86.36 158.75) (xy 90.17 158.75)
+			(xy 86.36 163.83) (xy 90.17 163.83)
 		)
 		(stroke
 			(width 0)
@@ -4058,16 +4043,6 @@
 	)
 	(wire
 		(pts
-			(xy 114.3 120.65) (xy 114.3 121.92)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "784292ef-5507-411b-bf22-b9eb9ca5beb4")
-	)
-	(wire
-		(pts
 			(xy 217.17 130.81) (xy 228.6 130.81)
 		)
 		(stroke
@@ -4128,7 +4103,7 @@
 	)
 	(wire
 		(pts
-			(xy 90.17 158.75) (xy 90.17 161.29)
+			(xy 90.17 163.83) (xy 90.17 166.37)
 		)
 		(stroke
 			(width 0)
@@ -4358,16 +4333,6 @@
 	)
 	(wire
 		(pts
-			(xy 86.36 149.86) (xy 86.36 151.13)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "948c4091-eeb9-48cd-87ea-19aa44b3b887")
-	)
-	(wire
-		(pts
 			(xy 152.4 194.31) (xy 152.4 191.77)
 		)
 		(stroke
@@ -4555,6 +4520,16 @@
 			(type default)
 		)
 		(uuid "aa88ac82-27ff-4de0-8021-19bdae453e83")
+	)
+	(wire
+		(pts
+			(xy 261.62 140.97) (xy 261.62 143.51)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "b0454df7-6d14-40ba-b5ab-01a5e38c82df")
 	)
 	(polyline
 		(pts
@@ -4768,7 +4743,7 @@
 	)
 	(wire
 		(pts
-			(xy 78.74 171.45) (xy 78.74 177.8)
+			(xy 78.74 176.53) (xy 78.74 177.8)
 		)
 		(stroke
 			(width 0)
@@ -4808,16 +4783,6 @@
 	)
 	(wire
 		(pts
-			(xy 90.17 149.86) (xy 90.17 151.13)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "ceceba50-29bc-447b-8365-58502fce13f6")
-	)
-	(wire
-		(pts
 			(xy 173.99 163.83) (xy 173.99 172.72)
 		)
 		(stroke
@@ -4848,7 +4813,7 @@
 	)
 	(wire
 		(pts
-			(xy 86.36 182.88) (xy 86.36 171.45)
+			(xy 86.36 182.88) (xy 86.36 176.53)
 		)
 		(stroke
 			(width 0)
@@ -4998,7 +4963,7 @@
 	)
 	(wire
 		(pts
-			(xy 78.74 158.75) (xy 78.74 161.29)
+			(xy 78.74 163.83) (xy 78.74 166.37)
 		)
 		(stroke
 			(width 0)
@@ -5105,16 +5070,6 @@
 			(type default)
 		)
 		(uuid "f181fb51-9e62-43a0-bec5-6f132552487e")
-	)
-	(wire
-		(pts
-			(xy 78.74 149.86) (xy 78.74 151.13)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "f22e35e0-53f7-4813-a34c-ce07d7821872")
 	)
 	(wire
 		(pts
@@ -5486,62 +5441,18 @@
 		)
 		(uuid "f9e90df2-800f-4529-9dfd-32879eda4c90")
 	)
-	(hierarchical_label "ADC7"
+	(hierarchical_label "IN_ADC3"
 		(shape input)
-		(at 55.88 185.42 180)
+		(at 55.88 133.35 180)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
 			(justify right)
 		)
-		(uuid "15a8d90c-c474-435d-b259-9b172956d12a")
+		(uuid "331de5c3-4c89-4bb6-ac65-6ae78b2c9934")
 	)
-	(hierarchical_label "ADC2"
-		(shape input)
-		(at 55.88 130.81 180)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right)
-		)
-		(uuid "1f805eb9-a99f-4b2d-b337-8935a614cfe2")
-	)
-	(hierarchical_label "ADC6"
-		(shape input)
-		(at 55.88 182.88 180)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right)
-		)
-		(uuid "2b6e0aa5-3990-4771-b28b-8e257e8a9119")
-	)
-	(hierarchical_label "ADC4"
-		(shape input)
-		(at 55.88 177.8 180)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right)
-		)
-		(uuid "37f19080-f142-4e15-a83c-c78a09d3aa97")
-	)
-	(hierarchical_label "ADC0"
-		(shape input)
-		(at 55.88 125.73 180)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right)
-		)
-		(uuid "45cbf654-e8ae-4dfc-bcb4-48c932eb660d")
-	)
-	(hierarchical_label "ADC5"
+	(hierarchical_label "IN_ADC5"
 		(shape input)
 		(at 55.88 180.34 180)
 		(effects
@@ -5550,9 +5461,20 @@
 			)
 			(justify right)
 		)
-		(uuid "482fd8c4-3589-4a5f-a652-04ac27642d43")
+		(uuid "342ece3a-a51b-49b0-883c-a9e1fa30073a")
 	)
-	(hierarchical_label "ADC1"
+	(hierarchical_label "IN_ADC0"
+		(shape input)
+		(at 55.88 125.73 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "70cc66e3-6317-483c-acad-5f958bc2dfb2")
+	)
+	(hierarchical_label "IN_ADC1"
 		(shape input)
 		(at 55.88 128.27 180)
 		(effects
@@ -5561,7 +5483,18 @@
 			)
 			(justify right)
 		)
-		(uuid "b8c0158f-0311-4ecb-9c2e-f3e6c8704686")
+		(uuid "b2b8c261-8c64-4e26-b820-6f7e83b12ed5")
+	)
+	(hierarchical_label "IN_ADC7"
+		(shape input)
+		(at 55.88 185.42 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "cf7960cc-f6bc-4f4d-a9f7-09daef0dd5ab")
 	)
 	(hierarchical_label "SCL"
 		(shape input)
@@ -5574,6 +5507,39 @@
 		)
 		(uuid "e2eef92d-3828-4b46-888b-75aaa00bf512")
 	)
+	(hierarchical_label "IN_ADC6"
+		(shape input)
+		(at 55.88 182.88 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "e3d7239c-999c-44e7-8abf-2d14b8013120")
+	)
+	(hierarchical_label "IN_ADC4"
+		(shape input)
+		(at 55.88 177.8 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "ef761f26-c4dd-4671-bbae-da4b419cb8c8")
+	)
+	(hierarchical_label "IN_ADC2"
+		(shape input)
+		(at 55.88 130.81 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "fcbdda89-c7e8-4eb2-beef-38cdf4270996")
+	)
 	(hierarchical_label "SDA"
 		(shape bidirectional)
 		(at 261.62 120.65 0)
@@ -5584,94 +5550,6 @@
 			(justify left)
 		)
 		(uuid "fd528bea-52f7-47be-8a20-9e5cf315215a")
-	)
-	(hierarchical_label "ADC3"
-		(shape input)
-		(at 55.88 133.35 180)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right)
-		)
-		(uuid "ff012825-6834-44af-8f7f-0c8c0b1aed3d")
-	)
-	(symbol
-		(lib_id "power:GND")
-		(at 261.62 140.97 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "0283d734-5d8a-45f5-bcd0-e00e892e6b88")
-		(property "Reference" "#PWR0130"
-			(at 261.62 147.32 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "GND"
-			(at 261.62 144.78 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 261.62 140.97 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 261.62 140.97 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" ""
-			(at 261.62 140.97 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "f643f996-0db4-49de-b6e3-ad15f33db50b")
-		)
-		(instances
-			(project "uaBrain-gm-e38"
-				(path "/260474c3-12d9-4949-89fb-23ae88769f73/4c1435b5-f88f-42f8-b5bb-7e8057b4cb57"
-					(reference "#PWR0130")
-					(unit 1)
-				)
-			)
-		)
 	)
 	(symbol
 		(lib_id "Power_Protection:NUP4202")
@@ -5715,7 +5593,7 @@
 				)
 			)
 		)
-		(property "Datasheet" ""
+		(property "Datasheet" "https://www.lcsc.com/datasheet/C6454456.pdf"
 			(at 114.935 191.77 0)
 			(hide yes)
 			(show_name no)
@@ -5737,7 +5615,7 @@
 				)
 			)
 		)
-		(property "LCSC" "C85364"
+		(property "LCSC" "C6454456"
 			(at 116.84 193.04 0)
 			(hide yes)
 			(show_name no)
@@ -5776,6 +5654,160 @@
 		)
 	)
 	(symbol
+		(lib_id "power:GNDA")
+		(at 261.62 143.51 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "04c4c91f-f994-4b58-80f7-8c5ef33845c9")
+		(property "Reference" "#PWR0170"
+			(at 261.62 143.51 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "GNDA"
+			(at 264.414 147.32 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Footprint" ""
+			(at 261.62 143.51 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 261.62 143.51 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 261.62 143.51 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "ddfe1c62-b6cb-4549-9112-4f07c6bc96bd")
+		)
+		(instances
+			(project "uaBrain-gm-e38"
+				(path "/260474c3-12d9-4949-89fb-23ae88769f73/4c1435b5-f88f-42f8-b5bb-7e8057b4cb57"
+					(reference "#PWR0170")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:GNDA")
+		(at 86.36 149.86 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "0573cb0d-3967-4b7a-a56d-7cc217c5cd65")
+		(property "Reference" "#PWR0202"
+			(at 86.36 149.86 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "GNDA"
+			(at 86.36 152.908 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Footprint" ""
+			(at 86.36 149.86 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 86.36 149.86 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 86.36 149.86 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "055bc93f-8db4-42d0-a897-b12387cb7141")
+		)
+		(instances
+			(project "uaBrain-gm-e38"
+				(path "/260474c3-12d9-4949-89fb-23ae88769f73/4c1435b5-f88f-42f8-b5bb-7e8057b4cb57"
+					(reference "#PWR0202")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "hellen-one-common:Res")
 		(at 78.74 201.93 270)
 		(mirror x)
@@ -5797,7 +5829,7 @@
 				)
 			)
 		)
-		(property "Value" "470k"
+		(property "Value" "680k"
 			(at 78.74 196.85 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5840,7 +5872,7 @@
 				)
 			)
 		)
-		(property "LCSC" "C23178"
+		(property "LCSC" "C25822"
 			(at 78.74 201.93 0)
 			(hide yes)
 			(show_name no)
@@ -5867,8 +5899,8 @@
 		)
 	)
 	(symbol
-		(lib_id "power:GND")
-		(at 90.17 203.2 0)
+		(lib_id "power:GNDA")
+		(at 78.74 149.86 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -5876,51 +5908,9 @@
 		(on_board yes)
 		(in_pos_files yes)
 		(dnp no)
-		(uuid "09443cb4-8d6b-46e0-b10f-a7ae89ce11f1")
-		(property "Reference" "#PWR0103"
-			(at 90.17 203.2 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 0.762 0.762)
-				)
-			)
-		)
-		(property "Value" "GND"
-			(at 90.17 204.978 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 0.762 0.762)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 90.17 203.2 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.524 1.524)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 90.17 203.2 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.524 1.524)
-				)
-			)
-		)
-		(property "Description" ""
-			(at 90.17 203.2 0)
+		(uuid "10eb2238-4105-4539-9319-a764beae9476")
+		(property "Reference" "#PWR0200"
+			(at 78.74 149.86 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5930,13 +5920,56 @@
 				)
 			)
 		)
+		(property "Value" "GNDA"
+			(at 78.74 152.908 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Footprint" ""
+			(at 78.74 149.86 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 78.74 149.86 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 78.74 149.86 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
-			(uuid "f1358086-967a-4ca5-988a-b9f430dc8786")
+			(uuid "fc31aeb4-1099-4758-8b50-addeb0ed1a81")
 		)
 		(instances
 			(project "uaBrain-gm-e38"
 				(path "/260474c3-12d9-4949-89fb-23ae88769f73/4c1435b5-f88f-42f8-b5bb-7e8057b4cb57"
-					(reference "#PWR0103")
+					(reference "#PWR0200")
 					(unit 1)
 				)
 			)
@@ -5964,7 +5997,7 @@
 				)
 			)
 		)
-		(property "Value" "470k"
+		(property "Value" "680k"
 			(at 86.36 144.78 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6007,7 +6040,7 @@
 				)
 			)
 		)
-		(property "LCSC" "C23178"
+		(property "LCSC" "C25822"
 			(at 86.36 149.86 0)
 			(hide yes)
 			(show_name no)
@@ -6127,6 +6160,83 @@
 		)
 	)
 	(symbol
+		(lib_id "power:GNDA")
+		(at 189.23 148.59 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "1657d86f-5319-49dd-b28b-9e1c7553e8f0")
+		(property "Reference" "#PWR0184"
+			(at 189.23 148.59 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "GNDA"
+			(at 189.23 151.638 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Footprint" ""
+			(at 189.23 148.59 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 189.23 148.59 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 189.23 148.59 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "da4de51f-81e8-4dae-808b-caf39e59acb7")
+		)
+		(instances
+			(project "uaBrain-gm-e38"
+				(path "/260474c3-12d9-4949-89fb-23ae88769f73/4c1435b5-f88f-42f8-b5bb-7e8057b4cb57"
+					(reference "#PWR0184")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "hellen-one-common:Res")
 		(at 90.17 201.93 270)
 		(mirror x)
@@ -6136,7 +6246,7 @@
 		(in_bom yes)
 		(on_board yes)
 		(in_pos_files yes)
-		(dnp no)
+		(dnp yes)
 		(uuid "18da489b-13f8-4021-a5e6-2bf0115564a3")
 		(property "Reference" "R19"
 			(at 91.186 192.278 0)
@@ -6148,7 +6258,7 @@
 				)
 			)
 		)
-		(property "Value" "470k"
+		(property "Value" "DNP"
 			(at 90.17 196.85 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6191,7 +6301,7 @@
 				)
 			)
 		)
-		(property "LCSC" "C23178"
+		(property "LCSC" ""
 			(at 90.17 201.93 0)
 			(hide yes)
 			(show_name no)
@@ -6218,9 +6328,8 @@
 		)
 	)
 	(symbol
-		(lib_id "power:GND")
-		(at 134.62 113.03 90)
-		(mirror x)
+		(lib_id "power:GNDA")
+		(at 86.36 203.2 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -6228,51 +6337,9 @@
 		(on_board yes)
 		(in_pos_files yes)
 		(dnp no)
-		(uuid "1c2d683d-c452-49a4-8436-38d308b50c91")
-		(property "Reference" "#PWR0114"
-			(at 134.62 113.03 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 0.762 0.762)
-				)
-			)
-		)
-		(property "Value" "GND"
-			(at 136.398 113.03 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 0.762 0.762)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 134.62 113.03 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.524 1.524)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 134.62 113.03 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.524 1.524)
-				)
-			)
-		)
-		(property "Description" ""
-			(at 134.62 113.03 0)
+		(uuid "19381d34-c1ef-4675-88d9-5ab8ad873153")
+		(property "Reference" "#PWR0199"
+			(at 86.36 203.2 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6282,21 +6349,64 @@
 				)
 			)
 		)
+		(property "Value" "GNDA"
+			(at 86.36 206.248 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Footprint" ""
+			(at 86.36 203.2 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 86.36 203.2 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 86.36 203.2 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
-			(uuid "66d23cc0-0ca2-4330-831d-bf9acba0be24")
+			(uuid "95e391f7-616a-42eb-87d3-c6cb6d85243f")
 		)
 		(instances
 			(project "uaBrain-gm-e38"
 				(path "/260474c3-12d9-4949-89fb-23ae88769f73/4c1435b5-f88f-42f8-b5bb-7e8057b4cb57"
-					(reference "#PWR0114")
+					(reference "#PWR0199")
 					(unit 1)
 				)
 			)
 		)
 	)
 	(symbol
-		(lib_id "power:GND")
-		(at 194.31 148.59 0)
+		(lib_id "power:GNDA")
+		(at 138.43 201.93 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -6304,51 +6414,9 @@
 		(on_board yes)
 		(in_pos_files yes)
 		(dnp no)
-		(uuid "1d35dc8c-557d-4c03-becb-04f0b7100c7c")
-		(property "Reference" "#PWR0126"
-			(at 194.31 148.59 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 0.762 0.762)
-				)
-			)
-		)
-		(property "Value" "GND"
-			(at 194.31 150.368 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 0.762 0.762)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 194.31 148.59 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.524 1.524)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 194.31 148.59 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.524 1.524)
-				)
-			)
-		)
-		(property "Description" ""
-			(at 194.31 148.59 0)
+		(uuid "1b214111-87bd-4769-8331-cf907721bdbd")
+		(property "Reference" "#PWR0194"
+			(at 138.43 201.93 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6358,13 +6426,56 @@
 				)
 			)
 		)
+		(property "Value" "GNDA"
+			(at 138.43 204.978 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Footprint" ""
+			(at 138.43 201.93 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 138.43 201.93 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 138.43 201.93 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
-			(uuid "4c0c1b36-b624-45a5-918c-176caa06b15b")
+			(uuid "4cad60f5-0949-4f88-952e-830cffd85c1b")
 		)
 		(instances
 			(project "uaBrain-gm-e38"
 				(path "/260474c3-12d9-4949-89fb-23ae88769f73/4c1435b5-f88f-42f8-b5bb-7e8057b4cb57"
-					(reference "#PWR0126")
+					(reference "#PWR0194")
 					(unit 1)
 				)
 			)
@@ -6646,82 +6757,6 @@
 		)
 	)
 	(symbol
-		(lib_id "power:GND")
-		(at 135.89 201.93 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "23665582-9b7e-40b5-a271-21332718bd46")
-		(property "Reference" "#PWR0117"
-			(at 135.89 201.93 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 0.762 0.762)
-				)
-			)
-		)
-		(property "Value" "GND"
-			(at 135.89 203.708 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 0.762 0.762)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 135.89 201.93 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.524 1.524)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 135.89 201.93 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.524 1.524)
-				)
-			)
-		)
-		(property "Description" ""
-			(at 135.89 201.93 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "9eb23234-56ae-40e7-a2cd-d7bd697c7fa6")
-		)
-		(instances
-			(project "uaBrain-gm-e38"
-				(path "/260474c3-12d9-4949-89fb-23ae88769f73/4c1435b5-f88f-42f8-b5bb-7e8057b4cb57"
-					(reference "#PWR0117")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "hellen-one-common:Res")
 		(at 186.69 184.15 0)
 		(mirror y)
@@ -6822,7 +6857,7 @@
 		(in_bom yes)
 		(on_board yes)
 		(in_pos_files yes)
-		(dnp no)
+		(dnp yes)
 		(uuid "25ec6389-7795-41c9-8cb3-d04e968b1be2")
 		(property "Reference" "R16"
 			(at 91.186 109.728 0)
@@ -6898,82 +6933,6 @@
 			(project "uaBrain-gm-e38"
 				(path "/260474c3-12d9-4949-89fb-23ae88769f73/4c1435b5-f88f-42f8-b5bb-7e8057b4cb57"
 					(reference "R16")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "power:GND")
-		(at 191.77 148.59 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "2ae56dae-4581-48a0-810f-ea51f37da9db")
-		(property "Reference" "#PWR0124"
-			(at 191.77 148.59 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 0.762 0.762)
-				)
-			)
-		)
-		(property "Value" "GND"
-			(at 191.77 150.368 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 0.762 0.762)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 191.77 148.59 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.524 1.524)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 191.77 148.59 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.524 1.524)
-				)
-			)
-		)
-		(property "Description" ""
-			(at 191.77 148.59 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "abeef744-88b8-4dfc-8c3a-5d47270d12df")
-		)
-		(instances
-			(project "uaBrain-gm-e38"
-				(path "/260474c3-12d9-4949-89fb-23ae88769f73/4c1435b5-f88f-42f8-b5bb-7e8057b4cb57"
-					(reference "#PWR0124")
 					(unit 1)
 				)
 			)
@@ -7065,82 +7024,6 @@
 			(project "uaBrain-gm-e38"
 				(path "/260474c3-12d9-4949-89fb-23ae88769f73/4c1435b5-f88f-42f8-b5bb-7e8057b4cb57"
 					(reference "R27")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "power:GND")
-		(at 86.36 203.2 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "2c0bf208-cf2c-4020-ae8c-b84c7ceb3d0e")
-		(property "Reference" "#PWR099"
-			(at 86.36 203.2 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 0.762 0.762)
-				)
-			)
-		)
-		(property "Value" "GND"
-			(at 86.36 204.978 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 0.762 0.762)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 86.36 203.2 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.524 1.524)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 86.36 203.2 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.524 1.524)
-				)
-			)
-		)
-		(property "Description" ""
-			(at 86.36 203.2 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "d7ef164d-ddeb-4b62-87d5-50393a56f14e")
-		)
-		(instances
-			(project "uaBrain-gm-e38"
-				(path "/260474c3-12d9-4949-89fb-23ae88769f73/4c1435b5-f88f-42f8-b5bb-7e8057b4cb57"
-					(reference "#PWR099")
 					(unit 1)
 				)
 			)
@@ -7283,9 +7166,8 @@
 		)
 	)
 	(symbol
-		(lib_id "power:GND")
-		(at 134.62 165.1 90)
-		(mirror x)
+		(lib_id "power:GNDA")
+		(at 135.89 201.93 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -7293,51 +7175,9 @@
 		(on_board yes)
 		(in_pos_files yes)
 		(dnp no)
-		(uuid "2dcfade8-a61e-4d68-85d0-4d4bce97d831")
-		(property "Reference" "#PWR0115"
-			(at 134.62 165.1 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 0.762 0.762)
-				)
-			)
-		)
-		(property "Value" "GND"
-			(at 136.398 165.1 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 0.762 0.762)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 134.62 165.1 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.524 1.524)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 134.62 165.1 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.524 1.524)
-				)
-			)
-		)
-		(property "Description" ""
-			(at 134.62 165.1 0)
+		(uuid "2f7c382f-b834-42dc-b8e9-66065195367e")
+		(property "Reference" "#PWR0193"
+			(at 135.89 201.93 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7347,13 +7187,56 @@
 				)
 			)
 		)
+		(property "Value" "GNDA"
+			(at 135.89 204.978 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Footprint" ""
+			(at 135.89 201.93 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 135.89 201.93 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 135.89 201.93 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
-			(uuid "46351c0a-2e2f-4de7-833d-84db2d80cacb")
+			(uuid "22d15c6b-45f8-45ce-9145-c3796017b524")
 		)
 		(instances
 			(project "uaBrain-gm-e38"
 				(path "/260474c3-12d9-4949-89fb-23ae88769f73/4c1435b5-f88f-42f8-b5bb-7e8057b4cb57"
-					(reference "#PWR0115")
+					(reference "#PWR0193")
 					(unit 1)
 				)
 			)
@@ -7467,7 +7350,7 @@
 				)
 			)
 		)
-		(property "LCSC" "C248577"
+		(property "LCSC" "C50282"
 			(at 160.02 201.93 0)
 			(hide yes)
 			(show_name no)
@@ -7702,82 +7585,6 @@
 		)
 	)
 	(symbol
-		(lib_id "power:GND")
-		(at 140.97 149.86 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "31cc21c4-eb2f-4cda-a7ef-9b6fb5dd5765")
-		(property "Reference" "#PWR0120"
-			(at 140.97 149.86 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 0.762 0.762)
-				)
-			)
-		)
-		(property "Value" "GND"
-			(at 140.97 151.638 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 0.762 0.762)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 140.97 149.86 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.524 1.524)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 140.97 149.86 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.524 1.524)
-				)
-			)
-		)
-		(property "Description" ""
-			(at 140.97 149.86 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "e9bc4b4c-fbf1-4690-b632-8199090accce")
-		)
-		(instances
-			(project "uaBrain-gm-e38"
-				(path "/260474c3-12d9-4949-89fb-23ae88769f73/4c1435b5-f88f-42f8-b5bb-7e8057b4cb57"
-					(reference "#PWR0120")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "hellen-one-common:Cap")
 		(at 267.97 142.24 270)
 		(mirror x)
@@ -7871,82 +7678,6 @@
 		)
 	)
 	(symbol
-		(lib_id "power:GND")
-		(at 133.35 201.93 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "371d5847-07df-4897-aeba-5c91f1ce5885")
-		(property "Reference" "#PWR0113"
-			(at 133.35 201.93 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 0.762 0.762)
-				)
-			)
-		)
-		(property "Value" "GND"
-			(at 133.35 203.708 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 0.762 0.762)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 133.35 201.93 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.524 1.524)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 133.35 201.93 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.524 1.524)
-				)
-			)
-		)
-		(property "Description" ""
-			(at 133.35 201.93 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "4ff586dc-3b07-4746-b7f8-7c69a6318bbf")
-		)
-		(instances
-			(project "uaBrain-gm-e38"
-				(path "/260474c3-12d9-4949-89fb-23ae88769f73/4c1435b5-f88f-42f8-b5bb-7e8057b4cb57"
-					(reference "#PWR0113")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "Power_Protection:NUP4202")
 		(at 116.84 140.97 90)
 		(unit 1)
@@ -7988,7 +7719,7 @@
 				)
 			)
 		)
-		(property "Datasheet" ""
+		(property "Datasheet" "https://www.lcsc.com/datasheet/C6454456.pdf"
 			(at 114.935 139.7 0)
 			(hide yes)
 			(show_name no)
@@ -8010,7 +7741,7 @@
 				)
 			)
 		)
-		(property "LCSC" "C85364"
+		(property "LCSC" "C6454456"
 			(at 116.84 140.97 0)
 			(hide yes)
 			(show_name no)
@@ -8049,9 +7780,8 @@
 		)
 	)
 	(symbol
-		(lib_id "power:+5VA")
-		(at 90.17 158.75 0)
-		(mirror y)
+		(lib_id "power:GNDA")
+		(at 114.3 120.65 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -8059,9 +7789,9 @@
 		(on_board yes)
 		(in_pos_files yes)
 		(dnp no)
-		(uuid "3d0ce6cd-4677-4969-bcd5-7c3491116276")
-		(property "Reference" "#PWR0102"
-			(at 90.17 162.56 0)
+		(uuid "38f979d0-d6e8-4b6e-aa5d-acfc79a6275f")
+		(property "Reference" "#PWR0204"
+			(at 114.3 120.65 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8071,18 +7801,19 @@
 				)
 			)
 		)
-		(property "Value" "+5VA"
-			(at 90.17 154.94 0)
+		(property "Value" "GNDA"
+			(at 117.094 124.46 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(justify right)
 			)
 		)
 		(property "Footprint" ""
-			(at 90.17 158.75 0)
+			(at 114.3 120.65 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8093,7 +7824,84 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 90.17 158.75 0)
+			(at 114.3 120.65 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 114.3 120.65 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "d50b6f68-5687-4981-893b-d0d6b980c070")
+		)
+		(instances
+			(project "uaBrain-gm-e38"
+				(path "/260474c3-12d9-4949-89fb-23ae88769f73/4c1435b5-f88f-42f8-b5bb-7e8057b4cb57"
+					(reference "#PWR0204")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:+5VA")
+		(at 90.17 163.83 0)
+		(mirror y)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "3d0ce6cd-4677-4969-bcd5-7c3491116276")
+		(property "Reference" "#PWR0102"
+			(at 90.17 167.64 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "+5VA"
+			(at 90.17 160.02 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 90.17 163.83 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 90.17 163.83 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8104,7 +7912,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"+5VA\""
-			(at 90.17 158.75 0)
+			(at 90.17 163.83 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8480,8 +8288,8 @@
 		)
 	)
 	(symbol
-		(lib_id "power:GND")
-		(at 138.43 201.93 0)
+		(lib_id "power:GNDA")
+		(at 82.55 203.2 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -8489,51 +8297,9 @@
 		(on_board yes)
 		(in_pos_files yes)
 		(dnp no)
-		(uuid "464a36df-62c6-4daf-b4b4-edf02ddfbb3a")
-		(property "Reference" "#PWR0119"
-			(at 138.43 201.93 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 0.762 0.762)
-				)
-			)
-		)
-		(property "Value" "GND"
-			(at 138.43 203.708 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 0.762 0.762)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 138.43 201.93 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.524 1.524)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 138.43 201.93 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.524 1.524)
-				)
-			)
-		)
-		(property "Description" ""
-			(at 138.43 201.93 0)
+		(uuid "4752fb85-c2b0-4408-99b7-9b0f5770a1d6")
+		(property "Reference" "#PWR0197"
+			(at 82.55 203.2 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8543,13 +8309,133 @@
 				)
 			)
 		)
+		(property "Value" "GNDA"
+			(at 82.55 206.248 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Footprint" ""
+			(at 82.55 203.2 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 82.55 203.2 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 82.55 203.2 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
-			(uuid "2b162b8b-5d81-41e1-be23-0d9554c9421d")
+			(uuid "01e6eaf1-f955-413a-8a8a-270bde3487a0")
 		)
 		(instances
 			(project "uaBrain-gm-e38"
 				(path "/260474c3-12d9-4949-89fb-23ae88769f73/4c1435b5-f88f-42f8-b5bb-7e8057b4cb57"
-					(reference "#PWR0119")
+					(reference "#PWR0197")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:GNDA")
+		(at 140.97 149.86 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "4ae1b37b-c5a4-407e-9103-6568b3ff1370")
+		(property "Reference" "#PWR0191"
+			(at 140.97 149.86 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "GNDA"
+			(at 140.97 152.908 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Footprint" ""
+			(at 140.97 149.86 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 140.97 149.86 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 140.97 149.86 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "c9851fc7-f00a-46d5-8871-d21f173d07ef")
+		)
+		(instances
+			(project "uaBrain-gm-e38"
+				(path "/260474c3-12d9-4949-89fb-23ae88769f73/4c1435b5-f88f-42f8-b5bb-7e8057b4cb57"
+					(reference "#PWR0191")
 					(unit 1)
 				)
 			)
@@ -8577,7 +8463,7 @@
 				)
 			)
 		)
-		(property "Value" "DNP"
+		(property "Value" "4.7k"
 			(at 78.74 114.3 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8620,7 +8506,7 @@
 				)
 			)
 		)
-		(property "LCSC" ""
+		(property "LCSC" "C23162"
 			(at 78.74 119.38 0)
 			(hide yes)
 			(show_name no)
@@ -8734,84 +8620,6 @@
 			(project "uaBrain-gm-e38"
 				(path "/260474c3-12d9-4949-89fb-23ae88769f73/4c1435b5-f88f-42f8-b5bb-7e8057b4cb57"
 					(reference "C14")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "power:GND")
-		(at 123.19 193.04 90)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "520f231e-046f-42c9-9b56-f97e5474a941")
-		(property "Reference" "#PWR0111"
-			(at 129.54 193.04 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "GND"
-			(at 127.5842 192.913 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 123.19 193.04 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 123.19 193.04 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" ""
-			(at 123.19 193.04 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "db667e92-8012-49ee-b72c-6b04cc59d1cf")
-		)
-		(instances
-			(project "uaBrain-gm-e38"
-				(path "/260474c3-12d9-4949-89fb-23ae88769f73/4c1435b5-f88f-42f8-b5bb-7e8057b4cb57"
-					(reference "#PWR0111")
 					(unit 1)
 				)
 			)
@@ -9016,7 +8824,7 @@
 				)
 			)
 		)
-		(property "LCSC" "C248577"
+		(property "LCSC" "C50282"
 			(at 160.02 137.16 0)
 			(hide yes)
 			(show_name no)
@@ -9079,8 +8887,8 @@
 		)
 	)
 	(symbol
-		(lib_id "power:GND")
-		(at 196.85 148.59 0)
+		(lib_id "power:GNDA")
+		(at 194.31 148.59 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -9088,51 +8896,9 @@
 		(on_board yes)
 		(in_pos_files yes)
 		(dnp no)
-		(uuid "566e1d37-a3c0-4818-bb50-3b0deac08e92")
-		(property "Reference" "#PWR0128"
-			(at 196.85 148.59 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 0.762 0.762)
-				)
-			)
-		)
-		(property "Value" "GND"
-			(at 196.85 150.368 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 0.762 0.762)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 196.85 148.59 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.524 1.524)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 196.85 148.59 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.524 1.524)
-				)
-			)
-		)
-		(property "Description" ""
-			(at 196.85 148.59 0)
+		(uuid "544e1ec5-8a74-4f62-8b02-50ca938d01d2")
+		(property "Reference" "#PWR0186"
+			(at 194.31 148.59 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9142,13 +8908,56 @@
 				)
 			)
 		)
+		(property "Value" "GNDA"
+			(at 194.31 151.638 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Footprint" ""
+			(at 194.31 148.59 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 194.31 148.59 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 194.31 148.59 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
-			(uuid "d605994c-cebd-43c6-bce4-3821d7c6a785")
+			(uuid "1cff57b1-0e30-43f5-80cc-603fea834c87")
 		)
 		(instances
 			(project "uaBrain-gm-e38"
 				(path "/260474c3-12d9-4949-89fb-23ae88769f73/4c1435b5-f88f-42f8-b5bb-7e8057b4cb57"
-					(reference "#PWR0128")
+					(reference "#PWR0186")
 					(unit 1)
 				)
 			)
@@ -9262,7 +9071,7 @@
 				)
 			)
 		)
-		(property "LCSC" "C248577"
+		(property "LCSC" "C50282"
 			(at 160.02 149.86 0)
 			(hide yes)
 			(show_name no)
@@ -9319,6 +9128,83 @@
 			(project "uaBrain-gm-e38"
 				(path "/260474c3-12d9-4949-89fb-23ae88769f73/4c1435b5-f88f-42f8-b5bb-7e8057b4cb57"
 					(reference "U2")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:GNDA")
+		(at 134.62 165.1 90)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "5a56eb60-49f2-4c89-b83d-fff54051c303")
+		(property "Reference" "#PWR0209"
+			(at 134.62 165.1 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "GNDA"
+			(at 138.43 162.306 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Footprint" ""
+			(at 134.62 165.1 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 134.62 165.1 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 134.62 165.1 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "85a222d5-da5d-48bc-9ff0-b12adc1e6468")
+		)
+		(instances
+			(project "uaBrain-gm-e38"
+				(path "/260474c3-12d9-4949-89fb-23ae88769f73/4c1435b5-f88f-42f8-b5bb-7e8057b4cb57"
+					(reference "#PWR0209")
 					(unit 1)
 				)
 			)
@@ -9416,236 +9302,8 @@
 		)
 	)
 	(symbol
-		(lib_id "power:GND")
-		(at 82.55 203.2 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "5f00643a-7c91-4fda-abd9-230055c92f1a")
-		(property "Reference" "#PWR097"
-			(at 82.55 203.2 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 0.762 0.762)
-				)
-			)
-		)
-		(property "Value" "GND"
-			(at 82.55 204.978 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 0.762 0.762)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 82.55 203.2 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.524 1.524)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 82.55 203.2 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.524 1.524)
-				)
-			)
-		)
-		(property "Description" ""
-			(at 82.55 203.2 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "ced611a9-6806-4004-9a58-fdd85fb49ea4")
-		)
-		(instances
-			(project "uaBrain-gm-e38"
-				(path "/260474c3-12d9-4949-89fb-23ae88769f73/4c1435b5-f88f-42f8-b5bb-7e8057b4cb57"
-					(reference "#PWR097")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "power:GND")
-		(at 90.17 151.13 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "640de441-0fc6-4746-aade-a711be1abcd3")
-		(property "Reference" "#PWR0101"
-			(at 90.17 151.13 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 0.762 0.762)
-				)
-			)
-		)
-		(property "Value" "GND"
-			(at 90.17 152.908 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 0.762 0.762)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 90.17 151.13 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.524 1.524)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 90.17 151.13 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.524 1.524)
-				)
-			)
-		)
-		(property "Description" ""
-			(at 90.17 151.13 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "fcbcf1f0-910a-41a2-ae48-bae059d73492")
-		)
-		(instances
-			(project "uaBrain-gm-e38"
-				(path "/260474c3-12d9-4949-89fb-23ae88769f73/4c1435b5-f88f-42f8-b5bb-7e8057b4cb57"
-					(reference "#PWR0101")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "power:GND")
-		(at 135.89 149.86 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "645dc818-975a-40c9-af85-88c85d3d1cb3")
-		(property "Reference" "#PWR0116"
-			(at 135.89 149.86 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 0.762 0.762)
-				)
-			)
-		)
-		(property "Value" "GND"
-			(at 135.89 151.638 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 0.762 0.762)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 135.89 149.86 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.524 1.524)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 135.89 149.86 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.524 1.524)
-				)
-			)
-		)
-		(property "Description" ""
-			(at 135.89 149.86 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "e15a3185-8b27-4d98-9150-71f97c5d58e4")
-		)
-		(instances
-			(project "uaBrain-gm-e38"
-				(path "/260474c3-12d9-4949-89fb-23ae88769f73/4c1435b5-f88f-42f8-b5bb-7e8057b4cb57"
-					(reference "#PWR0116")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "hellen-one-common:Res")
-		(at 86.36 171.45 270)
+		(at 86.36 176.53 270)
 		(mirror x)
 		(unit 1)
 		(body_style 1)
@@ -9656,7 +9314,7 @@
 		(dnp no)
 		(uuid "66d40b9e-2be6-49c7-bf85-c3a01efe95df")
 		(property "Reference" "R14"
-			(at 87.376 161.798 0)
+			(at 87.376 166.878 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -9665,8 +9323,8 @@
 				)
 			)
 		)
-		(property "Value" "DNP"
-			(at 86.36 166.37 0)
+		(property "Value" "10k"
+			(at 86.36 171.45 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -9676,7 +9334,7 @@
 			)
 		)
 		(property "Footprint" "hellen-one-common:R0603"
-			(at 82.55 167.64 0)
+			(at 82.55 172.72 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9687,7 +9345,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 86.36 171.45 0)
+			(at 86.36 176.53 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9698,7 +9356,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 86.36 171.45 0)
+			(at 86.36 176.53 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9708,8 +9366,8 @@
 				)
 			)
 		)
-		(property "LCSC" ""
-			(at 86.36 171.45 0)
+		(property "LCSC" "C15401"
+			(at 86.36 176.53 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9729,6 +9387,83 @@
 			(project "uaBrain-gm-e38"
 				(path "/260474c3-12d9-4949-89fb-23ae88769f73/4c1435b5-f88f-42f8-b5bb-7e8057b4cb57"
 					(reference "R14")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:GNDA")
+		(at 194.31 200.66 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "66f148b8-0219-499d-8704-fe0853d3d162")
+		(property "Reference" "#PWR0173"
+			(at 194.31 200.66 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "GNDA"
+			(at 194.31 203.708 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Footprint" ""
+			(at 194.31 200.66 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 194.31 200.66 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 194.31 200.66 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "adb95328-3fb3-4e7a-b778-6ed1ca17be04")
+		)
+		(instances
+			(project "uaBrain-gm-e38"
+				(path "/260474c3-12d9-4949-89fb-23ae88769f73/4c1435b5-f88f-42f8-b5bb-7e8057b4cb57"
+					(reference "#PWR0173")
 					(unit 1)
 				)
 			)
@@ -9835,7 +9570,7 @@
 		(in_bom yes)
 		(on_board yes)
 		(in_pos_files yes)
-		(dnp no)
+		(dnp yes)
 		(uuid "67f0f690-5aff-4340-8dee-cabe97068be1")
 		(property "Reference" "R8"
 			(at 83.566 109.728 0)
@@ -9917,6 +9652,83 @@
 		)
 	)
 	(symbol
+		(lib_id "power:GNDA")
+		(at 191.77 148.59 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "6dc92bf2-fc80-4608-991b-ecf7291957a4")
+		(property "Reference" "#PWR0185"
+			(at 191.77 148.59 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "GNDA"
+			(at 191.77 151.638 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Footprint" ""
+			(at 191.77 148.59 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 191.77 148.59 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 191.77 148.59 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "8c7c227e-c473-4b64-9969-a58c0738ac8e")
+		)
+		(instances
+			(project "uaBrain-gm-e38"
+				(path "/260474c3-12d9-4949-89fb-23ae88769f73/4c1435b5-f88f-42f8-b5bb-7e8057b4cb57"
+					(reference "#PWR0185")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "power:+5VA")
 		(at 109.22 140.97 90)
 		(mirror x)
@@ -9990,6 +9802,83 @@
 			(project "uaBrain-gm-e38"
 				(path "/260474c3-12d9-4949-89fb-23ae88769f73/4c1435b5-f88f-42f8-b5bb-7e8057b4cb57"
 					(reference "#PWR0104")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:GNDA")
+		(at 267.97 146.05 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "6ee1f63e-8451-4785-954d-75d0c2665abf")
+		(property "Reference" "#PWR0132"
+			(at 267.97 146.05 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "GNDA"
+			(at 270.764 149.86 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Footprint" ""
+			(at 267.97 146.05 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 267.97 146.05 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 267.97 146.05 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "b779d07a-42bf-44fe-b976-4664770f9f88")
+		)
+		(instances
+			(project "uaBrain-gm-e38"
+				(path "/260474c3-12d9-4949-89fb-23ae88769f73/4c1435b5-f88f-42f8-b5bb-7e8057b4cb57"
+					(reference "#PWR0132")
 					(unit 1)
 				)
 			)
@@ -10461,7 +10350,7 @@
 				)
 			)
 		)
-		(property "LCSC" "C248577"
+		(property "LCSC" "C50282"
 			(at 160.02 189.23 0)
 			(hide yes)
 			(show_name no)
@@ -10636,7 +10525,7 @@
 				)
 			)
 		)
-		(property "Value" "470k"
+		(property "Value" "680k"
 			(at 90.17 144.78 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -10679,7 +10568,7 @@
 				)
 			)
 		)
-		(property "LCSC" "C23178"
+		(property "LCSC" "C25822"
 			(at 90.17 149.86 0)
 			(hide yes)
 			(show_name no)
@@ -10700,85 +10589,6 @@
 			(project "uaBrain-gm-e38"
 				(path "/260474c3-12d9-4949-89fb-23ae88769f73/4c1435b5-f88f-42f8-b5bb-7e8057b4cb57"
 					(reference "R17")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "power:GND")
-		(at 267.97 146.05 0)
-		(mirror y)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "8503cc9b-64ae-45bd-a4b3-13f19e842d7b")
-		(property "Reference" "#PWR0132"
-			(at 267.97 152.4 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "GND"
-			(at 267.843 150.4442 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 267.97 146.05 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 267.97 146.05 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 267.97 146.05 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "23d6fb45-5606-4de9-a8c3-74eaf84763c9")
-		)
-		(instances
-			(project "uaBrain-gm-e38"
-				(path "/260474c3-12d9-4949-89fb-23ae88769f73/4c1435b5-f88f-42f8-b5bb-7e8057b4cb57"
-					(reference "#PWR0132")
 					(unit 1)
 				)
 			)
@@ -10864,8 +10674,8 @@
 		)
 	)
 	(symbol
-		(lib_id "power:GND")
-		(at 86.36 151.13 0)
+		(lib_id "power:GNDA")
+		(at 189.23 200.66 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -10873,51 +10683,9 @@
 		(on_board yes)
 		(in_pos_files yes)
 		(dnp no)
-		(uuid "8b8da58e-07ed-48dc-886a-548937d8e02f")
-		(property "Reference" "#PWR098"
-			(at 86.36 151.13 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 0.762 0.762)
-				)
-			)
-		)
-		(property "Value" "GND"
-			(at 86.36 152.908 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 0.762 0.762)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 86.36 151.13 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.524 1.524)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 86.36 151.13 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.524 1.524)
-				)
-			)
-		)
-		(property "Description" ""
-			(at 86.36 151.13 0)
+		(uuid "8d55dc73-a949-4d9d-8c50-967211c41993")
+		(property "Reference" "#PWR0171"
+			(at 189.23 200.66 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -10927,21 +10695,64 @@
 				)
 			)
 		)
+		(property "Value" "GNDA"
+			(at 189.23 203.708 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Footprint" ""
+			(at 189.23 200.66 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 189.23 200.66 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 189.23 200.66 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
-			(uuid "b0c42e5e-9c05-47d6-ab04-d921ed8d6580")
+			(uuid "00745ffd-64c6-4b10-8a19-b587e2674aa8")
 		)
 		(instances
 			(project "uaBrain-gm-e38"
 				(path "/260474c3-12d9-4949-89fb-23ae88769f73/4c1435b5-f88f-42f8-b5bb-7e8057b4cb57"
-					(reference "#PWR098")
+					(reference "#PWR0171")
 					(unit 1)
 				)
 			)
 		)
 	)
 	(symbol
-		(lib_id "power:GND")
-		(at 191.77 200.66 0)
+		(lib_id "power:GNDA")
+		(at 114.3 172.72 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -10949,51 +10760,9 @@
 		(on_board yes)
 		(in_pos_files yes)
 		(dnp no)
-		(uuid "90a1ddc6-6759-4b82-b915-e02b8639422c")
-		(property "Reference" "#PWR0125"
-			(at 191.77 200.66 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 0.762 0.762)
-				)
-			)
-		)
-		(property "Value" "GND"
-			(at 191.77 202.438 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 0.762 0.762)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 191.77 200.66 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.524 1.524)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 191.77 200.66 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.524 1.524)
-				)
-			)
-		)
-		(property "Description" ""
-			(at 191.77 200.66 0)
+		(uuid "8dff1a70-b9ed-4023-82dc-58e627bc7ba3")
+		(property "Reference" "#PWR0205"
+			(at 114.3 172.72 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -11003,21 +10772,64 @@
 				)
 			)
 		)
+		(property "Value" "GNDA"
+			(at 117.094 176.53 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Footprint" ""
+			(at 114.3 172.72 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 114.3 172.72 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 114.3 172.72 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
-			(uuid "e7ff3c3b-899a-425a-bd93-a724fe592d7e")
+			(uuid "b4bd8279-4a1b-4c4b-85a6-f23ff5aa144f")
 		)
 		(instances
 			(project "uaBrain-gm-e38"
 				(path "/260474c3-12d9-4949-89fb-23ae88769f73/4c1435b5-f88f-42f8-b5bb-7e8057b4cb57"
-					(reference "#PWR0125")
+					(reference "#PWR0205")
 					(unit 1)
 				)
 			)
 		)
 	)
 	(symbol
-		(lib_id "power:GND")
-		(at 194.31 200.66 0)
+		(lib_id "power:GNDA")
+		(at 90.17 203.2 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -11025,51 +10837,9 @@
 		(on_board yes)
 		(in_pos_files yes)
 		(dnp no)
-		(uuid "93477100-6c2a-41f9-b570-ef2a1a2d2a09")
-		(property "Reference" "#PWR0127"
-			(at 194.31 200.66 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 0.762 0.762)
-				)
-			)
-		)
-		(property "Value" "GND"
-			(at 194.31 202.438 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 0.762 0.762)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 194.31 200.66 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.524 1.524)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 194.31 200.66 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.524 1.524)
-				)
-			)
-		)
-		(property "Description" ""
-			(at 194.31 200.66 0)
+		(uuid "90497550-2bb1-485e-aba9-156d17c684b5")
+		(property "Reference" "#PWR0198"
+			(at 90.17 203.2 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -11079,73 +10849,19 @@
 				)
 			)
 		)
-		(pin "1"
-			(uuid "20382d75-130a-4813-8429-1f775c4b530f")
-		)
-		(instances
-			(project "uaBrain-gm-e38"
-				(path "/260474c3-12d9-4949-89fb-23ae88769f73/4c1435b5-f88f-42f8-b5bb-7e8057b4cb57"
-					(reference "#PWR0127")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "power:GND")
-		(at 133.35 149.86 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "93755eb0-8f6c-4ec0-871f-7ba352569d7e")
-		(property "Reference" "#PWR0112"
-			(at 133.35 149.86 0)
-			(hide yes)
+		(property "Value" "GNDA"
+			(at 90.17 206.248 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 0.762 0.762)
+					(size 1.27 1.27)
 				)
-			)
-		)
-		(property "Value" "GND"
-			(at 133.35 151.638 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 0.762 0.762)
-				)
+				(justify right)
 			)
 		)
 		(property "Footprint" ""
-			(at 133.35 149.86 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.524 1.524)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 133.35 149.86 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.524 1.524)
-				)
-			)
-		)
-		(property "Description" ""
-			(at 133.35 149.86 0)
+			(at 90.17 203.2 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -11155,13 +10871,34 @@
 				)
 			)
 		)
+		(property "Datasheet" ""
+			(at 90.17 203.2 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 90.17 203.2 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
-			(uuid "37e5916d-0f97-414b-9001-d0bce3ac5f6f")
+			(uuid "311fe07e-03cf-40b6-8aef-7d90c0067d93")
 		)
 		(instances
 			(project "uaBrain-gm-e38"
 				(path "/260474c3-12d9-4949-89fb-23ae88769f73/4c1435b5-f88f-42f8-b5bb-7e8057b4cb57"
-					(reference "#PWR0112")
+					(reference "#PWR0198")
 					(unit 1)
 				)
 			)
@@ -11445,159 +11182,6 @@
 		)
 	)
 	(symbol
-		(lib_id "power:GND")
-		(at 78.74 203.2 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "9966b9e7-3126-4349-b784-ba8af9d30e85")
-		(property "Reference" "#PWR095"
-			(at 78.74 203.2 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 0.762 0.762)
-				)
-			)
-		)
-		(property "Value" "GND"
-			(at 78.74 204.978 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 0.762 0.762)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 78.74 203.2 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.524 1.524)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 78.74 203.2 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.524 1.524)
-				)
-			)
-		)
-		(property "Description" ""
-			(at 78.74 203.2 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "30b08740-184f-48b1-8cd7-6a258dd6ced3")
-		)
-		(instances
-			(project "uaBrain-gm-e38"
-				(path "/260474c3-12d9-4949-89fb-23ae88769f73/4c1435b5-f88f-42f8-b5bb-7e8057b4cb57"
-					(reference "#PWR095")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "power:GND")
-		(at 114.3 121.92 0)
-		(mirror y)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "9a64ed35-f9a1-4e25-8827-d9b023ec999f")
-		(property "Reference" "#PWR0108"
-			(at 114.3 121.92 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 0.762 0.762)
-				)
-			)
-		)
-		(property "Value" "GND"
-			(at 114.3 123.698 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 0.762 0.762)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 114.3 121.92 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.524 1.524)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 114.3 121.92 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.524 1.524)
-				)
-			)
-		)
-		(property "Description" ""
-			(at 114.3 121.92 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "1c346dc8-be63-49b8-8f8b-7e3dc81fa06d")
-		)
-		(instances
-			(project "uaBrain-gm-e38"
-				(path "/260474c3-12d9-4949-89fb-23ae88769f73/4c1435b5-f88f-42f8-b5bb-7e8057b4cb57"
-					(reference "#PWR0108")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "hellen-one-common:Res")
 		(at 102.87 180.34 0)
 		(mirror y)
@@ -11761,6 +11345,83 @@
 			(project "uaBrain-gm-e38"
 				(path "/260474c3-12d9-4949-89fb-23ae88769f73/4c1435b5-f88f-42f8-b5bb-7e8057b4cb57"
 					(reference "#PWR0131")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:GNDA")
+		(at 82.55 149.86 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "9d281726-3b36-40e9-b117-d540bff74b6e")
+		(property "Reference" "#PWR0201"
+			(at 82.55 149.86 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "GNDA"
+			(at 82.55 152.908 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Footprint" ""
+			(at 82.55 149.86 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 82.55 149.86 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 82.55 149.86 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "5e736d11-69c5-4052-99f4-07892c7b8bd9")
+		)
+		(instances
+			(project "uaBrain-gm-e38"
+				(path "/260474c3-12d9-4949-89fb-23ae88769f73/4c1435b5-f88f-42f8-b5bb-7e8057b4cb57"
+					(reference "#PWR0201")
 					(unit 1)
 				)
 			)
@@ -12061,7 +11722,7 @@
 				)
 			)
 		)
-		(property "LCSC" "C248577"
+		(property "LCSC" "C50282"
 			(at 125.73 167.64 0)
 			(hide yes)
 			(show_name no)
@@ -12216,7 +11877,7 @@
 	)
 	(symbol
 		(lib_id "hellen-one-common:Res")
-		(at 78.74 171.45 270)
+		(at 78.74 176.53 270)
 		(mirror x)
 		(unit 1)
 		(body_style 1)
@@ -12224,10 +11885,10 @@
 		(in_bom yes)
 		(on_board yes)
 		(in_pos_files yes)
-		(dnp no)
+		(dnp yes)
 		(uuid "af8c55f1-ee9e-466d-9345-bbf576a54c16")
 		(property "Reference" "R6"
-			(at 79.756 161.798 0)
+			(at 79.756 166.878 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -12237,7 +11898,7 @@
 			)
 		)
 		(property "Value" "DNP"
-			(at 78.74 166.37 0)
+			(at 78.74 171.45 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -12247,7 +11908,7 @@
 			)
 		)
 		(property "Footprint" "hellen-one-common:R0603"
-			(at 74.93 167.64 0)
+			(at 74.93 172.72 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -12258,7 +11919,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 78.74 171.45 0)
+			(at 78.74 176.53 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -12269,7 +11930,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 78.74 171.45 0)
+			(at 78.74 176.53 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -12280,7 +11941,7 @@
 			)
 		)
 		(property "LCSC" ""
-			(at 78.74 171.45 0)
+			(at 78.74 176.53 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -12408,7 +12069,7 @@
 		(in_bom yes)
 		(on_board yes)
 		(in_pos_files yes)
-		(dnp no)
+		(dnp yes)
 		(uuid "b0782b85-62b4-4f0b-93cc-7447593e92fa")
 		(property "Reference" "R15"
 			(at 87.376 192.278 0)
@@ -12420,7 +12081,7 @@
 				)
 			)
 		)
-		(property "Value" "470k"
+		(property "Value" "DNP"
 			(at 86.36 196.85 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -12463,7 +12124,7 @@
 				)
 			)
 		)
-		(property "LCSC" "C23178"
+		(property "LCSC" ""
 			(at 86.36 201.93 0)
 			(hide yes)
 			(show_name no)
@@ -12583,9 +12244,8 @@
 		)
 	)
 	(symbol
-		(lib_id "hellen-one-common:Res")
-		(at 82.55 171.45 270)
-		(mirror x)
+		(lib_id "power:GNDA")
+		(at 196.85 200.66 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -12593,9 +12253,10 @@
 		(on_board yes)
 		(in_pos_files yes)
 		(dnp no)
-		(uuid "b43e98f6-ae26-4075-bf8b-00439ede5fe4")
-		(property "Reference" "R10"
-			(at 83.566 161.798 0)
+		(uuid "b349d2b7-ef70-4eb8-9d66-d2f4d49f7f03")
+		(property "Reference" "#PWR0174"
+			(at 196.85 200.66 0)
+			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -12604,18 +12265,19 @@
 				)
 			)
 		)
-		(property "Value" "DNP"
-			(at 82.55 166.37 0)
+		(property "Value" "GNDA"
+			(at 196.85 203.708 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(justify right)
 			)
 		)
-		(property "Footprint" "hellen-one-common:R0603"
-			(at 78.74 167.64 0)
+		(property "Footprint" ""
+			(at 196.85 200.66 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -12626,7 +12288,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 82.55 171.45 0)
+			(at 196.85 200.66 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -12637,7 +12299,83 @@
 			)
 		)
 		(property "Description" ""
+			(at 196.85 200.66 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "99b58789-6adb-4b88-9b7f-26ce5cda3ec9")
+		)
+		(instances
+			(project "uaBrain-gm-e38"
+				(path "/260474c3-12d9-4949-89fb-23ae88769f73/4c1435b5-f88f-42f8-b5bb-7e8057b4cb57"
+					(reference "#PWR0174")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "hellen-one-common:Res")
+		(at 82.55 176.53 270)
+		(mirror x)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp yes)
+		(uuid "b43e98f6-ae26-4075-bf8b-00439ede5fe4")
+		(property "Reference" "R10"
+			(at 83.566 166.878 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "DNP"
 			(at 82.55 171.45 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "hellen-one-common:R0603"
+			(at 78.74 172.72 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 82.55 176.53 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 82.55 176.53 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -12648,7 +12386,7 @@
 			)
 		)
 		(property "LCSC" ""
-			(at 82.55 171.45 0)
+			(at 82.55 176.53 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -12668,6 +12406,83 @@
 			(project "uaBrain-gm-e38"
 				(path "/260474c3-12d9-4949-89fb-23ae88769f73/4c1435b5-f88f-42f8-b5bb-7e8057b4cb57"
 					(reference "R10")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:GNDA")
+		(at 133.35 201.93 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "b4409192-c7b6-446b-9026-e99d27c79fe6")
+		(property "Reference" "#PWR0192"
+			(at 133.35 201.93 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "GNDA"
+			(at 133.35 204.978 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Footprint" ""
+			(at 133.35 201.93 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 133.35 201.93 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 133.35 201.93 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "9bfe4124-8aad-48f5-9e07-f422c59558df")
+		)
+		(instances
+			(project "uaBrain-gm-e38"
+				(path "/260474c3-12d9-4949-89fb-23ae88769f73/4c1435b5-f88f-42f8-b5bb-7e8057b4cb57"
+					(reference "#PWR0192")
 					(unit 1)
 				)
 			)
@@ -12781,7 +12596,7 @@
 				)
 			)
 		)
-		(property "LCSC" "C248577"
+		(property "LCSC" "C50282"
 			(at 160.02 163.83 0)
 			(hide yes)
 			(show_name no)
@@ -12951,7 +12766,7 @@
 				)
 			)
 		)
-		(property "LCSC" "C248577"
+		(property "LCSC" "C50282"
 			(at 160.02 111.76 0)
 			(hide yes)
 			(show_name no)
@@ -13014,8 +12829,8 @@
 		)
 	)
 	(symbol
-		(lib_id "power:GND")
-		(at 123.19 140.97 90)
+		(lib_id "power:GNDA")
+		(at 134.62 113.03 90)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -13023,9 +12838,9 @@
 		(on_board yes)
 		(in_pos_files yes)
 		(dnp no)
-		(uuid "b856a4fe-fced-4fc6-a60d-41ef1a88dfdf")
-		(property "Reference" "#PWR0110"
-			(at 129.54 140.97 0)
+		(uuid "b7e9ce79-408b-4576-aa4e-425c0a53a7a3")
+		(property "Reference" "#PWR0208"
+			(at 134.62 113.03 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -13035,19 +12850,19 @@
 				)
 			)
 		)
-		(property "Value" "GND"
-			(at 127.5842 140.843 0)
-			(hide yes)
+		(property "Value" "GNDA"
+			(at 138.43 110.236 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(justify right)
 			)
 		)
 		(property "Footprint" ""
-			(at 123.19 140.97 0)
+			(at 134.62 113.03 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -13058,7 +12873,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 123.19 140.97 0)
+			(at 134.62 113.03 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -13069,8 +12884,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 123.19 140.97 0)
-			(hide yes)
+			(at 134.62 113.03 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -13080,20 +12894,20 @@
 			)
 		)
 		(pin "1"
-			(uuid "1dd7ecc6-ba71-4371-9285-b76ffa4107b8")
+			(uuid "c44b42c5-4a69-41cf-bba1-057d05df50f0")
 		)
 		(instances
 			(project "uaBrain-gm-e38"
 				(path "/260474c3-12d9-4949-89fb-23ae88769f73/4c1435b5-f88f-42f8-b5bb-7e8057b4cb57"
-					(reference "#PWR0110")
+					(reference "#PWR0208")
 					(unit 1)
 				)
 			)
 		)
 	)
 	(symbol
-		(lib_id "power:GND")
-		(at 196.85 200.66 0)
+		(lib_id "power:GNDA")
+		(at 123.19 193.04 90)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -13101,51 +12915,9 @@
 		(on_board yes)
 		(in_pos_files yes)
 		(dnp no)
-		(uuid "b869feca-c351-4980-a8f5-3d1edfda03c6")
-		(property "Reference" "#PWR0129"
-			(at 196.85 200.66 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 0.762 0.762)
-				)
-			)
-		)
-		(property "Value" "GND"
-			(at 196.85 202.438 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 0.762 0.762)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 196.85 200.66 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.524 1.524)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 196.85 200.66 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.524 1.524)
-				)
-			)
-		)
-		(property "Description" ""
-			(at 196.85 200.66 0)
+		(uuid "b7f2e46a-22b0-41a8-be5c-15c366409220")
+		(property "Reference" "#PWR0206"
+			(at 123.19 193.04 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -13155,73 +12927,19 @@
 				)
 			)
 		)
-		(pin "1"
-			(uuid "31ed6bdb-4efd-4748-911e-27f62b2ca94c")
-		)
-		(instances
-			(project "uaBrain-gm-e38"
-				(path "/260474c3-12d9-4949-89fb-23ae88769f73/4c1435b5-f88f-42f8-b5bb-7e8057b4cb57"
-					(reference "#PWR0129")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "power:GND")
-		(at 140.97 201.93 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "b9573a81-198a-4871-aba0-599691440a09")
-		(property "Reference" "#PWR0121"
-			(at 140.97 201.93 0)
-			(hide yes)
+		(property "Value" "GNDA"
+			(at 127 190.246 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
 				(font
-					(size 0.762 0.762)
+					(size 1.27 1.27)
 				)
-			)
-		)
-		(property "Value" "GND"
-			(at 140.97 203.708 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 0.762 0.762)
-				)
+				(justify right)
 			)
 		)
 		(property "Footprint" ""
-			(at 140.97 201.93 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.524 1.524)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 140.97 201.93 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.524 1.524)
-				)
-			)
-		)
-		(property "Description" ""
-			(at 140.97 201.93 0)
+			(at 123.19 193.04 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -13231,13 +12949,34 @@
 				)
 			)
 		)
+		(property "Datasheet" ""
+			(at 123.19 193.04 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 123.19 193.04 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
-			(uuid "4fa3a07b-597d-40ca-8ebb-ddc707c3f72a")
+			(uuid "88e8acb7-dbde-46cb-8871-f54094c127aa")
 		)
 		(instances
 			(project "uaBrain-gm-e38"
 				(path "/260474c3-12d9-4949-89fb-23ae88769f73/4c1435b5-f88f-42f8-b5bb-7e8057b4cb57"
-					(reference "#PWR0121")
+					(reference "#PWR0206")
 					(unit 1)
 				)
 			)
@@ -13351,7 +13090,7 @@
 				)
 			)
 		)
-		(property "LCSC" "C248577"
+		(property "LCSC" "C50282"
 			(at 160.02 176.53 0)
 			(hide yes)
 			(show_name no)
@@ -13516,7 +13255,7 @@
 		(in_bom yes)
 		(on_board yes)
 		(in_pos_files yes)
-		(dnp no)
+		(dnp yes)
 		(uuid "bdb43d28-c84e-4c8c-95c6-1fe354714a92")
 		(property "Reference" "R5"
 			(at 79.756 140.208 0)
@@ -13528,7 +13267,7 @@
 				)
 			)
 		)
-		(property "Value" "470k"
+		(property "Value" "DNP"
 			(at 78.74 144.78 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -13571,7 +13310,7 @@
 				)
 			)
 		)
-		(property "LCSC" "C23178"
+		(property "LCSC" ""
 			(at 78.74 149.86 0)
 			(hide yes)
 			(show_name no)
@@ -13592,82 +13331,6 @@
 			(project "uaBrain-gm-e38"
 				(path "/260474c3-12d9-4949-89fb-23ae88769f73/4c1435b5-f88f-42f8-b5bb-7e8057b4cb57"
 					(reference "R5")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "power:GND")
-		(at 189.23 148.59 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "bec5ef3e-de61-4f43-af1d-ddf11e60c792")
-		(property "Reference" "#PWR0122"
-			(at 189.23 148.59 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 0.762 0.762)
-				)
-			)
-		)
-		(property "Value" "GND"
-			(at 189.23 150.368 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 0.762 0.762)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 189.23 148.59 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.524 1.524)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 189.23 148.59 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.524 1.524)
-				)
-			)
-		)
-		(property "Description" ""
-			(at 189.23 148.59 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "aa21a749-4d06-463c-87b9-373ad4b0778e")
-		)
-		(instances
-			(project "uaBrain-gm-e38"
-				(path "/260474c3-12d9-4949-89fb-23ae88769f73/4c1435b5-f88f-42f8-b5bb-7e8057b4cb57"
-					(reference "#PWR0122")
 					(unit 1)
 				)
 			)
@@ -13784,7 +13447,7 @@
 				)
 			)
 		)
-		(property "LCSC" "C248577"
+		(property "LCSC" "C50282"
 			(at 125.73 115.57 0)
 			(hide yes)
 			(show_name no)
@@ -13847,9 +13510,8 @@
 		)
 	)
 	(symbol
-		(lib_id "power:GND")
-		(at 283.21 143.51 0)
-		(mirror y)
+		(lib_id "power:GNDA")
+		(at 133.35 149.86 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -13857,9 +13519,9 @@
 		(on_board yes)
 		(in_pos_files yes)
 		(dnp no)
-		(uuid "c0b480d8-d91b-4c91-a99e-b8a225e5fa78")
-		(property "Reference" "#PWR0133"
-			(at 283.21 149.86 0)
+		(uuid "c5484c03-6f3d-4604-b6cb-4a3586f4f5c1")
+		(property "Reference" "#PWR0188"
+			(at 133.35 149.86 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -13869,8 +13531,19 @@
 				)
 			)
 		)
-		(property "Value" "GND"
-			(at 283.083 147.9042 0)
+		(property "Value" "GNDA"
+			(at 133.35 152.908 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Footprint" ""
+			(at 133.35 149.86 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -13878,6 +13551,72 @@
 				(font
 					(size 1.27 1.27)
 				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 133.35 149.86 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 133.35 149.86 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "9e288a64-cf47-40ed-a670-90c2ec269ec6")
+		)
+		(instances
+			(project "uaBrain-gm-e38"
+				(path "/260474c3-12d9-4949-89fb-23ae88769f73/4c1435b5-f88f-42f8-b5bb-7e8057b4cb57"
+					(reference "#PWR0188")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:GNDA")
+		(at 283.21 143.51 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "c91b756b-467c-4df5-b7f8-3e0418eefc67")
+		(property "Reference" "#PWR0133"
+			(at 283.21 143.51 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "GNDA"
+			(at 286.004 147.32 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
 			)
 		)
 		(property "Footprint" ""
@@ -13902,9 +13641,8 @@
 				)
 			)
 		)
-		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+		(property "Description" ""
 			(at 283.21 143.51 0)
-			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -13914,7 +13652,7 @@
 			)
 		)
 		(pin "1"
-			(uuid "9ca46720-f097-40c4-80aa-113669506723")
+			(uuid "3132aa31-e6ed-42ed-942a-d9a5d5a07f9d")
 		)
 		(instances
 			(project "uaBrain-gm-e38"
@@ -13926,9 +13664,8 @@
 		)
 	)
 	(symbol
-		(lib_id "power:GND")
-		(at 289.56 140.97 0)
-		(mirror y)
+		(lib_id "power:GNDA")
+		(at 191.77 200.66 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -13936,9 +13673,9 @@
 		(on_board yes)
 		(in_pos_files yes)
 		(dnp no)
-		(uuid "c0d82a7e-9649-4e77-8f5f-8619f0f6d3ea")
-		(property "Reference" "#PWR0134"
-			(at 289.56 147.32 0)
+		(uuid "ca576c43-f4e5-4e9c-a24e-d949cb9e5756")
+		(property "Reference" "#PWR0172"
+			(at 191.77 200.66 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -13948,19 +13685,19 @@
 				)
 			)
 		)
-		(property "Value" "GND"
-			(at 289.433 145.3642 0)
-			(hide yes)
+		(property "Value" "GNDA"
+			(at 191.77 203.708 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(justify right)
 			)
 		)
 		(property "Footprint" ""
-			(at 289.56 140.97 0)
+			(at 191.77 200.66 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -13971,95 +13708,18 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 289.56 140.97 0)
+			(at 191.77 200.66 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 289.56 140.97 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "aba71acd-44c9-43d3-8235-ebfa51ca1157")
-		)
-		(instances
-			(project "uaBrain-gm-e38"
-				(path "/260474c3-12d9-4949-89fb-23ae88769f73/4c1435b5-f88f-42f8-b5bb-7e8057b4cb57"
-					(reference "#PWR0134")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "power:GND")
-		(at 82.55 151.13 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "c9f67865-267f-4591-bfe4-3d454a91d857")
-		(property "Reference" "#PWR096"
-			(at 82.55 151.13 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 0.762 0.762)
-				)
-			)
-		)
-		(property "Value" "GND"
-			(at 82.55 152.908 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 0.762 0.762)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 82.55 151.13 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.524 1.524)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 82.55 151.13 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.524 1.524)
 				)
 			)
 		)
 		(property "Description" ""
-			(at 82.55 151.13 0)
-			(hide yes)
+			(at 191.77 200.66 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -14069,12 +13729,12 @@
 			)
 		)
 		(pin "1"
-			(uuid "0fd56c8b-0dc9-4ec1-8f4c-37dd5f72ec5a")
+			(uuid "7d68a0a2-9c82-4c83-8f7d-aad9bdddd860")
 		)
 		(instances
 			(project "uaBrain-gm-e38"
 				(path "/260474c3-12d9-4949-89fb-23ae88769f73/4c1435b5-f88f-42f8-b5bb-7e8057b4cb57"
-					(reference "#PWR096")
+					(reference "#PWR0172")
 					(unit 1)
 				)
 			)
@@ -14267,158 +13927,6 @@
 		)
 	)
 	(symbol
-		(lib_id "power:GND")
-		(at 138.43 149.86 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "d0a267c1-99ff-4c8a-b313-5810faa162dc")
-		(property "Reference" "#PWR0118"
-			(at 138.43 149.86 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 0.762 0.762)
-				)
-			)
-		)
-		(property "Value" "GND"
-			(at 138.43 151.638 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 0.762 0.762)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 138.43 149.86 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.524 1.524)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 138.43 149.86 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.524 1.524)
-				)
-			)
-		)
-		(property "Description" ""
-			(at 138.43 149.86 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "6275f1ca-aca1-499d-ae19-2691bb5cd97f")
-		)
-		(instances
-			(project "uaBrain-gm-e38"
-				(path "/260474c3-12d9-4949-89fb-23ae88769f73/4c1435b5-f88f-42f8-b5bb-7e8057b4cb57"
-					(reference "#PWR0118")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "power:GND")
-		(at 189.23 200.66 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "d3011427-f2ce-47a1-a970-7e3d843583bd")
-		(property "Reference" "#PWR0123"
-			(at 189.23 200.66 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 0.762 0.762)
-				)
-			)
-		)
-		(property "Value" "GND"
-			(at 189.23 202.438 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 0.762 0.762)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 189.23 200.66 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.524 1.524)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 189.23 200.66 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.524 1.524)
-				)
-			)
-		)
-		(property "Description" ""
-			(at 189.23 200.66 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "943507a3-d0a5-4670-a5f5-fbf6b58c4554")
-		)
-		(instances
-			(project "uaBrain-gm-e38"
-				(path "/260474c3-12d9-4949-89fb-23ae88769f73/4c1435b5-f88f-42f8-b5bb-7e8057b4cb57"
-					(reference "#PWR0123")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "power:+5VA")
 		(at 111.76 165.1 90)
 		(mirror x)
@@ -14498,9 +14006,8 @@
 		)
 	)
 	(symbol
-		(lib_id "power:GND")
-		(at 114.3 173.99 0)
-		(mirror y)
+		(lib_id "power:GNDA")
+		(at 196.85 148.59 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -14508,51 +14015,9 @@
 		(on_board yes)
 		(in_pos_files yes)
 		(dnp no)
-		(uuid "de76d8c2-a721-429a-84f1-4068894da7fa")
-		(property "Reference" "#PWR0109"
-			(at 114.3 173.99 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 0.762 0.762)
-				)
-			)
-		)
-		(property "Value" "GND"
-			(at 114.3 175.768 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 0.762 0.762)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 114.3 173.99 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.524 1.524)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 114.3 173.99 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.524 1.524)
-				)
-			)
-		)
-		(property "Description" ""
-			(at 114.3 173.99 0)
+		(uuid "dbe45c65-8146-45a8-a59b-d6f7821bdfbc")
+		(property "Reference" "#PWR0187"
+			(at 196.85 148.59 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -14562,13 +14027,133 @@
 				)
 			)
 		)
+		(property "Value" "GNDA"
+			(at 196.85 151.638 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Footprint" ""
+			(at 196.85 148.59 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 196.85 148.59 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 196.85 148.59 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
-			(uuid "d4cba2c1-3ecf-4e73-bc3e-fff9c7f838bb")
+			(uuid "70664654-73fa-4e9e-9736-34ace16d389e")
 		)
 		(instances
 			(project "uaBrain-gm-e38"
 				(path "/260474c3-12d9-4949-89fb-23ae88769f73/4c1435b5-f88f-42f8-b5bb-7e8057b4cb57"
-					(reference "#PWR0109")
+					(reference "#PWR0187")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:GNDA")
+		(at 135.89 149.86 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "dc8ac232-fc6a-4064-acb9-56e6b0250b3d")
+		(property "Reference" "#PWR0189"
+			(at 135.89 149.86 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "GNDA"
+			(at 135.89 152.908 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Footprint" ""
+			(at 135.89 149.86 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 135.89 149.86 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 135.89 149.86 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "6863626d-8720-4a91-9af3-ad390be283fc")
+		)
+		(instances
+			(project "uaBrain-gm-e38"
+				(path "/260474c3-12d9-4949-89fb-23ae88769f73/4c1435b5-f88f-42f8-b5bb-7e8057b4cb57"
+					(reference "#PWR0189")
 					(unit 1)
 				)
 			)
@@ -14596,7 +14181,7 @@
 				)
 			)
 		)
-		(property "Value" "470k"
+		(property "Value" "680k"
 			(at 82.55 196.85 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -14639,7 +14224,7 @@
 				)
 			)
 		)
-		(property "LCSC" "C23178"
+		(property "LCSC" "C25822"
 			(at 82.55 201.93 0)
 			(hide yes)
 			(show_name no)
@@ -14687,7 +14272,7 @@
 				)
 			)
 		)
-		(property "Value" "470k"
+		(property "Value" "680k"
 			(at 82.55 144.78 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -14730,7 +14315,7 @@
 				)
 			)
 		)
-		(property "LCSC" "C23178"
+		(property "LCSC" "C25822"
 			(at 82.55 149.86 0)
 			(hide yes)
 			(show_name no)
@@ -14751,6 +14336,83 @@
 			(project "uaBrain-gm-e38"
 				(path "/260474c3-12d9-4949-89fb-23ae88769f73/4c1435b5-f88f-42f8-b5bb-7e8057b4cb57"
 					(reference "R9")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:GNDA")
+		(at 138.43 149.86 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "df58c7c6-23b5-4af6-82c7-338025754b9b")
+		(property "Reference" "#PWR0190"
+			(at 138.43 149.86 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "GNDA"
+			(at 138.43 152.908 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Footprint" ""
+			(at 138.43 149.86 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 138.43 149.86 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 138.43 149.86 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "99e1d0b9-3b49-4b87-9f44-034fd8338256")
+		)
+		(instances
+			(project "uaBrain-gm-e38"
+				(path "/260474c3-12d9-4949-89fb-23ae88769f73/4c1435b5-f88f-42f8-b5bb-7e8057b4cb57"
+					(reference "#PWR0190")
 					(unit 1)
 				)
 			)
@@ -14857,7 +14519,7 @@
 		(in_bom yes)
 		(on_board yes)
 		(in_pos_files yes)
-		(dnp no)
+		(dnp yes)
 		(uuid "e0a5fa00-3e0f-499d-9eb5-9921c1684916")
 		(property "Reference" "R12"
 			(at 87.376 109.728 0)
@@ -15046,7 +14708,7 @@
 				)
 			)
 		)
-		(property "LCSC" "C248577"
+		(property "LCSC" "C50282"
 			(at 160.02 124.46 0)
 			(hide yes)
 			(show_name no)
@@ -15104,6 +14766,83 @@
 				(path "/260474c3-12d9-4949-89fb-23ae88769f73/4c1435b5-f88f-42f8-b5bb-7e8057b4cb57"
 					(reference "U2")
 					(unit 3)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:GNDA")
+		(at 90.17 149.86 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "e4abd9b1-3be8-42b3-a1a4-03f66c9461ca")
+		(property "Reference" "#PWR0203"
+			(at 90.17 149.86 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "GNDA"
+			(at 90.17 152.908 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Footprint" ""
+			(at 90.17 149.86 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 90.17 149.86 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 90.17 149.86 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "129650b2-e0df-44fe-961c-fd6839edcccb")
+		)
+		(instances
+			(project "uaBrain-gm-e38"
+				(path "/260474c3-12d9-4949-89fb-23ae88769f73/4c1435b5-f88f-42f8-b5bb-7e8057b4cb57"
+					(reference "#PWR0203")
+					(unit 1)
 				)
 			)
 		)
@@ -15295,6 +15034,160 @@
 		)
 	)
 	(symbol
+		(lib_id "power:GNDA")
+		(at 78.74 203.2 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "ee7791eb-93ce-4d9c-a56b-1310c0f7d7b7")
+		(property "Reference" "#PWR0196"
+			(at 78.74 203.2 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "GNDA"
+			(at 78.74 206.248 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Footprint" ""
+			(at 78.74 203.2 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 78.74 203.2 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 78.74 203.2 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "66c80bc1-4b22-444b-ad50-5dc8fd9dfc38")
+		)
+		(instances
+			(project "uaBrain-gm-e38"
+				(path "/260474c3-12d9-4949-89fb-23ae88769f73/4c1435b5-f88f-42f8-b5bb-7e8057b4cb57"
+					(reference "#PWR0196")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:GNDA")
+		(at 289.56 140.97 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "f083ef5c-158a-471f-ae31-4216e103c7bc")
+		(property "Reference" "#PWR0134"
+			(at 289.56 140.97 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "GNDA"
+			(at 292.354 144.78 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Footprint" ""
+			(at 289.56 140.97 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 289.56 140.97 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 289.56 140.97 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "a2e997b0-5eaa-423f-9f4c-3ebbb9a1805a")
+		)
+		(instances
+			(project "uaBrain-gm-e38"
+				(path "/260474c3-12d9-4949-89fb-23ae88769f73/4c1435b5-f88f-42f8-b5bb-7e8057b4cb57"
+					(reference "#PWR0134")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "hellen-one-common:Cap")
 		(at 135.89 194.31 270)
 		(mirror x)
@@ -15388,9 +15281,8 @@
 		)
 	)
 	(symbol
-		(lib_id "hellen-one-common:Res")
-		(at 90.17 171.45 270)
-		(mirror x)
+		(lib_id "power:GNDA")
+		(at 123.19 140.97 90)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -15398,9 +15290,10 @@
 		(on_board yes)
 		(in_pos_files yes)
 		(dnp no)
-		(uuid "fd7a13cb-b676-436a-8d80-9c8f1ae34ab6")
-		(property "Reference" "R18"
-			(at 91.186 161.798 0)
+		(uuid "f4a904f7-c99e-4ce3-a457-2bd57548fa63")
+		(property "Reference" "#PWR0207"
+			(at 123.19 140.97 0)
+			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -15409,18 +15302,19 @@
 				)
 			)
 		)
-		(property "Value" "DNP"
-			(at 90.17 166.37 0)
+		(property "Value" "GNDA"
+			(at 127 138.176 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(justify right)
 			)
 		)
-		(property "Footprint" "hellen-one-common:R0603"
-			(at 86.36 167.64 0)
+		(property "Footprint" ""
+			(at 123.19 140.97 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -15431,7 +15325,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 90.17 171.45 0)
+			(at 123.19 140.97 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -15442,7 +15336,61 @@
 			)
 		)
 		(property "Description" ""
+			(at 123.19 140.97 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "28fa8f52-1eae-4a55-98f1-deaada47009d")
+		)
+		(instances
+			(project "uaBrain-gm-e38"
+				(path "/260474c3-12d9-4949-89fb-23ae88769f73/4c1435b5-f88f-42f8-b5bb-7e8057b4cb57"
+					(reference "#PWR0207")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "hellen-one-common:Res")
+		(at 90.17 176.53 270)
+		(mirror x)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "fd7a13cb-b676-436a-8d80-9c8f1ae34ab6")
+		(property "Reference" "R18"
+			(at 91.186 166.878 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "4.7k"
 			(at 90.17 171.45 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "hellen-one-common:R0603"
+			(at 86.36 172.72 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -15452,8 +15400,30 @@
 				)
 			)
 		)
-		(property "LCSC" ""
-			(at 90.17 171.45 0)
+		(property "Datasheet" ""
+			(at 90.17 176.53 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 90.17 176.53 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C23162"
+			(at 90.17 176.53 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -15473,82 +15443,6 @@
 			(project "uaBrain-gm-e38"
 				(path "/260474c3-12d9-4949-89fb-23ae88769f73/4c1435b5-f88f-42f8-b5bb-7e8057b4cb57"
 					(reference "R18")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "power:GND")
-		(at 78.74 151.13 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "fd7d6882-50fb-4630-a6c2-e2c3c7789363")
-		(property "Reference" "#PWR094"
-			(at 78.74 151.13 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 0.762 0.762)
-				)
-			)
-		)
-		(property "Value" "GND"
-			(at 78.74 152.908 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 0.762 0.762)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 78.74 151.13 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.524 1.524)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 78.74 151.13 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.524 1.524)
-				)
-			)
-		)
-		(property "Description" ""
-			(at 78.74 151.13 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "b179d2d4-76fb-497d-8a46-7ca42e1f61a9")
-		)
-		(instances
-			(project "uaBrain-gm-e38"
-				(path "/260474c3-12d9-4949-89fb-23ae88769f73/4c1435b5-f88f-42f8-b5bb-7e8057b4cb57"
-					(reference "#PWR094")
 					(unit 1)
 				)
 			)
@@ -15640,6 +15534,83 @@
 			(project "uaBrain-gm-e38"
 				(path "/260474c3-12d9-4949-89fb-23ae88769f73/4c1435b5-f88f-42f8-b5bb-7e8057b4cb57"
 					(reference "R23")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:GNDA")
+		(at 140.97 201.93 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "fedb9a65-4d7a-4674-b820-2304b6029ca1")
+		(property "Reference" "#PWR0195"
+			(at 140.97 201.93 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "GNDA"
+			(at 140.97 204.978 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Footprint" ""
+			(at 140.97 201.93 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 140.97 201.93 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 140.97 201.93 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "4ee24805-5a25-4a72-8fa4-64d7c8228933")
+		)
+		(instances
+			(project "uaBrain-gm-e38"
+				(path "/260474c3-12d9-4949-89fb-23ae88769f73/4c1435b5-f88f-42f8-b5bb-7e8057b4cb57"
+					(reference "#PWR0195")
 					(unit 1)
 				)
 			)

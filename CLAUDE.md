@@ -81,3 +81,49 @@ Note: the `pixi run build-fw` / `pixi run test` tasks in `pixi.toml` reference `
 - `build-gdi-stm.yaml`: builds GDI-STM when its files change.
 - `build-unit-tests.yaml` is stale — it references `SENT-box/unit_tests/`, which no longer exists in this repo (manual dispatch only).
 - `create-board.yaml`: regenerates gerbers via `ext/hellen-one/kicad/bin/export.sh` under KiCad 7 (manual dispatch).
+
+## KiCad stacked ground pins
+
+- Hidden power-input pins can create implicit global nets from their pin names. When reusing an ADC symbol with a hidden GND exposed pad on a GNDA circuit, check the exported netlist for an unintended GND/GNDA merge. A hidden passive stacked EP plus a visible power-input ground pin preserves physical pad connectivity without adding a global net.
+
+## KiCad / Freerouting round trips
+
+- KiCad DSN export writes existing unlocked copper as `(type route)`. Freerouting 2.4.1 interprets this token as USER_FIXED, not movable copper. For a working DSN intended for rip-up and reroute, use `(type normal)` on the copper that may move; retain `(type fix)` on deliberate fixed connections. Merely clearing KiCad locks does not enable rerouting of imported traces.
+- SES import can round component positions. Preserve the original footprint and mechanical drawing nodes, merge only the generated routing, then verify native KiCad DRC and schematic parity. Router completion and router clearance counts do not replace these checks.
+
+- Current KiCad 10 PCB files use name-based `(net "name")` nodes, including pads and tracks; do not assume top-level numeric net definitions. XML netlist export can unescape `{slash}` in a net name. Compare canonical names before treating that spelling difference as a schematic connectivity change.
+
+- When reassigning a standalone stitching via to another net, mark it free (SetIsFree(True)) and clear existing zone fills before saving. Otherwise KiCad 10 can infer its old net from stale filled copper on reload. Refill and verify the saved via net, native DRC and schematic parity afterward; a SetNetCode call alone is not sufficient.
+
+- In the KiCad 10 Python API, the legacy FootprintSave wrapper may select no plugin and fail with a NoneType error. PCB_IO_KICAD_SEXPR().FootprintSave(library_path, placed_footprint) works and normalizes the exported footprint to library coordinates without moving the placed board item. Check the exported copy with native library-mismatch DRC; remove board-only sheet metadata from the library file.
+
+- For color-coded schematic bus fan-outs, keep every entry endpoint on the connection grid and off neighboring buses. A 2.54 mm entry with 2.54 mm parallel-bus spacing can land its wire endpoint on the adjacent bus and produce dangling-entry errors. Opposing fan-outs on the same Y also need a gap between their wire ends to avoid merging differently named nets. Use native ERC plus exact exported netlist comparison; do not suppress these checks.
+
+- ERC can pass while a schematic bus-entry endpoint visually coincides with an unrelated through-wire. Audit the full diagonal against foreign wire segments and other entries, not just netlist connectivity. At dense opposing fan-outs, shorter 45-degree entries and a short colored bus branch can preserve signal separation; trim terminal bus spans to the revised attachment points.
+
+- For the user's Hellen schematic style, prefer the existing GM E38/E67/Hyundai technique: retain 2.54 mm diagonal bus entries and offset a conflicting entry by 1.27 mm with a short orthogonal wire jog. Check the entire jog as well as the diagonal; a bend must not land on another bus, and a vertical wire segment must not overlap a bus. Named brace-only bus aliases such as {LS_CTRL} can join short control-bus sections without adding a net-name prefix; verify the exported netlist after using them.
+
+- KiCad XML netlist exports may reorder the space-separated unit UUIDs in a multi-unit component's tstamps element. Compare that field as a set (or sort the tokens) before treating an otherwise identical component export as a change.
+
+- For partial power-net rerouting, exporting zone-free DSN while retaining every other electrical net can make the router attempt to connect ground islands that are connected only by pours. A temporary DSN containing only the movable nets, with remaining pad/track copper represented as physical obstacles, avoids these false routing jobs. Merge only intended copper back onto the original board, preserve original footprints, correct imported via drill sizes, and validate native DRC after refilling all zones.
+- Widening rails can split filled ground polygons and strand old stitching vias. Refill before evaluating connectivity, remove truly unused vias, restore plane connections, and recheck after rerouting obstructing signals. Geometric polygon connectivity and router completion do not replace native KiCad connectivity checks. Use a saved candidate and source hashes to preserve concurrent schematic/project edits.
+- Track simplification can cut a narrow foreign-net ground neck even when every track clearance and same-net anchor is preserved. Refill and run native connectivity checks after smoothing; moving the neighboring trace back toward its original corridor can preserve the plane without adding vias. Python effective pad polygons approximate round copper, so use a small clearance margin and verify the exact native DRC afterward.
+
+- When editing a temporary PCB with the KiCad Python API, keep the matching .kicad_pro (same basename) beside it before LoadBoard. Loading a renamed standalone PCB and saving it over a candidate can propagate default project rules into that candidate. Copy the source PCB into the prepared project directory before loading, then verify the project settings and native DRC.
+
+- A zero-error native DRC result covers only enabled categories. For order-readiness reviews, inspect rule_severities and run an isolated audit with ignored categories enabled; keep those audit settings out of the production project. In particular, ignored starved_thermal and missing_courtyard checks can conceal incomplete plane spokes and limit mechanical collision coverage even when electrical connectivity passes.
+
+- KiCad footprint reference fields can draw at a different angle from their stored text angle because of KeepUpright. When normalizing orientation, verify GetDrawRotation and the mirrored back-side rendering. A stored 270-degree back-side field with KeepUpright enabled can still draw at 90 degrees; disable that policy for the affected vertical fields and preserve their rendered center and font settings.
+
+- Manufacturing export: the legacy Hellen BOM helper checks MyComment=DNP but does not by itself honor all native KiCad DNP/exclude-from-BOM flags. Filter against the saved board flags and verify excluded references. Hellen 0603 footprints can have SMD pads without the footprint-level SMD attribute, while QFN thermal-via footprints mix SMD and PTH pads; neither --smd-only nor --exclude-fp-th alone is a complete assembly selection. Export native positions first, then select fitted references explicitly.
+
+- Native KiCad CSV placement headers (Ref, PosX, PosY, Rot, Side) are not the JLCPCB CPL schema. For a JLCPCB order handoff, export Designator, Mid X, Mid Y, Rotation, Layer, use mm and Top/Bottom, and validate references against the fitted BOM. Local CSV parsing alone does not prove acceptance by the assembly uploader.
+
+- In the KiCad 10 Python API, attach newly loaded footprints to their board before calling Flip; flipping a parentless loaded footprint can crash the native process. For padless library logos, preserve the original footprint type when adding board-only/BOM/position exclusion flags. Replacing the type with only exclusion flags causes an avoidable library-mismatch warning.
+
+- KiCad 10 Python footprint child removal: FOOTPRINT.Remove also changes SWIG ownership and can invalidate wrappers when removing multiple loaded children. RemoveNative avoids that ownership hand-off for batch removal. New pads reassigned to another physical footprint should get fresh UUIDs while the originals are still registered on the board, or duplicate-UUID assertions can block the native process. Verify saved pad geometry, thermal settings and fabrication output afterward.
+- MoveAnchorPosition shifts footprint children and model offsets relative to the anchor but does not translate the footprint position. To centre an assembly anchor without moving real pads, apply the negative local centroid offset, then set the footprint position to the desired absolute centroid. Check native position export and 3D model placement after save/reload.
+
+- Assembly-only parts can use a pinless Mechanical:Mechanical_Shape schematic instance with BOM/POS enabled and a padless placed footprint. KiCad 10 native BOM and placement exports retain these references; their electrical pads can remain owned by a separate, normally linked module footprint. Exclude that later-installed module only from BOM/POS, not from board transfer. Verify exact drill/pad geometry and use a disposable wrong-net negative control to prove native schematic parity audits the physical pad owner; a zero-error result with that owner excluded from board transfer does not demonstrate direct synchronization.
+
+- KiCad F8 association compares a footprint's complete path with the exported component sheetpath plus a symbol-unit UUID. On the root sheet, this is /symbol-UUID, not /root-schematic-UUID/symbol-UUID (schematic instance paths use a different convention). Native schematic-parity DRC can pass despite a wrong prefix; audit exact full paths and uniqueness against a fresh netlist. Wrong prefixes can make F8 add normal library footprints and report the existing locked instances as unused. Preserve the intended instance and fix its association rather than unlocking/deleting it or suppressing missing-pin warnings.
