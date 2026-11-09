@@ -1,0 +1,60 @@
+#include "test_logic_config.h"
+#include "board_id/boards_id.h"
+#include "board_id/boards_dictionary.h"
+
+/**
+ * GM E78 (NXP MPC5566), rusefi-e78 firmware.
+ *
+ * outputNames must stay in the same order as the ECU's OUTPUTS[] in
+ * rusefi-e78 firmware/hardware/board_hw_test.cpp, low sides first:
+ *   0 Injector 1      GPIO132  X2-2   low side through the C2MIO
+ *   1 Fuel pump relay GPIO197  X1-28  low side
+ *   2 Ignition 1      GPIO167  X2-1   high side here, to be confirmed on the rig
+ * The ECU reports lowSideCount = 2 and a DC count of 0: the throttle H-bridge
+ * drives the plate against its stops, which the DC test cannot observe.
+ */
+BoardConfig makeE78BoardConfig() {
+	return {
+		.boardName = "e78",
+		// the board's own defaults already route crank, cam, TPS, CLT and IAT
+		.desiredEngineConfig = -1,
+		.boardIds = { STATIC_BOARD_ID_E78, 0 },
+		.channels = {
+			// TPS1/TPS2/PPS are on the eQADC with no extra divider
+			// (analogInputDividerCoefficient = 1), but the E78's own input pull
+			// network is not documented yet: unconnected TPS1/PPS1/PPS2 read ~0 V
+			// and TPS2 ~5 V, so there is a pull-down on one group and a pull-up on
+			// the other. Until those resistors are known the expected rig voltage
+			// cannot be computed, so these stay untested rather than guessed.
+			{ nullptr, 0, 0, 0 }, // TPS1_1, AN0 (falls with opening on this board)
+			{ nullptr, 0, 0, 0 }, // TPS1_2, AN1 (rises with opening)
+			{ nullptr, 0, 0, 0 }, // PPS1, AN5
+			{ nullptr, 0, 0, 0 }, // PPS2, AN4
+			{ nullptr, 0, 0, 0 }, // MAP: no MAP input is configured on this board
+			{ "CLT", 1.0f, CLT_VALUE(E78_R) * ANALOG_L, CLT_VALUE(E78_R) * ANALOG_H },
+			{ "IAT", 1.0f, IAT_VALUE(E78_R) * ANALOG_L, IAT_VALUE(E78_R) * ANALOG_H },
+			{ "BATT", E78_VBATT_MULT, 9.0f, 15.0f },
+
+			{ nullptr, 0, 0, 0 }, // TPS2_1: single throttle on this board
+			{ nullptr, 0, 0, 0 }, // TPS2_2
+			{ nullptr, 0, 0, 0 }, // AUXL1
+			{ nullptr, 0, 0, 0 }, // AUXL2
+		},
+		// crank is the 60-2 wheel on X2-56 (GPIO146); cam X on X2-57 (GPIO149) is
+		// camInputs[0], so it reports as VVT1. Cam W (X2-60) is not assigned, and
+		// there is no VSS input.
+		.eventExpected = {/*crank*/true, false, /*cam1*/true, /*cam2*/false, /*cam3*/false, /*cam4*/false, /*vss*/false},
+		.buttonExpected = {false, false, false},
+		.auxDigitalExpected = {false, false, false, false,
+		false, false, false, false},
+		.outputNames = {
+ "X2-2 Injector 1",
+ "X1-28 Fuel pump relay",
+ "X2-1 Ignition 1",
+		},
+		.wboUnitsCount = 0,
+		// no DC output is offered, so the DC polarity hack never applies
+		.dcHackValue = 0,
+		.highSideStartingIndex = 0, .wboStartIndex = 0,
+	};
+}

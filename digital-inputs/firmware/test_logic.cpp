@@ -1219,6 +1219,7 @@ BoardConfig boardConfigs[] = {
 		.dcHackValue = 1,
 		.highSideStartingIndex = 0, .wboStartIndex = 0,
 	},
+	makeE78BoardConfig(),
 };
 
 BoardConfig *currentBoard = nullptr;

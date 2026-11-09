@@ -141,6 +141,7 @@ CPPSRC = $(ALLCPPSRC) \
         test_logic.cpp \
         test_logic_nissan.cpp \
         test_logic_harley.cpp \
+        test_logic_e78.cpp \
         can.cpp \
 	$(RUSEFI_LIB)/util/src/timer.cpp \
         can_hw.cpp \
