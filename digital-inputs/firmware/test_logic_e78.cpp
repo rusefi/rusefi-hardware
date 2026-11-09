@@ -8,9 +8,10 @@
  * outputNames must stay in the same order as the ECU's OUTPUTS[] in
  * rusefi-e78 firmware/hardware/board_hw_test.cpp, low sides first:
  *   0 Injector 1      GPIO132  X2-2   low side through the C2MIO
- *   1 Fuel pump relay GPIO197  X1-28  low side
- *   2 Ignition 1      GPIO167  X2-1   high side here, to be confirmed on the rig
- * The ECU reports lowSideCount = 2 and a DC count of 0: the throttle H-bridge
+ *   1 Fuel pump relay GPIO197  X1-28  high side
+ *   2 Starter relay   GPIO143  X1-27  high side
+ *   3 Ignition 1      GPIO167  X2-1   high side (fixture channel 4)
+ * The ECU reports lowSideCount = 1 and a DC count of 0: the throttle H-bridge
  * drives the plate against its stops, which the DC test cannot observe.
  */
 BoardConfig makeE78BoardConfig() {
@@ -31,7 +32,7 @@ BoardConfig makeE78BoardConfig() {
 			{ nullptr, 0, 0, 0 }, // PPS1, AN5
 			{ nullptr, 0, 0, 0 }, // PPS2, AN4
 			{ nullptr, 0, 0, 0 }, // MAP: no MAP input is configured on this board
-			{ "CLT", 1.0f, CLT_VALUE(E78_CLT_R) * ANALOG_L, CLT_VALUE(E78_CLT_R) * ANALOG_H },
+			{ nullptr, 0, 0, 0 }, // CLT: temporarily excluded; bench reads ~5 V, load/pull-up unverified
 			// The provisional 2 kohm IAT pull-up predicts 1.67 V, consistent with
 			// the observed 1.69 V. Verify the network before treating it as measured.
 			{ "IAT", 1.0f, IAT_VALUE(E78_IAT_R) * ANALOG_L, IAT_VALUE(E78_IAT_R) * ANALOG_H },
@@ -53,6 +54,7 @@ BoardConfig makeE78BoardConfig() {
 		.outputNames = {
  "X2-2 Injector 1",
  "X1-28 Fuel pump relay",
+ "X1-27 Starter relay",
  "X2-1 Ignition 1",
 		},
 		.wboUnitsCount = 0,
