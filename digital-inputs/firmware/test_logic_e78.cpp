@@ -31,8 +31,10 @@ BoardConfig makeE78BoardConfig() {
 			{ nullptr, 0, 0, 0 }, // PPS1, AN5
 			{ nullptr, 0, 0, 0 }, // PPS2, AN4
 			{ nullptr, 0, 0, 0 }, // MAP: no MAP input is configured on this board
-			{ "CLT", 1.0f, CLT_VALUE(E78_R) * ANALOG_L, CLT_VALUE(E78_R) * ANALOG_H },
-			{ "IAT", 1.0f, IAT_VALUE(E78_R) * ANALOG_L, IAT_VALUE(E78_R) * ANALOG_H },
+			{ "CLT", 1.0f, CLT_VALUE(E78_CLT_R) * ANALOG_L, CLT_VALUE(E78_CLT_R) * ANALOG_H },
+			// The provisional 2 kohm IAT pull-up predicts 1.67 V, consistent with
+			// the observed 1.69 V. Verify the network before treating it as measured.
+			{ "IAT", 1.0f, IAT_VALUE(E78_IAT_R) * ANALOG_L, IAT_VALUE(E78_IAT_R) * ANALOG_H },
 			{ "BATT", E78_VBATT_MULT, 9.0f, 15.0f },
 
 			{ nullptr, 0, 0, 0 }, // TPS2_1: single throttle on this board
@@ -41,9 +43,10 @@ BoardConfig makeE78BoardConfig() {
 			{ nullptr, 0, 0, 0 }, // AUXL2
 		},
 		// crank is the 60-2 wheel on X2-56 (GPIO146); cam X on X2-57 (GPIO149) is
-		// camInputs[0], so it reports as VVT1. Cam W (X2-60) is not assigned, and
-		// there is no VSS input.
-		.eventExpected = {/*crank*/true, false, /*cam1*/true, /*cam2*/false, /*cam3*/false, /*cam4*/false, /*vss*/false},
+		// camInputs[0], so it reports as VVT1. Cam W on X2-60 (GPIO148) is
+		// camInputs[1], reported as VVT2. Both require a fixture digital wire.
+		// There is no VSS input.
+		.eventExpected = {/*crank*/true, false, /*cam1*/true, /*cam2*/true, /*cam3*/false, /*cam4*/false, /*vss*/false},
 		.buttonExpected = {false, false, false},
 		.auxDigitalExpected = {false, false, false, false,
 		false, false, false, false},

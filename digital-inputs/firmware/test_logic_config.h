@@ -16,11 +16,12 @@
 #define PROTEUS_VBATT_MULT 9.2f
 // GM E78: battery divider 51/8192*4095/5, from the OEM boot code scaling.
 #define E78_VBATT_MULT 5.10f
-// E78 thermistor pull-up. Not measured on the E78 itself yet: this mirrors the
-// value its firmware assumes (board_configuration.cpp, taken from the GM E38),
-// so a CLT or IAT channel reported BAD here is first evidence that the real
-// pull-up differs, rather than a wiring fault.
-#define E78_R 5230
+// Match the separate E78 firmware thermistor assumptions.
+// CLT remains an unverified GM E38 value; its bench input is near 5 V.
+#define E78_CLT_R 5230
+// IAT inferred from ~1.69 V with the fixture's assumed 1 kohm load.
+// TODO: verify the physical pull-up, fixture load and connector voltage.
+#define E78_IAT_R 2000
 
 #define Vdivider 5.0f
 #define IAT_VALUE(r) (Vdivider * 1000/(1000+r))
