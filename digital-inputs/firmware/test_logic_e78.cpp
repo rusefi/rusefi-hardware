@@ -6,12 +6,8 @@
  * GM E78 (NXP MPC5566), rusefi-e78 firmware.
  *
  * outputNames must stay in the same order as the ECU's OUTPUTS[] in
- * rusefi-e78 firmware/hardware/board_hw_test.cpp, low sides first:
- *   0 Injector 1      GPIO132  X2-2   low side through the C2MIO
- *   1 Fuel pump relay GPIO197  X1-28  high side
- *   2 Starter relay   GPIO143  X1-27  high side
- *   3 Ignition 1      GPIO167  X2-1   high side (fixture channel 4)
- * The ECU reports lowSideCount = 1 and a DC count of 0: the throttle H-bridge
+ * rusefi-e78 firmware/hardware/board_hw_test.cpp
+ * The ECU reports lowSideCount = 4 and a DC count of 0: the throttle H-bridge
  * drives the plate against its stops, which the DC test cannot observe.
  */
 BoardConfig makeE78BoardConfig() {
@@ -53,6 +49,9 @@ BoardConfig makeE78BoardConfig() {
 		false, false, false, false},
 		.outputNames = {
  "X2-2 Injector 1",
+ "X2-10 Exhaust cam phaser",
+ "X2-11 Intake cam phaser",
+ "X2-14 Thermostat heater",
  "X1-28 Fuel pump relay",
  "X1-27 Starter relay",
  "X2-1 Ignition 1",
