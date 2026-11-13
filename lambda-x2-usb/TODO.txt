@@ -1,0 +1,9 @@
+Done in rev1:
+
+C35, C10 - recalculate
+
+C33, C36 - recalculate / rework analog output circuit
+
+To be done for rev2:
+
+Separate ESR driver GPIOs for each channel (to avoid crosstalk). Try to use two ESR drive GPIOs and resistor in different combination to cover needs for all three types of sensors?
