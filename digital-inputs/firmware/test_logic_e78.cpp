@@ -7,9 +7,14 @@
  *
  * outputNames must stay in the same order as the ECU's OUTPUTS[] in
  * rusefi-e78 firmware/hardware/board_hw_test.cpp
- * The ECU reports lowSideCount = 4 and a DC count of 0: the throttle H-bridge
+ * The ECU reports lowSideCount = 3 and a DC count of 0: the throttle H-bridge
  * drives the plate against its stops, which the DC test cannot observe.
  */
+// One-based harness pads: injector1, exhaust phaser, MIL, thermostat,
+// fuel pump, starter, ignition1, charge control, intake phaser.
+// MIL and intake phaser exchanged pads 3/9; ECU ordinals put all LS first.
+static constexpr uint8_t E78_OUTPUT_TEST_LINE_MAP[] = {0, 3, 2, 4, 5, 6, 7, 1, 8};
+
 BoardConfig makeE78BoardConfig() {
 	return {
 		.boardName = "e78",
@@ -49,16 +54,21 @@ BoardConfig makeE78BoardConfig() {
 		false, false, false, false},
 		.outputNames = {
  "X2-2 Injector 1",
- "X2-10 Exhaust cam phaser",
- "X2-11 Intake cam phaser",
  "X2-14 Thermostat heater",
+ "X1-52 MIL",
  "X1-28 Fuel pump relay",
  "X1-27 Starter relay",
  "X2-1 Ignition 1",
+ "X1-47 Charge indicator",
+ "X2-10 Exhaust cam phaser",
+ "X2-11 Intake cam phaser",
 		},
 		.wboUnitsCount = 0,
 		// no DC output is offered, so the DC polarity hack never applies
 		.dcHackValue = 0,
 		.highSideStartingIndex = 0, .wboStartIndex = 0,
+		.outputTestLineMap = E78_OUTPUT_TEST_LINE_MAP,
+		.outputTestLineMapCount = sizeof(E78_OUTPUT_TEST_LINE_MAP) / sizeof(E78_OUTPUT_TEST_LINE_MAP[0]),
+		.outputTestLowSideCount = 3,
 	};
 }
