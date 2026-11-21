@@ -22,6 +22,14 @@
 // IAT inferred from ~1.69 V with the fixture's assumed 1 kohm load.
 // TODO: verify the physical pull-up, fixture load and connector voltage.
 #define E78_IAT_R 2000
+// GPEC2A: provisional thermistor pull-ups, same as rusefi-gpec2a board_configuration.cpp.
+// TODO: verify on the bench.
+#define GPEC2A_CLT_R 5230
+#define GPEC2A_IAT_R 2000
+// GPEC2: provisional thermistor pull-ups, same as rusefi-gpec2 board_configuration.cpp.
+// TODO: verify on the bench.
+#define GPEC2_CLT_R 5230
+#define GPEC2_IAT_R 2000
 
 #define Vdivider 5.0f
 #define IAT_VALUE(r) (Vdivider * 1000/(1000+r))
@@ -104,3 +112,5 @@ BoardConfig makeHarley54BoardConfig();
 BoardConfig makeNissan121BoardConfig();
 BoardConfig makeNissanZ31BoardConfig();
 BoardConfig makeE78BoardConfig();
+BoardConfig makeGpec2aBoardConfig();
+BoardConfig makeGpec2BoardConfig();

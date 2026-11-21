@@ -1220,6 +1220,8 @@ BoardConfig boardConfigs[] = {
 		.highSideStartingIndex = 0, .wboStartIndex = 0,
 	},
 	makeE78BoardConfig(),
+	makeGpec2aBoardConfig(),
+	makeGpec2BoardConfig(),
 };
 
 BoardConfig *currentBoard = nullptr;
