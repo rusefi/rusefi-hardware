@@ -115,6 +115,14 @@ bool testEcuDigitalOutputs(size_t overallProcessingStepIndex) {
 	        chprintf(chp, "                      ZERO OUTPUTS CONFIGURED\r\n");
 		return false;
     }
+	if (currentBoard->outputTestLineMap != nullptr &&
+	    (currentBoard->outputTestLineMapCount != static_cast<size_t>(numOutputs) ||
+	     (currentBoard->outputTestLowSideCount >= 0 &&
+	      currentBoard->outputTestLowSideCount != lowSideOutputs))) {
+	    setErrorLedAndRedText();
+	    chprintf(chp, "ERROR! Output test-pad map does not match ECU output metadata\r\n");
+	    return false;
+	}
 
 	chprintf(chp, "                      numOutputs %d\r\n", numOutputs);
 
@@ -131,6 +139,9 @@ bool testEcuDigitalOutputs(size_t overallProcessingStepIndex) {
 
 	    } else {
 	        testLineIndex = currentIndex;
+	    }
+	    if (currentBoard->outputTestLineMap != nullptr) {
+	        testLineIndex = currentBoard->outputTestLineMap[currentIndex];
 	    }
 
 		bool isThisGood = testEcuDigitalOutput2(testLineIndex, currentIndex, isLowSideOutput);

@@ -86,6 +86,10 @@ public:
 	int dcHackValue;
 	int highSideStartingIndex;
 	int wboStartIndex;
+	// Optional mapping from ECU output ordinals to existing fixture test pads.
+	const uint8_t *outputTestLineMap = nullptr;
+	size_t outputTestLineMapCount = 0;
+	int outputTestLowSideCount = -1;
 
 	const char *getOutputName(size_t index) {
 	    // output count comes from the ECU over CAN and can exceed our name table
