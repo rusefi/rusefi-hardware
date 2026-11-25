@@ -4,6 +4,13 @@
 #include "test_logic.h"
 #include "can.h"
 #include "terminal_util.h"
+#include "adc.h"
+
+// Diagnostic: when an ECU output tests BAD, drive that ECU ordinal low vs high
+// and sweep every mux pad to find which stim pad (if any) actually responds.
+// Distinguishes "wired to a different stim pad" (fixable with outputTestLineMap)
+// from "not landed at all" (bench wiring). Prints the responding pad(s).
+static void discoverOutputPad(size_t ecuLineIndex, const char *name);
 
 /**
  * ECU outputs
@@ -164,6 +171,8 @@ bool testEcuDigitalOutputs(size_t overallProcessingStepIndex) {
 			    currentBoard == nullptr ? nullptr : currentBoard->getOutputName(currentIndex)
 			    );
 			setNormalText();
+			discoverOutputPad(currentIndex,
+			    currentBoard == nullptr ? "" : currentBoard->getOutputName(currentIndex));
 			chThdSleepMilliseconds(1000);
 		}
 		isGood = isGood && isThisGood;
@@ -190,5 +199,44 @@ void setScenarioIndex(int pullUpDownPinsBitmap) {
         pullUpDownPinsBitmap = pullUpDownPinsBitmap / 2;
         io_pin *pin = &pullUpDownPins[i];
         palWritePad(pin->port, pin->pin, bitState);
+    }
+}
+
+#define DISCOVERY_PAD_COUNT (DIGITAL_INPUT_BANK_SIZE * ADC_GRP_NUM_CHANNELS)
+
+static void discoverOutputPad(size_t ecuLineIndex, const char *name) {
+    float lo[DISCOVERY_PAD_COUNT];
+    float hi[DISCOVERY_PAD_COUNT];
+    setScenarioIndex(0x0F); // pull-ups on for all banks so an idle pad floats high
+    for (int drive = 0; drive < 2; drive++) {
+        sendCanPinState((uint8_t)ecuLineIndex, drive != 0);
+        chThdSleepMilliseconds(80);
+        for (int bank = 0; bank < ADC_GRP_NUM_CHANNELS; bank++) {
+            for (int addr = 0; addr < DIGITAL_INPUT_BANK_SIZE; addr++) {
+                setOutputAddrIndex(addr);
+                chThdSleepMilliseconds(3);
+                int pad = bank * DIGITAL_INPUT_BANK_SIZE + addr;
+                float v = getAdcValue(bank);
+                if (drive == 0) lo[pad] = v; else hi[pad] = v;
+            }
+        }
+    }
+    sendCanPinState((uint8_t)ecuLineIndex, false);
+    chprintf(chp, "   >>> PAD-DISCOVERY ECU out %d (%s): pads that respond to its drive:\r\n",
+        index2human(ecuLineIndex), name);
+    bool any = false;
+    for (int pad = 0; pad < DISCOVERY_PAD_COUNT; pad++) {
+        float d = hi[pad] - lo[pad];
+        if (d < 0) d = -d;
+        if (d > 0.8f) {
+            any = true;
+            chprintf(chp, "   >>>   stim pad %d (addr %d bank %d): low=%1.2fv high=%1.2fv delta=%1.2fv\r\n",
+                index2human(pad), pad % DIGITAL_INPUT_BANK_SIZE, pad / DIGITAL_INPUT_BANK_SIZE,
+                lo[pad], hi[pad], d);
+        }
+    }
+    if (!any) {
+        chprintf(chp, "   >>>   NONE - ECU out %d reaches no stim pad (open / not landed)\r\n",
+            index2human(ecuLineIndex));
     }
 }
