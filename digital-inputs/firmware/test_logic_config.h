@@ -22,14 +22,17 @@
 // IAT inferred from ~1.69 V with the fixture's assumed 1 kohm load.
 // TODO: verify the physical pull-up, fixture load and connector voltage.
 #define E78_IAT_R 2000
-// GPEC2A: provisional thermistor pull-ups, same as rusefi-gpec2a board_configuration.cpp.
-// TODO: verify on the bench.
-#define GPEC2A_CLT_R 5230
-#define GPEC2A_IAT_R 2000
-// GPEC2: provisional thermistor pull-ups, same as rusefi-gpec2 board_configuration.cpp.
-// TODO: verify on the bench.
-#define GPEC2_CLT_R 5230
-#define GPEC2_IAT_R 2000
+// GPEC2A/GPEC2 CLT and IAT ranges are NOT derived from CLT_VALUE/IAT_VALUE:
+// the stim analog stimulus is an op-amp-buffered voltage source, not a
+// resistive thermistor emulation, so their ranges are calibrated to the
+// measured raw divider voltages directly in test_logic_gpec2a.cpp /
+// test_logic_gpec2.cpp. (The former GPEC2A_CLT_R/IAT_R and GPEC2_CLT_R/IAT_R
+// placeholders were unused after that and are removed.)
+// GPEC2A VBatt sense divider: matches rusefi-gpec2a board_configuration.cpp
+// GPEC2A_VBATT_DIVIDER (vbattDividerCoeff). Bench 2026-11-26: a known 15.99 V
+// supply read 4.686 V at the ADC -> true divider ~3.41, so 3.35 reads ~1.8% low.
+// Keep equal to the firmware coeff so the tester checks what the ECU reports.
+#define GPEC2A_VBATT_MULT 3.35f
 
 #define Vdivider 5.0f
 #define IAT_VALUE(r) (Vdivider * 1000/(1000+r))

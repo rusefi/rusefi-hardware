@@ -25,11 +25,27 @@ BoardConfig makeGpec2aBoardConfig() {
 			{ "TPS1_2", PULLED_DOWN_RANGE(DOWN_9B, UP_9B, 680'000) },   // C2-90, AN5
 			{ "PPS1", PULLED_DOWN_RANGE(DOWN_10B, UP_10B, 680'000) },   // C1-92, AN37
 			{ "PPS2", PULLED_DOWN_RANGE(DOWN_11B, UP_11B, 680'000) },   // C1-91, AN11
-			{ nullptr, 0, 0, 0 }, // MAP: no MAP input is configured on this board
-			// Thermistor pull-ups are the provisional firmware values, not measured.
-			{ "CLT", 1.0f, CLT_VALUE(GPEC2A_CLT_R) * ANALOG_L, CLT_VALUE(GPEC2A_CLT_R) * ANALOG_H }, // C2-12, AN35
-			{ "IAT", 1.0f, IAT_VALUE(GPEC2A_IAT_R) * ANALOG_L, IAT_VALUE(GPEC2A_IAT_R) * ANALOG_H }, // C2-3, AN32 (channel unconfirmed)
-			{ nullptr, 0, 0, 0 }, // BATT: divider not calibrated yet
+			// MAP C2-45 (map.sensor.hwChannel). Measured-provisional: a stim pad
+			// reads ~0.706 V raw on the 2026-11-26 bench; model/divider TBD.
+			{ "MAP", 1.0f, 0.65f, 0.76f },
+			// CLT (C2-12 AN35) and IAT (C2-44, firmware setGpec2aThermistor, not
+			// C2-3) are wired. The CLT_VALUE/IAT_VALUE theoretical math does NOT
+			// apply on this stim rig: the stim analog stimulus is an op-amp-
+			// buffered voltage source (OPA4197 U1, github.com/rusefi/stim) -- a
+			// stiff source, not the resistive thermistor emulation those macros
+			// model -- so no pull-up/stim-load constant brackets the reading
+			// (that is why IAT false-failed at 3250: modeled 1.18 V vs live
+			// 1.06 V). Ranges are calibrated to the measured raw divider voltages
+			// (+/-7.5% ANALOG band), same approach as makeGpec2BoardConfig.
+			// Temperature *accuracy* still needs the true physical pull-up
+			// (firmware uses 3250; resistance-substitution test) as bias_resistor
+			// in rusefi-gpec2a board_configuration.cpp.
+			{ "CLT", 1.0f, 1.804f * ANALOG_L, 1.804f * ANALOG_H }, // C2-12 AN35, measured 1.804 V (2026-11-26)
+			{ "IAT", 1.0f, 1.059f * ANALOG_L, 1.059f * ANALOG_H }, // C2-44, measured 1.059 V (2026-11-26)
+			// VBatt C2 supply via ADC13; mult matches firmware vbattDividerCoeff.
+			// Standard 9-15 V window: use a normal (~13.5 V) bench supply for this
+			// check -- >15 V fails the window and >~16.75 V rails the 5 V ADC.
+			{ "BATT", GPEC2A_VBATT_MULT, 9.0f, 15.0f },
 
 			{ nullptr, 0, 0, 0 }, // TPS2_1: single throttle on this board
 			{ nullptr, 0, 0, 0 }, // TPS2_2
