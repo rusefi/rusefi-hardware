@@ -30,8 +30,19 @@ change, update the patterns here.
 
 ## Serial connection (WSL bench)
 
-The rig is a USB CDC ACM device. Attach it to WSL (usbip) so it appears as
-`/dev/ttyACM0` (or `/dev/ttyUSB0`). CDC baud is nominal.
+The console is the **STM32's own native USB CDC** (VID:PID `0483:5740`, "USB Serial
+Device", COM15 on Windows) — **not** the ST-Link VCP (`0483:374b`), which the firmware
+does *not* print to. Reading the ST-Link port shows only silence; that was a real
+time-sink. Attach the right one to WSL:
+
+```bash
+usbipd.exe list                              # find the 0483:5740 busid (e.g. 4-3)
+usbipd.exe attach --wsl --busid 4-3          # now appears as the NEXT /dev/ttyACM*
+ls -l /dev/ttyACM*                           # the new node (often ttyACM1) is the rig
+```
+
+CDC baud is nominal. The node is `dialout`-group (be in `dialout`). Then set
+`STIM_SERIAL_PORT=/dev/ttyACM1`.
 
 - Autodetect: leave `STIM_SERIAL_PORT` unset → first `/dev/ttyACM*` then `/dev/ttyUSB*`.
 - Explicit: `STIM_SERIAL_PORT=/dev/ttyACM0`.

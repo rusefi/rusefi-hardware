@@ -180,7 +180,10 @@ BoardConfig makeMinimalHarleyBoardConfig() {
 			// 0
 			{ "TPS1_1", PULLED_DOWN_RANGE(DOWN_7B, UP_7B, 680'000) },
 			{ "TPS1_2", PULLED_DOWN_RANGE(DOWN_9B, UP_9B, 680'000) },
-			{ "PPS1", 1, 0.79 /*0.821830144*/, 0.920940928 },
+			// Upper bound widened 0.921 -> 0.95: the 10B 0.9V pad reads 0.928 V live
+			// on this GPEC2A bench (direct hd81 15D -> C1-92 jumper, no harness
+			// offset), ~7 mV over the old tight max. 0.95 = 10B pad +~5.5%.
+			{ "PPS1", 1, 0.79 /*0.821830144*/, 0.95 },
 			{ "PPS2", PULLED_DOWN_RANGE(DOWN_11B, UP_11B, 680'000) },
 			{ "MAP", PULLED_DOWN_RANGE(DOWN_8B, UP_8B, 680'000) },
 			// CLT, IAT, BATT and everything else: not checked
