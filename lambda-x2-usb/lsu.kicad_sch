@@ -5141,7 +5141,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "10k 1%"
+		(property "Value" "10k"
 			(at 120.65 73.66 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7751,7 +7751,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "10k 1%"
+		(property "Value" "10k"
 			(at 101.6 85.09 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8428,7 +8428,7 @@
 				)
 			)
 		)
-		(property "LCSC" "C328363"
+		(property "LCSC" "C114623"
 			(at 111.76 217.17 0)
 			(hide yes)
 			(show_name no)

@@ -18651,7 +18651,7 @@
 				)
 			)
 		)
-		(property "LCSC" "C72041"
+		(property "LCSC" "C497940"
 			(at 508 38.1 0)
 			(hide yes)
 			(show_name no)
@@ -19180,7 +19180,7 @@
 				)
 			)
 		)
-		(property "LCSC" "C72043"
+		(property "LCSC" "C965804"
 			(at 524.51 38.1 0)
 			(hide yes)
 			(show_name no)
@@ -19605,7 +19605,7 @@
 				)
 			)
 		)
-		(property "LCSC" "C72043"
+		(property "LCSC" "C965804"
 			(at 494.03 38.1 0)
 			(hide yes)
 			(show_name no)
@@ -24812,7 +24812,7 @@
 		(in_bom yes)
 		(on_board yes)
 		(in_pos_files yes)
-		(dnp no)
+		(dnp yes)
 		(uuid "0cfd4943-1cf5-4f6b-91dd-edf8519468a2")
 		(property "Reference" "J7"
 			(at 49.276 200.152 0)
@@ -26302,7 +26302,7 @@
 		(in_bom yes)
 		(on_board yes)
 		(in_pos_files yes)
-		(dnp no)
+		(dnp yes)
 		(uuid "21a579d3-ab10-4a45-b45e-bb90c3b49b34")
 		(property "Reference" "J5"
 			(at 49.276 159.512 0)
@@ -27670,7 +27670,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "10k 1%"
+		(property "Value" "10k"
 			(at 213.36 175.26 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -29419,7 +29419,7 @@
 		(in_bom yes)
 		(on_board yes)
 		(in_pos_files yes)
-		(dnp no)
+		(dnp yes)
 		(uuid "42c4d85f-def1-4599-978f-2f2a2c4018de")
 		(property "Reference" "J9"
 			(at 49.276 220.472 0)
@@ -29655,7 +29655,7 @@
 		(in_bom yes)
 		(on_board yes)
 		(in_pos_files yes)
-		(dnp no)
+		(dnp yes)
 		(uuid "45d5ae7d-545a-4be1-8172-b8d02bcbb266")
 		(property "Reference" "J6"
 			(at 49.276 149.352 0)
@@ -33239,7 +33239,7 @@
 		(in_bom yes)
 		(on_board yes)
 		(in_pos_files yes)
-		(dnp no)
+		(dnp yes)
 		(uuid "88946560-06a4-4f54-9938-81dbb2abf803")
 		(property "Reference" "J1"
 			(at 49.276 179.832 0)
@@ -33950,7 +33950,7 @@
 		(in_bom yes)
 		(on_board yes)
 		(in_pos_files yes)
-		(dnp no)
+		(dnp yes)
 		(uuid "97bc839a-43c8-45e2-a2dd-ed6c195b2b0f")
 		(property "Reference" "J8"
 			(at 49.276 210.312 0)
@@ -34851,7 +34851,7 @@
 		(in_bom yes)
 		(on_board yes)
 		(in_pos_files yes)
-		(dnp no)
+		(dnp yes)
 		(uuid "a1d0b427-8c8e-4e62-b34b-9f953a49dd45")
 		(property "Reference" "J4"
 			(at 49.276 169.672 0)
@@ -34932,7 +34932,7 @@
 		(in_bom yes)
 		(on_board yes)
 		(in_pos_files yes)
-		(dnp no)
+		(dnp yes)
 		(uuid "a2ee0b60-f13b-4bf0-86a4-6f75863dfb2b")
 		(property "Reference" "J3"
 			(at 49.276 189.992 0)
@@ -36080,7 +36080,7 @@
 				)
 			)
 		)
-		(property "LCSC" "C72043"
+		(property "LCSC" "C965804"
 			(at 542.29 38.1 0)
 			(hide yes)
 			(show_name no)
@@ -36445,7 +36445,7 @@
 				)
 			)
 		)
-		(property "LCSC" "C17996816"
+		(property "LCSC" "C17899327"
 			(at 528.32 176.53 0)
 			(hide yes)
 			(show_name no)
@@ -36886,6 +36886,17 @@
 		)
 		(property "Description" ""
 			(at 49.53 109.22 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C5349068"
+			(at 49.53 109.22 0)
+			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -38694,7 +38705,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "10k 1%"
+		(property "Value" "10k"
 			(at 212.09 101.6 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -39386,7 +39397,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "10k 1%"
+		(property "Value" "10k"
 			(at 212.09 43.18 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -39983,7 +39994,7 @@
 				)
 			)
 		)
-		(property "LCSC" "C540242"
+		(property "LCSC" "C3747428"
 			(at 377.19 66.04 0)
 			(hide yes)
 			(show_name no)

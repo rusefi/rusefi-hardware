@@ -1629,7 +1629,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "10k 1%"
+		(property "Value" "10k"
 			(at 107.95 45.72 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1953,14 +1953,26 @@
 				(path "/3993c707-5291-41b6-83c0-d1c09cb3833a/4b3af7b4-4951-4654-92ed-cb65eb90c125"
 					(reference "U18")
 					(unit 1)
+					(variant
+						(name "2xEGT")
+						(dnp yes)
+					)
 				)
 				(path "/3993c707-5291-41b6-83c0-d1c09cb3833a/68f39506-b6bd-4873-9494-f8835e95c376"
 					(reference "U16")
 					(unit 1)
+					(variant
+						(name "2xEGT")
+						(dnp yes)
+					)
 				)
 				(path "/3993c707-5291-41b6-83c0-d1c09cb3833a/9d6614e7-bc8c-4731-8efe-7e470221dbb7"
 					(reference "U19")
 					(unit 1)
+					(variant
+						(name "2xEGT")
+						(dnp yes)
+					)
 				)
 				(path "/3993c707-5291-41b6-83c0-d1c09cb3833a/a9d2c704-8266-40b9-a0a5-1218d3f325f6"
 					(reference "U1")
@@ -1969,6 +1981,10 @@
 				(path "/3993c707-5291-41b6-83c0-d1c09cb3833a/bb61a6e5-29ed-4318-9623-d569bff7227a"
 					(reference "U20")
 					(unit 1)
+					(variant
+						(name "2xEGT")
+						(dnp yes)
+					)
 				)
 				(path "/3993c707-5291-41b6-83c0-d1c09cb3833a/e339ff66-b3bf-4d0c-a6b6-e4e71fb15e48"
 					(reference "U14")
@@ -1977,10 +1993,18 @@
 				(path "/3993c707-5291-41b6-83c0-d1c09cb3833a/edaca19f-d1d4-4ffb-8a22-ba8fd3f14f78"
 					(reference "U15")
 					(unit 1)
+					(variant
+						(name "2xEGT")
+						(dnp yes)
+					)
 				)
 				(path "/3993c707-5291-41b6-83c0-d1c09cb3833a/fe191580-54a8-4f8a-85bc-1ca744103cf3"
 					(reference "U21")
 					(unit 1)
+					(variant
+						(name "2xEGT")
+						(dnp yes)
+					)
 				)
 			)
 		)

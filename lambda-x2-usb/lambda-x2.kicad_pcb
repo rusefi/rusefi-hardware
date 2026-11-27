@@ -152,6 +152,11 @@
 			(outputdirectory "export/gerbers/")
 		)
 	)
+	(variants
+		(variant
+			(name "2xEGT")
+		)
+	)
 	(footprint "Resistor_SMD:R_0603_1608Metric"
 		(layer "F.Cu")
 		(uuid "00000000-0000-0000-0000-000060074e8e")
@@ -2975,7 +2980,7 @@
 				)
 			)
 		)
-		(property "LCSC" "C72043"
+		(property "LCSC" "C965804"
 			(at 0 0 270)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -6282,7 +6287,7 @@
 				)
 			)
 		)
-		(property "LCSC" "C72041"
+		(property "LCSC" "C497940"
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -6675,7 +6680,7 @@
 				)
 			)
 		)
-		(property "LCSC" "C72043"
+		(property "LCSC" "C965804"
 			(at 0 0 90)
 			(layer "F.Fab")
 			(hide yes)
@@ -7206,7 +7211,7 @@
 				)
 			)
 		)
-		(property "Value" "10k 1%"
+		(property "Value" "10k"
 			(at 0 1.17 0)
 			(layer "F.Fab")
 			(uuid "2d97d742-1f5e-4b60-9c8f-af35f3da27ab")
@@ -7763,7 +7768,7 @@
 				)
 			)
 		)
-		(property "LCSC" "C328363"
+		(property "LCSC" "C114623"
 			(at 0 0 270)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -13393,6 +13398,10 @@
 			(pintype "no_connect")
 			(uuid "484c43f8-1d2d-4921-a582-fe37594330ce")
 		)
+		(variant
+			(name "2xEGT")
+			(dnp yes)
+		)
 		(embedded_fonts no)
 		(model "${KICAD10_3DMODEL_DIR}/Package_SO.3dshapes/SOIC-8_3.9x4.9mm_P1.27mm.step"
 			(offset
@@ -14849,7 +14858,7 @@
 				)
 			)
 		)
-		(property "Value" "10k 1%"
+		(property "Value" "10k"
 			(at 0 1.17 90)
 			(layer "F.Fab")
 			(uuid "c2371b26-495e-48c5-b0a5-da0b5e4bda2c")
@@ -15755,7 +15764,7 @@
 				)
 			)
 		)
-		(property "Value" "10k 1%"
+		(property "Value" "10k"
 			(at 0 1.17 90)
 			(layer "F.Fab")
 			(uuid "ebf0cb0e-2dbf-41a6-8890-fbd6185dffb4")
@@ -16268,7 +16277,7 @@
 				)
 			)
 		)
-		(property "Value" "10k 1%"
+		(property "Value" "10k"
 			(at 0 1.17 90)
 			(layer "F.Fab")
 			(uuid "cc3cab17-4f95-49d7-8432-2c48a2548d35")
@@ -16439,7 +16448,7 @@
 				)
 			)
 		)
-		(property "Value" "10k 1%"
+		(property "Value" "10k"
 			(at 0 1.17 180)
 			(layer "F.Fab")
 			(uuid "011010ad-cb6d-407c-b7f6-a3e81baae5ad")
@@ -18302,7 +18311,7 @@
 				(pins "1" "2")
 			)
 		)
-		(attr through_hole)
+		(attr through_hole dnp)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_line
 			(start 0 -3.15)
@@ -18784,7 +18793,7 @@
 				)
 			)
 		)
-		(property "LCSC" "C540242"
+		(property "LCSC" "C3747428"
 			(at 0 0 90)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -19500,7 +19509,7 @@
 			)
 		)
 		(property ki_fp_filters "SOIC*3.9x4.9mm*P1.27mm* DIP*W7.62mm* TO*99* OnSemi*Micro8* TSSOP*3x3mm*P0.65mm* TSSOP*4.4x3mm*P0.65mm* MSOP*3x3mm*P0.65mm* SSOP*3.9x4.9mm*P0.635mm* LFCSP*2x2mm*P0.5mm* *SIP* SOIC*5.3x6.2mm*P1.27mm*")
-		(path "/6a8dc4f2-2344-4993-b25e-3178003e3a8b")
+		(path "/52fc4c35-47e8-4427-8953-c4b8167c3296")
 		(sheetname "/")
 		(sheetfile "lambda-x2.kicad_sch")
 		(units
@@ -22213,7 +22222,7 @@
 				(pins "1" "2")
 			)
 		)
-		(attr through_hole)
+		(attr through_hole dnp)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_line
 			(start 0 -3.15)
@@ -24210,6 +24219,10 @@
 			(pintype "no_connect")
 			(uuid "5a8f24b8-115c-4b07-8a4d-1ab531756400")
 		)
+		(variant
+			(name "2xEGT")
+			(dnp yes)
+		)
 		(embedded_fonts no)
 		(model "${KICAD10_3DMODEL_DIR}/Package_SO.3dshapes/SOIC-8_3.9x4.9mm_P1.27mm.step"
 			(offset
@@ -24240,7 +24253,7 @@
 				)
 			)
 		)
-		(property "Value" "10k 1%"
+		(property "Value" "10k"
 			(at 0 1.17 90)
 			(layer "F.Fab")
 			(uuid "1fc5b1f8-8ca4-48b4-9d99-e78a05cff433")
@@ -25937,7 +25950,7 @@
 				(pins "1" "2")
 			)
 		)
-		(attr through_hole)
+		(attr through_hole dnp)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_line
 			(start 0 -3.15)
@@ -28177,7 +28190,7 @@
 				)
 			)
 		)
-		(property "Value" "10k 1%"
+		(property "Value" "10k"
 			(at 0 1.17 180)
 			(layer "F.Fab")
 			(uuid "f92002ad-3b0a-4641-bcf6-5d16b97f10ad")
@@ -28887,7 +28900,7 @@
 				)
 			)
 		)
-		(property "Value" "10k 1%"
+		(property "Value" "10k"
 			(at 0 1.17 180)
 			(layer "F.Fab")
 			(uuid "85033d56-fc9b-4d1f-9094-528b4c9c24e6")
@@ -32993,6 +33006,10 @@
 			(pintype "no_connect")
 			(uuid "5cd54642-ebba-437b-94d5-70bc0f2af612")
 		)
+		(variant
+			(name "2xEGT")
+			(dnp yes)
+		)
 		(embedded_fonts no)
 		(model "${KICAD10_3DMODEL_DIR}/Package_SO.3dshapes/SOIC-8_3.9x4.9mm_P1.27mm.step"
 			(offset
@@ -34969,7 +34986,7 @@
 				)
 			)
 		)
-		(property "Value" "10k 1%"
+		(property "Value" "10k"
 			(at 0 1.17 180)
 			(layer "F.Fab")
 			(uuid "07abf502-9c81-4fc9-8d40-8d0dfda1bf35")
@@ -36017,7 +36034,7 @@
 				)
 			)
 		)
-		(property "Value" "10k 1%"
+		(property "Value" "10k"
 			(at 0 1.17 90)
 			(layer "F.Fab")
 			(uuid "7b21f572-c73c-4e7a-9830-0636c1503e72")
@@ -37638,7 +37655,7 @@
 				)
 			)
 		)
-		(property "LCSC" "C17996816"
+		(property "LCSC" "C17899327"
 			(at 0 0 270)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -37984,7 +38001,7 @@
 				)
 			)
 		)
-		(property "Value" "10k 1%"
+		(property "Value" "10k"
 			(at 0 1.17 90)
 			(layer "F.Fab")
 			(uuid "9aa26d7f-52ec-4e90-83f0-19e7a6e4be80")
@@ -39401,7 +39418,7 @@
 			)
 		)
 		(property ki_fp_filters "SG-* SOT*")
-		(path "/f6f06a05-7433-4816-ae13-7d30025d626f")
+		(path "/f4eb5db7-41ad-4cc4-8720-b12e8d69508d")
 		(sheetname "/")
 		(sheetfile "lambda-x2.kicad_sch")
 		(units
@@ -40258,6 +40275,10 @@
 			(pinfunction "NC_8")
 			(pintype "no_connect")
 			(uuid "f94b2675-371d-4657-8908-de3dcbf0e255")
+		)
+		(variant
+			(name "2xEGT")
+			(dnp yes)
 		)
 		(embedded_fonts no)
 		(model "${KICAD10_3DMODEL_DIR}/Package_SO.3dshapes/SOIC-8_3.9x4.9mm_P1.27mm.step"
@@ -42879,6 +42900,19 @@
 				)
 			)
 		)
+		(property "LCSC" "C5349068"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "e888ffa4-6ab2-486e-8339-b6bf0ae65ecd")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(property ki_fp_filters "33311-24AW-2")
 		(path "/c90308a6-e964-44c8-b0ca-07f81de2dbd8")
 		(sheetname "/")
@@ -44426,7 +44460,7 @@
 				)
 			)
 		)
-		(property "LCSC" "C328363"
+		(property "LCSC" "C114623"
 			(at 0 0 270)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -44768,7 +44802,7 @@
 				)
 			)
 		)
-		(property "LCSC" "C72043"
+		(property "LCSC" "C965804"
 			(at 299.466 154.94 90)
 			(layer "F.Fab")
 			(hide yes)
@@ -45175,7 +45209,7 @@
 				(pins "1" "2")
 			)
 		)
-		(attr through_hole)
+		(attr through_hole dnp)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_line
 			(start 0 -3.15)
@@ -46317,7 +46351,7 @@
 				)
 			)
 		)
-		(property "Value" "10k 1%"
+		(property "Value" "10k"
 			(at 0 1.17 90)
 			(layer "F.Fab")
 			(uuid "1add2b3e-e567-480d-a3ff-ff0c59898b12")
@@ -49019,7 +49053,7 @@
 				)
 			)
 		)
-		(property "Value" "10k 1%"
+		(property "Value" "10k"
 			(at 0 1.17 90)
 			(layer "F.Fab")
 			(uuid "59d3176b-79e7-44c9-92df-75b71803ba00")
@@ -49361,7 +49395,7 @@
 				)
 			)
 		)
-		(property "Value" "10k 1%"
+		(property "Value" "10k"
 			(at 0 1.17 90)
 			(layer "F.Fab")
 			(uuid "a8b9198a-ff7b-4f7d-991f-de421ef2a526")
@@ -50666,7 +50700,7 @@
 				(pins "1" "2")
 			)
 		)
-		(attr through_hole)
+		(attr through_hole dnp)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_line
 			(start 0 -3.15)
@@ -51654,7 +51688,7 @@
 				)
 			)
 		)
-		(property "Value" "10k 1%"
+		(property "Value" "10k"
 			(at 0 1.17 0)
 			(layer "F.Fab")
 			(uuid "ed84f6f6-0973-4c6c-9f65-8a3497495771")
@@ -52189,6 +52223,10 @@
 			(pinfunction "NC_8")
 			(pintype "no_connect")
 			(uuid "c03320f2-2751-4f0c-8473-75358bbf8ef1")
+		)
+		(variant
+			(name "2xEGT")
+			(dnp yes)
 		)
 		(embedded_fonts no)
 		(model "${KICAD10_3DMODEL_DIR}/Package_SO.3dshapes/SOIC-8_3.9x4.9mm_P1.27mm.step"
@@ -55733,7 +55771,7 @@
 				(pins "1" "2")
 			)
 		)
-		(attr through_hole)
+		(attr through_hole dnp)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_line
 			(start 0 -3.15)
@@ -58421,7 +58459,7 @@
 				(pins "1" "2")
 			)
 		)
-		(attr through_hole)
+		(attr through_hole dnp)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_line
 			(start 0 -3.15)
@@ -59403,7 +59441,7 @@
 				(pins "1" "2")
 			)
 		)
-		(attr through_hole)
+		(attr through_hole dnp)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_line
 			(start 0 -3.15)
@@ -61098,6 +61136,10 @@
 			(pinfunction "NC_8")
 			(pintype "no_connect")
 			(uuid "71bcdb56-c6dd-4a11-a98d-cfdbe8698086")
+		)
+		(variant
+			(name "2xEGT")
+			(dnp yes)
 		)
 		(embedded_fonts no)
 		(model "${KICAD10_3DMODEL_DIR}/Package_SO.3dshapes/SOIC-8_3.9x4.9mm_P1.27mm.step"
