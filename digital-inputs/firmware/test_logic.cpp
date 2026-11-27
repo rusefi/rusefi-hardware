@@ -602,6 +602,7 @@ BoardConfig boardConfigs[] = {
 	},
 	makeHarleyBoardConfig(),
 	makeHarley54BoardConfig(),
+	makeMinimalHarleyBoardConfig(),
 	{
 		.boardName = "121vag",
 		.desiredEngineConfig = -1,

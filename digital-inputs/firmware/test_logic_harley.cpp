@@ -154,3 +154,41 @@ BoardConfig makeHarley54BoardConfig() {
 		.highSideStartingIndex = 0, .wboStartIndex = 0,
 	};
 }
+
+/**
+ * Minimal Harley: only TPS1/2, PPS1/2, MAP, two injectors and two coils are checked.
+ *
+ * outputNames must stay in the same order as the ECU's OUTPUTS[] in the
+ * minimal Harley firmware board_hw_test.cpp
+ */
+BoardConfig makeMinimalHarleyBoardConfig() {
+	return {
+		.boardName = "hd-min",
+		.desiredEngineConfig = -1,
+		.boardIds = { STATIC_BOARD_ID_MINIMAL_HARLEY, 0 },
+		.channels = {
+			// Analog expectations assume the same stim signals as the HD81 harness.
+			// 0
+			{ "TPS1_1", PULLED_DOWN_RANGE(DOWN_7B, UP_7B, 680'000) },
+			{ "TPS1_2", PULLED_DOWN_RANGE(DOWN_9B, UP_9B, 680'000) },
+			{ "PPS1", 1, 0.79 /*0.821830144*/, 0.920940928 },
+			{ "PPS2", PULLED_DOWN_RANGE(DOWN_11B, UP_11B, 680'000) },
+			{ "MAP", PULLED_DOWN_RANGE(DOWN_8B, UP_8B, 680'000) },
+			// CLT, IAT, BATT and everything else: not checked
+		},
+		// no trigger inputs checked
+		.eventExpected = {/*crank*/false, false, /*cam1*/false, false, false, false, /*vss*/false},
+		.buttonExpected = {false, false, false},
+		.auxDigitalExpected = {false, false, false, false, false, false, false, false},
+		.outputNames = {
+			"Injector 1",
+			"Injector 2",
+			"Coil 1",
+			"Coil 2",
+		},
+		.wboUnitsCount = 0,
+		.dcHackValue = 1,
+		.highSideStartingIndex = 0,
+		.wboStartIndex = 0,
+	};
+}

@@ -112,6 +112,7 @@
 
 BoardConfig makeHarleyBoardConfig();
 BoardConfig makeHarley54BoardConfig();
+BoardConfig makeMinimalHarleyBoardConfig();
 BoardConfig makeNissan121BoardConfig();
 BoardConfig makeNissanZ31BoardConfig();
 BoardConfig makeE78BoardConfig();
