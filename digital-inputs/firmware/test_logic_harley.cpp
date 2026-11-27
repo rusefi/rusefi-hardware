@@ -61,6 +61,9 @@ BoardConfig makeHarleyBoardConfig() {
 			// 55 - with 4.7K pull up. Secondary 2K on 22C
 			{ "AT1", 1.0f, CLT_VALUE(HELLEN_R) * ANALOG_L, CLT_VALUE(HELLEN_R) * ANALOG_H },
 
+			// 24
+			// on-module digital barometer
+			BARO_CHANNEL,
 		},
 		.eventExpected = {
 		/* crank neg goes to https://rusefi.com/docs/pinouts/stim/?connector=main&pin=24C 2.5v source, crank positive 22B with a 4.7K pull up */
@@ -130,6 +133,10 @@ BoardConfig makeHarley54BoardConfig() {
 			{ nullptr, 0, 0, 0 },
 			// The default 2021 tune publishes coolant temperature as AuxAnalog8.
 			{ nullptr, 0, 0, 0 }, //{ "Coolant", 1.0f, CLT_VALUE(HELLEN_R) * ANALOG_L, CLT_VALUE(HELLEN_R) * ANALOG_H },
+
+			// 24
+			// on-module digital barometer
+			BARO_CHANNEL,
 		},
 		// HD54 has no cam input.
 		.eventExpected = {/*crank*/true, false, /*cam1*/false, false, false, false, /*vss*/false},

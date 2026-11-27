@@ -42,6 +42,12 @@
 // transfer function taken from https://www.nxp.com/docs/en/data-sheet/MPXH6400A.pdf
 #define MAP_MPX6400_VALUE (5.0f * (0.002421 * 101.3 - 0.00842))
 
+// Channel 24 (RAW_LUA_ANALOG_2 byte 0) is the ECU barometric pressure, sent as kPa / 50
+// in the usual byte encoding - see QC_BARO_KPA_PER_VOLT in rusefi can_bench_test.cpp.
+// The result is in kPa, not volts. The range covers sea level up to about 3000 m;
+// a missing or dead sensor reports zero.
+#define BARO_CHANNEL { "BARO", 50.0f, 70.0f, 110.0f }
+
 #define VOLT_7B 0.5f
 #define VOLT_8B 0.6f
 
