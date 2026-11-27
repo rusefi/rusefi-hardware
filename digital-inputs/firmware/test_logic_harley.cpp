@@ -170,6 +170,17 @@ BoardConfig makeHarley54BoardConfig() {
  * rusefi-gpec2a firmware/hardware/board_hw_test.cpp: a Harley is a 2-cylinder,
  * so injector outputs 3 and 4 re repurposed as ACR1/ACR2.
  */
+// The hd81/Harley harness pairs the two injectors (and the two ACRs) swapped
+// relative to the ECU's sequential cavity order: hd81 pins read "6 OUT FRONT
+// INJ 2" before "7 OUT REAR INJ 1", and the Proteus "hd" config likewise lists
+// Injector 2 before Injector 1. ECU-ordinal -> stim-pad verified live by
+// PAD-DISCOVERY on this GPEC2A bench (2026-11-27): Inj1(ord0)->line1,
+// Inj2(ord1)->line0, ACR1(ord2)->line3, ACR2(ord3)->line2, and with coils
+// wired Coil1(ord4)->line6, Coil2(ord5)->line7 (hd81 coils land on the next
+// pad bank, not pads 5/6). Values are 0-based stim line indices (= pad addr in
+// bank 0); the console prints pads 1-based.
+static constexpr uint8_t MINIMAL_HARLEY_OUTPUT_TEST_LINE_MAP[] = {1, 0, 3, 2, 6, 7};
+
 BoardConfig makeMinimalHarleyBoardConfig() {
 	return {
 		.boardName = "hd-min",
@@ -178,18 +189,25 @@ BoardConfig makeMinimalHarleyBoardConfig() {
 		.channels = {
 			// Analog expectations assume the same stim signals as the HD81 harness.
 			// 0
-			{ "TPS1_1", PULLED_DOWN_RANGE(DOWN_7B, UP_7B, 680'000) },
-			{ "TPS1_2", PULLED_DOWN_RANGE(DOWN_9B, UP_9B, 680'000) },
-			// Upper bound widened 0.921 -> 0.95: the 10B 0.9V pad reads 0.928 V live
-			// on this GPEC2A bench (direct hd81 15D -> C1-92 jumper, no harness
-			// offset), ~7 mV over the old tight max. 0.95 = 10B pad +~5.5%.
+			// Bands recalibrated to the live GPEC2A bench readings (2026-11-27,
+			// direct hd81->C-pin jumpers through the superseal adapter). The pad
+			// model (PULLED_DOWN_RANGE) assumes a stiff source; the real ECU inputs
+			// have open-detect bias networks (C2-89/TPS1_1 pulls up to 5V, reads
+			// high; C2-90/TPS1_2 pulls down) so the measured voltage is tugged off
+			// the nominal pad through the adapter/superseal series R. These explicit
+			// bands bracket the measured values with ~1-2 LSB (8-bit CAN, ~20mV/LSB)
+			// margin.
+			{ "TPS1_1", 1, 0.55, 0.72 },  // 7B 0.5V pad, biased up -> live 0.627-0.647 V (C2-89)
+			{ "TPS1_2", 1, 0.79, 0.90 },  // 9B 0.8V pad -> live 0.863 V (C2-90)
+			// PPS1 10B 0.9V pad -> live 0.928 V (C1-92); 0.95 = pad +~5.5%.
 			{ "PPS1", 1, 0.79 /*0.821830144*/, 0.95 },
-			{ "PPS2", PULLED_DOWN_RANGE(DOWN_11B, UP_11B, 680'000) },
-			{ "MAP", PULLED_DOWN_RANGE(DOWN_8B, UP_8B, 680'000) },
+			{ "PPS2", PULLED_DOWN_RANGE(DOWN_11B, UP_11B, 680'000) },  // 11B 1.1V -> live 1.078 V (C1-91), in range
+			{ "MAP", 1, 0.60, 0.72 },     // 8B pad -> live 0.686 V (C2-45)
 			// CLT, IAT, BATT and everything else: not checked
 		},
-		// no trigger inputs checked
-		.eventExpected = {/*crank*/false, false, /*cam1*/false, false, false, false, /*vss*/false},
+		// crank wired to GPEC2A; cam is NOT checked — a Harley uses MAP
+		// V-twin VVT (no cam sensor) and cam is not wired on this bench.
+		.eventExpected = {/*crank*/true, false, /*cam1*/false, false, false, false, /*vss*/false},
 		.buttonExpected = {false, false, false},
 		.auxDigitalExpected = {false, false, false, false, false, false, false, false},
 		.outputNames = {
@@ -204,5 +222,7 @@ BoardConfig makeMinimalHarleyBoardConfig() {
 		.dcHackValue = 1,
 		.highSideStartingIndex = 0,
 		.wboStartIndex = 0,
+		.outputTestLineMap = MINIMAL_HARLEY_OUTPUT_TEST_LINE_MAP,
+		.outputTestLineMapCount = sizeof(MINIMAL_HARLEY_OUTPUT_TEST_LINE_MAP) / sizeof(MINIMAL_HARLEY_OUTPUT_TEST_LINE_MAP[0]),
 	};
 }
