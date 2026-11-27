@@ -1,0 +1,13 @@
+ * Board detected: gpec2a rev index 0
+       CAN RX BoardStatus: BoardID=61518 numSecs=41
+       CAN ECU says: total=3 outputs of which low side=3 also 0 DC
+                      numOutputs 3
+ ************* TPS1_2 analog 0 1 voltage=0.863000 within range 0.798000/0.927000
+ ************* PPS1 analog 0 2 voltage=0.922000 within range 0.838000/0.967000
+ ************* PPS2 analog 0 3 voltage=1.098000 within range 1.017000/1.182000
+ * BAD analog channel 0 (TPS1_1): voltage 0.647000 (raw 33) not in range (0.462000..0.537000) mult=1.000000
+* HAPPY Primary Trigger event counter!
+* HAPPY VVT1 Sensor event counter!
+ *********************************************** version=5
+ ************* SOMETHING BAD SEE ABOVE ERRORS=1 ************************ count=12
+ ************************************************************** uptime=41
