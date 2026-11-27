@@ -275,8 +275,8 @@
   (pad "24" thru_hole oval (at 25.5 -8 270) (size 2.8 2.3) (drill 1.5) (layers *.Cu *.Mask)
     (solder_mask_margin 0.05) (tstamp 15c8e6a7-cb59-4ed8-b747-f6ea5a2d863e))
   (model "${KIPRJMOD}/33311-24AW-2.STEP"
-    (offset (xyz 0 0 0))
+    (offset (xyz 112.925 116.5 -1.06))
     (scale (xyz 1 1 1))
-    (rotate (xyz 0 0 0))
+    (rotate (xyz 0 0 180))
   )
 )

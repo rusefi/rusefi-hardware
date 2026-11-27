@@ -448,5 +448,10 @@
 		(roundrect_rratio 0.1)
 		(uuid "3ab672ce-0f49-4e39-9ef9-3f05564cacca")
 	)
+	(model "${KIPRJMOD}/PCC-SMP-V-K-5.stp"
+		(offset (xyz -7.8 0.15 8.15))
+		(scale (xyz 1 1 1))
+		(rotate (xyz -90 0 0))
+	)
 	(embedded_fonts no)
 )
