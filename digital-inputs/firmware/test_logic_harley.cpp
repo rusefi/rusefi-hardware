@@ -156,10 +156,12 @@ BoardConfig makeHarley54BoardConfig() {
 }
 
 /**
- * Minimal Harley: only TPS1/2, PPS1/2, MAP, two injectors and two coils are checked.
+ * Minimal Harley (GPEC2A running the HARLEY engine type, which reports this
+ * board id): TPS1/2, PPS1/2, MAP, two injectors, two ACR solenoids and two coils.
  *
- * outputNames must stay in the same order as the ECU's OUTPUTS[] in the
- * minimal Harley firmware board_hw_test.cpp
+ * outputNames must stay in the same order as the ECU's HARLEY_OUTPUTS[] in
+ * rusefi-gpec2a firmware/hardware/board_hw_test.cpp: a Harley is a 2-cylinder,
+ * so injector outputs 3 and 4 re repurposed as ACR1/ACR2.
  */
 BoardConfig makeMinimalHarleyBoardConfig() {
 	return {
@@ -183,6 +185,8 @@ BoardConfig makeMinimalHarleyBoardConfig() {
 		.outputNames = {
 			"Injector 1",
 			"Injector 2",
+			"ACR1",
+			"ACR2",
 			"Coil 1",
 			"Coil 2",
 		},
